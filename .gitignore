@@ -1,0 +1,19 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# runtime data (cache, audit log, exports)
+data/
+
+# python
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+
+# local tooling
+.claude/

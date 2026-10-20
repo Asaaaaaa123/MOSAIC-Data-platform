@@ -1,0 +1,35 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message": {
+    "total-results": 4321,
+    "items": [
+      {
+        "DOI": "10.1038/s41586-019-1711-4",
+        "type": "journal-article",
+        "title": ["Search-and-replace genome editing without double-strand breaks or donor DNA"],
+        "author": [
+          {"given": "Andrew V.", "family": "Anzalone", "sequence": "first"},
+          {"given": "David R.", "family": "Liu", "sequence": "additional"}
+        ],
+        "published-print": {"date-parts": [[2019, 12, 5]]},
+        "issued": {"date-parts": [[2019, 10, 21]]},
+        "container-title": ["Nature"],
+        "publisher": "Springer Science and Business Media LLC",
+        "ISSN": ["0028-0836", "1476-4687"],
+        "is-referenced-by-count": 4210,
+        "abstract": "<jats:p>Most genetic variants that contribute to disease are challenging to correct efficiently.</jats:p>",
+        "URL": "https://doi.org/10.1038/s41586-019-1711-4",
+        "license": [{"URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"}]
+      },
+      {
+        "DOI": "10.1101/2023.01.01.522500",
+        "type": "posted-content",
+        "title": ["A preprint about base editing"],
+        "author": [{"name": "Base Editing Consortium"}],
+        "issued": {"date-parts": [[2023]]},
+        "URL": "https://doi.org/10.1101/2023.01.01.522500"
+      }
+    ]
+  }
+}
