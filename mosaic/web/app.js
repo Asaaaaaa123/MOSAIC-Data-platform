@@ -1495,7 +1495,59 @@
     }
   }
 
-  function initSearch() { $('#search-form').addEventListener('submit', runSearch); }
+  function renderResolve(res) {
+    const box = clear($('#resolve-results'));
+    const entries = Object.entries(res.agreement || {});
+    box.appendChild(h('p', { class: 'muted', text:
+      entries.length + ' identifier' + (entries.length === 1 ? '' : 's') + ' for ' + res.kind + ' "' + res.query + '" from ' +
+      (res.candidates || []).length + ' source(s)' }));
+    if (entries.length) {
+      box.appendChild(h('div', { class: 'table-wrap' }, h('table', { class: 'data' },
+        h('thead', null, h('tr', null, h('th', { text: 'Identifier' }), h('th', { text: 'Value' }), h('th', { text: 'Agreeing sources' }))),
+        h('tbody', null, entries.map(([key, a]) => h('tr', null,
+          h('td', null, h('code', { text: key })),
+          h('td', null, h('b', { text: a.value })),
+          h('td', null, (a.sources || []).map((s) => sourceBadge(s.split(':')[0])))))))));
+    }
+    const conflicts = Object.entries(res.conflicts || {});
+    if (conflicts.length) {
+      box.appendChild(h('details', { open: true }, h('summary', { class: 'small', text: conflicts.length + ' conflicting identifier(s): sources disagree' }),
+        h('ul', { class: 'small' }, conflicts.map(([key, options]) => h('li', null, h('code', { text: key }), ': ',
+          options.map((o, i) => h('span', null, i ? '; ' : '', h('b', { text: o.value }), ' (' + (o.sources || []).join(', ') + ')')))))));
+    }
+    if ((res.candidates || []).length) {
+      box.appendChild(h('div', { class: 'status-chips', role: 'list', 'aria-label': 'Best match per source' }, res.candidates.map((c) =>
+        h('span', { class: 'status-chip ' + (c.exact_match ? 'ok' : 'zero'), role: 'listitem', title: c.exact_match ? 'exact name match' : 'top hit, not an exact match' },
+          sourceBadge(c.source.split(':')[0]), c.url ? extLink(c.url, clip(c.title || c.id, 40)) : clip(c.title || c.id, 40)))));
+    }
+    const errors = Object.entries(res.errors || {});
+    if (errors.length) {
+      box.appendChild(h('details', null, h('summary', { class: 'small muted', text: errors.length + ' source(s) failed - details' }),
+        h('ul', { class: 'small' }, errors.map(([s, msg]) => h('li', null, h('b', { text: s + ': ' }), msg)))));
+    }
+    for (const note of res.notes || []) box.appendChild(h('p', { class: 'small muted', text: note }));
+  }
+
+  async function runResolve(e) {
+    e.preventDefault();
+    const q = $('#resolve-q').value.trim();
+    if (!q) { $('#resolve-q').focus(); return; }
+    const btn = $('#resolve-go');
+    btn.disabled = true;
+    $('#resolve-results').replaceChildren(h('div', { class: 'typing' }, h('span', { class: 'spinner', 'aria-hidden': 'true' }), 'Asking the authoritative databases…'));
+    try {
+      renderResolve(await api('/api/resolve', { method: 'POST', body: { kind: $('#resolve-kind').value, query: q } }));
+    } catch (err) {
+      $('#resolve-results').replaceChildren(errorBox(err));
+    } finally {
+      btn.disabled = false;
+    }
+  }
+
+  function initSearch() {
+    $('#search-form').addEventListener('submit', runSearch);
+    $('#resolve-form').addEventListener('submit', runResolve);
+  }
   loaders.search = async (first) => {
     if (first) {
       try { renderSearchCats(await loadSources()); } catch (err) { loaded.delete('search'); toast(err.message, true); }

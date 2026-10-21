@@ -17,6 +17,8 @@ Quirks:
 
 from __future__ import annotations
 
+import re
+
 from collections import Counter, defaultdict
 from typing import Any
 from urllib.parse import quote
@@ -70,6 +72,15 @@ _COUNT_FIELDS = (
 )
 
 
+_TCGA_STUDY = re.compile(r"^([a-z]+)_tcga(?:_pan_can_atlas_2018|_gdc|_firehose_legacy|_pub\w*)?$")
+
+
+def _gdc_project(study_id: str) -> str | None:
+    """TCGA studies mirror an NCI GDC project: ``skcm_tcga_gdc`` -> ``TCGA-SKCM`` (links to nci_gdc)."""
+    match = _TCGA_STUDY.match(study_id)
+    return f"TCGA-{match.group(1).upper()}" if match else None
+
+
 def study_record(item: dict[str, Any]) -> Record:
     sid = item.get("studyId") or ""
     pmids = _pmids(item.get("pmid"))
@@ -81,7 +92,7 @@ def study_record(item: dict[str, Any]) -> Record:
         type="study",
         title=item.get("name") or sid,
         url=f"{WEB}/study/summary?id={quote(sid)}",
-        identifiers={"pmid": pmids[0] if pmids else None},
+        identifiers={"cbioportal": sid, "pmid": pmids[0] if pmids else None, "gdc_project": _gdc_project(sid)},
         summary=strip_html(item.get("description")),
         attributes=_compact(
             {

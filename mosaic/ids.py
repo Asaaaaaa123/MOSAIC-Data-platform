@@ -98,6 +98,22 @@ IDENTIFIER_KEYS: dict[str, str] = {
     "openneuro": "OpenNeuro dataset ID (ds######)",
     "metabolomics_workbench": "Metabolomics Workbench study ID (ST######)",
     "re3data": "re3data repository registry DOI",
+    "cbioportal": "cBioPortal study ID (e.g. skcm_tcga_gdc)",
+    "ndex": "NDEx network UUID",
+    "hubmap": "HuBMAP dataset ID (HBM...)",
+    "physionet": "PhysioNet project slug",
+    "tcia": "TCIA collection short title",
+    # --- terminologies / model organisms ---
+    "ncit": "NCI Thesaurus code (C#####)",
+    "kegg_drug": "KEGG drug ID (D#####)",
+    "mgi": "Mouse Genome Informatics ID (MGI:#####)",
+    "rgd": "Rat Genome Database ID (RGD:#####)",
+    "zfin": "ZFIN gene ID (ZDB-GENE-...)",
+    "xenbase": "Xenbase gene ID (XB-GENE-...)",
+    "flybase": "FlyBase gene ID (FBgn...)",
+    "wormbase": "WormBase gene ID (WBGene...)",
+    "sgd": "Saccharomyces Genome Database ID (S000...)",
+    "panther": "PANTHER family ID",
 }
 
 _DOI_PREFIX = re.compile(r"^(?:https?://(?:dx\.)?doi\.org/|doi:\s*)", re.IGNORECASE)

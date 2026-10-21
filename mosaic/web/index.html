@@ -150,6 +150,27 @@
             <legend class="small muted">Categories (none selected = all)</legend>
           </fieldset>
         </form>
+        <form class="search-form panel" id="resolve-form" aria-labelledby="resolve-title">
+          <div class="section-title">
+            <h2 id="resolve-title">Resolve identifiers</h2>
+            <span class="muted small">pin a gene, drug, disease, article or variant to its IDs across databases</span>
+          </div>
+          <div class="search-row">
+            <label for="resolve-kind" class="sr-only">Entity kind</label>
+            <select id="resolve-kind" class="input" title="Entity kind">
+              <option value="gene">Gene</option>
+              <option value="drug">Drug</option>
+              <option value="disease">Disease</option>
+              <option value="article">Article</option>
+              <option value="variant">Variant</option>
+            </select>
+            <label for="resolve-q" class="sr-only">Name or identifier</label>
+            <input type="search" id="resolve-q" class="input input-lg" required maxlength="300"
+              placeholder="e.g. BRAF, imatinib, cystic fibrosis, 10.1038/s41586-019-1711-4, rs113488022">
+            <button type="submit" class="btn btn-primary" id="resolve-go">Resolve</button>
+          </div>
+        </form>
+        <div id="resolve-results" aria-live="polite"></div>
         <div id="search-results" aria-live="polite"></div>
       </section>
 

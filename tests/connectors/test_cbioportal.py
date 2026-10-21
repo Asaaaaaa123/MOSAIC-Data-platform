@@ -34,7 +34,7 @@ async def test_search_studies(make_registry):
     assert result.total == 18 and result.next_cursor == "4"
     rec = result.records[0]
     assert rec.id == "luad_broad" and rec.type == "study"
-    assert rec.identifiers == {"pmid": "22980975"}
+    assert rec.identifiers == {"cbioportal": "luad_broad", "pmid": "22980975"}
     assert rec.url == "https://www.cbioportal.org/study/summary?id=luad_broad"
     assert rec.attributes["samples"] == 183
 
@@ -137,3 +137,12 @@ async def test_live_all_tools(live_registry):
     assert 20 < freq.data["studies"][0]["percent"] < 50
     muts = await registry.call("cbioportal", "mutations_in_gene", {"study_id": "brca_tcga_pan_can_atlas_2018", "gene": "PIK3CA", "limit": 3})
     assert muts.records[0].title.startswith("PIK3CA H1047")
+
+
+def test_tcga_studies_link_to_gdc_projects():
+    from mosaic.connectors.cbioportal import _gdc_project
+
+    assert _gdc_project("skcm_tcga_gdc") == "TCGA-SKCM"
+    assert _gdc_project("brca_tcga_pan_can_atlas_2018") == "TCGA-BRCA"
+    assert _gdc_project("luad_tcga") == "TCGA-LUAD"
+    assert _gdc_project("luad_broad") is None

@@ -20,7 +20,9 @@ LINKING_KEYS = (
     "uniprot", "ensembl_gene", "entrez_gene", "hgnc", "pdb",
     "rsid", "clinvar", "gnomad_variant", "gwas_study", "pgs",
     "mondo", "efo", "doid", "hp", "mesh", "omim", "orphanet", "reactome", "go",
-    "geo", "sra", "bioproject", "biosample", "dbgap",
+    "geo", "sra", "bioproject", "biosample", "dbgap", "gdc_project", "cbioportal",
+    "chebi", "kegg_compound", "kegg_drug", "pharmgkb", "ncit", "umls",
+    "mgi", "rgd", "zfin", "xenbase", "flybase", "wormbase", "sgd",
     "zenodo", "figshare", "osf", "synapse", "dandi", "openneuro",
 )
 
