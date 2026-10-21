@@ -822,12 +822,9 @@ class OpenTargets(Connector):
             pmcids = r.get("pubMedCentralIds") or []
             report = r.get("clinicalReportId") or ""
             nct = report.upper() if report.lower().startswith("nct") else None
-            if pmids:
-                identifiers = {"pmid": pmids[0], "pmcid": pmcids[0] if pmcids else None}
-            elif nct:
-                identifiers = {"nct": nct}
-            else:
-                identifiers = {}
+            # The supporting paper / trial is a related entity, not this evidence row: its IDs go in
+            # attributes so rows citing the same paper do not merge (see mosaic/crosslink/merge.py).
+            identifiers: dict[str, Any] = {}
             sentence = next((s.get("text") for s in r.get("textMiningSentences") or [] if _readable(s.get("text"))), None)
             drug = r.get("drug") or {}
             pval = (
@@ -858,6 +855,7 @@ class OpenTargets(Connector):
                             "disease_from_source": r.get("diseaseFromSource"),
                             "pmids": pmids[:10],
                             "pmcids": pmcids[:5],
+                            "nct": nct,
                             "drug_chembl_id": drug.get("id"),
                             "drug_name": drug.get("name"),
                             "clinical_stage": r.get("clinicalStage"),

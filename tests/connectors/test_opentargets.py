@@ -181,7 +181,8 @@ async def test_association_evidence_clinical(make_registry):
     assert result.total and result.next_cursor
     assert result.data["datasource_scores"]["clinical_precedence"] > 0.9
     first, second = result.records
-    assert first.identifiers == {"pmid": "35343187"}
+    assert first.identifiers == {}  # supporting paper is a related entity: kept in attributes
+    assert first.attributes["pmids"] == ["35343187"]
     assert first.attributes["drug_name"] == "OSIMERTINIB" and first.attributes["clinical_stage"] == "PHASE_4"
     assert second.identifiers == {}  # EMA report id, no PMID/NCT
     assert second.attributes["clinical_stage"] == "APPROVAL"
@@ -196,7 +197,8 @@ async def test_association_evidence_literature_sentence(make_registry):
         {"target": "ENSG00000146648", "disease": "MONDO_0005233", "datasources": ["europepmc"], "limit": 1},
     )
     rec = result.records[0]
-    assert rec.identifiers == {"pmid": "21645456", "pmcid": "PMC5999884"}
+    assert rec.identifiers == {}
+    assert rec.attributes["pmids"] == ["21645456"] and rec.attributes["pmcids"] == ["PMC5999884"]
     assert rec.date == "2011"
     assert rec.summary.startswith("The aim of this study")  # non-English sentences skipped
 

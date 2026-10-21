@@ -29,6 +29,12 @@ CSV or JSON.
 
 ## Quick start
 
+**One click:** double-click `start-mosaic.bat` (Windows) or run `./start-mosaic.sh` (macOS/Linux).
+The first run creates the Python environment and a `.env` for your keys. After that it starts the
+server and opens http://127.0.0.1:8000.
+
+Manual setup:
+
 ```bash
 python -m venv .venv
 .venv\Scripts\python.exe -m pip install -e ".[dev]"     # Windows (use .venv/bin/python elsewhere)
