@@ -24,6 +24,9 @@ Quirks:
 - Gene ``crossReferences`` list secondary UniProtKB accessions; the ModBase cross-reference
   carries the canonical accession, so it is preferred for ``uniprot``.
 - Non-canonical identifier keys used: ``chebi`` (CHEBI:#####), ``kegg_compound`` (C#####).
+- Supporting papers of clinical annotations (``attributes['pmids']``) and dosing guidelines
+  (``attributes['publications']``) are related entities, not identifiers: one CPIC guideline paper
+  backs several guideline annotations, and as a ``pmid`` / ``doi`` it would merge them together.
 """
 
 from __future__ import annotations
@@ -405,7 +408,6 @@ def _annotation_record(item: dict[str, Any]) -> Record:
             "pharmgkb": acc,
             "gene_symbol": genes[0] if genes else None,
             "rsid": rsid,
-            "pmid": pmids[0] if pmids else None,
         },
         date=_last_date(item),
         summary=" ".join(f"{p.get('genotype')}: {p.get('phenotype')}" for p in phenos[:2]) or None,
@@ -435,15 +437,13 @@ def _guideline_record(item: dict[str, Any]) -> Record:
     gid = item.get("id", "")
     pubs = [_literature(lit) for lit in item.get("literature") or [] if isinstance(lit, dict)]
     genes = _names(item.get("relatedGenes"), "symbol")
-    pmid = next((p["pmid"] for p in pubs if p.get("pmid")), None)
-    doi = next((p["doi"] for p in pubs if p.get("doi")), None)
     return Record(
         source="clinpgx",
         id=gid,
         type="other",
         title=item.get("name"),
         url=f"{SITE}/guidelineAnnotation/{gid}",
-        identifiers={"pharmgkb": gid, "pmid": pmid, "doi": doi, "gene_symbol": genes[0] if genes else None},
+        identifiers={"pharmgkb": gid, "gene_symbol": genes[0] if genes else None},
         date=_last_date(item),
         summary=_html(item.get("summaryMarkdown")),
         attributes=_clean(

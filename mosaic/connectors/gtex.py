@@ -150,7 +150,7 @@ def _eqtl_record(row: dict[str, Any]) -> Record:
         type="association",
         title=title,
         url=f"{PORTAL}/snp/{snp}" if snp else f"{PORTAL}/gene/{row.get('geneSymbol')}",
-        identifiers={"rsid": snp, "gnomad_variant": gtex_to_gnomad(variant_id), "gene_symbol": row.get("geneSymbol")},
+        identifiers={"rsid": snp, "gnomad_variant": gtex_to_gnomad(variant_id)},  # gene: attributes (module doc)
         attributes={
             k: v
             for k, v in {

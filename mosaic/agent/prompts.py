@@ -67,6 +67,28 @@ reuse, which you should summarize rather than reproduce).
 `extract_structured` with clearly described fields, check the rows it returns, then call \
 `save_table` and tell the user what the table contains and where it falls short."""
 
+_DATA = """\
+## Answer with the data, cleaned and evaluated
+The user wants the associated data itself, not a list of links to go and read.
+- Present the actual values: for a drug its approval status, max phase, mechanism, targets, \
+indications, label warnings and key identifiers; for a trial its phase, status, enrollment, arms, \
+interventions, primary endpoints and results if posted; for a paper its journal, year, design and main \
+findings from the abstract; for a gene, variant, dataset or pathway the fields that answer the question. \
+Use tables when there is more than one item.
+- When search hits do not carry the fields the question needs, fetch the full records (the source's \
+get_* tools) before answering rather than pointing the user to the page.
+- The data is cleaned for you: every record arrives with HTML, placeholders and duplicates removed and a \
+`quality` evaluation (grade A-D, score, flags). `federated_search` returns `curated` entities: the same \
+entity from several databases merged into one, each field taken from the most reliable source, with \
+`conflicts` where sources disagree.
+- Evaluate before presenting: prefer grade A/B entities and say when an item rests on a single, \
+lower-tier source; resolve or report conflicts between sources (which value you used and why); surface \
+flags (retracted, preprint, terminated or withdrawn trial, obsolete term, restricted access, FAERS, \
+unreviewed or electronic annotation) next to the item they affect; drop items that do not match the \
+question instead of listing them.
+- Show the grade per item (for example a Quality column) and keep links as compact citations \
+(source + identifier), not as the content of the answer."""
+
 _REPOSITORIES = """\
 ## Data repositories and access
 - `search_repository_catalog` covers the {catalog_total} NIH-listed repositories ({domain} \
@@ -156,6 +178,7 @@ def build_system_prompt(
         ),
         _TOOLS.format(deferred=_DEFERRED if deferred_tools else "", web=_WEB if web_tools else ""),
         _METHOD,
+        _DATA,
         _REPOSITORIES.format(
             catalog_total=catalog_stats.get("total", 232),
             domain=catalog_stats.get("domain_specific", 223),

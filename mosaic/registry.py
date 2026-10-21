@@ -18,7 +18,8 @@ from .cache import ResponseCache
 from .config import Settings, get_settings
 from .connectors.base import CATEGORIES, Connector, ToolDef
 from .crosslink.merge import cluster_records, merge_cluster
-from .http import HttpClient, SourceError
+from .curation import CuratedResult, curate
+from .http import HttpClient, SourceError, scrub_secrets, settings_secret_values
 from .models import HealthResult, Record, SourceInfo, ToolResult, ToolSpec
 
 log = logging.getLogger("mosaic.registry")
@@ -58,6 +59,22 @@ def discover_connector_classes() -> tuple[list[type[Connector]], dict[str, str]]
     return sorted(found.values(), key=lambda c: (c.category, c.name)), errors
 
 
+def _clean_and_grade(result: ToolResult) -> None:
+    """Clean every record in place and attach its single-source quality evaluation."""
+    from .curation import CleaningLog, clean_record, evaluate
+
+    log = CleaningLog()
+    graded = []
+    for record in result.records:
+        cleaned = clean_record(record, log)
+        cleaned.quality = evaluate([cleaned]).compact()
+        graded.append(cleaned)
+    result.records = graded
+    fixes = log.summary()
+    if fixes:
+        result.notes.append("cleaned: " + "; ".join(fixes))
+
+
 class SourceSearchResult(BaseModel):
     source: str
     ok: bool
@@ -72,40 +89,19 @@ class FederatedResult(BaseModel):
     sources: list[SourceSearchResult] = Field(default_factory=list)
     records: list[Record] = Field(default_factory=list)
     clusters: list[dict[str, Any]] = Field(default_factory=list)
+    curated: CuratedResult | None = Field(
+        default=None, description="Cleaned, de-duplicated, merged and graded entities (the data to present)"
+    )
 
     def to_llm(self, max_chars: int = 40_000) -> str:
+        """The curated data: merged entities with their values, quality grades and provenance."""
         import json
 
-        summary = {
-            "query": self.query,
-            "sources": [s.model_dump(exclude_none=True) for s in self.sources],
-            "linked_entities": [c for c in self.clusters if len(c["sources"]) > 1][:30],
-        }
-        by_source: dict[str, list[dict[str, Any]]] = {}
-        for record in self.records:
-            item = record.compact(summary_chars=200)
-            item.pop("source", None)
-            by_source.setdefault(record.source, []).append(item)
-        summary["records_by_source"] = by_source
-        text = json.dumps(summary, ensure_ascii=False, default=str)
-        if len(text) <= max_chars:
-            return text
-        for record_list in by_source.values():
-            for item in record_list:
-                item.pop("summary", None)
-                item.pop("attributes", None)
-        text = json.dumps(summary, ensure_ascii=False, default=str)
-        # Drop trailing records per source until it fits; never slice the JSON text.
-        while len(text) > max_chars and any(len(v) > 1 for v in by_source.values()):
-            for record_list in by_source.values():
-                if len(record_list) > 1:
-                    record_list.pop()
-            text = json.dumps(summary, ensure_ascii=False, default=str)
-        if len(text) > max_chars:
-            summary.pop("records_by_source", None)
-            summary["linked_entities"] = summary["linked_entities"][:5]
-            text = json.dumps(summary, ensure_ascii=False, default=str)
-        return text
+        curated = self.curated or curate(self.records)
+        head = {"query": self.query, "sources": [s.model_dump(exclude_none=True) for s in self.sources]}
+        budget = max(2_000, max_chars - len(json.dumps(head, default=str)) - 64)
+        head["curated"] = json.loads(curated.to_llm(max_chars=budget))
+        return json.dumps(head, ensure_ascii=False, default=str)
 
 
 class Registry:
@@ -122,6 +118,7 @@ class Registry:
         self.audit = audit
         self.connectors = connectors
         self.load_errors = load_errors or {}
+        self._secrets: set[str] | None = None
 
     @classmethod
     def create(
@@ -193,8 +190,13 @@ class Registry:
         *,
         session_id: str | None = None,
         timeout: float | None = None,
+        curate: bool = True,
     ) -> ToolResult:
-        """Run one tool with auditing. Raises SourceError (already audited)."""
+        """Run one tool with auditing. Raises SourceError (already audited).
+
+        With ``curate`` (default) every record is cleaned and carries a ``quality``
+        evaluation (grade, score, flags), so callers receive data, not raw payloads.
+        """
         params = params or {}
         started = time.perf_counter()
         try:
@@ -206,13 +208,17 @@ class Registry:
             self._audit_fail(source, tool, params, started, err, session_id)
             raise err from None
         except SourceError as exc:
+            self._scrub(exc)
             self._audit_fail(source, tool, params, started, exc, session_id)
             raise
         except Exception as exc:  # noqa: BLE001 - connector bug; surface as SourceError
             log.exception("connector %s.%s crashed", source, tool)
             err = SourceError(source, f"internal connector error: {type(exc).__name__}: {exc}")
+            self._scrub(err)
             self._audit_fail(source, tool, params, started, err, session_id)
             raise err from exc
+        if curate:
+            _clean_and_grade(result)
         self.audit.record_tool_call(
             source=source,
             tool=tool,
@@ -225,6 +231,15 @@ class Registry:
             request_url=result.request_url,
         )
         return result
+
+    def _scrub(self, exc: SourceError) -> None:
+        """Remove configured secrets from an error raised by connector code (not only by the HTTP layer)."""
+        if self._secrets is None:
+            self._secrets = settings_secret_values(self.settings)
+        exc.message = scrub_secrets(exc.message, self._secrets)
+        exc.args = (exc.message,)
+        if exc.url:
+            exc.url = scrub_secrets(exc.url, self._secrets)
 
     def _audit_fail(
         self, source: str, tool: str, params: dict[str, Any], started: float, exc: SourceError, session_id: str | None
@@ -303,6 +318,7 @@ class Registry:
             )
             outcome.records.extend(result.records)
         outcome.clusters = [merge_cluster(c) for c in cluster_records(outcome.records)]
+        outcome.curated = curate(outcome.records)
         return outcome
 
     async def healthcheck(self, sources: Iterable[str] | None = None, timeout: float = 30.0) -> list[HealthResult]:

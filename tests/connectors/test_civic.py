@@ -59,10 +59,11 @@ async def test_gene_evidence_filters_prefix_matches_and_pages(make_registry):
     assert [r.id for r in result.records] == ["EID863"]  # AREG Expression items dropped
     rec = result.records[0]
     assert rec.type == "association"
-    assert rec.identifiers["gene_symbol"] == "AR"
-    assert rec.identifiers["entrez_gene"] == "367"
-    assert rec.identifiers["doid"] == "DOID:10283"
-    assert rec.identifiers["pmid"] == "25184630"
+    # gene, disease and paper are related entities: an evidence item must not merge with them
+    assert rec.identifiers == {"civic": "EID863"}
+    assert rec.attributes["genes"] == ["AR"] and rec.attributes["entrez_genes"] == ["367"]
+    assert rec.attributes["disease_doid"] == "DOID:10283"
+    assert rec.attributes["pmid"] == "25184630"
     assert rec.attributes["evidence_level"] and rec.attributes["significance"]
     assert result.total == 33 and result.next_cursor is None
     assert "skipped 3" in result.notes[0]
@@ -79,7 +80,10 @@ async def test_evidence_for_therapy(make_registry):
     assert result.total == 124 and result.next_cursor == "Mg"
     assert result.records[0].id == "EID11238"
     assert "Vemurafenib" in result.records[0].attributes["therapies"]
-    assert result.records[0].identifiers["doid"] == "DOID:1909"
+    assert result.records[0].attributes["disease_doid"] == "DOID:1909"
+    from mosaic.crosslink.merge import cluster_records
+
+    assert len(cluster_records(result.records)) == 2  # two melanoma evidence items stay distinct
 
 
 @respx.mock
@@ -90,8 +94,8 @@ async def test_molecular_profile_by_name(make_registry):
     assert body(route.calls[1])["variables"] == {"id": 12}
     rec = result.records[0]
     assert rec.id == "MPID12" and rec.type == "variant"
-    assert rec.identifiers["gene_symbol"] == "BRAF"
-    assert rec.identifiers["entrez_gene"] == "673"
+    assert "gene_symbol" not in rec.identifiers and "entrez_gene" not in rec.identifiers  # the gene is related
+    assert rec.attributes["genes"] == ["BRAF"] and rec.attributes["entrez_genes"] == ["673"]
     assert rec.identifiers["rsid"] == "rs113488022"
     assert rec.identifiers["clinvar"] == "13961"
     assert rec.identifiers["hgvs"] == "NM_004333.4:c.1799T>A"
@@ -118,7 +122,7 @@ async def test_assertions(make_registry):
     assert sent["mp"] == "BRAF" and sent["disease"] == "Melanoma"
     rec = result.records[0]
     assert rec.id == "AID275"
-    assert rec.identifiers["civic"] == "AID275" and rec.identifiers["doid"] == "DOID:1909"
+    assert rec.identifiers == {"civic": "AID275"} and rec.attributes["disease_doid"] == "DOID:1909"
     assert rec.attributes["amp_level"] == "TIER_I_LEVEL_A"
     assert result.next_cursor == "Mg" and result.total == 11
 
@@ -135,10 +139,23 @@ async def test_live_all_tools(live_registry):
     search = await registry.call("civic", "search", {"query": "EGFR L858R", "limit": 5})
     assert search.records
     gene = await registry.call("civic", "gene_evidence", {"gene": "EGFR", "limit": 3, "evidence_level": "A"})
-    assert gene.records and all(r.identifiers.get("gene_symbol") in ("EGFR", None) for r in gene.records)
+    assert gene.records and all(r.attributes.get("genes") in (["EGFR"], None) for r in gene.records)
     therapy = await registry.call("civic", "evidence_for_therapy", {"therapy": "osimertinib", "limit": 3})
-    assert therapy.records and therapy.records[0].identifiers.get("doid")
+    assert therapy.records and therapy.records[0].attributes.get("disease_doid")
     mp = await registry.call("civic", "molecular_profile", {"profile": "12"})
     assert mp.records[0].identifiers["rsid"] == "rs113488022"
     assertions = await registry.call("civic", "assertions", {"gene_or_profile": "BRAF V600E", "limit": 3})
     assert assertions.records
+
+
+def test_complex_profile_does_not_take_first_variant_ids():
+    from mosaic.connectors.civic import profile_record
+
+    variant = lambda vid, gene, rs, cv: {  # noqa: E731
+        "id": vid, "name": "x", "feature": {"name": gene, "featureInstance": {"entrezId": 1}},
+        "clinvarIds": [cv], "hgvsDescriptions": [f"NM_{vid}:c.1A>T"], "myVariantInfo": {"dbsnpRsid": rs},
+    }
+    mp = {"id": 5, "name": "BRAF V600E AND KRAS G12D", "variants": [variant(1, "BRAF", "rs1", "11"), variant(2, "KRAS", "rs2", "22")]}
+    rec = profile_record(mp)
+    assert rec.identifiers == {"civic": "MPID5"}  # not the same entity as BRAF V600E alone
+    assert rec.attributes["genes"] == ["BRAF", "KRAS"]

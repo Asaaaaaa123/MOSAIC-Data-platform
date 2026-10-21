@@ -31,7 +31,9 @@ async def test_search_networks(make_registry):
     assert rec.id == "26914970-5ec4-11ed-ae36-0ac135e8bacf"
     assert rec.title == "NeoPPI - TP53" and rec.type == "pathway"
     assert rec.identifiers["ndex"] == rec.id
-    assert rec.identifiers["doi"] == "10.1016/j.cell.2022.04.014"  # parsed from the reference property
+    # the cited paper (shared by every NeoPPI network) is a related entity, not the network's own DOI
+    assert rec.identifiers == {"ndex": rec.id}
+    assert rec.attributes["reference_doi"] == "10.1016/j.cell.2022.04.014"  # parsed from the reference property
     assert rec.url == f"https://www.ndexbio.org/viewer/networks/{rec.id}"
     assert rec.date == "2022-11-09"
     assert rec.attributes["node_count"] == 228

@@ -342,20 +342,29 @@ def cmd_search(args: argparse.Namespace) -> int:
                 _out(f"  ok    {status.source}: {status.returned}{total}  ({status.latency_ms or 0:.0f} ms)")
             else:
                 _out(f"  FAIL  {status.source}: {_clip(status.error, 100)}")
-        linked = [c for c in result.clusters if len(c["sources"]) > 1]
-        if linked:
-            _out(f"\nLinked across databases ({len(linked)}):")
-            for cluster in linked[:15]:
-                _out(f"  * {_clip(cluster['title'] or '(untitled)', 90)}  [{', '.join(cluster['sources'])}]")
-                ids = ", ".join(f"{k}:{v}" for k, v in list(cluster["identifiers"].items())[:4])
-                if ids:
-                    _out(f"      {_clip(ids, 110)}")
-        by_source: dict[str, list[Any]] = {}
-        for record in result.records:
-            by_source.setdefault(record.source, []).append(record)
-        for name, records in by_source.items():
-            _out(f"\n[{name}]")
-            _print_records(records)
+        curated = result.curated
+        if curated is None or not curated.entities:
+            _out("\nno data matched")
+            return 0 if any(s.ok for s in result.sources) else 1
+        st = curated.stats
+        _out(
+            f"\nCleaned and merged {st['records_in']} records into {st['entities_out']} entities "
+            f"({st['duplicates_merged']} duplicates merged, {st['multi_source_entities']} confirmed by 2+ databases); "
+            f"grades {', '.join(f'{g}:{n}' for g, n in st['grades'].items())}"
+        )
+        for entity in curated.entities[: args.limit * 4]:
+            ev = entity.evaluation
+            date = f"  ({entity.date})" if entity.date else ""
+            _out(f"\n[{ev.grade} {ev.score:>3}] {entity.type}: {_clip(entity.title or '(untitled)', 90)}{date}")
+            for key, value in [(k, v) for k, v in entity.fields.items() if v not in (None, "", [], {})][:5]:
+                text = "; ".join(map(str, value)) if isinstance(value, list) else str(value)
+                _out(f"      {key.replace('_', ' ')}: {_clip(text, 100)}")
+            ids = ", ".join(f"{k}:{v}" for k, v in list(entity.identifiers.items())[:5])
+            if ids:
+                _out(f"      ids: {_clip(ids, 110)}")
+            if ev.flags:
+                _out(f"      ! {'; '.join(ev.flags)}")
+            _out(f"      sources: {', '.join(s['source'] + ':' + s['id'] for s in entity.sources)}")
         return 0 if any(s.ok for s in result.sources) else 1
 
     return _run(_with_registry(body))

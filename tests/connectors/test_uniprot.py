@@ -51,7 +51,7 @@ async def test_search_proteins_normalizes_records(make_registry):
     assert ids["refseq"] == "NP_004324"  # versionless
     assert ids["chembl"] == "CHEMBL5145"
     assert ids["omim"] == "164757"
-    assert "pdb" in ids
+    assert "pdb" not in ids  # structures are related entities (see attributes.pdb_structures)
     assert human.attributes["organism"] == "Homo sapiens"
     assert human.attributes["taxon_id"] == 9606
     assert human.attributes["reviewed"] is True
@@ -101,7 +101,8 @@ async def test_get_protein_full_annotation(make_registry):
     resolutions = [p["resolution"] for p in attrs["pdb_structures"]]
     known = [r for r in resolutions if r is not None]
     assert known == sorted(known) and resolutions[: len(known)] == known  # best first, unknown (NMR) last
-    assert record.identifiers["pdb"] == attrs["pdb_structures"][0]["id"]
+    # a structure is a related entity (complexes are shared by several proteins): attributes only
+    assert "pdb" not in record.identifiers and attrs["pdb_structures"][0]["id"]
     assert attrs["drugbank_drugs"] and attrs["drugbank_drugs"][0]["drugbank"].startswith("DB")
     # drug / pathway IDs identify other entities and must not become record identifiers
     assert "drugbank" not in record.identifiers and "reactome" not in record.identifiers

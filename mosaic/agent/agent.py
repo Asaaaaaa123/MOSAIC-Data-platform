@@ -58,6 +58,7 @@ from .blocks import (
     server_result_label,
     server_tool_label,
     strip_thinking,
+    unpaired_server_calls,
 )
 from .claude_api import (
     NOT_CONFIGURED,
@@ -158,6 +159,27 @@ def _connector_summary(result: ToolResult) -> str:
     shown = f"{n:,}" if result.total is None or result.total == n else f"{n:,} of {result.total:,}"
     plural = "record" if (result.total if result.total is not None else n) == 1 else "records"
     return f"{result.source}: {shown} {plural}"
+
+
+def _drop_unanswered_tail(messages: list[dict[str, Any]]) -> bool:
+    """Pop trailing assistant messages that leave a server-side tool call without its result.
+
+    Consecutive assistant messages (a paused turn and its continuations) are one turn to
+    the API, so pairing is checked across the whole trailing run of them.
+    """
+    dropped = False
+    while messages and messages[-1]["role"] == "assistant":
+        tail: list[dict[str, Any]] = []
+        for message in reversed(messages):
+            if message["role"] != "assistant":
+                break
+            content = message.get("content")
+            tail[:0] = content if isinstance(content, list) else []
+        if not unpaired_server_calls(tail):
+            break
+        messages.pop()
+        dropped = True
+    return dropped
 
 
 def _refusal_message(message: Any) -> str:
@@ -317,6 +339,12 @@ class MosaicAgent:
             return
         prefix = self.sessions.prefix(sid)
         messages = self.sessions.messages(sid)
+        if _drop_unanswered_tail(messages):
+            # A paused (or truncated) turn whose server-side tool call never got its result,
+            # because the run ended before the continuation: the API rejects a user message
+            # after it (400 "... without a corresponding ..._tool_result block").
+            log.warning("session %s: dropping a trailing turn with an unanswered server tool call", sid)
+            self.sessions.truncate_messages(sid, len(messages))
         start = len(messages)
         user = {"role": "user", "content": [{"type": "text", "text": user_message}]}
         messages.append(user)

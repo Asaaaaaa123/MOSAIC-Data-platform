@@ -21,9 +21,9 @@ import respx
 from mosaic.agent import MosaicAgent, SessionStore
 from mosaic.agent.blocks import echo_content, strip_thinking
 from mosaic.agent.exports import csv_cell
-from mosaic.agent.meta_tools import ToolContext, default_meta_tools
+from mosaic.agent.meta_tools import MetaResult, ToolContext, default_meta_tools
 from mosaic.agent.results import ResultHandles
-from mosaic.connectors.base import strip_html
+from mosaic.connectors.base import ToolParams, strip_html
 from tests.agent_fakes import (
     FakeClaude,
     collect,
@@ -902,3 +902,94 @@ async def test_meta_tools_list_describe_and_catalog(make_registry, offline_setti
     assert all("how_to_access" in r and "data_access_url" in r for r in repos)
     controlled = await tools.get("search_repository_catalog").run(ctx, {"access_type": "controlled", "limit": 3})
     assert all("cannot retrieve" in r["how_to_access"] for r in controlled.payload["repositories"])
+
+
+# ---------------------------------------------------------------- interruption & history validity
+class _NoParams(ToolParams):
+    pass
+
+
+def _agent_with_tools(build_agent, fake: FakeClaude, tools) -> MosaicAgent:
+    base = build_agent(fake)
+    return MosaicAgent(base.registry, base.settings, client=fake.client(), sessions=base.sessions, meta_tools=tools)
+
+
+async def test_closing_the_run_mid_tools_cancels_them_and_keeps_history_valid(build_agent):
+    """A client disconnect closes the event iterator while it is suspended between events."""
+    cancelled = asyncio.Event()
+    tools = default_meta_tools()
+
+    @tools.tool(description="Returns at once.")
+    async def quick(ctx: ToolContext, params: _NoParams) -> MetaResult:
+        return MetaResult(text="{}", summary="quick")
+
+    @tools.tool(description="Blocks until cancelled.")
+    async def slow(ctx: ToolContext, params: _NoParams) -> MetaResult:
+        try:
+            await asyncio.Event().wait()
+        except asyncio.CancelledError:
+            cancelled.set()
+            raise
+        return MetaResult(text="{}", summary="never")
+
+    first = stream(tool_use("toolu_q", "quick", {}), tool_use("toolu_s", "slow", {}), stop_reason="tool_use")
+    fake = FakeClaude(first, stream(text("Fresh answer.")))
+    agent = _agent_with_tools(build_agent, fake, tools)
+
+    run = agent.run("go")
+    sid = None
+    async for event in run:
+        sid = sid or event.session_id
+        if event.type == "tool_call_finished":
+            break  # the consumer stops reading while "slow" is still running
+    await run.aclose()
+
+    await asyncio.wait_for(cancelled.wait(), 2)  # the still-running tool is cancelled, not left running
+    assert sid not in agent._running
+    assert [m["role"] for m in agent.sessions.messages(sid)] == ["user"]  # no half-finished tool round
+    assert agent.get_transcript(sid)[-1].get("interrupted") is True
+
+    events = await collect(agent, "again", session_id=sid)
+    assert events[-1].final_text == "Fresh answer." and not of_type(events, "error")
+    sent = fake.requests[1]["messages"]
+    assert [m["role"] for m in sent] == ["user", "user"]
+
+
+async def test_unanswered_server_tool_call_at_the_end_of_history_is_dropped(build_agent):
+    """A paused turn persisted before its continuation failed must not precede a new user message.
+
+    Live API: an assistant ``server_tool_use`` with no result followed by a user message is a 400
+    ("tool use with id ... was found without a corresponding web_search_tool_result block").
+    """
+    paused = [
+        text("Searching."),
+        {"type": "server_tool_use", "id": "srvtoolu_p", "name": "web_search", "input": {"query": "dbGaP"}},
+    ]
+    fake = FakeClaude(
+        stream(*paused, stop_reason="pause_turn"),
+        error_response(529, "overloaded_error", "Overloaded"),
+        stream(text("Answer.")),
+    )
+    agent = build_agent(fake)
+
+    events = await collect(agent, "first")
+    sid = events[0].session_id
+    assert of_type(events, "error") and [m["role"] for m in agent.sessions.messages(sid)] == ["user", "assistant"]
+
+    events = await collect(agent, "second", session_id=sid)
+
+    assert events[-1].final_text == "Answer." and not of_type(events, "error")
+    sent = fake.requests[2]["messages"]
+    assert [m["role"] for m in sent] == ["user", "user"]
+    assert all(b.get("type") != "server_tool_use" for m in sent for b in m["content"])
+
+
+def test_echo_content_drops_unrecognized_internal_blocks_before_the_boundary():
+    blocks = [
+        text("partial "),
+        {"type": "some_future_internal_block", "data": "x"},
+        {"type": "mcp_tool_use", "id": "mcp_orphan", "name": "q", "server_name": "s", "input": {}},
+        {"type": "fallback", "from": {"model": "a"}, "to": {"model": "b"}},
+        {"type": "some_future_internal_block", "data": "after"},
+    ]
+    assert [b["type"] for b in echo_content(blocks)] == ["text", "fallback", "some_future_internal_block"]

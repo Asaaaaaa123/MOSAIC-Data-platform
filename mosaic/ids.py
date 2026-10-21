@@ -21,7 +21,7 @@ IDENTIFIER_KEYS: dict[str, str] = {
     "doi": "Digital Object Identifier, lowercase, no https://doi.org/ prefix (articles AND datasets)",
     "pmid": "PubMed ID (digits)",
     "pmcid": "PubMed Central ID (PMC + digits)",
-    "arxiv": "arXiv ID",
+    "arxiv": "arXiv ID without prefix or version (2204.01289, hep-th/9901001)",
     "s2": "Semantic Scholar paperId",
     "openalex": "OpenAlex ID (W..., A..., S..., I..., C...)",
     "mag": "Microsoft Academic Graph ID (digits; shared by OpenAlex and Semantic Scholar)",
@@ -86,8 +86,9 @@ IDENTIFIER_KEYS: dict[str, str] = {
     "sra": "SRA accession (SRR/SRX/SRP/SRS...)",
     "bioproject": "BioProject accession (PRJNA...)",
     "biosample": "BioSample accession (SAMN...)",
-    "dbgap": "dbGaP study accession (phs######)",
+    "dbgap": "dbGaP study accession (phs######, version suffix stripped)",
     "gdc_project": "NCI GDC project ID (e.g. TCGA-BRCA)",
+    "gdc_file": "NCI GDC file UUID",
     "zenodo": "Zenodo record ID",
     "figshare": "Figshare article ID",
     "dryad": "Dryad dataset DOI or ID",
@@ -106,17 +107,18 @@ IDENTIFIER_KEYS: dict[str, str] = {
     # --- terminologies / model organisms ---
     "ncit": "NCI Thesaurus code (C#####)",
     "kegg_drug": "KEGG drug ID (D#####)",
+    # Model-organism ids keep their CURIE prefix (as Alliance and Monarch emit them); bare ids are prefixed.
     "mgi": "Mouse Genome Informatics ID (MGI:#####)",
     "rgd": "Rat Genome Database ID (RGD:#####)",
-    "zfin": "ZFIN gene ID (ZDB-GENE-...)",
-    "xenbase": "Xenbase gene ID (XB-GENE-...)",
-    "flybase": "FlyBase gene ID (FBgn...)",
-    "wormbase": "WormBase gene ID (WBGene...)",
-    "sgd": "Saccharomyces Genome Database ID (S000...)",
+    "zfin": "ZFIN gene ID (ZFIN:ZDB-GENE-...)",
+    "xenbase": "Xenbase gene ID (Xenbase:XB-GENE-...)",
+    "flybase": "FlyBase gene ID (FB:FBgn...)",
+    "wormbase": "WormBase gene ID (WB:WBGene...)",
+    "sgd": "Saccharomyces Genome Database ID (SGD:S000...)",
     "panther": "PANTHER family ID",
 }
 
-_DOI_PREFIX = re.compile(r"^(?:https?://(?:dx\.)?doi\.org/|doi:\s*)", re.IGNORECASE)
+_DOI_PREFIX = re.compile(r"^(?:(?:https?://)?(?:dx\.|www\.)?doi\.org/|doi:\s*)", re.IGNORECASE)
 
 
 def normalize_doi(value: str) -> str:
@@ -143,6 +145,45 @@ def _upper(value: str) -> str:
 
 def _strip(value: str) -> str:
     return value.strip()
+
+
+def normalize_arxiv(value: str) -> str:
+    """``arXiv:2204.01289v2`` / ``https://arxiv.org/abs/2204.01289`` -> ``2204.01289``.
+
+    Zenodo stores arXiv alternate ids as ``arXiv:<id>`` while Semantic Scholar reports the bare id.
+    """
+    text = re.sub(r"^https?://(?:www\.|export\.)?arxiv\.org/(?:abs|pdf)/", "", value.strip(), flags=re.IGNORECASE)
+    text = re.sub(r"^arxiv:\s*", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"\.pdf$", "", text, flags=re.IGNORECASE)
+    return re.sub(r"v\d+$", "", text)
+
+
+_ENSEMBL_ID = re.compile(r"^ENS([A-Z]*?)([GTPER])\d{6,}$")
+
+
+def _ensembl(value: str, kind: str) -> str:
+    """``ENSEMBL:ENSG00000207702.3`` -> ``ENSG00000207702``; an id of the wrong type (a transcript
+    or protein under ``ensembl_gene``) is dropped rather than linked to the wrong entity."""
+    text = re.sub(r"^ENSEMBL:\s*", "", value.strip().upper()).split(".")[0]
+    match = _ENSEMBL_ID.match(text)
+    if match and match.group(2) != kind:
+        return ""
+    return text
+
+
+def _mod_curie(prefix: str, bare: str) -> Callable[[str], str]:
+    """Model-organism ids: ``ZDB-GENE-1`` / ``zfin:ZDB-GENE-1`` -> ``ZFIN:ZDB-GENE-1``."""
+
+    def norm(value: str) -> str:
+        text = value.strip()
+        head, sep, local = text.partition(":")
+        if sep and head.upper() == prefix.upper():
+            return f"{prefix}:{local.strip()}"
+        if re.match(bare, text, flags=re.IGNORECASE):
+            return f"{prefix}:{text}"
+        return text
+
+    return norm
 
 
 def normalize_orcid(value: str) -> str:
@@ -179,15 +220,23 @@ _NORMALIZERS: dict[str, Callable[[str], str]] = {
     "rxcui": _digits,
     "drugbank": _upper,
     "entrez_gene": _digits,
-    "ensembl_gene": lambda v: v.strip().upper().split(".")[0],
-    "ensembl_transcript": lambda v: v.strip().upper().split(".")[0],
+    "ensembl_gene": lambda v: _ensembl(v, "G"),
+    "ensembl_transcript": lambda v: _ensembl(v, "T"),
     "uniprot": _upper,
     "pdb": _upper,
     "hgnc": lambda v: v.strip().upper() if v.strip().upper().startswith("HGNC:") else f"HGNC:{_digits(v)}",
     "orcid": normalize_orcid,
     "rsid": lambda v: v.strip().lower(),
     "geo": _upper,
-    "dbgap": lambda v: v.strip().lower(),
+    "dbgap": lambda v: re.sub(r"\.v\d+(?:\.p\d+)?$", "", v.strip().lower()),
+    "arxiv": normalize_arxiv,
+    "mgi": _mod_curie("MGI", r"^\d+$"),
+    "rgd": _mod_curie("RGD", r"^\d+$"),
+    "zfin": _mod_curie("ZFIN", r"^ZDB-"),
+    "xenbase": _mod_curie("Xenbase", r"^XB-"),
+    "flybase": _mod_curie("FB", r"^FB[a-z]{2}\d+$"),
+    "wormbase": _mod_curie("WB", r"^WB[A-Za-z]+\d+$"),
+    "sgd": _mod_curie("SGD", r"^S\d{9}$"),
     # Ontology CURIEs: one canonical separator per ontology so sources link.
     "mondo": lambda v: _curie(v, "MONDO", ":"),
     "hp": lambda v: _curie(v, "HP", ":"),

@@ -34,7 +34,8 @@ async def test_search_studies(make_registry):
     assert result.total == 18 and result.next_cursor == "4"
     rec = result.records[0]
     assert rec.id == "luad_broad" and rec.type == "study"
-    assert rec.identifiers == {"cbioportal": "luad_broad", "pmid": "22980975"}
+    assert rec.identifiers == {"cbioportal": "luad_broad"}  # the paper is a related entity
+    assert rec.attributes["pmids"] == ["22980975"]
     assert rec.url == "https://www.cbioportal.org/study/summary?id=luad_broad"
     assert rec.attributes["samples"] == 183
 
@@ -47,8 +48,8 @@ async def test_get_study(make_registry):
     result = await registry.call("cbioportal", "get_study", {"study_id": "luad_tcga_pan_can_atlas_2018"})
     rec = result.records[0]
     assert rec.title == "Lung Adenocarcinoma (TCGA, PanCancer Atlas)"
-    assert rec.identifiers["pmid"].isdigit()
-    assert len(rec.attributes["pmids"]) > 1
+    assert "pmid" not in rec.identifiers  # shared by all PanCancer Atlas studies
+    assert len(rec.attributes["pmids"]) > 1 and rec.attributes["pmids"][0].isdigit()
     assert rec.attributes["sample_counts"]["sequenced"] == 566
     assert rec.summary and "<" not in rec.summary
     types = {p["type"] for p in result.data["molecular_profiles"]}
@@ -129,7 +130,7 @@ async def test_live_all_tools(live_registry):
     search = await registry.call("cbioportal", "search_studies", {"query": "breast", "limit": 3})
     assert search.records and search.total
     study = await registry.call("cbioportal", "get_study", {"study_id": "brca_tcga_pan_can_atlas_2018"})
-    assert study.records[0].identifiers["pmid"]
+    assert study.records[0].attributes["pmids"]
     freq = await registry.call(
         "cbioportal", "gene_alteration_frequency",
         {"gene": "PIK3CA", "study_ids": ["brca_tcga_pan_can_atlas_2018"]},

@@ -62,9 +62,8 @@ def _term_record(t: dict[str, Any], *, full: bool = False) -> Record:
             for x in t.get("xRefs") or []
             if isinstance(x, dict) and x.get("dbCode") and x.get("dbId")
         ]
-        reactome = [x.split(":", 1)[1] for x in xrefs if x.startswith("Reactome:")]
-        if reactome:
-            identifiers["reactome"] = reactome[0]
+        # Reactome xrefs (in attributes['xrefs']) point at pathways/reactions annotated to the term, a
+        # many-to-one mapping: as an identifier the term would merge unrelated Reactome pathways.
         replacements = [
             {"id": r.get("id"), "type": r.get("type")}
             for r in t.get("replacements") or []

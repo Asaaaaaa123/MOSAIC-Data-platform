@@ -43,12 +43,11 @@ async def test_search_structures_normalizes_records(make_registry):
     assert first.title.startswith("Crystal Structure of EGFR(L858R/T790M/C797S)")
     assert first.url == "https://www.rcsb.org/structure/6LUD"
     assert first.date == "2020-10-07"
-    assert first.identifiers == {
-        "pdb": "6LUD",
-        "uniprot": "P00533",
-        "pmid": "32943545",
-        "doi": "10.1158/1535-7163.mct-20-0229",
-    }
+    # protein and paper are related entities: only the structure's own id links
+    assert first.identifiers == {"pdb": "6LUD"}
+    assert first.attributes["uniprot"] == "P00533"
+    assert first.attributes["citation"]["pmid"] == "32943545"
+    assert first.attributes["citation"]["doi"] == "10.1158/1535-7163.mct-20-0229"
     assert first.authors[0] == "Kawauchi, H."
     assert "<i>" not in first.summary
     attrs = first.attributes
@@ -58,7 +57,11 @@ async def test_search_structures_normalizes_records(make_registry):
     assert attrs["ligands"][0]["drugbank"] == "DB09330"
     assert attrs["polymer_entities"][0]["uniprot"] == ["P00533"]
     second = result.records[1]
-    assert "pmid" not in second.identifiers and second.identifiers["doi"] == "10.1038/s41467-022-30258-y"
+    assert "pmid" not in second.attributes["citation"]
+    assert second.attributes["citation"]["doi"] == "10.1038/s41467-022-30258-y"
+    from mosaic.crosslink.merge import cluster_records
+
+    assert len(cluster_records(result.records)) == 2  # two EGFR structures stay two entities
 
 
 @respx.mock
@@ -90,11 +93,12 @@ async def test_get_entry(make_registry):
     assert _body(graphql.calls.last)["variables"] == {"ids": ["6M0J"]}
     record = result.records[0]
     assert record.id == "6M0J"
-    assert record.identifiers["pmid"] == "32225176"
-    assert record.identifiers["doi"] == "10.1038/s41586-020-2180-5"
+    assert record.identifiers == {"pdb": "6M0J"}
+    assert record.attributes["citation"]["pmid"] == "32225176"
+    assert record.attributes["citation"]["doi"] == "10.1038/s41586-020-2180-5"
     # entities are ordered by entity number: ACE2 (entity 1) before the spike RBD (entity 2)
     assert [e["entity"] for e in record.attributes["polymer_entities"]] == ["6M0J_1", "6M0J_2"]
-    assert record.identifiers["uniprot"] == "Q9BYF1"
+    assert record.attributes["uniprot"] == "Q9BYF1"
     assert set(record.attributes["uniprot_ids"]) == {"Q9BYF1", "P0DTC2"}
     assert "Homo sapiens" in record.attributes["organisms"]
     # trivial ions sort after real ligands
@@ -127,8 +131,9 @@ async def test_structures_for_uniprot(make_registry):
     assert body["request_options"]["sort"] == [{"sort_by": "rcsb_entry_info.resolution_combined", "direction": "asc"}]
     assert result.total == 359 and result.next_cursor == "2"
     assert [r.id for r in result.records] == ["9SPA", "28KD"]
-    # the queried accession becomes the record's uniprot identifier (links structure -> protein)
-    assert all(r.identifiers["uniprot"] == "Q9BYF1" for r in result.records)
+    # the queried accession becomes the record's primary uniprot attribute (not an identifier:
+    # every structure of the protein would otherwise merge into one cluster)
+    assert all(r.attributes["uniprot"] == "Q9BYF1" and "uniprot" not in r.identifiers for r in result.records)
 
 
 @respx.mock
@@ -183,7 +188,7 @@ async def test_live_rcsb_all_tools(live_registry):
     assert entry.records[0].identifiers["pdb"] == pdb_id
 
     by_protein = await registry.call("rcsb_pdb", "structures_for_uniprot", {"uniprot": "P15056", "limit": 3})
-    assert by_protein.total > 50 and by_protein.records[0].identifiers["uniprot"] == "P15056"
+    assert by_protein.total > 50 and by_protein.records[0].attributes["uniprot"] == "P15056"
 
     by_ligand = await registry.call("rcsb_pdb", "structures_for_ligand", {"ligand": "DB00530", "limit": 3})
     assert by_ligand.data["chem_comp_ids"] == ["AQ4"] and by_ligand.records

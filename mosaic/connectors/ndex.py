@@ -13,8 +13,10 @@ Quirks:
   ``nodeAttributes``/``edgeAttributes`` {po, n, v}). We parse it into compact node/edge
   summaries; the edge limit truncates large neighborhoods.
 * Unknown network -> 404 ``NDEx_Object_Not_Found_Exception``.
-Identifiers: custom key ``ndex`` (network UUID); ``doi`` / ``pmid`` parsed from the network's
-``reference`` property when present; gene nodes carry ``gene_symbol`` / ``uniprot`` /
+Identifiers: custom key ``ndex`` (network UUID) and ``doi`` only when NDEx minted one for the
+network itself. The DOI / PMID parsed from the ``reference`` property identify the cited paper (a
+related entity, often a database paper shared by hundreds of networks), so they are kept in
+``attributes['reference_doi']`` / ``attributes['reference_pmid']``; gene nodes carry ``gene_symbol`` / ``uniprot`` /
 ``entrez_gene`` / ``ensembl_gene`` taken from the node name and represents (``r``) field.
 """
 
@@ -28,6 +30,7 @@ from urllib.parse import quote
 
 from pydantic import Field
 
+from ..ids import normalize_doi
 from ..models import Record, ToolResult
 from .base import Connector, SearchParams, ToolParams, parse_offset, strip_html, tool
 
@@ -81,8 +84,8 @@ def network_record(item: dict[str, Any]) -> Record:
     uuid = item.get("externalId") or ""
     props = _props(item)
     reference = props.get("reference") or ""
-    doi = item.get("doi") or (m.group(1).rstrip(".);,") if (m := _DOI.search(reference)) else None)
-    pmid = m.group(1) if (m := _PMID.search(reference)) else None
+    ref_doi = m.group(1).rstrip(".);,") if (m := _DOI.search(reference)) else None
+    ref_pmid = m.group(1) if (m := _PMID.search(reference)) else None
     authors = [a.strip() for a in re.split(r"[;,]\s*", strip_html(props.get("author")) or "") if a.strip()]
     return Record(
         source="ndex",
@@ -90,7 +93,7 @@ def network_record(item: dict[str, Any]) -> Record:
         type="pathway",
         title=item.get("name") or uuid,
         url=f"{WEB}/viewer/networks/{uuid}",
-        identifiers={"ndex": uuid, "doi": doi, "pmid": pmid},
+        identifiers={"ndex": uuid, "doi": item.get("doi")},
         date=_iso(item.get("modificationTime") or item.get("creationTime")),
         authors=authors[:20],
         summary=strip_html(item.get("description")),
@@ -106,7 +109,9 @@ def network_record(item: dict[str, Any]) -> Record:
                 "disease": props.get("disease"),
                 "tissue": props.get("tissue"),
                 "rights": props.get("rights"),
-                "reference": strip_html(reference)[:300] if reference else None,
+                "reference": (strip_html(reference) or "")[:300] or None,
+                "reference_doi": normalize_doi(ref_doi) if ref_doi else None,
+                "reference_pmid": ref_pmid,
                 "certified": item.get("isCertified") or None,
                 "visibility": item.get("visibility"),
                 "created": _iso(item.get("creationTime")),

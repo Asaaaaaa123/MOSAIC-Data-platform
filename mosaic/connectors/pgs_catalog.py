@@ -12,8 +12,11 @@ Quirks:
   ``associated_pgs_ids`` (+ ``child_associated_pgs_ids``) and fetches those scores via
   ``/score/search?pgs_ids=``.
 * Trait ids are EFO_/MONDO_/HP_/Orphanet_ style; mapped to canonical ``efo`` (EFO_#######),
-  ``mondo`` (MONDO:#######), ``hp`` (HP:#######). Score records also carry ``pgs``,
-  ``pmid`` and ``doi`` of the source publication.
+  ``mondo`` (MONDO:#######), ``hp`` (HP:#######) on trait records. Score records carry only
+  ``pgs``; their trait (``trait_efo``), source GWAS (``source_gwas_studies``) and publication
+  (``publication_pmid`` / ``publication_doi``) are related entities kept in attributes (one
+  paper or trait has many scores, so as identifiers they would merge unrelated scores).
+  Publication records carry ``pmid`` / ``doi``.
 """
 
 from __future__ import annotations
@@ -127,13 +130,8 @@ def score_record(item: dict[str, Any]) -> Record:
     pgs_id = item.get("id") or ""
     pub = item.get("publication") or {}
     traits = [{"id": t.get("id"), "label": t.get("label")} for t in item.get("trait_efo") or []]
-    identifiers: dict[str, Any] = {"pgs": pgs_id, "pmid": pub.get("PMID"), "doi": pub.get("doi")}
-    for t in traits:
-        for key, value in trait_identifiers(t["id"]).items():
-            identifiers.setdefault(key, value)
+    identifiers: dict[str, Any] = {"pgs": pgs_id}
     gwas = _gwas_accessions(item)
-    if gwas:
-        identifiers["gwas_study"] = gwas[0]
     dist = item.get("ancestry_distribution") or {}
     ancestry = {
         stage: (dist.get(stage) or {}).get("dist")
@@ -182,6 +180,8 @@ def score_record(item: dict[str, Any]) -> Record:
                 "training_samples": _samples(item.get("samples_training")),
                 "source_gwas_studies": gwas,
                 "publication_id": pub.get("id"),
+                "publication_pmid": str(pub["PMID"]) if pub.get("PMID") else None,
+                "publication_doi": pub.get("doi"),
                 "publication_title": pub.get("title"),
                 "journal": pub.get("journal"),
                 "scoring_file": item.get("ftp_scoring_file"),

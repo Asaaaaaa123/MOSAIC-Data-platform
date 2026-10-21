@@ -168,3 +168,15 @@ async def test_live_monarch_all_tools(live_registry):
         "monarch", "phenotype_similarity_search", {"phenotypes": ["HP:0001166", "HP:0000545", "HP:0002616"], "limit": 5}
     )
     assert sim.records and sim.records[0].attributes["score"] > 0
+
+
+def test_association_publications_are_not_identifiers():
+    from mosaic.connectors.monarch import _association_record
+    from mosaic.crosslink.merge import cluster_records
+
+    base = {"subject": "MONDO:0007947", "subject_label": "Marfan syndrome", "predicate": "biolink:has_phenotype",
+            "object_category": "biolink:PhenotypicFeature", "publications": ["PMID:12345", "OMIM:154700"]}
+    a = _association_record({**base, "id": "a1", "object": "HP:0001166", "object_label": "Arachnodactyly"}, "MONDO:0007947")
+    b = _association_record({**base, "id": "a2", "object": "HP:0000545", "object_label": "Myopia"}, "MONDO:0007947")
+    assert a.identifiers == {"hp": "HP:0001166"} and "PMID:12345" in a.attributes["publications"]
+    assert len(cluster_records([a, b])) == 2  # one shared paper must not merge two phenotypes

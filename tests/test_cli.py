@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -159,7 +160,9 @@ def test_search_command(patched, crossref_mock, capsys):
     assert cli.main(["search", "prime editing", "--limit", "2"]) == 0
     out = capsys.readouterr().out
     assert "Searched 1 source(s)" in out
-    assert "[crossref]" in out
+    assert "Cleaned and merged 2 records into 2 entities" in out
+    assert re.search(r"\[[ABCD]\s+\d+\] article: Search-and-replace genome editing", out)
+    assert "sources: crossref:10.1038/s41586-019-1711-4" in out
     assert cli.main(["search", "x", "--categories", "bogus"]) == 2
 
 

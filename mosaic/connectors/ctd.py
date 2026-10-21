@@ -20,9 +20,11 @@ Quirks:
   ``PubMedIds`` vs ``PubMedIDs``), so fields are read case-insensitively; TSV/CSV bodies (header
   line starting with ``#``) are parsed too in case ``format=json`` is ignored.
 - Chemical IDs are MeSH IDs (C###### / D######); disease IDs are ``MESH:D######`` or ``OMIM:######``.
-  An association record carries the MeSH ID of the *answer* entity under ``mesh``: the disease for
-  chemical->disease and gene->disease, the chemical for disease->chemical and chemical-gene
-  interactions; the other side is in ``attributes``.
+  An association record carries only the identifiers of the *answer* entity (the one listed): the
+  disease (``mesh`` / ``omim``) for chemical->disease and gene->disease, the chemical (``mesh`` /
+  ``cas``) for disease->chemical and gene->chemical interactions, the gene (``entrez_gene``) for
+  chemical->gene interactions. The queried side and the supporting PubMed IDs are in ``attributes``:
+  carrying both sides would bridge a chemical and a gene (or disease) into one cluster.
 """
 
 from __future__ import annotations
@@ -186,7 +188,7 @@ def _disease_url(disease_id: str) -> str:
     return f"{SITE}/detail.go?type=disease&acc={disease_id}"
 
 
-def _interaction_record(row: dict[str, str]) -> Record:
+def _interaction_record(row: dict[str, str], input_type: str = "chem") -> Record:
     chem_id, gene_id = row.get("chemicalid", ""), row.get("geneid", "")
     pmids = _pmids(row)
     text = row.get("interaction") or f"{row.get('chemicalname')} interacts with {row.get('genesymbol')}"
@@ -196,13 +198,11 @@ def _interaction_record(row: dict[str, str]) -> Record:
         type="association",
         title=text,
         url=f"{_chem_url(chem_id)}&view=ixn" if chem_id else None,
-        identifiers={
-            "mesh": _mesh(chem_id),
-            "cas": row.get("casrn"),
-            "entrez_gene": gene_id,
-            "gene_symbol": row.get("genesymbol"),
-            "pmid": pmids[0] if pmids else None,
-        },
+        identifiers=(
+            {"entrez_gene": gene_id, "gene_symbol": row.get("genesymbol")}
+            if input_type == "chem"
+            else {"mesh": _mesh(chem_id), "cas": row.get("casrn")}
+        ),
         attributes=_clean(
             {
                 "chemical": row.get("chemicalname"),
@@ -227,12 +227,10 @@ def _disease_assoc_record(row: dict[str, str], subject: Literal["chemical", "gen
     direct = row.get("directevidence") or None
     if subject == "chemical":
         left_id, left_name = row.get("chemicalid", ""), row.get("chemicalname")
-        identifiers = {"cas": row.get("casrn")}
-        left_attrs = {"chemical": left_name, "chemical_mesh": left_id}
+        left_attrs = {"chemical": left_name, "chemical_mesh": left_id, "cas": row.get("casrn")}
         inferred_via = {"inference_gene": row.get("inferencegenesymbol")}
     else:
         left_id, left_name = row.get("geneid", ""), row.get("genesymbol")
-        identifiers = {"entrez_gene": left_id, "gene_symbol": left_name}
         left_attrs = {"gene": left_name, "gene_id": left_id}
         inferred_via = {"inference_chemical": row.get("inferencechemicalname")}
     via_key, via_value = next(iter(inferred_via.items()))
@@ -244,10 +242,8 @@ def _disease_assoc_record(row: dict[str, str], subject: Literal["chemical", "gen
         + (f" ({direct})" if direct else f" (inferred via {via_value})" if via_value else " (inferred)"),
         url=_disease_url(disease_id) if disease_id else None,
         identifiers={
-            **identifiers,
             "mesh": _mesh(disease_id),
             "omim": _omim(disease_id) or (omims[0] if omims else None),
-            "pmid": pmids[0] if pmids else None,
         },
         attributes=_clean(
             {
@@ -277,12 +273,7 @@ def _disease_chemical_record(row: dict[str, str]) -> Record:
         title=f"{row.get('chemicalname')} - {row.get('diseasename')}"
         + (f" ({direct})" if direct else f" (inferred via {via})" if via else " (inferred)"),
         url=_chem_url(chem_id) if chem_id else None,
-        identifiers={
-            "mesh": _mesh(chem_id),
-            "cas": row.get("casrn"),
-            "omim": _omim(disease_id),
-            "pmid": pmids[0] if pmids else None,
-        },
+        identifiers={"mesh": _mesh(chem_id), "cas": row.get("casrn")},
         attributes=_clean(
             {
                 "chemical": row.get("chemicalname"),
@@ -451,7 +442,7 @@ class CTD(Connector):
         return ToolResult(
             source=self.name,
             tool="chemical_gene_interactions",
-            records=[_interaction_record(r) for r in page],
+            records=[_interaction_record(r, input_type) for r in page],
             total=len(rows),
             next_cursor=nxt,
             request_url=url,

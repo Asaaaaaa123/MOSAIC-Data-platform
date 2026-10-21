@@ -43,7 +43,9 @@ async def test_get_terms_details_obsolete_and_missing(make_registry):
     by_id = {r.id: r for r in result.records}
     apoptosis = by_id["GO:0006915"]
     assert apoptosis.title == "apoptotic process"
-    assert apoptosis.identifiers["reactome"] == "R-HSA-109581"
+    # GO:0000165 xrefs R-HSA-169893 while Reactome maps R-HSA-5673001 to it: not an identity
+    assert apoptosis.identifiers == {"go": "GO:0006915"}
+    assert "Reactome:R-HSA-109581" in apoptosis.attributes["xrefs"]
     assert "apoptosis" in apoptosis.attributes["synonyms"]
     assert apoptosis.attributes["secondary_ids"] == ["GO:0006917", "GO:0008632"]
     obsolete = by_id["GO:0000005"]

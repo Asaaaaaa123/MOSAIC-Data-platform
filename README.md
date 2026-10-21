@@ -1,5 +1,7 @@
 # Mosaic: Claude-powered cross-database research platform
 
+[![tests](https://github.com/Asaaaaaa123/MOSAIC-Data-platform/actions/workflows/tests.yml/badge.svg)](https://github.com/Asaaaaaa123/MOSAIC-Data-platform/actions/workflows/tests.yml)
+
 Mosaic lets Claude query literature, clinical trials, drug labels and safety reports, chemistry,
 protein and genomics databases, and the NIH scientific data repositories in **one conversation**,
 link the same entity across sources by shared identifiers, and save the extracted table as
@@ -17,6 +19,11 @@ CSV or JSON.
   to its identifiers across databases. `federated_search` runs one query everywhere and clusters
   records that share an identifier. `extract_structured` turns full records into a table with per-row
   provenance, and `save_table` writes CSV + JSON.
+- **Data, not links: cleaned and evaluated**: every record is cleaned (markup, placeholders,
+  duplicates, dates) and graded A-D. Cross-database results are merged into one entity per real-world
+  thing, each field taken from the most reliable source with its provenance, conflicts between
+  sources shown, and warning flags (retracted, preprint, terminated trial, restricted access, FAERS,
+  unreviewed entries...). See *Data quality* below.
 - **Claude agent** (`claude-opus-5-5`, adaptive thinking, streaming, prompt caching, tool search over
   the connector tools, server-side refusal fallback), a web app, a JSON API and a CLI.
 
@@ -166,6 +173,27 @@ mosaic exports
 | [The Cancer Imaging Archive (TCIA)](https://www.cancerimagingarchive.net/) (`tcia`) | keyless | `search_collections`, `get_collection`, `series_for_collection`, `studies_for_collection` | The Cancer Imaging Archive (TCIA) |
 | [Zenodo](https://zenodo.org/) (`zenodo`) | optional key | `search`, `get_record`, `records_for_article` | Zenodo |
 
+## Data quality
+
+Mosaic answers with the associated data itself; links are kept as provenance.
+
+1. **Cleaning** (`mosaic/curation/clean.py`, applied to every tool result): HTML/JATS stripped,
+   entities decoded, whitespace and control characters fixed, placeholder values (`N/A`, `unknown`,
+   `not available` ...) removed, dates normalized to ISO, duplicate list values and authors removed.
+   Symbols that are data (a `-` DNA strand) are kept.
+2. **Consolidation** (`consolidate.py`): records from different databases that share a normalized
+   identifier (or the same title, kind and year) become one entity. Each field comes from the
+   reference source for that kind of entity (ChEMBL/DrugCentral for drugs, HGNC/UniProt for genes,
+   ClinicalTrials.gov for trials, PubMed/Europe PMC for articles ...) with field-level provenance.
+   Disagreeing identifiers are reported as conflicts; legitimately multi-valued IDs (ingredient vs
+   brand RxCUI, NDCs, ATC codes, print/electronic ISSN) are not.
+3. **Evaluation** (`evaluate.py`): a 0-100 score and A-D grade from source reliability tier
+   (authoritative/curated, aggregated/integrative, self-deposited), corroboration across databases,
+   completeness, identifier coverage and conflicts, with flags that change how to use the data:
+   retracted, preprint, terminated/withdrawn trial, obsolete term, restricted access, FAERS
+   (not causal), unreviewed TrEMBL entry, electronic-only GO annotation, non-human. Every grade
+   carries the reasons it was computed from (hover the grade in the web app).
+
 ## How it fits together
 
 ```
@@ -177,6 +205,7 @@ mosaic/
   connectors/      one module per source, auto-discovered (Connector subclass + @tool methods)
   registry.py      discovery, dispatch, auditing, federated search
   crosslink/       identifier clustering (merge.py) and entity resolution (resolver.py)
+  curation/        cleaning, cross-database consolidation and quality evaluation
   catalog/         NIH repository catalog (nih_repositories.json) + BM25 search
   agent/           Claude agent: streaming tool loop, meta tools, extraction, exports, sessions
   api/             FastAPI app (JSON + SSE), security middleware
@@ -208,3 +237,5 @@ set MOSAIC_LIVE_TESTS=1 && .venv\Scripts\python.exe -m pytest -m live   # every 
   JCR are not subscribed. Springer: each key works on its own API (Meta vs Open Access), with
   basic-plan query limits. Unpaywall's search endpoint was retired upstream (DOI lookups work).
 - Mosaic binds to `127.0.0.1` by default; there is no user authentication. Do not expose it publicly as is.
+  Binding to a non-loopback address (`MOSAIC_BIND_HOST=0.0.0.0`) also weakens the DNS-rebinding
+  protection unless `MOSAIC_ALLOWED_HOSTS` lists the host names you serve.

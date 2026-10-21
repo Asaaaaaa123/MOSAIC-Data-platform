@@ -69,7 +69,9 @@ async def test_get_pathway_with_literature_and_participants(make_registry):
     assert pathway.id == "R-HSA-109581"
     assert pathway.title == "Apoptosis"
     assert pathway.date == "2004-09-20"
-    assert pathway.identifiers == {"reactome": "R-HSA-109581", "go": "GO:0006915"}
+    # the GO process is a related entity (many-to-one mapping), kept in attributes
+    assert pathway.identifiers == {"reactome": "R-HSA-109581"}
+    assert pathway.attributes["go_biological_process"]["id"] == "GO:0006915"
     assert pathway.summary.startswith("Apoptosis is a distinct form of cell death")
     assert pathway.attributes["species"] == "Homo sapiens"
     assert pathway.attributes["pmids"][0] == "12189384"

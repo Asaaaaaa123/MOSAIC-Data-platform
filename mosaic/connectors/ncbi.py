@@ -25,6 +25,12 @@ Taxonomy ID), ``genbank`` (INSDC nucleotide/protein accession), ``dbvar``
 (nsv/nssv/nstd accession), ``gtr`` (GTR test accession), ``cdd`` (CDD accession),
 ``assembly`` (GCF_/GCA_ accession), ``medgen`` (MedGen UID), ``ncbi_bookshelf``
 (NBK accession).
+
+IDs of related entities stay in attributes so unrelated records do not merge: a GEO series' or
+sample's PubMed IDs (``pubmed_ids``; every GSM of a series shares them), and the gene of a ClinVar /
+dbSNP variant or GTR test (``genes``; a variant is not its gene, and all BRAF variants would merge),
+and the parent BioProject / BioSample of an SRA experiment, BioSample or assembly (``bioproject`` /
+``biosample`` attributes; every sample of a project would otherwise merge with it and each other).
 """
 
 from __future__ import annotations
@@ -433,7 +439,7 @@ def _map_gds(uid: str, doc: dict[str, Any]) -> Record:
         source="ncbi", id=acc, type="sample" if entry == "GSM" else "dataset",
         title=doc.get("title"),
         url=f"{WEB}/geo/query/acc.cgi?acc={acc}" if not acc.startswith("GDS") else f"{WEB}/sites/GDSbrowser?acc={acc}",
-        identifiers={"geo": acc, "pmid": pmids[0] if pmids else None, "sra": sra, "bioproject": bioproject},
+        identifiers={"geo": acc, "sra": sra, "bioproject": bioproject},
         date=_iso_date(doc.get("pdat")), summary=doc.get("summary") or None,
         attributes=_compact({
             "entry_type": entry, "experiment_type": doc.get("gdstype"), "organism": doc.get("taxon"),
@@ -464,11 +470,11 @@ def _map_sra(uid: str, doc: dict[str, Any]) -> Record:
         source="ncbi", id=exp_acc, type="dataset",
         title=(find("Summary/Title").text if find("Summary/Title") is not None else None) or attr("Experiment", "name"),
         url=f"{WEB}/sra/{exp_acc}",
-        identifiers={"sra": exp_acc, "bioproject": find("Bioproject").text if find("Bioproject") is not None else None,
-                     "biosample": find("Biosample").text if find("Biosample") is not None else None,
-                     "taxonomy": attr("Organism", "taxid")},
+        identifiers={"sra": exp_acc, "taxonomy": attr("Organism", "taxid")},
         date=_iso_date(doc.get("createdate")),
         attributes=_compact({
+            "bioproject": find("Bioproject").text if find("Bioproject") is not None else None,
+            "biosample": find("Biosample").text if find("Biosample") is not None else None,
             "study": attr("Study", "acc"), "study_title": attr("Study", "name"), "sample": attr("Sample", "acc"),
             "organism": attr("Organism", "ScientificName"), "platform": find("Summary/Platform").text if find("Summary/Platform") is not None else None,
             "instrument": attr("Summary/Platform", "instrument_model"),
@@ -498,8 +504,6 @@ def _map_clinvar(uid: str, doc: dict[str, Any]) -> Record:
         source="ncbi", id=uid, type="variant", title=doc.get("title"),
         url=f"{WEB}/clinvar/variation/{uid}/",
         identifiers={"clinvar": uid, "rsid": f"rs{rs}" if rs else None,
-                     "gene_symbol": genes[0].get("symbol") if len(genes) == 1 else None,
-                     "entrez_gene": genes[0].get("geneid") if len(genes) == 1 else None,
                      "hgvs": vset.get("variation_name") or None},
         date=_iso_date(germ.get("last_evaluated")),
         attributes=_compact({
@@ -508,6 +512,7 @@ def _map_clinvar(uid: str, doc: dict[str, Any]) -> Record:
             "traits": traits[:10], "variant_type": doc.get("obj_type") or vset.get("variant_type"),
             "protein_change": doc.get("protein_change"), "molecular_consequences": doc.get("molecular_consequence_list"),
             "genes": list(dict.fromkeys(g.get("symbol") for g in genes if g.get("symbol")))[:20],
+            "entrez_genes": list(dict.fromkeys(str(g["geneid"]) for g in genes if g.get("geneid")))[:20],
             "grch38_location": f"chr{loc.get('chr')}:{loc.get('start')}-{loc.get('stop')}" if loc.get("chr") else None,
             "spdi": vset.get("canonical_spdi"),
             "xrefs": {x.get("db_source"): x.get("db_id") for x in xrefs if x.get("db_source")},
@@ -522,14 +527,14 @@ def _map_snp(uid: str, doc: dict[str, Any]) -> Record:
         source="ncbi", id=rsid, type="variant",
         title=rsid + (f" ({', '.join(g.get('name') for g in genes if g.get('name'))})" if genes else ""),
         url=f"{WEB}/snp/{rsid}",
-        identifiers={"rsid": rsid, "gene_symbol": genes[0].get("name") if len(genes) == 1 else None,
-                     "entrez_gene": genes[0].get("gene_id") if len(genes) == 1 else None},
+        identifiers={"rsid": rsid},
         date=_iso_date(doc.get("createdate")),
         attributes=_compact({
             "chromosome": doc.get("chr"), "position": doc.get("chrpos"), "spdi": (doc.get("spdi") or "").split(",")[:4],
             "variant_class": doc.get("snp_class"), "functional_class": doc.get("fxn_class"),
             "clinical_significance": doc.get("clinical_significance"),
             "genes": [g.get("name") for g in genes if g.get("name")],
+            "entrez_genes": [str(g["gene_id"]) for g in genes if g.get("gene_id")],
             "global_mafs": [f"{m.get('study')}: {m.get('freq')}" for m in (doc.get("global_mafs") or [])[:5]],
             "updated": _iso_date(doc.get("updatedate")),
         }),
@@ -607,9 +612,10 @@ def _map_biosample(uid: str, doc: dict[str, Any]) -> Record:
                 break
     return Record(
         source="ncbi", id=acc, type="sample", title=doc.get("title"), url=f"{WEB}/biosample/{acc}",
-        identifiers={"biosample": acc, "bioproject": bioproject, "taxonomy": doc.get("taxonomy")},
+        identifiers={"biosample": acc, "taxonomy": doc.get("taxonomy")},
         date=_iso_date(doc.get("publicationdate") or doc.get("date")),
         attributes=_compact({
+            "bioproject": bioproject,
             "organism": doc.get("organism"), "organization": doc.get("organization"), "package": doc.get("package"),
             "sample_ids": doc.get("identifiers"), "infraspecies": doc.get("infraspecies"), "attributes": attrs, "uid": uid,
         }),
@@ -721,13 +727,13 @@ def _map_gtr(uid: str, doc: dict[str, Any]) -> Record:
         source="ncbi", id=acc, type="assay",
         title=" - ".join(x for x in (doc.get("testname"), doc.get("offerer")) if x) or acc,
         url=f"{WEB}/gtr/tests/{doc.get('id') or uid}/",
-        identifiers={"gtr": acc, "gene_symbol": gene_analytes[0].get("name") if len(gene_analytes) == 1 else None,
-                     "entrez_gene": gene_analytes[0].get("geneid") if len(gene_analytes) == 1 else None},
+        identifiers={"gtr": acc},
         summary=doc.get("summary") or None,
         attributes=_compact({
             "test_type": doc.get("testtype"), "offerer": doc.get("offerer"),
             "country": (doc.get("offererlocation") or {}).get("country"), "conditions": conditions[:15],
             "genes": [a.get("name") for a in gene_analytes][:30],
+            "entrez_genes": [str(a["geneid"]) for a in gene_analytes if a.get("geneid")][:30],
             "methods": [c.get("name") for m in doc.get("method") or [] for c in m.get("categorylist") or []][:10],
         }),
     )
@@ -766,13 +772,13 @@ def _map_assembly(uid: str, doc: dict[str, Any]) -> Record:
         source="ncbi", id=acc, type="dataset",
         title=" ".join(x for x in (doc.get("assemblyname"), f"({doc['organism']})" if doc.get("organism") else None) if x),
         url=f"{WEB}/datasets/genome/{acc}/",
-        identifiers={"assembly": acc, "taxonomy": doc.get("taxid"), "bioproject": bps[0] if bps else None,
-                     "biosample": doc.get("biosampleaccn")},
+        identifiers={"assembly": acc, "taxonomy": doc.get("taxid")},
         date=_iso_date(doc.get("seqreleasedate") or doc.get("asmreleasedate_refseq") or doc.get("asmreleasedate_genbank")),
         attributes=_compact({
             "assembly_name": doc.get("assemblyname"), "organism": doc.get("organism"), "status": doc.get("assemblystatus"),
             "assembly_type": doc.get("assemblytype"), "ucsc_name": doc.get("ucscname"), "refseq_category": doc.get("refseq_category"),
             "coverage": doc.get("coverage"), "submitter": doc.get("submitterorganization"), "bioprojects": bps[:5],
+            "biosample": doc.get("biosampleaccn"),
             "contig_n50": doc.get("contign50"), "scaffold_n50": doc.get("scaffoldn50"),
         }),
     )

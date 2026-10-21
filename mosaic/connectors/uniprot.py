@@ -21,9 +21,10 @@ Quirks:
   allowed upstream; this connector chains them through UniProtKB-Swiss-Prot.
 
 Identifiers emitted on protein records: uniprot, gene_symbol, hgnc, entrez_gene, ensembl_gene,
-ensembl_transcript (MANE Select), refseq (MANE/canonical protein), pdb (first; full list in
-attributes), chembl, omim (gene MIM). Drug (DrugBank), pathway (Reactome) and disease (Orphanet, MIM
-phenotype) cross-references are kept in ``attributes`` because they identify *other* entities.
+ensembl_transcript (MANE Select), refseq (MANE/canonical protein), chembl, omim (gene MIM). Structure
+(PDB, best resolution first in attributes.pdb_structures), drug (DrugBank), pathway (Reactome) and
+disease (Orphanet, MIM phenotype) cross-references are kept in ``attributes`` because they identify
+*other* entities (a PDB complex is shared by its chains: HBA1 and HBB would merge via 2W72).
 """
 
 from __future__ import annotations
@@ -306,7 +307,7 @@ def _record(entry: dict[str, Any], detailed: bool = False) -> Record:
     organism = entry.get("organism") or {}
     ensembl_gene, ensembl_tx = _canonical_ensembl(entry, accession)
     pdbs = _pdb_ids(entry)
-    # Best-resolution structure first so "pdb" points at the most informative model.
+    # Best-resolution structure first so attributes.pdb_structures leads with the most informative model.
     pdbs_sorted = sorted(pdbs, key=lambda p: (p["resolution"] is None, p["resolution"] or 0))
     hgnc = _xrefs(entry, "HGNC")
     geneid = _xrefs(entry, "GeneID")
@@ -398,7 +399,6 @@ def _record(entry: dict[str, Any], detailed: bool = False) -> Record:
             "ensembl_gene": ensembl_gene,
             "ensembl_transcript": ensembl_tx,
             "refseq": (_canonical_refseq(entry, accession) or "").split(".")[0] or None,  # versionless
-            "pdb": pdbs_sorted[0]["id"] if pdbs_sorted else None,
             "chembl": chembl[0].get("id") if chembl else None,
             "omim": _gene_mim(entry),
         },

@@ -35,13 +35,9 @@ async def test_chemical_gene_interactions_filters_ranks_and_normalizes(make_regi
     rec = result.records[0]  # most PubMed IDs first
     assert rec.type == "association"
     assert rec.title == "bisphenol A binds to ESR1 protein"
-    assert rec.identifiers == {
-        "mesh": "C006780",
-        "cas": "80-05-7",
-        "entrez_gene": "2099",
-        "gene_symbol": "ESR1",
-        "pmid": "16123044",
-    }
+    # only the listed (answer) entity: carrying the chemical too would merge bisphenol A with ESR1
+    assert rec.identifiers == {"entrez_gene": "2099", "gene_symbol": "ESR1"}
+    assert rec.attributes["chemical_mesh"] == "C006780" and rec.attributes["pmids"][0] == "16123044"
     assert rec.attributes["actions"] == ["affects^binding"]
     assert rec.attributes["organism"] == "Homo sapiens" and rec.attributes["n_pmids"] == 3
     assert rec.url == "https://ctdbase.org/detail.go?type=chem&acc=C006780&view=ixn"
@@ -67,7 +63,8 @@ async def test_gene_input_with_tsv_body(make_registry):
     assert result.total == 2
     names = {r.attributes["chemical"] for r in result.records}
     assert names == {"bisphenol A", "Estradiol"}
-    assert result.records[0].identifiers["pmid"] == "16123044"  # PubMedIDs column read case-insensitively
+    assert result.records[0].attributes["pmids"][0] == "16123044"  # PubMedIDs column read case-insensitively
+    assert result.records[0].identifiers == {"mesh": "C006780", "cas": "80-05-7"}  # gene query -> chemicals
 
 
 async def test_interactions_requires_one_input(make_registry):
@@ -89,7 +86,8 @@ async def test_chemical_disease_direct_and_inferred(make_registry):
     assert direct.total == 2
     top = direct.records[0]
     assert top.attributes["direct_evidence"] == "marker/mechanism"
-    assert top.identifiers["mesh"] == "D012878" and top.identifiers["cas"] == "7440-38-2"
+    assert top.identifiers == {"mesh": "D012878"}  # the disease; arsenic's CAS would bridge chemical and disease
+    assert top.attributes["cas"] == "7440-38-2"
     assert top.attributes["chemical_mesh"] == "D001151"
     assert top.title == "Arsenic - Skin Neoplasms (marker/mechanism)"
     assert direct.records[1].identifiers["omim"] == "612376"
@@ -116,13 +114,8 @@ async def test_gene_disease_associations(make_registry):
     sent = route.calls.last.request.url.params
     assert sent["inputType"] == "gene" and sent["report"] == "diseases_curated"
     lfs = result.records[0]
-    assert lfs.identifiers == {
-        "entrez_gene": "7157",
-        "gene_symbol": "TP53",
-        "mesh": "D016864",
-        "omim": "151623",
-        "pmid": "1978757",
-    }
+    assert lfs.identifiers == {"mesh": "D016864", "omim": "151623"}  # the disease only
+    assert lfs.attributes["gene_id"] == "7157" and "1978757" in lfs.attributes["pmids"]
     omim_only = result.records[1]
     assert omim_only.identifiers["omim"] == "202300" and "mesh" not in omim_only.identifiers
 
@@ -137,7 +130,7 @@ async def test_disease_chemicals(make_registry):
     assert result.total == 1
     rec = result.records[0]
     assert rec.attributes["chemical"] == "Budesonide"
-    assert rec.identifiers["mesh"] == "D019819" and rec.identifiers["cas"] == "51333-22-3"
+    assert rec.identifiers == {"mesh": "D019819", "cas": "51333-22-3"}  # the chemical only
     assert rec.url == "https://ctdbase.org/detail.go?type=chem&acc=D019819"
 
 
@@ -171,8 +164,10 @@ async def test_live_all_tools(live_registry):
     except SourceError as exc:
         if "CAPTCHA" in str(exc):
             pytest.skip("CTD serves a human-verification CAPTCHA to automated clients from this network")
+        if "network error" in str(exc):
+            pytest.skip("ctdbase.org is unreachable from this network")
         raise
-    assert ixn.records and ixn.records[0].identifiers.get("mesh")
+    assert ixn.records and ixn.records[0].identifiers.get("entrez_gene")  # chemical query lists genes
     chem = await registry.call("ctd", "chemical_disease_associations", {"chemical": "arsenic", "limit": 3})
     assert chem.records
     gene = await registry.call("ctd", "gene_disease_associations", {"gene": "TP53", "limit": 3})

@@ -19,8 +19,11 @@ Quirks:
   count case x mutation pairs and overcount long genes such as TTN); a ``genes.gene_id`` case
   filter alone also matches copy-number-altered cases.
 * Unknown project -> 404 ``{"message": "... not found"}``.
-Identifiers: ``gdc_project`` (TCGA-BRCA), ``dbgap``, ``gene_symbol``, ``ensembl_gene``,
-``entrez_gene``, ``hgnc``, ``uniprot``.
+Identifiers: ``gdc_project`` (TCGA-BRCA) on project records, ``gdc_file`` (file UUID, non-canonical) on
+file records, ``gene_symbol``, ``ensembl_gene``, ``entrez_gene``, ``hgnc``, ``uniprot`` on gene records.
+Related entities stay in attributes so unrelated records do not merge: the dbGaP accession is shared by
+every project of a program (phs000178 = all 33 TCGA projects), so it is ``attributes['dbgap_accession']``;
+a file's project is ``attributes['projects']``; a top-mutated gene's project is ``attributes['project']``.
 """
 
 from __future__ import annotations
@@ -158,7 +161,7 @@ def project_record(item: dict[str, Any]) -> Record:
         type="dataset",
         title=f"{pid}: {item.get('name') or ''}".rstrip(": "),
         url=f"{PORTAL}/projects/{pid}",
-        identifiers={"gdc_project": pid, "dbgap": dbgap},
+        identifiers={"gdc_project": pid},
         summary=text,
         attributes=_compact(
             {
@@ -188,7 +191,7 @@ def file_record(item: dict[str, Any]) -> Record:
         type="dataset",
         title=item.get("file_name") or fid,
         url=f"{PORTAL}/files/{fid}",
-        identifiers={"gdc_project": projects[0] if projects else None},
+        identifiers={"gdc_file": fid},
         date=(item.get("created_datetime") or "")[:10] or None,
         summary=" | ".join(
             str(x) for x in (item.get("data_category"), item.get("data_type"), item.get("experimental_strategy"),
@@ -466,9 +469,10 @@ class NciGdc(Connector):
                     type="gene",
                     title=f"{node.get('symbol')} ({node.get('name')})",
                     url=f"{PORTAL}/genes/{node.get('gene_id')}",
-                    identifiers={"gene_symbol": node.get("symbol"), "ensembl_gene": node.get("gene_id"), "gdc_project": pid},
+                    identifiers={"gene_symbol": node.get("symbol"), "ensembl_gene": node.get("gene_id")},
                     attributes=_compact(
                         {
+                            "project": pid,
                             "mutated_cases": count,
                             "percent": round(100.0 * count / denom, 1) if denom else None,
                             "cancer_gene_census": node.get("is_cancer_gene_census"),

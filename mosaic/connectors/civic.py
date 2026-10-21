@@ -15,8 +15,12 @@ Quirks:
 
 Identifiers: ``civic`` uses CIViC's prefixed ids (EID = evidence item, AID = assertion,
 MPID = molecular profile, VID = variant, GID = gene/feature, TID = therapy, DID = disease);
-also ``gene_symbol``, ``entrez_gene``, ``doid`` (DOID:####), ``pmid``, ``pmcid``, ``rsid``,
-``clinvar``, ``hgvs`` and the custom key ``ncit`` (NCI Thesaurus code of a therapy).
+also ``gene_symbol``, ``entrez_gene`` (gene records), ``doid`` (DOID:####, disease records),
+``rsid``, ``clinvar``, ``hgvs`` (single-variant molecular profiles) and the custom key ``ncit`` (NCI
+Thesaurus code of a therapy). Evidence items and assertions carry only their EID/AID: their gene,
+disease and source paper are related entities kept in attributes (``genes``, ``entrez_genes``,
+``disease_doid``, ``pmid``, ``pmcid``); a molecular profile's gene is likewise ``attributes['genes']``.
+Otherwise every BRAF evidence item would merge with the BRAF gene and every melanoma item with melanoma.
 """
 
 from __future__ import annotations
@@ -177,6 +181,16 @@ def _source_ids(source: dict[str, Any] | None) -> dict[str, Any]:
     return ids
 
 
+def _related_ids(genes: list[tuple[str, Any]], disease: dict[str, Any] | None, source: dict[str, Any] | None) -> dict[str, Any]:
+    """Ids of the entities a CIViC record is *about* (attributes, not identifiers)."""
+    return {
+        "genes": [g for g, _ in genes] or None,
+        "entrez_genes": [str(e) for _, e in genes if e] or None,
+        "disease_doid": _doid((disease or {}).get("doid")),
+        **{k: str(v) for k, v in _source_ids(source).items() if v},
+    }
+
+
 def _label(value: str | None) -> str | None:
     return value.replace("_", " ").lower() if value else value
 
@@ -192,13 +206,7 @@ def evidence_record(item: dict[str, Any]) -> Record:
     parts = [mp.get("name"), disease.get("name"), joiner.join(therapy_names) or None]
     title = " | ".join(p for p in parts if p)
     title += f" ({_label(item.get('evidenceType'))}, {_label(item.get('significance'))}, level {item.get('evidenceLevel')})"
-    identifiers: dict[str, Any] = {
-        "civic": f"EID{item.get('id')}",
-        "gene_symbol": genes[0][0] if len(genes) == 1 else None,
-        "entrez_gene": genes[0][1] if len(genes) == 1 else None,
-        "doid": _doid(disease.get("doid")),
-        **_source_ids(source),
-    }
+    identifiers: dict[str, Any] = {"civic": f"EID{item.get('id')}"}
     return Record(
         source="civic",
         id=f"EID{item.get('id')}",
@@ -212,7 +220,7 @@ def evidence_record(item: dict[str, Any]) -> Record:
             {
                 "molecular_profile": mp.get("name"),
                 "molecular_profile_id": f"MPID{mp['id']}" if mp.get("id") else None,
-                "genes": [g for g, _ in genes] if len(genes) > 1 else None,
+                **_related_ids(genes, disease, source),
                 "disease": disease.get("name"),
                 "therapies": therapy_names,
                 "therapy_ncit": [t.get("ncitId") for t in therapies if t.get("ncitId")],
@@ -247,17 +255,13 @@ def assertion_record(item: dict[str, Any]) -> Record:
         type="association",
         title=title,
         url=f"{WEB}/assertions/{item.get('id')}",
-        identifiers={
-            "civic": f"AID{item.get('id')}",
-            "gene_symbol": genes[0][0] if len(genes) == 1 else None,
-            "entrez_gene": genes[0][1] if len(genes) == 1 else None,
-            "doid": _doid(disease.get("doid")),
-        },
+        identifiers={"civic": f"AID{item.get('id')}"},
         summary=" ".join(x for x in (item.get("summary"), item.get("description")) if x) or None,
         attributes=_compact(
             {
                 "molecular_profile": mp.get("name"),
                 "molecular_profile_id": f"MPID{mp['id']}" if mp.get("id") else None,
+                **_related_ids(genes, disease, None),
                 "disease": disease.get("name"),
                 "therapies": therapies,
                 "assertion_type": item.get("assertionType"),
@@ -313,6 +317,7 @@ def profile_record(mp: dict[str, Any]) -> Record:
         )
     counts = mp.get("evidenceCountsByType") or {}
     assertions = mp.get("assertions") or {}
+    single = len(variants) == 1
     preferred_hgvs = next((h for h in hgvs if h.startswith("NM_") or h.startswith("ENST")), hgvs[0] if hgvs else None)
     return Record(
         source="civic",
@@ -320,17 +325,18 @@ def profile_record(mp: dict[str, Any]) -> Record:
         type="variant",
         title=mp.get("name"),
         url=f"{WEB}/molecular-profiles/{mp.get('id')}",
+        # Variant ids identify the profile only when it is a single variant (a complex profile is not
+        # the same entity as its first variant); the gene is a related entity.
         identifiers={
             "civic": f"MPID{mp.get('id')}",
-            "gene_symbol": genes[0][0] if len(genes) == 1 else None,
-            "entrez_gene": genes[0][1] if len(genes) == 1 else None,
-            "rsid": rsids[0] if len(rsids) == 1 else None,
-            "clinvar": clinvar[0] if clinvar else None,
-            "hgvs": preferred_hgvs,
+            "rsid": rsids[0] if single and len(rsids) == 1 else None,
+            "clinvar": clinvar[0] if single and clinvar else None,
+            "hgvs": preferred_hgvs if single else None,
         },
         summary=mp.get("description"),
         attributes=_compact(
             {
+                **_related_ids(genes, None, None),
                 "aliases": mp.get("molecularProfileAliases"),
                 "is_complex": mp.get("isComplex") or None,
                 "score": mp.get("molecularProfileScore"),

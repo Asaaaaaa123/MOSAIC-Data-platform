@@ -18,6 +18,11 @@ Quirks:
 * Trait ids are mixed ontologies: EFO_, MONDO_, HP_, OBA_, GO_ ... They are mapped to
   the canonical keys ``efo`` (EFO_#######), ``mondo`` (MONDO:#######), ``hp``, ``go``;
   the full trait list is kept in ``attributes.efo_traits``.
+* Identifiers: trait records carry their trait id (efo/mondo/hp/...); study records only
+  ``gwas_study``; association records only ``rsid`` (the variant, as GTEx eQTLs do). A study's
+  trait, PubMed id and an association's study / mapped gene are related entities, kept in
+  attributes (``efo_traits``, ``pubmed_id``, ``study_accession``, ``mapped_genes``): as
+  identifiers they would merge every melanoma study with each other and with the disease.
 * Unknown study accession -> 404; empty searches -> 200 with no ``_embedded``.
 """
 
@@ -132,10 +137,7 @@ def _page(payload: dict[str, Any], offset: int, returned: int) -> tuple[int | No
 def study_record(item: dict[str, Any], publication: dict[str, Any] | None = None) -> Record:
     acc = item.get("accession_id") or ""
     traits = _trait_list(item.get("efo_traits"))
-    identifiers: dict[str, Any] = {"gwas_study": acc, "pmid": item.get("pubmed_id")}
-    for t in traits:
-        for key, value in trait_identifiers(t["id"]).items():
-            identifiers.setdefault(key, value)
+    identifiers: dict[str, Any] = {"gwas_study": acc}
     parts = []
     if item.get("initial_sample_size"):
         parts.append(f"Discovery sample: {item['initial_sample_size']}.")
@@ -158,6 +160,7 @@ def study_record(item: dict[str, Any], publication: dict[str, Any] | None = None
         attributes=_compact(
             {
                 "reported_trait": item.get("disease_trait"),
+                "pubmed_id": str(item["pubmed_id"]) if item.get("pubmed_id") else None,
                 "efo_traits": traits,
                 "background_traits": _trait_list(item.get("bg_efo_traits")),
                 "initial_sample_size": item.get("initial_sample_size"),
@@ -184,15 +187,7 @@ def association_record(item: dict[str, Any]) -> Record:
     risk = item.get("snp_effect_allele") or []
     traits = _trait_list(item.get("efo_traits"))
     genes = [g for g in item.get("mapped_genes") or [] if g and g != "-"]
-    identifiers: dict[str, Any] = {
-        "rsid": rsids[0] if rsids and _RSID.match(rsids[0]) else None,
-        "gwas_study": item.get("accession_id"),
-        "pmid": item.get("pubmed_id"),
-        "gene_symbol": genes[0] if len(genes) == 1 else None,
-    }
-    for t in traits:
-        for key, value in trait_identifiers(t["id"]).items():
-            identifiers.setdefault(key, value)
+    identifiers: dict[str, Any] = {"rsid": rsids[0] if rsids and _RSID.match(rsids[0]) else None}
     pval = _pvalue(item)
     trait_label = ", ".join(t["label"] for t in traits if t["label"]) or ", ".join(item.get("reported_trait") or [])
     effect = None
@@ -231,7 +226,7 @@ def association_record(item: dict[str, Any]) -> Record:
                 "efo_traits": traits,
                 "location": item.get("locations"),
                 "study_accession": item.get("accession_id"),
-                "pubmed_id": item.get("pubmed_id"),
+                "pubmed_id": str(item["pubmed_id"]) if item.get("pubmed_id") else None,
                 "first_author": item.get("first_author"),
                 "multi_snp_haplotype": item.get("multi_snp_haplotype") or None,
                 "snp_interaction": item.get("snp_interaction") or None,

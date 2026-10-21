@@ -11,10 +11,11 @@ import asyncio
 import hashlib
 import json
 import logging
+import re
 import time
 from dataclasses import dataclass, field
 from typing import Any, Callable, Iterable, Mapping, Sequence
-from urllib.parse import urlencode, urlsplit, urlunsplit, parse_qsl
+from urllib.parse import parse_qsl, quote, quote_plus, urlencode, urlsplit, urlunsplit
 
 import httpx
 
@@ -29,6 +30,16 @@ SECRET_PARAM_NAMES = {
     "api_key", "apikey", "api-key", "key", "token", "access_token", "insttoken",
     "x-apikey", "x-api-key", "password", "email", "mailto", "auth", "authorization",
 }
+
+# Header names containing one of these fragments carry credentials (Authorization,
+# X-ApiKey, X-ELS-APIKey, X-ELS-Insttoken, x-api-key ...).
+SECRET_HEADER_HINTS = ("key", "token", "auth", "secret", "password", "cookie")
+# Settings fields / environment variables whose values are credentials.
+_SECRET_SETTING = re.compile(r"(key|token|secret|password|insttoken)$", re.I)
+_SECRET_ENV_NAMES = ("ANTHROPIC_API_KEY", "ANTHROPIC_AUTH_TOKEN", "ZENODO_ACCESS_TOKEN", "SYNAPSE_AUTH_TOKEN")
+# Shorter values are not scrubbed from free text (they would mangle ordinary words,
+# e.g. DrugCentral's published password "dosage"); e-mail addresses always are.
+MIN_SECRET_LENGTH = 8
 
 RETRY_STATUSES = {408, 425, 429, 500, 502, 503, 504}
 
@@ -74,6 +85,8 @@ class HttpResponse:
     from_cache: bool = False
     elapsed_ms: float = 0.0
     final_url: str | None = None  # redacted URL after redirects (None on cache hits)
+    # Removes credentials from error text built from the body (set by HttpClient).
+    scrub: Callable[[str], str] | None = field(default=None, repr=False, compare=False)
 
     @property
     def text(self) -> str:
@@ -84,6 +97,8 @@ class HttpResponse:
             return json.loads(self.content)
         except json.JSONDecodeError as exc:
             snippet = self.text[:200].replace("\n", " ")
+            if self.scrub is not None:
+                snippet = self.scrub(snippet)
             raise ValueError(f"expected JSON from {self.url}, got: {snippet!r}") from exc
 
 
@@ -121,6 +136,61 @@ def redact_url(url: str, params: ParamsType = None, secret_params: Iterable[str]
     return urlunsplit((parts.scheme, parts.netloc, parts.path, urlencode(query, safe="*,:"), parts.fragment))
 
 
+def _is_secret_value(value: Any) -> bool:
+    return isinstance(value, str) and (len(value) >= MIN_SECRET_LENGTH or ("@" in value and len(value) >= 3))
+
+
+def settings_secret_values(settings: Settings) -> set[str]:
+    """Credential values configured in ``settings`` (API keys, tokens, contact e-mail)."""
+    values: set[str] = set()
+    for name in type(settings).model_fields:
+        if _SECRET_SETTING.search(name) or name == "biopha_contact_email":
+            value = getattr(settings, name, None)
+            if _is_secret_value(value):
+                values.add(value)
+    env = getattr(settings, "env", None)
+    if callable(env):
+        for name in _SECRET_ENV_NAMES:
+            try:
+                value = env(name)
+            except Exception:  # noqa: BLE001 - best effort
+                value = None
+            if _is_secret_value(value):
+                values.add(value)
+    return values
+
+
+def request_secret_values(
+    params: Iterable[tuple[str, str]] | None,
+    headers: Mapping[str, str] | None,
+    secret_params: Iterable[str] = (),
+) -> set[str]:
+    """Credential values sent with one request (secret query params and auth headers)."""
+    names = SECRET_PARAM_NAMES | {s.lower() for s in secret_params}
+    values = {v for k, v in (params or []) if k.lower() in names and _is_secret_value(v)}
+    for name, value in (headers or {}).items():
+        if not isinstance(value, str) or not any(hint in name.lower() for hint in SECRET_HEADER_HINTS):
+            continue
+        for candidate in (value, value.split(" ", 1)[-1]):  # "Bearer <token>"
+            if _is_secret_value(candidate.strip()):
+                values.add(candidate.strip())
+    return values
+
+
+def scrub_secrets(text: str, secrets: Iterable[str]) -> str:
+    """Replace every secret value (raw or URL-encoded) in ``text`` with ``***``."""
+    if not text:
+        return text
+    variants: set[str] = set()
+    for value in secrets:
+        if value:
+            variants.update({value, quote(value, safe=""), quote_plus(value, safe="")})
+    for variant in sorted(variants, key=len, reverse=True):
+        if variant in text:
+            text = text.replace(variant, "***")
+    return text
+
+
 def _clean_params(params: ParamsType) -> list[tuple[str, str]] | None:
     if params is None:
         return None
@@ -156,6 +226,11 @@ class HttpClient:
             limits=httpx.Limits(max_connections=64, max_keepalive_connections=32),
         )
         self._buckets: dict[str, _TokenBucket] = {}
+        self._secrets = settings_secret_values(settings)
+
+    def scrub(self, text: str, extra: Iterable[str] = ()) -> str:
+        """Remove configured credentials (and ``extra`` values) from ``text``."""
+        return scrub_secrets(text, self._secrets | set(extra))
 
     def set_rate(self, source: str, rate: float, capacity: float | None = None) -> None:
         self._buckets[source] = _TokenBucket(rate, capacity)
@@ -215,6 +290,10 @@ class HttpClient:
             body = json.dumps(data, sort_keys=True, default=str).encode()
         safe_url = redact_url(url, clean, secret_params)
         allowed = set(allow_status)
+        sent_secrets = request_secret_values(clean, headers, secret_params)
+
+        def scrub(text: str) -> str:
+            return self.scrub(text, sent_secrets)
 
         ttl = cache_ttl
         if ttl is None:
@@ -224,7 +303,7 @@ class HttpClient:
         if use_cache:
             hit = self.cache.get(key)
             if hit is not None:
-                return HttpResponse(hit.status, hit.headers, hit.content, safe_url, from_cache=True)
+                return HttpResponse(hit.status, hit.headers, hit.content, safe_url, from_cache=True, scrub=scrub)
 
         bucket = self._bucket(source, rate)
         attempt = 0
@@ -247,7 +326,7 @@ class HttpClient:
                     await asyncio.sleep(min(2 ** attempt, 20))
                     continue
                 raise SourceError(
-                    source, f"network error: {type(exc).__name__}: {exc}", retryable=True, url=safe_url
+                    source, scrub(f"network error: {type(exc).__name__}: {exc}"), retryable=True, url=safe_url
                 ) from exc
             elapsed = (time.perf_counter() - started) * 1000
             status = response.status_code
@@ -266,6 +345,7 @@ class HttpClient:
                     safe_url,
                     elapsed_ms=elapsed,
                     final_url=redact_url(str(response.url), None, secret_params),
+                    scrub=scrub,
                 )
                 if 200 <= status < 300:
                     if validate is not None:
@@ -279,7 +359,8 @@ class HttpClient:
                         self.cache.set(key, source, status, keep, content, ttl)
                 return result
 
-            snippet = content.decode("utf-8", errors="replace")[:300].replace("\n", " ").strip()
+            # Scrub before truncating so a key cut at the 300-char boundary cannot leak a prefix.
+            snippet = scrub(content.decode("utf-8", errors="replace")[:4096])[:300].replace("\n", " ").strip()
             raise SourceError(
                 source,
                 f"{method} {safe_url} failed: {snippet or response.reason_phrase}",
@@ -322,7 +403,7 @@ class HttpClient:
         errors = payload.get("errors") if isinstance(payload, dict) else None
         if errors and not payload.get("data"):
             message = "; ".join(str(e.get("message", e)) for e in errors[:3])
-            raise SourceError(source, f"GraphQL error: {message}")
+            raise SourceError(source, self.scrub(f"GraphQL error: {message}"))
         return payload.get("data") or {}
 
     async def aclose(self) -> None:

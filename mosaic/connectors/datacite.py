@@ -20,7 +20,8 @@ Quirks (verified live, 2026-10):
 
 Identifiers: ``doi`` always; repository-native ids derived from the DOI when the repository is
 known (``zenodo`` record id, ``figshare`` article id, ``dryad`` DOI, ``dataverse`` persistent id,
-``osf`` GUID, ``synapse`` syn id) so DataCite records cluster with the native connectors.
+``osf`` GUID, ``synapse`` syn id, ``openneuro`` ds id, ``dandi`` dandiset id; OpenNeuro and DANDI mint
+one DOI per version) so DataCite records cluster with the native connectors.
 Related works (IsSupplementTo / IsCitedBy / References ... DOIs, PMIDs, URLs) and NCT numbers
 mentioned in the metadata go to ``attributes["related"]``.
 """
@@ -172,6 +173,10 @@ def repository_ids(doi: str) -> dict[str, str]:
         out["osf"] = m.group(1)
     elif m := re.match(r"^10\.7303/(syn\d+)", doi):
         out["synapse"] = m.group(1)
+    elif m := re.match(r"^10\.18112/openneuro\.(ds\d{6})(?:\.v[\d.]+)?$", doi):
+        out["openneuro"] = m.group(1)  # version DOIs (...v1.0.8) differ per snapshot; the dataset id does not
+    elif m := re.match(r"^10\.48324/dandi\.(\d{6})(?:/[\d.]+)?$", doi):
+        out["dandi"] = m.group(1)
     return out
 
 

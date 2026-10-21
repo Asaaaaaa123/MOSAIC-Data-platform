@@ -96,23 +96,70 @@ _FORBIDDEN_FUNCS = re.compile(
 )
 
 
+MAX_SQL_CHARS = 20_000
+
+# Lexes the parts of a statement that can hide text from the keyword checks, in the
+# order PostgreSQL reads them (the session runs with standard_conforming_strings=on,
+# so only E'...' strings treat backslash as an escape).
+_SQL_LEXEMES = re.compile(
+    r"(?P<estr>(?<![\w$])[eE]'(?:[^'\\]|\\.|'')*')"
+    r"|(?P<str>'(?:[^']|'')*')"
+    r"|(?P<ident>\"(?:[^\"]|\"\")*\")"
+    r"|(?P<uescape>(?<![\w$])[uU]&(?=[\"']))"
+    r"|(?P<dollar>\$)",
+    re.DOTALL,
+)
+
+
+def _sql_views(text: str) -> tuple[str, str]:
+    """Return ``(keywords_view, functions_view)`` of ``text`` with literals blanked.
+
+    Strings become ``''`` in both views. Quoted identifiers become ``"x"`` in the
+    keyword view (a column may be called "comment") and their bare name in the
+    function view, so ``"pg_read_file"(...)`` is still recognised as a call.
+    """
+    keywords: list[str] = []
+    functions: list[str] = []
+    pos = 0
+    for match in _SQL_LEXEMES.finditer(text):
+        keywords.append(text[pos:match.start()])
+        functions.append(text[pos:match.start()])
+        pos = match.end()
+        kind = match.lastgroup
+        if kind == "dollar":
+            raise ValueError("'$' (dollar-quoted strings, parameters) is not allowed")
+        if kind == "uescape":
+            raise ValueError("Unicode-escaped strings and identifiers (U&) are not allowed")
+        if kind == "ident":
+            keywords.append('"x"')
+            functions.append(" " + match.group()[1:-1].replace('""', '"') + " ")
+        else:
+            keywords.append("''")
+            functions.append("''")
+    keywords.append(text[pos:])
+    functions.append(text[pos:])
+    return "".join(keywords), "".join(functions)
+
+
 def validate_sql(sql: str) -> str:
     """Return the cleaned statement or raise ValueError explaining why it is not allowed."""
     text = (sql or "").strip()
     if not text:
         raise ValueError("empty SQL")
+    if len(text) > MAX_SQL_CHARS:
+        raise ValueError(f"query is too long ({len(text)} characters; the limit is {MAX_SQL_CHARS})")
     if ";" in text:
         raise ValueError("semicolons are not allowed: send a single SELECT statement without ';'")
     if "--" in text or "/*" in text:
         raise ValueError("SQL comments are not allowed")
     if not re.match(r"^(select|with)\b", text, re.IGNORECASE):
         raise ValueError("only SELECT or WITH ... SELECT statements are allowed")
-    # ignore keywords inside string literals when checking
-    stripped = re.sub(r"'(?:[^']|'')*'", "''", text)
-    bad = _FORBIDDEN_SQL.search(stripped)
+    # ignore keywords inside string literals / quoted identifiers when checking
+    keywords_view, functions_view = _sql_views(text)
+    bad = _FORBIDDEN_SQL.search(keywords_view)
     if bad:
         raise ValueError(f"keyword {bad.group(1).upper()!r} is not allowed in read-only queries")
-    func = _FORBIDDEN_FUNCS.search(stripped)
+    func = _FORBIDDEN_FUNCS.search(functions_view)
     if func:
         raise ValueError(f"function {func.group(1)!r} is not allowed")
     return text
@@ -180,7 +227,8 @@ class SqlQueryParams(ToolParams):
     sql: str = Field(
         description="A single read-only SELECT (or WITH ... SELECT) statement without ';' or comments, e.g. "
         "\"select s.name, a.gene, a.act_value from structures s join act_table_full a on a.struct_id = s.id "
-        "where a.gene = 'EGFR' and a.moa = 1\""
+        "where a.gene = 'EGFR' and a.moa = 1\"",
+        max_length=MAX_SQL_CHARS,
     )
     max_rows: int = Field(100, ge=1, le=MAX_SQL_ROWS, description="Row cap (applied as an outer LIMIT)")
 
@@ -204,6 +252,8 @@ class _Database:
         with conn.cursor() as cur:
             cur.execute("SET statement_timeout = 15000")
             cur.execute("SET default_transaction_read_only = on")
+            # validate_sql's literal scanner assumes backslashes are literal outside E'...'
+            cur.execute("SET standard_conforming_strings = on")
         self._conn = conn
         return conn
 

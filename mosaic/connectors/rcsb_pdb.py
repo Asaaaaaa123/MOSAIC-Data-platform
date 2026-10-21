@@ -16,9 +16,11 @@ Quirks:
 - ``rows`` is capped at 10000 upstream; we cap at 100. Computed (AlphaFold/ModelArchive) models are
   excluded: only experimental entries are returned.
 
-Identifiers on structure records: pdb, uniprot (first polymer entity's accession; all accessions in
-attributes.uniprot_ids), pmid and doi (primary citation). Ligand InChIKeys and DrugBank IDs are kept in
-attributes.ligands because they identify other entities (compounds).
+Identifiers on structure records: pdb only. The proteins in the structure (attributes.uniprot = the
+queried or first polymer entity's accession, all accessions in attributes.uniprot_ids), the primary
+citation (attributes.citation.pmid / .doi) and the ligands (InChIKeys, DrugBank IDs in
+attributes.ligands) are related entities: as identifiers they would merge every structure of a protein,
+or of a paper, into one cluster with the protein / article record.
 """
 
 from __future__ import annotations
@@ -29,6 +31,7 @@ from typing import Any, Literal
 from pydantic import Field
 
 from ..http import SourceError
+from ..ids import normalize_doi
 from ..models import Record, ToolResult
 from .base import Connector, SearchParams, ToolParams, parse_offset, strip_html, tool
 
@@ -167,8 +170,7 @@ def _entity_order(entity: dict[str, Any]) -> tuple[int, str]:
 
 def _record(entry: dict[str, Any], prefer_uniprot: str | None = None) -> Record:
     """Normalize one GraphQL entry. ``prefer_uniprot`` (the accession a caller searched for) becomes
-    the record's ``uniprot`` identifier when the entry contains it, so cross-database linking ties the
-    structure to the protein that was asked about rather than to an arbitrary partner chain."""
+    ``attributes['uniprot']`` when the entry contains it, rather than an arbitrary partner chain."""
     pdb_id = entry.get("rcsb_id") or ""
     info = entry.get("rcsb_entry_info") or {}
     accession = entry.get("rcsb_accession_info") or {}
@@ -240,6 +242,9 @@ def _record(entry: dict[str, Any], prefer_uniprot: str | None = None) -> Record:
         "revision_date": _date(accession.get("revision_date")),
         "keywords": keywords.get("pdbx_keywords"),
         "organisms": organisms,
+        "uniprot": prefer_uniprot
+        if prefer_uniprot and prefer_uniprot in uniprot_ids
+        else (uniprot_ids[0] if uniprot_ids else None),
         "uniprot_ids": uniprot_ids,
         "polymer_entity_count": info.get("polymer_entity_count"),
         "molecular_weight_kda": info.get("molecular_weight"),
@@ -252,6 +257,8 @@ def _record(entry: dict[str, Any], prefer_uniprot: str | None = None) -> Record:
                 "title": citation.get("title"),
                 "journal": citation.get("rcsb_journal_abbrev") or citation.get("journal_abbrev"),
                 "year": citation.get("year"),
+                "pmid": str(pmid) if pmid else None,
+                "doi": normalize_doi(citation["pdbx_database_id_DOI"]) if citation.get("pdbx_database_id_DOI") else None,
             }.items()
             if v
         }
@@ -263,14 +270,7 @@ def _record(entry: dict[str, Any], prefer_uniprot: str | None = None) -> Record:
         type="structure",
         title=strip_html((entry.get("struct") or {}).get("title")) or pdb_id,
         url=f"https://www.rcsb.org/structure/{pdb_id}" if pdb_id else None,
-        identifiers={
-            "pdb": pdb_id,
-            "uniprot": prefer_uniprot
-            if prefer_uniprot and prefer_uniprot in uniprot_ids
-            else (uniprot_ids[0] if uniprot_ids else None),
-            "pmid": str(pmid) if pmid else None,
-            "doi": citation.get("pdbx_database_id_DOI"),
-        },
+        identifiers={"pdb": pdb_id},
         date=_date(accession.get("initial_release_date")),
         authors=[a.get("name") for a in entry.get("audit_author") or [] if a.get("name")],
         summary=strip_html(abstract or citation.get("title")),

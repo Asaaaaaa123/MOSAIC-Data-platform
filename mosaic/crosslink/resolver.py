@@ -142,11 +142,13 @@ def _probes(kind: EntityKind, query: str) -> list[_Probe]:
     if kind == "disease":
         return [
             _Probe("ols", "search_terms", {"query": q, "ontology": "mondo", "limit": 3}),
-            _Probe("ols", "search_terms", {"query": q, "ontology": "efo", "limit": 3}),
+            # EFO now imports most diseases from MONDO: exact label match, imported terms included
+            _Probe("ols", "search_terms", {"query": q, "ontology": "efo", "exact": True, "defining_only": False, "limit": 3}),
             _Probe("ols", "search_terms", {"query": q, "ontology": "doid", "limit": 3}),
             _Probe("monarch", "search", {"query": q, "category": "disease", "limit": 3}),
             _Probe("opentargets", "search", {"query": q, "entities": ["disease"], "limit": 3}),
-            _Probe("ncbi", "entrez_search", {"db": "mesh", "query": q, "limit": 3}),
+            # [MH] restricts to the MeSH heading; a bare term matches anything mentioning it
+            _Probe("ncbi", "entrez_search", {"db": "mesh", "query": q if "[" in q else f"{q}[MH]", "limit": 3}),
         ]
     if kind == "article":
         return _article_probes(q)

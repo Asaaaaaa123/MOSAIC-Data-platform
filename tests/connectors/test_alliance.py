@@ -142,7 +142,8 @@ async def test_gene_diseases_for_gene(make_registry):
     assoc = result.records[0]
     assert assoc.type == "association"
     assert assoc.title == "PAX6 is implicated in aniridia"
-    assert assoc.identifiers == {"doid": "DOID:12271", "pmid": "25366758"}
+    assert assoc.identifiers == {"doid": "DOID:12271"}  # the listed partner; the paper is only related
+    assert "25366758" in assoc.attributes["pmids"]
     assert assoc.url == "https://www.alliancegenome.org/disease/DOID:12271"
     assert assoc.attributes["relation"] == "is_implicated_in"
     assert assoc.attributes["evidence_codes"] == ["IAGP"]
@@ -181,7 +182,7 @@ async def test_gene_models(make_registry):
     model = result.records[0]
     assert model.id == "MGI:2680573"
     assert model.title.startswith("Pax6<1Jrt>/Pax6<+>")  # <sup> markup becomes MGI angle brackets
-    assert model.identifiers["mgi"] == "MGI:2680573"
+    assert model.identifiers == {"mgi": "MGI:2680573"}  # the modelled disease is a related entity
     assert model.url == "https://www.alliancegenome.org/model/MGI:2680573"
     assert model.attributes["disease_models"][0]["disease"] == "Peters anomaly"
     assert "microphthalmia" in model.attributes["phenotypes"]
@@ -197,7 +198,7 @@ async def test_gene_phenotypes(make_registry):
     pheno = result.records[0]
     assert pheno.type == "phenotype"
     assert pheno.title == "abnormal anterior eye segment morphology"
-    assert pheno.identifiers == {"pmid": "11481423"}
+    assert "pmid" not in pheno.identifiers  # supporting papers are related entities
     assert pheno.attributes["pmids"] == ["11481423", "19563798"]
     assert pheno.attributes["species"] == "Mus musculus"
 

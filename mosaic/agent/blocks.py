@@ -14,9 +14,6 @@ from __future__ import annotations
 from typing import Any, Iterable
 
 THINKING_TYPES = frozenset({"thinking", "redacted_thinking"})
-# Blocks the declining model produced before the final ``fallback`` block that must
-# not be echoed back. ``connector_text`` is narration some tool-using responses carry.
-_DROP_BEFORE_FALLBACK = frozenset({"thinking", "redacted_thinking", "connector_text", "tool_use"})
 
 # Display names for Anthropic-hosted tools (ServerToolActivity.name).
 _SERVER_TOOL_LABELS = {
@@ -36,27 +33,45 @@ def dump_content(blocks: Iterable[Any]) -> list[dict[str, Any]]:
     return [dump_block(b) for b in blocks]
 
 
+def is_server_call(block: dict[str, Any]) -> bool:
+    """A server-side tool call (``server_tool_use``, ``mcp_tool_use`` ...), not a client ``tool_use``."""
+    kind = str(block.get("type") or "")
+    return kind.endswith("_tool_use") and kind != "tool_use"
+
+
+def is_server_result(block: dict[str, Any]) -> bool:
+    """A server-side tool result (``web_search_tool_result``, ``tool_search_tool_result`` ...)."""
+    return "tool_use_id" in block and str(block.get("type") or "").endswith("_tool_result")
+
+
+def unpaired_server_calls(blocks: Iterable[dict[str, Any]]) -> list[str]:
+    """Ids of server-side tool calls in ``blocks`` that have no result block."""
+    items = list(blocks)
+    answered = {b.get("tool_use_id") for b in items if is_server_result(b)}
+    return [str(b.get("id")) for b in items if is_server_call(b) and b.get("id") not in answered]
+
+
 def echo_content(blocks: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """The assistant content to append to history for a finished response.
 
     Unchanged unless the response contains a ``fallback`` block. Then, before the
-    final ``fallback`` block: thinking, redacted thinking, connector text and
-    client ``tool_use`` blocks are dropped, and a ``server_tool_use`` is kept only
-    when its result is present. Everything else (text, paired server-tool blocks,
-    the ``fallback`` blocks themselves, and every block after the final one) is
-    kept in place.
+    final ``fallback`` block, only text blocks, paired server-tool blocks and the
+    ``fallback`` markers are kept: thinking, redacted thinking, client ``tool_use``,
+    a server-tool call without its result and any other model-internal block type
+    are dropped. Every block after the final ``fallback`` block is kept in place.
     """
     last = max((i for i, b in enumerate(blocks) if b.get("type") == "fallback"), default=None)
     if last is None:
         return list(blocks)
-    answered = {b.get("tool_use_id") for b in blocks[:last] if "tool_use_id" in b}
+    unpaired = set(unpaired_server_calls(blocks[:last]))
     kept: list[dict[str, Any]] = []
     for index, block in enumerate(blocks):
-        kind = block.get("type")
         if index < last:
-            if kind in _DROP_BEFORE_FALLBACK:
-                continue
-            if kind == "server_tool_use" and block.get("id") not in answered:
+            kind = block.get("type")
+            if is_server_call(block):
+                if block.get("id") in unpaired:
+                    continue
+            elif kind not in ("text", "fallback") and not is_server_result(block):
                 continue
         kept.append(block)
     return kept

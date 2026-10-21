@@ -31,8 +31,13 @@ async def test_search_studies_by_trait(make_registry):
     assert first.type == "study"
     assert first.id == "GCST91000572"
     assert first.identifiers["gwas_study"] == "GCST91000572"
-    assert first.identifiers["pmid"] == "38750426"
-    assert first.identifiers["mondo"] == "MONDO:0004979"
+    # the trait and the paper are related entities: as identifiers they would merge all asthma studies
+    assert first.identifiers == {"gwas_study": "GCST91000572"}
+    assert first.attributes["pubmed_id"] == "38750426"
+    assert {"id": "MONDO_0004979", "label": "asthma"} in first.attributes["efo_traits"]
+    from mosaic.crosslink.merge import cluster_records
+
+    assert len(cluster_records(result.records)) == len(result.records)
     assert first.url == "https://www.ebi.ac.uk/gwas/studies/GCST91000572"
     assert "Discovery sample" in first.summary
 
@@ -87,10 +92,11 @@ async def test_associations_for_variant(make_registry):
     assert top.type == "association"
     assert top.attributes["p_value"] == "3e-1315"  # mantissa/exponent, not the underflowed 0.0
     assert top.identifiers["rsid"] == "rs7903146"
-    assert top.identifiers["gwas_study"] == "GCST90492734"
-    assert top.identifiers["gene_symbol"] == "TCF7L2"
-    assert top.identifiers["mondo"] == "MONDO:0005148"
-    assert top.identifiers["pmid"] == "38374256"
+    assert top.identifiers == {"rsid": "rs7903146"}  # study, gene, trait and paper are related entities
+    assert top.attributes["study_accession"] == "GCST90492734"
+    assert top.attributes["mapped_genes"] == ["TCF7L2"]
+    assert top.attributes["efo_traits"][0]["id"] == "MONDO_0005148"
+    assert top.attributes["pubmed_id"] == "38374256"
     assert result.records[1].attributes["beta"] == "0.28 unit decrease"
     assert result.data["variant"]["functional_class"] == "intron_variant"
     assert result.data["variant"]["location_grch38"] == "10:112998590"
@@ -154,7 +160,8 @@ async def test_get_study_with_publication_and_ancestry(make_registry):
     assert rec.id == "GCST000392" and rec.title == "Type 1 diabetes"
     assert rec.date == "2009-05-10"
     assert rec.authors[0] == "Barrett JC"
-    assert rec.identifiers == {"gwas_study": "GCST000392", "pmid": "19430480", "mondo": "MONDO:0005147"}
+    assert rec.identifiers == {"gwas_study": "GCST000392"}
+    assert rec.attributes["pubmed_id"] == "19430480"
     assert rec.attributes["full_summary_stats_available"] is True
     assert rec.attributes["journal"] == "Nat Genet"
     assert rec.attributes["ancestries"][0]["ancestral_groups"] == ["European"]
@@ -182,4 +189,4 @@ async def test_live_all_tools(live_registry):
     trait = await registry.call("gwas_catalog", "associations_for_trait", {"trait": "MONDO_0005148", "limit": 3})
     assert trait.records and trait.total > 1000
     study = await registry.call("gwas_catalog", "get_study", {"accession": "GCST000392"})
-    assert study.records[0].identifiers["pmid"] == "19430480"
+    assert study.records[0].attributes["pubmed_id"] == "19430480"

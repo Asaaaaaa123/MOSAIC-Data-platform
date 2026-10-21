@@ -23,10 +23,23 @@ import re
 from typing import Any, Iterable
 from urllib.parse import urlsplit
 
+from starlette.exceptions import HTTPException
+
 from ..config import Settings
+from ..http import settings_secret_values
 
 LOOPBACK_HOSTS = {"127.0.0.1", "localhost", "::1"}
 SAFE_METHODS = {"GET", "HEAD", "OPTIONS"}
+# Largest request body accepted (the biggest legitimate body is a 50k-character chat
+# message or a tool call with a long identifier list).
+MAX_BODY_BYTES = 2 * 1024 * 1024
+
+
+class RequestTooLarge(HTTPException):
+    """Raised from ``receive`` when a streamed body passes the limit (rendered as 413)."""
+
+    def __init__(self, limit: int):
+        super().__init__(413, f"request body too large (limit {limit} bytes)")
 
 CONTENT_SECURITY_POLICY = "; ".join(
     [
@@ -76,10 +89,18 @@ def default_allowed_hosts(bind_host: str) -> set[str] | None:
 class SecurityMiddleware:
     """Pure-ASGI middleware (safe for streaming responses)."""
 
-    def __init__(self, app: Any, *, allowed_hosts: Iterable[str] | None, allowed_origins: Iterable[str] = ()):
+    def __init__(
+        self,
+        app: Any,
+        *,
+        allowed_hosts: Iterable[str] | None,
+        allowed_origins: Iterable[str] = (),
+        max_body_bytes: int = MAX_BODY_BYTES,
+    ):
         self.app = app
         self.allowed_hosts = None if allowed_hosts is None else {h.lower() for h in allowed_hosts}
         self.allowed_origins = {o.rstrip("/").lower() for o in allowed_origins}
+        self.max_body_bytes = max_body_bytes
 
     async def __call__(self, scope: dict[str, Any], receive: Any, send: Any) -> None:
         if scope["type"] != "http":
@@ -101,6 +122,28 @@ class SecurityMiddleware:
                 await _reject(send, 403, "cross-site request blocked")
                 return
 
+        length = headers.get("content-length")
+        if length is not None:
+            try:
+                too_large = int(length) > self.max_body_bytes
+            except ValueError:
+                await _reject(send, 400, "invalid Content-Length header")
+                return
+            if too_large:
+                await _reject(send, 413, f"request body too large (limit {self.max_body_bytes} bytes)")
+                return
+        received = 0
+        limit = self.max_body_bytes
+
+        async def limited_receive() -> dict[str, Any]:
+            nonlocal received
+            message = await receive()
+            if message.get("type") == "http.request":
+                received += len(message.get("body") or b"")
+                if received > limit:  # chunked upload without (or lying about) Content-Length
+                    raise RequestTooLarge(limit)
+            return message
+
         async def send_with_headers(message: dict[str, Any]) -> None:
             if message["type"] == "http.response.start":
                 current = list(message.get("headers", []))
@@ -109,7 +152,7 @@ class SecurityMiddleware:
                 message = {**message, "headers": current}
             await send(message)
 
-        await self.app(scope, receive, send_with_headers)
+        await self.app(scope, limited_receive, send_with_headers)
 
     def _origin_ok(self, origin: str, host: str) -> bool:
         origin = origin.strip().rstrip("/").lower()
@@ -159,6 +202,8 @@ class SecretScrubber:
                 value = settings.env(name)
                 if value and len(value) >= self.MIN_LENGTH:
                     values.add(value)
+        # plus everything mosaic.http scrubs (contact e-mail, Zenodo/Synapse/Anthropic tokens)
+        values |= settings_secret_values(settings)
         self._values = sorted(values, key=len, reverse=True)
 
     def __call__(self, text: Any) -> Any:

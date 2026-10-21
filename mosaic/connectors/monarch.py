@@ -21,6 +21,9 @@ Quirks:
 Identifiers use ols.map_curie (mondo, hp, hgnc, omim, orphanet, doid, mesh, umls, efo, ncit,
 icd10, medgen, gard, ensembl_gene, ...); non-human genes use lowercase model-organism keys
 (``mgi``, ``rgd``, ``zfin``, ``flybase``, ``wormbase``, ``sgd``, ``xenbase``).
+Association records carry the ids of the counterpart entity (the one listed); their supporting
+publications stay in ``attributes['publications']``: one paper (e.g. an HPO annotation source) backs
+dozens of a disease's phenotype associations, which a shared ``pmid`` would merge into one cluster.
 """
 
 from __future__ import annotations
@@ -200,14 +203,11 @@ def _association_record(a: dict[str, Any], focus: str | None) -> Record:
     other_cat = a.get("object_category") if other == obj else a.get("subject_category")
     other_taxon = a.get("object_taxon") if other == obj else a.get("subject_taxon")
     pubs = [p for p in a.get("publications") or [] if isinstance(p, str)]
-    pmids = [p.split(":", 1)[1] for p in pubs if p.upper().startswith("PMID:")]
     ids = entity_identifiers(other, None, symbol=other_label if (other_cat or "").endswith("Gene") else None, taxon=other_taxon)
     original = a.get("original_object") if other == obj else a.get("original_subject")
     if original and original != other:
         for key, value in entity_identifiers(original, None).items():
             ids.setdefault(key, value)
-    if pmids:
-        ids["pmid"] = pmids[0]
     predicate = (a.get("predicate") or "").replace("biolink:", "")
     attrs = {
         "subject": subject,

@@ -7,6 +7,7 @@ Keyless. Requests carry ``mailto`` (polite pool) when BIOPHA_CONTACT_EMAIL is se
 from __future__ import annotations
 
 from typing import Any
+from urllib.parse import quote
 
 from pydantic import Field
 
@@ -144,7 +145,7 @@ class Crossref(Connector):
         from ..ids import normalize_doi
 
         doi = normalize_doi(params.doi)
-        response = await self.request("GET", f"{API}/works/{doi}", params=self._polite({}), allow_status=(404,))
+        response = await self.request("GET", f"{API}/works/{quote(doi, safe='/')}", params=self._polite({}), allow_status=(404,))
         if response.status == 404:
             return ToolResult(source=self.name, tool="get_work", notes=[f"DOI {doi} not found in Crossref"])
         item = response.json().get("message", {})

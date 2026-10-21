@@ -329,3 +329,11 @@ async def test_live_entitlement_limited_tools(live_registry):
             assert exc.status in (401, 403) and "entitlement" in exc.message
         else:
             assert result.records
+
+
+def test_search_record_isbn_list_string():
+    from mosaic.connectors.scopus import _search_record
+
+    entry = {"eid": "2-s2.0-84956527608", "dc:title": "Special variants of malignant melanoma",
+             "prism:isbn": [{"@_fa": "true", "$": "[9781493908905, 9781493908912]"}]}
+    assert _search_record(entry).identifiers["isbn"] == "9781493908905"  # not the stringified list

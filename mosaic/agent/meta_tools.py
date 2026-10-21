@@ -44,7 +44,10 @@ from .results import ResultHandles, ResultKind, StoredResult
 CategoryName = Literal[tuple(CATEGORIES)]  # type: ignore[valid-type]
 
 MAX_EXPORT_ROWS = 100_000
-RECORD_COLUMNS = ["source", "record_id", "type", "title", "date", "authors", "identifiers", "url", "summary"]
+RECORD_COLUMNS = [
+    "source", "record_id", "type", "title", "date", "authors", "identifiers",
+    "quality_grade", "quality_score", "quality_flags", "url", "summary",
+]
 _TABLE_PREVIEW_ROWS = 30
 
 
@@ -193,6 +196,9 @@ def records_table(records: list[Record]) -> tuple[list[str], list[dict[str, Any]
             "date": r.date,
             "authors": "; ".join(r.authors) or None,
             "identifiers": "; ".join(f"{k}:{v}" for k, v in sorted(r.identifiers.items())) or None,
+            "quality_grade": (r.quality or {}).get("grade"),
+            "quality_score": (r.quality or {}).get("score"),
+            "quality_flags": "; ".join((r.quality or {}).get("flags") or []) or None,
             "url": r.url,
             "summary": r.summary,
         }

@@ -143,7 +143,8 @@ async def test_entrez_search_gds(make_registry):
     assert result.total == 2759 and result.next_cursor == "2"
     gse = result.records[0]
     assert gse.id == "GSE121810" and gse.type == "dataset"
-    assert gse.identifiers == {"geo": "GSE121810", "pmid": "30742122", "sra": "SRP166889"}
+    assert gse.identifiers == {"geo": "GSE121810", "sra": "SRP166889"}  # the paper is a related entity
+    assert gse.attributes["pubmed_ids"] == ["30742122"]
     assert gse.url == "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE121810"
     assert gse.date == "2018-12-05"
     assert gse.attributes["n_samples"] == 29 and gse.attributes["entrez_db"] == "gds"
@@ -151,12 +152,12 @@ async def test_entrez_search_gds(make_registry):
 
 EXPECTED = {
     "gene": ("7157", "gene", {"entrez_gene": "7157", "gene_symbol": "TP53", "omim": "191170"}),
-    "clinvar": ("12375", "variant", {"clinvar": "12375", "rsid": "rs121912662", "gene_symbol": "TP53", "entrez_gene": "7157"}),
-    "snp": ("rs334", "variant", {"rsid": "rs334", "gene_symbol": "HBB", "entrez_gene": "3043"}),
-    "sra": ("ERX2477416", "dataset", {"sra": "ERX2477416", "bioproject": "PRJEB25794", "biosample": "SAMEA1010852"}),
+    "clinvar": ("12375", "variant", {"clinvar": "12375", "rsid": "rs121912662", "gene_symbol": None, "entrez_gene": None}),
+    "snp": ("rs334", "variant", {"rsid": "rs334", "gene_symbol": None, "entrez_gene": None}),
+    "sra": ("ERX2477416", "dataset", {"sra": "ERX2477416", "bioproject": None, "biosample": None}),
     "gap": ("phs000007.v30.p11", "study", {"dbgap": "phs000007"}),
     "bioproject": ("PRJNA257197", "study", {"bioproject": "PRJNA257197", "taxonomy": "186538"}),
-    "biosample": ("SAMN02604305", "sample", {"biosample": "SAMN02604305", "bioproject": "PRJNA40"}),
+    "biosample": ("SAMN02604305", "sample", {"biosample": "SAMN02604305", "bioproject": None}),
     "medgen": ("C0010674", "disease", {"umls": "C0010674", "mesh": "D003550", "omim": "219700", "mondo": "MONDO:0009061",
                                         "orphanet": "586"}),
     "taxonomy": ("9606", "other", {"taxonomy": "9606"}),
@@ -165,7 +166,7 @@ EXPECTED = {
     "pmc": ("PMC6408961", "article", {"pmcid": "PMC6408961", "pmid": "30742122", "doi": "10.1038/s41591-018-0337-7"}),
     "pubmed": ("30742122", "article", {"pmid": "30742122", "pmcid": "PMC6408961"}),
     "dbvar": ("nsv7909547", "variant", {"dbvar": "nsv7909547"}),
-    "gtr": ("GTR000021517", "assay", {"gtr": "GTR000021517", "gene_symbol": "BRCA1", "entrez_gene": "672"}),
+    "gtr": ("GTR000021517", "assay", {"gtr": "GTR000021517", "gene_symbol": None, "entrez_gene": None}),
     "mesh": ("D001249", "ontology_term", {"mesh": "D001249"}),
     "cdd": ("cl49619", "other", {"cdd": "cl49619"}),
     "assembly": ("GCF_000001405.40", "dataset", {"assembly": "GCF_000001405.40", "taxonomy": "9606"}),
@@ -185,6 +186,12 @@ def test_summary_mappers(db):
         assert record.identifiers.get(key) == value, (db, key, record.identifiers)
     assert record.title and record.url and record.url.startswith("https://")
     assert record.attributes["entrez_db"] == db
+    # related entities (variant's / test's gene, a sample's parent project) are attributes only
+    related = {"clinvar": ("entrez_genes", ["7157"]), "snp": ("entrez_genes", ["3043"]), "gtr": ("entrez_genes", ["672"]),
+               "sra": ("bioproject", "PRJEB25794"), "biosample": ("bioproject", "PRJNA40")}
+    if db in related:
+        key, value = related[db]
+        assert record.attributes[key] == value
 
 
 def test_summary_generic_fallback():
@@ -326,6 +333,6 @@ async def test_live_entrez_tools(live_registry):
     variants = await registry.call("ncbi", "entrez_summary", {"db": "snp", "ids": ["rs334"]})
     assert variants.records[0].identifiers["rsid"] == "rs334"
     geo = await registry.call("ncbi", "entrez_summary", {"db": "gds", "ids": ["GSE121810"]})
-    assert geo.records[0].identifiers["pmid"] == "30742122"
+    assert geo.records[0].attributes["pubmed_ids"] == ["30742122"]
     linked = await registry.call("ncbi", "entrez_link", {"dbfrom": "pubmed", "db": "gds", "ids": ["30742122"]})
     assert any(r.identifiers.get("geo") == "GSE121810" for r in linked.records)

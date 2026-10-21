@@ -96,7 +96,8 @@ async def test_single_tissue_eqtls_by_rsid_with_lenient_tissue(make_registry):
     assert sent["itemsPerPage"] == "10000"
     record = result.records[0]
     assert record.type == "association"
-    assert record.identifiers == {"rsid": "rs38719", "gnomad_variant": "7-140994094-G-T", "gene_symbol": "MRPS33"}
+    assert record.identifiers == {"rsid": "rs38719", "gnomad_variant": "7-140994094-G-T"}  # the gene is related
+    assert record.attributes["gene_symbol"] == "MRPS33"
     assert "ensembl_gene" not in record.identifiers  # the gene lives in attributes
     assert record.attributes["ensembl_gene"] == "ENSG00000090263"
     assert record.attributes["nes"] < 0 and record.attributes["p_value"] < 1e-10

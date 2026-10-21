@@ -15,6 +15,9 @@ Quirks:
 - ``/identifiers/projection`` takes a text/plain body (one identifier per line) and returns a
   ``token`` that can be reused for ``/token/{token}/...`` follow-ups (we fetch ``notFound``).
 - Non-canonical identifier key used: ``chebi`` (CHEBI:#####) for small-molecule search hits.
+- A pathway's GO biological process and its diseases are related entities, kept in
+  ``attributes['go_biological_process']`` / ``attributes['diseases']``: as ``go`` / ``doid``
+  identifiers every cancer pathway would merge via DOID:162, and pathways via shared GO terms.
 - ``/data/participants/{id}/referenceEntities`` can be several MB for large pathways, so
   ``get_pathway`` only calls it when ``include_participants`` is true.
 """
@@ -308,11 +311,6 @@ class Reactome(Connector):
         ).strip()
         go = _go_id(item.get("goBiologicalProcess"))
         diseases = [d for d in item.get("disease") or [] if isinstance(d, dict)]
-        doids = [
-            f"DOID:{d['identifier']}"
-            for d in diseases
-            if d.get("identifier") and (d.get("databaseName") or "").upper() == "DOID"
-        ]
         notes: list[str] = []
         attributes: dict[str, Any] = {
             "species": item.get("speciesName") or first([s.get("displayName") for s in item.get("species") or [] if isinstance(s, dict)]),
@@ -380,7 +378,7 @@ class Reactome(Connector):
             type="pathway" if item.get("schemaClass") in ("Pathway", "TopLevelPathway", None) else "other",
             title=item.get("displayName") or first(item.get("name")),
             url=_pathway_url(st_id),
-            identifiers={"reactome": st_id, "go": go, "doid": first(doids)},
+            identifiers={"reactome": st_id},
             date=item.get("releaseDate"),
             summary=summation or None,
             attributes={k: v for k, v in attributes.items() if v not in (None, "", [], {})},

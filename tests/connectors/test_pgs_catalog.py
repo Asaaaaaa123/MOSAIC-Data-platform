@@ -58,10 +58,11 @@ async def test_get_score_normalizes(make_registry):
     registry = make_registry("pgs_catalog")
     result = await registry.call("pgs_catalog", "get_score", {"pgs_id": "pgs000004"})
     rec = result.records[0]
-    assert rec.identifiers["pgs"] == "PGS000004"
-    assert rec.identifiers["pmid"] == "30554720"
-    assert rec.identifiers["doi"] == "10.1016/j.ajhg.2018.11.002"
-    assert rec.identifiers["mondo"] == "MONDO:0004989"
+    # publication and trait are related entities (one paper / trait has many scores)
+    assert rec.identifiers == {"pgs": "PGS000004"}
+    assert rec.attributes["publication_pmid"] == "30554720"
+    assert rec.attributes["publication_doi"] == "10.1016/j.ajhg.2018.11.002"
+    assert rec.attributes["trait_efo"][0]["id"] == "MONDO_0004989"
     assert rec.date == "2018-12-13"
     assert rec.attributes["variants_number"] == 313
     assert rec.attributes["method_name"] == "Hard-Thresholding Stepwise Forward Regression"
@@ -88,7 +89,10 @@ async def test_scores_for_trait_paginates_ids(make_registry):
     assert scores.calls.last.request.url.params["pgs_ids"] == "PGS000010,PGS000011"
     assert result.total == 3 and result.next_cursor == "2"
     assert result.records[0].identifiers["pgs"] == "PGS000010"
-    assert result.records[0].identifiers["doi"] == "10.1016/s0140-6736(14)61730-x"
+    assert result.records[0].attributes["publication_doi"] == "10.1016/S0140-6736(14)61730-X"
+    from mosaic.crosslink.merge import cluster_records
+
+    assert len(cluster_records(result.records)) == len(result.records)  # same paper, distinct scores
     assert result.data["trait"]["id"] == "MONDO_0005010"
 
     direct = await registry.call(
@@ -132,7 +136,7 @@ async def test_live_all_tools(live_registry):
     scores = await registry.call("pgs_catalog", "search", {"query": "breast cancer", "kind": "scores", "limit": 2})
     assert scores.records and scores.records[0].identifiers["pgs"].startswith("PGS")
     score = await registry.call("pgs_catalog", "get_score", {"pgs_id": "PGS000004"})
-    assert score.records[0].identifiers["pmid"] == "30554720"
+    assert score.records[0].attributes["publication_pmid"] == "30554720"
     by_trait = await registry.call("pgs_catalog", "scores_for_trait", {"trait_id": "MONDO_0005010", "limit": 2})
     assert by_trait.records and by_trait.total > 10
     pub = await registry.call("pgs_catalog", "get_publication", {"publication": "PGP000002"})

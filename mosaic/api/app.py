@@ -532,7 +532,16 @@ def create_app(
             heartbeat=state.heartbeat,
             session_id=body.session_id,
         )
-        return StreamingResponse(stream, media_type="text/event-stream", headers=SSE_HEADERS)
+
+        async def scrubbed() -> AsyncIterator[str]:
+            # Tool results and model text can quote an upstream error that echoed a key.
+            try:
+                async for frame in stream:
+                    yield state.clean(frame)
+            finally:
+                await stream.aclose()
+
+        return StreamingResponse(scrubbed(), media_type="text/event-stream", headers=SSE_HEADERS)
 
     @app.get("/api/sessions", tags=["agent"])
     async def list_sessions(limit: Annotated[int, Query(ge=1, le=500)] = 50) -> dict[str, Any]:

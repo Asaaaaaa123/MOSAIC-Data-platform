@@ -62,6 +62,9 @@ class Record(BaseModel):
     authors: list[str] = Field(default_factory=list)
     summary: str | None = Field(default=None, description="Abstract / description")
     attributes: dict[str, Any] = Field(default_factory=dict, description="Source-specific fields")
+    quality: dict[str, Any] | None = Field(
+        default=None, description="Evaluation from mosaic.curation: grade, score, flags (set by the registry)"
+    )
 
     @field_validator("identifiers", mode="before")
     @classmethod

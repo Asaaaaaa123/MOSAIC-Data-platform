@@ -14,11 +14,15 @@ Quirks:
 - Gene -> disease annotations come from ``POST /api/disease`` with a JSON array of gene ids;
   disease -> genes from ``GET /api/disease/{DOID}/genes``. Tables page with ``limit`` + 1-based ``page``.
 - Reference lists mix PMID: and MOD publication ids (RGD:, MGI:, ZFIN:ZDB-PUB...); only PMID: values
-  become ``pmid`` identifiers.
+  are kept, in ``attributes['pmids']``. Supporting papers are not identifiers of an annotation (one
+  paper supports many gene-disease / phenotype annotations, which would otherwise merge).
+- Gene-disease association records carry the partner entity's ids (the disease for gene_diseases,
+  the gene for disease_genes), as the record lists that partner. Model records carry only the model id;
+  the modelled diseases are ``attributes['disease_models']`` (a mouse strain is not the disease).
 - Allele/model names contain <sup> markup; stripped.
 
 Identifier keys: canonical hgnc, gene_symbol (human genes only), entrez_gene, ensembl_gene, uniprot,
-omim, doid, mesh, umls, orphanet, ncit, pmid; non-canonical model-organism keys ``mgi``, ``rgd``,
+omim, doid, mesh, umls, orphanet, ncit; non-canonical model-organism keys ``mgi``, ``rgd``,
 ``zfin``, ``flybase``, ``wormbase``, ``sgd``, ``xenbase`` (values are the full prefixed ids), plus
 ``panther``, ``snomedct``, ``icd10``, ``gard``.
 """
@@ -483,8 +487,6 @@ class Alliance(Connector):
             else:
                 rid, title, url = doid, disease.get("name"), f"{SITE}/disease/{doid}"
                 ids = {"doid": doid}
-            if pmids:
-                ids["pmid"] = pmids[0]
             records.append(
                 Record(
                     source=self.name,
@@ -563,7 +565,6 @@ class Alliance(Connector):
                 for d in row.get("diseaseModels") or []
                 if isinstance(d, dict)
             ]
-            doids = [d["doid"] for d in diseases if d.get("doid")]
             gene = row.get("gene") or {}
             records.append(
                 Record(
@@ -572,7 +573,7 @@ class Alliance(Connector):
                     type="other",
                     title=_text(model.get("agmFullName")) or model.get("name") or mid,
                     url=f"{SITE}/model/{mid}",
-                    identifiers={**_xref_identifiers([mid]), "doid": first(doids)},
+                    identifiers=_xref_identifiers([mid]),
                     attributes={
                         k: v
                         for k, v in {
@@ -628,7 +629,7 @@ class Alliance(Connector):
             terms = [
                 t.get("curie") for t in row.get("phenotypeTerms") or [] if isinstance(t, dict) and t.get("curie")
             ]
-            ids: dict[str, Any] = {"pmid": first(pmids)}
+            ids: dict[str, Any] = {}
             for t in terms:
                 mapped = map_curie(t)
                 if mapped:

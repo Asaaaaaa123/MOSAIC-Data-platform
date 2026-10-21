@@ -156,6 +156,13 @@ def _list(value: Any) -> list[Any]:
     return value if isinstance(value, list) else [value]
 
 
+def _isbn(value: Any) -> str | None:
+    """First ISBN. Search results pack several into one string: ``[9781493908905, 9781493908912]``."""
+    text = _text(first(_list(value))) or ""
+    match = re.search(r"[0-9][0-9Xx-]{8,16}[0-9Xx]", text)
+    return match.group(0) if match else (text or None)
+
+
 def _text(value: Any) -> str | None:
     """Elsevier JSON wraps many strings as {"$": "..."}."""
     if isinstance(value, dict):
@@ -194,7 +201,7 @@ def _search_record(entry: dict[str, Any]) -> Record:
             "doi": entry.get("prism:doi"),
             "pmid": entry.get("pubmed-id"),
             "issn": first(issns),
-            "isbn": _text(first(_list(entry.get("prism:isbn")))),
+            "isbn": _isbn(entry.get("prism:isbn")),
         },
         date=entry.get("prism:coverDate"),
         authors=[creator] if isinstance(creator, str) and creator else [],
@@ -251,7 +258,7 @@ def _abstract_record(payload: dict[str, Any]) -> Record:
             "doi": core.get("prism:doi"),
             "pmid": core.get("pubmed-id"),
             "issn": first(issns),
-            "isbn": _text(first(_list(core.get("prism:isbn")))),
+            "isbn": _isbn(core.get("prism:isbn")),
         },
         date=core.get("prism:coverDate"),
         authors=authors,

@@ -30,7 +30,11 @@ async def test_search_projects_ranks_client_side(make_registry):
     rec = result.records[0]
     assert rec.type == "dataset"
     assert rec.identifiers["gdc_project"] == rec.id
-    assert rec.identifiers["dbgap"] == "phs000178"
+    # phs000178 is shared by every TCGA project: an identifier would merge TCGA-LUAD with TCGA-LUSC
+    assert "dbgap" not in rec.identifiers and rec.attributes["dbgap_accession"] == "phs000178"
+    from mosaic.crosslink.merge import cluster_records
+
+    assert len(cluster_records(result.records)) == 2
     assert rec.url == f"https://portal.gdc.cancer.gov/projects/{rec.id}"
     assert rec.attributes["case_count"] > 400
 
@@ -119,6 +123,8 @@ async def test_top_mutated_genes(make_registry):
     tp53 = result.records[1]
     assert tp53.identifiers["ensembl_gene"] == "ENSG00000141510"
     assert tp53.attributes["mutated_cases"] == 281
+    # the project is a related entity: it must not merge TTN, TP53 and MUC16 together
+    assert "gdc_project" not in tp53.identifiers and tp53.attributes["project"] == "TCGA-LUAD"
     assert tp53.attributes["percent"] == 50.3
     assert result.data["ssm_cases"] == 559
 
@@ -142,7 +148,8 @@ async def test_search_files_filters_and_pagination(make_registry):
     assert result.total == 992 and result.next_cursor == "2"
     rec = result.records[0]
     assert rec.id == "081c1afc-ea50-4773-9402-dfc686603a16"
-    assert rec.identifiers == {"gdc_project": "TCGA-BRCA"}
+    assert rec.identifiers == {"gdc_file": "081c1afc-ea50-4773-9402-dfc686603a16"}
+    assert rec.attributes["projects"] == ["TCGA-BRCA"]  # the project is related, not the file itself
     assert rec.attributes["access"] == "open" and rec.attributes["data_format"] == "MAF"
     assert rec.date == "2022-08-01"
 

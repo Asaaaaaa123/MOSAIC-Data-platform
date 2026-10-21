@@ -7,8 +7,9 @@ No published rate limit; we use 3 requests/second (mutation fetches can be large
 Quirks:
 * List endpoints are paged with ``pageSize`` / ``pageNumber`` (0-based); totals are only
   available from ``projection=META`` via the ``total-count`` response header.
-* ``pmid`` on a study is a comma-separated list; the first is kept as the ``pmid``
-  identifier and all in ``attributes.pmids``.
+* ``pmid`` on a study is a comma-separated list, kept in ``attributes.pmids``. It is not an
+  identifier: the papers are related entities, and one paper often backs many studies (all 32
+  TCGA PanCancer Atlas studies cite the same PMIDs), so it would merge unrelated studies.
 * Mutation frequency = distinct samples with >=1 mutation in the gene / the study's
   ``sequencedSampleCount`` (samples profiled for mutations), as on the portal (mutations only;
   copy-number alterations and fusions are not counted).
@@ -92,14 +93,14 @@ def study_record(item: dict[str, Any]) -> Record:
         type="study",
         title=item.get("name") or sid,
         url=f"{WEB}/study/summary?id={quote(sid)}",
-        identifiers={"cbioportal": sid, "pmid": pmids[0] if pmids else None, "gdc_project": _gdc_project(sid)},
+        identifiers={"cbioportal": sid, "gdc_project": _gdc_project(sid)},
         summary=strip_html(item.get("description")),
         attributes=_compact(
             {
                 "cancer_type_id": item.get("cancerTypeId"),
                 "cancer_type": cancer.get("name"),
                 "citation": item.get("citation"),
-                "pmids": pmids if len(pmids) > 1 else None,
+                "pmids": pmids,
                 "samples": item.get("allSampleCount") if (item.get("allSampleCount") or 0) > 1 else None,
                 "sample_counts": counts,
                 "reference_genome": item.get("referenceGenome"),

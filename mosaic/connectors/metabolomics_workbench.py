@@ -19,10 +19,11 @@ Quirks (verified live)
 - ``study/refmet_name/{RefMet name}/summary`` lists study ids containing a metabolite (exact RefMet name).
 - Never request ``mwtab``/``data`` outputs here: they can be several MB.
 
-Identifier keys: ``metabolomics_workbench`` (ST######), ``doi`` (project DOI 10.21228/M8...; studies of
-one project share it), ``pubchem_cid``, ``inchikey``, ``smiles``, plus non-canonical ``kegg``, ``hmdb``,
+Identifier keys: ``metabolomics_workbench`` (ST######), ``pubchem_cid``, ``inchikey``, ``smiles``, plus non-canonical ``kegg``, ``hmdb``,
 ``chebi``, ``lipidmaps``, ``refmet`` (RM#######), ``mw_regno`` (Workbench structure registry number).
-Publication DOIs / PMIDs of a study are kept in attributes (they identify papers, not the study).
+Publication DOIs / PMIDs of a study are kept in attributes (they identify papers, not the study), and so
+is the project DOI (``attributes['project_doi']``, 10.21228/M8...): all studies of a project share it, so
+as a ``doi`` identifier it would merge sibling studies into one entity.
 """
 
 from __future__ import annotations
@@ -37,7 +38,7 @@ from urllib.parse import quote
 from pydantic import Field
 
 from ..http import SourceError
-from ..ids import normalize_doi, normalize_identifiers
+from ..ids import normalize_doi
 from ..models import Record, ToolResult
 from .base import Connector, SearchParams, ToolParams, parse_offset, strip_html, tool
 
@@ -392,7 +393,7 @@ class MetabolomicsWorkbench(Connector):
             doi_text = fields.get("Project DOI") or ""
             doi_match = re.search(r"10\.\d{4,9}/\S+", doi_text)
             if doi_match:
-                record.identifiers = normalize_identifiers({**record.identifiers, "doi": doi_match.group(0)})
+                record.attributes["project_doi"] = normalize_doi(doi_match.group(0))
             record.summary = fields.get("Study Summary") or record.summary
             pub_dois, pmids = _publication_links(fields.get("Publications_raw"))
             authors = [a.strip() for a in re.split(r",\s*", fields.get("Contributors") or "") if a.strip()]

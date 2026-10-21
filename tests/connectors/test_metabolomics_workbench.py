@@ -93,7 +93,9 @@ async def test_get_study_full(make_registry):
     record = result.records[0]
     assert record.id == "ST000001"
     assert record.title == "Fatb Induction Experiment (FatBIE)"
-    assert record.identifiers == {"metabolomics_workbench": "ST000001", "doi": "10.21228/m8159b"}
+    # the project DOI is shared by all of the project's studies: attribute, not identifier
+    assert record.identifiers == {"metabolomics_workbench": "ST000001"}
+    assert record.attributes["project_doi"] == "10.21228/m8159b"
     assert record.date == "2013-02-14"
     assert record.authors == ["Tobias Kind"]
     assert record.summary.startswith("This experiment tests the consequence of a mutation at the FatB gene")
@@ -235,7 +237,7 @@ async def test_live_metabolomics_workbench_all_tools(live_registry):
     assert all(r.identifiers["metabolomics_workbench"].startswith("ST") for r in search.records)
     study = await registry.call(SRC, "get_study", {"study_id": "ST000001"})
     record = study.records[0]
-    assert record.identifiers.get("doi", "").startswith("10.21228/")
+    assert record.attributes.get("project_doi", "").startswith("10.21228/")
     assert record.attributes["analyses"] and record.summary
     compound = await registry.call(SRC, "compound_lookup", {"identifier": "glucose"})
     assert compound.records[0].identifiers["pubchem_cid"] == "5793"

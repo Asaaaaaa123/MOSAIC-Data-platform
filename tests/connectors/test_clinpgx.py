@@ -181,7 +181,7 @@ async def test_clinical_annotations_sorted_paged_and_enriched(make_registry):
     assert rec.identifiers["pharmgkb"] == "PA166134805"
     assert rec.identifiers["rsid"] == "rs7089580"
     assert rec.identifiers["gene_symbol"] == "CYP2C9"
-    assert rec.identifiers["pmid"] == rec.attributes["pmids"][0]
+    assert "pmid" not in rec.identifiers and rec.attributes["pmids"]  # supporting papers are related
     assert rec.attributes["level_of_evidence"] == "3"
     assert rec.attributes["phenotype_categories"] == ["Dosage"]
     assert rec.attributes["genotype_phenotypes"][0]["genotype"] == "AA"
@@ -228,6 +228,8 @@ async def test_dosing_guidelines(make_registry):
     assert rec.attributes["drugs"] == ["warfarin"]
     assert rec.summary and "<p>" not in rec.summary
     assert rec.attributes["source_url"].endswith(".pdf")
+    # the guideline's publication is a related entity (one paper covers several guidelines)
+    assert "pmid" not in rec.identifiers and "doi" not in rec.identifiers
 
 
 @respx.mock
