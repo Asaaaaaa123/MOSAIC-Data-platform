@@ -255,3 +255,76 @@ async def test_live_uniprot_all_tools(live_registry):
 
     to_pdb = await registry.call("uniprot", "map_ids", {"ids": ["P15056"], "to_db": "PDB", "limit": 5})
     assert to_pdb.data["mappings"] and to_pdb.next_cursor
+
+
+def _seq_entry(acc: str, gene: str, taxon: int, organism: str, seq: str, reviewed: bool = True) -> dict:
+    return {
+        "entryType": "UniProtKB reviewed (Swiss-Prot)" if reviewed else "UniProtKB unreviewed (TrEMBL)",
+        "primaryAccession": acc,
+        "uniProtkbId": f"{gene.upper()}_X",
+        "organism": {"scientificName": organism, "taxonId": taxon},
+        "genes": [{"geneName": {"value": gene}}],
+        "proteinDescription": {"recommendedName": {"fullName": {"value": "GTPase KRas"}}},
+        "sequence": {"value": seq, "length": len(seq)},
+    }
+
+
+@respx.mock
+async def test_get_sequences_batch(make_registry):
+    route = respx.get(f"{API}/uniprotkb/accessions").mock(return_value=httpx.Response(200, json={"results": [
+        _seq_entry("P01116", "KRAS", 9606, "Homo sapiens", "MTEYKLVVVG"),
+        _seq_entry("P32883", "Kras", 10090, "Mus musculus", "MTEYKLVVVA"),
+    ]}))
+    registry = make_registry("uniprot")
+    result = await registry.call("uniprot", "get_sequences", {"accessions": ["p01116", "P32883-2", "P01116", "not-an-acc", "Q99999"]})
+    sent = route.calls.last.request.url.params
+    assert sent["accessions"] == "P01116,P32883,Q99999"
+    assert "sequence" in sent["fields"].split(",")
+    seqs = {s["accession"]: s for s in result.data["sequences"]}
+    assert seqs["P32883"]["sequence"] == "MTEYKLVVVA"
+    assert seqs["P32883"]["gene"] == "Kras" and seqs["P32883"]["taxon_id"] == 10090 and seqs["P32883"]["length"] == 10
+    assert seqs["P01116"]["reviewed"] is True
+    assert "sequence" not in result.records[0].attributes  # records stay compact
+    assert any("NOT-AN-ACC" in n for n in result.notes)
+    assert any("Q99999" in n for n in result.notes)
+
+
+@respx.mock
+async def test_get_sequences_uniref50_members_in_taxon(make_registry):
+    uniref = respx.get(f"{API}/uniref/search").mock(
+        return_value=httpx.Response(200, json={"results": [{"id": "UniRef50_P01116", "memberCount": 56}]})
+    )
+    members = respx.get(f"{API}/uniprotkb/search").mock(
+        return_value=httpx.Response(200, json={"results": [{"primaryAccession": "Q9XFP1"}]})
+    )
+    respx.get(f"{API}/uniprotkb/accessions").mock(return_value=httpx.Response(200, json={"results": [
+        _seq_entry("Q9XFP1", "RAB1", 3702, "Arabidopsis thaliana", "MNPEYDYLFK", reviewed=False),
+    ]}))
+    registry = make_registry("uniprot")
+    result = await registry.call("uniprot", "get_sequences", {"uniref50_of": "P01116", "taxon_id": 3702})
+    assert uniref.calls.last.request.url.params["query"] == "uniprot_id:P01116 AND identity:0.5"
+    assert members.calls.last.request.url.params["query"] == "uniref_cluster_50:UniRef50_P01116 AND organism_id:3702"
+    assert result.data["uniref50_cluster"] == "UniRef50_P01116"
+    assert result.data["sequences"][0]["accession"] == "Q9XFP1"
+    assert result.data["sequences"][0]["reviewed"] is False
+
+
+@respx.mock
+async def test_get_sequences_uniref50_no_member_is_a_note(make_registry):
+    respx.get(f"{API}/uniref/search").mock(return_value=httpx.Response(200, json={"results": [{"id": "UniRef50_P01116"}]}))
+    respx.get(f"{API}/uniprotkb/search").mock(return_value=httpx.Response(200, json={"results": []}))
+    registry = make_registry("uniprot")
+    result = await registry.call("uniprot", "get_sequences", {"uniref50_of": "P01116", "taxon_id": 3702})
+    assert result.data["sequences"] == []
+    assert any("no member of UniRef50_P01116 in taxon 3702" in n for n in result.notes)
+    with pytest.raises(SourceError):
+        await registry.call("uniprot", "get_sequences", {"uniref50_of": "KRAS"})
+
+
+@pytest.mark.live
+async def test_live_uniprot_get_sequences(live_registry):
+    registry = live_registry("uniprot")
+    result = await registry.call("uniprot", "get_sequences", {"accessions": ["P01116", "P32883"]})
+    seqs = {s["accession"]: s["sequence"] for s in result.data["sequences"]}
+    assert len(seqs["P01116"]) == 189 and seqs["P01116"].startswith("MTEYKLVVVG")
+    assert len(seqs["P32883"]) == 189

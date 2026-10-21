@@ -36,7 +36,7 @@ from ..crosslink.resolver import EntityResolver
 from ..models import Record
 from ..registry import Registry
 from .claude_api import TOOL_RESULT_CHARS, api_error_message
-from .events import TableSaved
+from .events import SpeciesComparisonReady, TableSaved
 from .exports import write_export
 from ..datapackage import build_package, write_package
 from .extraction import MAX_FIELDS, MAX_RECORDS, FieldSpec, SourceRecord, StructuredExtractor
@@ -683,6 +683,12 @@ class ExportDatasetParams(ToolParams):
         None, max_length=500, description="Result handles to include (default: every records result in this conversation)"
     )
     description: str | None = Field(None, max_length=2000, description="What the package contains")
+    fetch_full_records: bool = Field(
+        True, description="Re-fetch each search hit's complete record from its source first (default true: real data, not hits)"
+    )
+    download_data_files: bool = Field(
+        True, description="List every dataset file and include small open data tables (CSV/TSV/Excel/JSON) in the package"
+    )
 
 
 @BUILTIN_META_TOOLS.tool(
@@ -711,9 +717,18 @@ async def export_dataset(ctx: ToolContext, params: ExportDatasetParams) -> MetaR
             used.append(stored.result_id)
     if not records:
         raise ToolInputError("no records to export: search or fetch data first (tables from extract_structured go to save_table)")
+    from ..datafiles import collect_data_files
+    from ..enrich import enrich_records
+
+    notes: list[str] = []
+    if params.fetch_full_records:
+        records, enrich_stats = await enrich_records(ctx.registry, records, session_id=ctx.session_id)
+        notes = enrich_stats.notes()
+    data_files = await collect_data_files(ctx.registry.http, records, download=params.download_data_files)
     package = build_package(records, params.group_by)
     saved = write_package(
-        ctx.settings.exports_dir, package, name=params.name, description=params.description, session_id=ctx.session_id
+        ctx.settings.exports_dir, package, name=params.name, description=params.description, session_id=ctx.session_id,
+        data_files=data_files, notes=notes,
     )
     ctx.registry.audit.record_export(
         name=params.name, path=str(saved.folder), n_rows=saved.n_rows,
@@ -751,5 +766,77 @@ async def export_dataset(ctx: ToolContext, params: ExportDatasetParams) -> MetaR
         n_records=saved.n_rows,
         preview=[{"file": f["file"], "rows": f["rows"]} for f in files[:3]],
         events=[event],
+    )
+
+
+# ---------------------------------------------------------------- compare_species
+class CompareSpeciesParams(ToolParams):
+    query: str = Field(min_length=1, max_length=200, description="Drug, medicine or chemical compound (name, ChEMBL ID or InChIKey)")
+    species: list[str] | None = Field(
+        None, max_length=20,
+        description="Species keys to compare with human (default all): macaque, mouse, rat, dog, pig, chicken, frog, "
+                    "zebrafish, fly, worm, yeast, arabidopsis",
+    )
+    max_papers: int = Field(5, ge=1, le=20, description="Top PubMed papers kept per species")
+    extract_with_claude: bool = Field(
+        False, description="Also extract model / dose / effect from the paper abstracts (slower, uses extra API credits)"
+    )
+
+
+@BUILTIN_META_TOOLS.tool(
+    description="""
+    Compare a drug, medicine or chemical compound between human and other species (macaque, mouse, rat,
+    dog, pig, chicken, frog, zebrafish, fly, worm, yeast, Arabidopsis). Returns its human targets, the
+    sequence identity / similarity % of each target's ortholog in every species, and the evidence per
+    species: PubMed studies (counts and top papers), ChEMBL potency, pharmacokinetic, toxicity and in vivo
+    measurements with doses, plus human clinical trials. The user sees an interactive dashboard (overview
+    graph, heatmap, charts, paper list) and gets a data package with one CSV per species. Call this when the
+    user asks how a compound or treatment works, is used or is tested in other species, or to compare
+    human with animal models; then summarize the key differences with the numbers and references.
+    """
+)
+async def compare_species(ctx: ToolContext, params: CompareSpeciesParams) -> MetaResult:
+    from ..species import SPECIES_BY_KEY
+    from ..species.service import event_summary, run_comparison
+
+    unknown = [k for k in params.species or [] if k not in SPECIES_BY_KEY]
+    if unknown:
+        raise ToolInputError(f"unknown species {unknown}; available: {', '.join(SPECIES_BY_KEY)}")
+    comparison = await run_comparison(
+        ctx.registry, ctx.settings, params.query, species=params.species, max_papers=params.max_papers,
+        extract_with_claude=params.extract_with_claude, session_id=ctx.session_id,
+    )
+    title = f"Cross-species: {comparison.compound.name or params.query}"
+    events: list[Any] = [
+        SpeciesComparisonReady(
+            session_id=ctx.session_id,
+            comparison_id=comparison.comparison_id,
+            title=title,
+            url=f"/#species?id={comparison.comparison_id}",
+            summary=event_summary(comparison),
+        )
+    ]
+    pkg = comparison.package
+    if pkg and pkg.get("files"):
+        events.append(TableSaved(
+            session_id=ctx.session_id, export_id=pkg["export_id"], name=pkg["name"], n_rows=pkg["n_rows"],
+            columns=[f["file"] for f in pkg["files"]], csv_url=pkg["files"][0]["url"],
+            json_url=f"/api/exports/{pkg['export_id']}/manifest.json", kind="package", files=pkg["files"],
+            xlsx_url=pkg["xlsx_url"], zip_url=pkg["zip_url"], folder=pkg.get("folder"),
+        ))
+    payload = comparison.model_dump(mode="json", exclude={"records"})
+    payload["records"] = [r.model_dump(mode="json") for r in comparison.records]
+    rows = ", ".join(
+        f"{s.label} {s.mean_identity_pct:.0f}%" if s.mean_identity_pct is not None else f"{s.label} -"
+        for s in comparison.species[:6]
+    )
+    return MetaResult(
+        text=comparison.to_llm(),
+        summary=f"{title}: {len(comparison.targets)} target(s), {len(comparison.species)} species ({rows} ...)",
+        kind="records",
+        payload=payload,
+        n_records=len(comparison.records),
+        preview=[{"species": s.label, "identity_pct": s.mean_identity_pct, "papers": s.n_papers} for s in comparison.species[:3]],
+        events=events,
     )
 

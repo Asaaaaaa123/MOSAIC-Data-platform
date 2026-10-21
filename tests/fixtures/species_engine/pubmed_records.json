@@ -1,0 +1,22 @@
+{
+  "human": [
+    {"source": "ncbi", "id": "32955176", "type": "article", "title": "KRASG12C Inhibition with Sotorasib in Advanced Solid Tumors",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/32955176/", "identifiers": {"pmid": "32955176", "doi": "10.1056/NEJMoa1917239"},
+     "date": "2020-09-24", "summary": "In this phase 1 trial, sotorasib 960 mg once daily showed an objective response in 32.2% of patients.",
+     "attributes": {"journal": "The New England journal of medicine", "journal_abbrev": "N Engl J Med",
+                    "publication_types": ["Clinical Trial, Phase I", "Journal Article"], "mesh_terms": ["Humans", "Lung Neoplasms*"]}},
+    {"source": "ncbi", "id": "40000001", "type": "article", "title": "KRAS G12C inhibitors: a review",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/40000001/", "identifiers": {"pmid": "40000001"}, "date": "2025",
+     "attributes": {"journal": "Review Journal", "publication_types": ["Journal Article", "Review"], "mesh_terms": ["Humans"]}}
+  ],
+  "mouse": [
+    {"source": "ncbi", "id": "31666701", "type": "article", "title": "The clinical KRAS(G12C) inhibitor AMG 510 drives anti-tumour immunity",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/31666701/", "identifiers": {"pmid": "31666701", "doi": "10.1038/s41586-019-1694-1"},
+     "date": "2019-11", "summary": "AMG 510 at 100 mg/kg regressed KRAS G12C tumours in mice and in xenografts.",
+     "attributes": {"journal": "Nature", "publication_types": ["Journal Article"],
+                    "mesh_terms": ["Animals", "Mice", "Disease Models, Animal", "Humans"]}},
+    {"source": "ncbi", "id": "32955176", "type": "article", "title": "KRASG12C Inhibition with Sotorasib in Advanced Solid Tumors",
+     "url": "https://pubmed.ncbi.nlm.nih.gov/32955176/", "identifiers": {"pmid": "32955176", "doi": "10.1056/NEJMoa1917239"},
+     "date": "2020-09-24", "attributes": {"publication_types": ["Clinical Trial, Phase I"], "mesh_terms": ["Humans", "Mice"]}}
+  ]
+}

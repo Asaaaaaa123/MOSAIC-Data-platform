@@ -6,9 +6,10 @@ grade; see ``mosaic.curation``) and splits the entities into one table per group
 - ``group_by="type"`` (default): papers, clinical_trials, projects_studies, datasets_repositories,
   drugs_compounds, safety_regulatory, genes_proteins, variants_associations, diseases_phenotypes,
   pathways_ontology, bioactivity_assays, other
-- ``group_by="species"``: human, mouse, rat, zebrafish, fly, worm, yeast, frog, bird, plant,
-  primate, other_animal, microbe, not_species_specific, species_unknown (an entity studied in
-  several species appears in each species table)
+- ``group_by="species"``: human, macaque, mouse, rat, dog, pig, chicken, frog, zebrafish, fly, worm,
+  yeast, plant (the 13 species of the cross-species comparison), plus other primates, other birds,
+  other animals, microbes, not_species_specific and species_unknown (an entity studied in several
+  species appears in each species table)
 - ``group_by="source"``: one table per database
 
 Each table has the columns that make sense for its rows: entity, title, date, quality, the
@@ -70,29 +71,38 @@ GROUP_TITLES = {
 _TYPE_TO_GROUP = {t: g for g, types in TYPE_GROUPS.items() for t in types}
 
 # Species buckets: (bucket, patterns matched against organism names, MeSH check tags, taxon IDs).
+# The first matching bucket wins, so specific species come before the general groups. The 13 species
+# of the cross-species comparison (mosaic/species) each have their own bucket.
 SPECIES_BUCKETS: list[tuple[str, tuple[str, ...]]] = [
     ("human", ("homo sapiens", "human", "humans", "taxon:9606", "ncbitaxon:9606", "9606", "patient", "patients")),
+    ("macaque", ("macaca", "rhesus", "macaque", "macaques", "cynomolgus", "9544", "9541")),
+    ("primate", ("pan troglodytes", "chimpanzee", "marmoset", "callithrix", "primates", "monkey", "monkeys")),
     ("mouse", ("mus musculus", "mouse", "mice", "murine", "10090")),
     ("rat", ("rattus", "rat", "rats", "10116")),
+    ("dog", ("canis", "dog", "dogs", "beagle", "beagles", "canine", "9615")),
+    # before "pig" so that "guinea pig" is not filed as a pig
+    ("other_animal", ("guinea pig", "guinea pigs", "felis", "cat", "cats", "rabbit", "rabbits", "oryctolagus", "hamster",
+                      "hamsters", "ferret", "ferrets", "bos taurus", "cattle", "ovis", "sheep")),
+    ("pig", ("sus scrofa", "pig", "pigs", "swine", "porcine", "minipig", "minipigs", "9823")),
+    ("chicken", ("gallus", "chicken", "chickens", "9031")),
+    ("bird", ("taeniopygia", "zebra finch", "aves", "birds", "bird", "quail", "duck")),
+    ("frog", ("xenopus", "frog", "frogs", "8355", "8364")),
     ("zebrafish", ("danio rerio", "zebrafish", "7955")),
     ("fly", ("drosophila", "fruit fly", "7227")),
     ("worm", ("caenorhabditis", "c. elegans", "nematode", "6239")),
     ("yeast", ("saccharomyces", "schizosaccharomyces", "yeast", "4932", "559292")),
-    ("frog", ("xenopus", "frog", "8355", "8364")),
-    ("bird", ("gallus", "chicken", "chickens", "taeniopygia", "zebra finch", "aves", "birds", "bird", "9031")),
     ("plant", ("arabidopsis", "oryza", "rice", "zea mays", "maize", "nicotiana", "tobacco", "solanum", "tomato",
                "glycine max", "soybean", "triticum", "wheat", "plants", "plant", "viridiplantae", "3702")),
-    ("primate", ("macaca", "rhesus", "macaque", "pan troglodytes", "chimpanzee", "marmoset", "callithrix", "primates")),
-    ("other_animal", ("sus scrofa", "pig", "swine", "canis", "dog", "dogs", "bos taurus", "cattle", "ovis", "sheep",
-                      "felis", "cat", "rabbit", "oryctolagus", "hamster", "guinea pig", "ferret", "monkey")),
     ("microbe", ("bacteria", "escherichia", "e. coli", "mycobacterium", "staphylococcus", "virus", "viruses", "sars-cov",
                  "influenza", "hiv", "plasmodium", "fungi", "candida")),
 ]
 SPECIES_TITLES = {
-    "human": "Human", "mouse": "Mouse", "rat": "Rat", "zebrafish": "Zebrafish", "fly": "Fruit fly (Drosophila)",
-    "worm": "Worm (C. elegans)", "yeast": "Yeast", "frog": "Frog (Xenopus)", "bird": "Bird (chicken, zebra finch ...)",
-    "plant": "Plant", "primate": "Non-human primate", "other_animal": "Other animal", "microbe": "Microbe / virus",
-    "not_species_specific": "Not species-specific (drugs, compounds ...)", "species_unknown": "Species not stated",
+    "human": "Human 人", "macaque": "Macaque 猕猴", "primate": "Other primates 其他灵长类", "mouse": "Mouse 小鼠",
+    "rat": "Rat 大鼠", "dog": "Dog 狗", "pig": "Pig 猪", "chicken": "Chicken 鸡", "bird": "Other birds 其他鸟类",
+    "frog": "Frog (Xenopus) 爪蟾", "zebrafish": "Zebrafish 斑马鱼", "fly": "Fruit fly 果蝇", "worm": "Worm (C. elegans) 线虫",
+    "yeast": "Yeast 酵母", "plant": "Plant (Arabidopsis ...) 植物", "other_animal": "Other animals 其他动物",
+    "microbe": "Microbe / virus 微生物", "not_species_specific": "Not species-specific (drugs, compounds) 非物种特异",
+    "species_unknown": "Species not stated 未注明物种",
 }
 _SPECIES_FIELDS = ("organism", "organisms", "species", "taxon", "taxonomy", "organism_name", "scientific_name",
                    "source_organism", "host", "host_organism", "model_organism", "organism_scientific_name")
@@ -102,8 +112,8 @@ _MESH_FIELDS = ("mesh", "mesh_terms", "mesh_headings")
 # there ("plant-derived", "virus-like", "cat" ...); Latin names and lab-animal words are reliable.
 _TEXT_BUCKETS_SKIP = {"microbe", "other_animal"}
 _TEXT_WORDS_SKIP = {"plant", "plants", "rice", "tobacco", "tomato", "wheat", "soybean", "bird", "birds", "aves",
-                    "monkey", "primates", "9606", "10090", "10116", "7955", "7227", "6239", "4932", "559292", "8355",
-                    "8364", "9031", "3702"}
+                    "duck", "monkey", "monkeys", "primates", "cat", "cats", "9606", "10090", "10116", "7955", "7227",
+                    "6239", "4932", "559292", "8355", "8364", "9031", "3702", "9544", "9541", "9615", "9823"}
 _TEXT_TYPES = {"article", "preprint", "book", "dataset", "study", "sample", "repository"}
 _HUMAN_DEFAULT_TYPES = {"trial", "adverse_event", "drug_label", "recall", "guideline"}
 _NOT_SPECIES_TYPES = {"drug", "compound", "substance"}
@@ -319,7 +329,7 @@ class SavedPackage:
 
 
 def package_folder_name(name: str, export_id: str) -> str:
-    slug = _FILE_SAFE.sub("_", name).strip("_")[:60] or "mosaic_export"
+    slug = _FILE_SAFE.sub("_", name).strip("_")[:40] or "mosaic_export"
     return f"{slug}__{export_id}"
 
 
@@ -346,10 +356,37 @@ def _xlsx_value(value: Any) -> Any:
     return ILLEGAL_CHARACTERS_RE.sub("", str(value)) or None
 
 
-def _xlsx_bytes(package: DataPackage, name: str, readme_rows: list[list[str]]) -> bytes:
-    from openpyxl import Workbook
+def _styled_sheet(wb: Any, title: str, columns: list[str], rows: list[list[Any]], used: set[str]) -> None:
     from openpyxl.styles import Alignment, Font, PatternFill
     from openpyxl.utils import get_column_letter
+
+    sheet_name = re.sub(r"[\[\]:*?/\\]", "_", title)[:31]
+    base, n = sheet_name, 2
+    while sheet_name in used:
+        sheet_name = f"{base[:28]}_{n}"
+        n += 1
+    used.add(sheet_name)
+    ws = wb.create_sheet(sheet_name)
+    ws.append([_xlsx_value(c) for c in columns])
+    for cell in ws[1]:
+        cell.font = Font(bold=True)
+        cell.fill = PatternFill("solid", fgColor="DCE6F8")
+        cell.alignment = Alignment(vertical="top", wrap_text=True)
+    for row in rows:
+        ws.append([_xlsx_value(v) for v in row])
+        for cell in ws[ws.max_row]:
+            if isinstance(cell.value, str) and cell.value.startswith("="):
+                cell.data_type = "s"  # text, never a formula
+    ws.freeze_panes = "B2"
+    ws.auto_filter.ref = ws.dimensions
+    for idx, column in enumerate(columns, start=1):
+        longest = max([len(str(column))] + [len(str(r[idx - 1] if idx - 1 < len(r) else "") or "") for r in rows[:200]])
+        ws.column_dimensions[get_column_letter(idx)].width = max(10, min(60, longest + 2))
+
+
+def _xlsx_bytes(package: DataPackage, readme_rows: list[list[str]], data_files: Any = None) -> bytes:
+    from openpyxl import Workbook
+    from openpyxl.styles import Font
 
     wb = Workbook()
     info = wb.active
@@ -359,38 +396,56 @@ def _xlsx_bytes(package: DataPackage, name: str, readme_rows: list[list[str]]) -
     info.column_dimensions["A"].width = 28
     info.column_dimensions["B"].width = 110
     info["A1"].font = Font(bold=True, size=13)
-    header_fill = PatternFill("solid", fgColor="DCE6F8")
     used: set[str] = {"README"}
     for table in package.tables:
-        sheet_name = re.sub(r"[\[\]:*?/\\]", "_", table.key)[:31]
-        base, n = sheet_name, 2
-        while sheet_name in used:
-            sheet_name = f"{base[:28]}_{n}"
-            n += 1
-        used.add(sheet_name)
-        ws = wb.create_sheet(sheet_name)
-        ws.append(table.columns)
-        for cell in ws[1]:
-            cell.font = Font(bold=True)
-            cell.fill = header_fill
-            cell.alignment = Alignment(vertical="top", wrap_text=True)
-        for row in table.rows:
-            ws.append([_xlsx_value(row.get(c)) for c in table.columns])
-            for cell in ws[ws.max_row]:
-                if isinstance(cell.value, str) and cell.value.startswith("="):
-                    cell.data_type = "s"  # text, never a formula
-        ws.freeze_panes = "C2"
-        ws.auto_filter.ref = ws.dimensions
-        for idx, column in enumerate(table.columns, start=1):
-            longest = max([len(str(column))] + [len(str(r.get(column) or "")) for r in table.rows[:200]])
-            ws.column_dimensions[get_column_letter(idx)].width = max(10, min(60, longest + 2))
+        _styled_sheet(wb, table.key, table.columns, [[row.get(c) for c in table.columns] for row in table.rows], used)
+    if data_files is not None and data_files.rows:
+        from .datafiles import FILE_COLUMNS
+
+        _styled_sheet(wb, "data_files", FILE_COLUMNS, [[r.get(c) for c in FILE_COLUMNS] for r in data_files.rows], used)
+        for sheet, header, rows in data_files.previews:
+            _styled_sheet(wb, sheet, header, rows, used)
     buffer = io.BytesIO()
     wb.save(buffer)
     return buffer.getvalue()
 
 
+_URL = re.compile(r"^https?://\S+$")
+
+
+def content_metrics(package: DataPackage) -> dict[str, Any]:
+    """How much of the package is actual data, versus identifiers and links (provenance)."""
+    provenance_cols = {"entity", "sources", "source_urls", "quality_grade", "quality_score", "quality_flags",
+                       "confirmed_by_databases", "conflicts", "species", "type"}
+    data = ids = links = 0
+    data_columns = 0
+    for table in package.tables:
+        cols = [c for c in table.columns if c not in provenance_cols]
+        data_columns += sum(1 for c in cols if not c.startswith("id_"))
+        for row in table.rows:
+            for c in cols:
+                v = row.get(c)
+                if v in (None, ""):
+                    continue
+                if c.startswith("id_"):
+                    ids += 1
+                elif isinstance(v, str) and all(_URL.match(part.strip()) for part in v.split(";") if part.strip()):
+                    links += 1
+                else:
+                    data += 1
+    total = data + ids + links
+    return {
+        "data_cells": data,
+        "identifier_cells": ids,
+        "link_only_cells": links,
+        "data_share_pct": round(100 * data / total, 1) if total else 0.0,
+        "data_columns": data_columns,
+    }
+
+
 def _readme(package: DataPackage, *, name: str, description: str | None, query: str | None,
-            created_at: str, files: list[dict[str, Any]]) -> tuple[str, list[list[str]]]:
+            created_at: str, files: list[dict[str, Any]], data_files: Any = None,
+            metrics: dict[str, Any] | None = None, notes: list[str] | None = None) -> tuple[str, list[list[str]]]:
     st = package.stats
     lines = [
         f"Mosaic data package: {name}",
@@ -408,11 +463,22 @@ def _readme(package: DataPackage, *, name: str, description: str | None, query: 
         f"{st.get('entities_out', 0)} entities ({st.get('duplicates_merged', 0)} duplicates merged, "
         f"{st.get('multi_source_entities', 0)} confirmed by 2+ databases).",
         "Grades: " + ", ".join(f"{g}: {n}" for g, n in (st.get("grades") or {}).items()),
-        "",
-        "Files:",
     ]
+    if metrics:
+        lines.append(
+            f"Content: {metrics['data_cells']} data values in {metrics['data_columns']} data columns, "
+            f"{metrics['identifier_cells']} identifiers, {metrics['link_only_cells']} link-only cells "
+            f"({metrics['data_share_pct']}% of filled cells are data)."
+        )
+    for note in notes or []:
+        lines.append(f"Note: {note}")
+    lines += ["", "Files:"]
     for f in files:
         lines.append(f"  {f['file']:<34} {f['rows']:>5} rows  {f['title']}")
+    if data_files is not None and data_files.rows:
+        included = sum(1 for r in data_files.rows if r.get("included_in_package"))
+        lines.append(f"  {'data_files.csv':<34} {len(data_files.rows):>5} rows  every file of every dataset (name, size, format, download URL)")
+        lines.append(f"  {'files/':<34} {included:>5} files actual data files downloaded from the repositories (small open tables)")
     lines += [
         "  mosaic_data.xlsx                   all tables as Excel sheets (opens directly in Excel)",
         "  manifest.json                      machine-readable description of this package",
@@ -425,7 +491,7 @@ def _readme(package: DataPackage, *, name: str, description: str | None, query: 
         "                         FAERS (not causal), unreviewed entry, sources disagree ...",
         "  confirmed_by_databases number of databases reporting the same entity",
         "  id_*                   identifiers (DOI, PMID, NCT, ChEMBL, UniProt ...), normalized",
-        "  other columns          cleaned data fields; the first source listed supplied them",
+        "  other columns          cleaned data fields from the full records; the first source supplied them",
         "  sources / source_urls  provenance: database:record-id and links",
         "",
         "Cleaning applied: " + ("; ".join(st.get("cleaning") or []) or "none needed"),
@@ -437,8 +503,18 @@ def _readme(package: DataPackage, *, name: str, description: str | None, query: 
         rows.append(["Description", description])
     rows += [["Split by", package.group_by], ["Records in", str(st.get("records_in", 0))],
              ["Entities", str(st.get("entities_out", 0))], ["Duplicates merged", str(st.get("duplicates_merged", 0))],
-             ["Grades", ", ".join(f"{g}: {n}" for g, n in (st.get("grades") or {}).items())], [""], ["Sheet", "Contents"]]
+             ["Grades", ", ".join(f"{g}: {n}" for g, n in (st.get("grades") or {}).items())]]
+    if metrics:
+        rows.append(["Content", f"{metrics['data_cells']} data values, {metrics['identifier_cells']} identifiers, "
+                                f"{metrics['link_only_cells']} link-only cells ({metrics['data_share_pct']}% data)"])
+    for note in notes or []:
+        rows.append(["Note", note])
+    rows += [[""], ["Sheet", "Contents"]]
     rows += [[f["group"][:31], f"{f['title']} ({f['rows']} rows)"] for f in files]
+    if data_files is not None and data_files.rows:
+        rows.append(["data_files", f"Every file of every dataset ({len(data_files.rows)} rows)"])
+        rows += [[sheet, f"Preview of downloaded file: {next((r['file_name'] for r in data_files.rows if r.get('preview_sheet') == sheet), '')}"]
+                 for sheet, _, _ in data_files.previews]
     rows += [[""], ["quality_grade", "A (>=80) B (>=60) C (>=40) D; see quality_flags for warnings"]]
     return "\r\n".join(lines) + "\r\n", rows
 
@@ -451,11 +527,15 @@ def write_package(
     description: str | None = None,
     query: str | None = None,
     session_id: str | None = None,
+    data_files: Any = None,
+    notes: list[str] | None = None,
 ) -> SavedPackage:
+    """Write the package folder. ``data_files`` is a ``mosaic.datafiles.DataFilesResult`` (optional)."""
     export_id = uuid.uuid4().hex
     folder = exports_dir / package_folder_name(name, export_id)
     folder.mkdir(parents=True, exist_ok=False)
     created_at = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    notes = list(notes or []) + list(getattr(data_files, "notes", None) or [])
 
     contents: dict[str, bytes] = {}
     files = []
@@ -463,10 +543,22 @@ def write_package(
         contents[table.filename] = _csv_bytes(table)
         files.append({"file": table.filename, "group": table.key, "title": table.title,
                       "rows": len(table.rows), "columns": table.columns})
+    if data_files is not None and data_files.rows:
+        from .datafiles import FILE_COLUMNS
+
+        inventory = GroupTable(key="data_files", title="Dataset files (actual data: names, sizes, formats, downloads)",
+                               columns=list(FILE_COLUMNS), rows=data_files.rows)
+        contents[inventory.filename] = _csv_bytes(inventory)
+        files.append({"file": inventory.filename, "group": "data_files", "title": inventory.title,
+                      "rows": len(inventory.rows), "columns": inventory.columns})
+    metrics = content_metrics(package)
+    package.stats["content"] = metrics
     readme_text, readme_rows = _readme(package, name=name, description=description, query=query,
-                                       created_at=created_at, files=files)
+                                       created_at=created_at, files=files, data_files=data_files,
+                                       metrics=metrics, notes=notes)
     contents["README.txt"] = readme_text.encode("utf-8-sig")
-    contents["mosaic_data.xlsx"] = _xlsx_bytes(package, name, readme_rows)
+    contents["mosaic_data.xlsx"] = _xlsx_bytes(package, readme_rows, data_files)
+    blobs = dict(getattr(data_files, "blobs", None) or {})
     manifest = {
         "export_id": export_id,
         "kind": "package",
@@ -477,20 +569,33 @@ def write_package(
         "created_at": created_at,
         "session_id": session_id,
         "stats": package.stats,
+        "notes": notes,
         "files": files,
+        "data_files_included": sorted(blobs),
     }
     contents["manifest.json"] = json.dumps(manifest, ensure_ascii=False, indent=2, default=str).encode("utf-8")
     for filename, data in contents.items():
         (folder / filename).write_bytes(data)
+    for rel, data in blobs.items():
+        target = (folder / rel).resolve()
+        if folder.resolve() not in target.parents:  # names are sanitized; this is defence in depth
+            continue
+        try:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(data)
+        except OSError:  # e.g. a path still too long for the OS: the ZIP keeps the file
+            notes.append(f"{rel} could not be written to the folder (it is in the ZIP)")
     zip_buffer = io.BytesIO()
     with zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED) as archive:
         for filename, data in contents.items():
             archive.writestr(filename, data)
+        for rel, data in blobs.items():
+            archive.writestr(rel, data)
     (folder / "mosaic_data.zip").write_bytes(zip_buffer.getvalue())
     return SavedPackage(
         export_id=export_id,
         name=name,
         folder=folder,
         files=files,
-        n_rows=sum(f["rows"] for f in files),
+        n_rows=sum(f["rows"] for f in files if f["group"] != "data_files"),
     )

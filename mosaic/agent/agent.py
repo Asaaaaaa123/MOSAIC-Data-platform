@@ -79,6 +79,7 @@ from .events import (
     Done,
     ServerToolActivity,
     SessionStarted,
+    SpeciesComparisonReady,
     TableSaved,
     TextDelta,
     ThinkingDelta,
@@ -121,6 +122,7 @@ class _RunState:
     server_calls: dict[str, str] = field(default_factory=dict)  # server_tool_use id -> tool name
     tool_calls: list[dict[str, Any]] = field(default_factory=list)  # display transcript
     tables: list[dict[str, Any]] = field(default_factory=list)
+    comparisons: list[dict[str, Any]] = field(default_factory=list)  # SpeciesComparisonReady cards
     usage: dict[str, int] = field(default_factory=dict)
     stop_reason: str | None = None
     error: str | None = None
@@ -672,6 +674,8 @@ class MosaicAgent:
         for event in outcome.events:
             if isinstance(event, TableSaved):
                 state.tables.append(event.model_dump(exclude={"session_id", "type"}))
+            elif isinstance(event, SpeciesComparisonReady):
+                state.comparisons.append(event.model_dump(exclude={"session_id", "type"}))
         state.tool_calls.append(
             {
                 "name": block.get("name"),
@@ -744,6 +748,7 @@ class MosaicAgent:
             "text": state.final_text,
             "tool_calls": state.tool_calls,
             "tables": state.tables,
+            "comparisons": state.comparisons,
             "stop_reason": state.stop_reason,
             "created_at": iso(time.time()),
         }

@@ -57,6 +57,7 @@ from .schemas import (
     ResolveRequest,
     SearchExportRequest,
     SearchRequest,
+    SpeciesCompareRequest,
 )
 from .security import SecretScrubber, SecurityMiddleware, default_allowed_hosts
 from .streaming import SSE_HEADERS, sse_stream
@@ -666,14 +667,64 @@ def create_app(
         )
         if not result.records:
             raise ApiError(404, "the search returned no records to export")
-        package = build_package(result.records, body.group_by)
+        from ..datafiles import collect_data_files
+        from ..enrich import enrich_records
+
+        records, notes = result.records, []
+        if body.full_records:
+            records, enrich_stats = await enrich_records(registry, records)
+            notes = enrich_stats.notes()
+        data_files = await collect_data_files(registry.http, records, download=body.download_files)
+        package = build_package(records, body.group_by)
         name = body.name or f"Search {body.query}"
-        saved = write_package(settings.exports_dir, package, name=name, query=body.query,
+        saved = write_package(settings.exports_dir, package, name=name, query=body.query, data_files=data_files, notes=notes,
                               description=f"Cross-database search of {len(result.sources)} sources, split by {body.group_by}")
         registry.audit.record_export(name=name, path=str(saved.folder), n_rows=saved.n_rows,
                                      columns=[f["file"] for f in saved.files])
         entry = next((e for e in list_exports(settings.exports_dir, registry.audit, 1000) if e["export_id"] == saved.export_id), None)
         return entry or {"export_id": saved.export_id}
+
+    # ----------------------------------------------------------------- species
+    @app.get("/api/species/meta", tags=["species"])
+    async def species_meta() -> dict[str, Any]:
+        from ..species import DEFAULT_SPECIES, SPECIES
+
+        return {"species": [s.model_dump() for s in SPECIES], "default": DEFAULT_SPECIES}
+
+    @app.get("/api/species", tags=["species"])
+    async def species_list(limit: Annotated[int, Query(ge=1, le=500)] = 50) -> dict[str, Any]:
+        from ..species.store import list_comparisons
+
+        items = list_comparisons(settings, limit)
+        return {"total": len(items), "comparisons": items}
+
+    @app.get("/api/species/{comparison_id}", tags=["species"])
+    async def species_get(comparison_id: str) -> dict[str, Any]:
+        from ..species.store import load_comparison
+
+        comparison = load_comparison(settings, comparison_id)
+        if comparison is None:
+            raise ApiError(404, "no such cross-species comparison")
+        return comparison.model_dump(mode="json", exclude={"records"})
+
+    @app.post("/api/species/compare", tags=["species"])
+    async def species_compare(body: SpeciesCompareRequest) -> dict[str, Any]:
+        """Compare a drug / compound across species: target ortholog similarity + evidence per species."""
+        from ..species import SPECIES_BY_KEY
+        from ..species.service import run_comparison
+
+        unknown = [k for k in body.species or [] if k not in SPECIES_BY_KEY]
+        if unknown:
+            raise ApiError(400, f"unknown species: {', '.join(unknown)}", species=sorted(SPECIES_BY_KEY))
+        registry = state.require_registry()
+        try:
+            comparison = await run_comparison(
+                registry, settings, body.query, species=body.species, max_papers=body.max_papers,
+                extract_with_claude=body.extract_with_claude,
+            )
+        except SourceError as exc:
+            raise source_api_error(exc, state.clean) from exc
+        return comparison.model_dump(mode="json", exclude={"records"})
 
     # ------------------------------------------------------------------- audit
     @app.get("/api/audit/tool-calls", tags=["audit"])

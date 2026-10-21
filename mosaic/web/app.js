@@ -495,12 +495,12 @@
   // ===================================================================
   // Router
   // ===================================================================
-  const VIEWS = ['ask', 'sources', 'search', 'catalog', 'exports', 'audit'];
+  const VIEWS = ['ask', 'sources', 'search', 'species', 'catalog', 'exports', 'audit'];
   const loaders = {};
   const loaded = new Set();
 
   function route() {
-    const name = (location.hash || '#ask').slice(1).split('/')[0];
+    const name = (location.hash || '#ask').slice(1).split(/[/?]/)[0];
     const view = VIEWS.includes(name) ? name : 'ask';
     for (const v of VIEWS) $('#view-' + v).hidden = v !== view;
     document.querySelectorAll('.nav a').forEach((a) => {
@@ -512,7 +512,7 @@
     const first = !loaded.has(view);
     loaded.add(view);
     if (loaders[view]) loaders[view](first);
-    const titles = { ask: 'Ask Mosaic', sources: 'Sources', search: 'Cross-database search', catalog: 'NIH repositories', exports: 'Exports', audit: 'Audit log' };
+    const titles = { ask: 'Ask Mosaic', sources: 'Sources', search: 'Cross-database search', species: '跨物种比较 Cross-species', catalog: 'NIH repositories', exports: 'Exports', audit: 'Audit log' };
     document.title = titles[view] + ' · Mosaic';
   }
 
@@ -672,6 +672,7 @@
         case 'tool_call_finished': this.toolFinished(ev); break;
         case 'server_tool': this.serverTool(ev); break;
         case 'table_saved': this.tableSaved(ev); break;
+        case 'species_comparison': this.speciesComparison(ev); break;
         case 'turn_completed': this.addUsage(ev.usage); break;
         case 'error':
           this.addNode(h('div', { class: 'msg-error', role: 'alert' }, (ev.retryable ? 'Temporary error: ' : 'Error: ') + (ev.message || 'unknown error')));
@@ -728,6 +729,10 @@
     tableSaved(ev) {
       this.tables++;
       this.addNode(tableCard(ev));
+    }
+
+    speciesComparison(ev) {
+      this.addNode(speciesChatCard(ev));
     }
 
     addUsage(usage) {
@@ -993,6 +998,9 @@
         });
       }
       for (const table of Array.isArray(entry.tables) ? entry.tables : []) view.tableSaved(table);
+      for (const comp of Array.isArray(entry.comparisons) ? entry.comparisons : []) {
+        if (comp && typeof comp === 'object') view.speciesComparison(comp);
+      }
       if (entry.text) {
         const seg = view.segment('text');
         seg.text = String(entry.text);
@@ -1913,6 +1921,1009 @@
   loaders.audit = () => loadAudit();
 
   // ===================================================================
+  // Cross-species comparison (跨物种比较): form, dashboard, chat card
+  // ===================================================================
+  // Renders a SpeciesComparison (mosaic/species/models.py). Charts are hand-written SVG; every
+  // server string goes through textContent; colours come from CSS variables (light + dark).
+  const SP_ID_RE = /^[0-9a-f]{32}$/;
+  const SP_GROUP_ORDER = ['human', 'primate', 'mammal', 'bird', 'amphibian', 'fish', 'insect', 'nematode', 'fungus', 'plant'];
+  const SP_FORM_GROUPS = [
+    ['人与灵长类', 'Human & primates', ['human', 'primate']],
+    ['哺乳动物', 'Mammals', ['mammal']],
+    ['鸟类', 'Birds', ['bird']],
+    ['两栖与鱼类', 'Amphibians & fish', ['amphibian', 'fish']],
+    ['无脊椎动物', 'Invertebrates', ['insect', 'nematode']],
+    ['真菌与植物', 'Fungi & plants', ['fungus', 'plant']],
+  ];
+  const SP_EVIDENCE = {
+    clinical: { rank: 4, zh: '临床', en: 'Clinical', mark: 'C' },
+    in_vivo: { rank: 3, zh: '体内', en: 'In vivo', mark: 'V' },
+    in_vitro: { rank: 2, zh: '体外', en: 'In vitro', mark: 'T' },
+    computational: { rank: 1, zh: '计算预测', en: 'Computational', mark: 'P' },
+    none: { rank: 0, zh: '无', en: 'None', mark: '' },
+  };
+  const SP_KINDS = {
+    potency: ['效力', 'Potency'],
+    in_vivo_efficacy: ['体内药效', 'In vivo efficacy'],
+    pharmacokinetics: ['药代动力学', 'Pharmacokinetics'],
+    toxicity: ['毒性', 'Toxicity'],
+    other: ['其他', 'Other'],
+  };
+  const SP_KIND_ORDER = Object.keys(SP_KINDS);
+  const SP_COMPOUND_KIND = { drug: '药物 Drug', compound: '化合物 Compound', unknown: '类型未知 Unknown type' };
+  const SP_BINS = [
+    // [class suffix, lower bound, label]
+    [5, 98, '≥ 98%'], [4, 90, '90–98%'], [3, 75, '75–90%'], [2, 50, '50–75%'], [1, -Infinity, '< 50%'],
+  ];
+  const spState = {
+    meta: null, metaPromise: null, cache: new Map(), current: null, selected: null,
+    paperFilter: '', sort: { key: 'order', dir: 1 }, metric: null, running: false,
+  };
+
+  function svgEl(tag, attrs) {
+    const el = document.createElementNS(SVG_NS, tag);
+    if (attrs) {
+      for (const k of Object.keys(attrs)) {
+        const v = attrs[k];
+        if (v === null || v === undefined || v === false) continue;
+        if (k === 'text') el.textContent = String(v);
+        else if (k.startsWith('on') && typeof v === 'function') el.addEventListener(k.slice(2), v);
+        else el.setAttribute(k, String(v));
+      }
+    }
+    for (const kid of Array.prototype.slice.call(arguments, 2).flat(Infinity)) {
+      if (kid === null || kid === undefined || kid === false) continue;
+      el.appendChild(kid instanceof Node ? kid : document.createTextNode(String(kid)));
+    }
+    return el;
+  }
+
+  const isNum = (v) => typeof v === 'number' && isFinite(v);
+  function fmtPct(v) { return isNum(v) ? (Math.round(v * 10) / 10) + '%' : '–'; }
+  function fmtVal(v) {
+    if (!isNum(v)) return '–';
+    const a = Math.abs(v);
+    return a !== 0 && (a < 0.01 || a >= 1e6) ? v.toExponential(2) : String(Math.round(v * 100) / 100);
+  }
+  function idBin(v) {
+    if (!isNum(v)) return 0;
+    for (const [n, lo] of SP_BINS) if (v >= lo) return n;
+    return 1;
+  }
+  function spLabel(s) { return s ? ((s.label_zh || '') + ' ' + (s.label || s.species || '')).trim() : ''; }
+  function evInfo(level) { return SP_EVIDENCE[level] || SP_EVIDENCE.none; }
+  function evBadge(level) {
+    const e = evInfo(level);
+    return h('span', { class: 'sp-ev sp-ev-' + (SP_EVIDENCE[level] ? level : 'none'), title: '证据等级 Evidence level: ' + e.zh + ' ' + e.en },
+      h('span', { class: 'sp-ev-dots', 'aria-hidden': 'true' }, [1, 2, 3, 4].map((i) => h('i', { class: i <= e.rank ? 'on' : null }))),
+      e.zh + ' ' + e.en);
+  }
+  function pubmedUrl(pmid) { return /^\d{1,9}$/.test(String(pmid || '')) ? 'https://pubmed.ncbi.nlm.nih.gov/' + pmid + '/' : null; }
+  function doiUrl(doi) { return typeof doi === 'string' && /^10\.\S+$/.test(doi.trim()) ? 'https://doi.org/' + encodeURI(doi.trim()) : null; }
+  function uniprotUrl(acc) { return /^[A-Z0-9]{6,10}(-\d+)?$/.test(String(acc || '')) ? 'https://www.uniprot.org/uniprotkb/' + acc + '/entry' : null; }
+  const ID_LINKS = {
+    chembl: (v) => /^CHEMBL\d+$/.test(v) ? 'https://www.ebi.ac.uk/chembl/explore/compound/' + v : null,
+    pubchem_cid: (v) => /^\d+$/.test(v) ? 'https://pubchem.ncbi.nlm.nih.gov/compound/' + v : null,
+    drugbank: (v) => /^DB\d+$/.test(v) ? 'https://go.drugbank.com/drugs/' + v : null,
+    inchikey: (v) => /^[A-Z]{14}-[A-Z]{10}-[A-Z]$/.test(v) ? 'https://pubchem.ncbi.nlm.nih.gov/#query=' + v : null,
+  };
+
+  /** Shared floating tooltip for SVG marks (hover + keyboard focus). */
+  let spTip = null;
+  function showTip(target, lines) {
+    if (!spTip) { spTip = h('div', { class: 'sp-tip', role: 'tooltip', hidden: true }); document.body.appendChild(spTip); }
+    spTip.replaceChildren(...lines.filter(Boolean).map((l, i) => h('div', { class: i === 0 ? 'sp-tip-h' : null, text: l })));
+    spTip.hidden = false;
+    const r = target.getBoundingClientRect();
+    const tw = spTip.offsetWidth;
+    const th = spTip.offsetHeight;
+    let x = r.left + r.width / 2 - tw / 2;
+    let y = r.top - th - 8;
+    if (y < 8) y = r.bottom + 8;
+    x = Math.max(8, Math.min(window.innerWidth - tw - 8, x));
+    spTip.style.left = x + 'px';
+    spTip.style.top = y + 'px';
+  }
+  function hideTip() { if (spTip) spTip.hidden = true; }
+  function withTip(el, lines) {
+    el.addEventListener('mouseenter', () => showTip(el, lines));
+    el.addEventListener('mouseleave', hideTip);
+    el.addEventListener('focus', () => showTip(el, lines));
+    el.addEventListener('blur', hideTip);
+    return el;
+  }
+  function activate(el, fn) {
+    el.addEventListener('click', fn);
+    el.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fn(e); } });
+    return el;
+  }
+
+  /** Re-draws ``draw(width)`` into ``holder`` whenever its width changes. */
+  function responsive(holder, draw) {
+    let last = 0;
+    const render = (force) => {
+      const w = Math.round(holder.clientWidth);
+      if (!w || (force !== true && Math.abs(w - last) < 8)) return;
+      last = w;
+      holder.replaceChildren(draw(Math.max(300, w)));
+    };
+    holder.spRedraw = () => render(true);
+    if (window.ResizeObserver) {
+      const ro = new ResizeObserver(() => { if (!holder.isConnected && last) { ro.disconnect(); return; } render(); });
+      ro.observe(holder);
+    } else {
+      window.addEventListener('resize', render);
+    }
+    requestAnimationFrame(render);
+    return holder;
+  }
+
+  /** Two-line bilingual row label (Chinese first) right-aligned at (x, y). */
+  function rowLabel(s, x, y) {
+    return svgEl('text', { class: 'sp-lbl', x, y, 'text-anchor': 'end' },
+      svgEl('tspan', { class: 'sp-lbl-n', x, dy: -2, text: s.label_zh || s.label || s.species }),
+      svgEl('tspan', { class: 'tm sp-en', x, dy: 12, text: s.label_zh ? (s.label || '') : '' }));
+  }
+
+  function legend(items) {
+    return h('div', { class: 'sp-legend' }, items.map(([cls, label, shape]) =>
+      h('span', { class: 'sp-legend-item' }, h('span', { class: 'sp-sw ' + cls + (shape ? ' sp-sw-' + shape : ''), 'aria-hidden': 'true' }), label)));
+  }
+
+  function chartBlock(title, sub, body, table) {
+    return h('section', { class: 'panel sp-chart' },
+      h('div', { class: 'panel-head' }, h('h3', { text: title }), sub ? h('p', { class: 'muted small', text: sub }) : null),
+      body,
+      table ? h('details', { class: 'sp-table-alt' }, h('summary', { text: '以表格查看 View as table' }), table) : null);
+  }
+
+  function miniTable(headers, rows, numeric) {
+    const num = new Set(numeric || []);
+    return h('div', { class: 'table-wrap' }, h('table', { class: 'data' },
+      h('thead', null, h('tr', null, headers.map((c, i) => h('th', { scope: 'col', class: num.has(i) ? 'num' : null, text: c })))),
+      h('tbody', null, rows.map((cells) => h('tr', null, cells.map((c, i) => h('td', { class: num.has(i) ? 'num' : null }, c)))))));
+  }
+
+  /** Species summaries sorted human first, then by evolutionary distance (group order). */
+  function orderedSpecies(list) {
+    const arr = (Array.isArray(list) ? list : []).filter((s) => s && typeof s === 'object' && s.species);
+    return arr.map((s, i) => [s, i]).sort((a, b) => {
+      const ga = SP_GROUP_ORDER.indexOf(a[0].group); const gb = SP_GROUP_ORDER.indexOf(b[0].group);
+      return (ga < 0 ? 99 : ga) - (gb < 0 ? 99 : gb) || a[1] - b[1];
+    }).map((x) => x[0]);
+  }
+  function speciesIndex(c) {
+    const map = new Map();
+    for (const s of orderedSpecies(c.species)) map.set(s.species, s);
+    return map;
+  }
+  function meanSimilarity(c, key) {
+    const vals = (c.similarity || []).filter((o) => o && o.species === key && isNum(o.similarity_pct)).map((o) => o.similarity_pct);
+    return vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : null;
+  }
+
+  // ------------------------------------------------------------- overview graph
+  /** Radial graph: human at the centre, species around it in evolutionary order; distance and
+   * edge shade encode mean target identity, node area encodes number of papers. */
+  function overviewGraph(speciesList, opts) {
+    opts = opts || {};
+    const compact = !!opts.compact;
+    const all = orderedSpecies(speciesList);
+    const human = all.find((s) => s.species === 'human') || { species: 'human', label: 'Human', label_zh: '人', mean_identity_pct: 100, n_papers: 0, evidence_level: 'none' };
+    const others = all.filter((s) => s.species !== 'human');
+    const W = compact ? 460 : 840;
+    const H = compact ? 400 : 690;
+    const cx = W / 2;
+    const cy = H / 2;
+    const rMin = compact ? 84 : 160;
+    const rMax = compact ? 156 : 262;
+    const DMAX = 60; // identity 40% and below sit on the outer guide ring
+    const radius = (id) => isNum(id) ? rMin + Math.sqrt(Math.min(Math.max(0, 100 - id), DMAX) / DMAX) * (rMax - rMin) : rMax + (compact ? 16 : 26);
+    // scale node area against the non-human species: human (often 10x more papers) would otherwise
+    // shrink every other node to the minimum size; the human node has its own minimum radius
+    const maxPapers = Math.max(1, ...(others.length ? others : all).map((s) => s.n_papers || 0));
+    const nodeR = (n) => (compact ? 5 : 7) + Math.sqrt(Math.min(1, Math.max(0, n || 0) / maxPapers)) * (compact ? 9 : 17);
+    const n = Math.max(1, others.length);
+    const step = 360 / n;
+    const svg = svgEl('svg', {
+      class: 'sp-svg sp-graph' + (compact ? ' compact' : ''), viewBox: '0 0 ' + W + ' ' + H, role: 'group',
+      'aria-label': '物种关系图 Species overview graph: human at the centre, species placed by mean target identity',
+    });
+    svg.appendChild(svgEl('title', { text: '跨物种概览图 Cross-species overview: closer and darker = higher target identity to human; larger node = more papers' }));
+    // identity guide rings
+    const ringAngle = -Math.PI / 2; // species start half a step clockwise of 12 o'clock, so the guide labels sit in the gap
+    const guides = svgEl('g', { class: 'sp-guides', 'aria-hidden': 'true' });
+    for (const v of compact ? [100, 90, 50] : [100, 90, 75, 50]) {
+      const r = radius(v);
+      guides.appendChild(svgEl('circle', { class: 'sp-ring', cx, cy, r }));
+      guides.appendChild(svgEl('text', { class: 'tm', x: cx + Math.cos(ringAngle) * r, y: cy + Math.sin(ringAngle) * r - 3, 'text-anchor': 'middle', text: v + '%' }));
+    }
+    if (others.some((s) => !isNum(s.mean_identity_pct))) {
+      const r = radius(null);
+      guides.appendChild(svgEl('circle', { class: 'sp-ring sp-ring-none', cx, cy, r }));
+      if (!compact) guides.appendChild(svgEl('text', { class: 'tm', x: cx + Math.cos(ringAngle) * r, y: cy + Math.sin(ringAngle) * r - 3, 'text-anchor': 'middle', text: '无同源 no ortholog' }));
+    }
+    svg.appendChild(guides);
+    const edges = svgEl('g', { class: 'sp-edges', 'aria-hidden': 'true' });
+    const nodes = svgEl('g', { class: 'sp-nodes' });
+    svg.appendChild(edges);
+    svg.appendChild(nodes);
+
+    function node(s, x, y, ang) {
+      const r = s.species === 'human' ? Math.max(nodeR(s.n_papers), compact ? 13 : 20) : nodeR(s.n_papers);
+      const bin = s.species === 'human' ? 'human' : 'b' + idBin(s.mean_identity_pct);
+      const ev = evInfo(s.evidence_level);
+      const stats = (s.species === 'human' ? '参照 reference' : fmtPct(s.mean_identity_pct)) + ' · ' + fmtNum(s.n_papers || 0) + ' 篇';
+      const g = svgEl('g', {
+        class: 'sp-node' + (opts.selected === s.species ? ' is-sel' : ''), tabindex: opts.onSelect ? 0 : null,
+        role: opts.onSelect ? 'button' : 'img', 'data-species': s.species,
+        'aria-label': spLabel(s) + ': ' + (s.species === 'human' ? '人类参照 human reference' : '平均靶点一致性 mean target identity ' + fmtPct(s.mean_identity_pct)) +
+          ', ' + fmtNum(s.n_papers || 0) + ' 篇文献 papers, ' + fmtNum(s.n_measurements || 0) + ' 个测量 measurements, 证据 evidence ' + ev.zh + ' ' + ev.en,
+      });
+      g.appendChild(svgEl('circle', { class: 'sp-hit', cx: x, cy: y, r: r + 8 }));
+      g.appendChild(svgEl('circle', { class: 'n sp-fill-' + bin, cx: x, cy: y, r }));
+      if (ev.mark) {
+        const ma = ang + Math.PI * 1.25; // on the inner side of the node, away from its label
+        const mx = x + Math.cos(ma) * r * 0.85;
+        const my = y + Math.sin(ma) * r * 0.85;
+        g.appendChild(svgEl('circle', { class: 'sp-evm', cx: mx, cy: my, r: compact ? 5.5 : 7 }));
+        g.appendChild(svgEl('text', { class: 'sp-evm-t', x: mx, y: my, 'text-anchor': 'middle', 'dominant-baseline': 'central', text: ev.mark }));
+      }
+      // label, pushed outward along the spoke
+      const c = Math.cos(ang);
+      const sn = Math.sin(ang);
+      let lx = x;
+      let ly = y + r + 14;
+      let anchor = 'middle';
+      if (s.species !== 'human') {
+        anchor = c > 0.2 ? 'start' : c < -0.2 ? 'end' : 'middle';
+        if (anchor === 'middle') {
+          ly = sn > 0 ? y + r + 14 : y - r - (compact ? 18 : 22);
+        } else {
+          lx = x + (c > 0 ? 1 : -1) * (r + 6);
+          ly = y - 3;
+        }
+      }
+      const label = svgEl('text', { class: 'sp-lbl', x: lx, y: ly, 'text-anchor': anchor },
+        svgEl('tspan', { class: 'sp-lbl-n', x: lx, text: compact ? (s.label_zh || s.label) : spLabel(s) }),
+        svgEl('tspan', { class: 'tm', x: lx, dy: compact ? 12 : 14, text: compact ? (s.species === 'human' ? '' : fmtPct(s.mean_identity_pct)) : stats }));
+      g.appendChild(label);
+      withTip(g, [spLabel(s) + (s.scientific_name ? ' (' + s.scientific_name + ')' : ''),
+        s.species === 'human' ? '人类参照 Human reference' : '平均靶点一致性 Mean target identity: ' + fmtPct(s.mean_identity_pct),
+        '文献 Papers: ' + fmtNum(s.n_papers || 0) + ' · 测量 Measurements: ' + fmtNum(s.n_measurements || 0),
+        '证据等级 Evidence: ' + ev.zh + ' ' + ev.en,
+        opts.onSelect ? '点击查看详情 Click for details' : null]);
+      if (opts.onSelect) activate(g, () => { hideTip(); opts.onSelect(s.species); });
+      return g;
+    }
+
+    others.forEach((s, i) => {
+      const ang = (-90 + step / 2 + i * step) * Math.PI / 180;
+      const r = radius(s.mean_identity_pct);
+      const x = cx + Math.cos(ang) * r;
+      const y = cy + Math.sin(ang) * r;
+      const bin = idBin(s.mean_identity_pct);
+      edges.appendChild(svgEl('line', { class: 'sp-edge sp-stroke-b' + bin, x1: cx, y1: cy, x2: x, y2: y }));
+      nodes.appendChild(node(s, x, y, ang));
+    });
+    nodes.appendChild(node(human, cx, cy, Math.PI / 2));
+    return svg;
+  }
+
+  function graphLegend() {
+    return h('div', { class: 'sp-legend-wrap' },
+      legend(SP_BINS.map(([n, , label]) => ['sp-bg-b' + n, label]).concat([['sp-bg-b0', '无同源 none']])),
+      h('div', { class: 'sp-legend' },
+        h('span', { class: 'sp-legend-item' }, '离中心越近、颜色越浓 = 靶点与人越相似 · closer & stronger colour = more similar target'),
+        h('span', { class: 'sp-legend-item' }, '圆越大 = 文献越多 · larger node = more papers'),
+        h('span', { class: 'sp-legend-item' }, '标签数字：平均一致性 · 文献篇数 · label numbers: mean identity · papers'),
+        h('span', { class: 'sp-legend-item' }, '标记 Marker: C 临床 clinical · V 体内 in vivo · T 体外 in vitro · P 计算 computational')));
+  }
+
+  // ------------------------------------------------------------- comparison table (heatmap)
+  function heatTable(c, onSelect) {
+    const targets = (c.targets || []).map((t) => t.gene_symbol).filter(Boolean);
+    const species = orderedSpecies(c.species);
+    const maxPapers = Math.max(1, ...species.map((s) => s.n_papers || 0));
+    const maxMeas = Math.max(1, ...species.map((s) => s.n_measurements || 0));
+    const order = new Map(species.map((s, i) => [s.species, i]));
+    const cols = [
+      { key: 'order', label: '物种 Species' },
+      ...targets.map((t) => ({ key: 'id:' + t, label: t + ' 一致性 identity', num: true })),
+      targets.length > 1 ? { key: 'mean', label: '平均一致性 Mean identity', num: true } : null,
+      { key: 'sim', label: '相似性 Similarity', num: true },
+      { key: 'papers', label: 'PubMed 文献 Papers', num: true },
+      { key: 'meas', label: 'ChEMBL 测量 Measurements', num: true },
+      { key: 'pchembl', label: '中位 Median pChEMBL', num: true },
+      { key: 'ev', label: '证据等级 Evidence', num: false },
+    ].filter(Boolean);
+    const value = (s, key) => {
+      if (key === 'order') return order.get(s.species);
+      if (key.startsWith('id:')) return (s.per_target_identity || {})[key.slice(3)];
+      if (key === 'mean') return s.mean_identity_pct;
+      if (key === 'sim') return meanSimilarity(c, s.species);
+      if (key === 'papers') return s.n_papers || 0;
+      if (key === 'meas') return s.n_measurements || 0;
+      if (key === 'pchembl') return s.median_pchembl;
+      if (key === 'ev') return evInfo(s.evidence_level).rank;
+      return null;
+    };
+    const wrap = h('div', { class: 'table-wrap sp-heat' });
+    if (!species.length) {
+      wrap.appendChild(h('div', { class: 'empty', text: '没有物种数据 No species in this comparison.' }));
+      return wrap;
+    }
+    function draw() {
+      const { key, dir } = spState.sort;
+      const rows = species.slice().sort((a, b) => {
+        const va = value(a, key); const vb = value(b, key);
+        const na = !isNum(va); const nb = !isNum(vb);
+        if (na || nb) return na === nb ? order.get(a.species) - order.get(b.species) : na ? 1 : -1;
+        return (va - vb) * dir || order.get(a.species) - order.get(b.species);
+      });
+      const cellPct = (v) => h('td', { class: 'num sp-cell sp-b' + idBin(v) }, fmtPct(v));
+      const bar = (v, max) => {
+        const td = h('td', { class: 'num sp-dbar' }, fmtNum(v || 0));
+        td.style.setProperty('--w', Math.round(100 * (v || 0) / max) + '%');
+        return td;
+      };
+      wrap.replaceChildren(h('table', { class: 'data' },
+        h('caption', { class: 'sr-only', text: '各物种与人的靶点一致性和证据 Target identity and evidence per species' }),
+        h('thead', null, h('tr', null, cols.map((col) => {
+          const active = key === col.key;
+          return h('th', { scope: 'col', class: col.num ? 'num' : null, 'aria-sort': active ? (dir > 0 ? 'ascending' : 'descending') : 'none' },
+            h('button', {
+              type: 'button', class: 'sp-sort', onclick: () => {
+                spState.sort = active ? { key: col.key, dir: -dir } : { key: col.key, dir: col.key === 'order' ? 1 : -1 };
+                draw();
+              },
+            }, col.label, h('span', { class: 'sp-sort-i', 'aria-hidden': 'true', text: active ? (dir > 0 ? ' ▲' : ' ▼') : ' ↕' })));
+        }))),
+        h('tbody', null, rows.map((s) => h('tr', { class: spState.selected === s.species ? 'is-sel' : null },
+          h('th', { scope: 'row', class: 'sp-rowh' }, h('button', { type: 'button', class: 'btn-link', onclick: () => onSelect(s.species) }, spLabel(s)),
+            h('div', { class: 'muted small sp-sci', text: s.scientific_name || '' })),
+          targets.length ? targets.map((t) => cellPct((s.per_target_identity || {})[t])) : null,
+          targets.length > 1 ? cellPct(s.mean_identity_pct) : null,
+          cellPct(meanSimilarity(c, s.species)),
+          bar(s.n_papers, maxPapers),
+          bar(s.n_measurements, maxMeas),
+          h('td', { class: 'num' }, isNum(s.median_pchembl) ? s.median_pchembl.toFixed(2) : '–'),
+          h('td', null, evBadge(s.evidence_level)))))));
+    }
+    draw();
+    return wrap;
+  }
+
+  // ------------------------------------------------------------- identity bars
+  function identityBars(c) {
+    const targets = (c.targets || []).map((t) => t.gene_symbol).filter(Boolean);
+    const species = orderedSpecies(c.species);
+    if (!targets.length || !species.length) {
+      return chartBlock('靶点一致性（每个物种） Target identity per species', null,
+        h('div', { class: 'empty', text: '没有靶点或物种数据 No targets or species to plot.' }));
+    }
+    const multi = targets.length > 1;
+    const shown = targets.slice(0, 8);
+    const holder = responsive(h('div', { class: 'sp-chart-body' }), (W) => {
+      const labelW = 130;
+      const right = 54;
+      const barH = multi ? 9 : 14;
+      const rowH = Math.max(30, shown.length * (barH + 2) + 12);
+      const top = 22;
+      const H = top + species.length * rowH + 8;
+      const plotW = Math.max(60, W - labelW - right);
+      const x = (v) => labelW + (Math.max(0, Math.min(100, v)) / 100) * plotW;
+      const svg = svgEl('svg', { class: 'sp-svg', viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, role: 'group',
+        'aria-label': '各物种直系同源蛋白与人的一致性条形图 Bar chart of ortholog identity to human per species' });
+      for (const t of [0, 25, 50, 75, 100]) {
+        svg.appendChild(svgEl('line', { class: 'sp-grid', x1: x(t), x2: x(t), y1: top - 4, y2: H - 6 }));
+        svg.appendChild(svgEl('text', { class: 'tm', x: x(t), y: 12, 'text-anchor': 'middle', text: t + '%' }));
+      }
+      species.forEach((s, i) => {
+        const y0 = top + i * rowH;
+        svg.appendChild(rowLabel(s, labelW - 10, y0 + rowH / 2 - 2));
+        shown.forEach((t, j) => {
+          const v = (s.per_target_identity || {})[t];
+          const y = y0 + 4 + j * (barH + 2);
+          if (!isNum(v)) {
+            svg.appendChild(svgEl('text', { class: 'tm', x: labelW + 4, y: y + barH / 2, 'dominant-baseline': 'central', text: (multi ? t + ': ' : '') + '无同源 no ortholog' }));
+            return;
+          }
+          const w = Math.max(2, x(v) - labelW);
+          const g = svgEl('g', { tabindex: 0, class: 'sp-mark', role: 'img', 'aria-label': spLabel(s) + ' ' + t + ': ' + fmtPct(v) });
+          g.appendChild(svgEl('rect', { class: 'sp-hit', x: labelW, y: y - 1, width: plotW, height: barH + 2 }));
+          // rounded data end, square at the baseline
+          const rr = Math.min(4, barH / 2, w);
+          g.appendChild(svgEl('path', {
+            class: 'sp-bar sp-c' + (multi ? j + 1 : 1),
+            d: 'M' + labelW + ',' + y + 'h' + (w - rr) + 'a' + rr + ',' + rr + ' 0 0 1 ' + rr + ',' + rr + 'v' + (barH - 2 * rr) +
+              'a' + rr + ',' + rr + ' 0 0 1 -' + rr + ',' + rr + 'h-' + (w - rr) + 'z',
+          }));
+          if (!multi || j === 0 || W >= 520) svg.appendChild(svgEl('text', { class: 't2 sp-val', x: labelW + w + 6, y: y + barH / 2, 'dominant-baseline': 'central', text: fmtPct(v) }));
+          withTip(g, [spLabel(s), (multi ? t + ' ' : '') + '序列一致性 Identity: ' + fmtPct(v)]);
+          svg.appendChild(g);
+        });
+      });
+      return svg;
+    });
+    const table = miniTable(['物种 Species'].concat(targets.map((t) => t + ' 一致性 identity %')),
+      species.map((s) => [spLabel(s)].concat(targets.map((t) => fmtPct((s.per_target_identity || {})[t])))), targets.map((_, i) => i + 1));
+    const body = h('div', null, multi ? legend(shown.map((t, j) => ['sp-bg-c' + (j + 1), t])) : null, holder,
+      targets.length > 8 ? h('p', { class: 'muted small', text: '只绘制前 8 个靶点；表格中有全部 Only the first 8 targets are drawn; the table lists all.' }) : null);
+    return chartBlock('靶点一致性（每个物种） Target identity per species',
+      multi ? '每个靶点一条 One bar per target' : '人 ' + targets[0] + ' 蛋白与各物种直系同源蛋白的序列一致性 Sequence identity of each ortholog to human ' + targets[0], body, table);
+  }
+
+  // ------------------------------------------------------------- dose-effect scatter
+  function dosePoints(c) {
+    const pts = [];
+    for (const p of c.papers || []) {
+      if (!p || !isNum(p.dose_mg_kg) || p.dose_mg_kg <= 0 || !isNum(p.effect_value)) continue;
+      pts.push({
+        species: p.species, dose: p.dose_mg_kg, value: p.effect_value, unit: (p.effect_unit || '').trim(), source: 'paper',
+        what: p.effect || p.finding || '', ref: p.pmid ? 'PMID ' + p.pmid : p.doi ? 'DOI ' + p.doi : clip(p.title, 80),
+        title: p.title, url: p.url || pubmedUrl(p.pmid) || doiUrl(p.doi),
+      });
+    }
+    for (const m of c.measurements || []) {
+      if (!m || !isNum(m.dose_mg_kg) || m.dose_mg_kg <= 0 || !isNum(m.value)) continue;
+      pts.push({
+        species: m.species, dose: m.dose_mg_kg, value: m.value, unit: (m.units || '').trim(), source: 'measurement',
+        what: [m.standard_type, m.description].filter(Boolean).join(' · '),
+        ref: m.pmid ? 'PMID ' + m.pmid : m.source_id ? (m.source || 'chembl').toUpperCase() + ' ' + m.source_id : (m.source || 'ChEMBL'),
+        title: m.description, url: m.url || pubmedUrl(m.pmid) || doiUrl(m.doi),
+      });
+    }
+    return pts.filter((p) => p.species);
+  }
+
+  function niceMax(v) {
+    if (!(v > 0)) return 1;
+    const p = Math.pow(10, Math.floor(Math.log10(v)));
+    for (const m of [1, 2, 2.5, 5, 10]) if (m * p >= v) return m * p;
+    return 10 * p;
+  }
+
+  function doseScatter(c) {
+    const sIndex = speciesIndex(c);
+    const pts = dosePoints(c);
+    const title = '剂量-效应图 Dose–effect';
+    if (!pts.length) {
+      return chartBlock(title, null, h('div', { class: 'empty' },
+        '暂无剂量-效应数据。需要以 mg/kg 报告剂量并带有数值效应的文献或测量；勾选“用 Claude 从摘要中提取剂量和效果”可以补充这些数据。',
+        h('br'), h('span', { lang: 'en', text: 'No dose–effect data yet: it needs papers or measurements with a dose in mg/kg and a numeric effect. Tick “extract dose/effect with Claude” to fill them from abstracts.' })));
+    }
+    // one y-axis per unit: group by unit and let the reader pick
+    const byUnit = new Map();
+    for (const p of pts) { const k = p.unit || '(无单位 no unit)'; if (!byUnit.has(k)) byUnit.set(k, []); byUnit.get(k).push(p); }
+    const units = [...byUnit.keys()].sort((a, b) => byUnit.get(b).length - byUnit.get(a).length);
+    if (!spState.metric || !byUnit.has(spState.metric)) spState.metric = units[0];
+    // colour follows the species (fixed order of first appearance in evolutionary order); > 8 folds into "Other"
+    const speciesKeys = [...new Set(pts.map((p) => p.species))].sort((a, b) => {
+      const ia = [...sIndex.keys()].indexOf(a); const ib = [...sIndex.keys()].indexOf(b);
+      return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
+    });
+    const slot = (k) => { const i = speciesKeys.indexOf(k); return i >= 0 && i < 8 ? 'sp-c' + (i + 1) : 'sp-c-other'; };
+    const nameOf = (k) => sIndex.has(k) ? spLabel(sIndex.get(k)) : k;
+    const select = h('select', { class: 'input', id: 'sp-metric', onchange: (e) => { spState.metric = e.target.value; redraw(); } },
+      units.map((u) => h('option', { value: u, selected: u === spState.metric }, '效应 Effect (' + u + ') · ' + byUnit.get(u).length)));
+    const holder = h('div', { class: 'sp-chart-body' });
+    const tableBox = h('div');
+    const legendBox = h('div');
+    let observed = false;
+    function redraw() {
+      const data = byUnit.get(spState.metric) || [];
+      const present = speciesKeys.filter((k) => data.some((p) => p.species === k));
+      const shapes = [['paper', '文献 Paper', 'circle'], ['measurement', 'ChEMBL 测量 Measurement', 'square']].filter(([src]) => data.some((p) => p.source === src));
+      legendBox.replaceChildren(legend(present.filter((k) => speciesKeys.indexOf(k) < 8).map((k) => [slot(k).replace('sp-', 'sp-bg-'), nameOf(k)])
+        .concat(present.some((k) => speciesKeys.indexOf(k) >= 8) ? [['sp-bg-c-other', '其他 Other']] : [])
+        .concat(shapes.map(([, label, shape]) => ['sp-sw-ink', label, shape]))));
+      // a single ResizeObserver per holder, always drawing the currently selected unit
+      // (re-creating one per change left stale observers redrawing old data on resize)
+      if (!observed) { observed = true; responsive(holder, (W) => drawScatter(W, byUnit.get(spState.metric) || [], slot, nameOf)); }
+      else if (holder.spRedraw) holder.spRedraw();
+      tableBox.replaceChildren(miniTable(['物种 Species', '剂量 Dose (mg/kg)', '效应 Effect', '单位 Unit', '描述 Description', '来源 Reference'],
+        data.map((p) => [nameOf(p.species), fmtVal(p.dose), fmtVal(p.value), p.unit, clip(p.what, 120), p.url ? extLink(p.url, p.ref) : p.ref]), [1, 2]));
+    }
+    redraw();
+    const controls = h('div', { class: 'sp-controls' }, h('label', { for: 'sp-metric', class: 'small', text: 'Y 轴 Y axis' }), select);
+    return chartBlock(title, 'X = 剂量 dose (mg/kg, 对数 log scale) · Y = 效应值 effect value · 点击点打开参考文献 click a point to open its reference',
+      h('div', null, controls, legendBox, holder), tableBox);
+  }
+
+  function drawScatter(W, data, slot, nameOf) {
+    const H = W < 520 ? 260 : 320;
+    const m = { l: 52, r: 18, t: 14, b: 40 };
+    const pw = W - m.l - m.r;
+    const ph = H - m.t - m.b;
+    const doses = data.map((p) => p.dose);
+    // log-scale domain padded so points never sit on the frame; at least one decade wide
+    let la = Math.log10(Math.min(...doses)) - 0.2;
+    let lb = Math.log10(Math.max(...doses)) + 0.2;
+    if (lb - la < 1) { const mid = (la + lb) / 2; la = mid - 0.5; lb = mid + 0.5; }
+    const lx = (d) => m.l + (Math.log10(d) - la) / (lb - la) * pw;
+    const vals = data.map((p) => p.value);
+    const vMax = Math.max(0, ...vals);
+    const vMin = Math.min(0, ...vals);
+    const ymin = vMin < 0 ? -niceMax(-vMin) : 0;
+    let ymax = vMax > 0 ? niceMax(vMax) : 0;
+    if (ymax <= ymin) ymax = ymin + 1;
+    const y = (v) => m.t + ph - (v - ymin) / (ymax - ymin) * ph;
+    const svg = svgEl('svg', { class: 'sp-svg', viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, role: 'group',
+      'aria-label': '剂量-效应散点图 Dose–effect scatter plot, ' + data.length + ' points' });
+    const mults = lb - la <= 2.5 ? [1, 3] : [1];
+    for (let e = Math.floor(la); e <= Math.ceil(lb); e++) {
+      for (const k of mults) {
+        const t = k * Math.pow(10, e);
+        const lt = Math.log10(t);
+        if (lt < la || lt > lb) continue;
+        svg.appendChild(svgEl('line', { class: 'sp-grid', x1: lx(t), x2: lx(t), y1: m.t, y2: m.t + ph }));
+        svg.appendChild(svgEl('text', { class: 'tm', x: lx(t), y: m.t + ph + 16, 'text-anchor': 'middle', text: fmtVal(t) }));
+      }
+    }
+    for (let i = 0; i <= 4; i++) {
+      const v = ymin + (ymax - ymin) * i / 4;
+      svg.appendChild(svgEl('line', { class: 'sp-grid' + (v === 0 ? ' sp-base' : ''), x1: m.l, x2: m.l + pw, y1: y(v), y2: y(v) }));
+      svg.appendChild(svgEl('text', { class: 'tm', x: m.l - 6, y: y(v), 'text-anchor': 'end', 'dominant-baseline': 'central', text: fmtVal(v) }));
+    }
+    svg.appendChild(svgEl('text', { class: 'tm', x: m.l + pw / 2, y: H - 4, 'text-anchor': 'middle', text: '剂量 Dose (mg/kg)' }));
+    svg.appendChild(svgEl('text', { class: 'tm', x: 12, y: m.t + ph / 2, 'text-anchor': 'middle', transform: 'rotate(-90 12 ' + (m.t + ph / 2) + ')', text: '效应 Effect (' + (spState.metric || '') + ')' }));
+    const seen = new Map(); // nudge coincident points apart so each one stays visible and hoverable
+    for (const p of data) {
+      const key = Math.round(lx(p.dose) / 6) + ':' + Math.round(y(p.value) / 6);
+      const k = seen.get(key) || 0;
+      seen.set(key, k + 1);
+      const px = lx(p.dose) + (k ? (k % 2 ? 1 : -1) * Math.ceil(k / 2) * 9 : 0);
+      const py = y(p.value);
+      const g = svgEl('g', { class: 'sp-mark sp-pt', tabindex: 0, role: p.url ? 'link' : 'img',
+        'aria-label': nameOf(p.species) + ': ' + fmtVal(p.dose) + ' mg/kg, ' + fmtVal(p.value) + ' ' + p.unit + ', ' + p.ref });
+      g.appendChild(svgEl('circle', { class: 'sp-hit', cx: px, cy: py, r: 12 }));
+      if (p.source === 'paper') g.appendChild(svgEl('circle', { class: 'ring ' + slot(p.species), cx: px, cy: py, r: 6 }));
+      else g.appendChild(svgEl('rect', { class: 'ring ' + slot(p.species), x: px - 5.5, y: py - 5.5, width: 11, height: 11, rx: 2 }));
+      withTip(g, [nameOf(p.species), '剂量 Dose: ' + fmtVal(p.dose) + ' mg/kg', '效应 Effect: ' + fmtVal(p.value) + ' ' + p.unit + (p.what ? ' — ' + clip(p.what, 90) : ''),
+        (p.source === 'paper' ? '文献 Paper: ' : '测量 Measurement: ') + p.ref, p.title && p.source === 'paper' ? clip(p.title, 110) : null]);
+      const url = safeUrl(p.url, false);
+      if (url) activate(g, () => window.open(url, '_blank', 'noopener,noreferrer'));
+      svg.appendChild(g);
+    }
+    return svg;
+  }
+
+  // ------------------------------------------------------------- measurements by kind
+  function measureChart(c) {
+    const species = orderedSpecies(c.species).filter((s) => (s.n_measurements || 0) > 0);
+    const title = '测量汇总（按类型） Measurements by kind';
+    if (!species.length) return chartBlock(title, null, h('div', { class: 'empty', text: '没有 ChEMBL 测量数据 No ChEMBL measurements for this compound in the selected species.' }));
+    const kindsPresent = SP_KIND_ORDER.filter((k) => species.some((s) => ((s.measurements_by_kind || {})[k] || 0) > 0));
+    const countOf = (s, k) => (s.measurements_by_kind || {})[k] || 0;
+    const total = (s) => SP_KIND_ORDER.reduce((a, k) => a + countOf(s, k), 0) || s.n_measurements || 0;
+    const max = Math.max(1, ...species.map(total));
+    const holder = responsive(h('div', { class: 'sp-chart-body' }), (W) => {
+      const labelW = 130;
+      const right = 44;
+      const rowH = 30;
+      const barH = 14;
+      const H = 22 + species.length * rowH;
+      const pw = Math.max(60, W - labelW - right);
+      const svg = svgEl('svg', { class: 'sp-svg', viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, role: 'group',
+        'aria-label': '各物种按类型的测量数量堆叠条形图 Stacked bars of measurement counts by kind per species' });
+      const tickStep = niceMax(max / 4);
+      for (let t = 0; t <= max + 1e-9; t += tickStep) {
+        const x = labelW + t / max * pw;
+        svg.appendChild(svgEl('line', { class: 'sp-grid', x1: x, x2: x, y1: 18, y2: H - 4 }));
+        svg.appendChild(svgEl('text', { class: 'tm', x, y: 12, 'text-anchor': 'middle', text: fmtNum(t) }));
+      }
+      species.forEach((s, i) => {
+        const y = 22 + i * rowH + (rowH - barH) / 2;
+        svg.appendChild(rowLabel(s, labelW - 10, y + barH / 2));
+        let x = labelW;
+        const segs = kindsPresent.filter((k) => countOf(s, k) > 0);
+        segs.forEach((k, j) => {
+          const n = countOf(s, k);
+          const w = n / max * pw;
+          const last = j === segs.length - 1;
+          const g = svgEl('g', { class: 'sp-mark', tabindex: 0, role: 'img', 'aria-label': spLabel(s) + ' ' + SP_KINDS[k].join(' ') + ': ' + n });
+          const ww = Math.max(1, w - (last ? 0 : 2)); // 2px surface gap between segments
+          const rr = last ? Math.min(4, barH / 2, ww) : 0;
+          g.appendChild(svgEl('path', {
+            class: 'sp-bar sp-c' + (SP_KIND_ORDER.indexOf(k) + 1),
+            d: 'M' + x + ',' + y + 'h' + (ww - rr) + (rr ? 'a' + rr + ',' + rr + ' 0 0 1 ' + rr + ',' + rr : '') + 'v' + (barH - 2 * rr) +
+              (rr ? 'a' + rr + ',' + rr + ' 0 0 1 -' + rr + ',' + rr : '') + 'h-' + (ww - rr) + 'z',
+          }));
+          withTip(g, [spLabel(s), SP_KINDS[k][0] + ' ' + SP_KINDS[k][1] + ': ' + n]);
+          svg.appendChild(g);
+          x += w;
+        });
+        svg.appendChild(svgEl('text', { class: 't2 sp-val', x: x + 6, y: y + barH / 2, 'dominant-baseline': 'central', text: fmtNum(total(s)) }));
+      });
+      return svg;
+    });
+    const table = miniTable(['物种 Species'].concat(kindsPresent.map((k) => SP_KINDS[k].join(' '))).concat(['合计 Total']),
+      species.map((s) => [spLabel(s)].concat(kindsPresent.map((k) => fmtNum(countOf(s, k)))).concat([fmtNum(total(s))])),
+      kindsPresent.map((_, i) => i + 1).concat([kindsPresent.length + 1]));
+    return chartBlock(title, 'ChEMBL 生物活性、药代动力学、体内药效和毒性测量的数量 Number of ChEMBL bioactivity, PK, in vivo efficacy and toxicity records',
+      h('div', null, legend(kindsPresent.map((k) => ['sp-bg-c' + (SP_KIND_ORDER.indexOf(k) + 1), SP_KINDS[k].join(' ')])), holder), table);
+  }
+
+  // ------------------------------------------------------------- papers
+  function paperItem(p, sIndex) {
+    const url = p.url || pubmedUrl(p.pmid) || doiUrl(p.doi);
+    const s = sIndex.get(p.species);
+    const facts = [
+      p.model ? ['模型 Model', p.model] : null,
+      p.dose ? ['剂量 Dose', p.dose + (isNum(p.dose_mg_kg) && !/mg\s*\/\s*kg/i.test(p.dose) ? ' (' + fmtVal(p.dose_mg_kg) + ' mg/kg)' : '')] : null,
+      p.effect ? ['效应 Effect', p.effect] : null,
+      p.finding && p.finding !== p.effect ? ['发现 Finding', p.finding] : null,
+    ].filter(Boolean);
+    return h('li', { class: 'sp-paper' },
+      h('div', { class: 'sp-paper-title' }, url ? extLink(url, p.title || '(untitled)') : h('span', { text: p.title || '(untitled)' })),
+      h('div', { class: 'sp-paper-meta small' },
+        h('span', { class: 'badge outline', text: s ? spLabel(s) : String(p.species || '') }),
+        evBadge(p.evidence),
+        p.journal ? h('span', { class: 'muted', text: p.journal }) : null,
+        p.year ? h('span', { class: 'muted', text: String(p.year) }) : null,
+        p.pmid && pubmedUrl(p.pmid) ? extLink(pubmedUrl(p.pmid), 'PMID ' + p.pmid, 'id-chip') : null,
+        p.doi && doiUrl(p.doi) ? extLink(doiUrl(p.doi), 'DOI ' + clip(p.doi, 40), 'id-chip') : null),
+      facts.length ? h('dl', { class: 'sp-facts small' }, facts.map(([k, v]) => [h('dt', { text: k }), h('dd', { text: clip(v, 400) })])) : null);
+  }
+
+  function paperList(c, fixedSpecies) {
+    const sIndex = speciesIndex(c);
+    const papers = (c.papers || []).filter((p) => p && typeof p === 'object');
+    const box = h('div');
+    const list = h('ol', { class: 'sp-papers' });
+    function draw() {
+      const f = fixedSpecies || spState.paperFilter;
+      const shown = papers.filter((p) => !f || p.species === f);
+      list.replaceChildren(...shown.map((p) => paperItem(p, sIndex)));
+      if (!shown.length) list.replaceChildren(h('li', { class: 'empty', text: '没有文献 No papers' + (f ? ' for this species' : '') + '.' }));
+      if (chips) chips.querySelectorAll('.chip').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.key === (spState.paperFilter || ''))));
+    }
+    let chips = null;
+    if (!fixedSpecies) {
+      const counts = new Map();
+      for (const p of papers) counts.set(p.species, (counts.get(p.species) || 0) + 1);
+      const keys = [...sIndex.keys()].filter((k) => counts.has(k)).concat([...counts.keys()].filter((k) => !sIndex.has(k)));
+      if (spState.paperFilter && !counts.has(spState.paperFilter)) spState.paperFilter = '';
+      chips = h('div', { class: 'chips', role: 'group', 'aria-label': '按物种筛选文献 Filter papers by species' },
+        [['', '全部 All', papers.length]].concat(keys.map((k) => [k, sIndex.has(k) ? spLabel(sIndex.get(k)) : k, counts.get(k)])).map(([k, label, n]) =>
+          h('button', { type: 'button', class: 'chip', 'data-key': k, 'aria-pressed': 'false', onclick: () => { spState.paperFilter = k; draw(); } },
+            label, h('span', { class: 'count', text: String(n) }))));
+      box.appendChild(chips);
+    }
+    box.appendChild(list);
+    draw();
+    return box;
+  }
+
+  // ------------------------------------------------------------- species detail
+  function speciesDetail(c, key, onClose) {
+    const sIndex = speciesIndex(c);
+    const s = sIndex.get(key);
+    if (!s) return null;
+    const orth = (c.similarity || []).filter((o) => o && o.species === key);
+    const meas = (c.measurements || []).filter((m) => m && m.species === key);
+    const nPapers = (c.papers || []).filter((p) => p && p.species === key).length;
+    return h('section', { class: 'panel sp-detail', id: 'sp-detail', tabindex: '-1', 'aria-labelledby': 'sp-detail-title' },
+      h('div', { class: 'panel-head row' },
+        h('div', null, h('h3', { id: 'sp-detail-title', text: spLabel(s) }), h('div', { class: 'muted small' }, h('i', { text: s.scientific_name || '' }))),
+        h('button', { type: 'button', class: 'btn btn-sm', onclick: onClose }, '关闭 Close')),
+      h('div', { class: 'tiles' },
+        tile(key === 'human' ? '100%' : fmtPct(s.mean_identity_pct), '平均靶点一致性 Mean identity'),
+        tile(fmtPct(meanSimilarity(c, key)), '相似性 Similarity'),
+        tile(fmtNum(s.n_papers || 0), 'PubMed 文献 Papers'),
+        tile(fmtNum(s.n_measurements || 0), 'ChEMBL 测量 Measurements'),
+        tile(isNum(s.median_pchembl) ? s.median_pchembl.toFixed(2) : '–', '中位 Median pChEMBL'),
+        h('div', { class: 'tile-stat' }, h('div', { class: 'v sp-tile-ev' }, evBadge(s.evidence_level)), h('div', { class: 'k', text: '证据等级 Evidence level' }))),
+      s.summary ? h('p', { class: 'sp-summary', text: s.summary }) : null,
+      h('h4', { text: '直系同源蛋白 Orthologs' }),
+      orth.length ? miniTable(['人靶点 Human target', '直系同源 Ortholog', 'ID', 'UniProt', '一致性 Identity', '相似性 Similarity', '覆盖度 Coverage', '关系 Relationship', '方法 Method', '备注 Note'],
+        orth.map((o) => [o.target || '', o.ortholog_symbol || '–', o.ortholog_id ? (o.url ? extLink(o.url, o.ortholog_id) : o.ortholog_id) : '–',
+          o.uniprot ? extLink(uniprotUrl(o.uniprot), o.uniprot) : '–',
+          h('span', { class: 'sp-chip-pct sp-b' + idBin(o.identity_pct), text: fmtPct(o.identity_pct) }), fmtPct(o.similarity_pct), fmtPct(o.coverage_pct),
+          o.relationship || '–', o.method || '–', o.note || '']), [4, 5, 6]) : h('p', { class: 'muted small', text: '没有直系同源数据 No ortholog rows.' }),
+      h('h4', { text: '测量 Measurements (' + meas.length + ')' }),
+      meas.length ? miniTable(['类型 Kind', '指标 Type', '数值 Value', 'pChEMBL', '剂量 Dose (mg/kg)', '靶点 Target', '描述 Description', '来源 Source'],
+        meas.slice(0, 200).map((m) => [(SP_KINDS[m.kind] || SP_KINDS.other).join(' '), m.standard_type || '–',
+          ((m.relation && m.relation !== '=' ? m.relation + ' ' : '') + fmtVal(m.value) + ' ' + (m.units || '')).trim(),
+          isNum(m.pchembl) ? m.pchembl.toFixed(2) : '–', fmtVal(m.dose_mg_kg), m.target || '–', clip(m.description || '', 160),
+          m.url ? extLink(m.url, (m.source || 'chembl') + (m.source_id ? ' ' + m.source_id : '')) : (m.pmid && pubmedUrl(m.pmid) ? extLink(pubmedUrl(m.pmid), 'PMID ' + m.pmid) : (m.source || '') + (m.source_id ? ' ' + m.source_id : ''))]),
+        [2, 3, 4]) : h('p', { class: 'muted small', text: '没有测量数据 No measurements.' }),
+      h('h4', { text: '文献 Papers (' + nPapers + ' / PubMed ' + fmtNum(s.n_papers || 0) + ')' }),
+      paperList(c, key));
+  }
+
+  // ------------------------------------------------------------- dashboard
+  function compoundHeader(c) {
+    const comp = c.compound || {};
+    const ids = comp.identifiers && typeof comp.identifiers === 'object' ? comp.identifiers : {};
+    const phase = isNum(comp.max_phase) ? comp.max_phase : null;
+    return h('section', { class: 'panel sp-header' },
+      h('div', { class: 'sp-title-row' },
+        h('h2', { class: 'sp-compound', text: comp.name || c.query || '' }),
+        h('span', { class: 'badge accent', text: SP_COMPOUND_KIND[comp.kind] || SP_COMPOUND_KIND.unknown }),
+        phase !== null ? h('span', { class: 'badge ' + (phase >= 4 ? 'ok' : 'outline'), title: 'ChEMBL max phase' },
+          '最高阶段 Max phase ' + phase + (phase >= 4 ? ' · 已批准 approved' : '')) : null,
+        comp.url ? extLink(comp.url, '来源 Source ↗', 'small') : null),
+      h('div', { class: 'muted small' }, '查询 Query: ', h('code', { text: c.query || '' }), ' · ', fmtTime(c.created_at)),
+      Object.keys(ids).length ? h('div', { class: 'id-chips sp-ids' }, Object.keys(ids).map((k) => {
+        const v = String(ids[k]);
+        const link = ID_LINKS[k] ? ID_LINKS[k](v) : null;
+        const chip = [h('b', { text: k + ' ' }), v];
+        return link ? h('a', { class: 'id-chip', href: link, target: '_blank', rel: 'noopener noreferrer' }, chip) : h('span', { class: 'id-chip' }, chip);
+      })) : null,
+      h('h3', { class: 'sp-sub', text: '人体靶点 Human targets (' + (c.targets || []).length + ')' }),
+      (c.targets || []).length ? h('ul', { class: 'sp-targets' }, (c.targets || []).map((t) => h('li', null,
+        h('strong', { text: t.gene_symbol || '?' }),
+        t.name ? h('span', { class: 'muted', text: ' ' + t.name }) : null,
+        t.action ? h('span', { class: 'badge outline', text: t.action }) : null,
+        t.uniprot && uniprotUrl(t.uniprot) ? extLink(uniprotUrl(t.uniprot), 'UniProt ' + t.uniprot, 'id-chip') : null,
+        t.chembl_target ? extLink('https://www.ebi.ac.uk/chembl/explore/target/' + encodeURIComponent(t.chembl_target), t.chembl_target, 'id-chip') : null,
+        h('span', { class: 'muted small', text: ' 来源 via ' + (t.source || '') })))) :
+        h('p', { class: 'note-box', text: '没有找到靶点，因此无法计算序列相似性 No targets found, so no sequence similarity could be computed.' }));
+  }
+
+  function methodsBlock(c) {
+    const methods = c.methods && typeof c.methods === 'object' ? c.methods : {};
+    const errors = c.errors && typeof c.errors === 'object' ? c.errors : {};
+    const notes = Array.isArray(c.notes) ? c.notes : [];
+    return h('section', { class: 'panel' },
+      h('h3', { text: '方法、说明与错误 Methods, notes and errors' }),
+      notes.map((n) => h('p', { class: 'note-box', text: String(n) })),
+      Object.keys(methods).length ? h('dl', { class: 'sp-facts small' }, Object.keys(methods).map((k) => [h('dt', { text: humanKey(k) }), h('dd', { text: String(methods[k]) })])) : null,
+      Object.keys(errors).length ? h('div', null, h('h4', { text: '失败的数据源 Failed sources' }),
+        Object.keys(errors).map((k) => h('div', { class: 'error-box small' }, h('strong', { text: k + ': ' }), String(errors[k])))) : null,
+      h('p', { class: 'muted small', text: '相似性 = 人靶点蛋白与各物种直系同源蛋白的序列一致性（相同残基%）和相似性（BLOSUM62 > 0 的残基%）。Similarity = sequence identity (% identical residues) and similarity (% residues with BLOSUM62 > 0) of each ortholog relative to the human target protein.' }));
+  }
+
+  function renderDashboard(c) {
+    const box = $('#sp-dashboard');
+    hideTip();
+    const sIndex = speciesIndex(c);
+    if (spState.selected && !sIndex.has(spState.selected)) spState.selected = null;
+    const species = orderedSpecies(c.species);
+    const totalPapers = species.reduce((a, s) => a + (s.n_papers || 0), 0);
+    const totalMeas = species.reduce((a, s) => a + (s.n_measurements || 0), 0);
+    const detailSlot = h('div', { id: 'sp-detail-slot' });
+    const graphHolder = h('div', { class: 'sp-graph-wrap' });
+    const heatSlot = h('div');
+    function select(key) {
+      spState.selected = spState.selected === key ? null : key;
+      drawSelected(true);
+    }
+    function closeDetail() {
+      const key = spState.selected;
+      spState.selected = null;
+      drawSelected(false);
+      // return keyboard focus to the species node that opened the panel
+      const n = key && [...graphHolder.querySelectorAll('.sp-node')].find((g) => g.getAttribute('data-species') === key);
+      if (n) n.focus({ preventScroll: true });
+    }
+    function drawSelected(focus) {
+      graphHolder.replaceChildren(species.length ? overviewGraph(c.species, { onSelect: select, selected: spState.selected })
+        : h('div', { class: 'empty', text: '没有物种数据 No species in this comparison.' }));
+      heatSlot.replaceChildren(heatTable(c, (k) => { spState.selected = k; drawSelected(true); }));
+      const d = spState.selected ? speciesDetail(c, spState.selected, closeDetail) : null;
+      if (d) d.addEventListener('keydown', (e) => { if (e.key === 'Escape') { e.preventDefault(); closeDetail(); } });
+      detailSlot.replaceChildren(...(d ? [d] : []));
+      if (d && focus) { d.focus({ preventScroll: true }); d.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+    }
+    const pkg = c.package && typeof c.package === 'object' ? c.package : null;
+    box.replaceChildren(
+      compoundHeader(c),
+      h('div', { class: 'tiles' },
+        tile(fmtNum((c.targets || []).length), '靶点 Targets'),
+        tile(fmtNum(species.length), '物种 Species'),
+        tile(fmtNum(totalPapers), 'PubMed 文献 Papers'),
+        tile(fmtNum(totalMeas), 'ChEMBL 测量 Measurements')),
+      h('section', { class: 'panel' },
+        h('div', { class: 'panel-head' }, h('h3', { text: '概览图 Overview graph' }),
+          h('p', { class: 'muted small', text: '人在中心；各物种按进化距离排列（灵长类 → 哺乳动物 → 鸟类 → 两栖类 → 鱼类 → 昆虫 → 线虫 → 真菌 → 植物）。点击物种查看详情。Human at the centre; species in evolutionary order. Click a species for details.' })),
+        graphHolder, graphLegend()),
+      detailSlot,
+      h('section', { class: 'panel' },
+        h('div', { class: 'panel-head' }, h('h3', { text: '比较表（热图） Comparison table (heatmap)' }),
+          h('p', { class: 'muted small', text: '点击列标题排序，点击物种名查看详情 Click a column header to sort, a species name for details.' })),
+        heatSlot),
+      h('div', { class: 'sp-charts' }, identityBars(c), measureChart(c)),
+      doseScatter(c),
+      h('section', { class: 'panel' },
+        h('div', { class: 'panel-head' }, h('h3', { text: '参考文献 Papers (' + (c.papers || []).length + ')' }),
+          h('p', { class: 'muted small', text: '每个物种的代表性 PubMed 文献 Top PubMed papers per species.' })),
+        paperList(c)),
+      h('section', { class: 'sp-package' },
+        h('h3', { text: '数据包 Data package' }),
+        pkg ? packageCard(pkg) : h('p', { class: 'muted small', text: '这个比较没有数据包 No data package was written for this comparison.' })),
+      methodsBlock(c));
+    drawSelected(false);
+  }
+
+  // ------------------------------------------------------------- form, history, routing
+  function loadSpeciesMeta() {
+    if (!spState.metaPromise) {
+      spState.metaPromise = api('/api/species/meta').then((m) => { spState.meta = m; return m; })
+        .catch((err) => { spState.metaPromise = null; throw err; });
+    }
+    return spState.metaPromise;
+  }
+
+  function buildSpeciesForm(meta) {
+    const list = Array.isArray(meta && meta.species) ? meta.species : [];
+    const defaults = new Set(Array.isArray(meta && meta.default) ? meta.default : list.map((s) => s.key));
+    const box = $('#sp-species-groups');
+    box.replaceChildren(...SP_FORM_GROUPS.map(([zh, en, groups]) => {
+      const members = list.filter((s) => groups.includes(s.group));
+      if (!members.length) return null;
+      return h('div', { class: 'sp-group' }, h('div', { class: 'sp-group-h' }, zh, h('span', { class: 'muted', text: ' ' + en })),
+        members.map((s) => h('label', { class: 'sp-opt', title: s.scientific_name },
+          h('input', { type: 'checkbox', value: s.key, checked: defaults.has(s.key) }), ' ' + spLabel(s))));
+    }).filter(Boolean));
+  }
+
+  async function loadSpeciesHistory() {
+    const ul = $('#sp-history');
+    try {
+      const data = await api('/api/species?limit=50');
+      const items = Array.isArray(data && data.comparisons) ? data.comparisons : [];
+      if (!items.length) { ul.replaceChildren(h('li', { class: 'muted small', text: '还没有比较 No comparisons yet.' })); return; }
+      const cur = spState.current && spState.current.comparison_id;
+      ul.replaceChildren(...items.filter((it) => SP_ID_RE.test(it.comparison_id || '')).map((it) => h('li', null,
+        h('a', { href: '#species?id=' + it.comparison_id, class: 'sp-hist' + (it.comparison_id === cur ? ' active' : ''), 'aria-current': it.comparison_id === cur ? 'true' : null },
+          h('span', { class: 'sp-hist-name', text: it.compound || it.query || it.comparison_id }),
+          h('span', { class: 'muted small', text: [(it.targets || []).slice(0, 4).join(', '), (it.n_species || 0) + ' 物种 species', relTime(it.created_at)].filter(Boolean).join(' · ') })))));
+    } catch (err) {
+      ul.replaceChildren(h('li', null, errorBox(err)));
+    }
+  }
+
+  function emptyDashboard() {
+    $('#sp-dashboard').replaceChildren(h('div', { class: 'empty sp-empty' },
+      h('p', { text: '输入一个药物或化合物并点击“运行比较”，或从左侧打开一个历史比较。' }),
+      h('p', { lang: 'en', text: 'Enter a drug or compound and press Run, or open a previous comparison.' })));
+  }
+
+  async function openComparison(id, sp) {
+    const box = $('#sp-dashboard');
+    if (!spState.current || spState.current.comparison_id !== id) {
+      spState.selected = null;
+      spState.paperFilter = '';
+      spState.metric = null;
+      spState.sort = { key: 'order', dir: 1 };
+    }
+    if (sp) spState.selected = sp;
+    const token = (spState.openToken = (spState.openToken || 0) + 1);
+    let c = spState.cache.get(id);
+    if (!c) {
+      box.replaceChildren(h('div', { class: 'typing' }, h('span', { class: 'spinner', 'aria-hidden': 'true' }), '加载比较… Loading comparison…'));
+      try {
+        c = await api('/api/species/' + id);
+        spState.cache.set(id, c);
+      } catch (err) {
+        if (token === spState.openToken) box.replaceChildren(errorBox(err));
+        return;
+      }
+      if (token !== spState.openToken) return; // a newer comparison was opened meanwhile
+    }
+    spState.current = c;
+    renderDashboard(c);
+    loadSpeciesHistory();
+  }
+
+  function hashParams() {
+    const q = (location.hash || '').split('?')[1] || '';
+    try { return new URLSearchParams(q); } catch (_) { return new URLSearchParams(); }
+  }
+
+  async function runComparison(e) {
+    e.preventDefault();
+    if (spState.running) return;
+    const query = $('#sp-q').value.trim();
+    if (!query) { $('#sp-q').focus(); return; }
+    const species = [...document.querySelectorAll('#sp-species-groups input[type=checkbox]:checked')].map((i) => i.value);
+    if (!species.length) { toast('请至少选择一个物种 Select at least one species', true); return; }
+    const status = $('#sp-status');
+    const btn = $('#sp-run');
+    const started = Date.now();
+    const steps = ['解析化合物 resolving the compound', '查找人体靶点 finding human targets', '比对直系同源蛋白 aligning orthologs',
+      '检索各物种文献 searching papers per species', '收集测量 collecting measurements', '写数据包 writing the data package'];
+    const tick = () => {
+      const s = Math.round((Date.now() - started) / 1000);
+      const stepText = steps[Math.min(steps.length - 1, Math.floor(s / 12))];
+      status.replaceChildren(h('span', { class: 'spinner', 'aria-hidden': 'true' }),
+        h('span', { text: ' 正在比较… Comparing… ' + s + ' s（通常 30–90 秒 usually 30–90 s） · ' + stepText }));
+    };
+    spState.running = true;
+    btn.disabled = true;
+    tick();
+    const timer = setInterval(tick, 1000);
+    try {
+      const res = await api('/api/species/compare', {
+        method: 'POST',
+        body: { query, species, max_papers: Number($('#sp-papers').value) || 5, extract_with_claude: $('#sp-claude').checked },
+      });
+      status.replaceChildren(h('span', { class: 'badge ok', text: '完成 done' }), ' ' + Math.round((Date.now() - started) / 1000) + ' s');
+      if (res && SP_ID_RE.test(res.comparison_id || '')) {
+        spState.cache.set(res.comparison_id, res);
+        const target = '#species?id=' + res.comparison_id;
+        if ($('#view-species').hidden) {
+          // the user moved to another tab during the run: do not pull them back, just announce it
+          toast('跨物种比较完成 Cross-species comparison ready: ' + ((res.compound && res.compound.name) || query));
+          loadSpeciesHistory();
+        } else if (location.hash === target) openComparison(res.comparison_id); else location.hash = target;
+      } else if (res) {
+        spState.current = res;
+        renderDashboard(res);
+      }
+    } catch (err) {
+      status.replaceChildren(errorBox(err));
+    } finally {
+      clearInterval(timer);
+      spState.running = false;
+      btn.disabled = false;
+    }
+  }
+
+  function initSpecies() {
+    $('#sp-form').addEventListener('submit', runComparison);
+    $('#sp-all').addEventListener('click', () => document.querySelectorAll('#sp-species-groups input').forEach((i) => { i.checked = true; }));
+    $('#sp-none').addEventListener('click', () => document.querySelectorAll('#sp-species-groups input').forEach((i) => { i.checked = false; }));
+    $('#sp-history-refresh').addEventListener('click', loadSpeciesHistory);
+    $('#main').addEventListener('scroll', hideTip, { passive: true });
+    window.addEventListener('hashchange', hideTip);
+  }
+
+  loaders.species = (first) => {
+    if (first) {
+      loadSpeciesMeta().then(buildSpeciesForm).catch((err) => $('#sp-species-groups').replaceChildren(errorBox(err)));
+    }
+    const params = hashParams();
+    const id = params.get('id');
+    const sp = params.get('sp');
+    if (id && SP_ID_RE.test(id)) {
+      openComparison(id, sp && /^[a-z_]{1,32}$/.test(sp) ? sp : null);
+    } else {
+      if (first || !spState.current) emptyDashboard();
+      loadSpeciesHistory();
+    }
+  };
+
+  // ------------------------------------------------------------- chat card
+  /** Compact card for a ``species_comparison`` chat event (live stream or restored transcript). */
+  function speciesChatCard(ev) {
+    const sum = ev && typeof ev.summary === 'object' && ev.summary ? ev.summary : {};
+    const id = SP_ID_RE.test(String(ev && ev.comparison_id || '')) ? ev.comparison_id : null;
+    const href = id ? '/#species?id=' + id : null;
+    const species = orderedSpecies(sum.species);
+    const targets = Array.isArray(sum.targets) ? sum.targets.map(String) : [];
+    const pkg = sum.package && typeof sum.package === 'object' ? sum.package : null;
+    const graph = species.length > 1 ? overviewGraph(species, {
+      compact: true,
+      onSelect: id ? (k) => { location.hash = '#species?id=' + id + '&sp=' + encodeURIComponent(k); } : null,
+    }) : null;
+    const rows = species.map((s) => h('tr', null,
+      h('th', { scope: 'row', text: spLabel(s) }),
+      h('td', { class: 'num' }, s.species === 'human' ? '参照 ref' : h('span', { class: 'sp-chip-pct sp-b' + idBin(s.mean_identity_pct), text: fmtPct(s.mean_identity_pct) })),
+      h('td', { class: 'num', text: fmtNum(s.n_papers || 0) }),
+      h('td', null, evBadge(s.evidence_level))));
+    return h('div', { class: 'sp-card', role: 'group', 'aria-label': '跨物种比较 Cross-species comparison' },
+      h('div', { class: 'sp-card-head' },
+        h('div', null,
+          h('div', { class: 'sp-card-kicker', text: '跨物种比较 Cross-species comparison' }),
+          h('div', { class: 'sp-card-title', text: sum.compound || ev.title || '' }),
+          targets.length ? h('div', { class: 'small' }, '靶点 Targets: ', targets.slice(0, 8).map((t) => h('span', { class: 'id-chip', text: t }))) : null),
+        href ? h('a', { class: 'btn btn-sm btn-primary', href }, '打开完整仪表盘 / Open full dashboard') : null),
+      h('div', { class: 'sp-card-body' },
+        graph ? h('div', { class: 'sp-card-graph' }, graph) : null,
+        rows.length ? h('div', { class: 'table-wrap sp-card-table' }, h('table', { class: 'data' },
+          h('thead', null, h('tr', null, ['物种 Species', '一致性 Identity', '文献 Papers', '证据 Evidence'].map((t, i) => h('th', { scope: 'col', class: i === 1 || i === 2 ? 'num' : null, text: t })))),
+          h('tbody', null, rows))) : h('p', { class: 'muted small', text: '没有物种数据 No species data.' })),
+      pkg && (pkgUrl(pkg.xlsx_url) || pkgUrl(pkg.zip_url)) ? h('div', { class: 'sp-card-foot small' }, '数据包 Data package: ',
+        pkgUrl(pkg.xlsx_url) ? h('a', { href: pkgUrl(pkg.xlsx_url), download: '' }, 'Excel') : null, ' ',
+        pkgUrl(pkg.zip_url) ? h('a', { href: pkgUrl(pkg.zip_url), download: '' }, 'ZIP') : null,
+        ' · ' + (Array.isArray(pkg.files) ? pkg.files.length : 0) + ' CSV') : null);
+  }
+
+  // ===================================================================
   // Boot
   // ===================================================================
   function init() {
@@ -1926,6 +2937,7 @@
     initCatalog();
     initExports();
     initAudit();
+    initSpecies();
     window.addEventListener('hashchange', route);
     refreshHealth();
     loadSources().catch(() => {});
@@ -1934,7 +2946,7 @@
   }
 
   // Exposed for debugging in the browser console only (no side effects).
-  window.MosaicUI = { renderMarkdown, inline, safeUrl };
+  window.MosaicUI = { renderMarkdown, inline, safeUrl, speciesChatCard };
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();

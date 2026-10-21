@@ -33,7 +33,9 @@ database covers and how to call it), `resolve_entity` (a gene, drug, disease, ar
 pinned to its identifiers across databases, with agreement and conflicts), `federated_search` (one \
 query across many databases, with records linked by shared identifiers), `search_repository_catalog` (the NIH repository catalog), and \
 `export_dataset` (the data found, saved as one CSV per data type or species plus an Excel \
-workbook), `extract_structured` and `save_table` (custom tables).
+workbook), `compare_species` (a drug or compound in human versus model animals, birds and plants: \
+target ortholog similarity %, studies, doses and measurements per species, shown to the user as a \
+dashboard), `extract_structured` and `save_table` (custom tables).
 {web}- Every tool result begins with a `result_id` (r1, r2 ...). The handle keeps the complete result, \
 including fields trimmed from what you see. Pass handles to `export_dataset`, `extract_structured` \
 and `save_table`.
@@ -71,7 +73,10 @@ one CSV per kind of data (papers, clinical trials, projects/studies, datasets/re
 genes/proteins, safety ...) plus an Excel workbook. Use `group_by="species"` when the user wants \
 human, mouse, plant ... separated, `"source"` for one file per database. Tell the user which files \
 were created and how many rows each has.
-7. For a specific extracted table (chosen fields across many records), call `extract_structured` \
+7. When the question is how a compound or treatment acts, is used or is tested in other species, or \
+how animal models compare with humans, call `compare_species`, then explain the main differences with \
+the identity percentages, study counts, doses and effects it returned, citing the papers.
+8. For a specific extracted table (chosen fields across many records), call `extract_structured` \
 with clearly described fields, check the rows, then `save_table`, in addition to the package when \
 the user also wants the underlying data."""
 

@@ -7,7 +7,7 @@ protein and genomics databases, and the NIH scientific data repositories in **on
 link the same entity across sources by shared identifiers, and save the extracted table as
 CSV or JSON.
 
-- **48 connectors, 217 tools**: every source has a typed, rate-limited,
+- **49 connectors, 220 tools**: every source has a typed, rate-limited,
   cached and audited connector that normalizes records to one model with canonical identifiers
   (DOI, PMID, PMCID, NCT, ChEMBL, PubChem CID, InChIKey, RxCUI, UNII, UniProt, Ensembl, HGNC,
   MONDO/EFO/MeSH, rsID, GEO, ...).
@@ -24,6 +24,8 @@ CSV or JSON.
   thing, each field taken from the most reliable source with its provenance, conflicts between
   sources shown, and warning flags (retracted, preprint, terminated trial, restricted access, FAERS,
   unreviewed entries...). See *Data quality* below.
+- **Cross-species comparison**: a compound's targets, ortholog sequence similarity % and evidence
+  (papers, doses, measurements) in 12 species versus human, as a dashboard and per-species data package.
 - **Claude agent** (`claude-opus-5-5`, adaptive thinking, streaming, prompt caching, tool search over
   the connector tools, server-side refusal fallback), a web app, a JSON API and a CLI.
 
@@ -75,6 +77,7 @@ generated form), *Cross-database search*, *NIH repositories*, *Exports*, *Audit 
 ```bash
 mosaic sources                                   # all connectors and their status
 mosaic health                                    # live health check of every source
+mosaic species metformin --species mouse rat zebrafish
 mosaic resolve drug imatinib                     # identifiers across PubChem, ChEMBL, RxNorm, DrugCentral, Open Targets
 mosaic search "KRAS G12C" --categories clinical drugs literature
 mosaic call clinicaltrials search_studies --params '{"query": "BRAF V600E melanoma", "limit": 5}'
@@ -89,7 +92,7 @@ mosaic exports
 
 ## Sources
 
-48 connectors and 217 tools. 55 of the 232 NIH catalog repositories are served live by a connector (column *NIH repositories*); Claude reaches the others through the catalog's access pages and server-side web tools.
+49 connectors and 220 tools. 55 of the 232 NIH catalog repositories are served live by a connector (column *NIH repositories*); Claude reaches the others through the catalog's access pages and server-side web tools.
 
 ### Literature, citations & scholarly metadata
 
@@ -141,6 +144,7 @@ mosaic exports
 | Source | Access | Tools | NIH repositories |
 |---|---|---|---|
 | [cBioPortal for Cancer Genomics](https://www.cbioportal.org/) (`cbioportal`) | keyless | `search_studies`, `get_study`, `gene_alteration_frequency`, `mutations_in_gene` | cBioPortal |
+| [Ensembl](https://www.ensembl.org/) (`ensembl`) | keyless | `get_gene`, `orthologs` | - |
 | [CIViC (Clinical Interpretation of Variants in Cancer)](https://civicdb.org/) (`civic`) | keyless | `search`, `gene_evidence`, `evidence_for_therapy`, `molecular_profile`, `assertions` | Clinical Interpretation of Variants in Cancer (CIViC) |
 | [gnomAD (Genome Aggregation Database)](https://gnomad.broadinstitute.org/) (`gnomad`) | keyless | `search`, `gene_constraint`, `get_variant`, `gene_variants` | gnomAD Genome Aggregation Database |
 | [GTEx Portal (Genotype-Tissue Expression)](https://gtexportal.org/) (`gtex`) | keyless | `search_genes`, `median_expression`, `single_tissue_eqtls`, `tissues`, `top_expressed_genes` | Genotype-Tissue Expression (GTEx) |
@@ -200,6 +204,45 @@ Mosaic answers with the associated data itself; links are kept as provenance.
    (not causal), unreviewed TrEMBL entry, electronic-only GO annotation, non-human. Every grade
    carries the reasons it was computed from (hover the grade in the web app).
 
+## Cross-species comparison (跨物种比较)
+
+For a drug, medicine or chemical compound, Mosaic compares human with macaque, mouse, rat, dog,
+pig, chicken, frog, zebrafish, fruit fly, worm, yeast and Arabidopsis:
+
+- **targets**: the compound's human targets (ChEMBL mechanisms; for non-drug chemicals, the human
+  proteins it is most active on)
+- **similarity %**: sequence identity and similarity of each target's ortholog to the human protein,
+  from Ensembl Compara, cross-checked against Mosaic's own global alignment (Biopython, BLOSUM62) of the
+  UniProt canonical sequences of the Alliance / UniProt / UniRef50 ortholog; the method is recorded
+  per value
+- **evidence per species**: PubMed studies (counts with species MeSH filters, top papers classified
+  clinical / in vivo / in vitro), ChEMBL potency, pharmacokinetic, toxicity and in vivo measurements
+  with doses, ClinicalTrials.gov studies for human; optionally Claude extracts model, dose and effect
+  from the abstracts
+- a dashboard (overview graph with human at the centre, heatmap table, identity bars, measurement
+  bars, dose-effect scatter, paper list with references), a card in chat answers, and a data package
+  with one CSV per species
+
+Use the *跨物种比较 Cross-species* tab, ask in chat ("compare metformin in human, mouse and zebrafish"),
+`mosaic species metformin`, or `POST /api/species/compare`.
+
+## Data packages (exports)
+
+Exports contain the actual data, not links. *Export data* on the search view, or asking Claude
+to save or export data, writes a folder `data/exports/<name>__<id>/`:
+
+- one CSV per kind of data (`papers.csv`, `clinical_trials.csv`, `projects_studies.csv`,
+  `datasets_repositories.csv`, `drugs_compounds.csv`, `genes_proteins.csv`, ...), or per species
+  (`human.csv`, `mouse.csv`, `zebrafish.csv`, `plant.csv`, ...), or per database. Each CSV has the
+  columns that fit its rows.
+- every search hit is first re-fetched as its source's full record (complete trial protocols,
+  abstracts with MeSH terms, compound properties, dataset file lists ...)
+- `data_files.csv`: every file of every dataset (name, size, format, checksum, download URL), and
+  `files/`: the small open tables (CSV/TSV/TXT/JSON/Excel up to 10 MB each, 50 MB per package)
+  downloaded from the repositories, previewed as sheets in the workbook
+- `mosaic_data.xlsx` (one sheet per table), `README.txt` (including how much of the package is data
+  values versus identifiers and links), `manifest.json` and `mosaic_data.zip`
+
 ## How it fits together
 
 ```
@@ -212,6 +255,8 @@ mosaic/
   registry.py      discovery, dispatch, auditing, federated search
   crosslink/       identifier clustering (merge.py) and entity resolution (resolver.py)
   curation/        cleaning, cross-database consolidation and quality evaluation
+  species/         cross-species comparison engine (orthologs, alignment, per-species evidence)
+  datapackage.py   multi-table exports; enrich.py full records; datafiles.py dataset files
   catalog/         NIH repository catalog (nih_repositories.json) + BM25 search
   agent/           Claude agent: streaming tool loop, meta tools, extraction, exports, sessions
   api/             FastAPI app (JSON + SSE), security middleware

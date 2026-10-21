@@ -95,6 +95,21 @@ class TableSaved(_Event):
     folder: str | None = None
 
 
+class SpeciesComparisonReady(_Event):
+    """A cross-species comparison (mosaic.species) is ready to show as a dashboard.
+
+    ``summary`` is small enough to draw the chat card (compound, targets, and per species:
+    key, label, label_zh, group, mean_identity_pct, n_papers, n_measurements, evidence_level);
+    the full comparison is ``GET /api/species/<comparison_id>`` and the dashboard ``url``.
+    """
+
+    type: Literal["species_comparison"] = "species_comparison"
+    comparison_id: str
+    title: str
+    url: str  # "/#species?id=<comparison_id>"
+    summary: dict[str, Any] = Field(default_factory=dict)
+
+
 class TurnCompleted(_Event):
     """One Claude API response finished (an agent run may contain several)."""
 
@@ -126,6 +141,7 @@ AgentEvent = Union[
     ToolCallFinished,
     ServerToolActivity,
     TableSaved,
+    SpeciesComparisonReady,
     TurnCompleted,
     AgentError,
     Done,

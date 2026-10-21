@@ -177,3 +177,17 @@ async def test_package_paths_are_validated(pkg_client, offline_settings, path):
     saved = write_package(offline_settings.exports_dir, build_package(RECORDS, "type"), name="t")
     res = await pkg_client.get(path.format(id=saved.export_id))
     assert res.status_code in (400, 404)
+
+
+def test_comparison_species_have_their_own_buckets():
+    cases = {
+        "Canis lupus familiaris": "dog", "Sus scrofa": "pig", "Macaca mulatta": "macaque", "Gallus gallus": "chicken",
+        "Cavia porcellus guinea pig": "other_animal", "Taeniopygia guttata (zebra finch)": "bird",
+        "Pan troglodytes": "primate",
+    }
+    for organism, bucket in cases.items():
+        entity = curate([rec("zenodo", organism, "dataset", title=f"Dataset {organism}", identifiers={"zenodo": organism},
+                             attributes={"organism": organism})]).entities[0]
+        assert species_of(entity) == [bucket], organism
+    package = build_package([rec("chembl", "a1", "activity", title="PK in dogs", attributes={"species": "Canis lupus familiaris"})], "species")
+    assert [t.key for t in package.tables] == ["dog"] and package.tables[0].title == "Dog 狗"

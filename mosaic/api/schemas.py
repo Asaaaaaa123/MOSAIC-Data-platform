@@ -41,6 +41,23 @@ class SearchExportRequest(SearchRequest):
         "type", description="Split into one table per data type (papers, trials ...), per species, or per database"
     )
     name: str | None = Field(None, max_length=120, description="Name for the package (default: the query)")
+    full_records: bool = Field(True, description="Re-fetch every hit's complete record from its source before exporting")
+    download_files: bool = Field(True, description="Include small open data tables from the datasets' repositories")
+
+
+class SpeciesCompareRequest(_Body):
+    query: str = Field(min_length=1, max_length=200, description="Drug or chemical compound name, ChEMBL ID or InChIKey")
+    species: list[str] | None = Field(None, max_length=20, description="Species keys (GET /api/species/meta); default all")
+    max_papers: int = Field(5, ge=1, le=20, description="Top PubMed papers kept per species")
+    extract_with_claude: bool = Field(False, description="Extract dose / effect from abstracts with Claude (uses API credits)")
+
+    @field_validator("query")
+    @classmethod
+    def _strip_query(cls, value: str) -> str:
+        value = value.strip()
+        if not value:
+            raise ValueError("query must not be blank")
+        return value
 
 
 class ResolveRequest(_Body):

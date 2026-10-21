@@ -65,6 +65,10 @@ _UNIPROT_SOURCES = {"UniProtKB_AC-ID"}
 
 _POLL_BUDGET_S = 30.0
 
+_ACCESSION_RE = re.compile(
+    r"^([OPQ][0-9][A-Z0-9]{3}[0-9]|[A-NR-Z][0-9](?:[A-Z][A-Z0-9]{2}[0-9]){1,2})$"
+)
+
 
 class SearchProteinsParams(SearchParams):
     organism_id: int | None = Field(
@@ -80,6 +84,21 @@ class GetProteinParams(ToolParams):
         description="UniProtKB accession (P00533), isoform accession (P00533-2) or entry name (EGFR_HUMAN)"
     )
     include_sequence: bool = Field(False, description="Include the canonical amino-acid sequence in attributes")
+
+
+class GetSequencesParams(ToolParams):
+    accessions: list[str] = Field(
+        default_factory=list,
+        max_length=100,
+        description="UniProtKB accessions (P01116, P32883 ...), up to 100; isoform suffixes (-2) are dropped",
+    )
+    uniref50_of: str | None = Field(
+        None,
+        description="UniProt accession whose UniRef50 cluster (proteins >= 50% identical over 80% of the "
+        "longer sequence) to search; combine with taxon_id to find a homolog in a distant species",
+    )
+    taxon_id: int | None = Field(None, description="NCBI taxon restricting uniref50_of members, e.g. 3702 (Arabidopsis)")
+    limit: int = Field(10, ge=1, le=100, description="Maximum UniRef50 members to return (uniref50_of mode)")
 
 
 class MapIdsParams(ToolParams):
@@ -558,6 +577,95 @@ class UniProt(Connector):
         record = _record(entry, detailed=True)
         return ToolResult(
             source=self.name, tool="get_protein", records=[record], total=1, request_url=response.url
+        )
+
+    @tool(
+        description="""
+        Canonical amino-acid sequences for up to 100 UniProtKB accessions in one call (data.sequences:
+        accession, gene, organism, taxon_id, reviewed, length, sequence), for alignments and
+        cross-species comparisons. With uniref50_of (+ taxon_id) it instead finds the members of a
+        protein's UniRef50 cluster in that taxon (distant homologs, e.g. a human protein's closest
+        Arabidopsis relatives) and returns their sequences. Records are the proteins (no sequence).
+        """
+    )
+    async def get_sequences(self, params: GetSequencesParams) -> ToolResult:
+        notes: list[str] = []
+        accessions = list(dict.fromkeys(re.sub(r"-\d+$", "", a.strip().upper()) for a in params.accessions if a.strip()))
+        invalid = [a for a in accessions if not _ACCESSION_RE.match(a)]
+        if invalid:
+            notes.append(f"not UniProtKB accessions (skipped): {', '.join(invalid[:10])}")
+        accessions = [a for a in accessions if a not in invalid]
+        cluster = None
+        url = None
+        if params.uniref50_of:
+            seed = re.sub(r"-\d+$", "", params.uniref50_of.strip().upper())
+            if not _ACCESSION_RE.match(seed):
+                raise SourceError(self.name, f"uniref50_of must be a UniProtKB accession, got {seed!r}")
+            lookup = await self.request(
+                "GET", f"{API}/uniref/search",
+                params={"query": f"uniprot_id:{seed} AND identity:0.5", "fields": "id,name,count", "format": "json", "size": 1},
+            )
+            url = lookup.url
+            hits = lookup.json().get("results") or []
+            cluster = hits[0].get("id") if hits else None
+            if not cluster:
+                notes.append(f"{seed} is not in a UniRef50 cluster")
+            else:
+                query = f"uniref_cluster_50:{cluster}"
+                if params.taxon_id:
+                    query += f" AND organism_id:{params.taxon_id}"
+                members = await self.request(
+                    "GET", f"{API}/uniprotkb/search",
+                    params={"query": query, "fields": "accession", "format": "json", "size": params.limit},
+                )
+                url = members.url
+                found = [r.get("primaryAccession") for r in members.json().get("results") or [] if r.get("primaryAccession")]
+                if not found:
+                    notes.append(f"no member of {cluster} in taxon {params.taxon_id}" if params.taxon_id else f"{cluster} has no members")
+                accessions.extend(a for a in found if a not in accessions)
+        if not accessions:
+            return ToolResult(source=self.name, tool="get_sequences", notes=notes or ["no accessions given"],
+                              data={"uniref50_cluster": cluster, "sequences": []}, request_url=url)
+        response = await self.request(
+            "GET", f"{API}/uniprotkb/accessions",
+            params={"accessions": ",".join(accessions[:100]), "fields": _LIST_FIELDS + ",sequence", "format": "json"},
+            allow_status=(400,),
+        )
+        if response.status == 400:
+            detail = ""
+            try:
+                detail = "; ".join(response.json().get("messages") or [])
+            except ValueError:
+                pass
+            raise SourceError(self.name, f"sequence lookup rejected: {detail or 'HTTP 400'}", status=400, url=response.url)
+        entries = [e for e in response.json().get("results") or [] if e.get("entryType") != "Inactive"]
+        records, sequences = [], []
+        for entry in entries:
+            record = _record(entry)
+            seq = (entry.get("sequence") or {}).get("value")
+            records.append(record)
+            sequences.append({
+                "accession": record.id,
+                "entry_name": record.attributes.get("entry_name"),
+                "gene": record.attributes.get("gene"),
+                "protein": record.title,
+                "organism": record.attributes.get("organism"),
+                "taxon_id": record.attributes.get("taxon_id"),
+                "reviewed": record.attributes.get("reviewed"),
+                "length": len(seq) if seq else record.attributes.get("length"),
+                "sequence": seq,
+            })
+        missing = [a for a in accessions if a not in {r.id for r in records}]
+        if missing:
+            notes.append(f"not found or inactive in UniProtKB: {', '.join(missing[:20])}")
+        return ToolResult(
+            source=self.name,
+            tool="get_sequences",
+            records=records,
+            total=len(records),
+            data={"uniref50_cluster": cluster, "sequences": sequences},
+            notes=notes,
+            request_url=response.url,
         )
 
     @tool(

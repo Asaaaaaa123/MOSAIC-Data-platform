@@ -393,6 +393,43 @@ def cmd_resolve(args: argparse.Namespace) -> int:
     return _run(_with_registry(body))
 
 
+def cmd_species(args: argparse.Namespace) -> int:
+    from .species import SPECIES_BY_KEY
+    from .species.service import run_comparison
+
+    species = [k for item in (args.species or []) for k in item.split(",") if k]
+    unknown = [k for k in species if k not in SPECIES_BY_KEY]
+    if unknown:
+        _err(f"unknown species: {', '.join(unknown)}; choose from {', '.join(SPECIES_BY_KEY)}")
+        return 2
+
+    async def body(registry: Any) -> int:
+        comparison = await run_comparison(
+            registry, _settings(), args.query, species=species or None, max_papers=args.max_papers,
+            extract_with_claude=args.extract,
+        )
+        if args.json:
+            _out(comparison.model_dump_json(exclude={"records"}, indent=2))
+            return 0
+        targets = ", ".join(f"{t.gene_symbol} ({t.action or 'target'})" for t in comparison.targets) or "none found"
+        _out(f"{comparison.compound.name or args.query}: targets {targets}")
+        rows = []
+        for s in comparison.species:
+            ident = f"{s.mean_identity_pct:.1f}%" if s.mean_identity_pct is not None else "-"
+            rows.append([f"{s.label_zh} {s.label}", ident, s.n_papers, s.n_measurements, s.evidence_level])
+        _out(_table(rows, ["species", "target identity", "papers", "measurements", "evidence"]))
+        for note in comparison.notes:
+            _out(f"  note: {note}")
+        for source, error in comparison.errors.items():
+            _out(f"  FAIL {source}: {_clip(error, 100)}")
+        if comparison.package:
+            _out(f"\ndata package: {comparison.package.get('folder')}")
+        _out(f"dashboard: http://127.0.0.1:{_settings().biopha_api_port}/#species?id={comparison.comparison_id}")
+        return 0
+
+    return _run(_with_registry(body))
+
+
 def cmd_catalog(args: argparse.Namespace) -> int:
     from .catalog import RepositoryCatalog
     from .registry import discover_connector_classes
@@ -592,6 +629,12 @@ def build_parser() -> argparse.ArgumentParser:
     p = add("resolve", "map a gene, drug, disease, article or variant to identifiers across databases", cmd_resolve)
     p.add_argument("kind", choices=["gene", "drug", "disease", "article", "variant"])
     p.add_argument("query", help="name or identifier, e.g. BRAF, imatinib, 'cystic fibrosis', a DOI, rs113488022")
+
+    p = add("species", "compare a drug or compound in human vs other species (target similarity, evidence)", cmd_species)
+    p.add_argument("query", help="drug or chemical compound, e.g. sotorasib, imatinib, 'bisphenol A'")
+    p.add_argument("--species", nargs="+", metavar="KEY", help="species keys (default all), e.g. mouse rat zebrafish")
+    p.add_argument("--max-papers", type=int, default=5, help="top PubMed papers per species (default 5)")
+    p.add_argument("--extract", action="store_true", help="extract dose/effect from abstracts with Claude (uses credits)")
 
     p = add("catalog", "search the NIH scientific data repository catalog", cmd_catalog)
     p.add_argument("query", nargs="?", help="free-text query (omit to list all)")

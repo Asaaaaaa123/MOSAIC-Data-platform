@@ -1,0 +1,595 @@
+{
+ "comparison_id": "00000000000000000000000000000001",
+ "created_at": "2026-10-21T15:00:00+00:00",
+ "query": "sotorasib",
+ "compound": {
+  "query": "sotorasib",
+  "name": "SOTORASIB",
+  "kind": "drug",
+  "max_phase": 4,
+  "identifiers": {
+   "chembl": "CHEMBL4535757",
+   "pubchem_cid": "137278711",
+   "inchikey": "NXQKSXLFSAEQCZ-SFHVURJKSA-N"
+  },
+  "url": "https://www.ebi.ac.uk/chembl/explore/compound/CHEMBL4535757"
+ },
+ "targets": [
+  {
+   "gene_symbol": "KRAS",
+   "name": "GTPase KRas",
+   "uniprot": "P01116",
+   "ensembl_gene": "ENSG00000133703",
+   "chembl_target": "CHEMBL2189121",
+   "action": "INHIBITOR",
+   "source": "chembl_mechanism"
+  }
+ ],
+ "species": [
+  {
+   "species": "human",
+   "label": "Human",
+   "label_zh": "人",
+   "group": "human",
+   "scientific_name": "Homo sapiens",
+   "mean_identity_pct": 100,
+   "per_target_identity": {
+    "KRAS": 100
+   },
+   "n_papers": 412,
+   "n_measurements": 14,
+   "measurements_by_kind": {
+    "potency": 12,
+    "pharmacokinetics": 2
+   },
+   "median_pchembl": 7.9,
+   "evidence_level": "clinical",
+   "summary": null
+  },
+  {
+   "species": "macaque",
+   "label": "Macaque",
+   "label_zh": "猕猴",
+   "group": "primate",
+   "scientific_name": "Macaca mulatta",
+   "mean_identity_pct": 100,
+   "per_target_identity": {
+    "KRAS": 100
+   },
+   "n_papers": 1,
+   "n_measurements": 0,
+   "measurements_by_kind": {},
+   "median_pchembl": null,
+   "evidence_level": "in_vivo",
+   "summary": null
+  },
+  {
+   "species": "mouse",
+   "label": "Mouse",
+   "label_zh": "小鼠",
+   "group": "mammal",
+   "scientific_name": "Mus musculus",
+   "mean_identity_pct": 98.9,
+   "per_target_identity": {
+    "KRAS": 98.9
+   },
+   "n_papers": 168,
+   "n_measurements": 9,
+   "measurements_by_kind": {
+    "in_vivo_efficacy": 6,
+    "pharmacokinetics": 3
+   },
+   "median_pchembl": null,
+   "evidence_level": "in_vivo",
+   "summary": null
+  },
+  {
+   "species": "rat",
+   "label": "Rat",
+   "label_zh": "大鼠",
+   "group": "mammal",
+   "scientific_name": "Rattus norvegicus",
+   "mean_identity_pct": 98.9,
+   "per_target_identity": {
+    "KRAS": 98.9
+   },
+   "n_papers": 21,
+   "n_measurements": 5,
+   "measurements_by_kind": {
+    "pharmacokinetics": 4,
+    "toxicity": 1
+   },
+   "median_pchembl": null,
+   "evidence_level": "in_vivo",
+   "summary": null
+  },
+  {
+   "species": "dog",
+   "label": "Dog",
+   "label_zh": "狗",
+   "group": "mammal",
+   "scientific_name": "Canis lupus familiaris",
+   "mean_identity_pct": 100,
+   "per_target_identity": {
+    "KRAS": 100
+   },
+   "n_papers": 4,
+   "n_measurements": 3,
+   "measurements_by_kind": {
+    "pharmacokinetics": 3
+   },
+   "median_pchembl": null,
+   "evidence_level": "in_vivo",
+   "summary": null
+  },
+  {
+   "species": "pig",
+   "label": "Pig",
+   "label_zh": "猪",
+   "group": "mammal",
+   "scientific_name": "Sus scrofa",
+   "mean_identity_pct": 99.5,
+   "per_target_identity": {
+    "KRAS": 99.5
+   },
+   "n_papers": 0,
+   "n_measurements": 0,
+   "measurements_by_kind": {},
+   "median_pchembl": null,
+   "evidence_level": "none",
+   "summary": null
+  },
+  {
+   "species": "chicken",
+   "label": "Chicken",
+   "label_zh": "鸡（鸟类）",
+   "group": "bird",
+   "scientific_name": "Gallus gallus",
+   "mean_identity_pct": 97.4,
+   "per_target_identity": {
+    "KRAS": 97.4
+   },
+   "n_papers": 0,
+   "n_measurements": 0,
+   "measurements_by_kind": {},
+   "median_pchembl": null,
+   "evidence_level": "none",
+   "summary": null
+  },
+  {
+   "species": "frog",
+   "label": "Frog (Xenopus)",
+   "label_zh": "爪蟾（蛙）",
+   "group": "amphibian",
+   "scientific_name": "Xenopus tropicalis",
+   "mean_identity_pct": 96.3,
+   "per_target_identity": {
+    "KRAS": 96.3
+   },
+   "n_papers": 0,
+   "n_measurements": 0,
+   "measurements_by_kind": {},
+   "median_pchembl": null,
+   "evidence_level": "none",
+   "summary": null
+  },
+  {
+   "species": "zebrafish",
+   "label": "Zebrafish",
+   "label_zh": "斑马鱼",
+   "group": "fish",
+   "scientific_name": "Danio rerio",
+   "mean_identity_pct": 92.6,
+   "per_target_identity": {
+    "KRAS": 92.6
+   },
+   "n_papers": 2,
+   "n_measurements": 0,
+   "measurements_by_kind": {},
+   "median_pchembl": null,
+   "evidence_level": "in_vivo",
+   "summary": null
+  },
+  {
+   "species": "fly",
+   "label": "Fruit fly",
+   "label_zh": "果蝇",
+   "group": "insect",
+   "scientific_name": "Drosophila melanogaster",
+   "mean_identity_pct": 75.1,
+   "per_target_identity": {
+    "KRAS": 75.1
+   },
+   "n_papers": 1,
+   "n_measurements": 0,
+   "measurements_by_kind": {},
+   "median_pchembl": null,
+   "evidence_level": "in_vivo",
+   "summary": null
+  },
+  {
+   "species": "worm",
+   "label": "Worm (C. elegans)",
+   "label_zh": "线虫",
+   "group": "nematode",
+   "scientific_name": "Caenorhabditis elegans",
+   "mean_identity_pct": 66.7,
+   "per_target_identity": {
+    "KRAS": 66.7
+   },
+   "n_papers": 0,
+   "n_measurements": 0,
+   "measurements_by_kind": {},
+   "median_pchembl": null,
+   "evidence_level": "none",
+   "summary": null
+  },
+  {
+   "species": "yeast",
+   "label": "Yeast",
+   "label_zh": "酵母",
+   "group": "fungus",
+   "scientific_name": "Saccharomyces cerevisiae",
+   "mean_identity_pct": 51.9,
+   "per_target_identity": {
+    "KRAS": 51.9
+   },
+   "n_papers": 0,
+   "n_measurements": 0,
+   "measurements_by_kind": {},
+   "median_pchembl": null,
+   "evidence_level": "none",
+   "summary": null
+  },
+  {
+   "species": "arabidopsis",
+   "label": "Plant (Arabidopsis)",
+   "label_zh": "植物（拟南芥）",
+   "group": "plant",
+   "scientific_name": "Arabidopsis thaliana",
+   "mean_identity_pct": null,
+   "per_target_identity": {
+    "KRAS": null
+   },
+   "n_papers": 0,
+   "n_measurements": 0,
+   "measurements_by_kind": {},
+   "median_pchembl": null,
+   "evidence_level": "none",
+   "summary": null
+  }
+ ],
+ "similarity": [
+  {
+   "target": "KRAS",
+   "species": "human",
+   "ortholog_symbol": "KRAS",
+   "identity_pct": 100,
+   "similarity_pct": 100,
+   "relationship": "ortholog_one2one",
+   "method": "mosaic_alignment",
+   "note": null
+  },
+  {
+   "target": "KRAS",
+   "species": "macaque",
+   "ortholog_symbol": "KRAS",
+   "identity_pct": 100,
+   "similarity_pct": 100,
+   "relationship": "ortholog_one2one",
+   "method": "mosaic_alignment",
+   "note": null
+  },
+  {
+   "target": "KRAS",
+   "species": "mouse",
+   "ortholog_symbol": "KRAS",
+   "identity_pct": 98.9,
+   "similarity_pct": 100,
+   "relationship": "ortholog_one2one",
+   "method": "mosaic_alignment",
+   "note": null
+  },
+  {
+   "target": "KRAS",
+   "species": "rat",
+   "ortholog_symbol": "KRAS",
+   "identity_pct": 98.9,
+   "similarity_pct": 100,
+   "relationship": "ortholog_one2one",
+   "method": "mosaic_alignment",
+   "note": null
+  },
+  {
+   "target": "KRAS",
+   "species": "dog",
+   "ortholog_symbol": "KRAS",
+   "identity_pct": 100,
+   "similarity_pct": 100,
+   "relationship": "ortholog_one2one",
+   "method": "mosaic_alignment",
+   "note": null
+  },
+  {
+   "target": "KRAS",
+   "species": "pig",
+   "ortholog_symbol": "KRAS",
+   "identity_pct": 99.5,
+   "similarity_pct": 100,
+   "relationship": "ortholog_one2one",
+   "method": "mosaic_alignment",
+   "note": null
+  },
+  {
+   "target": "KRAS",
+   "species": "chicken",
+   "ortholog_symbol": "KRAS",
+   "identity_pct": 97.4,
+   "similarity_pct": 100,
+   "relationship": "ortholog_one2one",
+   "method": "mosaic_alignment",
+   "note": null
+  },
+  {
+   "target": "KRAS",
+   "species": "frog",
+   "ortholog_symbol": "kras",
+   "identity_pct": 96.3,
+   "similarity_pct": 99.3,
+   "relationship": "ortholog_one2one",
+   "method": "mosaic_alignment",
+   "note": null
+  },
+  {
+   "target": "KRAS",
+   "species": "zebrafish",
+   "ortholog_symbol": "kras",
+   "identity_pct": 92.6,
+   "similarity_pct": 95.6,
+   "relationship": "ortholog_one2one",
+   "method": "mosaic_alignment",
+   "note": null
+  },
+  {
+   "target": "KRAS",
+   "species": "fly",
+   "ortholog_symbol": "Ras85D",
+   "identity_pct": 75.1,
+   "similarity_pct": 78.1,
+   "relationship": "ortholog_one2one",
+   "method": "mosaic_alignment",
+   "note": null
+  },
+  {
+   "target": "KRAS",
+   "species": "worm",
+   "ortholog_symbol": "let-60",
+   "identity_pct": 66.7,
+   "similarity_pct": 69.7,
+   "relationship": "ortholog_one2one",
+   "method": "mosaic_alignment",
+   "note": null
+  },
+  {
+   "target": "KRAS",
+   "species": "yeast",
+   "ortholog_symbol": "RAS2",
+   "identity_pct": 51.9,
+   "similarity_pct": 54.9,
+   "relationship": "ortholog_one2one",
+   "method": "mosaic_alignment",
+   "note": null
+  },
+  {
+   "target": "KRAS",
+   "species": "arabidopsis",
+   "ortholog_symbol": null,
+   "identity_pct": null,
+   "similarity_pct": null,
+   "relationship": null,
+   "method": "none",
+   "note": "no ortholog found"
+  }
+ ],
+ "measurements": [
+  {
+   "species": "human",
+   "kind": "potency",
+   "target": "KRAS",
+   "standard_type": "IC50",
+   "value": 8.9,
+   "units": "nM",
+   "pchembl": 8.05,
+   "dose_mg_kg": null,
+   "description": "SAMPLE IC50 measurement",
+   "source": "chembl",
+   "source_id": "CHEMBL_SAMPLE",
+   "url": null
+  },
+  {
+   "species": "human",
+   "kind": "potency",
+   "target": "KRAS",
+   "standard_type": "IC50",
+   "value": 12.0,
+   "units": "nM",
+   "pchembl": 7.92,
+   "dose_mg_kg": null,
+   "description": "SAMPLE IC50 measurement",
+   "source": "chembl",
+   "source_id": "CHEMBL_SAMPLE",
+   "url": null
+  },
+  {
+   "species": "mouse",
+   "kind": "in_vivo_efficacy",
+   "target": null,
+   "standard_type": "TGI",
+   "value": 60,
+   "units": "%",
+   "pchembl": null,
+   "dose_mg_kg": 30,
+   "description": "SAMPLE TGI measurement",
+   "source": "chembl",
+   "source_id": "CHEMBL_SAMPLE",
+   "url": null
+  },
+  {
+   "species": "mouse",
+   "kind": "in_vivo_efficacy",
+   "target": null,
+   "standard_type": "TGI",
+   "value": 86,
+   "units": "%",
+   "pchembl": null,
+   "dose_mg_kg": 100,
+   "description": "SAMPLE TGI measurement",
+   "source": "chembl",
+   "source_id": "CHEMBL_SAMPLE",
+   "url": null
+  },
+  {
+   "species": "mouse",
+   "kind": "pharmacokinetics",
+   "target": null,
+   "standard_type": "T1/2",
+   "value": 1.8,
+   "units": "hr",
+   "pchembl": null,
+   "dose_mg_kg": 10,
+   "description": "SAMPLE T1/2 measurement",
+   "source": "chembl",
+   "source_id": "CHEMBL_SAMPLE",
+   "url": null
+  },
+  {
+   "species": "rat",
+   "kind": "pharmacokinetics",
+   "target": null,
+   "standard_type": "T1/2",
+   "value": 2.4,
+   "units": "hr",
+   "pchembl": null,
+   "dose_mg_kg": 10,
+   "description": "SAMPLE T1/2 measurement",
+   "source": "chembl",
+   "source_id": "CHEMBL_SAMPLE",
+   "url": null
+  },
+  {
+   "species": "dog",
+   "kind": "pharmacokinetics",
+   "target": null,
+   "standard_type": "T1/2",
+   "value": 3.1,
+   "units": "hr",
+   "pchembl": null,
+   "dose_mg_kg": 5,
+   "description": "SAMPLE T1/2 measurement",
+   "source": "chembl",
+   "source_id": "CHEMBL_SAMPLE",
+   "url": null
+  },
+  {
+   "species": "rat",
+   "kind": "toxicity",
+   "target": null,
+   "standard_type": "NOAEL",
+   "value": 60,
+   "units": "mg/kg/day",
+   "pchembl": null,
+   "dose_mg_kg": null,
+   "description": "SAMPLE NOAEL measurement",
+   "source": "chembl",
+   "source_id": "CHEMBL_SAMPLE",
+   "url": null
+  }
+ ],
+ "papers": [
+  {
+   "species": "human",
+   "pmid": "32955176",
+   "title": "KRASG12C Inhibition with Sotorasib in Advanced Solid Tumors",
+   "year": "2020",
+   "journal": null,
+   "url": "https://pubmed.ncbi.nlm.nih.gov/32955176/",
+   "evidence": "clinical",
+   "finding": "objective response 32.2% (NSCLC)",
+   "dose": "960 mg once daily",
+   "dose_mg_kg": null,
+   "effect": "objective response 32.2% (NSCLC)",
+   "effect_value": 32.2,
+   "effect_unit": "%"
+  },
+  {
+   "species": "human",
+   "pmid": "34096690",
+   "title": "Sotorasib for Lung Cancers with KRAS p.G12C Mutation",
+   "year": "2021",
+   "journal": null,
+   "url": "https://pubmed.ncbi.nlm.nih.gov/34096690/",
+   "evidence": "clinical",
+   "finding": "objective response 37.1%",
+   "dose": "960 mg once daily",
+   "dose_mg_kg": null,
+   "effect": "objective response 37.1%",
+   "effect_value": 37.1,
+   "effect_unit": "%"
+  },
+  {
+   "species": "mouse",
+   "pmid": "31666701",
+   "title": "The clinical KRAS(G12C) inhibitor AMG 510 drives anti-tumour immunity",
+   "year": "2019",
+   "journal": null,
+   "url": "https://pubmed.ncbi.nlm.nih.gov/31666701/",
+   "evidence": "in_vivo",
+   "finding": "tumor regression in CT-26 KRAS G12C",
+   "dose": "100 mg/kg p.o. daily",
+   "dose_mg_kg": 100,
+   "effect": "tumor regression in CT-26 KRAS G12C",
+   "effect_value": 85,
+   "effect_unit": "%"
+  },
+  {
+   "species": "mouse",
+   "pmid": "31666701",
+   "title": "AMG 510 dose-dependent tumor growth inhibition in NCI-H358 xenografts",
+   "year": "2019",
+   "journal": null,
+   "url": "https://pubmed.ncbi.nlm.nih.gov/31666701/",
+   "evidence": "in_vivo",
+   "finding": "tumor growth inhibition 60%",
+   "dose": "30 mg/kg p.o.",
+   "dose_mg_kg": 30,
+   "effect": "tumor growth inhibition 60%",
+   "effect_value": 60,
+   "effect_unit": "%"
+  },
+  {
+   "species": "rat",
+   "pmid": null,
+   "title": "Preclinical pharmacokinetics of sotorasib",
+   "year": "2021",
+   "journal": null,
+   "url": null,
+   "evidence": "in_vivo",
+   "finding": "oral bioavailability 47%",
+   "dose": "10 mg/kg p.o.",
+   "dose_mg_kg": 10,
+   "effect": "oral bioavailability 47%",
+   "effect_value": 47,
+   "effect_unit": "%"
+  }
+ ],
+ "methods": {
+  "similarity": "SAMPLE",
+  "papers": "SAMPLE",
+  "measurements": "SAMPLE"
+ },
+ "notes": [
+  "SAMPLE DATA for UI development and tests: values are illustrative, not real results."
+ ],
+ "errors": {},
+ "package": null
+}
