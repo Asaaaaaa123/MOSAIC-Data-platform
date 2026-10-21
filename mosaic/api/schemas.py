@@ -36,6 +36,13 @@ class SearchRequest(_Body):
         return value
 
 
+class SearchExportRequest(SearchRequest):
+    group_by: Literal["type", "species", "source"] = Field(
+        "type", description="Split into one table per data type (papers, trials ...), per species, or per database"
+    )
+    name: str | None = Field(None, max_length=120, description="Name for the package (default: the query)")
+
+
 class ResolveRequest(_Body):
     kind: Literal["gene", "drug", "disease", "article", "variant"]
     query: str = Field(min_length=1, max_length=300)

@@ -38,6 +38,7 @@ from ..registry import Registry
 from .claude_api import TOOL_RESULT_CHARS, api_error_message
 from .events import TableSaved
 from .exports import write_export
+from ..datapackage import build_package, write_package
 from .extraction import MAX_FIELDS, MAX_RECORDS, FieldSpec, SourceRecord, StructuredExtractor
 from .results import ResultHandles, ResultKind, StoredResult
 
@@ -578,10 +579,10 @@ def _explicit_rows(columns: list[str], rows: list[Any]) -> list[dict[str, Any]]:
 
 @BUILTIN_META_TOOLS.tool(
     description="""
-    Save a table as CSV and JSON files the user can download. Pass result_id (a table from
-    extract_structured, or any search result to export its records), or pass columns plus rows you
-    assembled. Call this whenever the user asks for an extraction, a table, a spreadsheet or a
-    download, after the table is complete; include provenance columns (source, record id, url).
+    Save ONE table as CSV and JSON: a table from extract_structured (result_id) or a summary
+    table you assembled (columns plus rows). For exporting the data you found (papers, trials,
+    drugs, datasets ... as separate files) use export_dataset instead; use save_table in addition
+    only when the user wants a specific custom table. Include provenance columns (source, id, url).
     """
 )
 async def save_table(ctx: ToolContext, params: SaveTableParams) -> MetaResult:
@@ -665,3 +666,90 @@ async def save_table(ctx: ToolContext, params: SaveTableParams) -> MetaResult:
         preview=rows[:3],
         events=[event],
     )
+
+
+# ---------------------------------------------------------------- export_dataset
+class ExportDatasetParams(ToolParams):
+    name: str = Field(min_length=1, max_length=120, description="Short name for the package, e.g. 'KRAS G12C inhibitors'")
+    group_by: Literal["type", "species", "source"] = Field(
+        "type",
+        description=(
+            "How to split the data into files: 'type' (papers, clinical_trials, projects_studies, "
+            "datasets_repositories, drugs_compounds, safety_regulatory, genes_proteins, ...), 'species' "
+            "(human, mouse, rat, zebrafish, fly, worm, yeast, bird, plant, ...) or 'source' (one per database)"
+        ),
+    )
+    result_ids: list[str] | None = Field(
+        None, max_length=500, description="Result handles to include (default: every records result in this conversation)"
+    )
+    description: str | None = Field(None, max_length=2000, description="What the package contains")
+
+
+@BUILTIN_META_TOOLS.tool(
+    description="""
+    Export the real data found in this conversation as a data package the user can open: one CSV per
+    group plus an Excel workbook (one sheet per group), a README and a ZIP. Records are cleaned,
+    merged across databases and quality-graded first; each file has the columns that fit its rows
+    (identifiers, cleaned fields, quality grade and flags, sources). Call this whenever the user asks
+    to save, export or download data or tables, after gathering the records (fetch full records
+    first when the search hits lack the fields they need). group_by: 'type' (default), 'species' when
+    the user wants human / mouse / plant ... separated, or 'source'. Then tell the user which files
+    were created and how many rows each has.
+    """
+)
+async def export_dataset(ctx: ToolContext, params: ExportDatasetParams) -> MetaResult:
+    handles = params.result_ids or ctx.results.known(ctx.session_id)
+    records: list[Record] = []
+    used: list[str] = []
+    for result_id in handles:
+        stored = ctx.result(result_id)
+        if stored.kind != "records":
+            continue
+        found = stored.records()
+        if found:
+            records.extend(found)
+            used.append(stored.result_id)
+    if not records:
+        raise ToolInputError("no records to export: search or fetch data first (tables from extract_structured go to save_table)")
+    package = build_package(records, params.group_by)
+    saved = write_package(
+        ctx.settings.exports_dir, package, name=params.name, description=params.description, session_id=ctx.session_id
+    )
+    ctx.registry.audit.record_export(
+        name=params.name, path=str(saved.folder), n_rows=saved.n_rows,
+        columns=[f["file"] for f in saved.files], session_id=ctx.session_id,
+    )
+    files = [{**{k: f[k] for k in ("file", "group", "title", "rows")}, "url": saved.url(f["file"])} for f in saved.files]
+    event = TableSaved(
+        session_id=ctx.session_id,
+        export_id=saved.export_id,
+        name=saved.name,
+        n_rows=saved.n_rows,
+        columns=[f["file"] for f in saved.files],
+        csv_url=files[0]["url"],
+        json_url=saved.url("manifest.json"),
+        kind="package",
+        files=files,
+        xlsx_url=saved.url("mosaic_data.xlsx"),
+        zip_url=saved.url("mosaic_data.zip"),
+        folder=str(saved.folder),
+    )
+    payload = {
+        "export_id": saved.export_id,
+        "name": saved.name,
+        "group_by": params.group_by,
+        "files": [{k: f[k] for k in ("file", "title", "rows")} for f in files],
+        "workbook": "mosaic_data.xlsx",
+        "stats": {k: package.stats.get(k) for k in ("records_in", "entities_out", "duplicates_merged", "grades")},
+        "from_results": used,
+    }
+    text = _json({**payload, "note": "Saved. The user sees download links for every file, the Excel workbook and a ZIP."})
+    return MetaResult(
+        text=text,
+        summary=f"exported '{saved.name}': {len(files)} file(s), {saved.n_rows} rows (split by {params.group_by})",
+        payload=payload,
+        n_records=saved.n_rows,
+        preview=[{"file": f["file"], "rows": f["rows"]} for f in files[:3]],
+        events=[event],
+    )
+

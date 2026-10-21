@@ -32,9 +32,11 @@ UniProt, InChIKey ...), a URL and source-specific attributes.
 database covers and how to call it), `resolve_entity` (a gene, drug, disease, article or variant \
 pinned to its identifiers across databases, with agreement and conflicts), `federated_search` (one \
 query across many databases, with records linked by shared identifiers), `search_repository_catalog` (the NIH repository catalog), and \
-`extract_structured` and `save_table` (tables and downloads).
+`export_dataset` (the data found, saved as one CSV per data type or species plus an Excel \
+workbook), `extract_structured` and `save_table` (custom tables).
 {web}- Every tool result begins with a `result_id` (r1, r2 ...). The handle keeps the complete result, \
-including fields trimmed from what you see. Pass handles to `extract_structured` and `save_table`.
+including fields trimmed from what you see. Pass handles to `export_dataset`, `extract_structured` \
+and `save_table`.
 - When several lookups do not depend on each other, make the tool calls in parallel in one turn."""
 
 _DEFERRED = """\
@@ -63,9 +65,15 @@ for example [PubMed PMID 31634902](https://pubmed.ncbi.nlm.nih.gov/31634902/).
 5. State coverage: which sources you queried, which failed or are not configured, what you could not \
 check, and licensing limits (for example abstracts or full text a publisher does not license for \
 reuse, which you should summarize rather than reproduce).
-6. For extraction requests (a table of values across many records), gather the records, call \
-`extract_structured` with clearly described fields, check the rows it returns, then call \
-`save_table` and tell the user what the table contains and where it falls short."""
+6. When the user wants the data saved, exported or downloaded (a table, a spreadsheet, files), \
+gather the records (full records where search hits are thin) and call `export_dataset`: it writes \
+one CSV per kind of data (papers, clinical trials, projects/studies, datasets/repositories, drugs, \
+genes/proteins, safety ...) plus an Excel workbook. Use `group_by="species"` when the user wants \
+human, mouse, plant ... separated, `"source"` for one file per database. Tell the user which files \
+were created and how many rows each has.
+7. For a specific extracted table (chosen fields across many records), call `extract_structured` \
+with clearly described fields, check the rows, then `save_table`, in addition to the package when \
+the user also wants the underlying data."""
 
 _DATA = """\
 ## Answer with the data, cleaned and evaluated

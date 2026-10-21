@@ -38,8 +38,26 @@ from ..connectors.base import CATEGORIES, Connector
 from ..http import SourceError
 from ..registry import Registry
 from .errors import ApiError, source_api_error
-from .exports import audit_name, download_name, list_exports, resolve_export_file
-from .schemas import SESSION_ID_PATTERN, CallRequest, ChatRequest, HealthRequest, ResolveRequest, SearchRequest
+from .exports import (
+    PACKAGE_MEDIA_TYPES,
+    audit_name,
+    download_name,
+    list_exports,
+    package_download_name,
+    preview_csv,
+    read_manifest,
+    resolve_export_file,
+    resolve_package_file,
+)
+from .schemas import (
+    SESSION_ID_PATTERN,
+    CallRequest,
+    ChatRequest,
+    HealthRequest,
+    ResolveRequest,
+    SearchExportRequest,
+    SearchRequest,
+)
 from .security import SecretScrubber, SecurityMiddleware, default_allowed_hosts
 from .streaming import SSE_HEADERS, sse_stream
 
@@ -604,6 +622,58 @@ def create_app(
             filename=download_name(audit_name(registry.audit, export_id), export_id, ext),
             headers={"Cache-Control": "no-store"},
         )
+
+    @app.get("/api/exports/{export_id}/{filename}", tags=["exports"])
+    async def export_package_file(export_id: str, filename: str) -> FileResponse:
+        resolved = resolve_package_file(settings.exports_dir, export_id, filename)
+        if resolved is None:
+            raise ApiError(404, "no such data package file")
+        path, ext = resolved
+        manifest = read_manifest(path.parent)
+        inline = ext in ("txt", "json")
+        return FileResponse(
+            path,
+            media_type=PACKAGE_MEDIA_TYPES[ext],
+            filename=None if inline else package_download_name(manifest, export_id, filename),
+            headers={"Cache-Control": "no-store"},
+        )
+
+    @app.get("/api/exports/{export_id}/{filename}/preview", tags=["exports"])
+    async def export_package_preview(
+        export_id: str, filename: str, limit: Annotated[int, Query(ge=1, le=1000)] = 200
+    ) -> dict[str, Any]:
+        resolved = resolve_package_file(settings.exports_dir, export_id, filename)
+        if resolved is None or resolved[1] != "csv":
+            raise ApiError(404, "no such data package table")
+        return {"export_id": export_id, "file": filename, **preview_csv(resolved[0], limit)}
+
+    @app.post("/api/search/export", tags=["search", "exports"])
+    async def export_search(body: SearchExportRequest) -> dict[str, Any]:
+        """Run a cross-database search and save its cleaned, graded data as a data package."""
+        from ..datapackage import build_package, write_package
+
+        registry = state.require_registry()
+        if body.categories:
+            unknown = [c for c in body.categories if c not in CATEGORIES]
+            if unknown:
+                raise ApiError(400, f"unknown category(s): {', '.join(unknown)}", categories=list(CATEGORIES))
+        result = await registry.federated_search(
+            body.query,
+            sources=body.sources or None,
+            categories=body.categories or None,
+            limit_per_source=body.limit_per_source,
+            timeout=body.timeout,
+        )
+        if not result.records:
+            raise ApiError(404, "the search returned no records to export")
+        package = build_package(result.records, body.group_by)
+        name = body.name or f"Search {body.query}"
+        saved = write_package(settings.exports_dir, package, name=name, query=body.query,
+                              description=f"Cross-database search of {len(result.sources)} sources, split by {body.group_by}")
+        registry.audit.record_export(name=name, path=str(saved.folder), n_rows=saved.n_rows,
+                                     columns=[f["file"] for f in saved.files])
+        entry = next((e for e in list_exports(settings.exports_dir, registry.audit, 1000) if e["export_id"] == saved.export_id), None)
+        return entry or {"export_id": saved.export_id}
 
     # ------------------------------------------------------------------- audit
     @app.get("/api/audit/tool-calls", tags=["audit"])

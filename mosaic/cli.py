@@ -484,6 +484,9 @@ def cmd_ask(args: argparse.Namespace) -> int:
                     line(f"  {marker} {_clip(detail, 120)}{latency}")
                 elif kind == "server_tool":
                     line(f"  .. {event.name} {event.phase}" + (f": {_clip(event.detail, 100)}" if event.detail else ""))
+                elif kind == "table_saved" and getattr(event, "kind", "table") == "package":
+                    files = ", ".join(f"{f['file']} ({f['rows']})" for f in event.files)
+                    line(f"  [data package] {event.name}: {files} + mosaic_data.xlsx -> {event.folder}")
                 elif kind == "table_saved":
                     path = settings.exports_dir / f"{event.export_id}.csv"
                     line(f"  [table saved] {event.name}: {event.n_rows} rows x {len(event.columns)} columns -> {path}")

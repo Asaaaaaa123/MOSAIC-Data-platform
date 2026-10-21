@@ -479,3 +479,12 @@ table.data.kv td { overflow-wrap: anywhere; }
 .raw-records { margin-top: 18px; }
 .raw-records > summary { cursor: pointer; }
 h2.inline { display: inline; font-size: 1rem; }
+
+/* ---------------------------------------------------------------- data packages */
+.package-card { align-items: flex-start; }
+.pkg-files { list-style: none; margin: 6px 0; padding: 0; display: flex; flex-direction: column; gap: 3px; font-size: .84rem; }
+.pkg-files a { font-family: var(--mono); }
+.btn-xs { padding: 1px 7px; font-size: .72rem; margin-left: 6px; }
+.export-panel { margin: 10px 0 14px; }
+.export-panel .search-row { align-items: center; }
+.section-h { font-size: 1rem; margin: 14px 0 8px; }

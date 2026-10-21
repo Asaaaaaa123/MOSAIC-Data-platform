@@ -74,7 +74,12 @@ class ServerToolActivity(_Event):
 
 
 class TableSaved(_Event):
-    """A cross-database extraction table was written to disk."""
+    """A cross-database extraction table, or a multi-table data package, was written to disk.
+
+    ``kind="package"``: ``files`` lists one CSV per group (``{file, group, title, rows, url}``),
+    ``xlsx_url`` / ``zip_url`` hold the workbook and the archive, ``csv_url`` is the first table
+    and ``json_url`` the manifest.
+    """
 
     type: Literal["table_saved"] = "table_saved"
     export_id: str
@@ -83,6 +88,11 @@ class TableSaved(_Event):
     columns: list[str]
     csv_url: str
     json_url: str
+    kind: Literal["table", "package"] = "table"
+    files: list[dict[str, Any]] = Field(default_factory=list)
+    xlsx_url: str | None = None
+    zip_url: str | None = None
+    folder: str | None = None
 
 
 class TurnCompleted(_Event):

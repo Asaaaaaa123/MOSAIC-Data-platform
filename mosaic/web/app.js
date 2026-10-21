@@ -794,7 +794,33 @@
     return typeof id === 'string' && EXPORT_ID_RE.test(id) ? '/api/exports/' + id + '.' + ext : null;
   }
 
+  const PACKAGE_PATH_RE = /^\/api\/exports\/[0-9a-f]{32}\/[A-Za-z0-9_]{1,64}\.(csv|xlsx|zip|txt|json)(\/preview)?$/;
+  /** Same-origin URL of a data-package file (strictly validated), or null. */
+  function pkgUrl(u) { return typeof u === 'string' && PACKAGE_PATH_RE.test(u) ? u : null; }
+
+  /** Card for a multi-file data package (chat event or Exports entry). */
+  function packageCard(ev, onPreview) {
+    const files = Array.isArray(ev.files) ? ev.files : [];
+    const xlsx = pkgUrl(ev.xlsx_url);
+    const zip = pkgUrl(ev.zip_url);
+    return h('div', { class: 'table-card package-card', role: 'group', 'aria-label': 'Saved data package' },
+      icon('table', 'tc-icon'),
+      h('div', { class: 'tc-main' },
+        h('div', { class: 'tc-name', text: 'Data package saved: ' + (ev.name || 'export') }),
+        h('div', { class: 'small', text: files.length + ' file' + (files.length === 1 ? '' : 's') + ' · ' + fmtNum(ev.n_rows) + ' rows in total' +
+          (ev.group_by ? ' · split by ' + ev.group_by : '') }),
+        h('ul', { class: 'pkg-files' }, files.map((f) => h('li', null,
+          pkgUrl(f.url) ? h('a', { href: pkgUrl(f.url), download: '' }, f.file) : h('code', { text: f.file }),
+          h('span', { class: 'muted small', text: ' ' + fmtNum(f.rows) + ' rows · ' + (f.title || '') }),
+          onPreview && pkgUrl(f.preview_url) ? h('button', { type: 'button', class: 'btn btn-xs', onclick: () => onPreview(ev, f) }, 'Preview') : null))),
+        ev.folder ? h('div', { class: 'small muted' }, 'On disk: ', h('code', { text: ev.folder })) : null),
+      h('div', { class: 'tc-actions' },
+        xlsx ? h('a', { class: 'btn btn-sm btn-primary', href: xlsx, download: '' }, 'Excel workbook') : null,
+        zip ? h('a', { class: 'btn btn-sm', href: zip, download: '' }, 'ZIP (all files)') : null));
+  }
+
   function tableCard(ev) {
+    if (ev && ev.kind === 'package') return packageCard(ev);
     const cols = Array.isArray(ev.columns) ? ev.columns : [];
     const csv = exportUrl(ev, 'csv');
     const jsn = exportUrl(ev, 'json');
@@ -1508,6 +1534,7 @@
     else box.appendChild(h('div', { class: 'empty', text: 'No data matched. Try a more specific query (a drug, gene, DOI or trial).' }));
     if (entities.length > 60) box.appendChild(h('p', { class: 'muted small', text: 'Showing 60 of ' + entities.length + ' entities.' }));
     if ((st.cleaning || []).length) box.appendChild(h('p', { class: 'muted small', text: 'Cleaning applied: ' + st.cleaning.join('; ') }));
+    if (entities.length) box.insertBefore(exportPanel(), box.children[2] || null);
 
     const bySource = new Map();
     for (const r of res.records || []) {
@@ -1523,6 +1550,31 @@
     }
   }
 
+  function exportPanel() {
+    const sel = h('select', { class: 'input', 'aria-label': 'Split the files by' },
+      h('option', { value: 'type', text: 'one file per data type (papers, trials, datasets ...)' }),
+      h('option', { value: 'species', text: 'one file per species (human, mouse, plant ...)' }),
+      h('option', { value: 'source', text: 'one file per database' }));
+    const out = h('div', { 'aria-live': 'polite' });
+    const btn = h('button', { type: 'button', class: 'btn btn-primary', onclick: async () => {
+      btn.disabled = true;
+      out.replaceChildren(h('div', { class: 'typing' }, h('span', { class: 'spinner', 'aria-hidden': 'true' }), 'Writing CSV files and the Excel workbook…'));
+      try {
+        const body = { query: searchState.lastQuery, limit_per_source: searchState.lastLimit, group_by: sel.value };
+        if (searchState.lastCats && searchState.lastCats.length) body.categories = searchState.lastCats;
+        out.replaceChildren(packageCard(await api('/api/search/export', { method: 'POST', body })));
+      } catch (err) {
+        out.replaceChildren(errorBox(err));
+      } finally {
+        btn.disabled = false;
+      }
+    } }, 'Export data');
+    return h('div', { class: 'panel export-panel' },
+      h('div', { class: 'search-row' }, h('b', { text: 'Download this data:' }), sel, btn),
+      h('p', { class: 'small muted', text: 'Saves the cleaned, graded data as several CSV files plus one Excel workbook (a sheet per file) and a ZIP.' }),
+      out);
+  }
+
   async function runSearch(e) {
     e.preventDefault();
     const q = $('#search-q').value.trim();
@@ -1535,6 +1587,9 @@
     try {
       const body = { query: q, limit_per_source: Number($('#search-limit').value) || 5 };
       if (searchState.cats.size) body.categories = Array.from(searchState.cats);
+      searchState.lastQuery = q;
+      searchState.lastLimit = body.limit_per_source;
+      searchState.lastCats = body.categories || [];
       const res = await api('/api/search', { method: 'POST', body, signal: searchState.controller.signal });
       renderSearchResults(res);
     } catch (err) {
@@ -1700,7 +1755,15 @@
         box.appendChild(h('div', { class: 'empty', text: 'No saved tables yet. Ask Mosaic to "save a table" during a cross-database question.' }));
         return;
       }
-      const rows = items.map((e) => h('tr', null,
+      const packages = items.filter((e) => e.kind === 'package');
+      if (packages.length) {
+        box.appendChild(h('h2', { class: 'section-h', text: 'Data packages' }));
+        for (const e of packages) box.appendChild(packageCard(e, previewPackageFile));
+      }
+      const tables = items.filter((e) => e.kind !== 'package');
+      if (!tables.length) return;
+      box.appendChild(h('h2', { class: 'section-h', text: 'Single tables' }));
+      const rows = tables.map((e) => h('tr', null,
         h('td', { class: 'wrap' }, h('div', { class: 'repo-name', text: e.name || e.export_id }),
           e.description ? h('div', { class: 'muted small', text: clip(e.description, 200) }) : null,
           h('code', { class: 'small muted', text: e.export_id })),
@@ -1746,6 +1809,33 @@
           h('tbody', null, rows.slice(0, 100).map((row) => h('tr', null, columns.map((c, i) =>
             h('td', null, cellNode(Array.isArray(row) ? row[i] : row && row[c])))))))),
         data.provenance ? h('details', null, h('summary', { class: 'small', text: 'Provenance' }), h('pre', { class: 'json', text: json(data.provenance) })) : null);
+      box.replaceChildren(panel);
+      panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } catch (err) {
+      box.replaceChildren(errorBox(err));
+    }
+  }
+
+  async function previewPackageFile(e, f) {
+    const box = $('#export-preview');
+    const url = pkgUrl(f.preview_url);
+    if (!url) return;
+    box.replaceChildren(h('div', { class: 'typing' }, h('span', { class: 'spinner', 'aria-hidden': 'true' }), 'Loading…'));
+    try {
+      const data = await api(url);
+      const columns = (data.columns || []).map(String);
+      const rows = data.rows || [];
+      const cellNode = (v) => {
+        const text = v === null || v === undefined ? '' : String(v);
+        return /^https?:\/\//.test(text) && safeUrl(text, false) && !text.includes('; ') ? extLink(text, clip(text, 60)) : clip(text, 300);
+      };
+      const panel = h('section', { class: 'panel', 'aria-label': 'Table preview' },
+        h('div', { class: 'panel-head row' }, h('h2', { text: (e.name || '') + ' · ' + f.file }),
+          h('button', { type: 'button', class: 'btn btn-sm', onclick: () => clear(box) }, 'Close')),
+        h('p', { class: 'small muted', text: 'Showing ' + rows.length + (data.truncated ? '+' : '') + ' rows · ' + columns.length + ' columns' }),
+        h('div', { class: 'table-wrap' }, h('table', { class: 'data' },
+          h('thead', null, h('tr', null, columns.map((c) => h('th', { scope: 'col', text: c })))),
+          h('tbody', null, rows.map((row) => h('tr', null, columns.map((c) => h('td', null, cellNode(row[c])))))))));
       box.replaceChildren(panel);
       panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } catch (err) {
