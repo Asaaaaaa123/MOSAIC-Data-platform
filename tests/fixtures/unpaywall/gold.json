@@ -1,0 +1,100 @@
+{
+ "best_oa_location": {
+  "endpoint_id": null,
+  "evidence": "deprecated",
+  "host_type": "publisher",
+  "is_best": true,
+  "license": "cc-by",
+  "oa_date": "2006-12-20",
+  "pmh_id": null,
+  "repository_institution": null,
+  "updated": "deprecated",
+  "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0000001&type=printable",
+  "url_for_landing_page": "https://doi.org/10.1371/journal.pone.0000001",
+  "url_for_pdf": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0000001&type=printable",
+  "version": "publishedVersion"
+ },
+ "data_standard": 2,
+ "doi": "10.1371/journal.pone.0000001",
+ "doi_url": "https://doi.org/10.1371/journal.pone.0000001",
+ "first_oa_location": {
+  "endpoint_id": null,
+  "evidence": "deprecated",
+  "host_type": "publisher",
+  "is_best": true,
+  "license": "cc-by",
+  "oa_date": "2006-12-20",
+  "pmh_id": null,
+  "repository_institution": null,
+  "updated": "deprecated",
+  "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0000001&type=printable",
+  "url_for_landing_page": "https://doi.org/10.1371/journal.pone.0000001",
+  "url_for_pdf": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0000001&type=printable",
+  "version": "publishedVersion"
+ },
+ "genre": "journal-article",
+ "has_repository_copy": true,
+ "is_oa": true,
+ "is_paratext": false,
+ "journal_is_in_doaj": true,
+ "journal_is_oa": true,
+ "journal_issn_l": "1932-6203",
+ "journal_issns": "1932-6203",
+ "journal_name": "PLoS ONE",
+ "oa_locations": [
+  {
+   "endpoint_id": null,
+   "evidence": "deprecated",
+   "host_type": "publisher",
+   "is_best": true,
+   "license": "cc-by",
+   "oa_date": "2006-12-20",
+   "pmh_id": null,
+   "repository_institution": null,
+   "updated": "deprecated",
+   "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0000001&type=printable",
+   "url_for_landing_page": "https://doi.org/10.1371/journal.pone.0000001",
+   "url_for_pdf": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0000001&type=printable",
+   "version": "publishedVersion"
+  },
+  {
+   "endpoint_id": "8e556f4518885d9a235",
+   "evidence": "deprecated",
+   "host_type": "repository",
+   "is_best": false,
+   "license": "cc-by-sa",
+   "oa_date": "2006-12-20",
+   "pmh_id": "oai:doaj.org/article:86f9dfe04f0640878cca7c3625eebf3c",
+   "repository_institution": null,
+   "updated": "deprecated",
+   "url": "https://doaj.org/article/86f9dfe04f0640878cca7c3625eebf3c",
+   "url_for_landing_page": "https://doaj.org/article/86f9dfe04f0640878cca7c3625eebf3c",
+   "url_for_pdf": null,
+   "version": "submittedVersion"
+  }
+ ],
+ "oa_locations_embargoed": [],
+ "oa_status": "gold",
+ "published_date": "2006-12-20",
+ "publisher": "Public Library of Science (PLoS)",
+ "title": "Neural Substrate of Cold-Seeking Behavior in Endotoxin Shock",
+ "updated": "2026-08-27T15:17:08Z",
+ "year": 2006,
+ "z_authors": [
+  {
+   "author_position": "first",
+   "is_corresponding": false,
+   "raw_author_name": "Maria C Almeida"
+  },
+  {
+   "author_position": "middle",
+   "is_corresponding": false,
+   "raw_author_name": "Alexandre A Steiner"
+  },
+  {
+   "author_position": "middle",
+   "is_corresponding": false,
+   "raw_author_name": "Luiz G S Branco"
+  }
+ ]
+}

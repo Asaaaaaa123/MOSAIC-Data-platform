@@ -1,0 +1,257 @@
+[
+ [
+  [
+   [
+    "id",
+    "name",
+    "cas_reg_no",
+    "inchikey",
+    "status",
+    "stem",
+    "cd_formula",
+    "cd_molweight",
+    "no_formulations",
+    "mrdef",
+    "fda_approval",
+    "approved",
+    "xrefs",
+    "moa",
+    "action_types",
+    "best_value",
+    "best_type",
+    "targets",
+    "total"
+   ],
+   [
+    {
+     "id": 4955,
+     "name": "panitumumab",
+     "cas_reg_no": "339177-26-3",
+     "inchikey": null,
+     "status": null,
+     "stem": "-umab",
+     "cd_formula": "",
+     "cd_molweight": null,
+     "no_formulations": 2,
+     "mrdef": "Recombinant human monoclonal antibody that binds to and inhibits the function of the EPIDERMAL GROWTH FACTOR RECEPTOR. It is used in the treatment of EGFR-expressing metastatic colorectal cancer that expresses wild-type ras gene (see GENES, RAS).",
+     "fda_approval": "2006-09-27",
+     "approved": true,
+     "xrefs": {
+      "NUI": [
+       "N0000179714"
+      ],
+      "MMSL": [
+       "22205",
+       "88497",
+       "d05879"
+      ],
+      "NDDF": [
+       "011743"
+      ],
+      "UNII": [
+       "6A901E312A"
+      ],
+      "VUID": [
+       "4025701"
+      ],
+      "CHEBI": [
+       "CHEBI:749603"
+      ],
+      "VANDF": [
+       "4025701"
+      ],
+      "INN_ID": [
+       "8499"
+      ],
+      "RXNORM": [
+       "263034"
+      ],
+      "UMLSCUI": [
+       "C0879427"
+      ],
+      "ChEMBL_ID": [
+       "CHEMBL1201827"
+      ],
+      "KEGG_DRUG": [
+       "D05350"
+      ],
+      "DRUGBANK_ID": [
+       "DB01269"
+      ],
+      "SNOMEDCT_US": [
+       "423259008",
+       "424401006"
+      ],
+      "IUPHAR_LIGAND_ID": [
+       "6883"
+      ],
+      "MESH_DESCRIPTOR_UI": [
+       "D000077544"
+      ]
+     },
+     "moa": 1,
+     "action_types": "AGONIST",
+     "best_value": 10.3,
+     "best_type": "Kd",
+     "targets": "Epidermal growth factor receptor",
+     "total": 18
+    },
+    {
+     "id": 4318,
+     "name": "afatinib",
+     "cas_reg_no": "850140-72-6",
+     "inchikey": "ULXXDDBFHOBEHA-CWDCEQMOSA-N",
+     "status": "ONP",
+     "stem": "-tinib",
+     "cd_formula": "C24H25ClFN5O3",
+     "cd_molweight": 485.94,
+     "no_formulations": 3,
+     "mrdef": "A quinazoline and butenamide derivative that acts as a tyrosine kinase inhibitor of epidermal growth factor receptors (ERBB RECEPTORS) and is used in the treatment of metastatic NON-SMALL CELL LUNG CANCER.",
+     "fda_approval": "2013-07-12",
+     "approved": true,
+     "xrefs": {
+      "NUI": [
+       "N0000188388"
+      ],
+      "MMSL": [
+       "204142",
+       "29566",
+       "d08113"
+      ],
+      "NDDF": [
+       "015117",
+       "015118"
+      ],
+      "UNII": [
+       "41UD74L59M"
+      ],
+      "VUID": [
+       "4032662"
+      ],
+      "CHEBI": [
+       "CHEBI:61390"
+      ],
+      "VANDF": [
+       "4032662",
+       "4032663"
+      ],
+      "INN_ID": [
+       "9230"
+      ],
+      "RXNORM": [
+       "1430268"
+      ],
+      "UMLSCUI": [
+       "C2987648"
+      ],
+      "ChEMBL_ID": [
+       "CHEMBL1173655",
+       "CHEMBL2105712"
+      ],
+      "KEGG_DRUG": [
+       "D09724"
+      ],
+      "DRUGBANK_ID": [
+       "DB08916"
+      ],
+      "PDB_CHEM_ID": [
+       " 0WM"
+      ],
+      "PUBCHEM_CID": [
+       "10184653"
+      ],
+      "SNOMEDCT_US": [
+       "703579002",
+       "703580004",
+       "703582007"
+      ],
+      "INXIGHT DRUGS": [
+       "41UD74L59M"
+      ],
+      "IUPHAR_LIGAND_ID": [
+       "5667"
+      ],
+      "SECONDARY_CAS_RN": [
+       "850140-73-7"
+      ],
+      "MESH_DESCRIPTOR_UI": [
+       "D000077716"
+      ]
+     },
+     "moa": 1,
+     "action_types": "INHIBITOR",
+     "best_value": 10.0,
+     "best_type": "Kd",
+     "targets": "Epidermal growth factor receptor",
+     "total": 18
+    },
+    {
+     "id": 5790,
+     "name": "sevabertinib",
+     "cas_reg_no": "2521285-05-0",
+     "inchikey": "VYQVHWNNPKOJEA-AWEZNQCLSA-N",
+     "status": "ONP",
+     "stem": "-tinib",
+     "cd_formula": "C24H25ClN4O5",
+     "cd_molweight": 484.94,
+     "no_formulations": null,
+     "mrdef": "Sevabertinib is a reversible kinase inhibitor of human epidermal growth factor receptor 2 (HER2). It also exhibits activity against epidermal growth factor receptor (EGFR).",
+     "fda_approval": "2025-11-01",
+     "approved": true,
+     "xrefs": {
+      "MMSL": [
+       "399535",
+       "44535",
+       "d10341"
+      ],
+      "NDDF": [
+       "020293"
+      ],
+      "UNII": [
+       "2A7VPM5RWH"
+      ],
+      "CHEBI": [
+       "CHEBI:759992"
+      ],
+      "VANDF": [
+       "4044438"
+      ],
+      "INN_ID": [
+       "13219"
+      ],
+      "RXNORM": [
+       "2728187"
+      ],
+      "UMLSCUI": [
+       "C5983435"
+      ],
+      "ChEMBL_ID": [
+       "CHEMBL6068074"
+      ],
+      "KEGG_DRUG": [
+       "D13098"
+      ],
+      "PDB_CHEM_ID": [
+       "A1JBI"
+      ],
+      "PUBCHEM_CID": [
+       "155234713"
+      ],
+      "IUPHAR_LIGAND_ID": [
+       "13491"
+      ],
+      "MESH_SUPPLEMENTAL_RECORD_UI": [
+       "C000731961"
+      ]
+     },
+     "moa": 1,
+     "action_types": "INHIBITOR",
+     "best_value": 9.82,
+     "best_type": "IC50",
+     "targets": "Epidermal growth factor receptor",
+     "total": 18
+    }
+   ]
+  ]
+ ]
+]

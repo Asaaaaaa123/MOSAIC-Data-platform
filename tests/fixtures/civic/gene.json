@@ -1,0 +1,26 @@
+{
+ "data": {
+  "gene": {
+   "id": 67,
+   "name": "AR",
+   "fullName": "androgen receptor",
+   "entrezId": 367,
+   "description": null,
+   "link": "/features/67",
+   "featureAliases": [
+    "AIS",
+    "AR",
+    "AR8",
+    "DHTR",
+    "HPCX3",
+    "HUMARA",
+    "HYSP1",
+    "KD",
+    "NR3C4",
+    "SBMA",
+    "SMAX1",
+    "TFM"
+   ]
+  }
+ }
+}

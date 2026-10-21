@@ -1,0 +1,129 @@
+{
+ "ndcPropertyList": {
+  "ndcProperty": [
+   {
+    "ndcItem": "00006302601",
+    "ndc9": "0006-3026",
+    "ndc10": "0006-3026-01",
+    "rxcui": "1657751",
+    "splSetIdItem": "9333c79b-d487-4538-a9f0-71b91a02b287",
+    "packagingList": {
+     "packaging": [
+      "4 mL in 1 VIAL"
+     ]
+    },
+    "propertyConceptList": {
+     "propertyConcept": [
+      {
+       "propName": "BLA",
+       "propValue": "BLA125514"
+      },
+      {
+       "propName": "LABELER",
+       "propValue": "Merck Sharp & Dohme LLC"
+      },
+      {
+       "propName": "LABEL_TYPE",
+       "propValue": "HUMAN PRESCRIPTION DRUG"
+      },
+      {
+       "propName": "MARKETING_CATEGORY",
+       "propValue": "BLA"
+      },
+      {
+       "propName": "MARKETING_EFFECTIVE_TIME_LOW",
+       "propValue": "20150115"
+      },
+      {
+       "propName": "MARKETING_STATUS",
+       "propValue": "ACTIVE"
+      }
+     ]
+    },
+    "source": "Hybrid"
+   },
+   {
+    "ndcItem": "00006302602",
+    "ndc9": "0006-3026",
+    "ndc10": "0006-3026-02",
+    "rxcui": "1657751",
+    "splSetIdItem": "9333c79b-d487-4538-a9f0-71b91a02b287",
+    "packagingList": {
+     "packaging": [
+      "1 VIAL in 1 CARTON (0006-3026-02)  / 4 mL in 1 VIAL (0006-3026-01)"
+     ]
+    },
+    "propertyConceptList": {
+     "propertyConcept": [
+      {
+       "propName": "BLA",
+       "propValue": "BLA125514"
+      },
+      {
+       "propName": "LABELER",
+       "propValue": "Merck Sharp & Dohme LLC"
+      },
+      {
+       "propName": "LABEL_TYPE",
+       "propValue": "HUMAN PRESCRIPTION DRUG"
+      },
+      {
+       "propName": "MARKETING_CATEGORY",
+       "propValue": "BLA"
+      },
+      {
+       "propName": "MARKETING_EFFECTIVE_TIME_LOW",
+       "propValue": "20150115"
+      },
+      {
+       "propName": "MARKETING_STATUS",
+       "propValue": "ACTIVE"
+      }
+     ]
+    },
+    "source": "Hybrid"
+   },
+   {
+    "ndcItem": "00006302604",
+    "ndc9": "0006-3026",
+    "ndc10": "0006-3026-04",
+    "rxcui": "1657751",
+    "splSetIdItem": "9333c79b-d487-4538-a9f0-71b91a02b287",
+    "packagingList": {
+     "packaging": [
+      "2 VIAL in 1 CARTON (0006-3026-04)  / 4 mL in 1 VIAL (0006-3026-01)"
+     ]
+    },
+    "propertyConceptList": {
+     "propertyConcept": [
+      {
+       "propName": "BLA",
+       "propValue": "BLA125514"
+      },
+      {
+       "propName": "LABELER",
+       "propValue": "Merck Sharp & Dohme LLC"
+      },
+      {
+       "propName": "LABEL_TYPE",
+       "propValue": "HUMAN PRESCRIPTION DRUG"
+      },
+      {
+       "propName": "MARKETING_CATEGORY",
+       "propValue": "BLA"
+      },
+      {
+       "propName": "MARKETING_EFFECTIVE_TIME_LOW",
+       "propValue": "20150115"
+      },
+      {
+       "propName": "MARKETING_STATUS",
+       "propValue": "ACTIVE"
+      }
+     ]
+    },
+    "source": "Hybrid"
+   }
+  ]
+ }
+}

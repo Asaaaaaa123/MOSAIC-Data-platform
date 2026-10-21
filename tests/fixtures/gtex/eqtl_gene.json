@@ -1,0 +1,70 @@
+{
+ "data": [
+  {
+   "snpId": "rs2495477",
+   "pos": 55052794,
+   "snpIdUpper": "RS2495477",
+   "variantId": "chr1_55052794_A_G_b38",
+   "geneSymbol": "PCSK9",
+   "pValue": 8.599731653624703e-06,
+   "geneSymbolUpper": "PCSK9",
+   "datasetId": "gtex_v10",
+   "tissueSiteDetailId": "Liver",
+   "ontologyId": "UBERON:0001114",
+   "chromosome": "chr1",
+   "gencodeId": "ENSG00000169174.11",
+   "nes": -0.22232946753501892
+  },
+  {
+   "snpId": "rs1165287",
+   "pos": 55054539,
+   "snpIdUpper": "RS1165287",
+   "variantId": "chr1_55054539_G_A_b38",
+   "geneSymbol": "PCSK9",
+   "pValue": 2.651547655998762e-06,
+   "geneSymbolUpper": "PCSK9",
+   "datasetId": "gtex_v10",
+   "tissueSiteDetailId": "Liver",
+   "ontologyId": "UBERON:0001114",
+   "chromosome": "chr1",
+   "gencodeId": "ENSG00000169174.11",
+   "nes": 0.24071742594242096
+  },
+  {
+   "snpId": "rs553741",
+   "pos": 55054735,
+   "snpIdUpper": "RS553741",
+   "variantId": "chr1_55054735_G_C_b38",
+   "geneSymbol": "PCSK9",
+   "pValue": 2.916681966879094e-06,
+   "geneSymbolUpper": "PCSK9",
+   "datasetId": "gtex_v10",
+   "tissueSiteDetailId": "Liver",
+   "ontologyId": "UBERON:0001114",
+   "chromosome": "chr1",
+   "gencodeId": "ENSG00000169174.11",
+   "nes": 0.23948194086551666
+  },
+  {
+   "snpId": "rs35595930",
+   "pos": 55055322,
+   "snpIdUpper": "RS35595930",
+   "variantId": "chr1_55055322_C_CG_b38",
+   "geneSymbol": "PCSK9",
+   "pValue": 7.330647039069648e-06,
+   "geneSymbolUpper": "PCSK9",
+   "datasetId": "gtex_v10",
+   "tissueSiteDetailId": "Liver",
+   "ontologyId": "UBERON:0001114",
+   "chromosome": "chr1",
+   "gencodeId": "ENSG00000169174.11",
+   "nes": 0.2305964082479477
+  }
+ ],
+ "paging_info": {
+  "numberOfPages": 1,
+  "page": 0,
+  "maxItemsPerPage": 10000,
+  "totalNumberOfItems": 4
+ }
+}

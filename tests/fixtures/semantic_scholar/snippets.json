@@ -1,0 +1,94 @@
+{
+ "data": [
+  {
+   "score": 1.1408708399055019,
+   "paper": {
+    "corpusId": "234793050",
+    "title": "In vivo adenine base editing of PCSK9 in macaques reduces LDL cholesterol levels",
+    "authors": [
+     "Tanja Rothgangl",
+     "Melissa K Dennis",
+     "Paulo J. C. Lin"
+    ],
+    "openAccessInfo": {
+     "license": "CCBY",
+     "status": "HYBRID",
+     "disclaimer": "Notice: This snippet is extracted from the open access paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC8352781, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+    }
+   },
+   "snippet": {
+    "text": "In vivo adenine base editing of PCSK9 in macaques reduces LDL cholesterol levels",
+    "snippetKind": "title",
+    "section": null,
+    "snippetOffset": {
+     "start": 0,
+     "end": 80
+    },
+    "annotations": {
+     "refMentions": null
+    }
+   }
+  },
+  {
+   "score": 0.8688186834908422,
+   "paper": {
+    "corpusId": "254150221",
+    "title": "Translating atherosclerosis research from bench to bedside: navigating the barriers for effective preclinical drug discovery",
+    "authors": [
+     "Lauren T. May",
+     "B. Bartolo",
+     "David G. Harrison"
+    ],
+    "openAccessInfo": {
+     "license": "CCBY",
+     "status": "HYBRID",
+     "disclaimer": "Notice: This snippet is extracted from the open access paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC9727216, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+    }
+   },
+   "snippet": {
+    "text": "Individuals with homozygous PCSK9 loss-of-function mutations and a consequent lack of circulating PCSK9 protein are healthy and have a deficit of LDL-C [117]. Knocking down the Pcsk9 gene using technologies such as CRISPR/Cas9 has effectively disrupted the PCSK9 gene in CRISPR-Pcsk9 mice [140]. The efficiency of this approach is evidenced by decreased circulating PCSK9, increased hepatic expressio",
+    "snippetKind": "body",
+    "section": "PCSK9 gene therapy",
+    "snippetOffset": {
+     "start": 51055,
+     "end": 52628
+    },
+    "annotations": {
+     "refMentions": [
+      {
+       "start": 152,
+       "end": 157,
+       "matchedPaperCorpusId": "13676239"
+      },
+      {
+       "start": 289,
+       "end": 294,
+       "matchedPaperCorpusId": "827939"
+      },
+      {
+       "start": 649,
+       "end": 654,
+       "matchedPaperCorpusId": "4462919"
+      },
+      {
+       "start": 956,
+       "end": 961,
+       "matchedPaperCorpusId": "231979965"
+      },
+      {
+       "start": 1108,
+       "end": 1113,
+       "matchedPaperCorpusId": "234793050"
+      },
+      {
+       "start": 1113,
+       "end": 1117,
+       "matchedPaperCorpusId": "234790939"
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "retrievalVersion": "pa1-v1"
+}

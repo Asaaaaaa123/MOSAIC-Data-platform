@@ -87,6 +87,8 @@ async def make_registry(offline_settings):
             audit=AuditLog(None),
             cache=ResponseCache(None, 0),
         )
+        for name in registry.connectors:  # mocked HTTP: no need to wait on real rate limits
+            registry.http.set_rate(name, 1000.0, 1000.0)
         created.append(registry)
         return registry
 

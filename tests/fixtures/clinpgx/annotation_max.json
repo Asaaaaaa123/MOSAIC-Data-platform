@@ -1,0 +1,779 @@
+{
+ "data": {
+  "id": 1043858892,
+  "accessionId": "PA166134805",
+  "allelePhenotypes": [
+   {
+    "id": 1451289421,
+    "allele": "AA",
+    "limitedEvidence": false,
+    "phenotype": "Patients with the AA genotype may require lower dose of warfarin as compared to patients with the TT genotype. Other genetic and clinical factors may also influence a patient's warfarin dose.",
+    "version": 0
+   },
+   {
+    "id": 1451289422,
+    "allele": "TA",
+    "limitedEvidence": false,
+    "phenotype": "Patients with the TA genotype may require higher dose of warfarin as compared to patients with the AA genotype. Other genetic and clinical factors may also influence a patient's warfarin dose.",
+    "version": 0
+   },
+   {
+    "id": 1451289423,
+    "allele": "TT",
+    "limitedEvidence": false,
+    "phenotype": "Patients with the TT genotype may require higher dose of warfarin as compared to patients with the AA genotype. Other genetic and clinical factors may also influence a patient's warfarin dose.",
+    "version": 0
+   }
+  ],
+  "conflictingVariantAnnotationIds": [],
+  "history": [
+   {
+    "id": 1449174819,
+    "date": "2018-02-27T11:43:53.16-08:00",
+    "type": "Update",
+    "version": 0
+   },
+   {
+    "id": 1449764479,
+    "date": "2018-11-05T14:23:59.802-08:00",
+    "description": "Updated OMB race to appropriate biogeographical group",
+    "type": "Update",
+    "version": 0
+   },
+   {
+    "id": 1451392900,
+    "date": "2021-03-24T20:12:27.449-07:00",
+    "description": "CA score added as part of scoring system release. LOE may have automatically changed based on new score but may be subject to further changes upon curator review.",
+    "type": "Update",
+    "version": 0
+   }
+  ],
+  "levelOfEvidence": {
+   "id": 827923056,
+   "description": "Level 3 clinical annotations describe variant-drug combinations with a low level of evidence supporting the association. This association may be based on a single study annotated in PharmGKB, or there may be several studies that failed to replicate the association. The annotation may also be based on preliminary evidence (e.g., a case report, non-significant study, or in vitro, molecular, or functional assay evidence), resulting in a lower calculated score.",
+   "parents": [],
+   "resource": "Level of Evidence",
+   "synonyms": [],
+   "term": "3",
+   "termId": "levelsOfEvidence:827923056",
+   "valid": true,
+   "version": 2
+  },
+  "location": {
+   "id": 1451289420,
+   "buildVersion": "GRCh38.p7",
+   "chromosomeId": "PA504",
+   "chromosomeName": "chr10",
+   "copyNumber": "1",
+   "diplotypes": [],
+   "displayName": "rs7089580",
+   "genes": [
+    {
+     "objCls": "Gene",
+     "id": "PA126",
+     "symbol": "CYP2C9",
+     "name": "cytochrome P450 family 2 subfamily C member 9",
+     "version": 7878
+    }
+   ],
+   "gpPosition": 94945466,
+   "haplotypes": [],
+   "linkedObjects": [
+    {
+     "objCls": "Variant",
+     "id": "PA166154078",
+     "symbol": "rs7089580",
+     "name": "rs7089580",
+     "version": 6
+    }
+   ],
+   "refSeqCrossReference": {
+    "id": 1446906616,
+    "name": "[GRCh38]chr10",
+    "resource": "RefSeq DNA",
+    "resourceId": "NC_000010.11",
+    "_url": "https://www.ncbi.nlm.nih.gov/nuccore/NC_000010.11",
+    "version": 2
+   },
+   "refSeqPosition": 94945466,
+   "rsid": "rs7089580",
+   "tagGene": false,
+   "type": "SNP",
+   "variant": {
+    "objCls": "Variant",
+    "id": "PA166154078",
+    "symbol": "rs7089580",
+    "name": "rs7089580",
+    "version": 6
+   },
+   "version": 0
+  },
+  "name": "rs7089580 (CYP2C9); warfarin (level 3 Dosage)",
+  "objCls": "SummaryAnnotation",
+  "overrideLevel": false,
+  "pediatric": false,
+  "relatedAlleles": [
+   {
+    "objCls": "SNV",
+    "id": "PA166385783",
+    "symbol": "CYP2C9 482-2313A=",
+    "name": "NM_000771.4(CYP2C9):c.482-2313A=",
+    "version": 1
+   },
+   {
+    "objCls": "SNV",
+    "id": "PA166385784",
+    "symbol": "CYP2C9 482-2313A>T",
+    "name": "NM_000771.4(CYP2C9):c.482-2313A>T",
+    "version": 1
+   }
+  ],
+  "relatedChemicals": [
+   {
+    "objCls": "Chemical",
+    "id": "PA451906",
+    "name": "warfarin",
+    "version": 21
+   }
+  ],
+  "relatedChemicalsLogic": "Or",
+  "relatedDiseases": [],
+  "relatedGuidelines": [],
+  "relatedLabels": [],
+  "score": 5.75,
+  "scoreDetails": "",
+  "types": [
+   "Dosage"
+  ],
+  "variantAnnotations": [
+   {
+    "id": 769245708,
+    "accessionId": "PA166138200",
+    "alleleGenotype": "T",
+    "connWords1": {
+     "id": 769229672,
+     "parents": [],
+     "resource": "Drug Connecting words 1",
+     "synonyms": [],
+     "term": "dose of",
+     "termId": "variantAnnotationDrugConnWords1:769229672",
+     "valid": true,
+     "version": 0
+    },
+    "drugsConnWord": {
+     "id": 827698395,
+     "parents": [],
+     "resource": "Collection Operator - And/Or",
+     "synonyms": [],
+     "term": "and",
+     "termId": "drugsConnWord:827698395",
+     "valid": true,
+     "version": 0
+    },
+    "formatVersion": 1,
+    "isAssociated": true,
+    "isPlural": false,
+    "literature": {
+     "id": 7025502,
+     "title": "The missing association: sequencing-based discovery of novel SNPs in VKORC1 and CYP2C9 that affect warfarin dose in African Americans.",
+     "_sameAs": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3625373",
+     "crossReferences": [
+      {
+       "id": 1449247104,
+       "resource": "PubMed Central",
+       "resourceId": "PMC3625373",
+       "_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3625373",
+       "version": 0
+      },
+      {
+       "id": 769235617,
+       "resource": "PubMed",
+       "resourceId": "21270790",
+       "_url": "https://www.ncbi.nlm.nih.gov/pubmed/21270790",
+       "version": 0
+      },
+      {
+       "id": 1449247105,
+       "resource": "DOI",
+       "resourceId": "10.1038/clpt.2010.322",
+       "_url": "https://doi.org/10.1038%2Fclpt.2010.322",
+       "version": 0
+      }
+     ],
+     "day": -1,
+     "hasKeyword": true,
+     "journal": "Clinical pharmacology and therapeutics",
+     "meshTerms": [
+      "Algorithms",
+      "Anticoagulants",
+      "Aryl Hydrocarbon Hydroxylases",
+      "Base Sequence",
+      "Black or African American",
+      "Cohort Studies",
+      "Cytochrome P-450 CYP2C9",
+      "Dose-Response Relationship, Drug",
+      "Female",
+      "Genetic Variation",
+      "Humans",
+      "Male",
+      "Middle Aged",
+      "Mixed Function Oxygenases",
+      "Polymorphism, Single Nucleotide",
+      "Regression Analysis",
+      "Vitamin K Epoxide Reductases",
+      "Warfarin"
+     ],
+     "month": 3,
+     "nonHuman": false,
+     "objCls": "Literature",
+     "page": "408-15",
+     "pediatric": false,
+     "pgkbPublication": false,
+     "pubDate": "2011-03-01",
+     "summary": "It is well recognized that the genetic variants VKORC1-1639, CYP2C9*2, and CYP2C9*3 contribute to warfarin dose response. This has led to warfarin dosing algorithms that include these polymorphisms and explains between 47% and 56% of variability in dose in Caucasians. However, these polymorphisms explain significantly less of the variance in dose among African Americans. In order to identify novel variations that affect warfarin dose in African Americans, we used a targeted resequencing strategy that examined evolutionarily conserved sequences and regions of putative transcriptional binding. Through ethnicity-specific warfarin dose model building in 330 African Americans, we identified two novel genetic associations with higher warfarin dose, namely, VKORC1-8191 (rs61162043, P = 0.0041) and 18786 in CYP2C9 (rs7089580, P = 0.035). These novel finds are independent of the previous associations with these genes. Our regression model, encompassing both genetic and clinical variables, explained 40% of the variability in warfarin dose in African-American subjects, significantly more than any model thus far.",
+     "type": "Literature",
+     "version": 4,
+     "volume": "89",
+     "year": 2011
+    },
+    "metabolizers1": [],
+    "metabolizers2": [],
+    "objCls": "VariantDrugAnnotation",
+    "pediatric": false,
+    "phenotypeCategories": [
+     {
+      "id": 769229933,
+      "description": "[PD]",
+      "parents": [],
+      "resource": "Phenotype Categories",
+      "synonyms": [],
+      "term": "Dosage",
+      "termId": "secondaryCat:769229933",
+      "valid": true,
+      "version": 2
+     }
+    ],
+    "polarity": {
+     "id": 769229639,
+     "parents": [],
+     "resource": "Polarity",
+     "synonyms": [],
+     "term": "increased",
+     "termId": "variantAnnotationPolarity:769229639",
+     "valid": true,
+     "version": 0
+    },
+    "populationPhenotypes": [],
+    "relatedAlleles": [
+     {
+      "objCls": "SNV",
+      "id": "PA166385784",
+      "symbol": "CYP2C9 482-2313A>T",
+      "name": "NM_000771.4(CYP2C9):c.482-2313A>T",
+      "version": 1
+     }
+    ],
+    "relatedChemicals": [
+     {
+      "objCls": "Chemical",
+      "id": "PA451906",
+      "name": "warfarin",
+      "version": 21
+     }
+    ],
+    "score": 2.25,
+    "sentence": "Allele T is associated with increased dose of warfarin.",
+    "significance": {
+     "id": 769229666,
+     "parents": [],
+     "resource": "Association Significance",
+     "synonyms": [],
+     "term": "yes",
+     "termId": "variantAnnotationSignificance:769229666",
+     "valid": true,
+     "version": 0
+    },
+    "useForCaScoring": true,
+    "version": 17
+   },
+   {
+    "id": 1444608095,
+    "accessionId": "PA166149461",
+    "alleleGenotype": "AT",
+    "comparison": "AA",
+    "connWords1": {
+     "id": 769229672,
+     "parents": [],
+     "resource": "Drug Connecting words 1",
+     "synonyms": [],
+     "term": "dose of",
+     "termId": "variantAnnotationDrugConnWords1:769229672",
+     "valid": true,
+     "version": 0
+    },
+    "drugsConnWord": {
+     "id": 827698395,
+     "parents": [],
+     "resource": "Collection Operator - And/Or",
+     "synonyms": [],
+     "term": "and",
+     "termId": "drugsConnWord:827698395",
+     "valid": true,
+     "version": 0
+    },
+    "formatVersion": 1,
+    "isAssociated": true,
+    "isPlural": false,
+    "literature": {
+     "id": 15084828,
+     "title": "Novel single nucleotide polymorphism in CYP2C9 is associated with changes in warfarin clearance and CYP2C9 expression levels in African Americans.",
+     "_sameAs": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4433569",
+     "crossReferences": [
+      {
+       "id": 1449294870,
+       "resource": "PubMed Central",
+       "resourceId": "PMC4433569",
+       "_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4433569",
+       "version": 0
+      },
+      {
+       "id": 1449294869,
+       "resource": "PubMed",
+       "resourceId": "25499099",
+       "_url": "https://www.ncbi.nlm.nih.gov/pubmed/25499099",
+       "version": 0
+      },
+      {
+       "id": 1449294871,
+       "resource": "DOI",
+       "resourceId": "10.1016/j.trsl.2014.11.006",
+       "_url": "https://doi.org/10.1016%2Fj.trsl.2014.11.006",
+       "version": 0
+      }
+     ],
+     "day": -1,
+     "hasKeyword": true,
+     "journal": "Translational research : the journal of laboratory and clinical medicine",
+     "meshTerms": [
+      "Adult",
+      "Aged",
+      "Anticoagulants",
+      "Black People",
+      "Black or African American",
+      "Cytochrome P-450 CYP2C9",
+      "Female",
+      "Humans",
+      "Liver",
+      "Male",
+      "Middle Aged",
+      "Pharmacogenetics",
+      "Polymorphism, Single Nucleotide",
+      "Warfarin"
+     ],
+     "month": 6,
+     "nonHuman": false,
+     "objCls": "Literature",
+     "page": "651-7",
+     "pediatric": false,
+     "pgkbPublication": false,
+     "pubDate": "2015-06-01",
+     "summary": "Warfarin is a widely used anticoagulant whose active S-enantiomer is primarily metabolized by the CYP2C9 enzyme. The CYP2C9*2 and CYP2C9*3 alleles are associated with lower warfarin dose requirement and decreased enzyme activity. In contrast, we previously identified a novel single-nucleotide polymorphism (SNP) (rs7089580A &gt; T) in CYP2C9 that is associated with higher warfarin dose requirement in African Americans (AAs). In this study, we examine the effect of rs7089580 on warfarin pharmacokinetics and CYP2C9 expression in 63 AA patients and 32 AA liver tissues, respectively. We found oral clearance of S-warfarin to be higher among carriers of the minor rs7089580 allele (T) compared with wild-type homozygotes (3.73 ± 1.46 vs 2.95 ± 1.39 mL/min; P = 0.04). CYP2C9 messenger RNA expression in liver tissue was also higher among A/T and T/T genotypes compared with A/A (P &lt; 0.02). Our findings indicate that rs7089580 is associated with higher S-warfarin clearance and CYP2C9 expression and may help explain the higher dose requirement of warfarin in AAs. Furthermore, rs7089580 is in complete linkage disequilibrium with the promoter SNP rs12251841 in AAs, which may provide a biologically plausible explanation for the observed effect on CYP2C9 expression levels. Given the many clinically relevant substrates of CYP2C9, identifying polymorphisms that affect expression levels and metabolism across ethnicities is essential for individualization of doses with a narrow therapeutic index.",
+     "type": "Literature",
+     "version": 5,
+     "volume": "165",
+     "year": 2015
+    },
+    "metabolizers1": [],
+    "metabolizers2": [],
+    "objCls": "VariantDrugAnnotation",
+    "pediatric": false,
+    "phenotypeCategories": [
+     {
+      "id": 769229933,
+      "description": "[PD]",
+      "parents": [],
+      "resource": "Phenotype Categories",
+      "synonyms": [],
+      "term": "Dosage",
+      "termId": "secondaryCat:769229933",
+      "valid": true,
+      "version": 2
+     }
+    ],
+    "polarity": {
+     "id": 769229639,
+     "parents": [],
+     "resource": "Polarity",
+     "synonyms": [],
+     "term": "increased",
+     "termId": "variantAnnotationPolarity:769229639",
+     "valid": true,
+     "version": 0
+    },
+    "populationPhenotypeLinksConnWord": {
+     "id": 827698395,
+     "parents": [],
+     "resource": "Collection Operator - And/Or",
+     "synonyms": [],
+     "term": "and",
+     "termId": "drugsConnWord:827698395",
+     "valid": true,
+     "version": 0
+    },
+    "populationPhenotypes": [],
+    "relatedAlleles": [
+     {
+      "objCls": "SNV",
+      "id": "PA166385783",
+      "symbol": "CYP2C9 482-2313A=",
+      "name": "NM_000771.4(CYP2C9):c.482-2313A=",
+      "version": 1
+     },
+     {
+      "objCls": "SNV",
+      "id": "PA166385784",
+      "symbol": "CYP2C9 482-2313A>T",
+      "name": "NM_000771.4(CYP2C9):c.482-2313A>T",
+      "version": 1
+     }
+    ],
+    "relatedChemicals": [
+     {
+      "objCls": "Chemical",
+      "id": "PA451906",
+      "name": "warfarin",
+      "version": 21
+     }
+    ],
+    "score": 1.75,
+    "sentence": "Genotype AT is associated with increased dose of warfarin as compared to genotype AA.",
+    "significance": {
+     "id": 769229666,
+     "parents": [],
+     "resource": "Association Significance",
+     "synonyms": [],
+     "term": "yes",
+     "termId": "variantAnnotationSignificance:769229666",
+     "valid": true,
+     "version": 0
+    },
+    "useForCaScoring": true,
+    "version": 11
+   },
+   {
+    "id": 1444608101,
+    "accessionId": "PA166149462",
+    "alleleGenotype": "AT",
+    "comparison": "AA",
+    "connWords1": {
+     "id": 769229674,
+     "parents": [],
+     "resource": "Drug Connecting words 1",
+     "synonyms": [],
+     "term": "clearance of",
+     "termId": "variantAnnotationDrugConnWords1:769229674",
+     "valid": true,
+     "version": 0
+    },
+    "drugsConnWord": {
+     "id": 827698395,
+     "parents": [],
+     "resource": "Collection Operator - And/Or",
+     "synonyms": [],
+     "term": "and",
+     "termId": "drugsConnWord:827698395",
+     "valid": true,
+     "version": 0
+    },
+    "formatVersion": 1,
+    "isAssociated": true,
+    "isPlural": false,
+    "literature": {
+     "id": 15084828,
+     "title": "Novel single nucleotide polymorphism in CYP2C9 is associated with changes in warfarin clearance and CYP2C9 expression levels in African Americans.",
+     "_sameAs": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4433569",
+     "crossReferences": [
+      {
+       "id": 1449294870,
+       "resource": "PubMed Central",
+       "resourceId": "PMC4433569",
+       "_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4433569",
+       "version": 0
+      },
+      {
+       "id": 1449294869,
+       "resource": "PubMed",
+       "resourceId": "25499099",
+       "_url": "https://www.ncbi.nlm.nih.gov/pubmed/25499099",
+       "version": 0
+      },
+      {
+       "id": 1449294871,
+       "resource": "DOI",
+       "resourceId": "10.1016/j.trsl.2014.11.006",
+       "_url": "https://doi.org/10.1016%2Fj.trsl.2014.11.006",
+       "version": 0
+      }
+     ],
+     "day": -1,
+     "hasKeyword": true,
+     "journal": "Translational research : the journal of laboratory and clinical medicine",
+     "meshTerms": [
+      "Adult",
+      "Aged",
+      "Anticoagulants",
+      "Black People",
+      "Black or African American",
+      "Cytochrome P-450 CYP2C9",
+      "Female",
+      "Humans",
+      "Liver",
+      "Male",
+      "Middle Aged",
+      "Pharmacogenetics",
+      "Polymorphism, Single Nucleotide",
+      "Warfarin"
+     ],
+     "month": 6,
+     "nonHuman": false,
+     "objCls": "Literature",
+     "page": "651-7",
+     "pediatric": false,
+     "pgkbPublication": false,
+     "pubDate": "2015-06-01",
+     "summary": "Warfarin is a widely used anticoagulant whose active S-enantiomer is primarily metabolized by the CYP2C9 enzyme. The CYP2C9*2 and CYP2C9*3 alleles are associated with lower warfarin dose requirement and decreased enzyme activity. In contrast, we previously identified a novel single-nucleotide polymorphism (SNP) (rs7089580A &gt; T) in CYP2C9 that is associated with higher warfarin dose requirement in African Americans (AAs). In this study, we examine the effect of rs7089580 on warfarin pharmacokinetics and CYP2C9 expression in 63 AA patients and 32 AA liver tissues, respectively. We found oral clearance of S-warfarin to be higher among carriers of the minor rs7089580 allele (T) compared with wild-type homozygotes (3.73 ± 1.46 vs 2.95 ± 1.39 mL/min; P = 0.04). CYP2C9 messenger RNA expression in liver tissue was also higher among A/T and T/T genotypes compared with A/A (P &lt; 0.02). Our findings indicate that rs7089580 is associated with higher S-warfarin clearance and CYP2C9 expression and may help explain the higher dose requirement of warfarin in AAs. Furthermore, rs7089580 is in complete linkage disequilibrium with the promoter SNP rs12251841 in AAs, which may provide a biologically plausible explanation for the observed effect on CYP2C9 expression levels. Given the many clinically relevant substrates of CYP2C9, identifying polymorphisms that affect expression levels and metabolism across ethnicities is essential for individualization of doses with a narrow therapeutic index.",
+     "type": "Literature",
+     "version": 5,
+     "volume": "165",
+     "year": 2015
+    },
+    "metabolizers1": [],
+    "metabolizers2": [],
+    "objCls": "VariantDrugAnnotation",
+    "pediatric": false,
+    "phenotypeCategories": [
+     {
+      "id": 769229933,
+      "description": "[PD]",
+      "parents": [],
+      "resource": "Phenotype Categories",
+      "synonyms": [],
+      "term": "Dosage",
+      "termId": "secondaryCat:769229933",
+      "valid": true,
+      "version": 2
+     }
+    ],
+    "polarity": {
+     "id": 769229639,
+     "parents": [],
+     "resource": "Polarity",
+     "synonyms": [],
+     "term": "increased",
+     "termId": "variantAnnotationPolarity:769229639",
+     "valid": true,
+     "version": 0
+    },
+    "populationPhenotypeLinksConnWord": {
+     "id": 827698395,
+     "parents": [],
+     "resource": "Collection Operator - And/Or",
+     "synonyms": [],
+     "term": "and",
+     "termId": "drugsConnWord:827698395",
+     "valid": true,
+     "version": 0
+    },
+    "populationPhenotypes": [],
+    "relatedAlleles": [
+     {
+      "objCls": "SNV",
+      "id": "PA166385783",
+      "symbol": "CYP2C9 482-2313A=",
+      "name": "NM_000771.4(CYP2C9):c.482-2313A=",
+      "version": 1
+     },
+     {
+      "objCls": "SNV",
+      "id": "PA166385784",
+      "symbol": "CYP2C9 482-2313A>T",
+      "name": "NM_000771.4(CYP2C9):c.482-2313A>T",
+      "version": 1
+     }
+    ],
+    "relatedChemicals": [
+     {
+      "objCls": "Chemical",
+      "id": "PA451906",
+      "name": "warfarin",
+      "version": 21
+     }
+    ],
+    "score": 1.75,
+    "sentence": "Genotype AT is associated with increased clearance of warfarin as compared to genotype AA.",
+    "significance": {
+     "id": 769229666,
+     "parents": [],
+     "resource": "Association Significance",
+     "synonyms": [],
+     "term": "yes",
+     "termId": "variantAnnotationSignificance:769229666",
+     "valid": true,
+     "version": 0
+    },
+    "useForCaScoring": true,
+    "version": 13
+   },
+   {
+    "id": 1444608112,
+    "accessionId": "PA166149556",
+    "alleleGenotype": "AT + TT",
+    "comparison": "AA",
+    "connWords1": {
+     "id": 769229911,
+     "parents": [],
+     "resource": "Functional Assay Connecting words 1",
+     "synonyms": [],
+     "term": "expression of",
+     "termId": "fa_ConnWords1:769229911",
+     "valid": true,
+     "version": 0
+    },
+    "description": "in human liver tissues.",
+    "drugsConnWord": {
+     "id": 827698395,
+     "parents": [],
+     "resource": "Collection Operator - And/Or",
+     "synonyms": [],
+     "term": "and",
+     "termId": "drugsConnWord:827698395",
+     "valid": true,
+     "version": 0
+    },
+    "formatVersion": 1,
+    "geneSymbol": "CYP2C9",
+    "isAssociated": true,
+    "isPlural": false,
+    "literature": {
+     "id": 15084828,
+     "title": "Novel single nucleotide polymorphism in CYP2C9 is associated with changes in warfarin clearance and CYP2C9 expression levels in African Americans.",
+     "_sameAs": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4433569",
+     "crossReferences": [
+      {
+       "id": 1449294870,
+       "resource": "PubMed Central",
+       "resourceId": "PMC4433569",
+       "_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4433569",
+       "version": 0
+      },
+      {
+       "id": 1449294869,
+       "resource": "PubMed",
+       "resourceId": "25499099",
+       "_url": "https://www.ncbi.nlm.nih.gov/pubmed/25499099",
+       "version": 0
+      },
+      {
+       "id": 1449294871,
+       "resource": "DOI",
+       "resourceId": "10.1016/j.trsl.2014.11.006",
+       "_url": "https://doi.org/10.1016%2Fj.trsl.2014.11.006",
+       "version": 0
+      }
+     ],
+     "day": -1,
+     "hasKeyword": true,
+     "journal": "Translational research : the journal of laboratory and clinical medicine",
+     "meshTerms": [
+      "Adult",
+      "Aged",
+      "Anticoagulants",
+      "Black People",
+      "Black or African American",
+      "Cytochrome P-450 CYP2C9",
+      "Female",
+      "Humans",
+      "Liver",
+      "Male",
+      "Middle Aged",
+      "Pharmacogenetics",
+      "Polymorphism, Single Nucleotide",
+      "Warfarin"
+     ],
+     "month": 6,
+     "nonHuman": false,
+     "objCls": "Literature",
+     "page": "651-7",
+     "pediatric": false,
+     "pgkbPublication": false,
+     "pubDate": "2015-06-01",
+     "summary": "Warfarin is a widely used anticoagulant whose active S-enantiomer is primarily metabolized by the CYP2C9 enzyme. The CYP2C9*2 and CYP2C9*3 alleles are associated with lower warfarin dose requirement and decreased enzyme activity. In contrast, we previously identified a novel single-nucleotide polymorphism (SNP) (rs7089580A &gt; T) in CYP2C9 that is associated with higher warfarin dose requirement in African Americans (AAs). In this study, we examine the effect of rs7089580 on warfarin pharmacokinetics and CYP2C9 expression in 63 AA patients and 32 AA liver tissues, respectively. We found oral clearance of S-warfarin to be higher among carriers of the minor rs7089580 allele (T) compared with wild-type homozygotes (3.73 ± 1.46 vs 2.95 ± 1.39 mL/min; P = 0.04). CYP2C9 messenger RNA expression in liver tissue was also higher among A/T and T/T genotypes compared with A/A (P &lt; 0.02). Our findings indicate that rs7089580 is associated with higher S-warfarin clearance and CYP2C9 expression and may help explain the higher dose requirement of warfarin in AAs. Furthermore, rs7089580 is in complete linkage disequilibrium with the promoter SNP rs12251841 in AAs, which may provide a biologically plausible explanation for the observed effect on CYP2C9 expression levels. Given the many clinically relevant substrates of CYP2C9, identifying polymorphisms that affect expression levels and metabolism across ethnicities is essential for individualization of doses with a narrow therapeutic index.",
+     "type": "Literature",
+     "version": 5,
+     "volume": "165",
+     "year": 2015
+    },
+    "metabolizers1": [],
+    "metabolizers2": [],
+    "objCls": "VariantFunctionalAssayAnnotation",
+    "objects": [],
+    "pediatric": false,
+    "phenotypeCategories": [
+     {
+      "id": 769229936,
+      "parents": [],
+      "resource": "Phenotype Categories",
+      "synonyms": [],
+      "term": "Other",
+      "termId": "secondaryCat:769229936",
+      "valid": true,
+      "version": 1
+     }
+    ],
+    "polarity": {
+     "id": 769229639,
+     "parents": [],
+     "resource": "Polarity",
+     "synonyms": [],
+     "term": "increased",
+     "termId": "variantAnnotationPolarity:769229639",
+     "valid": true,
+     "version": 0
+    },
+    "relatedAlleles": [
+     {
+      "objCls": "SNV",
+      "id": "PA166385783",
+      "symbol": "CYP2C9 482-2313A=",
+      "name": "NM_000771.4(CYP2C9):c.482-2313A=",
+      "version": 1
+     },
+     {
+      "objCls": "SNV",
+      "id": "PA166385784",
+      "symbol": "CYP2C9 482-2313A>T",
+      "name": "NM_000771.4(CYP2C9):c.482-2313A>T",
+      "version": 1
+     }
+    ],
+    "relatedChemicals": [],
+    "score": 0.0,
+    "sentence": "Genotypes AT + TT is associated with increased expression of CYP2C9 as compared to genotype AA.",
+    "significance": {
+     "id": 769229666,
+     "parents": [],
+     "resource": "Association Significance",
+     "synonyms": [],
+     "term": "yes",
+     "termId": "variantAnnotationSignificance:769229666",
+     "valid": true,
+     "version": 0
+    },
+    "useForCaScoring": true,
+    "version": 11
+   }
+  ],
+  "version": 9
+ },
+ "status": "success"
+}

@@ -1,0 +1,4 @@
+[
+ {"Input": "arsenic", "ChemicalName": "Arsenic", "ChemicalId": "D001151", "CasRN": "7440-38-2", "DiseaseName": "Skin Neoplasms", "DiseaseId": "MESH:D012878", "DirectEvidence": "marker/mechanism", "InferenceGeneSymbol": "", "InferenceScore": "", "OmimIds": "", "PubMedIds": "10411205|15023560|18560527"},
+ {"Input": "arsenic", "ChemicalName": "Arsenic", "ChemicalId": "D001151", "CasRN": "7440-38-2", "DiseaseName": "Leukemia, Promyelocytic, Acute", "DiseaseId": "MESH:D015473", "DirectEvidence": "therapeutic", "InferenceGeneSymbol": "", "InferenceScore": "", "OmimIds": "612376", "PubMedIds": "9516974"}
+]

@@ -1,0 +1,214 @@
+{
+ "numberOfHits": 3782,
+ "results": [
+  {
+   "id": "UniProtKB:A0A0G2JMD5!269823372",
+   "geneProductId": "UniProtKB:A0A0G2JMD5",
+   "qualifier": "involved_in",
+   "goId": "GO:0043066",
+   "goName": "negative regulation of apoptotic process",
+   "goEvidence": "IEA",
+   "goAspect": "biological_process",
+   "evidenceCode": "ECO:0000256",
+   "reference": "GO_REF:0000002",
+   "withFrom": [
+    {
+     "connectedXrefs": [
+      {
+       "db": "InterPro",
+       "id": "IPR026271"
+      }
+     ]
+    }
+   ],
+   "taxonId": 9606,
+   "taxonName": null,
+   "assignedBy": "InterPro",
+   "extensions": null,
+   "targetSets": null,
+   "symbol": "PRAMEF33",
+   "date": "20260727",
+   "synonyms": "PRAMEF33",
+   "name": "PRAME family member 33"
+  },
+  {
+   "id": "UniProtKB:A0PJW8!56690187",
+   "geneProductId": "UniProtKB:A0PJW8",
+   "qualifier": "involved_in",
+   "goId": "GO:0097190",
+   "goName": "apoptotic signaling pathway",
+   "goEvidence": "IBA",
+   "goAspect": "biological_process",
+   "evidenceCode": "ECO:0000318",
+   "reference": "GO_REF:0000033",
+   "withFrom": [
+    {
+     "connectedXrefs": [
+      {
+       "db": "PANTHER",
+       "id": "PTN000323543"
+      }
+     ]
+    },
+    {
+     "connectedXrefs": [
+      {
+       "db": "UniProtKB",
+       "id": "P51397"
+      }
+     ]
+    }
+   ],
+   "taxonId": 9606,
+   "taxonName": null,
+   "assignedBy": "GO_Central",
+   "extensions": null,
+   "targetSets": null,
+   "symbol": "DAPL1",
+   "date": "20170228",
+   "synonyms": "DAPL1,EEDA",
+   "name": "Death-associated protein-like 1"
+  },
+  {
+   "id": "UniProtKB:A1A4S6!116450830",
+   "geneProductId": "UniProtKB:A1A4S6",
+   "qualifier": "involved_in",
+   "goId": "GO:0043066",
+   "goName": "negative regulation of apoptotic process",
+   "goEvidence": "IBA",
+   "goAspect": "biological_process",
+   "evidenceCode": "ECO:0000318",
+   "reference": "GO_REF:0000033",
+   "withFrom": [
+    {
+     "connectedXrefs": [
+      {
+       "db": "MGI",
+       "id": "MGI:1925764"
+      }
+     ]
+    },
+    {
+     "connectedXrefs": [
+      {
+       "db": "PANTHER",
+       "id": "PTN008539676"
+      }
+     ]
+    }
+   ],
+   "taxonId": 9606,
+   "taxonName": null,
+   "assignedBy": "GO_Central",
+   "extensions": null,
+   "targetSets": null,
+   "symbol": "ARHGAP10",
+   "date": "20170601",
+   "synonyms": "ARHGAP10,GRAF2",
+   "name": "Rho GTPase-activating protein 10"
+  },
+  {
+   "id": "UniProtKB:A1A4S6!116450831",
+   "geneProductId": "UniProtKB:A1A4S6",
+   "qualifier": "involved_in",
+   "goId": "GO:0043066",
+   "goName": "negative regulation of apoptotic process",
+   "goEvidence": "IEA",
+   "goAspect": "biological_process",
+   "evidenceCode": "ECO:0000265",
+   "reference": "GO_REF:0000107",
+   "withFrom": [
+    {
+     "connectedXrefs": [
+      {
+       "db": "UniProtKB",
+       "id": "Q6Y5D8"
+      }
+     ]
+    },
+    {
+     "connectedXrefs": [
+      {
+       "db": "ensembl",
+       "id": "ENSMUSP00000075658"
+      }
+     ]
+    }
+   ],
+   "taxonId": 9606,
+   "taxonName": null,
+   "assignedBy": "Ensembl",
+   "extensions": null,
+   "targetSets": null,
+   "symbol": "ARHGAP10",
+   "date": "20260724",
+   "synonyms": "ARHGAP10,GRAF2",
+   "name": "Rho GTPase-activating protein 10"
+  },
+  {
+   "id": "UniProtKB:A3QJZ6!415238009",
+   "geneProductId": "UniProtKB:A3QJZ6",
+   "qualifier": "involved_in",
+   "goId": "GO:0043066",
+   "goName": "negative regulation of apoptotic process",
+   "goEvidence": "IEA",
+   "goAspect": "biological_process",
+   "evidenceCode": "ECO:0000256",
+   "reference": "GO_REF:0000002",
+   "withFrom": [
+    {
+     "connectedXrefs": [
+      {
+       "db": "InterPro",
+       "id": "IPR026271"
+      }
+     ]
+    }
+   ],
+   "taxonId": 9606,
+   "taxonName": null,
+   "assignedBy": "InterPro",
+   "extensions": null,
+   "targetSets": null,
+   "symbol": "PRAMEF22",
+   "date": "20260727",
+   "synonyms": "PRAMEF22",
+   "name": "PRAME family member 22"
+  },
+  {
+   "id": "UniProtKB:A3QJZ7!176218393",
+   "geneProductId": "UniProtKB:A3QJZ7",
+   "qualifier": "involved_in",
+   "goId": "GO:0043066",
+   "goName": "negative regulation of apoptotic process",
+   "goEvidence": "IEA",
+   "goAspect": "biological_process",
+   "evidenceCode": "ECO:0000256",
+   "reference": "GO_REF:0000002",
+   "withFrom": [
+    {
+     "connectedXrefs": [
+      {
+       "db": "InterPro",
+       "id": "IPR026271"
+      }
+     ]
+    }
+   ],
+   "taxonId": 9606,
+   "taxonName": null,
+   "assignedBy": "InterPro",
+   "extensions": null,
+   "targetSets": null,
+   "symbol": "PRAMEF27",
+   "date": "20260727",
+   "synonyms": "PRAMEF27",
+   "name": "PRAME family member 27"
+  }
+ ],
+ "pageInfo": {
+  "resultsPerPage": 6,
+  "current": 1,
+  "total": 631
+ }
+}

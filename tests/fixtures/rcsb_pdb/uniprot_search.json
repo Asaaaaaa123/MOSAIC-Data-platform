@@ -1,0 +1,15 @@
+{
+ "query_id": "b7e99db6-2cd5-4a7c-8810-bae03976f0d1",
+ "result_type": "entry",
+ "total_count": 359,
+ "result_set": [
+  {
+   "identifier": "9SPA",
+   "score": 1.0
+  },
+  {
+   "identifier": "28KD",
+   "score": 1.0
+  }
+ ]
+}

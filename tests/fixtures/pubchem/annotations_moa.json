@@ -1,0 +1,41 @@
+{
+ "Record": {
+  "RecordType": "CID",
+  "RecordNumber": 5291,
+  "RecordTitle": "Imatinib",
+  "Section": [
+   {
+    "TOCHeading": "Pharmacology and Biochemistry",
+    "Section": [
+     {
+      "TOCHeading": "Mechanism of Action",
+      "Information": [
+       {
+        "ReferenceNumber": 18,
+        "Value": {
+         "StringWithMarkup": [
+          {
+           "String": "Imatinib mesylate is a protein-tyrosine kinase inhibitor that inhibits the BCR-ABL tyrosine kinase, the constitutively active tyrosine kinase created by the Philadelphia chromosome abnormality in CML.Although the function of normal BCR is still unclear, ABL activation is overexpressed in various tumors and is heavily implicated in cancer cells growth and survival. Imatinib inhibits the BCR-ABL protein by binding to the ATP pocket in the active site, thus preventing downstream phosphorylation of target protein.  Imatinib is also an inhibitor of the receptor tyrosine kinases for platelet-derived growth factor (PDGF) and stem cell factor (SCF), c-Kit, and inhibits PDGF- and SCF-mediated cellular events. In vitro, imatinib inhibits proliferation and induces apoptosis in GIST cells, which express an activating c-Kit mutation."
+          }
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "Reference": [
+   {
+    "ReferenceNumber": 18,
+    "SourceName": "DrugBank",
+    "SourceID": "DB00619",
+    "Name": "Imatinib",
+    "Description": "The DrugBank database is a unique bioinformatics and cheminformatics resource that combines detailed drug (i.e. chemical, pharmacological and pharmaceutical) data with comprehensive drug target (i.e. sequence, structure, and pathway) information.",
+    "URL": "https://go.drugbank.com/drugs/DB00619",
+    "LicenseURL": "https://www.drugbank.ca/legal/terms_of_use",
+    "ANID": 3604453
+   }
+  ]
+ }
+}

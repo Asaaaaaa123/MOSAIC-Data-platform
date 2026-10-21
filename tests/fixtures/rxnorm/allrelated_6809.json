@@ -1,0 +1,638 @@
+{
+ "allRelatedGroup": {
+  "rxcui": "",
+  "conceptGroup": [
+   {
+    "tty": "BN",
+    "conceptProperties": [
+     {
+      "rxcui": "1372692",
+      "name": "Kazano",
+      "synonym": "",
+      "tty": "BN",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1372706",
+      "name": "Jentadueto",
+      "synonym": "",
+      "tty": "BN",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1372730",
+      "name": "Kombiglyze",
+      "synonym": "",
+      "tty": "BN",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1372738",
+      "name": "Janumet",
+      "synonym": "",
+      "tty": "BN",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     }
+    ]
+   },
+   {
+    "tty": "BPCK"
+   },
+   {
+    "tty": "DF",
+    "conceptProperties": [
+     {
+      "rxcui": "316945",
+      "name": "Extended Release Oral Tablet",
+      "synonym": "",
+      "tty": "DF",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "316968",
+      "name": "Oral Solution",
+      "synonym": "",
+      "tty": "DF",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "317541",
+      "name": "Oral Tablet",
+      "synonym": "",
+      "tty": "DF",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     }
+    ]
+   },
+   {
+    "tty": "DFG",
+    "conceptProperties": [
+     {
+      "rxcui": "1151131",
+      "name": "Oral Product",
+      "synonym": "",
+      "tty": "DFG",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1151133",
+      "name": "Pill",
+      "synonym": "",
+      "tty": "DFG",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1151137",
+      "name": "Oral Liquid Product",
+      "synonym": "",
+      "tty": "DFG",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     }
+    ]
+   },
+   {
+    "tty": "GPCK"
+   },
+   {
+    "tty": "IN",
+    "conceptProperties": [
+     {
+      "rxcui": "6809",
+      "name": "metformin",
+      "synonym": "",
+      "tty": "IN",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     }
+    ]
+   },
+   {
+    "tty": "MIN",
+    "conceptProperties": [
+     {
+      "rxcui": "1007411",
+      "name": "chlorpropamide / metformin",
+      "synonym": "",
+      "tty": "MIN",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1008476",
+      "name": "metformin / ropinirole",
+      "synonym": "",
+      "tty": "MIN",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1043562",
+      "name": "metformin / saxagliptin",
+      "synonym": "",
+      "tty": "MIN",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1243019",
+      "name": "linagliptin / metformin",
+      "synonym": "",
+      "tty": "MIN",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     }
+    ]
+   },
+   {
+    "tty": "PIN",
+    "conceptProperties": [
+     {
+      "rxcui": "235743",
+      "name": "metformin hydrochloride",
+      "synonym": "",
+      "tty": "PIN",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     }
+    ]
+   },
+   {
+    "tty": "SBD",
+    "conceptProperties": [
+     {
+      "rxcui": "1043567",
+      "name": "24 HR metformin hydrochloride 1000 MG / saxagliptin 2.5 MG Extended Release Oral Tablet [Kombiglyze]",
+      "synonym": "Kombiglyze 2.5/1000 24 HR Extended Release Oral Tablet",
+      "tty": "SBD",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1043574",
+      "name": "24 HR metformin hydrochloride 1000 MG / saxagliptin 5 MG Extended Release Oral Tablet [Kombiglyze]",
+      "synonym": "Kombiglyze 5/1000 24 HR Extended Release Oral Tablet",
+      "tty": "SBD",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1043582",
+      "name": "24 HR metformin hydrochloride 500 MG / saxagliptin 5 MG Extended Release Oral Tablet [Kombiglyze]",
+      "synonym": "Kombiglyze 5/500 24 HR Extended Release Oral Tablet",
+      "tty": "SBD",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1243026",
+      "name": "linagliptin 2.5 MG / metformin hydrochloride 1000 MG Oral Tablet [Jentadueto]",
+      "synonym": "Jentadueto 2.5/1000 Oral Tablet",
+      "tty": "SBD",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     }
+    ]
+   },
+   {
+    "tty": "SBDC",
+    "conceptProperties": [
+     {
+      "rxcui": "1043565",
+      "name": "metformin hydrochloride 1000 MG / saxagliptin 2.5 MG [Kombiglyze]",
+      "synonym": "",
+      "tty": "SBDC",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1043572",
+      "name": "metformin hydrochloride 1000 MG / saxagliptin 5 MG [Kombiglyze]",
+      "synonym": "",
+      "tty": "SBDC",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1043580",
+      "name": "metformin hydrochloride 500 MG / saxagliptin 5 MG [Kombiglyze]",
+      "synonym": "",
+      "tty": "SBDC",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1243022",
+      "name": "linagliptin 2.5 MG / metformin hydrochloride 1000 MG [Jentadueto]",
+      "synonym": "",
+      "tty": "SBDC",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     }
+    ]
+   },
+   {
+    "tty": "SBDF",
+    "conceptProperties": [
+     {
+      "rxcui": "1043566",
+      "name": "metformin / saxagliptin Extended Release Oral Tablet [Kombiglyze]",
+      "synonym": "",
+      "tty": "SBDF",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1243037",
+      "name": "linagliptin / metformin Oral Tablet [Jentadueto]",
+      "synonym": "",
+      "tty": "SBDF",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1243839",
+      "name": "metformin / sitagliptin Extended Release Oral Tablet [Janumet]",
+      "synonym": "",
+      "tty": "SBDF",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1368395",
+      "name": "alogliptin / metformin Oral Tablet [Kazano]",
+      "synonym": "",
+      "tty": "SBDF",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     }
+    ]
+   },
+   {
+    "tty": "SBDFP",
+    "conceptProperties": [
+     {
+      "rxcui": "2654357",
+      "name": "metformin hydrochloride Extended Release Oral Tablet [Glucophage]",
+      "synonym": "",
+      "tty": "SBDFP",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "2654503",
+      "name": "canagliflozin / metformin hydrochloride Oral Tablet [Invokamet]",
+      "synonym": "",
+      "tty": "SBDFP",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "2654999",
+      "name": "linagliptin / metformin hydrochloride Oral Tablet [Jentadueto]",
+      "synonym": "",
+      "tty": "SBDFP",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "2655509",
+      "name": "empagliflozin / metformin hydrochloride Extended Release Oral Tablet [Synjardy]",
+      "synonym": "",
+      "tty": "SBDFP",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     }
+    ]
+   },
+   {
+    "tty": "SBDG",
+    "conceptProperties": [
+     {
+      "rxcui": "1167810",
+      "name": "Janumet Oral Product",
+      "synonym": "",
+      "tty": "SBDG",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1167811",
+      "name": "Janumet Pill",
+      "synonym": "",
+      "tty": "SBDG",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1169920",
+      "name": "Actoplus Met Oral Product",
+      "synonym": "",
+      "tty": "SBDG",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1169923",
+      "name": "Actoplus Met Pill",
+      "synonym": "",
+      "tty": "SBDG",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     }
+    ]
+   },
+   {
+    "tty": "SCD",
+    "conceptProperties": [
+     {
+      "rxcui": "1043563",
+      "name": "24 HR metformin hydrochloride 1000 MG / saxagliptin 2.5 MG Extended Release Oral Tablet",
+      "synonym": "metformin hydrochloride 1000 MG / saxagliptin (as saxagliptin hydrochloride) 2.5 MG 24 HR Extended Release Oral Tablet",
+      "tty": "SCD",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1043570",
+      "name": "24 HR metformin hydrochloride 1000 MG / saxagliptin 5 MG Extended Release Oral Tablet",
+      "synonym": "metformin hydrochloride 1000 MG / saxagliptin (as saxagliptin hydrochloride) 5 MG 24 HR Extended Release Oral Tablet",
+      "tty": "SCD",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1043578",
+      "name": "24 HR metformin hydrochloride 500 MG / saxagliptin 5 MG Extended Release Oral Tablet",
+      "synonym": "metformin hydrochloride 500 MG / saxagliptin (as saxagliptin hydrochloride) 5 MG 24 HR Extended Release Oral Tablet",
+      "tty": "SCD",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1243020",
+      "name": "linagliptin 2.5 MG / metformin hydrochloride 1000 MG Oral Tablet",
+      "synonym": "",
+      "tty": "SCD",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     }
+    ]
+   },
+   {
+    "tty": "SCDC",
+    "conceptProperties": [
+     {
+      "rxcui": "860974",
+      "name": "metformin hydrochloride 500 MG",
+      "synonym": "",
+      "tty": "SCDC",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "860980",
+      "name": "metformin hydrochloride 750 MG",
+      "synonym": "",
+      "tty": "SCDC",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "860995",
+      "name": "metformin hydrochloride 1000 MG",
+      "synonym": "",
+      "tty": "SCDC",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "861009",
+      "name": "metformin hydrochloride 850 MG",
+      "synonym": "",
+      "tty": "SCDC",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     }
+    ]
+   },
+   {
+    "tty": "SCDF",
+    "conceptProperties": [
+     {
+      "rxcui": "1043561",
+      "name": "metformin / saxagliptin Extended Release Oral Tablet",
+      "synonym": "",
+      "tty": "SCDF",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1243018",
+      "name": "linagliptin / metformin Oral Tablet",
+      "synonym": "",
+      "tty": "SCDF",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1243826",
+      "name": "metformin / sitagliptin Extended Release Oral Tablet",
+      "synonym": "",
+      "tty": "SCDF",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1368383",
+      "name": "alogliptin / metformin Oral Tablet",
+      "synonym": "",
+      "tty": "SCDF",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     }
+    ]
+   },
+   {
+    "tty": "SCDFP",
+    "conceptProperties": [
+     {
+      "rxcui": "2645330",
+      "name": "empagliflozin / metformin hydrochloride Oral Tablet",
+      "synonym": "",
+      "tty": "SCDFP",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "2645846",
+      "name": "empagliflozin / metformin hydrochloride Extended Release Oral Tablet",
+      "synonym": "",
+      "tty": "SCDFP",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "2645946",
+      "name": "metformin hydrochloride Oral Solution",
+      "synonym": "",
+      "tty": "SCDFP",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "2646038",
+      "name": "metformin hydrochloride / repaglinide Oral Tablet",
+      "synonym": "",
+      "tty": "SCDFP",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     }
+    ]
+   },
+   {
+    "tty": "SCDG",
+    "conceptProperties": [
+     {
+      "rxcui": "1156197",
+      "name": "glyburide / metformin Pill",
+      "synonym": "",
+      "tty": "SCDG",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1161597",
+      "name": "metformin / pioglitazone Oral Product",
+      "synonym": "",
+      "tty": "SCDG",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1161598",
+      "name": "metformin / pioglitazone Pill",
+      "synonym": "",
+      "tty": "SCDG",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1161599",
+      "name": "metformin / repaglinide Oral Product",
+      "synonym": "",
+      "tty": "SCDG",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     }
+    ]
+   },
+   {
+    "tty": "SCDGP",
+    "conceptProperties": [
+     {
+      "rxcui": "2659101",
+      "name": "canagliflozin / metformin hydrochloride Pill",
+      "synonym": "",
+      "tty": "SCDGP",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "2659523",
+      "name": "metformin hydrochloride / pioglitazone Pill",
+      "synonym": "",
+      "tty": "SCDGP",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "2659615",
+      "name": "linagliptin / metformin hydrochloride Pill",
+      "synonym": "",
+      "tty": "SCDGP",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "2659764",
+      "name": "metformin hydrochloride / saxagliptin Oral Product",
+      "synonym": "",
+      "tty": "SCDGP",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,37 @@
+{
+ "meta": {
+  "count": 476554,
+  "db_response_time_ms": 164,
+  "page": 1,
+  "per_page": 200,
+  "groups_count": 200,
+  "cost_usd": 0.001
+ },
+ "group_by": [
+  {
+   "key": "https://openalex.org/I1294671590",
+   "key_display_name": "Centre National de la Recherche Scientifique",
+   "count": 6880
+  },
+  {
+   "key": "https://openalex.org/I136199984",
+   "key_display_name": "Harvard University",
+   "count": 4908
+  },
+  {
+   "key": "https://openalex.org/I40120149",
+   "key_display_name": "University of Oxford",
+   "count": 3813
+  },
+  {
+   "key": "https://openalex.org/I19820366",
+   "key_display_name": "Chinese Academy of Sciences",
+   "count": 3438
+  },
+  {
+   "key": "https://openalex.org/I154526488",
+   "key_display_name": "Inserm",
+   "count": 3364
+  }
+ ]
+}

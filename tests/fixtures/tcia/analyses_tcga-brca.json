@@ -1,0 +1,20 @@
+[
+ {
+  "id": 45635,
+  "link": "https://www.cancerimagingarchive.net/analysis-result/tcga-breast-radiogenomics/",
+  "result_doi": "10.7937/K9/TCIA.2014.8SIPIY6G",
+  "result_page_accessibility": "Public",
+  "result_title": "TCGA Breast Phenotype Research Group Data sets",
+  "result_short_title": "TCGA-Breast-Radiogenomics",
+  "subjects": "84"
+ },
+ {
+  "id": 45551,
+  "link": "https://www.cancerimagingarchive.net/analysis-result/luminalb-breast-mr-enhancement/",
+  "result_doi": "10.7937/K9/TCIA.2014.IIRMBUNX",
+  "result_page_accessibility": "Public",
+  "result_title": "Radiogenomic Analysis of Breast Cancer: Luminal B Molecular Subtype Is Associated with Enhancement Dynamics at MR Imaging",
+  "result_short_title": "LuminalB-Breast-MR-Enhancement",
+  "subjects": "48"
+ }
+]

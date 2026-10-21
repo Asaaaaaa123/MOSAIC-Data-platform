@@ -1,0 +1,11 @@
+{
+ "query_id": "41fb8a78-ccb6-4f49-9363-0dbb51177c0f",
+ "result_type": "mol_definition",
+ "total_count": 1,
+ "result_set": [
+  {
+   "identifier": "YY3",
+   "score": 1.0
+  }
+ ]
+}

@@ -1,0 +1,120 @@
+{
+ "data": {
+  "target": {
+   "id": "ENSG00000146648",
+   "approvedSymbol": "EGFR",
+   "associatedDiseases": {
+    "count": 5860,
+    "rows": [
+     {
+      "score": 0.8503239816603523,
+      "datatypeScores": [
+       {
+        "id": "clinical",
+        "score": 0.9959475193895682
+       },
+       {
+        "id": "genetic_literature",
+        "score": 0.607930797611621
+       },
+       {
+        "id": "affected_pathway",
+        "score": 0.8209966976180988
+       },
+       {
+        "id": "literature",
+        "score": 0.9996584498625893
+       },
+       {
+        "id": "genetic_association",
+        "score": 0.6991204172533643
+       },
+       {
+        "id": "somatic_mutation",
+        "score": 0.8315878016229145
+       }
+      ],
+      "disease": {
+       "id": "MONDO_0005233",
+       "name": "non-small cell lung carcinoma",
+       "dbXRefs": [
+        "DOID:3908",
+        "EFO:0003060",
+        "HP:0030358",
+        "MEDGEN:40104",
+        "MESH:D002289",
+        "NCIT:C2926",
+        "ONCOTREE:NSCLC",
+        "Orphanet:488201",
+        "SCTID:254637007",
+        "UMLS:C0007131"
+       ],
+       "therapeuticAreas": [
+        {
+         "name": "respiratory or thoracic disease"
+        },
+        {
+         "name": "cancer or benign tumor"
+        },
+        {
+         "name": "phenotype"
+        }
+       ]
+      }
+     },
+     {
+      "score": 0.7744562914488016,
+      "datatypeScores": [
+       {
+        "id": "clinical",
+        "score": 0.6619148537826977
+       },
+       {
+        "id": "affected_pathway",
+        "score": 0.8274613634158176
+       },
+       {
+        "id": "literature",
+        "score": 0.9974441131848238
+       },
+       {
+        "id": "genetic_association",
+        "score": 0.7193847771737517
+       },
+       {
+        "id": "somatic_mutation",
+        "score": 0.8671499172689117
+       }
+      ],
+      "disease": {
+       "id": "MONDO_0005061",
+       "name": "lung adenocarcinoma",
+       "dbXRefs": [
+        "DOID:3910",
+        "EFO:0000571",
+        "MEDGEN:57744",
+        "MESH:C538231",
+        "NCIT:C3512",
+        "ONCOTREE:LUAD",
+        "Orphanet:415268",
+        "SCTID:254626006",
+        "UMLS:C0152013"
+       ],
+       "therapeuticAreas": [
+        {
+         "name": "cancer or benign tumor"
+        },
+        {
+         "name": "respiratory or thoracic disease"
+        },
+        {
+         "name": "phenotype"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ }
+}

@@ -1,0 +1,173 @@
+{
+ "_embedded": {
+  "terms": [
+   {
+    "iri": "http://purl.obolibrary.org/obo/MONDO_0004979",
+    "lang": "en",
+    "description": [
+     "A bronchial disease that is characterized by chronic inflammation and narrowing of the airways, which is caused by a combination of environmental and genetic factors resulting in recurring periods of wheezing (a whistling sound while breathing), chest tightness, shortness of breath, mucus production and coughing. The symptoms appear due to a variety of triggers such as allergens, irritants, respiratory infections, weather changes, exercise, stress, reflux disease, medications, foods and emotional anxiety."
+    ],
+    "synonyms": [
+     "chronic obstructive asthma with acute exacerbation",
+     "chronic obstructive asthma with status asthmaticus",
+     "chronic obstructive asthma",
+     "exercise induced asthma",
+     "exercise-induced asthma"
+    ],
+    "annotation": {
+     "curated content resource": [
+      "https://www.malacards.org/card/asthma"
+     ],
+     "database_cross_reference": [
+      "DOID:2841",
+      "HP:0002099",
+      "ICD10CM:J45",
+      "ICD10WHO:J45",
+      "ICD9:493",
+      "ICD9:493.81",
+      "ICD9:493.9",
+      "MEDGEN:2109",
+      "MESH:D001249",
+      "NCIT:C28397",
+      "SCTID:31387002",
+      "UMLS:C0004096",
+      "icd11.foundation:1656445230"
+     ],
+     "has exact match": [
+      "http://id.who.int/icd/entity/1656445230",
+      "http://identifiers.org/medgen/2109",
+      "http://identifiers.org/mesh/D001249",
+      "http://identifiers.org/snomedct/31387002",
+      "http://linkedlifedata.com/resource/umls/id/C0004096",
+      "http://purl.bioontology.org/ontology/ICD10CM/J45",
+      "http://purl.obolibrary.org/obo/DOID_2841",
+      "http://purl.obolibrary.org/obo/NCIT_C28397",
+      "https://icd.who.int/browse10/2019/en#/J45"
+     ],
+     "id": [
+      "MONDO:0004979"
+     ]
+    },
+    "label": "asthma",
+    "ontology_name": "mondo",
+    "ontology_prefix": "MONDO",
+    "ontology_iri": "http://purl.obolibrary.org/obo/mondo/mondo-international.owl",
+    "is_obsolete": false,
+    "term_replaced_by": null,
+    "is_defining_ontology": true,
+    "has_children": true,
+    "is_root": false,
+    "short_form": "MONDO_0004979",
+    "obo_id": "MONDO:0004979",
+    "in_subset": [
+     "doid_rare",
+     "otar"
+    ],
+    "obo_xref": [
+     {
+      "database": "DOID",
+      "id": "2841",
+      "description": "MONDO:equivalentTo",
+      "url": "http://purl.obolibrary.org/obo/DOID_2841"
+     },
+     {
+      "database": "HP",
+      "id": "0002099",
+      "description": "MONDO:otherHierarchy",
+      "url": "http://purl.obolibrary.org/obo/HP_0002099"
+     },
+     {
+      "database": "ICD10CM",
+      "id": "J45",
+      "description": "MONDO:equivalentTo",
+      "url": "https://www.icd10data.com/search?s=J45"
+     },
+     {
+      "database": "ICD10WHO",
+      "id": "J45",
+      "description": "https://orcid.org/0000-0002-7941-5545",
+      "url": "https://icd.who.int/browse10/2019/en#/J45"
+     },
+     {
+      "database": "ICD9",
+      "id": "493",
+      "description": "EFO:0000270",
+      "url": "http://www.icd9data.com/getICD9Code.ashx?icd9=493"
+     },
+     {
+      "database": "ICD9",
+      "id": "493.81",
+      "description": "MONDO:i2s",
+      "url": null
+     },
+     {
+      "database": "ICD9",
+      "id": "493.9",
+      "description": "DOID:2841",
+      "url": null
+     },
+     {
+      "database": "MEDGEN",
+      "id": "2109",
+      "description": "MONDO:equivalentTo",
+      "url": "https://www.ncbi.nlm.nih.gov/medgen/2109"
+     },
+     {
+      "database": "MESH",
+      "id": "D001249",
+      "description": "MONDO:equivalentTo",
+      "url": "http://id.nlm.nih.gov/mesh/D001249"
+     },
+     {
+      "database": "NCIT",
+      "id": "C28397",
+      "description": "MONDO:equivalentTo",
+      "url": "http://purl.obolibrary.org/obo/NCIT_C28397"
+     },
+     {
+      "database": "SCTID",
+      "id": "31387002",
+      "description": "MONDO:equivalentTo",
+      "url": "http://purl.bioontology.org/ontology/SNOMEDCT/31387002"
+     },
+     {
+      "database": "UMLS",
+      "id": "C0004096",
+      "description": "MONDO:equivalentTo",
+      "url": "https://uts.nlm.nih.gov/uts/umls/concept/C0004096"
+     },
+     {
+      "database": "icd11.foundation",
+      "id": "1656445230",
+      "description": "MONDO:equivalentTo",
+      "url": null
+     }
+    ],
+    "obo_synonym": null,
+    "is_preferred_root": false,
+    "_links": {
+     "self": {
+      "href": "http://www.ebi.ac.uk/ols4/api/ontologies/mondo/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FMONDO_0004979?lang=en"
+     },
+     "parents": {
+      "href": "http://www.ebi.ac.uk/ols4/api/ontologies/mondo/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FMONDO_0004979/parents"
+     },
+     "children": {
+      "href": "http://www.ebi.ac.uk/ols4/api/ontologies/mondo/terms/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FMONDO_0004979/children"
+     }
+    }
+   }
+  ]
+ },
+ "_links": {
+  "self": {
+   "href": "http://www.ebi.ac.uk/ols4/api/terms/findByIdAndIsDefiningOntology?obo_id=MONDO%3A0004979&page=0&size=1000"
+  }
+ },
+ "page": {
+  "size": 1000,
+  "totalElements": 1,
+  "totalPages": 1,
+  "number": 0
+ }
+}

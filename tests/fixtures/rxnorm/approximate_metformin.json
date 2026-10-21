@@ -1,0 +1,69 @@
+{
+ "approximateGroup": {
+  "inputTerm": null,
+  "candidate": [
+   {
+    "rxcui": "6809",
+    "rxaui": "10328664",
+    "score": "11.454033851623535",
+    "rank": "1",
+    "source": "GS"
+   },
+   {
+    "rxcui": "6809",
+    "rxaui": "12251601",
+    "score": "11.454033851623535",
+    "rank": "1",
+    "name": "metformin",
+    "source": "RXNORM"
+   },
+   {
+    "rxcui": "6809",
+    "rxaui": "2628685",
+    "score": "11.454033851623535",
+    "rank": "1",
+    "name": "METFORMIN",
+    "source": "VANDF"
+   },
+   {
+    "rxcui": "6809",
+    "rxaui": "3605328",
+    "score": "11.454033851623535",
+    "rank": "1",
+    "source": "NDDF"
+   },
+   {
+    "rxcui": "6809",
+    "rxaui": "5481094",
+    "score": "11.454033851623535",
+    "rank": "1",
+    "name": "metformin",
+    "source": "ATC"
+   },
+   {
+    "rxcui": "6809",
+    "rxaui": "8381393",
+    "score": "11.454033851623535",
+    "rank": "1",
+    "name": "Metformin",
+    "source": "DRUGBANK"
+   },
+   {
+    "rxcui": "1161611",
+    "rxaui": "12293876",
+    "score": "11.11775129365921",
+    "rank": "7",
+    "name": "metformin Pill",
+    "source": "RXNORM"
+   },
+   {
+    "rxcui": "1161610",
+    "rxaui": "12291392",
+    "score": "10.829976486067297",
+    "rank": "8",
+    "name": "metformin Oral Product",
+    "source": "RXNORM"
+   }
+  ]
+ }
+}

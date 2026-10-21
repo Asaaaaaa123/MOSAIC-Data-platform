@@ -1,0 +1,92 @@
+{
+ "_shards": {
+  "failed": 0,
+  "skipped": 0,
+  "successful": 5,
+  "total": 5
+ },
+ "aggregations": {
+  "access": {
+   "buckets": [
+    {
+     "doc_count": 982,
+     "key": "public"
+    },
+    {
+     "doc_count": 445,
+     "key": "protected"
+    }
+   ],
+   "doc_count_error_upper_bound": 0,
+   "sum_other_doc_count": 0
+  },
+  "assay": {
+   "buckets": [
+    {
+     "doc_count": 210,
+     "key": "RNAseq"
+    },
+    {
+     "doc_count": 199,
+     "key": "Auto-fluorescence"
+    },
+    {
+     "doc_count": 198,
+     "key": "LC-MS"
+    },
+    {
+     "doc_count": 159,
+     "key": "ATACseq"
+    },
+    {
+     "doc_count": 136,
+     "key": "Histology"
+    }
+   ],
+   "doc_count_error_upper_bound": 3,
+   "sum_other_doc_count": 525
+  },
+  "organ": {
+   "buckets": [
+    {
+     "doc_count": 726,
+     "key": "Kidney (Left)"
+    },
+    {
+     "doc_count": 681,
+     "key": "Kidney (Right)"
+    },
+    {
+     "doc_count": 20,
+     "key": "Bladder"
+    }
+   ],
+   "doc_count_error_upper_bound": 0,
+   "sum_other_doc_count": 0
+  },
+  "processing": {
+   "buckets": [
+    {
+     "doc_count": 1115,
+     "key": "raw"
+    },
+    {
+     "doc_count": 312,
+     "key": "processed"
+    }
+   ],
+   "doc_count_error_upper_bound": 0,
+   "sum_other_doc_count": 0
+  }
+ },
+ "hits": {
+  "hits": [],
+  "max_score": null,
+  "total": {
+   "relation": "eq",
+   "value": 1427
+  }
+ },
+ "timed_out": false,
+ "took": 4
+}

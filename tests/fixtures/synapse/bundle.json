@@ -1,0 +1,134 @@
+{
+ "entity": {
+  "name": "Gene Expression (RNA seq - bulk brain)",
+  "id": "syn3388564",
+  "etag": "75965554-d753-414b-8658-5549d292415e",
+  "createdOn": "2015-03-27T20:08:03.928Z",
+  "modifiedOn": "2026-02-24T22:50:56.418Z",
+  "createdBy": "3320447",
+  "modifiedBy": "3446625",
+  "parentId": "syn23650893",
+  "concreteType": "org.sagebionetworks.repo.model.Folder"
+ },
+ "entityType": "folder",
+ "annotations": {
+  "id": "syn3388564",
+  "etag": "75965554-d753-414b-8658-5549d292415e",
+  "annotations": {
+   "study": {
+    "type": "STRING",
+    "value": [
+     "ROSMAP"
+    ]
+   },
+   "center": {
+    "type": "STRING",
+    "value": [
+     "Broad-Rush"
+    ]
+   },
+   "display": {
+    "type": "STRING",
+    "value": [
+     "TRUE"
+    ]
+   },
+   "dataType": {
+    "type": "STRING",
+    "value": [
+     "mRNA"
+    ]
+   },
+   "organism": {
+    "type": "STRING",
+    "value": [
+     "HomoSapiens"
+    ]
+   },
+   "platform": {
+    "type": "STRING",
+    "value": [
+     "IlluminaHiSeq"
+    ]
+   },
+   "consortium": {
+    "type": "STRING",
+    "value": [
+     "AMP-AD"
+    ]
+   },
+   "tissueType": {
+    "type": "STRING",
+    "value": [
+     "dorsolateralPrefrontalCortex"
+    ]
+   },
+   "dataSubType": {
+    "type": "STRING",
+    "value": [
+     "geneExp"
+    ]
+   },
+   "tissueTypeAbrv": {
+    "type": "STRING",
+    "value": [
+     "DLPFC"
+    ]
+   }
+  }
+ },
+ "hasChildren": true,
+ "doiAssociation": {
+  "associationId": "5587777",
+  "etag": "28ffc7f2-a9a2-4e6a-9047-fac99b9d0ae8",
+  "doiUri": "10.7303/syn3388564",
+  "doiUrl": "https://repo-prod.prod.sagebase.org/repo/v1/doi/locate?portalId=1&id=syn3388564&type=ENTITY",
+  "portalId": "1",
+  "objectId": "syn3388564",
+  "objectType": "ENTITY",
+  "associatedBy": "274008",
+  "associatedOn": "2016-01-14T23:37:09.000Z",
+  "updatedBy": "274008",
+  "updatedOn": "2016-01-14T23:37:09.000Z"
+ },
+ "restrictionInformation": {
+  "objectId": 3388564,
+  "restrictionLevel": "CONTROLLED_BY_ACT",
+  "hasUnmetAccessRequirement": true,
+  "userEntityPermissions": {
+   "canView": true,
+   "canEdit": false,
+   "canMove": false,
+   "canAddChild": false,
+   "canCertifiedUserEdit": false,
+   "canCertifiedUserAddChild": false,
+   "isCertifiedUser": false,
+   "canChangePermissions": false,
+   "canChangeSettings": false,
+   "canDelete": false,
+   "canDownload": false,
+   "canUpload": false,
+   "canEnableInheritance": false,
+   "ownerPrincipalId": 3320447,
+   "canPublicRead": true,
+   "canModerate": false,
+   "isCertificationRequired": true,
+   "isEntityOpenData": false,
+   "isDataContributor": false
+  },
+  "restrictionDetails": [
+   {
+    "accessRequirementId": 5592528,
+    "isApproved": false,
+    "isMet": false,
+    "isExempt": false
+   },
+   {
+    "accessRequirementId": 9603055,
+    "isApproved": false,
+    "isMet": false,
+    "isExempt": false
+   }
+  ]
+ }
+}

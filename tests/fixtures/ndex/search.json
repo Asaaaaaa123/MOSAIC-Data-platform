@@ -1,0 +1,124 @@
+{
+ "numFound": 1379,
+ "start": 0,
+ "networks": [
+  {
+   "ownerUUID": "efbfa554-57b3-11ed-ae36-0ac135e8bacf",
+   "isReadOnly": false,
+   "subnetworkIds": [],
+   "isValid": true,
+   "warnings": [],
+   "isShowcase": false,
+   "isCertified": false,
+   "indexLevel": "META",
+   "hasLayout": true,
+   "hasSample": false,
+   "cxFileSize": 201014,
+   "cx2FileSize": 106099,
+   "showInTrash": false,
+   "name": "NeoPPI - TP53",
+   "properties": [
+    {
+     "subNetworkId": null,
+     "value": "Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)",
+     "predicateString": "rights",
+     "dataType": "string"
+    },
+    {
+     "subNetworkId": null,
+     "value": "Andrey Ivanov, Ph.D.; Xiulei Mo, Ph.D.; Qiankun Niu, Ph.D.; Haian Fu, Ph.D.",
+     "predicateString": "rightsHolder",
+     "dataType": "string"
+    },
+    {
+     "subNetworkId": null,
+     "value": "<p>Mo,  X. <i>et al</i>. (2022). <b>Systematic discovery of mutation-directed neo-protein-protein interactions in cancer</b>.<br/> Cell 185(11):1974-1985<br/>doi: <a href=\"https://doi.org/10.1016/j.cell.2022.04.014\">10.1016/j.cell.2022.04.014</a></p>",
+     "predicateString": "reference",
+     "dataType": "string"
+    }
+   ],
+   "owner": "ivanovlab",
+   "version": "20221108",
+   "completed": true,
+   "description": "<p>The protein-protein interactions of <b>TP53-R282W</b> or <b>TP53</b> wild type detected using the NanoLuc luciferase-based bioluminescence resonance energy transfer (BRETn) technology-based quantitative high-throughput differential screening (qHT-dS) platform. The qHT-dS allows comparative screen",
+   "visibility": "PUBLIC",
+   "nodeCount": 228,
+   "edgeCount": 227,
+   "creationTime": 1667843207201,
+   "modificationTime": 1667953754845,
+   "isDeleted": false,
+   "externalId": "26914970-5ec4-11ed-ae36-0ac135e8bacf"
+  },
+  {
+   "ownerUUID": "18988b37-c788-11e8-aaa6-0ac135e8bacf",
+   "isReadOnly": false,
+   "subnetworkIds": [],
+   "isValid": true,
+   "warnings": [],
+   "isShowcase": true,
+   "isCertified": false,
+   "indexLevel": "META",
+   "hasLayout": true,
+   "hasSample": false,
+   "cxFileSize": 282786,
+   "cx2FileSize": 174781,
+   "showInTrash": false,
+   "name": "Apoptosis",
+   "properties": [
+    {
+     "subNetworkId": null,
+     "value": "<p>S. Boue' <i>et al</i>.<br/><b>Causal biological network database: a comprehensive platform of causal biological network models focused on the pulmonary and vascular systems</b>.<br/>Database, Volume 2015, 2015, bav030<br/>doi: <a href=\"https://doi.org/10.1093/database/bav030\">10.1093/database/bav030</a></p>",
+     "predicateString": "reference",
+     "dataType": "string"
+    },
+    {
+     "subNetworkId": null,
+     "value": "The Causal Biological Network (CBN) Database",
+     "predicateString": "rightsHolder",
+     "dataType": "string"
+    },
+    {
+     "subNetworkId": null,
+     "value": "The Causal Biological Network (CBN) Database",
+     "predicateString": "author",
+     "dataType": "string"
+    },
+    {
+     "subNetworkId": null,
+     "value": "Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)",
+     "predicateString": "rights",
+     "dataType": "string"
+    },
+    {
+     "subNetworkId": null,
+     "value": "http://causalbionet.com",
+     "predicateString": "labels",
+     "dataType": "string"
+    },
+    {
+     "subNetworkId": null,
+     "value": "Causal",
+     "predicateString": "networkType",
+     "dataType": "string"
+    },
+    {
+     "subNetworkId": null,
+     "value": "Human, 9606, H.sapiens",
+     "predicateString": "organism",
+     "dataType": "string"
+    }
+   ],
+   "owner": "causalbionet",
+   "version": "2.0",
+   "completed": true,
+   "description": "The Apoptosis network describes causal mechanisms in several different signaling pathways that are involved in the induction of apoptosis in response to environmental cues. The pathways include ER stress signaling, particularly the PERK-eIF2alpha-ATF4-CHOP pathway, MAPK components that regulate the ",
+   "visibility": "PUBLIC",
+   "nodeCount": 282,
+   "edgeCount": 444,
+   "creationTime": 1618510387654,
+   "modificationTime": 1618529599303,
+   "isDeleted": false,
+   "externalId": "3ab7dfe7-9e16-11eb-9e72-0ac135e8bacf"
+  }
+ ]
+}

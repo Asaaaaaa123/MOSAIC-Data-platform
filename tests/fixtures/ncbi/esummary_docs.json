@@ -1,0 +1,1508 @@
+{
+ "gene": {
+  "uid": "7157",
+  "doc": {
+   "uid": "7157",
+   "name": "TP53",
+   "description": "tumor protein p53",
+   "status": "",
+   "currentid": "",
+   "chromosome": "17",
+   "geneticsource": "genomic",
+   "maplocation": "17p13.1",
+   "otheraliases": "BCC7, BMFS5, LFS1, P53, TRP53",
+   "otherdesignations": "cellular tumor antigen p53|antigen NY-CO-13|mutant tumor protein 53|phosphoprotein p53|transformation-related protein 53|tumor protein 53|tumor supressor p53",
+   "nomenclaturesymbol": "TP53",
+   "nomenclaturename": "tumor protein p53",
+   "nomenclaturestatus": "Official",
+   "mim": [
+    "191170"
+   ],
+   "genomicinfo": [
+    {
+     "chrloc": "17",
+     "chraccver": "NC_000017.11",
+     "chrstart": 7687489,
+     "chrstop": 7668420,
+     "exoncount": 13
+    }
+   ],
+   "geneweight": 846452,
+   "summary": "This gene encodes a tumor suppressor protein containing transcriptional activation, DNA binding, and oligomerization domains. The encoded protein responds to diverse cellular stresses to regulate expression of target genes, thereby inducing cell cycle arrest, apoptosis, senescence, DNA repair, or changes in metabolism. Mutations in this gene are associated with a variety of human cancers, including hereditary cancers such as Li-Fraumeni syndrome. Alternative splicing of this gene and the use of alternate promoters result in multiple transcript variants and isoforms. Additional isoforms have also been shown to result from the use of alternate translation initiation codons from identical transcript variants (PMIDs: 12032546, 20937277). [provided by RefSeq, Dec 2016]",
+   "chrsort": "17",
+   "chrstart": 7668420,
+   "organism": {
+    "scientificname": "Homo sapiens",
+    "commonname": "human",
+    "taxid": 9606
+   }
+  }
+ },
+ "clinvar": {
+  "uid": "12375",
+  "doc": {
+   "uid": "12375",
+   "obj_type": "single nucleotide variant",
+   "accession": "VCV000012375",
+   "accession_version": "VCV000012375.13",
+   "title": "NM_000546.6(TP53):c.1031T>C (p.Leu344Pro)",
+   "variation_set": [
+    {
+     "measure_id": "27414",
+     "variation_xrefs": [
+      {
+       "db_source": "ClinGen",
+       "db_id": "CA000021"
+      },
+      {
+       "db_source": "UniProtKB",
+       "db_id": "P04637#VAR_045546"
+      },
+      {
+       "db_source": "OMIM",
+       "db_id": "191170.0031"
+      },
+      {
+       "db_source": "dbSNP",
+       "db_id": "121912662"
+      }
+     ],
+     "variation_name": "NM_000546.6(TP53):c.1031T>C (p.Leu344Pro)",
+     "cdna_change": "c.1031T>C",
+     "aliases": [],
+     "variation_loc": [
+      {
+       "status": "current",
+       "assembly_name": "GRCh38",
+       "chr": "17",
+       "band": "17p13.1",
+       "start": "7670678",
+       "stop": "7670678",
+       "inner_start": "",
+       "inner_stop": "",
+       "outer_start": "",
+       "outer_stop": "",
+       "display_start": "7670678",
+       "display_stop": "7670678",
+       "assembly_acc_ver": "GCF_000001405.38",
+       "annotation_release": "",
+       "alt": "",
+       "ref": ""
+      },
+      {
+       "status": "previous",
+       "assembly_name": "GRCh37",
+       "chr": "17",
+       "band": "17p13.1",
+       "start": "7573996",
+       "stop": "7573996",
+       "inner_start": "",
+       "inner_stop": "",
+       "outer_start": "",
+       "outer_stop": "",
+       "display_start": "7573996",
+       "display_stop": "7573996",
+       "assembly_acc_ver": "GCF_000001405.25",
+       "annotation_release": "",
+       "alt": "",
+       "ref": ""
+      }
+     ],
+     "allele_freq_set": [
+      {
+       "source": "The Genome Aggregation Database (gnomAD), exomes",
+       "value": "0.00000",
+       "minor_allele": ""
+      }
+     ],
+     "variant_type": "single nucleotide variant",
+     "canonical_spdi": "NC_000017.11:7670677:A:G",
+     "common_name": ""
+    }
+   ],
+   "germline_classification": {
+    "description": "Likely pathogenic",
+    "last_evaluated": "2024/08/05 00:00",
+    "review_status": "reviewed by expert panel",
+    "fda_recognized_database": "true",
+    "trait_set": [
+     {
+      "trait_xrefs": [
+       {
+        "db_source": "Orphanet",
+        "db_id": "524"
+       },
+       {
+        "db_source": "MedGen",
+        "db_id": "C0085390"
+       },
+       {
+        "db_source": "MONDO",
+        "db_id": "MONDO:0018875"
+       },
+       {
+        "db_source": "OMIM",
+        "db_id": "PS151623"
+       }
+      ],
+      "trait_name": "Li-Fraumeni syndrome"
+     }
+    ]
+   },
+   "clinical_impact_classification": {
+    "description": "",
+    "last_evaluated": "1/01/01 00:00",
+    "review_status": "",
+    "fda_recognized_database": "",
+    "trait_set": []
+   },
+   "oncogenicity_classification": {
+    "description": "",
+    "last_evaluated": "1/01/01 00:00",
+    "review_status": "",
+    "fda_recognized_database": "",
+    "trait_set": []
+   },
+   "record_status": "",
+   "gene_sort": "TP53",
+   "chr_sort": "17",
+   "location_sort": "00000000000007670678",
+   "variation_set_name": "",
+   "variation_set_id": "",
+   "genes": [
+    {
+     "symbol": "TP53",
+     "geneid": "7157",
+     "strand": "-",
+     "source": "submitted"
+    }
+   ],
+   "molecular_consequence_list": [
+    "missense variant",
+    "3 prime UTR variant"
+   ],
+   "protein_change": "L344P, L212P, L305P, L185P",
+   "fda_recognized_database": "true"
+  }
+ },
+ "snp": {
+  "uid": "334",
+  "doc": {
+   "uid": "334",
+   "snp_id": 334,
+   "allele_origin": "",
+   "global_mafs": [
+    {
+     "study": "1000Genomes",
+     "freq": "A=0.027356/137"
+    },
+    {
+     "study": "1000Genomes_30X",
+     "freq": "A=0.028732/184"
+    }
+   ],
+   "global_population": "",
+   "global_samplesize": "",
+   "suspected": "",
+   "clinical_significance": "not-provided,protective,likely-benign,pathogenic,other",
+   "genes": [
+    {
+     "name": "HBB",
+     "gene_id": "3043"
+    }
+   ],
+   "acc": "NC_000011.10",
+   "chr": "11",
+   "handle": "ILLUMINA,PERLEGEN,CLINSEQ_SNP,1000G_HIGH_COVERAGE,OMIM-CURATED-RECORDS,KHV_HUMAN_GENOMES,EVA_EXAC,KOGIC,WEILL_CORNELL_DGM,COMPLETE_GENOMICS,EXOME_CHIP,AFFY,HBVAR,GNOMAD,MILLER_NIDDK,ITMI,SGDP_PRJ,1000GENOMES,NHLBI-ESP,HUGCELL_USP,SANFORD_IMAGENETICS,SEATTLESEQ,JMKIDD_LAB,EVA,APPLERA_GI,RSG_UW,FSA-LAB,SEQUENOM,KRGDB,NCBI,HUMAN_LONGEVITY",
+   "spdi": "NC_000011.10:5227001:T:A,NC_000011.10:5227001:T:C,NC_000011.10:5227001:T:G",
+   "fxn_class": "coding_sequence_variant,missense_variant",
+   "validated": "by-frequency,by-alfa,by-cluster",
+   "docsum": "HGVS=NC_000011.10:g.5227002T>A,NC_000011.10:g.5227002T>C,NC_000011.10:g.5227002T>G,NC_000011.9:g.5248232T>A,NC_000011.9:g.5248232T>C,NC_000011.9:g.5248232T>G,NG_000007.3:g.70614A>T,NG_000007.3:g.70614A>G,NG_000007.3:g.70614A>C,NG_059281.1:g.5070A>T,NG_059281.1:g.5070A>G,NG_059281.1:g.5070A>C,NM_000518.5:c.20A>T,NM_000518.5:c.20A>G,NM_000518.5:c.20A>C,NM_000518.4:c.20A>T,NM_000518.4:c.20A>G,NM_000518.4:c.20A>C,NG_046672.1:g.4937T>A,NG_046672.1:g.4937T>C,NG_046672.1:g.4937T>G,NG_042296.1:g.533T>A,NG_042296.1:g.533T>C,NG_042296.1:g.533T>G,NP_000509.1:p.Glu7Val,NP_000509.1:p.Glu7Gly,NP_000509.1:p.Glu7Ala|SEQ=[T/A/C/G]|LEN=1|GENE=HBB:3043",
+   "tax_id": 9606,
+   "orig_build": 36,
+   "upd_build": 157,
+   "createdate": "2000/09/19 17:02",
+   "updatedate": "2024/11/01 07:22",
+   "allele": "N",
+   "snp_class": "snv",
+   "chrpos": "11:5227002",
+   "chrpos_prev_assm": "11:5248232",
+   "text": "",
+   "snp_id_sort": "0000000334",
+   "clinical_sort": "1",
+   "cited_sort": "",
+   "chrpos_sort": "0005227002",
+   "merged_sort": "0"
+  }
+ },
+ "sra": {
+  "uid": "6497614",
+  "doc": {
+   "uid": "6497614",
+   "expxml": "  <Summary><Title>Illumina HiSeq 2000 paired end sequencing; Reconstructing the human first trimester fetal-maternal interface using single cell transcriptomics - Smartseq 2 data</Title><Platform instrument_model=\"Illumina HiSeq 2000\">ILLUMINA</Platform><Statistics total_runs=\"1\" total_spots=\"1014056\" total_bases=\"152108400\" total_size=\"53490551\" load_done=\"true\" cluster_name=\"public\"/></Summary><Submitter acc=\"ERA1260204\" center_name=\"Wellcome Sanger Institute\" contact_name=\"European Nucleotide Archive\" lab_name=\"European Nucleotide Archive\"/><Experiment acc=\"ERX2477416\" ver=\"2\" status=\"public\" name=\"Illumina HiSeq 2000 paired end sequencing; Reconstructing the human first trimester fetal-maternal interface using single cell transcriptomics - Smartseq 2 data\"/><Study acc=\"ERP107748\" name=\"Reconstructing the human first trimester fetal-maternal interface using single cell transcriptomics - Smartseq 2 data\"/><Organism taxid=\"9606\" ScientificName=\"Homo sapiens\"/><Sample acc=\"ERS2330929\" name=\"\"/><Instrument ILLUMINA=\"Illumina HiSeq 2000\"/><Library_descriptor><LIBRARY_NAME>23728_8_369_p</LIBRARY_NAME><LIBRARY_STRATEGY>RNA-Seq</LIBRARY_STRATEGY><LIBRARY_SOURCE>TRANSCRIPTOMIC</LIBRARY_SOURCE><LIBRARY_SELECTION>RT-PCR</LIBRARY_SELECTION><LIBRARY_LAYOUT><PAIRED NOMINAL_LENGTH=\"75\" NOMINAL_SDEV=\"10\"/></LIBRARY_LAYOUT><LIBRARY_CONSTRUCTION_PROTOCOL>Placental and decidual tissue for immunohistochemistry were obtained from elective terminations of normal pregnancies at Addenbrooke's Hospital between 6 and 12 weeks gestation. Decidual and placental tissue were washed in HAMS F12 medium, macroscopically separated and then washed for at least 10 mins in RPMI or HAMS F12 medium respectively before processing.  Decidual tissues were chopped using scalpels into approximately 0.2 mm3 cubes and enzymatically digested in 15ml 0.4mg/mL collagenase V (Sigma, C-9263) solution in RPMI 1640 medium (ThermoFisher Scientific, 21875-034)/10% FCS (Biosfera, FB-1001) at 37°C for 45 min. The supernatant was diluted with medium and passed through 100um cell sieve (Corning, 431752) and then 40um cell sieve (Corning, 431750). The flow-through was centrifuged and resuspended in 5ml of red blood cell lysis buffer (Invitrogen, 00-4300) for 10min.  Each first trimester placenta was placed in a petri dish and the placental villi were scraped from the chorionic membrane using a scalpel. The stripped membrane was discarded and the resultant villous tissue was enzymatically digested in 70 ml 0.2% trypsin 250 (Pan Biotech P10-025100P)/0.02% EDTA (Sigma E9884) in PBS with stirring at 37°c for 9 min. The disaggregated cell suspension was passed through sterile muslin gauze (Winware food grade) and washed through with Hams F12 medium (Biosera SM-H0096) containing 20% FBS (Biosera FB-1001). Cells were pelleted from the filtrate by centrifugation and re-suspended in Hams F12. The undigested, gelatinous tissue remnant was retrieved from the gauze and further digested with 10-15 ml collagenase V at 1.0mg/ml (Sigma C9263) in Hams F12 medium/10% FBS with gentle shaking at 37°C for 10 min. The disaggregated cell suspension from collagenase digestion was passed through sterile muslin gauze and the cells pelleted from the filtrate as before. Cells obtained from both enzyme digests were pooled together and passed through 100um cell sieve (Corning, 431752) and washed in Hams F12. The flow-through was centrifuged and resuspended in 5ml of red blood cell lysis buffer (Invitrogen, 00-4300) for 10min.  Decidual and blood cells were incubated at 4°C with 2.5ul of antibodies in 1% FBS in DPBS without Calcium and Magnesium (ThermoFisher Scientific, 14190136). DAPI was used for live/dead discrimination. We used an antibody panel designed to enrich for certain population for single-cell sorting and single-cell RNA sequencing (scRNA-seq). Cells were sorted using a Becton Dickinson (BD) FACS Aria Fusion with 5 excitation lasers (355nm, 405nm, 488nm, 561nm and 635nm Red), and 18 fluorescent detectors plus forward and side scatter. The sorter was controlled using BD FACS DIVA software (version 7).  For single-cell RNA-seq using the plate-based SS2 protocol, we created overlapping gates that comprehensively and evenly sampled all immune cell population in the decidua. B cells (CD19+ /or CD20+) cells were excluded from our analysis, due to its absence in decidua. Single cells were sorted into 96-well full-skirted Eppendorf plated chilled to 4C, prepared with lysis buffer consisting of 10 ul of TCL buffer (Qiagen) supplemented with 1% b-mercaptoethanol. Single-cell lysates were sealed, vortexed, spin down at 300g at 4C for 1 min, immediately placed on dry ice, and transferred for storage at -80C. The SS2 protocol was performed on single-cells as described previously, with some modifications. Libraries were sequenced aiming at an average depth of 1 million reads/cell, on an Illumina HiSeq 2000 with v4 chemistry (paired-end 75-bp reads).  RNA was extracted, cDNA created and amplified, as part of the smart-seq 2 protocol.  Libraries were made using Nextera XT</LIBRARY_CONSTRUCTION_PROTOCOL></Library_descriptor><Bioproject>PRJEB25794</Bioproject><Biosample>SAMEA1010852</Biosample>  ",
+   "runs": "                                <Run acc=\"ERR2458370\" total_spots=\"1014056\" total_bases=\"152108400\" load_done=\"true\" is_public=\"true\" cluster_name=\"public\" static_data_available=\"true\"/>                                ",
+   "extlinks": "",
+   "createdate": "2018/10/08",
+   "updatedate": "2019/08/22"
+  }
+ },
+ "gap": {
+  "uid": "1701698",
+  "doc": {
+   "uid": "1701698",
+   "d_object_type": "study",
+   "d_study_results": {
+    "d_study_id": "phs000007.v30.p11",
+    "d_study_name": "Framingham Cohort",
+    "d_study_ancestor": [],
+    "d_study_genotype_platform_list": [
+     {
+      "d_genotype_vendor": "Affymetrix",
+      "d_genotype_platform": "HuGeneFocused50K_Affy"
+     },
+     {
+      "d_genotype_vendor": "Affymetrix",
+      "d_genotype_platform": "Mapping250K_Nsp"
+     },
+     {
+      "d_genotype_vendor": "Affymetrix",
+      "d_genotype_platform": "Mapping250K_Sty"
+     },
+     {
+      "d_genotype_vendor": "Affymetrix",
+      "d_genotype_platform": "Mapping50K_Hind240"
+     },
+     {
+      "d_genotype_vendor": "Affymetrix",
+      "d_genotype_platform": "Mapping50K_Xba240"
+     }
+    ],
+    "d_study_molecular_data_type_list": [],
+    "d_num_descendants_in_subtree": "8",
+    "d_num_variables_in_subtree": "63606",
+    "d_num_documents_in_subtree": "1365",
+    "d_num_analyses_in_subtree": "3029",
+    "d_num_participants_in_subtree": "15154",
+    "d_study_type": " Longitudinal",
+    "d_study_type_list": [
+     {
+      "d_type": "Longitudinal"
+     }
+    ],
+    "d_study_design": "Prospective Longitudinal Cohort",
+    "d_study_status": " ",
+    "d_study_embargo_date": "|Versions 1-30: passed embargo",
+    "d_study_release_date": " 2018-10-12",
+    "d_study_project_list": [
+     {
+      "d_project_name": "NHLBI SHARe"
+     },
+     {
+      "d_project_name": "NHLBI GO-ESP"
+     },
+     {
+      "d_project_name": "NHLBI CARe"
+     },
+     {
+      "d_project_name": "Medical Resequencing"
+     }
+    ],
+    "d_study_disease_list": [
+     {
+      "d_disease_name": "Cardiovascular Diseases",
+      "d_disease_importance": "secondary"
+     },
+     {
+      "d_disease_name": "Cardiovascular System",
+      "d_disease_importance": "secondary"
+     },
+     {
+      "d_disease_name": "Dementia",
+      "d_disease_importance": "secondary"
+     },
+     {
+      "d_disease_name": "Diabetes Mellitus",
+      "d_disease_importance": "secondary"
+     },
+     {
+      "d_disease_name": "Stroke",
+      "d_disease_importance": "secondary"
+     },
+     {
+      "d_disease_name": "Cholesterol",
+      "d_disease_importance": "secondary"
+     },
+     {
+      "d_disease_name": "Heart Diseases",
+      "d_disease_importance": "secondary"
+     },
+     {
+      "d_disease_name": "Heart Failure, Congestive",
+      "d_disease_importance": "secondary"
+     },
+     {
+      "d_disease_name": "Hypertension",
+      "d_disease_importance": "secondary"
+     },
+     {
+      "d_disease_name": "Intermittent Claudication",
+      "d_disease_importance": "secondary"
+     },
+     {
+      "d_disease_name": "Myocardial Infarction",
+      "d_disease_importance": "secondary"
+     },
+     {
+      "d_disease_name": "Obesity",
+      "d_disease_importance": "secondary"
+     },
+     {
+      "d_disease_name": "Osteoporosis",
+      "d_disease_importance": "secondary"
+     },
+     {
+      "d_disease_name": "Risk Factors",
+      "d_disease_importance": "secondary"
+     },
+     {
+      "d_disease_name": "Smoking",
+      "d_disease_importance": "secondary"
+     },
+     {
+      "d_disease_name": "Cardiovascular Diseases",
+      "d_disease_importance": "primary"
+     }
+    ],
+    "d_study_has_sra": " ",
+    "d_study_archive": "dbGaP",
+    "d_study_analyte_type_list": [
+     {
+      "d_analyte_type": "DNA"
+     },
+     {
+      "d_analyte_type": "RNA"
+     }
+    ],
+    "d_study_tumor_type_list": [
+     {
+      "d_tumor_type": "germline"
+     },
+     {
+      "d_tumor_type": "unspecified"
+     }
+    ]
+   },
+   "d_variable_results": {
+    "d_variable_id": "",
+    "d_variable_name": "",
+    "d_variable_ancestor": [],
+    "d_variable_parent": [],
+    "d_variable_dataset": {
+     "d_variable_dataset_name": "",
+     "d_variable_dataset_id": "",
+     "d_variable_dataset_description": ""
+    },
+    "d_variable_description": "",
+    "d_variable_type": "",
+    "d_variable_embargo_date": "",
+    "d_variable_phenx": "",
+    "d_variable_has_phenx": "",
+    "d_variable_common_data_element": []
+   },
+   "d_document_results": {
+    "d_document_id": "",
+    "d_document_name": "",
+    "d_document_ancestor": [],
+    "d_document_parent": [],
+    "d_document_description": ""
+   },
+   "d_analysis_results": {
+    "d_analysis_id": "",
+    "d_analysis_name": "",
+    "d_analysis_ancestor": [],
+    "d_analysis_parent": [],
+    "d_analysis_description": ""
+   },
+   "d_dataset_results": {
+    "d_dataset_id": "",
+    "d_dataset_name": "",
+    "d_dataset_ancestor": [],
+    "d_dataset_parent": [],
+    "d_dataset_description": "",
+    "d_dataset_embargo_date": ""
+   },
+   "d_study_release_date": " 2018-10-12"
+  }
+ },
+ "bioproject": {
+  "uid": "257197",
+  "doc": {
+   "uid": "257197",
+   "taxid": 186538,
+   "project_id": 257197,
+   "project_acc": "PRJNA257197",
+   "project_type": "Primary submission",
+   "project_data_type": "Genome sequencing",
+   "sort_by_projecttype": 987966,
+   "sort_by_datatype": 983165,
+   "sort_by_organism": 770465,
+   "project_subtype": "",
+   "project_target_scope": "Multiisolate",
+   "project_target_material": "Genome",
+   "project_target_capture": "Whole",
+   "project_methodtype": "Sequencing",
+   "project_method": "",
+   "project_objectives_list": [
+    {
+     "project_objectivestype": "Raw Sequence Reads",
+     "project_objectives": ""
+    }
+   ],
+   "registration_date": "2014/07/31 00:00",
+   "project_name": "Zaire ebolavirus",
+   "project_title": "Zaire ebolavirus Genome sequencing",
+   "project_description": "Zaire ebolavirus sample sequencing from the 2014 outbreak in Sierra Leone, West Africa.",
+   "keyword": "",
+   "relevance_agricultural": "",
+   "relevance_medical": "yes",
+   "relevance_industrial": "",
+   "relevance_environmental": "",
+   "relevance_evolution": "",
+   "relevance_model": "",
+   "relevance_other": "",
+   "organism_name": "Zaire ebolavirus",
+   "organism_strain": "",
+   "organism_label": "",
+   "sequencing_status": "SRA/Trace",
+   "submitter_organization": "Broad Institute",
+   "submitter_organization_list": [
+    "Broad Institute"
+   ],
+   "supergroup": "Viruses"
+  }
+ },
+ "biosample": {
+  "uid": "2604305",
+  "doc": {
+   "uid": "2604305",
+   "title": "Sample from Anaplasma marginale str. St. Maries",
+   "accession": "SAMN02604305",
+   "date": "2014/01/30",
+   "publicationdate": "2014/01/30",
+   "modificationdate": "2015/05/18",
+   "organization": "NCBI",
+   "taxonomy": "234826",
+   "organism": "Anaplasma marginale str. St. Maries",
+   "sourcesample": "BioSample:SAMN02604305",
+   "sampledata": "<BioSample access=\"public\" submission_date=\"2014-01-30T15:13:23.830\" publication_date=\"2014-01-30T15:13:23.830\" last_update=\"2015-05-18T13:21:13.487\" id=\"2604305\" accession=\"SAMN02604305\">   <Ids>     <Id db=\"BioSample\" is_primary=\"1\">SAMN02604305</Id>     <Id db_label=\"Sample name\">CP000030</Id>   </Ids>   <Description>     <Title>Sample from Anaplasma marginale str. St. Maries</Title>     <Organism taxonomy_name=\"Anaplasma marginale str. St. Maries\" taxonomy_id=\"234826\"/>   </Description>   <Owner>     <Name>NCBI</Name>   </Owner>   <Models>     <Model version=\"1.0\">Generic</Model>   </Models>   <Package display_name=\"Generic\">Generic.1.0</Package>   <Attributes>     <Attribute attribute_name=\"strain\" harmonized_name=\"strain\" display_name=\"strain\">St. Maries</Attribute>   </Attributes>   <Links>     <Link type=\"entrez\" target=\"bioproject\" label=\"PRJNA40\">40</Link>   </Links>   <Status status=\"live\" when=\"2014-01-30T15:13:23.830\"/> </BioSample> ",
+   "identifiers": "BioSample: SAMN02604305; Sample name: CP000030",
+   "infraspecies": "strain: St. Maries",
+   "package": "Generic",
+   "sortkey": 120150518
+  }
+ },
+ "medgen": {
+  "uid": "41393",
+  "doc": {
+   "uid": "41393",
+   "conceptid": "C0010674",
+   "title": "Cystic fibrosis",
+   "definition": {
+    "value": "Cystic fibrosis (CF) is a multisystem disease affecting epithelia of the respiratory tract, pancreas, intestine, hepatobiliary system, and exocrine sweat glands. Morbidities include progressive obstructive pulmonary disease with bronchiectasis, recurrent sinusitis and bronchitis, exocrine pancreatic deficiency and malnutrition, pancreatitis, gastrointestinal manifestations (meconium ileus, rectal prolapse, distal intestinal obstructive syndrome), liver disease, diabetes, osteopenia/osteoporosis, male infertility due to hypoplasia or aplasia of the vas deferens, and reduced fertility or infertility in some women. By 2025, 95% of individuals with CF were eligible for targeted therapies, which has significantly altered the long-term course of the disease with a reduced overall disease burden. The impact is most evident in fewer hospitalizations, reduced clinic visits, and a decreased need for lung transplantation, all of which are associated with improved survival. While the CF disease phenotype has overall become less severe and more heterogenous in the era of highly effective CF transmembrane conductance regulator (CFTR) modulator therapy, pulmonary disease is the major cause of morbidity and mortality in CF."
+   },
+   "semanticid": "T047",
+   "semantictype": {
+    "value": "Disease or Syndrome"
+   },
+   "suppressed": "",
+   "conceptmeta": "<Names><Name SDUI=\"MONDO:0009061\" SCUI=\"GTRT000001695\" CODE=\"MONDO_0009061\" SAB=\"MONDO\" TTY=\"PT\" type=\"syn\">cystic fibrosis</Name><Name SDUI=\"Orphanet_586\" SCUI=\"GTRT000001695\" CODE=\"AN1758507\" SAB=\"ORDO\" TTY=\"PT\" type=\"preferred\">Cystic fibrosis</Name><Name SDUI=\"D003550\" SCUI=\"M0005551\" CODE=\"D003550\" SAB=\"MSH\" TTY=\"MH\" type=\"syn\">Cystic Fibrosis</Name><Name SDUI=\"D003550\" SCUI=\"M0005551\" CODE=\"D003550\" SAB=\"MSH\" TTY=\"PM\" type=\"syn\">Fibrosis, Cystic</Name><Name SDUI=\"219700\" CODE=\"219700\" SAB=\"OMIM\" TTY=\"PT\" type=\"syn\">CYSTIC FIBROSIS</Name><Name SDUI=\"219700\" CODE=\"219700\" SAB=\"OMIM\" TTY=\"ACR\" type=\"syn\">CF</Name><Name SDUI=\"219700\" CODE=\"219700\" SAB=\"OMIM\" TTY=\"ETAL\" type=\"syn\">MUCOVISCIDOSIS</Name><Name SDUI=\"602421\" CODE=\"602421\" SAB=\"OMIM\" TTY=\"PHENO\" type=\"syn\">CYSTIC FIBROSIS</Name><Name SDUI=\"D003550\" SCUI=\"M0005551\" CODE=\"D003550\" SAB=\"MSH\" TTY=\"ET\" type=\"syn\">Mucoviscidosis</Name><Name SDUI=\"Orphanet_586\" SCUI=\"GTRT000001695\" CODE=\"AN0468604\" SAB=\"ORDO\" TTY=\"SYN\" type=\"syn\">CF</Name></Names><OMIM><MIM>219700</MIM></OMIM><AssociatedGenes><Gene gene_id=\"7040\" chromosome=\"19\" cytogen_loc=\"19q13.2\">TGFB1</Gene><Gene gene_id=\"1080\" chromosome=\"7\" cytogen_loc=\"7q31.2\">CFTR</Gene><Gene gene_id=\"2212\" chromosome=\"1\" cytogen_loc=\"1q23.3\">FCGR2A</Gene></AssociatedGenes>",
+   "modificationdate": "",
+   "merged": ""
+  }
+ },
+ "taxonomy": {
+  "uid": "9606",
+  "doc": {
+   "uid": "9606",
+   "status": "active",
+   "rank": "species",
+   "division": "primates",
+   "scientificname": "Homo sapiens",
+   "commonname": "human",
+   "taxid": 9606,
+   "akataxid": "",
+   "genus": "",
+   "species": "",
+   "subsp": "",
+   "modificationdate": "2024/09/10 00:00",
+   "genbankdivision": "Primates"
+  }
+ },
+ "nuccore": {
+  "uid": "1808862652",
+  "doc": {
+   "uid": "1808862652",
+   "term": "1808862652",
+   "caption": "NM_000546",
+   "title": "Homo sapiens tumor protein p53 (TP53), transcript variant 1, mRNA",
+   "extra": "gi|1808862652|ref|NM_000546.6|",
+   "gi": 1808862652,
+   "createdate": "1999/03/19",
+   "updatedate": "2026/08/25",
+   "taxid": 9606,
+   "slen": 2512,
+   "biomol": "mRNA",
+   "moltype": "rna",
+   "topology": "linear",
+   "sourcedb": "refseq",
+   "genome": "genomic",
+   "subtype": "chromosome|map",
+   "subname": "17|17p13.1",
+   "completeness": "complete",
+   "geneticcode": "1",
+   "organism": "Homo sapiens",
+   "statistics": "",
+   "flags": 512,
+   "properties": {
+    "na": "1",
+    "value": "1"
+   },
+   "oslt": {
+    "indexed": true,
+    "value": "NM_000546.6"
+   },
+   "accessionversion": "NM_000546.6"
+  }
+ },
+ "protein": {
+  "uid": "120407068",
+  "doc": {
+   "uid": "120407068",
+   "term": "120407068",
+   "caption": "NP_000537",
+   "title": "cellular tumor antigen p53 isoform a [Homo sapiens]",
+   "extra": "gi|120407068|ref|NP_000537.3|",
+   "gi": 120407068,
+   "createdate": "1999/03/19",
+   "updatedate": "2026/08/25",
+   "taxid": 9606,
+   "slen": 393,
+   "moltype": "aa",
+   "topology": "linear",
+   "sourcedb": "refseq",
+   "genome": "genomic",
+   "subtype": "chromosome|map",
+   "subname": "17|17p13.1",
+   "geneticcode": "1",
+   "organism": "Homo sapiens",
+   "statistics": "",
+   "flags": 512,
+   "properties": {
+    "aa": "2",
+    "value": "2"
+   },
+   "oslt": {
+    "indexed": true,
+    "value": "NP_000537.3"
+   },
+   "accessionversion": "NP_000537.3"
+  }
+ },
+ "pmc": {
+  "uid": "6408961",
+  "doc": {
+   "uid": "6408961",
+   "pubdate": "2019 Mar",
+   "epubdate": "2019 Feb 11",
+   "printpubdate": "2019 Mar",
+   "source": "Nat Med",
+   "authors": [
+    {
+     "name": "Cloughesy TF",
+     "authtype": "Author"
+    },
+    {
+     "name": "Mochizuki AY",
+     "authtype": "Author"
+    },
+    {
+     "name": "Orpilla JR",
+     "authtype": "Author"
+    },
+    {
+     "name": "Hugo W",
+     "authtype": "Author"
+    },
+    {
+     "name": "Lee AH",
+     "authtype": "Author"
+    },
+    {
+     "name": "Davidson TB",
+     "authtype": "Author"
+    },
+    {
+     "name": "Wang AC",
+     "authtype": "Author"
+    },
+    {
+     "name": "Ellingson BM",
+     "authtype": "Author"
+    },
+    {
+     "name": "Rytlewski JA",
+     "authtype": "Author"
+    },
+    {
+     "name": "Sanders CM",
+     "authtype": "Author"
+    },
+    {
+     "name": "Kawaguchi ES",
+     "authtype": "Author"
+    },
+    {
+     "name": "Du L",
+     "authtype": "Author"
+    },
+    {
+     "name": "Li G",
+     "authtype": "Author"
+    },
+    {
+     "name": "Yong WH",
+     "authtype": "Author"
+    },
+    {
+     "name": "Gaffey SC",
+     "authtype": "Author"
+    },
+    {
+     "name": "Cohen AL",
+     "authtype": "Author"
+    },
+    {
+     "name": "Mellinghoff IK",
+     "authtype": "Author"
+    },
+    {
+     "name": "Lee EQ",
+     "authtype": "Author"
+    },
+    {
+     "name": "Reardon DA",
+     "authtype": "Author"
+    },
+    {
+     "name": "O'Brien BJ",
+     "authtype": "Author"
+    },
+    {
+     "name": "Butowski NA",
+     "authtype": "Author"
+    },
+    {
+     "name": "Nghiemphu PL",
+     "authtype": "Author"
+    },
+    {
+     "name": "Clarke JL",
+     "authtype": "Author"
+    },
+    {
+     "name": "Arrillaga-Romany IC",
+     "authtype": "Author"
+    },
+    {
+     "name": "Colman H",
+     "authtype": "Author"
+    },
+    {
+     "name": "Kaley TJ",
+     "authtype": "Author"
+    },
+    {
+     "name": "de Groot JF",
+     "authtype": "Author"
+    },
+    {
+     "name": "Liau LM",
+     "authtype": "Author"
+    },
+    {
+     "name": "Wen PY",
+     "authtype": "Author"
+    },
+    {
+     "name": "Prins RM",
+     "authtype": "Author"
+    }
+   ],
+   "title": "Neoadjuvant anti-PD-1 immunotherapy promotes a survival benefit with intratumoral and systemic immune responses in recurrent glioblastoma.",
+   "volume": "25",
+   "issue": "3",
+   "pages": "477-486",
+   "articleids": [
+    {
+     "idtype": "pmid",
+     "value": "30742122"
+    },
+    {
+     "idtype": "MID",
+     "value": "NIHMS1516903"
+    },
+    {
+     "idtype": "pmcid",
+     "value": "PMC6408961"
+    },
+    {
+     "idtype": "doi",
+     "value": "10.1038/s41591-018-0337-7"
+    },
+    {
+     "idtype": "pii",
+     "value": "10.1038/s41591-018-0337-7"
+    }
+   ],
+   "fulljournalname": "Nature medicine",
+   "sortdate": "2019/03/01 00:00",
+   "pmclivedate": "2019/08/11"
+  }
+ },
+ "pubmed": {
+  "uid": "30742122",
+  "doc": {
+   "uid": "30742122",
+   "pubdate": "2019 Mar",
+   "epubdate": "2019 Feb 11",
+   "source": "Nat Med",
+   "authors": [
+    {
+     "name": "Cloughesy TF",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Mochizuki AY",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Orpilla JR",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Hugo W",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Lee AH",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Davidson TB",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Wang AC",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Ellingson BM",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Rytlewski JA",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Sanders CM",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Kawaguchi ES",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Du L",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Li G",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Yong WH",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Gaffey SC",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Cohen AL",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Mellinghoff IK",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Lee EQ",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Reardon DA",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "O'Brien BJ",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Butowski NA",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Nghiemphu PL",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Clarke JL",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Arrillaga-Romany IC",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Colman H",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Kaley TJ",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "de Groot JF",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Liau LM",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Wen PY",
+     "authtype": "Author",
+     "clusterid": ""
+    },
+    {
+     "name": "Prins RM",
+     "authtype": "Author",
+     "clusterid": ""
+    }
+   ],
+   "lastauthor": "Prins RM",
+   "title": "Neoadjuvant anti-PD-1 immunotherapy promotes a survival benefit with intratumoral and systemic immune responses in recurrent glioblastoma.",
+   "sorttitle": "neoadjuvant anti pd 1 immunotherapy promotes a survival benefit with intratumoral and systemic immune responses in recurrent glioblastoma",
+   "volume": "25",
+   "issue": "3",
+   "pages": "477-486",
+   "lang": [
+    "eng"
+   ],
+   "nlmuniqueid": "9502015",
+   "issn": "1078-8956",
+   "essn": "1546-170X",
+   "pubtype": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "recordstatus": "PubMed - indexed for MEDLINE",
+   "pubstatus": "256",
+   "articleids": [
+    {
+     "idtype": "pubmed",
+     "idtypen": 1,
+     "value": "30742122"
+    },
+    {
+     "idtype": "mid",
+     "idtypen": 8,
+     "value": "NIHMS1516903"
+    },
+    {
+     "idtype": "pmc",
+     "idtypen": 8,
+     "value": "PMC6408961"
+    },
+    {
+     "idtype": "pmcid",
+     "idtypen": 5,
+     "value": "pmc-id: PMC6408961;manuscript-id: NIHMS1516903;"
+    },
+    {
+     "idtype": "doi",
+     "idtypen": 3,
+     "value": "10.1038/s41591-018-0337-7"
+    },
+    {
+     "idtype": "pii",
+     "idtypen": 4,
+     "value": "10.1038/s41591-018-0337-7"
+    }
+   ],
+   "history": [
+    {
+     "pubstatus": "received",
+     "date": "2018/09/14 00:00"
+    },
+    {
+     "pubstatus": "accepted",
+     "date": "2018/12/17 00:00"
+    },
+    {
+     "pubstatus": "pubmed",
+     "date": "2019/02/12 06:00"
+    },
+    {
+     "pubstatus": "medline",
+     "date": "2019/05/14 06:00"
+    },
+    {
+     "pubstatus": "entrez",
+     "date": "2019/02/12 06:00"
+    },
+    {
+     "pubstatus": "pmc-release",
+     "date": "2019/08/11 00:00"
+    }
+   ],
+   "references": [
+    {
+     "refsource": "Nat Med. 2019 Mar;25(3):359-361. doi: 10.1038/s41591-019-0385-7.",
+     "reftype": "Comment in",
+     "pmid": 30842671,
+     "note": ""
+    },
+    {
+     "refsource": "Transl Cancer Res. 2019 Dec;8(Suppl 6):S577-S579. doi: 10.21037/tcr.2019.05.24.",
+     "reftype": "Comment in",
+     "pmid": 32864354,
+     "note": ""
+    }
+   ],
+   "attributes": [
+    "Has Abstract"
+   ],
+   "pmcrefcount": 72,
+   "fulljournalname": "Nature medicine",
+   "elocationid": "doi: 10.1038/s41591-018-0337-7",
+   "doctype": "citation",
+   "srccontriblist": [],
+   "booktitle": "",
+   "medium": "",
+   "edition": "",
+   "publisherlocation": "",
+   "publishername": "",
+   "srcdate": "",
+   "reportnumber": "",
+   "availablefromurl": "",
+   "locationlabel": "",
+   "doccontriblist": [],
+   "docdate": "",
+   "bookname": "",
+   "chapter": "",
+   "sortpubdate": "2019/03/01 00:00",
+   "sortfirstauthor": "Cloughesy TF",
+   "vernaculartitle": ""
+  }
+ },
+ "dbvar": {
+  "uid": "57755575",
+  "doc": {
+   "uid": "57755575",
+   "obj_type": "VARIANT",
+   "st": "nstd102",
+   "sv": "nsv7909547",
+   "study_type": "",
+   "variant_count": "",
+   "dbvarpublicationlist": [],
+   "dbvarstudyorglist": [],
+   "tax_id": 9606,
+   "organism": "human",
+   "dbvarsubmittedassemblylist": [],
+   "dbvarremappedassemblylist": [],
+   "dbvarplacementlist": [
+    {
+     "chr": "17",
+     "chr_start": 41197694,
+     "chr_end": 41203134,
+     "assembly": "GRCh38",
+     "assembly_accession": ""
+    },
+    {
+     "chr": "17",
+     "chr_start": 39353946,
+     "chr_end": 39359386,
+     "assembly": "GRCh37.p13",
+     "assembly_accession": ""
+    }
+   ],
+   "dbvargenelist": [],
+   "dbvarmethodlist": [
+    "Multiple"
+   ],
+   "dbvarclinicalsignificancelist": [
+    "Pathogenic"
+   ],
+   "dbvarvarianttypelist": [
+    "copy number variation"
+   ],
+   "variant_call_count": 1,
+   "sortorder": "1014240202605300000005441000007909547"
+  }
+ },
+ "gtr": {
+  "uid": "21517",
+  "doc": {
+   "uid": "21517",
+   "id": 21517,
+   "source": "GTR",
+   "accession": "GTR000021517",
+   "testname": "BRCA1",
+   "testtype": "Clinical",
+   "conditionlist": [
+    {
+     "name": "Breast-ovarian cancer, familial, susceptibility to, 1",
+     "acronym": "",
+     "cui": "C2676676"
+    },
+    {
+     "name": "Hereditary breast ovarian cancer syndrome",
+     "acronym": "",
+     "cui": "C0677776"
+    }
+   ],
+   "conditionlist2": [
+    {
+     "name": "Breast-ovarian cancer, familial, susceptibility to, 1",
+     "acronym": "",
+     "cui": "C2676676"
+    },
+    {
+     "name": "Hereditary breast ovarian cancer syndrome",
+     "acronym": "",
+     "cui": "C0677776"
+    }
+   ],
+   "analytes": [
+    {
+     "analytetype": "Gene",
+     "name": "BRCA1",
+     "geneid": 672,
+     "location": "17q21.31"
+    }
+   ],
+   "genelist": [],
+   "offerer": "Molecular Genetics Laboratory, London Health Sciences Centre",
+   "offererid": 21463,
+   "summary": "",
+   "flags": [],
+   "method": [
+    {
+     "name": "Molecular Genetics",
+     "categoriesstring": "_CD_______________",
+     "categorylist": [
+      {
+       "name": "Deletion/duplication analysis",
+       "code": "D",
+       "methodlist": [
+        "Multiplex Ligation-dependent Probe Amplification (MLPA)"
+       ]
+      },
+      {
+       "name": "Sequence analysis of the entire coding region",
+       "code": "C",
+       "methodlist": [
+        "Next-Generation (NGS)/Massively parallel sequencing (MPS)"
+       ]
+      }
+     ]
+    }
+   ],
+   "certifications": [
+    {
+     "certificationtype": "Ontario Ministry of Health",
+     "id": "4245"
+    },
+    {
+     "certificationtype": "ISO15189",
+     "id": "731"
+    }
+   ],
+   "studydesc": "",
+   "testtargetlist": [
+    "BRCA1",
+    "BRCA1"
+   ],
+   "testtargetlist2": [],
+   "conditioncount": 2,
+   "testtargetcount": 1,
+   "genecount": 1,
+   "country": "Canada",
+   "testurl": "https://lhsc.omni-assistant.net/lab/Document/Handlers/FileStreamer.ashx?Df_Guid=36cdcdc9-cec0-4079-8e64-e6942cfdfa7f&MostRecentDocument=true",
+   "specimens": [
+    "Isolated DNA",
+    "Paraffin block",
+    "Peripheral (whole) blood"
+   ],
+   "specimenurl": "https://www.lhsc.on.ca/pathology-and-laboratory-medicine/specimen-and-shipping-instructions-0",
+   "targetpopulation2": "Molecular genetic testing for germline BRCA1 and BRCA2 mutations is available on a clinical basis for individuals who are identified to be at high risk based on their personal and/or family history and for at-risk relatives of an individual with an identified germline BRCA1 or BRCA2 mutation. No currently available technique can guarantee the identification of all cancer-predisposing mutations in BRCA1 or BRCA2. Furthermore, mutations of uncertain clinical significance may be identified.",
+   "orderurl": "https://www.lhsc.on.ca/pathology-and-laboratory-medicine/requisitions#Molecular-Diagnostics",
+   "testcode": "HCP-BRCA1",
+   "cptcode": "",
+   "testdevelopment": "Test developed by laboratory (no manufacturer test name)",
+   "testpurpose": [
+    "Diagnosis",
+    "Mutation Confirmation",
+    "Pre-symptomatic",
+    "Predictive",
+    "Prognostic",
+    "Recurrence",
+    "Risk Assessment"
+   ],
+   "testperformancelocations": [
+    "Entire test performed in-house"
+   ],
+   "clinicalutility": [],
+   "clinicalvalidity": {
+    "description": "A germline mutation in BRCA1 or BRCA2 predisposes to breast and ovarian cancer as well as other cancers. The risk of developing cancer that is associated with a germline BRCA1 or BRCA2 mutation, which has been derived from families with multiple affected individuals, families with few affected individuals, and from population-based studies, appears to be variable within families. Prognosis for breast and ovarian cancer depends on the stage at which the cancer is diagnosed; however, studies on survival have revealed conflicting results for individuals with germline BRCA1 or BRCA2 mutations when compared to controls.",
+    "pmid": [
+     "20301425"
+    ],
+    "url": [
+     "https://www.ncbi.nlm.nih.gov/books/NBK1247"
+    ],
+    "citationtext": []
+   },
+   "variant": [],
+   "exons": [
+    {
+     "geneid": "672",
+     "qualifier": "NG_005905.2",
+     "string": "Full coding sequence and flanking introns"
+    }
+   ],
+   "extra": ""
+  }
+ },
+ "mesh": {
+  "uid": "68001249",
+  "doc": {
+   "uid": "68001249",
+   "ds_yearintroduced": "",
+   "ds_scopenote": "A form of bronchial disorder with three distinct components: airway hyper-responsiveness (RESPIRATORY HYPERSENSITIVITY), airway INFLAMMATION, and intermittent AIRWAY OBSTRUCTION. It is characterized by spasmodic contraction of airway smooth muscle, WHEEZING, and dyspnea (DYSPNEA, PAROXYSMAL).",
+   "ds_registrynumber": "",
+   "ds_headingmappedto": "",
+   "ds_meshterms": [
+    "Asthma",
+    "Asthmas",
+    "Asthma, Bronchial",
+    "Bronchial Asthma"
+   ],
+   "ds_subheading": [
+    "blood",
+    "cerebrospinal fluid",
+    "chemically induced",
+    "classification",
+    "complications",
+    "congenital",
+    "diagnosis",
+    "diagnostic imaging",
+    "diet therapy",
+    "drug therapy",
+    "economics",
+    "embryology",
+    "enzymology",
+    "epidemiology",
+    "ethnology",
+    "etiology",
+    "genetics",
+    "history",
+    "immunology",
+    "metabolism",
+    "microbiology",
+    "mortality",
+    "nursing",
+    "parasitology",
+    "pathology",
+    "physiopathology",
+    "prevention and control",
+    "psychology",
+    "radiotherapy",
+    "rehabilitation",
+    "surgery",
+    "therapy",
+    "urine",
+    "veterinary",
+    "virology"
+   ],
+   "ds_papx": [],
+   "ds_previousindexing": [],
+   "ds_seerelated": [
+    "68018927"
+   ],
+   "ds_palist": [],
+   "ds_idxlinks": [
+    {
+     "parent": 68001982,
+     "treenum": "C08.127.108",
+     "children": [
+      "2030960",
+      "68055963",
+      "68001250",
+      "68059366",
+      "2106493",
+      "68013224"
+     ]
+    },
+    {
+     "parent": 68008173,
+     "treenum": "C08.381.495.108",
+     "children": [
+      "2030960",
+      "2106493"
+     ]
+    },
+    {
+     "parent": 68012130,
+     "treenum": "C08.674.095",
+     "children": [
+      "2030960",
+      "68055963",
+      "68001250",
+      "68059366",
+      "2106493",
+      "68013224"
+     ]
+    },
+    {
+     "parent": 68012130,
+     "treenum": "C20.543.480.680.095",
+     "children": [
+      "68001250",
+      "68059366",
+      "2106493",
+      "68013224"
+     ]
+    }
+   ],
+   "ds_entrydate": "1/01/01 00:00",
+   "ds_revisiondate": "1/01/01 00:00",
+   "ds_headingmappedtolist": [],
+   "ds_recordtype": "descriptor",
+   "ds_meshui": "D001249"
+  }
+ },
+ "cdd": {
+  "uid": "483959",
+  "doc": {
+   "uid": "483959",
+   "accession": "cl49619",
+   "title": "beta-trefoil_MIR",
+   "subtitle": "MIR domain, beta-trefoil fold, found in the MIR (protein mannosyltransferase, IP3R and RyR) superfamily",
+   "abstract": "The MIR superfamily includes dolichyl-phosphate-mannose-protein mannosyltransferases (PMTs), inositol 1,4,5-trisphosphate receptors (ITPRs/IP3R), ryanodine receptors (RyRs), and stromal cell-derived factor 2 (SDF-2)-like proteins. They all contain a MIR domain with beta-trefoil fold, which is characterized by 12 beta strands folded into three similar trefoil subdomains (alpha, beta, and gamma) associated to give an overall structure with pseudo-3-fold symmetry. The MIR domain may have a ligand transferase function.",
+   "database": "Cdart",
+   "organism": "cellular organisms",
+   "pubdate": "2023/10/04 00:00",
+   "entrezdate": "2024/03/28 00:00",
+   "pssmlength": "",
+   "structurerepresentative": "",
+   "numbersites": "",
+   "sitedescriptions": [],
+   "status": "",
+   "livepssmid": ""
+  }
+ },
+ "assembly": {
+  "uid": "11968211",
+  "doc": {
+   "uid": "11968211",
+   "rsuid": "31649238",
+   "gbuid": "31457668",
+   "assemblyaccession": "GCF_000001405.40",
+   "lastmajorreleaseaccession": "GCF_000001405.26",
+   "latestaccession": "",
+   "chainid": "1405",
+   "assemblyname": "GRCh38.p14",
+   "ucscname": "hg38",
+   "ensemblname": "",
+   "taxid": "9606",
+   "organism": "Homo sapiens (human)",
+   "speciestaxid": "9606",
+   "speciesname": "Homo sapiens",
+   "assemblytype": "haploid-with-alt-loci",
+   "assemblystatus": "Chromosome",
+   "assemblystatussort": 3,
+   "wgs": "",
+   "gb_bioprojects": [
+    {
+     "bioprojectaccn": "PRJNA31257",
+     "bioprojectid": 31257
+    }
+   ],
+   "gb_projects": [],
+   "rs_bioprojects": [
+    {
+     "bioprojectaccn": "PRJNA168",
+     "bioprojectid": 168
+    }
+   ],
+   "rs_projects": [],
+   "biosampleaccn": "",
+   "biosampleid": "",
+   "biosource": {
+    "infraspecieslist": [],
+    "sex": "",
+    "isolate": ""
+   },
+   "coverage": "",
+   "partialgenomerepresentation": "false",
+   "primary": "31610248",
+   "assemblydescription": "Genome Reference Consortium Human Build 38 patch release 14 (GRCh38.p14)",
+   "releaselevel": "Patch",
+   "releasetype": "Patch",
+   "asmreleasedate_genbank": "2022/02/03 00:00",
+   "asmreleasedate_refseq": "2022/02/08 00:00",
+   "seqreleasedate": "2022/02/03 00:00",
+   "asmupdatedate": "2025/08/01 00:00",
+   "submissiondate": "2022/02/03 00:00",
+   "lastupdatedate": "2025/08/01 00:00",
+   "submitterorganization": "Genome Reference Consortium",
+   "refseq_category": "reference genome",
+   "anomalouslist": [],
+   "exclfromrefseq": [],
+   "propertylist": [
+    "altloci",
+    "full-genome-representation",
+    "has-chromosome",
+    "has-mitochondrion",
+    "has-synonym",
+    "has_annotation",
+    "has_egap_annotation",
+    "latest",
+    "latest_genbank",
+    "latest_refseq",
+    "reference",
+    "refseq_has_annotation"
+   ],
+   "fromtype": "",
+   "synonym": {
+    "genbank": "GCA_000001405.29",
+    "refseq": "GCF_000001405.40",
+    "similarity": "different"
+   },
+   "contign50": 57879411,
+   "scaffoldn50": 67794873,
+   "annotrpturl": "https://www.ncbi.nlm.nih.gov/genome/annotation_euk/Homo_sapiens/GCF_000001405.40-RS_2025_08.html",
+   "ftppath_genbank": "ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/405/GCA_000001405.29_GRCh38.p14",
+   "ftppath_refseq": "ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14",
+   "ftppath_assembly_rpt": "ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/GCF_000001405.40_GRCh38.p14_assembly_report.txt",
+   "ftppath_stats_rpt": "ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/GCF_000001405.40_GRCh38.p14_assembly_stats.txt",
+   "ftppath_regions_rpt": "ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/GCF_000001405.40_GRCh38.p14_assembly_regions.txt",
+   "busco": {
+    "refseqannotationrelease": "RS_2025_08",
+    "buscolineage": "primates_odb10",
+    "buscover": "5.7.1",
+    "complete": "0.988679",
+    "singlecopy": "0.979318",
+    "duplicated": "0.00936139",
+    "fragmented": "0.00464441",
+    "missing": "0.00667634",
+    "totalcount": 13780
+   },
+   "sortorder": "1C3X01019421205880000014057059",
+   "meta": " <Stats> <Stat category=\"alt_loci_count\" sequence_tag=\"all\">35</Stat> <Stat category=\"chromosome_count\" sequence_tag=\"all\">24</Stat> <Stat category=\"contig_count\" sequence_tag=\"all\">1648</Stat> <Stat category=\"contig_l50\" sequence_tag=\"all\">18</Stat> <Stat category=\"contig_n50\" sequence_tag=\"all\">57879411</Stat> <Stat category=\"non_chromosome_replicon_count\" sequence_tag=\"all\">1</Stat> <Stat category=\"replicon_count\" sequence_tag=\"all\">25</Stat> <Stat category=\"scaffold_count\" sequence_tag=\"all\">985</Stat> <Stat category=\"scaffold_count\" sequence_tag=\"placed\">305</Stat> <Stat category=\"scaffold_count\" sequence_tag=\"unlocalized\">40</Stat> <Stat category=\"scaffold_count\" sequence_tag=\"unplaced\">126</Stat> <Stat category=\"scaffold_l50\" sequence_tag=\"all\">16</Stat> <Stat category=\"scaffold_n50\" sequence_tag=\"all\">67794873</Stat> <Stat category=\"total_length\" sequence_tag=\"all\">3298430636</Stat> <Stat category=\"ungapped_length\" sequence_tag=\"all\">3136819497</Stat> </Stats> <FtpSites>   <FtpPath type=\"Assembly_rpt\">ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/GCF_000001405.40_GRCh38.p14_assembly_report.txt</FtpPath>   <FtpPath type=\"GenBank\">ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/405/GCA_000001405.29_GRCh38.p14</FtpPath>   <FtpPath type=\"RefSeq\">ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14</FtpPath>   <FtpPath type=\"Regions_rpt\">ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/GCF_000001405.40_GRCh38.p14_assembly_regions.txt</FtpPath>   <FtpPath type=\"Stats_rpt\">ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/GCF_000001405.40_GRCh38.p14_assembly_stats.txt</FtpPath> </FtpSites> <assembly-level>3</assembly-level> <assembly-status>Chromosome</assembly-status> <representative-status>reference genome</representative-status> <submitter-organization>Genome Reference Consortium</submitter-organization>    "
+  }
+ },
+ "structure": {
+  "uid": "242790",
+  "doc": {
+   "uid": "242790",
+   "pdbacc": "1TUP",
+   "pdbdescr": "TUMOR SUPPRESSOR P53 COMPLEXED WITH DNA",
+   "ec": "",
+   "resolution": "2.2",
+   "expmethod": "X-ray Diffraction",
+   "pdbclass": "ANTITUMOR PROTEIN/DNA",
+   "pdbdepositdate": "1995/07/11 00:00",
+   "mmdbentrydate": "2024/02/14 00:00",
+   "mmdbmodifydate": "2024/02/22 00:00",
+   "organismlist": [
+    "Homo sapiens",
+    "synthetic construct"
+   ],
+   "pdbaccsynlist": [],
+   "ligcode": "ZN",
+   "ligcount": "3",
+   "modproteinrescount": "",
+   "moddnarescount": "",
+   "modrnarescount": "",
+   "proteinmoleculecount": 3,
+   "dnamoleculecount": 2,
+   "rnamoleculecount": "",
+   "biopolymercount": 5,
+   "othermoleculecount": 5
+  }
+ },
+ "books": {
+  "uid": "5925222",
+  "doc": {
+   "uid": "5925222",
+   "title": "Data and Methods",
+   "pubdate": "2026/09/01 00:00",
+   "id": "nchsnvsr/nvsr75-7/sec/nvsr75-7.s5/PMC",
+   "accessionid": "NBK625262",
+   "parents": "",
+   "rtype": "sec",
+   "rid": "NBK625262/nvsr75-7.s5",
+   "text": "",
+   "bookinfo": "<Info><Path><Parent id=\"nchsnvsr\" role=\"source\" type=\"book\" uid=\"5656554\"><Title>National Vital Statistics Reports</Title></Parent><Parent id=\"nvsr75-7\" role=\"document\" type=\"chapter\" uid=\"5925200\"><Title>Deaths: Leading Causes for 2024</Title></Parent><Self id=\"nvsr75-7.s5\" role=\"object\" type=\"sec\" uid=\"5925222\"><Title>Data and Methods</Title></Self></Path><Citation CitationType=\"Object\"><MainRecord><Title>Data and Methods.</Title></MainRecord><ParentRecord><Title>National Vital Statistics Reports [Internet].</Title><PublicationStatement>Hyattsville (MD): National Center for Health Statistics (US); 2024 Jul-.</PublicationStatement></ParentRecord><Location>Volume  75, Number 7, Deaths: Leading Causes for 2024</Location></Citation></Info>",
+   "bookid": 5656554,
+   "bookaccessionid": "NBK606162",
+   "chapterid": 5925200,
+   "chapteraccessionid": "NBK625262",
+   "book": "nchsnvsr",
+   "navigation": "yes"
+  }
+ }
+}

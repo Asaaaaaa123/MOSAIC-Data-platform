@@ -1,0 +1,134 @@
+{
+ "_shards": {
+  "failed": 0,
+  "skipped": 0,
+  "successful": 5,
+  "total": 5
+ },
+ "hits": {
+  "hits": [
+   {
+    "_id": "0775dc5b1d61c5fe35f8ad57c9f1574d",
+    "_index": "hm_prod_public_portal",
+    "_score": 0.0,
+    "_source": {
+     "analyte_class": "Nucleic acid + protein",
+     "anatomy_2": [
+      "cortex of kidney",
+      "renal medulla",
+      "right kidney"
+     ],
+     "assay_display_name": [
+      "Light Sheet Fluorescence Microscopy"
+     ],
+     "contains_human_genetic_sequences": false,
+     "contributors": [
+      {
+       "affiliation": "Washington University in St Louis ( TMC WashU) ",
+       "display_name": "Sanjay Jain",
+       "first_name": "Sanjay",
+       "is_contact": "Yes",
+       "is_operator": "No",
+       "is_principal_investigator": "Yes",
+       "last_name": "Jain",
+       "metadata_schema_id": "94dae6f8-0756-4ab0-a47b-138e446a9501",
+       "middle_name_or_initial": "",
+       "orcid": "0000-0003-2804-127X"
+      },
+      {
+       "affiliation": "Washington University in St Louis ( TMC WashU) ",
+       "display_name": "Madhurima Kaushal",
+       "first_name": "Madhurima",
+       "is_contact": "Yes",
+       "is_operator": "No",
+       "is_principal_investigator": "No",
+       "last_name": "Kaushal",
+       "metadata_schema_id": "94dae6f8-0756-4ab0-a47b-138e446a9501",
+       "middle_name_or_initial": "",
+       "orcid": "0000-0003-2760-0586"
+      },
+      {
+       "affiliation": "Washington University in St Louis ( TMC WashU) ",
+       "display_name": "Amanda Knoten",
+       "first_name": "Amanda",
+       "is_contact": "No",
+       "is_operator": "No",
+       "is_principal_investigator": "No",
+       "last_name": "Knoten",
+       "metadata_schema_id": "94dae6f8-0756-4ab0-a47b-138e446a9501",
+       "middle_name_or_initial": "",
+       "orcid": "0000-0001-8564-2253"
+      }
+     ],
+     "created_timestamp": 1719422759096,
+     "data_access_level": "public",
+     "dataset_type": "Light Sheet",
+     "description": "The human kidney is a vital organ with a remarkable ability to coordinate the activity of up to a million nephrons, its main functional tissue unit (FTU), and maintain homeostasis. We developed tissue processing and analytical methods to construct a 3D map of neurovascular nephron connectivity of the human kidney and glean insights into how this structural organization enables coordination of vari",
+     "doi_url": "https://doi.org/10.35079/HBM329.CRSF.278",
+     "donor_demographics": {
+      "age": {
+       "max": 26.0,
+       "mean": 26.0,
+       "min": 26.0
+      },
+      "age_unit": [
+       "years"
+      ],
+      "age_value": [
+       26.0
+      ],
+      "body_mass_index": {
+       "max": 37.28,
+       "mean": 37.28,
+       "min": 37.28
+      },
+      "body_mass_index_unit": [
+       "kg/m2"
+      ],
+      "body_mass_index_value": [
+       37.28
+      ],
+      "race": [
+       "White"
+      ],
+      "sex": [
+       "Female"
+      ]
+     },
+     "entity_type": "Dataset",
+     "group_name": "Washington University Kidney TMC",
+     "hubmap_id": "HBM329.CRSF.278",
+     "immediate_descendants": [
+      {
+       "dataset_type": "Publication",
+       "entity_type": "Publication",
+       "hubmap_id": "HBM827.DBGV.589",
+       "uuid": "64ca708afbd3310816f8c7cedb389d5c"
+      }
+     ],
+     "is_spatial": true,
+     "last_modified_timestamp": 1747856366360,
+     "mapped_consortium": "HuBMAP",
+     "origin_samples_unique_mapped_organs": [
+      "Kidney (Right)"
+     ],
+     "processing": "raw",
+     "published_timestamp": 1747856366360,
+     "raw_dataset_type": "Light Sheet",
+     "registered_doi": "10.35079/HBM329.CRSF.278",
+     "status": "Published",
+     "title": "Light Sheet data from the kidney (right) of a 26-year-old white female",
+     "uuid": "0775dc5b1d61c5fe35f8ad57c9f1574d"
+    },
+    "_type": "_doc"
+   }
+  ],
+  "max_score": 0.0,
+  "total": {
+   "relation": "eq",
+   "value": 1
+  }
+ },
+ "timed_out": false,
+ "took": 4
+}

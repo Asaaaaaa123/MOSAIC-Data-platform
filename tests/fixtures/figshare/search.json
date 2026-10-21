@@ -1,0 +1,51 @@
+[
+ {
+  "project_id": null,
+  "id": 33717259,
+  "title": "CD81 drives immune evasion in radioresistant glioblastoma by blocking selective autophagic degradation of CD274/PD-L1",
+  "doi": "10.6084/m9.figshare.33717259.v1",
+  "handle": "",
+  "url": "https://api.figshare.com/v2/articles/33717259",
+  "published_date": "2026-09-14T03:30:53Z",
+  "thumb": "https://s3-eu-west-1.amazonaws.com/ppreviews-tf-45897as9a7sa86/68529382/thumb.png",
+  "defined_type": 3,
+  "defined_type_name": "dataset",
+  "group_id": 4536,
+  "url_private_api": "https://api.figshare.com/v2/account/articles/33717259",
+  "url_public_api": "https://api.figshare.com/v2/articles/33717259",
+  "url_private_html": "https://figshare.com/account/articles/33717259",
+  "url_public_html": "https://tandf.figshare.com/articles/dataset/CD81_drives_immune_evasion_in_radioresistant_glioblastoma_by_blocking_selective_autophagic_degradation_of_CD274_PD-L1/33717259",
+  "timeline": {
+   "posted": "2026-09-14T03:30:53"
+  },
+  "resource_title": "CD81 drives immune evasion in radioresistant glioblastoma by blocking selective autophagic degradation of CD274/PD-L1",
+  "resource_doi": "10.1080/15548627.2026.2732726",
+  "created_date": "2026-09-14T03:30:54Z",
+  "modified_date": "2026-09-22T12:25:31Z"
+ },
+ {
+  "project_id": null,
+  "id": 33556146,
+  "title": "<p>Bulk RNA-seq analysis and cancer-associated fibroblast (CAF) quantification in diffuse glioma using rank-based signature scoring and CellAnn deconvolution.</p>",
+  "doi": "10.1371/journal.pone.0355902.s008",
+  "handle": "",
+  "url": "https://api.figshare.com/v2/articles/33556146",
+  "published_date": "2026-09-10T17:30:33Z",
+  "thumb": "",
+  "defined_type": 3,
+  "defined_type_name": "dataset",
+  "group_id": 107,
+  "url_private_api": "https://api.figshare.com/v2/account/articles/33556146",
+  "url_public_api": "https://api.figshare.com/v2/articles/33556146",
+  "url_private_html": "https://figshare.com/account/articles/33556146",
+  "url_public_html": "https://plos.figshare.com/articles/dataset/_p_Bulk_RNA-seq_analysis_and_cancer-associated_fibroblast_CAF_quantification_in_diffuse_glioma_using_rank-based_signature_scoring_and_CellAnn_deconvolution_p_/33556146",
+  "timeline": {
+   "posted": "2026-09-10T17:30:33",
+   "publisherPublication": "2026-09-10T17:30:16"
+  },
+  "resource_title": "<p>Pericyte-derived cancer-associated fibroblasts correlate with poor survival and are enriched after chemoradiotherapy in glioblastoma</p>",
+  "resource_doi": "10.1371/journal.pone.0355902",
+  "created_date": "2026-09-10T17:30:33Z",
+  "modified_date": "2026-09-10T17:30:33Z"
+ }
+]

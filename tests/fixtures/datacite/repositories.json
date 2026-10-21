@@ -1,0 +1,73 @@
+{
+ "data": [
+  {
+   "id": "vivli.search",
+   "type": "clients",
+   "attributes": {
+    "name": "Vivli",
+    "symbol": "VIVLI.SEARCH",
+    "year": 2018,
+    "alternateName": null,
+    "description": "Vivli is a non-profit organization working to advance human health through the insights and discoveries gained by sharing and analyzing data. It is home to an independent global data-sharing and analy",
+    "language": [],
+    "clientType": "repository",
+    "domains": "*",
+    "re3data": "https://doi.org/10.17616/R3SB9S",
+    "opendoar": null,
+    "issn": {},
+    "url": "https://vivli.org/",
+    "created": "2018-08-02T16:28:00Z",
+    "updated": "2023-04-18T16:08:25Z",
+    "isActive": true
+   },
+   "relationships": {
+    "provider": {
+     "data": {
+      "id": "vivli",
+      "type": "providers"
+     }
+    },
+    "prefixes": {
+     "data": [
+      {
+       "id": "10.25934",
+       "type": "prefixes"
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "meta": {
+  "total": 1,
+  "totalPages": 1,
+  "page": 1,
+  "years": [
+   {
+    "id": "2018",
+    "title": "2018",
+    "count": 1
+   }
+  ],
+  "providers": [
+   {
+    "id": "vivli",
+    "title": "Vivli",
+    "count": 1
+   }
+  ],
+  "software": [],
+  "certificates": [],
+  "repository_types": [],
+  "clientTypes": [
+   {
+    "id": "repository",
+    "title": "Repository",
+    "count": 1
+   }
+  ]
+ },
+ "links": {
+  "self": "https://api.datacite.org/clients?query=vivli&page%5Bsize%5D=1"
+ }
+}

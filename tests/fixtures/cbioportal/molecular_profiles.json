@@ -1,0 +1,55 @@
+[
+ {
+  "molecularProfileId": "luad_tcga_pan_can_atlas_2018_armlevel_cna",
+  "studyId": "luad_tcga_pan_can_atlas_2018",
+  "molecularAlterationType": "GENERIC_ASSAY",
+  "genericAssayType": "ARMLEVEL_CNA",
+  "datatype": "CATEGORICAL",
+  "name": "Putative arm-level copy-number from GISTIC",
+  "description": "Putative arm-level copy-number from GISTIC 2.0.",
+  "showProfileInAnalysisTab": true,
+  "patientLevel": false
+ },
+ {
+  "molecularProfileId": "luad_tcga_pan_can_atlas_2018_genetic_ancestry",
+  "studyId": "luad_tcga_pan_can_atlas_2018",
+  "molecularAlterationType": "GENERIC_ASSAY",
+  "genericAssayType": "GENETIC_ANCESTRY",
+  "datatype": "LIMIT-VALUE",
+  "name": "Genetic Ancestry",
+  "description": "Genetic ancestries were determined using five different methods as described in Carrot-Zhang et al (2020). These consensus calls were created based on the ancestral population that received the majority of assignments for each patient. The original data is <a href=\"https://gdc.cancer.gov/about-data/publications/CCG-AIM-2020\">here</a>.",
+  "showProfileInAnalysisTab": true,
+  "sortOrder": "ASC",
+  "patientLevel": false
+ },
+ {
+  "molecularProfileId": "luad_tcga_pan_can_atlas_2018_gistic",
+  "studyId": "luad_tcga_pan_can_atlas_2018",
+  "molecularAlterationType": "COPY_NUMBER_ALTERATION",
+  "datatype": "DISCRETE",
+  "name": "Putative copy-number alterations from GISTIC",
+  "description": "Putative copy-number from GISTIC 2.0. Values: -2 = homozygous deletion; -1 = hemizygous deletion; 0 = neutral / no change; 1 = gain; 2 = high level amplification.",
+  "showProfileInAnalysisTab": true,
+  "patientLevel": false
+ },
+ {
+  "molecularProfileId": "luad_tcga_pan_can_atlas_2018_log2CNA",
+  "studyId": "luad_tcga_pan_can_atlas_2018",
+  "molecularAlterationType": "COPY_NUMBER_ALTERATION",
+  "datatype": "LOG2-VALUE",
+  "name": "Log2 copy-number values",
+  "description": "Log2 copy-number values for each gene (from Affymetrix SNP6).",
+  "showProfileInAnalysisTab": false,
+  "patientLevel": false
+ },
+ {
+  "molecularProfileId": "luad_tcga_pan_can_atlas_2018_mutations",
+  "studyId": "luad_tcga_pan_can_atlas_2018",
+  "molecularAlterationType": "MUTATION_EXTENDED",
+  "datatype": "MAF",
+  "name": "Mutations",
+  "description": "Mutation data from whole exome sequencing of 566 Lung Adenocarcinoma samples.",
+  "showProfileInAnalysisTab": true,
+  "patientLevel": false
+ }
+]

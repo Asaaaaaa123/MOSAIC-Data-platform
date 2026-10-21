@@ -1,0 +1,140 @@
+{
+ "id": "https://openalex.org/A5065535610",
+ "orcid": "https://orcid.org/0000-0002-9943-7557",
+ "observed_orcids": [
+  "https://orcid.org/0000-0002-9943-7557",
+  "https://orcid.org/0000-0003-0346-5033"
+ ],
+ "display_name": "David R. Liu",
+ "raw_author_names": [
+  "D. Liu",
+  "D. R. LIU",
+  "D. R. Liu"
+ ],
+ "full_name": "Liu, David R.; Bryson, Jr., David Irby",
+ "works_count": 480,
+ "cited_by_count": 81654,
+ "summary_stats": {
+  "2yr_mean_citedness": 24.71276595744681,
+  "h_index": 127,
+  "i10_index": 299
+ },
+ "ids": {
+  "openalex": "https://openalex.org/A5065535610",
+  "orcid": "https://orcid.org/0000-0002-9943-7557",
+  "observed_orcids": [
+   "https://orcid.org/0000-0002-9943-7557",
+   "https://orcid.org/0000-0003-0346-5033"
+  ]
+ },
+ "last_known_institutions": [
+  {
+   "id": "https://openalex.org/I107606265",
+   "ror": "https://ror.org/05a0ya142",
+   "display_name": "Broad Institute",
+   "country_code": "US",
+   "type": "nonprofit"
+  },
+  {
+   "id": "https://openalex.org/I1344073410",
+   "ror": "https://ror.org/006w34k90",
+   "display_name": "Howard Hughes Medical Institute",
+   "country_code": "US",
+   "type": "facility"
+  },
+  {
+   "id": "https://openalex.org/I136199984",
+   "ror": "https://ror.org/03vek6s52",
+   "display_name": "Harvard University",
+   "country_code": "US",
+   "type": "education"
+  },
+  {
+   "id": "https://openalex.org/I4210117453",
+   "ror": "https://ror.org/02jzgtq86",
+   "display_name": "Dana-Farber Cancer Institute",
+   "country_code": "US",
+   "type": "facility"
+  },
+  {
+   "id": "https://openalex.org/I63966007",
+   "ror": "https://ror.org/042nb2s44",
+   "display_name": "Massachusetts Institute of Technology",
+   "country_code": "US",
+   "type": "education"
+  }
+ ],
+ "topics": [
+  {
+   "id": "https://openalex.org/T10878",
+   "display_name": "CRISPR and Genetic Engineering",
+   "count": 236,
+   "subfield": {
+    "id": "https://openalex.org/subfields/1312",
+    "display_name": "Molecular Biology"
+   },
+   "field": {
+    "id": "https://openalex.org/fields/13",
+    "display_name": "Biochemistry, Genetics and Molecular Biology"
+   },
+   "domain": {
+    "id": "https://openalex.org/domains/1",
+    "display_name": "Life Sciences"
+   }
+  },
+  {
+   "id": "https://openalex.org/T12610",
+   "display_name": "RNA regulation and disease",
+   "count": 139,
+   "subfield": {
+    "id": "https://openalex.org/subfields/1312",
+    "display_name": "Molecular Biology"
+   },
+   "field": {
+    "id": "https://openalex.org/fields/13",
+    "display_name": "Biochemistry, Genetics and Molecular Biology"
+   },
+   "domain": {
+    "id": "https://openalex.org/domains/1",
+    "display_name": "Life Sciences"
+   }
+  },
+  {
+   "id": "https://openalex.org/T10613",
+   "display_name": "Virus-based gene therapy research",
+   "count": 85,
+   "subfield": {
+    "id": "https://openalex.org/subfields/1311",
+    "display_name": "Genetics"
+   },
+   "field": {
+    "id": "https://openalex.org/fields/13",
+    "display_name": "Biochemistry, Genetics and Molecular Biology"
+   },
+   "domain": {
+    "id": "https://openalex.org/domains/1",
+    "display_name": "Life Sciences"
+   }
+  }
+ ],
+ "display_name_alternatives": [
+  "D. Liu",
+  "D. R. LIU",
+  "D. R. Liu",
+  "D.R. Liu",
+  "David Liu",
+  "David R Liu",
+  "David R. Liu",
+  "David R Liu",
+  "David R. Liu",
+  "David R. Liu",
+  "Liu, David",
+  "Liu, David R",
+  "Liu, David R.",
+  "Liu, David R.; Bryson, Jr., David Irby"
+ ],
+ "block_key": "d liu",
+ "works_api_url": "https://api.openalex.org/works?filter=author.id:A5065535610",
+ "updated_date": "2026-10-19T12:29:13",
+ "created_date": "2016-06-24T00:00:00"
+}

@@ -1,0 +1,48 @@
+{
+ "data": {
+  "viewer": {
+   "explore": {
+    "mutated": {
+     "aggregations": {
+      "project__project_id": {
+       "buckets": [
+        {
+         "doc_count": 367,
+         "key": "TCGA-OV"
+        },
+        {
+         "doc_count": 331,
+         "key": "TCGA-BRCA"
+        },
+        {
+         "doc_count": 281,
+         "key": "TCGA-LUAD"
+        }
+       ]
+      }
+     }
+    },
+    "profiled": {
+     "aggregations": {
+      "project__project_id": {
+       "buckets": [
+        {
+         "doc_count": 969,
+         "key": "TCGA-BRCA"
+        },
+        {
+         "doc_count": 559,
+         "key": "TCGA-LUAD"
+        },
+        {
+         "doc_count": 419,
+         "key": "TCGA-OV"
+        }
+       ]
+      }
+     }
+    }
+   }
+  }
+ }
+}

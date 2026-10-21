@@ -1,0 +1,159 @@
+{
+ "data": {
+  "target": {
+   "id": "ENSG00000146648",
+   "approvedSymbol": "EGFR",
+   "evidences": {
+    "count": 1490,
+    "cursor": "eyJpbmRleCI6MSwic2l6ZSI6Mn0=",
+    "rows": [
+     {
+      "id": "048e2957de9143f53700a8f7197d8bf28f0dc098",
+      "datasourceId": "clinical_precedence",
+      "datatypeId": "clinical",
+      "score": 1,
+      "disease": {
+       "id": "MONDO_0005233",
+       "name": "non-small cell lung carcinoma"
+      },
+      "literature": [
+       "35343187"
+      ],
+      "pubMedCentralIds": [],
+      "publicationYear": null,
+      "variantRsId": null,
+      "variantFunctionalConsequence": null,
+      "drug": {
+       "id": "CHEMBL3353410",
+       "name": "OSIMERTINIB"
+      },
+      "clinicalStage": "PHASE_4",
+      "clinicalReportId": "nct03853551",
+      "studyId": null,
+      "confidence": null,
+      "diseaseFromSource": "non-small cell lung cancer",
+      "beta": null,
+      "oddsRatio": null,
+      "pValueMantissa": null,
+      "pValueExponent": null,
+      "studySampleSize": null,
+      "textMiningSentences": []
+     },
+     {
+      "id": "0b2e7b3b9535beb9c2c2066ca701b81497b72fc9",
+      "datasourceId": "clinical_precedence",
+      "datatypeId": "clinical",
+      "score": 1,
+      "disease": {
+       "id": "MONDO_0005233",
+       "name": "non-small cell lung carcinoma"
+      },
+      "literature": [],
+      "pubMedCentralIds": [],
+      "publicationYear": null,
+      "variantRsId": null,
+      "variantFunctionalConsequence": null,
+      "drug": {
+       "id": "CHEMBL553",
+       "name": "ERLOTINIB"
+      },
+      "clinicalStage": "APPROVAL",
+      "clinicalReportId": "emea/h/c/000618",
+      "studyId": null,
+      "confidence": null,
+      "diseaseFromSource": "carcinoma, non-small-cell lung",
+      "beta": null,
+      "oddsRatio": null,
+      "pValueMantissa": null,
+      "pValueExponent": null,
+      "studySampleSize": null,
+      "textMiningSentences": []
+     }
+    ]
+   }
+  },
+  "disease": {
+   "id": "MONDO_0005233",
+   "name": "non-small cell lung carcinoma",
+   "associatedTargets": {
+    "rows": [
+     {
+      "score": 0.8883707400322897,
+      "datasourceScores": [
+       {
+        "id": "clinical_precedence",
+        "score": 0.9960369589002778
+       },
+       {
+        "id": "cancer_gene_census",
+        "score": 0.9369630011358216
+       },
+       {
+        "id": "eva",
+        "score": 0.9338352605404265
+       },
+       {
+        "id": "intogen",
+        "score": 0.9223699260770677
+       },
+       {
+        "id": "eva_somatic",
+        "score": 0.8983410002790377
+       },
+       {
+        "id": "clingen",
+        "score": 0.607930797611621
+       },
+       {
+        "id": "cancer_biomarkers",
+        "score": 0.9688369669963677
+       },
+       {
+        "id": "crispr",
+        "score": 0.25229128100882275
+       },
+       {
+        "id": "europepmc",
+        "score": 0.9997003738109889
+       },
+       {
+        "id": "impc",
+        "score": 0.24998114397789856
+       }
+      ],
+      "datatypeScores": [
+       {
+        "id": "genetic_literature",
+        "score": 0.607930797611621
+       },
+       {
+        "id": "clinical",
+        "score": 0.9960369589002778
+       },
+       {
+        "id": "affected_pathway",
+        "score": 0.8255278297988587
+       },
+       {
+        "id": "literature",
+        "score": 0.9997003738109889
+       },
+       {
+        "id": "genetic_association",
+        "score": 0.9338352605404265
+       },
+       {
+        "id": "somatic_mutation",
+        "score": 0.9311298240142721
+       },
+       {
+        "id": "animal_model",
+        "score": 0.24998114397789856
+       }
+      ]
+     }
+    ]
+   }
+  }
+ }
+}

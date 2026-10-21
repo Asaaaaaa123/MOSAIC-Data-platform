@@ -1,0 +1,25 @@
+{
+ "data": [
+  {
+   "snpId": "rs38719",
+   "pos": 140994094,
+   "snpIdUpper": "RS38719",
+   "variantId": "chr7_140994094_G_T_b38",
+   "geneSymbol": "MRPS33",
+   "pValue": 1.373038555282293e-16,
+   "geneSymbolUpper": "MRPS33",
+   "datasetId": "gtex_v10",
+   "tissueSiteDetailId": "Nerve_Tibial",
+   "ontologyId": "UBERON:0001323",
+   "chromosome": "chr7",
+   "gencodeId": "ENSG00000090263.16",
+   "nes": -0.4307505488395691
+  }
+ ],
+ "paging_info": {
+  "numberOfPages": 1,
+  "page": 0,
+  "maxItemsPerPage": 10000,
+  "totalNumberOfItems": 1
+ }
+}

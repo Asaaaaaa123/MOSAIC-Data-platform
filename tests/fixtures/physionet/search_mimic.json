@@ -1,0 +1,246 @@
+[
+ {
+  "public_project_uuid": "c327d705-6321-437b-bcb4-ca517af00831",
+  "slug": "mimic-cxr-ext-mimic-cxr-db",
+  "version": "1.0",
+  "core_doi": "10.13026/pmv9-jd43",
+  "version_doi": "10.13026/gy0s-e371",
+  "is_latest_version": true,
+  "short_description": "MIMIC-CXR-DB is a de-identified database linking EHR data with chest X-ray metadata and structured clinical findings. It supports multimodal research by integrating imaging, laboratory, diagnostic, and ontology-linked information.",
+  "publish_date": "2026-10-01",
+  "title": "MIMIC-CXR-Ext-MIMIC-CXR-DB: Linking MIMIC-IV Chest Radiographs with Rich and Harmonized Clinical Context",
+  "abstract": "<p>MIMIC-CXR-DB is a relational clinical database comprising 146,333 chest radiographs linked to hospital admissions, designed to support research at the intersection of electronic health records (EHRs) and chest radiography. The database integrates hospital admissions data, demographic characteristics, diagnoses, laboratory measurements, radiology metadata, radiographic findings, and discharge do</p>",
+  "license": {
+   "name": "PhysioNet Credentialed Health Data License 1.5.0"
+  },
+  "dua": {
+   "name": "PhysioNet Credentialed Health Data Use Agreement 1.5.0"
+  },
+  "main_storage_size": 493247493,
+  "compressed_storage_size": 72763359,
+  "resource_type": "Database",
+  "access_policy": "Credentialed",
+  "topics": [
+   "mimic-iv",
+   "chest x-ray imaging",
+   "clinical findings",
+   "multimodal research",
+   "ehr integration",
+   "ontology-based linking"
+  ],
+  "source_url": "https://physionet.org/content/mimic-cxr-ext-mimic-cxr-db/1.0/"
+ },
+ {
+  "public_project_uuid": "cbeaab84-5a31-49c9-a601-4c3b2361d527",
+  "slug": "mimic-ext-mimic-cxr-vqa",
+  "version": "1.0.0",
+  "core_doi": "10.13026/my7r-v463",
+  "version_doi": "10.13026/deqx-d943",
+  "is_latest_version": true,
+  "short_description": "We introduce MIMIC-Ext-MIMIC-CXR-VQA, a complex, diverse, and large-scale dataset designed for Visual Question Answering (VQA) tasks within the medical domain, focusing primarily on chest radiographs.",
+  "publish_date": "2024-07-19",
+  "title": "MIMIC-Ext-MIMIC-CXR-VQA: A Complex, Diverse, And Large-Scale Visual Question Answering Dataset for Chest X-ray Images",
+  "abstract": "<p>We introduce MIMIC-Ext-<em>MIMIC-CXR-VQA</em> (i.e., Extended from MIMIC database), a complex, diverse, and large-scale dataset designed for Visual Question Answering (VQA) tasks within the medical domain, focusing primarily on chest radiographs. This dataset includes approximately 377K entries derived from the MIMIC-CXR-JPG, MIMIC-IV, and Chest ImaGenome datasets, all sourced from Physionet. I</p>",
+  "license": {
+   "name": "PhysioNet Credentialed Health Data License 1.5.0"
+  },
+  "dua": {
+   "name": "PhysioNet Credentialed Health Data Use Agreement 1.5.0"
+  },
+  "main_storage_size": 350964129,
+  "compressed_storage_size": 28362291,
+  "resource_type": "Database",
+  "access_policy": "Credentialed",
+  "topics": [
+   "question answering",
+   "evaluation",
+   "chest x-ray",
+   "radiology",
+   "benchmark",
+   "multimodal",
+   "visual question answering",
+   "deep learning",
+   "electronic health records",
+   "machine learning"
+  ],
+  "source_url": "https://physionet.org/content/mimic-ext-mimic-cxr-vqa/1.0.0/"
+ },
+ {
+  "public_project_uuid": "d773f7bf-f6c7-4d17-9b2f-7cac181dcc32",
+  "slug": "symile-mimic",
+  "version": "1.0.0",
+  "core_doi": "10.13026/762h-qf80",
+  "version_doi": "10.13026/3vvj-s428",
+  "is_latest_version": true,
+  "short_description": "A multimodal clinical dataset consisting of CXRs, ECGs, and blood labs, designed to evaluate Symile, a simple contrastive loss that accommodates any number of modalities and allows any model to produce representations for each modality.",
+  "publish_date": "2025-01-28",
+  "title": "Symile-MIMIC: a multimodal clinical dataset of chest X-rays, electrocardiograms, and blood labs from MIMIC-IV",
+  "abstract": "<p>Symile-MIMIC is a multimodal clinical dataset derived from MIMIC-IV and MIMIC-CXR, consisting of chest X-rays (CXRs), electrocardiograms (ECGs), and blood laboratory tests. It was developed to evaluate Symile, a contrastive learning objective designed to handle multiple modalities and enable any model to generate representations for each modality. The dataset explores whether ECG and blood work</p>",
+  "license": {
+   "name": "PhysioNet Credentialed Health Data License 1.5.0"
+  },
+  "dua": {
+   "name": "PhysioNet Credentialed Health Data Use Agreement 1.5.0"
+  },
+  "main_storage_size": 34439695796,
+  "compressed_storage_size": 8129800256,
+  "resource_type": "Database",
+  "access_policy": "Credentialed",
+  "topics": [
+   "database",
+   "cxr",
+   "chest x-ray",
+   "contrastive learning",
+   "model",
+   "multimodal",
+   "mimic",
+   "electrocardiogram",
+   "ecg"
+  ],
+  "source_url": "https://physionet.org/content/symile-mimic/1.0.0/"
+ },
+ {
+  "public_project_uuid": "9d7a22e0-7bf9-431f-a023-6d5a57a8bf81",
+  "slug": "mimic-iv-fhir",
+  "version": "2.1",
+  "core_doi": "10.13026/9hhp-ps57",
+  "version_doi": "10.13026/rrj1-ny66",
+  "is_latest_version": true,
+  "short_description": "MIMIC-IV and MIMIC-IV-ED data mapped into FHIR resources.",
+  "publish_date": "2024-11-12",
+  "title": "MIMIC-IV on FHIR",
+  "abstract": "<p>Fast Healthcare Interoperability Resources (FHIR) has emerged as a robust standard for healthcare data exchange. To explore the use of FHIR&nbsp;for the process of data harmonization, we converted the&nbsp;Medical Information Mart for Intensive Care IV (MIMIC-IV) and MIMIC-IV Emergency Department (MIMIC-IV-ED) databases into FHIR. We extended base FHIR to encode information in MIMIC-IV and aime</p>",
+  "license": {
+   "name": "PhysioNet Credentialed Health Data License 1.5.0"
+  },
+  "dua": {
+   "name": "PhysioNet Credentialed Health Data Use Agreement 1.5.0"
+  },
+  "main_storage_size": 31387303667,
+  "compressed_storage_size": 31348909292,
+  "resource_type": "Database",
+  "access_policy": "Credentialed",
+  "topics": [
+   "fhir",
+   "mimic-iv",
+   "electronic health record",
+   "us core",
+   "fast healthcare interoperability resources",
+   "mimic"
+  ],
+  "source_url": "https://physionet.org/content/mimic-iv-fhir/2.1/"
+ },
+ {
+  "public_project_uuid": "08848569-9a6c-4333-a9c6-b89482ea0cc5",
+  "slug": "mimiciv",
+  "version": "3.1",
+  "core_doi": "10.13026/07hj-2a80",
+  "version_doi": "10.13026/kpb9-mt58",
+  "is_latest_version": true,
+  "short_description": "Large database of de-identified health information from patients admitted to Beth Israel Deaconess Medical Center",
+  "publish_date": "2024-10-11",
+  "title": "MIMIC-IV",
+  "abstract": "<p>Retrospectively collected medical data has the opportunity to improve patient care through knowledge discovery and algorithm development. Broad reuse of medical data is desirable for the greatest public good, but data sharing must be done in a manner which protects patient privacy. Here we present Medical Information Mart for Intensive Care (MIMIC)-IV, a large deidentified dataset of patients a</p>",
+  "license": {
+   "name": "PhysioNet Credentialed Health Data License 1.5.0"
+  },
+  "dua": {
+   "name": "PhysioNet Credentialed Health Data Use Agreement 1.5.0"
+  },
+  "main_storage_size": 10656227926,
+  "compressed_storage_size": 10551747784,
+  "resource_type": "Database",
+  "access_policy": "Credentialed",
+  "topics": [
+   "critical care",
+   "mimic",
+   "intensive care unit",
+   "machine learning"
+  ],
+  "source_url": "https://physionet.org/content/mimiciv/3.1/"
+ },
+ {
+  "public_project_uuid": "7538a155-7ca4-4c4d-95e7-5650f09759f6",
+  "slug": "mimic-iv-demo",
+  "version": "2.2",
+  "core_doi": "10.13026/ng9m-3n32",
+  "version_doi": "10.13026/dp1f-ex47",
+  "is_latest_version": true,
+  "short_description": "An openly available subset of patients in the MIMIC-IV database.",
+  "publish_date": "2023-01-31",
+  "title": "MIMIC-IV Clinical Database Demo",
+  "abstract": "<p>The Medical Information Mart for Intensive Care (MIMIC)-IV&nbsp;database is comprised&nbsp;of&nbsp;deidentified electronic health records for patients admitted to the Beth Israel Deaconess Medical Center. Access to MIMIC-IV is limited to credentialed users. Here, we have provided an openly-available demo of MIMIC-IV containing&nbsp;a subset of&nbsp;100 patients. The dataset includes similar con</p>",
+  "license": {
+   "name": "Open Data Commons Open Database License v1.0"
+  },
+  "dua": null,
+  "main_storage_size": 16224447,
+  "compressed_storage_size": 16189661,
+  "resource_type": "Database",
+  "access_policy": "Open",
+  "topics": [
+   "critical care",
+   "electronic health record",
+   "mimic"
+  ],
+  "source_url": "https://physionet.org/content/mimic-iv-demo/2.2/"
+ },
+ {
+  "public_project_uuid": "723de0dd-fa21-420b-926a-088b2da33034",
+  "slug": "mimiciii",
+  "version": "1.4",
+  "core_doi": "10.13026/cd7z-wg25",
+  "version_doi": "10.13026/C2XW26",
+  "is_latest_version": true,
+  "short_description": "",
+  "publish_date": "2016-09-04",
+  "title": "MIMIC-III Clinical Database",
+  "abstract": "<p>MIMIC-III is a large, freely-available database comprising deidentified health-related data associated with over forty thousand patients who stayed in critical care units of the Beth Israel Deaconess Medical Center between 2001 and 2012. The database includes information such as demographics, vital sign measurements made at the bedside (~1 data point per hour), laboratory test results, procedur</p>",
+  "license": {
+   "name": "PhysioNet Credentialed Health Data License 1.5.0"
+  },
+  "dua": {
+   "name": "PhysioNet Credentialed Health Data Use Agreement 1.5.0"
+  },
+  "main_storage_size": 6620705643,
+  "compressed_storage_size": 6620711553,
+  "resource_type": "Database",
+  "access_policy": "Credentialed",
+  "topics": [
+   "clinical",
+   "critical care",
+   "natural language processing",
+   "intensive care",
+   "machine learning"
+  ],
+  "source_url": "https://physionet.org/content/mimiciii/1.4/"
+ },
+ {
+  "public_project_uuid": "852ebcdb-5d8c-4ed0-92b9-d1ccc175e492",
+  "slug": "mimicdb",
+  "version": "1.0.0",
+  "core_doi": null,
+  "version_doi": "10.13026/C2JS34",
+  "is_latest_version": true,
+  "short_description": "",
+  "publish_date": "2000-03-15",
+  "title": "MIMIC Database",
+  "abstract": "<p>The MIMIC Database includes data recorded from over 90 ICU patients. The data in each case include signals and periodic measurements obtained from a bedside monitor as well as clinical data obtained from the patient&#39;s medical record. The recordings vary in length; almost all of them are at least 20 hours, and many are 40 hours or more. In all, the database contains nearly 200 patient-days o</p>",
+  "license": {
+   "name": "Open Data Commons Attribution License v1.0"
+  },
+  "dua": null,
+  "main_storage_size": 25193606994,
+  "compressed_storage_size": 25203405584,
+  "resource_type": "Database",
+  "access_policy": "Open",
+  "topics": [
+   "health record",
+   "icu",
+   "ehr",
+   "critical care",
+   "mimic"
+  ],
+  "source_url": "https://physionet.org/content/mimicdb/1.0.0/"
+ }
+]

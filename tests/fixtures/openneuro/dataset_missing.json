@@ -1,0 +1,24 @@
+{
+ "errors": [
+  {
+   "message": "Dataset ds999999 does not exist.",
+   "locations": [
+    {
+     "line": 1,
+     "column": 19
+    }
+   ],
+   "path": [
+    "dataset"
+   ]
+  }
+ ],
+ "data": {
+  "dataset": null
+ },
+ "extensions": {
+  "openneuro": {
+   "version": "5.9.0"
+  }
+ }
+}

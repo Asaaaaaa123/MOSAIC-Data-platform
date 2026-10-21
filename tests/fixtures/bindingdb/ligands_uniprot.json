@@ -1,0 +1,69 @@
+{
+ "getLindsByUniprotsResponse": {
+  "affinities": [
+   {
+    "query": "Epidermal growth factor receptor",
+    "monomerid": "717507",
+    "smile": "Cc1cc2cc(n1)-c1cnn(C)c1OCCC[C@@H](C1CC1)CN1/C(=N/C2=O)Nc2cc(NCCCN(C)C)ccc21",
+    "affinity_type": "IC50",
+    "affinity": "0.010",
+    "pmid": "",
+    "doi": "10.7270/Q2S46XH9"
+   },
+   {
+    "query": "Epidermal growth factor receptor",
+    "monomerid": "717507",
+    "smile": "Cc1cc2cc(n1)-c1cnn(C)c1OCCC[C@@H](C1CC1)CN1/C(=N/C2=O)Nc2cc(NCCCN(C)C)ccc21",
+    "affinity_type": "IC50",
+    "affinity": "0.007",
+    "pmid": "",
+    "doi": "10.7270/Q2S46XH9"
+   },
+   {
+    "query": "Epidermal growth factor receptor",
+    "monomerid": "717507",
+    "smile": "Cc1cc2cc(n1)-c1cnn(C)c1OCCC[C@@H](C1CC1)CN1/C(=N/C2=O)Nc2cc(NCCCN(C)C)ccc21",
+    "affinity_type": "IC50",
+    "affinity": "0.008",
+    "pmid": "",
+    "doi": "10.7270/Q2S46XH9"
+   },
+   {
+    "query": "Epidermal growth factor receptor",
+    "monomerid": "3032",
+    "smile": "COc1cc2ncnc(Nc3cccc(Br)c3)c2cc1OC",
+    "affinity_type": "Ki",
+    "affinity": "0.006",
+    "pmid": "18077363",
+    "doi": "10.1073/pnas.0708800104"
+   },
+   {
+    "query": "Epidermal growth factor receptor",
+    "monomerid": "717526",
+    "smile": "Cc1cc2cc(n1)-c1cnn(C)c1OCCC[C@@H](C1CC1)CN1/C(=N/C2=O)Nc2ccc(NC(C)CN(C)C)cc21",
+    "affinity_type": "IC50",
+    "affinity": "0.009",
+    "pmid": "",
+    "doi": "10.7270/Q2S46XH9"
+   },
+   {
+    "query": "Epidermal growth factor receptor",
+    "monomerid": "717530",
+    "smile": "Cc1cc2cc(n1)-c1cnn(C)c1OCCC[C@@H](C1CC1)CN1/C(=N/C2=O)Nc2cc(NC3CCC3)ccc21",
+    "affinity_type": "IC50",
+    "affinity": "0.007",
+    "pmid": "",
+    "doi": "10.7270/Q2S46XH9"
+   },
+   {
+    "query": "Epidermal growth factor receptor",
+    "monomerid": "717537",
+    "smile": "Cc1cc2cc(n1)-c1cnn(C)c1OCCC[C@@H](C1CC1)CN1/C(=N/C2=O)Nc2cc(NC3(C)COC3)ccc21",
+    "affinity_type": "IC50",
+    "affinity": "0.010",
+    "pmid": "",
+    "doi": "10.7270/Q2S46XH9"
+   }
+  ]
+ }
+}

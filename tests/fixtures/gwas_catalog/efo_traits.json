@@ -1,0 +1,37 @@
+{
+ "_embedded": {
+  "efo_traits": [
+   {
+    "efo_trait": "T2-high asthma",
+    "uri": "http://purl.obolibrary.org/obo/MONDO_0956975",
+    "efo_id": "MONDO_0956975"
+   },
+   {
+    "efo_trait": "age of onset of childhood onset asthma",
+    "uri": "http://purl.obolibrary.org/obo/OBA_2001015",
+    "efo_id": "OBA_2001015"
+   },
+   {
+    "efo_trait": "age of onset of asthma",
+    "uri": "http://purl.obolibrary.org/obo/OBA_2001001",
+    "efo_id": "OBA_2001001"
+   },
+   {
+    "efo_trait": "allergic asthma",
+    "uri": "http://purl.obolibrary.org/obo/MONDO_0004784",
+    "efo_id": "MONDO_0004784"
+   },
+   {
+    "efo_trait": "status asthmaticus",
+    "uri": "http://purl.obolibrary.org/obo/MONDO_0004766",
+    "efo_id": "MONDO_0004766"
+   }
+  ]
+ },
+ "page": {
+  "size": 200,
+  "totalElements": 5,
+  "totalPages": 1,
+  "number": 0
+ }
+}

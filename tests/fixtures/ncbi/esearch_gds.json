@@ -1,0 +1,41 @@
+{
+ "esearchresult": {
+  "count": "2759",
+  "retmax": "2",
+  "retstart": "0",
+  "idlist": [
+   "200121810",
+   "200045209"
+  ],
+  "translationset": [
+   {
+    "from": "glioblastoma",
+    "to": "\"glioblastoma\"[MeSH Terms] OR glioblastoma[All Fields]"
+   }
+  ],
+  "translationstack": [
+   {
+    "term": "\"glioblastoma\"[MeSH Terms]",
+    "field": "MeSH Terms",
+    "count": "43395",
+    "explode": "Y"
+   },
+   {
+    "term": "glioblastoma[All Fields]",
+    "field": "All Fields",
+    "count": "47102",
+    "explode": "N"
+   },
+   "OR",
+   "GROUP",
+   {
+    "term": "gse[etyp]",
+    "field": "etyp",
+    "count": "298830",
+    "explode": "N"
+   },
+   "AND"
+  ],
+  "querytranslation": "(\"glioblastoma\"[MeSH Terms] OR glioblastoma[All Fields]) AND gse[etyp]"
+ }
+}

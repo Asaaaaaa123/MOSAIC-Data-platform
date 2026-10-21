@@ -1,0 +1,45 @@
+{
+ "page": [
+  {
+   "name": "1.IndividualStudies",
+   "id": "syn5550376",
+   "type": "org.sagebionetworks.repo.model.Folder",
+   "versionNumber": 1,
+   "versionLabel": "1",
+   "isLatestVersion": true,
+   "benefactorId": 2580853,
+   "createdOn": "2015-12-11T19:52:14.450Z",
+   "modifiedOn": "2026-02-24T22:44:07.224Z",
+   "createdBy": "3327871",
+   "modifiedBy": "3446625"
+  },
+  {
+   "name": "2.ConsortiumStudies",
+   "id": "syn5550378",
+   "type": "org.sagebionetworks.repo.model.Folder",
+   "versionNumber": 1,
+   "versionLabel": "1",
+   "isLatestVersion": true,
+   "benefactorId": 2580853,
+   "createdOn": "2015-12-11T19:54:08.206Z",
+   "modifiedOn": "2026-02-24T23:08:37.883Z",
+   "createdBy": "3327871",
+   "modifiedBy": "3446625"
+  },
+  {
+   "name": "2026 TREM2.HSSvsR47H manuscript",
+   "id": "syn75111577",
+   "type": "org.sagebionetworks.repo.model.table.Dataset",
+   "versionNumber": 1,
+   "versionLabel": "1",
+   "isLatestVersion": true,
+   "benefactorId": 75111577,
+   "createdOn": "2026-05-20T14:59:39.013Z",
+   "modifiedOn": "2026-05-28T18:49:22.965Z",
+   "createdBy": "3561975",
+   "modifiedBy": "3462600"
+  }
+ ],
+ "nextPageToken": "50a50",
+ "totalChildCount": 148
+}

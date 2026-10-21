@@ -1,0 +1,529 @@
+[
+ [
+  [
+   [
+    "struct_id"
+   ],
+   [
+    {
+     "struct_id": 1423
+    }
+   ]
+  ]
+ ],
+ [
+  [
+   [
+    "id",
+    "name",
+    "cas_reg_no",
+    "inchikey",
+    "status",
+    "stem",
+    "cd_formula",
+    "cd_molweight",
+    "no_formulations",
+    "mrdef",
+    "fda_approval",
+    "approved",
+    "xrefs",
+    "smiles",
+    "clogp",
+    "tpsa",
+    "lipinski",
+    "inchi"
+   ],
+   [
+    {
+     "id": 1423,
+     "name": "imatinib",
+     "cas_reg_no": "152459-95-5",
+     "inchikey": "KTUFNOKKBVMGRW-UHFFFAOYSA-N",
+     "status": "OFP",
+     "stem": "-tinib",
+     "cd_formula": "C29H31N7O",
+     "cd_molweight": 493.615,
+     "no_formulations": 43,
+     "mrdef": "A tyrosine kinase inhibitor and ANTINEOPLASTIC AGENT that inhibits the BCR-ABL kinase created by chromosome rearrangements in CHRONIC MYELOID LEUKEMIA and ACUTE LYMPHOBLASTIC LEUKEMIA, as well as PDG-derived tyrosine kinases that are overexpressed in gastrointestinal stromal tumors.",
+     "fda_approval": "2001-05-10",
+     "approved": true,
+     "xrefs": {
+      "NUI": [
+       "N0000148698"
+      ],
+      "MMSL": [
+       "16030",
+       "238904",
+       "41395",
+       "d04758"
+      ],
+      "NDDF": [
+       "009151",
+       "009152"
+      ],
+      "UNII": [
+       "BKJ8M8G5HI"
+      ],
+      "VUID": [
+       "4021257"
+      ],
+      "CHEBI": [
+       "CHEBI:45783"
+      ],
+      "VANDF": [
+       "4021257",
+       "4021258"
+      ],
+      "INN_ID": [
+       "8031"
+      ],
+      "RXNORM": [
+       "282386"
+      ],
+      "UMLSCUI": [
+       "C0939537"
+      ],
+      "ChEMBL_ID": [
+       "CHEMBL1642",
+       "CHEMBL941"
+      ],
+      "KEGG_DRUG": [
+       "D01441"
+      ],
+      "DRUGBANK_ID": [
+       "DB00619"
+      ],
+      "PDB_CHEM_ID": [
+       " STI"
+      ],
+      "PUBCHEM_CID": [
+       "5291"
+      ],
+      "SNOMEDCT_US": [
+       "129558005",
+       "391634008",
+       "414460008"
+      ],
+      "INXIGHT DRUGS": [
+       "BKJ8M8G5HI"
+      ],
+      "IUPHAR_LIGAND_ID": [
+       "5687"
+      ],
+      "SECONDARY_CAS_RN": [
+       "220127-57-1"
+      ],
+      "MESH_DESCRIPTOR_UI": [
+       "D000068877"
+      ]
+     },
+     "smiles": "CN1CCN(CC2=CC=C(C=C2)C(=O)NC2=CC=C(C)C(NC3=NC=CC(=N3)C3=CN=CC=C3)=C2)CC1",
+     "clogp": 4.38,
+     "tpsa": 86.28,
+     "lipinski": 0
+    }
+   ]
+  ],
+  [
+   [
+    "struct_id",
+    "name"
+   ],
+   [
+    {
+     "struct_id": 1423,
+     "name": "imatinib"
+    },
+    {
+     "struct_id": 1423,
+     "name": "CGP-57148"
+    },
+    {
+     "struct_id": 1423,
+     "name": "CGP57148"
+    },
+    {
+     "struct_id": 1423,
+     "name": "CGP-57-148B"
+    },
+    {
+     "struct_id": 1423,
+     "name": "CGP57148B"
+    },
+    {
+     "struct_id": 1423,
+     "name": "gleevec"
+    },
+    {
+     "struct_id": 1423,
+     "name": "imatinib mesilate"
+    },
+    {
+     "struct_id": 1423,
+     "name": "imatinib mesylate"
+    },
+    {
+     "struct_id": 1423,
+     "name": "STI-571"
+    },
+    {
+     "struct_id": 1423,
+     "name": "STI571"
+    }
+   ]
+  ],
+  [
+   [
+    "struct_id",
+    "approval",
+    "type",
+    "applicant",
+    "orphan"
+   ],
+   [
+    {
+     "struct_id": 1423,
+     "approval": "2001-05-10",
+     "type": "FDA",
+     "applicant": "NOVARTIS",
+     "orphan": true
+    },
+    {
+     "struct_id": 1423,
+     "approval": "2001-11-07",
+     "type": "EMA",
+     "applicant": "Novartis Europharm Limited",
+     "orphan": null
+    }
+   ]
+  ],
+  [
+   [
+    "struct_id",
+    "code",
+    "l1_name",
+    "l2_name",
+    "l3_name",
+    "l4_name"
+   ],
+   [
+    {
+     "struct_id": 1423,
+     "code": "L01EA01",
+     "l1_name": "ANTINEOPLASTIC AND IMMUNOMODULATING AGENTS",
+     "l2_name": "ANTINEOPLASTIC AGENTS",
+     "l3_name": "PROTEIN KINASE INHIBITORS",
+     "l4_name": "BCR-ABL tyrosine kinase inhibitors"
+    }
+   ]
+  ],
+  [
+   [
+    "struct_id",
+    "relationship_name",
+    "concept_name",
+    "umls_cui",
+    "snomed_conceptid",
+    "doid"
+   ],
+   [
+    {
+     "struct_id": 1423,
+     "relationship_name": "contraindication",
+     "concept_name": "Anemia",
+     "umls_cui": "C0002871",
+     "snomed_conceptid": 271737000,
+     "doid": "DOID:2355"
+    },
+    {
+     "struct_id": 1423,
+     "relationship_name": "contraindication",
+     "concept_name": "Ascites",
+     "umls_cui": "C0003962",
+     "snomed_conceptid": 389026000,
+     "doid": null
+    },
+    {
+     "struct_id": 1423,
+     "relationship_name": "contraindication",
+     "concept_name": "Bleeding",
+     "umls_cui": "C0019080",
+     "snomed_conceptid": 131148009,
+     "doid": null
+    },
+    {
+     "struct_id": 1423,
+     "relationship_name": "contraindication",
+     "concept_name": "Body fluid retention",
+     "umls_cui": "C0268000",
+     "snomed_conceptid": 43498006,
+     "doid": null
+    },
+    {
+     "struct_id": 1423,
+     "relationship_name": "contraindication",
+     "concept_name": "Breastfeeding (mother)",
+     "umls_cui": "C1623040",
+     "snomed_conceptid": 413712001,
+     "doid": null
+    },
+    {
+     "struct_id": 1423,
+     "relationship_name": "contraindication",
+     "concept_name": "Cardiogenic shock",
+     "umls_cui": "C0036980",
+     "snomed_conceptid": 89138009,
+     "doid": null
+    },
+    {
+     "struct_id": 1423,
+     "relationship_name": "indication",
+     "concept_name": "Blastic phase chronic myeloid leukemia",
+     "umls_cui": "C0005699",
+     "snomed_conceptid": 413656006,
+     "doid": null
+    },
+    {
+     "struct_id": 1423,
+     "relationship_name": "indication",
+     "concept_name": "Chronic eosinophilic leukemia",
+     "umls_cui": "C0346421",
+     "snomed_conceptid": 413836008,
+     "doid": null
+    },
+    {
+     "struct_id": 1423,
+     "relationship_name": "indication",
+     "concept_name": "Chronic Myelocytic Leukemia Accelerated Phase",
+     "umls_cui": null,
+     "snomed_conceptid": null,
+     "doid": null
+    },
+    {
+     "struct_id": 1423,
+     "relationship_name": "indication",
+     "concept_name": "Chronic phase chronic myeloid leukemia",
+     "umls_cui": "C0023474",
+     "snomed_conceptid": 413847001,
+     "doid": null
+    },
+    {
+     "struct_id": 1423,
+     "relationship_name": "indication",
+     "concept_name": "Dermatofibrosarcoma protuberans",
+     "umls_cui": "C0392784",
+     "snomed_conceptid": 276799004,
+     "doid": null
+    },
+    {
+     "struct_id": 1423,
+     "relationship_name": "indication",
+     "concept_name": "Gastrointestinal stromal tumor",
+     "umls_cui": "C0238198",
+     "snomed_conceptid": 420120006,
+     "doid": "DOID:9253"
+    }
+   ]
+  ],
+  [
+   [
+    "struct_id",
+    "target_name",
+    "gene",
+    "accession",
+    "action_type",
+    "act_type",
+    "act_value",
+    "moa_source",
+    "target_class",
+    "tdl"
+   ],
+   [
+    {
+     "struct_id": 1423,
+     "target_name": "Tyrosine-protein kinase ABL1",
+     "gene": "ABL1",
+     "accession": "P00519",
+     "action_type": "INHIBITOR",
+     "act_type": "Kd",
+     "act_value": 8.96,
+     "moa_source": "CHEMBL",
+     "target_class": "Kinase",
+     "tdl": "Tclin"
+    },
+    {
+     "struct_id": 1423,
+     "target_name": "Mast/stem cell growth factor receptor Kit",
+     "gene": "KIT",
+     "accession": "P10721",
+     "action_type": "INHIBITOR",
+     "act_type": "Kd",
+     "act_value": 7.89,
+     "moa_source": "CHEMBL",
+     "target_class": "Kinase",
+     "tdl": "Tclin"
+    },
+    {
+     "struct_id": 1423,
+     "target_name": "Platelet-derived growth factor receptor beta",
+     "gene": "PDGFRB",
+     "accession": "P09619",
+     "action_type": "INHIBITOR",
+     "act_type": "Kd",
+     "act_value": 7.85,
+     "moa_source": "CHEMBL",
+     "target_class": "Kinase",
+     "tdl": "Tclin"
+    }
+   ]
+  ],
+  [
+   [
+    "struct_id",
+    "type",
+    "name",
+    "class_code",
+    "source"
+   ],
+   [
+    {
+     "struct_id": 1423,
+     "type": "EPC",
+     "name": "Kinase Inhibitor",
+     "class_code": "N0000175605",
+     "source": "FDA"
+    },
+    {
+     "struct_id": 1423,
+     "type": "MoA",
+     "name": "Bcr-Abl Tyrosine Kinase Inhibitors",
+     "class_code": "N0000020009",
+     "source": "FDA"
+    },
+    {
+     "struct_id": 1423,
+     "type": "MoA",
+     "name": "Cytochrome P450 2D6 Inhibitors",
+     "class_code": "N0000182137",
+     "source": "FDA"
+    },
+    {
+     "struct_id": 1423,
+     "type": "MoA",
+     "name": "Cytochrome P450 3A4 Inhibitors",
+     "class_code": "N0000182141",
+     "source": "FDA"
+    },
+    {
+     "struct_id": 1423,
+     "type": "PA",
+     "name": "Antineoplastic Agents",
+     "class_code": "D000970",
+     "source": "MeSH"
+    },
+    {
+     "struct_id": 1423,
+     "type": "PA",
+     "name": "Enzyme Inhibitors",
+     "class_code": "D004791",
+     "source": "MeSH"
+    },
+    {
+     "struct_id": 1423,
+     "type": "PA",
+     "name": "Protein Kinase Inhibitors",
+     "class_code": "D047428",
+     "source": "MeSH"
+    },
+    {
+     "struct_id": 1423,
+     "type": "PA",
+     "name": "Tyrosine Kinase Inhibitors",
+     "class_code": "D000092004",
+     "source": "MeSH"
+    }
+   ]
+  ],
+  [
+   [
+    "struct_id",
+    "meddra_name",
+    "llr"
+   ],
+   [
+    {
+     "struct_id": 1423,
+     "meddra_name": "Death",
+     "llr": 5981.245
+    },
+    {
+     "struct_id": 1423,
+     "meddra_name": "Drug resistance",
+     "llr": 2445.221
+    },
+    {
+     "struct_id": 1423,
+     "meddra_name": "Blast crisis in myelogenous leukaemia",
+     "llr": 1953.464
+    },
+    {
+     "struct_id": 1423,
+     "meddra_name": "Malignant neoplasm progression",
+     "llr": 1673.365
+    },
+    {
+     "struct_id": 1423,
+     "meddra_name": "Cytogenetic analysis abnormal",
+     "llr": 1544.822
+    },
+    {
+     "struct_id": 1423,
+     "meddra_name": "Second primary malignancy",
+     "llr": 1450.622
+    },
+    {
+     "struct_id": 1423,
+     "meddra_name": "Philadelphia chromosome positive",
+     "llr": 1118.848
+    },
+    {
+     "struct_id": 1423,
+     "meddra_name": "Pleural effusion",
+     "llr": 808.77
+    },
+    {
+     "struct_id": 1423,
+     "meddra_name": "Chronic myeloid leukaemia recurrent",
+     "llr": 704.202
+    },
+    {
+     "struct_id": 1423,
+     "meddra_name": "Neoplasm malignant",
+     "llr": 660.249
+    },
+    {
+     "struct_id": 1423,
+     "meddra_name": "Periorbital oedema",
+     "llr": 620.265
+    },
+    {
+     "struct_id": 1423,
+     "meddra_name": "Acute lymphocytic leukaemia recurrent",
+     "llr": 589.985
+    }
+   ]
+  ],
+  [
+   [
+    "struct_id",
+    "n"
+   ],
+   [
+    {
+     "struct_id": 1423,
+     "n": 82
+    }
+   ]
+  ]
+ ]
+]

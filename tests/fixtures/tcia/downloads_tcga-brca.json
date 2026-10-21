@@ -1,0 +1,25 @@
+[
+ {
+  "id": 43735,
+  "download_requirements": "Requires TCIA Data Retriever",
+  "download_size": "88.13",
+  "download_title": "Images",
+  "data_license": "CC BY 3.0",
+  "download_size_unit": "gb",
+  "download_type": "Radiology Images",
+  "download_url": "",
+  "search_url": "https://portal.imaging.datacommons.cancer.gov/explore?shared_cart=TCIA_TCGA-BRCA_09-16-2015",
+  "subjects": "139",
+  "data_type": [
+   "MR",
+   "MG"
+  ],
+  "study_count": "164",
+  "file_type": [
+   "DICOM"
+  ],
+  "series_count": "1877",
+  "image_count": "230167",
+  "download_access": "Public"
+ }
+]

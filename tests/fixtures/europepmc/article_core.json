@@ -1,0 +1,359 @@
+{
+ "version": "6.9",
+ "hitCount": 1,
+ "request": {
+  "queryString": "EXT_ID:30742122 AND SRC:MED",
+  "internalQuery": "EXT_ID:30742122 AND SRC:MED",
+  "resultType": "CORE",
+  "cursorMark": "*",
+  "pageSize": 5,
+  "sort": "",
+  "synonym": false
+ },
+ "resultList": {
+  "result": [
+   {
+    "id": "30742122",
+    "source": "MED",
+    "pmid": "30742122",
+    "pmcid": "PMC6408961",
+    "fullTextIdList": {
+     "fullTextId": [
+      "PMC6408961"
+     ]
+    },
+    "doi": "10.1038/s41591-018-0337-7",
+    "title": "Neoadjuvant anti-PD-1 immunotherapy promotes a survival benefit with intratumoral and systemic immune responses in recurrent glioblastoma.",
+    "authorString": "Cloughesy TF, Mochizuki AY, Orpilla JR, Hugo W, Lee AH, Davidson TB, Wang AC, Ellingson BM, Rytlewski JA, Sanders CM, Kawaguchi ES, Du L, Li G, Yong WH, Gaffey SC, Cohen AL, Mellinghoff IK, Lee EQ, Reardon DA, O'Brien BJ, Butowski NA, Nghiemphu PL, Clarke JL, Arrillaga-Romany IC, Colman H, Kaley TJ, de Groot JF, Liau LM, Wen PY, Prins RM.",
+    "authorList": {
+     "author": [
+      {
+       "fullName": "Cloughesy TF",
+       "lastName": "Cloughesy",
+       "firstName": "Timothy F",
+       "initials": "TF",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0000-0002-8656-7483"
+       }
+      },
+      {
+       "fullName": "Mochizuki AY",
+       "lastName": "Mochizuki",
+       "firstName": "Aaron Y",
+       "initials": "AY",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0000-0003-1073-916X"
+       }
+      },
+      {
+       "fullName": "Orpilla JR",
+       "lastName": "Orpilla",
+       "firstName": "Joey R",
+       "initials": "JR",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0000-0002-6679-9463"
+       }
+      },
+      {
+       "fullName": "Hugo W",
+       "lastName": "Hugo",
+       "firstName": "Willy",
+       "initials": "W",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0000-0002-1426-7190"
+       }
+      },
+      {
+       "fullName": "Lee AH",
+       "lastName": "Lee",
+       "firstName": "Alexander H",
+       "initials": "AH",
+       "authorId": {
+        "type": "ORCID",
+        "value": "0000-0002-4583-0740"
+       }
+      }
+     ]
+    },
+    "dataLinksTagsList": {
+     "dataLinkstag": [
+      "altmetrics",
+      "supporting_data",
+      "related_data"
+     ]
+    },
+    "journalInfo": {
+     "issue": "3",
+     "volume": "25",
+     "journalIssueId": 2791944,
+     "dateOfPublication": "2019 Mar",
+     "monthOfPublication": 3,
+     "yearOfPublication": 2019,
+     "journal": {
+      "medlineAbbreviation": "Nat Med",
+      "title": "Nature medicine",
+      "essn": "1546-170X",
+      "issn": "1078-8956",
+      "nlmid": "9502015",
+      "isoabbreviation": "Nat Med"
+     },
+     "printPublicationDate": "2019-03-01"
+    },
+    "pubYear": "2019",
+    "pageInfo": "477-486",
+    "abstractText": "Glioblastoma is the most common primary malignant brain tumor in adults and is associated with poor survival. The Ivy Foundation Early Phase Clinical Trials Consortium conducted a randomized, multi-institution clinical trial to evaluate immune responses and survival following neoadjuvant and/or adjuvant therapy with pembrolizumab in 35 patients with recurrent, surgically resectable glioblastoma. Patients who were randomized to receive neoadjuvant pembrolizumab, with continued adjuvant therapy following surgery, had significantly extended overall survival compared to patients that were randomiz",
+    "publicationStatus": "ppublish",
+    "language": "eng",
+    "pubModel": "Print-Electronic",
+    "pubTypeList": {
+     "pubType": [
+      "Research Support, Non-U.S. Gov't",
+      "research-article",
+      "Randomized Controlled Trial",
+      "Journal Article",
+      "Research Support, N.I.H., Extramural"
+     ]
+    },
+    "grantsList": {
+     "grant": [
+      {
+       "agency": "NCI NIH HHS",
+       "acronym": "CA",
+       "grantId": "P50 CA211015",
+       "orderIn": 0
+      },
+      {
+       "agency": "NCI NIH HHS",
+       "acronym": "CA",
+       "grantId": "R21 CA186004",
+       "orderIn": 0
+      },
+      {
+       "agency": "NCATS NIH HHS",
+       "acronym": "TR",
+       "grantId": "UL1 TR000371",
+       "orderIn": 0
+      },
+      {
+       "agency": "NCI NIH HHS",
+       "acronym": "CA",
+       "grantId": "P30 CA016672",
+       "orderIn": 0
+      },
+      {
+       "agency": "NCI NIH HHS",
+       "acronym": "CA",
+       "grantId": "P30 CA008748",
+       "orderIn": 0
+      },
+      {
+       "agency": "NCI NIH HHS",
+       "acronym": "CA",
+       "grantId": "T32 CA009120",
+       "orderIn": 0
+      }
+     ]
+    },
+    "meshHeadingList": {
+     "meshHeading": [
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "T-Lymphocytes",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "majorTopic_YN": "N",
+          "abbreviation": "IM",
+          "qualifierName": "immunology"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Humans"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Glioblastoma",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "majorTopic_YN": "Y",
+          "abbreviation": "DT",
+          "qualifierName": "drug therapy"
+         },
+         {
+          "majorTopic_YN": "N",
+          "abbreviation": "IM",
+          "qualifierName": "immunology"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Brain Neoplasms",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "majorTopic_YN": "Y",
+          "abbreviation": "DT",
+          "qualifierName": "drug therapy"
+         },
+         {
+          "majorTopic_YN": "N",
+          "abbreviation": "IM",
+          "qualifierName": "immunology"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Neoplasm Recurrence, Local",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "majorTopic_YN": "Y",
+          "abbreviation": "DT",
+          "qualifierName": "drug therapy"
+         },
+         {
+          "majorTopic_YN": "N",
+          "abbreviation": "IM",
+          "qualifierName": "immunology"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Chemotherapy, Adjuvant"
+      }
+     ]
+    },
+    "chemicalList": {
+     "chemical": [
+      {
+       "name": "Antibodies, Monoclonal, Humanized",
+       "registryNumber": "0"
+      },
+      {
+       "name": "Programmed Cell Death 1 Receptor",
+       "registryNumber": "0"
+      },
+      {
+       "name": "pembrolizumab",
+       "registryNumber": "DPT0O3T46P"
+      },
+      {
+       "name": "Antineoplastic Agents, Immunological",
+       "registryNumber": "0"
+      }
+     ]
+    },
+    "subsetList": {
+     "subset": [
+      {
+       "code": "IM",
+       "name": "Index Medicus"
+      }
+     ]
+    },
+    "fullTextUrlList": {
+     "fullTextUrl": [
+      {
+       "availability": "Free",
+       "availabilityCode": "F",
+       "documentStyle": "html",
+       "site": "Unpaywall",
+       "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6408961"
+      },
+      {
+       "availability": "Subscription required",
+       "availabilityCode": "S",
+       "documentStyle": "doi",
+       "site": "DOI",
+       "url": "https://doi.org/10.1038/s41591-018-0337-7"
+      },
+      {
+       "availability": "Open access",
+       "availabilityCode": "OA",
+       "documentStyle": "html",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC6408961"
+      },
+      {
+       "availability": "Open access",
+       "availabilityCode": "OA",
+       "documentStyle": "pdf",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC6408961?pdf=render"
+      }
+     ]
+    },
+    "commentCorrectionList": {
+     "commentCorrection": [
+      {
+       "source": "MED",
+       "id": "30842671",
+       "reference": "Nat Med. 2019 Mar;25(3):359-361. doi: 10.1038/s41591-019-0385-7",
+       "type": "Comment in",
+       "orderIn": 1
+      },
+      {
+       "source": "MED",
+       "id": "32864354",
+       "reference": "Transl Cancer Res. 2019 Dec;8(Suppl 6):S577-S579. doi: 10.21037/tcr.2019.05.24",
+       "type": "Comment in",
+       "orderIn": 2
+      }
+     ]
+    },
+    "isOpenAccess": "Y",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 1158,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "Y",
+    "dbCrossReferenceList": {
+     "dbName": [
+      "EMBL"
+     ]
+    },
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "Y",
+    "hasLabsLinks": "Y",
+    "hasData": "Y",
+    "authMan": "Y",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "Y",
+    "manuscriptId": "NIHMS1516903",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+     "accessionType": [
+      "geo",
+      "nct",
+      "doi"
+     ]
+    },
+    "dateOfCompletion": "2019-05-13",
+    "dateOfCreation": "2019-02-12",
+    "dateOfRevision": "2023-11-04",
+    "electronicPublicationDate": "2019-02-11",
+    "firstPublicationDate": "2019-02-11",
+    "firstIndexDate": "2019-02-11",
+    "fullTextReceivedDate": "2025-02-03",
+    "embargoDate": "2019-08-11",
+    "hasEvaluations": "N"
+   }
+  ]
+ }
+}

@@ -1,0 +1,35 @@
+[
+ {
+  "type": "ENUM",
+  "piece": "Phase",
+  "field": "protocolSection.designModule.phases",
+  "missingStudiesCount": 144124,
+  "uniqueValuesCount": 6,
+  "topValues": [
+   {
+    "value": "NA",
+    "studiesCount": 239209
+   },
+   {
+    "value": "PHASE2",
+    "studiesCount": 90633
+   },
+   {
+    "value": "PHASE1",
+    "studiesCount": 66020
+   },
+   {
+    "value": "PHASE3",
+    "studiesCount": 50057
+   },
+   {
+    "value": "PHASE4",
+    "studiesCount": 35968
+   },
+   {
+    "value": "EARLY_PHASE1",
+    "studiesCount": 6510
+   }
+  ]
+ }
+]

@@ -1,0 +1,98 @@
+{
+ "serial-metadata-response": {
+  "entry": [
+   {
+    "@_fa": "true",
+    "dc:title": "Lancet Primary Care",
+    "dc:publisher": "Elsevier Ltd",
+    "coverageStartYear": "2025",
+    "coverageEndYear": "2026",
+    "prism:aggregationType": "journal",
+    "source-id": "21101491542",
+    "prism:eIssn": "3050-5143",
+    "openaccess": "1",
+    "openaccessArticle": true,
+    "openArchiveArticle": null,
+    "openaccessType": null,
+    "openaccessStartDate": null,
+    "oaAllowsAuthorPaid": null,
+    "subject-area": [
+     {
+      "@_fa": "true",
+      "@code": "2739",
+      "@abbrev": "MEDI",
+      "$": "Public Health, Environmental and Occupational Health"
+     },
+     {
+      "@_fa": "true",
+      "@code": "2719",
+      "@abbrev": "MEDI",
+      "$": "Health Policy"
+     },
+     {
+      "@_fa": "true",
+      "@code": "2714",
+      "@abbrev": "MEDI",
+      "$": "Family Practice"
+     }
+    ],
+    "citeScoreYearInfoList": {
+     "citeScoreCurrentMetric": null,
+     "citeScoreCurrentMetricYear": null,
+     "citeScoreTracker": "2.7",
+     "citeScoreTrackerYear": "2026"
+    }
+   },
+   {
+    "@_fa": "true",
+    "dc:title": "The Lancet",
+    "dc:publisher": "Elsevier B.V.",
+    "coverageStartYear": "1823",
+    "coverageEndYear": "2026",
+    "prism:aggregationType": "journal",
+    "source-id": "16590",
+    "prism:issn": "0140-6736",
+    "prism:eIssn": "1474-547X",
+    "openaccess": "0",
+    "openaccessArticle": false,
+    "openArchiveArticle": false,
+    "openaccessType": "None",
+    "openaccessStartDate": null,
+    "oaAllowsAuthorPaid": false,
+    "subject-area": [
+     {
+      "@_fa": "true",
+      "@code": "2700",
+      "@abbrev": "MEDI",
+      "$": "Medicine (all)"
+     }
+    ],
+    "SNIPList": {
+     "SNIP": [
+      {
+       "@_fa": "true",
+       "@year": "2025",
+       "$": "27.703"
+      }
+     ]
+    },
+    "SJRList": {
+     "SJR": [
+      {
+       "@_fa": "true",
+       "@year": "2025",
+       "$": "14.821"
+      }
+     ]
+    },
+    "citeScoreYearInfoList": {
+     "citeScoreCurrentMetric": "92.4",
+     "citeScoreCurrentMetricYear": "2025",
+     "citeScoreTracker": "95.6",
+     "citeScoreTrackerYear": "2026"
+    },
+    "prism:url": "https://api.elsevier.com/content/serial/title/issn/0140-6736"
+   }
+  ]
+ }
+}

@@ -1,0 +1,45 @@
+{
+ "drug_indications": [
+  {
+   "drugind_id": 117424,
+   "efo_id": "MONDO:0000873",
+   "efo_term": "lymphoblastic lymphoma",
+   "indication_refs": [
+    {
+     "ref_id": "NCT03023046",
+     "ref_type": "ClinicalTrials",
+     "ref_url": "https://clinicaltrials.gov/search?term=NCT03023046"
+    }
+   ],
+   "max_phase_for_ind": "4.0",
+   "mesh_heading": "Precursor Cell Lymphoblastic Leukemia-Lymphoma",
+   "mesh_id": "D054198",
+   "molecule_chembl_id": "CHEMBL1642",
+   "parent_molecule_chembl_id": "CHEMBL941"
+  },
+  {
+   "drugind_id": 150494,
+   "efo_id": "EFO:1000131",
+   "efo_term": "Blast Phase Chronic Myelogenous Leukemia, BCR-ABL1 Positive",
+   "indication_refs": [
+    {
+     "ref_id": "EMEA/H/C/000406",
+     "ref_type": "EMA",
+     "ref_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/glivec"
+    }
+   ],
+   "max_phase_for_ind": "4.0",
+   "mesh_heading": "Leukemia, Myelogenous, Chronic, BCR-ABL Positive",
+   "mesh_id": "D015464",
+   "molecule_chembl_id": "CHEMBL1642",
+   "parent_molecule_chembl_id": "CHEMBL941"
+  }
+ ],
+ "page_meta": {
+  "limit": 2,
+  "next": "/chembl/api/data/drug_indication.json?limit=2&offset=2&parent_molecule_chembl_id=CHEMBL941&order_by=-max_phase_for_ind",
+  "offset": 0,
+  "previous": null,
+  "total_count": 134
+ }
+}

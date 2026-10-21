@@ -1,0 +1,58 @@
+[
+ {
+  "slug": "mimiciv",
+  "title": "MIMIC-IV",
+  "version": "0.3",
+  "abstract": "<p>Retrospectively collected medical data has the opportunity to improve patient care through knowledge discovery and algorithm development. Broad reuse of medical data is desirable for the greatest public good, but data sharing must be done in a manner which protects patient privacy. The Medical In</p>",
+  "citation": "Johnson A, Bulgarelli L, Pollard T, Horng S, Celi L A, Mark R. MIMIC-IV (version 0.3). PhysioNet. 2020. RRID:SCR_007345. Available from: https://doi.org/10.13026/a2mm-bn44"
+ },
+ {
+  "slug": "mimiciv",
+  "title": "MIMIC-IV",
+  "version": "0.4",
+  "abstract": "<p>Retrospectively collected medical data has the opportunity to improve patient care through knowledge discovery and algorithm development. Broad reuse of medical data is desirable for the greatest public good, but data sharing must be done in a manner which protects patient privacy. The Medical In</p>",
+  "citation": "Johnson A, Bulgarelli L, Pollard T, Horng S, Celi L A, Mark R. MIMIC-IV (version 0.4). PhysioNet. 2020. RRID:SCR_007345. Available from: https://doi.org/10.13026/a3wn-hq05"
+ },
+ {
+  "slug": "mimiciv",
+  "title": "MIMIC-IV",
+  "version": "1.0",
+  "abstract": "<p>Retrospectively collected medical data has the opportunity to improve patient care through knowledge discovery and algorithm development. Broad reuse of medical data is desirable for the greatest public good, but data sharing must be done in a manner which protects patient privacy. The Medical In</p>",
+  "citation": "Johnson A, Bulgarelli L, Pollard T, Horng S, Celi L A, Mark R. MIMIC-IV (version 1.0). PhysioNet. 2021. RRID:SCR_007345. Available from: https://doi.org/10.13026/s6n6-xd98"
+ },
+ {
+  "slug": "mimiciv",
+  "title": "MIMIC-IV",
+  "version": "2.0",
+  "abstract": "<p>Retrospectively collected medical data has the opportunity to improve patient care through knowledge discovery and algorithm development. Broad reuse of medical data is desirable for the greatest public good, but data sharing must be done in a manner which protects patient privacy. The Medical In</p>",
+  "citation": "Johnson A, Bulgarelli L, Pollard T, Horng S, Celi L A, Mark R. MIMIC-IV (version 2.0). PhysioNet. 2022. RRID:SCR_007345. Available from: https://doi.org/10.13026/7vcr-e114"
+ },
+ {
+  "slug": "mimiciv",
+  "title": "MIMIC-IV",
+  "version": "2.1",
+  "abstract": "<p>Retrospectively collected medical data has the opportunity to improve patient care through knowledge discovery and algorithm development. Broad reuse of medical data is desirable for the greatest public good, but data sharing must be done in a manner which protects patient privacy. The Medical In</p>",
+  "citation": "Johnson A, Bulgarelli L, Pollard T, Horng S, Celi L A, Mark R. MIMIC-IV (version 2.1). PhysioNet. 2022. RRID:SCR_007345. Available from: https://doi.org/10.13026/rrgf-xw32"
+ },
+ {
+  "slug": "mimiciv",
+  "title": "MIMIC-IV",
+  "version": "2.2",
+  "abstract": "<p>Retrospectively collected medical data has the opportunity to improve patient care through knowledge discovery and algorithm development. Broad reuse of medical data is desirable for the greatest public good, but data sharing must be done in a manner which protects patient privacy. The Medical In</p>",
+  "citation": "Johnson A, Bulgarelli L, Pollard T, Horng S, Celi L A, Mark R. MIMIC-IV (version 2.2). PhysioNet. 2023. RRID:SCR_007345. Available from: https://doi.org/10.13026/6mm1-ek67"
+ },
+ {
+  "slug": "mimiciv",
+  "title": "MIMIC-IV",
+  "version": "3.0",
+  "abstract": "<p>Retrospectively collected medical data has the opportunity to improve patient care through knowledge discovery and algorithm development. Broad reuse of medical data is desirable for the greatest public good, but data sharing must be done in a manner which protects patient privacy. Here we presen</p>",
+  "citation": "Johnson A, Bulgarelli L, Pollard T, Gow B, Moody B, Horng S, Celi L A, Mark R. MIMIC-IV (version 3.0). PhysioNet. 2024. RRID:SCR_007345. Available from: https://doi.org/10.13026/hxp0-hg59"
+ },
+ {
+  "slug": "mimiciv",
+  "title": "MIMIC-IV",
+  "version": "3.1",
+  "abstract": "<p>Retrospectively collected medical data has the opportunity to improve patient care through knowledge discovery and algorithm development. Broad reuse of medical data is desirable for the greatest public good, but data sharing must be done in a manner which protects patient privacy. Here we presen</p>",
+  "citation": "Johnson A, Bulgarelli L, Pollard T, Gow B, Moody B, Horng S, Celi L A, Mark R. MIMIC-IV (version 3.1). PhysioNet. 2024. RRID:SCR_007345. Available from: https://doi.org/10.13026/kpb9-mt58"
+ }
+]

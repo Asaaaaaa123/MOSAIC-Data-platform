@@ -1,0 +1,19 @@
+{
+ "responseHeader": {
+  "status": 0,
+  "QTime": 1
+ },
+ "response": {
+  "numFound": 1,
+  "start": 0,
+  "maxScore": 4.706407,
+  "numFoundExact": true,
+  "docs": [
+   {
+    "symbol": "EGFR",
+    "hgnc_id": "HGNC:3236",
+    "score": 4.706407
+   }
+  ]
+ }
+}

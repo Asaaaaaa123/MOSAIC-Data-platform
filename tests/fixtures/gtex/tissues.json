@@ -1,0 +1,250 @@
+{
+ "data": [
+  {
+   "tissueSiteDetailId": "Brain_Cerebellum",
+   "colorHex": "EEEE00",
+   "colorRgb": "238,238,0",
+   "datasetId": "gtex_v10",
+   "eGeneCount": 14182,
+   "expressedGeneCount": 26696,
+   "hasEGenes": true,
+   "hasSGenes": true,
+   "mappedInHubmap": false,
+   "eqtlSampleSummary": {
+    "totalCount": 264,
+    "female": {
+     "ageMax": 70,
+     "ageMin": 24,
+     "ageMean": 58.0,
+     "count": 71
+    },
+    "male": {
+     "ageMax": 70,
+     "ageMin": 20,
+     "ageMean": 57.8,
+     "count": 193
+    }
+   },
+   "rnaSeqSampleSummary": {
+    "totalCount": 266,
+    "female": {
+     "ageMax": 70,
+     "ageMin": 24,
+     "ageMean": 58.1,
+     "count": 72
+    },
+    "male": {
+     "ageMax": 70,
+     "ageMin": 20,
+     "ageMean": 57.9,
+     "count": 194
+    }
+   },
+   "sGeneCount": 3748,
+   "samplingSite": "Right cerebellum (sampled at donor collection site and preserved in PAXgene fixative).",
+   "tissueSite": "Brain",
+   "tissueSiteDetail": "Brain - Cerebellum",
+   "tissueSiteDetailAbbr": "BRNCHA",
+   "ontologyId": "UBERON:0002037",
+   "ontologyIri": "http://purl.obolibrary.org/obo/UBERON_0002037"
+  },
+  {
+   "tissueSiteDetailId": "Brain_Cortex",
+   "colorHex": "EEEE00",
+   "colorRgb": "238,238,0",
+   "datasetId": "gtex_v10",
+   "eGeneCount": 12746,
+   "expressedGeneCount": 26134,
+   "hasEGenes": true,
+   "hasSGenes": true,
+   "mappedInHubmap": false,
+   "eqtlSampleSummary": {
+    "totalCount": 268,
+    "female": {
+     "ageMax": 70,
+     "ageMin": 24,
+     "ageMean": 57.9,
+     "count": 75
+    },
+    "male": {
+     "ageMax": 70,
+     "ageMin": 20,
+     "ageMean": 58.3,
+     "count": 193
+    }
+   },
+   "rnaSeqSampleSummary": {
+    "totalCount": 270,
+    "female": {
+     "ageMax": 70,
+     "ageMin": 24,
+     "ageMean": 57.9,
+     "count": 75
+    },
+    "male": {
+     "ageMax": 70,
+     "ageMin": 20,
+     "ageMean": 58.4,
+     "count": 195
+    }
+   },
+   "sGeneCount": 3109,
+   "samplingSite": "Right cerebral frontal pole cortex (sampled at donor collection site and preserved in PAXgene fixative).",
+   "tissueSite": "Brain",
+   "tissueSiteDetail": "Brain - Cortex",
+   "tissueSiteDetailAbbr": "BRNCTXA",
+   "ontologyId": "UBERON:0001870",
+   "ontologyIri": "http://purl.obolibrary.org/obo/UBERON_0001870"
+  },
+  {
+   "tissueSiteDetailId": "Liver",
+   "colorHex": "AABB66",
+   "colorRgb": "170,187,102",
+   "datasetId": "gtex_v10",
+   "eGeneCount": 7453,
+   "expressedGeneCount": 22946,
+   "hasEGenes": true,
+   "hasSGenes": true,
+   "mappedInHubmap": true,
+   "eqtlSampleSummary": {
+    "totalCount": 261,
+    "female": {
+     "ageMax": 70,
+     "ageMin": 21,
+     "ageMean": 55.1,
+     "count": 77
+    },
+    "male": {
+     "ageMax": 70,
+     "ageMin": 21,
+     "ageMean": 54.8,
+     "count": 184
+    }
+   },
+   "rnaSeqSampleSummary": {
+    "totalCount": 262,
+    "female": {
+     "ageMax": 70,
+     "ageMin": 21,
+     "ageMean": 55.2,
+     "count": 78
+    },
+    "male": {
+     "ageMax": 70,
+     "ageMin": 21,
+     "ageMean": 54.8,
+     "count": 184
+    }
+   },
+   "sGeneCount": 2072,
+   "samplingSite": "Central right lobe, 1 cm below capsule.",
+   "tissueSite": "Liver",
+   "tissueSiteDetail": "Liver",
+   "tissueSiteDetailAbbr": "LIVER",
+   "ontologyId": "UBERON:0001114",
+   "ontologyIri": "http://purl.obolibrary.org/obo/UBERON_0001114"
+  },
+  {
+   "tissueSiteDetailId": "Nerve_Tibial",
+   "colorHex": "FFD700",
+   "colorRgb": "255,215,0",
+   "datasetId": "gtex_v10",
+   "eGeneCount": 20101,
+   "expressedGeneCount": 27107,
+   "hasEGenes": true,
+   "hasSGenes": true,
+   "mappedInHubmap": false,
+   "eqtlSampleSummary": {
+    "totalCount": 667,
+    "female": {
+     "ageMax": 70,
+     "ageMin": 21,
+     "ageMean": 52.0,
+     "count": 210
+    },
+    "male": {
+     "ageMax": 70,
+     "ageMin": 20,
+     "ageMean": 52.9,
+     "count": 457
+    }
+   },
+   "rnaSeqSampleSummary": {
+    "totalCount": 670,
+    "female": {
+     "ageMax": 70,
+     "ageMin": 21,
+     "ageMean": 52.1,
+     "count": 211
+    },
+    "male": {
+     "ageMax": 70,
+     "ageMin": 20,
+     "ageMean": 53.0,
+     "count": 459
+    }
+   },
+   "sGeneCount": 6590,
+   "samplingSite": "Left tibial. Peripheral tibial nerve from gastrocnemius region",
+   "tissueSite": "Nerve",
+   "tissueSiteDetail": "Nerve - Tibial",
+   "tissueSiteDetailAbbr": "NERVET",
+   "ontologyId": "UBERON:0001323",
+   "ontologyIri": "http://purl.obolibrary.org/obo/UBERON_0001323"
+  },
+  {
+   "tissueSiteDetailId": "Whole_Blood",
+   "colorHex": "FF00BB",
+   "colorRgb": "255,0,187",
+   "datasetId": "gtex_v10",
+   "eGeneCount": 13903,
+   "expressedGeneCount": 20993,
+   "hasEGenes": true,
+   "hasSGenes": true,
+   "mappedInHubmap": false,
+   "eqtlSampleSummary": {
+    "totalCount": 800,
+    "female": {
+     "ageMax": 70,
+     "ageMin": 21,
+     "ageMean": 52.5,
+     "count": 261
+    },
+    "male": {
+     "ageMax": 70,
+     "ageMin": 20,
+     "ageMean": 52.9,
+     "count": 539
+    }
+   },
+   "rnaSeqSampleSummary": {
+    "totalCount": 803,
+    "female": {
+     "ageMax": 70,
+     "ageMin": 21,
+     "ageMean": 52.6,
+     "count": 262
+    },
+    "male": {
+     "ageMax": 70,
+     "ageMin": 20,
+     "ageMean": 52.9,
+     "count": 541
+    }
+   },
+   "sGeneCount": 3650,
+   "samplingSite": "Femoral vein; subclavian vein and heart are other possible sites.",
+   "tissueSite": "Blood",
+   "tissueSiteDetail": "Whole Blood",
+   "tissueSiteDetailAbbr": "WHLBLD",
+   "ontologyId": "UBERON:0013756",
+   "ontologyIri": "http://purl.obolibrary.org/obo/UBERON_0013756"
+  }
+ ],
+ "paging_info": {
+  "numberOfPages": 1,
+  "page": 0,
+  "maxItemsPerPage": 250,
+  "totalNumberOfItems": 5
+ }
+}

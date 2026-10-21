@@ -1,0 +1,86 @@
+{
+ "propConceptGroup": {
+  "propConcept": [
+   {
+    "propCategory": "ATTRIBUTES",
+    "propName": "GENERAL_CARDINALITY",
+    "propValue": "SINGLE"
+   },
+   {
+    "propCategory": "ATTRIBUTES",
+    "propName": "PRESCRIBABLE",
+    "propValue": "Y"
+   },
+   {
+    "propCategory": "ATTRIBUTES",
+    "propName": "RXNAV_HUMAN_DRUG",
+    "propValue": "US"
+   },
+   {
+    "propCategory": "ATTRIBUTES",
+    "propName": "TTY",
+    "propValue": "IN"
+   },
+   {
+    "propCategory": "CODES",
+    "propName": "ATC",
+    "propValue": "A10BA02"
+   },
+   {
+    "propCategory": "CODES",
+    "propName": "DRUGBANK",
+    "propValue": "DB00331"
+   },
+   {
+    "propCategory": "CODES",
+    "propName": "MMSL_CODE",
+    "propValue": "BN370164"
+   },
+   {
+    "propCategory": "CODES",
+    "propName": "MMSL_CODE",
+    "propValue": "GNd03807"
+   },
+   {
+    "propCategory": "CODES",
+    "propName": "RxCUI",
+    "propValue": "6809"
+   },
+   {
+    "propCategory": "CODES",
+    "propName": "SNOMEDCT",
+    "propValue": "109081006"
+   },
+   {
+    "propCategory": "CODES",
+    "propName": "SNOMEDCT",
+    "propValue": "372567009"
+   },
+   {
+    "propCategory": "CODES",
+    "propName": "UNII_CODE",
+    "propValue": "9100L32L2N"
+   },
+   {
+    "propCategory": "CODES",
+    "propName": "VUID",
+    "propValue": "4023979"
+   },
+   {
+    "propCategory": "CODES",
+    "propName": "SPL_SET_ID",
+    "propValue": "009797a6-5b91-42aa-ac9f-f0d2d0675624"
+   },
+   {
+    "propCategory": "CODES",
+    "propName": "SPL_SET_ID",
+    "propValue": "0098dec4-f0e5-45d5-8aa4-5d0faf9ab142"
+   },
+   {
+    "propCategory": "CODES",
+    "propName": "SPL_SET_ID",
+    "propValue": "0115de44-8e34-44f7-a31f-902de0b98088"
+   }
+  ]
+ }
+}

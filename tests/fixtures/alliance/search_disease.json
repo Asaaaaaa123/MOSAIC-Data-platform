@@ -1,0 +1,44 @@
+{
+ "results": [
+  {
+   "genes": [
+    "Elp4 (Dme)",
+    "Elp4 (Mmu)",
+    "Trim44 (Mmu)",
+    "pax6.S (Xla)",
+    "Elp4-ps1 (Rno)",
+    "ELP4 (Hsa)",
+    "elp4 (Dre)",
+    "pax6a (Dre)",
+    "ELP4 (Sce)",
+    "toy (Dme)",
+    "pax6.L (Xla)",
+    "vab-3 (Cel)"
+   ],
+   "synonyms": [
+    "isolated aniridia",
+    "Aplasia of iris"
+   ],
+   "score": 111548770.0,
+   "curie": "DOID:12271",
+   "nameKey": "aniridia",
+   "name": "aniridia",
+   "definition": "An iris disease that is characterized by a complete or partial absence of the colored part of the eye.",
+   "id": "DOID:12271",
+   "category": "disease_search_result",
+   "crossReferences": [
+    "NCI:C84563",
+    "MESH:D015783",
+    "SNOMEDCT_US_2025_09_01:69278003",
+    "ORDO:250923",
+    "ICD9CM:743.45",
+    "MIM:PS106210",
+    "UMLS_CUI:C0003076",
+    "ICD10CM:Q13.1",
+    "GARD:5816"
+   ],
+   "primaryKey": "DOID:12271"
+  }
+ ],
+ "total": 4
+}

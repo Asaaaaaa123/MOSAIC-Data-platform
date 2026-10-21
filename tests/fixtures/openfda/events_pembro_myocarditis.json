@@ -1,0 +1,629 @@
+{
+ "meta": {
+  "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+  "terms": "https://open.fda.gov/terms/",
+  "license": "https://open.fda.gov/license/",
+  "last_updated": "2026-07-30",
+  "results": {
+   "skip": 0,
+   "limit": 2,
+   "total": 2144
+  }
+ },
+ "results": [
+  {
+   "safetyreportversion": "10",
+   "safetyreportid": "10617396",
+   "primarysourcecountry": "CH",
+   "occurcountry": "CH",
+   "transmissiondateformat": "102",
+   "transmissiondate": "20150821",
+   "reporttype": "2",
+   "serious": "1",
+   "seriousnesshospitalization": "1",
+   "receivedateformat": "102",
+   "receivedate": "20141201",
+   "receiptdateformat": "102",
+   "receiptdate": "20150428",
+   "fulfillexpeditecriteria": "1",
+   "companynumb": "CH-009507513-1411CHE011356",
+   "duplicate": "1",
+   "reportduplicate": {
+    "duplicatesource": "MERCK",
+    "duplicatenumb": "CH-009507513-1411CHE011356"
+   },
+   "primarysource": {
+    "reportercountry": "CH",
+    "qualification": "1"
+   },
+   "sender": {
+    "sendertype": "2",
+    "senderorganization": "FDA-Public Use"
+   },
+   "receiver": {
+    "receivertype": "6",
+    "receiverorganization": "FDA"
+   },
+   "patient": {
+    "patientonsetage": "73",
+    "patientonsetageunit": "801",
+    "patientsex": "2",
+    "reaction": [
+     {
+      "reactionmeddraversionpt": "18.0",
+      "reactionmeddrapt": "Myocarditis",
+      "reactionoutcome": "4"
+     },
+     {
+      "reactionmeddraversionpt": "18.0",
+      "reactionmeddrapt": "Ejection fraction decreased",
+      "reactionoutcome": "2"
+     },
+     {
+      "reactionmeddraversionpt": "18.0",
+      "reactionmeddrapt": "Arrhythmia",
+      "reactionoutcome": "2"
+     }
+    ],
+    "drug": [
+     {
+      "drugcharacterization": "2",
+      "medicinalproduct": "TOREM",
+      "drugrecurreadministration": "3",
+      "activesubstance": {
+       "activesubstancename": "TORSEMIDE"
+      }
+     },
+     {
+      "drugcharacterization": "2",
+      "medicinalproduct": "NEO-MERCAZOLE",
+      "drugdosagetext": "FREQUENCY: 1-0-0",
+      "drugadministrationroute": "048",
+      "drugrecurreadministration": "3",
+      "activesubstance": {
+       "activesubstancename": "CARBIMAZOLE"
+      }
+     },
+     {
+      "drugcharacterization": "2",
+      "medicinalproduct": "SIMCARD",
+      "drugdosagetext": "FREQUENCY: 0-0-1",
+      "drugadministrationroute": "048",
+      "drugindication": "HYPERCHOLESTEROLAEMIA",
+      "drugrecurreadministration": "3"
+     },
+     {
+      "drugcharacterization": "2",
+      "medicinalproduct": "TRIATEC (RAMIPRIL)",
+      "drugdosagetext": "FREQUENCY REPORTED AS 1-0-0",
+      "drugadministrationroute": "048",
+      "drugrecurreadministration": "3",
+      "activesubstance": {
+       "activesubstancename": "RAMIPRIL"
+      }
+     },
+     {
+      "drugcharacterization": "2",
+      "medicinalproduct": "NOVALGIN (DIPYRONE)",
+      "drugrecurreadministration": "3",
+      "activesubstance": {
+       "activesubstancename": "DIPYRONE"
+      }
+     },
+     {
+      "drugcharacterization": "1",
+      "medicinalproduct": "PEMBROLIZUMAB.",
+      "drugauthorizationnumb": "125514",
+      "drugstructuredosagenumb": "2",
+      "drugstructuredosageunit": "007",
+      "drugseparatedosagenumb": "1",
+      "drugintervaldosageunitnumb": "3",
+      "drugintervaldosagedefinition": "803",
+      "drugcumulativedosagenumb": "8",
+      "drugcumulativedosageunit": "007",
+      "drugdosagetext": "2 MG/KG, Q3W",
+      "drugdosageform": "POWDER FOR INJECTION",
+      "drugadministrationroute": "042",
+      "drugindication": "METASTATIC MALIGNANT MELANOMA",
+      "drugstartdateformat": "102",
+      "drugstartdate": "20140718",
+      "drugenddateformat": "102",
+      "drugenddate": "20141010",
+      "actiondrug": "1",
+      "activesubstance": {
+       "activesubstancename": "PEMBROLIZUMAB"
+      },
+      "openfda": {
+       "application_number": [
+        "BLA125514"
+       ],
+       "brand_name": [
+        "KEYTRUDA"
+       ],
+       "generic_name": [
+        "PEMBROLIZUMAB"
+       ],
+       "manufacturer_name": [
+        "Merck Sharp & Dohme LLC"
+       ],
+       "product_ndc": [
+        "0006-3026",
+        "0006-3029"
+       ],
+       "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+       ],
+       "route": [
+        "INTRAVENOUS"
+       ],
+       "substance_name": [
+        "PEMBROLIZUMAB"
+       ],
+       "rxcui": [
+        "1657746",
+        "1657749",
+        "1657750"
+       ],
+       "spl_id": [
+        "228e1e3f-d207-481f-8e14-9fdcbd0470e9"
+       ],
+       "spl_set_id": [
+        "9333c79b-d487-4538-a9f0-71b91a02b287"
+       ],
+       "package_ndc": [
+        "0006-3029-01",
+        "0006-3029-02",
+        "0006-3026-01"
+       ],
+       "nui": [
+        "N0000191260",
+        "N0000191259"
+       ],
+       "pharm_class_epc": [
+        "Programmed Death Receptor-1 Blocking Antibody [EPC]"
+       ],
+       "pharm_class_moa": [
+        "Programmed Death Receptor-1-directed Antibody Interactions [MoA]"
+       ],
+       "unii": [
+        "DPT0O3T46P"
+       ]
+      }
+     }
+    ],
+    "summary": {
+     "narrativeincludeclinical": "CASE EVENT DATE: 20141031"
+    }
+   }
+  },
+  {
+   "safetyreportversion": "9",
+   "safetyreportid": "10734132",
+   "primarysourcecountry": "US",
+   "occurcountry": "US",
+   "transmissiondateformat": "102",
+   "transmissiondate": "20170829",
+   "reporttype": "2",
+   "serious": "1",
+   "seriousnesshospitalization": "1",
+   "receivedateformat": "102",
+   "receivedate": "20150123",
+   "receiptdateformat": "102",
+   "receiptdate": "20170517",
+   "fulfillexpeditecriteria": "1",
+   "companynumb": "US-009507513-1501USA008175",
+   "duplicate": "1",
+   "reportduplicate": {
+    "duplicatesource": "MERCK",
+    "duplicatenumb": "US-009507513-1501USA008175"
+   },
+   "primarysource": {
+    "reportercountry": "US",
+    "qualification": "3"
+   },
+   "sender": {
+    "sendertype": "2",
+    "senderorganization": "FDA-Public Use"
+   },
+   "receiver": {
+    "receivertype": "6",
+    "receiverorganization": "FDA"
+   },
+   "patient": {
+    "patientonsetage": "72",
+    "patientonsetageunit": "801",
+    "patientweight": "100.6",
+    "patientsex": "1",
+    "reaction": [
+     {
+      "reactionmeddraversionpt": "20.0",
+      "reactionmeddrapt": "Myocarditis",
+      "reactionoutcome": "1"
+     },
+     {
+      "reactionmeddraversionpt": "20.0",
+      "reactionmeddrapt": "Myasthenia gravis",
+      "reactionoutcome": "1"
+     }
+    ],
+    "drug": [
+     {
+      "drugcharacterization": "1",
+      "medicinalproduct": "PEMBROLIZUMAB.",
+      "drugauthorizationnumb": "125514",
+      "drugstructuredosagenumb": "2",
+      "drugstructuredosageunit": "007",
+      "drugseparatedosagenumb": "1",
+      "drugintervaldosageunitnumb": "3",
+      "drugintervaldosagedefinition": "803",
+      "drugcumulativedosagenumb": "4",
+      "drugcumulativedosageunit": "007",
+      "drugdosagetext": "2 MG/KG, Q3W",
+      "drugdosageform": "SOLUTION FOR INJECTION",
+      "drugadministrationroute": "042",
+      "drugstartdateformat": "102",
+      "drugstartdate": "20141230",
+      "drugenddateformat": "102",
+      "drugenddate": "20141230",
+      "actiondrug": "1",
+      "drugadditional": "1",
+      "activesubstance": {
+       "activesubstancename": "PEMBROLIZUMAB"
+      },
+      "openfda": {
+       "application_number": [
+        "BLA125514"
+       ],
+       "brand_name": [
+        "KEYTRUDA"
+       ],
+       "generic_name": [
+        "PEMBROLIZUMAB"
+       ],
+       "manufacturer_name": [
+        "Merck Sharp & Dohme LLC"
+       ],
+       "product_ndc": [
+        "0006-3026",
+        "0006-3029"
+       ],
+       "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+       ],
+       "route": [
+        "INTRAVENOUS"
+       ],
+       "substance_name": [
+        "PEMBROLIZUMAB"
+       ],
+       "rxcui": [
+        "1657746",
+        "1657749",
+        "1657750"
+       ],
+       "spl_id": [
+        "228e1e3f-d207-481f-8e14-9fdcbd0470e9"
+       ],
+       "spl_set_id": [
+        "9333c79b-d487-4538-a9f0-71b91a02b287"
+       ],
+       "package_ndc": [
+        "0006-3029-01",
+        "0006-3029-02",
+        "0006-3026-01"
+       ],
+       "nui": [
+        "N0000191260",
+        "N0000191259"
+       ],
+       "pharm_class_epc": [
+        "Programmed Death Receptor-1 Blocking Antibody [EPC]"
+       ],
+       "pharm_class_moa": [
+        "Programmed Death Receptor-1-directed Antibody Interactions [MoA]"
+       ],
+       "unii": [
+        "DPT0O3T46P"
+       ]
+      }
+     },
+     {
+      "drugcharacterization": "2",
+      "medicinalproduct": "CRESTOR",
+      "drugstructuredosagenumb": "20",
+      "drugstructuredosageunit": "003",
+      "drugseparatedosagenumb": "1",
+      "drugintervaldosageunitnumb": "1",
+      "drugintervaldosagedefinition": "804",
+      "drugdosagetext": "20 MG, QD",
+      "drugdosageform": "TABLET",
+      "drugadministrationroute": "048",
+      "drugindication": "HYPERLIPIDAEMIA",
+      "drugstartdateformat": "102",
+      "drugstartdate": "20140521",
+      "drugrecurreadministration": "3",
+      "activesubstance": {
+       "activesubstancename": "ROSUVASTATIN CALCIUM"
+      }
+     },
+     {
+      "drugcharacterization": "2",
+      "medicinalproduct": "ATIVAN",
+      "drugdosagetext": "TOTAL DAILY DOSE 1 TABLET, PRN",
+      "drugdosageform": "TABLET",
+      "drugadministrationroute": "048",
+      "drugindication": "PROPHYLAXIS OF NAUSEA AND VOMITING",
+      "drugstartdateformat": "102",
+      "drugstartdate": "20140522",
+      "drugrecurreadministration": "3",
+      "activesubstance": {
+       "activesubstancename": "LORAZEPAM"
+      },
+      "openfda": {
+       "application_number": [
+        "NDA017794"
+       ],
+       "brand_name": [
+        "ATIVAN"
+       ],
+       "generic_name": [
+        "LORAZEPAM"
+       ],
+       "manufacturer_name": [
+        "Bausch Health US LLC"
+       ],
+       "product_ndc": [
+        "0187-0063",
+        "0187-0064",
+        "0187-0065"
+       ],
+       "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+       ],
+       "route": [
+        "ORAL"
+       ],
+       "substance_name": [
+        "LORAZEPAM"
+       ],
+       "rxcui": [
+        "104719",
+        "197900",
+        "197901"
+       ],
+       "spl_id": [
+        "93bdf2de-1222-44a4-b4d5-2280f9ce58d8"
+       ],
+       "spl_set_id": [
+        "89057c93-8155-4040-acec-64e877bd2b4c"
+       ],
+       "package_ndc": [
+        "0187-0063-01",
+        "0187-0063-50",
+        "0187-0063-10"
+       ],
+       "nui": [
+        "N0000175694",
+        "M0002356"
+       ],
+       "pharm_class_epc": [
+        "Benzodiazepine [EPC]"
+       ],
+       "pharm_class_cs": [
+        "Benzodiazepines [CS]"
+       ],
+       "unii": [
+        "O26FZP769L"
+       ]
+      }
+     },
+     {
+      "drugcharacterization": "2",
+      "medicinalproduct": "AMLODIPINE",
+      "drugstructuredosagenumb": "10",
+      "drugstructuredosageunit": "003",
+      "drugseparatedosagenumb": "1",
+      "drugintervaldosageunitnumb": "1",
+      "drugintervaldosagedefinition": "804",
+      "drugcumulativedosagenumb": "2410",
+      "drugcumulativedosageunit": "003",
+      "drugdosagetext": "10 MG, QD, FORMULATION: PILL",
+      "drugadministrationroute": "048",
+      "drugindication": "HYPERTENSION",
+      "drugstartdateformat": "102",
+      "drugstartdate": "20140521",
+      "drugenddateformat": "102",
+      "drugenddate": "20150211",
+      "drugrecurreadministration": "3",
+      "activesubstance": {
+       "activesubstancename": "AMLODIPINE BESYLATE"
+      },
+      "openfda": {
+       "application_number": [
+        "NDA214439",
+        "NDA211340"
+       ],
+       "brand_name": [
+        "NORLIQVA",
+        "KATERZIA"
+       ],
+       "generic_name": [
+        "AMLODIPINE"
+       ],
+       "manufacturer_name": [
+        "CMP Pharma, Inc.",
+        "Azurity Pharmaceuticals, Inc."
+       ],
+       "product_ndc": [
+        "46287-035",
+        "46287-037",
+        "52652-5001"
+       ],
+       "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+       ],
+       "route": [
+        "ORAL"
+       ],
+       "substance_name": [
+        "AMLODIPINE",
+        "AMLODIPINE BENZOATE"
+       ],
+       "rxcui": [
+        "2599173",
+        "2599179",
+        "2184120"
+       ],
+       "spl_id": [
+        "63a6bb49-fb68-4351-be5f-a6b6e8f6b540",
+        "4fee8eba-2fa2-4a9c-884a-ccec171e1977",
+        "461e8d10-1805-e107-e063-6294a90aa288"
+       ],
+       "spl_set_id": [
+        "c1730a51-4383-4c61-a9a1-7e1326bd0abe",
+        "614d974f-51c7-4b18-8171-39eb6e8d4c03",
+        "df673a4d-acb8-444c-a472-c87ab8cbd366"
+       ],
+       "package_ndc": [
+        "46287-035-15",
+        "46287-037-01",
+        "52652-5001-1"
+       ],
+       "nui": [
+        "N0000000069",
+        "N0000175421",
+        "N0000175566"
+       ],
+       "pharm_class_moa": [
+        "Calcium Channel Antagonists [MoA]",
+        "Cytochrome P450 3A Inhibitors [MoA]"
+       ],
+       "pharm_class_epc": [
+        "Dihydropyridine Calcium Channel Blocker [EPC]",
+        "Calcium Channel Blocker [EPC]"
+       ],
+       "pharm_class_cs": [
+        "Dihydropyridines [CS]"
+       ],
+       "unii": [
+        "1J444QC288",
+        "XD75TQ8A2P"
+       ]
+      }
+     },
+     {
+      "drugcharacterization": "2",
+      "medicinalproduct": "BUDESONIDE (+) FORMOTEROL FUMARATE",
+      "drugstructuredosagenumb": "2",
+      "drugstructuredosageunit": "032",
+      "drugseparatedosagenumb": "2",
+      "drugintervaldosageunitnumb": "1",
+      "drugintervaldosagedefinition": "804",
+      "drugcumulativedosagenumb": "964",
+      "drugcumulativedosageunit": "032",
+      "drugdosagetext": "2 PUFF, BID",
+      "drugdosageform": "INHALATION GAS",
+      "drugadministrationroute": "055",
+      "drugindication": "CHRONIC OBSTRUCTIVE PULMONARY DISEASE",
+      "drugstartdateformat": "102",
+      "drugstartdate": "20140521",
+      "drugenddateformat": "102",
+      "drugenddate": "20150121",
+      "drugrecurreadministration": "3",
+      "activesubstance": {
+       "activesubstancename": "BUDESONIDE\\FORMOTEROL FUMARATE"
+      }
+     },
+     {
+      "drugcharacterization": "2",
+      "medicinalproduct": "GLIPIZIDE.",
+      "drugstructuredosagenumb": "5",
+      "drugstructuredosageunit": "003",
+      "drugseparatedosagenumb": "2",
+      "drugintervaldosageunitnumb": "1",
+      "drugintervaldosagedefinition": "804",
+      "drugdosagetext": "5 MG, BID",
+      "drugdosageform": "TABLET",
+      "drugadministrationroute": "048",
+      "drugindication": "DIABETES MELLITUS",
+      "drugstartdateformat": "102",
+      "drugstartdate": "20140521",
+      "drugrecurreadministration": "3",
+      "activesubstance": {
+       "activesubstancename": "GLIPIZIDE"
+      },
+      "openfda": {
+       "application_number": [
+        "NDA020329",
+        "ANDA214874",
+        "ANDA074497"
+       ],
+       "brand_name": [
+        "GLUCOTROL XL",
+        "GLIPIZIDE"
+       ],
+       "generic_name": [
+        "GLIPIZIDE"
+       ],
+       "manufacturer_name": [
+        "Roerig",
+        "Advagen Pharma Limited",
+        "ANI Pharmaceuticals, Inc."
+       ],
+       "product_ndc": [
+        "0049-0174",
+        "0049-0170",
+        "0049-0178"
+       ],
+       "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+       ],
+       "route": [
+        "ORAL"
+       ],
+       "substance_name": [
+        "GLIPIZIDE"
+       ],
+       "rxcui": [
+        "310489",
+        "314006",
+        "315107"
+       ],
+       "spl_id": [
+        "c98a3ab5-faeb-4d79-8bcd-05f37c2b50bf",
+        "4c5799dd-65b6-d94e-e063-6294a90a066b",
+        "fa36cf30-4c93-4df7-a6f2-309d55abda20"
+       ],
+       "spl_set_id": [
+        "eed99b60-d043-4249-9b2a-f05e46fb588d",
+        "e954afb8-52eb-416a-8f1b-14b0fcb3bac2",
+        "252ba4e0-8dc3-43e3-be00-32570dc095bd"
+       ],
+       "package_ndc": [
+        "0049-0170-01",
+        "0049-0174-02",
+        "0049-0174-03"
+       ],
+       "nui": [
+        "N0000175608",
+        "M0020795"
+       ],
+       "pharm_class_epc": [
+        "Sulfonylurea [EPC]"
+       ],
+       "pharm_class_cs": [
+        "Sulfonylurea Compounds [CS]"
+       ],
+       "unii": [
+        "X7WDT95N5C"
+       ]
+      }
+     }
+    ],
+    "summary": {
+     "narrativeincludeclinical": "CASE EVENT DATE: 20150111"
+    }
+   }
+  }
+ ]
+}

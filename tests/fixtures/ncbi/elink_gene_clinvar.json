@@ -1,0 +1,34 @@
+{
+ "linksets": [
+  {
+   "dbfrom": "gene",
+   "ids": [
+    "7157"
+   ],
+   "linksetdbs": [
+    {
+     "dbto": "clinvar",
+     "linkname": "gene_clinvar",
+     "links": [
+      "4982772",
+      "4933289",
+      "4933288",
+      "4933287",
+      "4933286"
+     ]
+    },
+    {
+     "dbto": "clinvar",
+     "linkname": "gene_clinvar_specific",
+     "links": [
+      "4933289",
+      "4933288",
+      "4933287",
+      "4933286",
+      "4933285"
+     ]
+    }
+   ]
+  }
+ ]
+}

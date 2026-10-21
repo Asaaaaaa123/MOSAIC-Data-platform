@@ -1,0 +1,47 @@
+{
+ "data": {
+  "gene": {
+   "gene_id": "ENSG00000169174",
+   "gene_version": "11",
+   "symbol": "PCSK9",
+   "name": "proprotein convertase subtilisin/kexin type 9",
+   "hgnc_id": "HGNC:20001",
+   "ncbi_id": "255738",
+   "omim_id": "607786",
+   "chrom": "1",
+   "start": 55039447,
+   "stop": 55064852,
+   "strand": "+",
+   "canonical_transcript_id": "ENST00000302118",
+   "flags": [],
+   "mane_select_transcript": {
+    "ensembl_id": "ENST00000302118",
+    "ensembl_version": "5",
+    "refseq_id": "NM_174936",
+    "refseq_version": "4"
+   },
+   "gnomad_constraint": {
+    "exp_lof": 62.116009290752274,
+    "obs_lof": 57,
+    "oe_lof": 0.9176378304213768,
+    "oe_lof_lower": 0.7416265467075939,
+    "oe_lof_upper": 1.1441346736692857,
+    "exp_mis": 959.7871924342421,
+    "obs_mis": 870,
+    "oe_mis": 0.906450937101462,
+    "oe_mis_lower": 0.857514089563757,
+    "oe_mis_upper": 0.9586561741086429,
+    "exp_syn": 409.3918482855569,
+    "obs_syn": 387,
+    "oe_syn": 0.9453046063830313,
+    "oe_syn_lower": 0.8700186318667248,
+    "oe_syn_upper": 1.028252849618702,
+    "lof_z": 0.5506733800624033,
+    "mis_z": 1.2360458676592712,
+    "syn_z": 0.6603188478981492,
+    "pLI": 2.765187110917756e-18,
+    "flags": []
+   }
+  }
+ }
+}

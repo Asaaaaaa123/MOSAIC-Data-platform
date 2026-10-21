@@ -1,0 +1,463 @@
+{
+ "data": {
+  "gene": {
+   "gene_id": "ENSG00000169174",
+   "symbol": "PCSK9",
+   "variants": [
+    {
+     "variant_id": "1-55039842-G-T",
+     "pos": 55039842,
+     "rsids": [],
+     "consequence": "missense_variant",
+     "gene_id": "ENSG00000169174",
+     "gene_symbol": "PCSK9",
+     "transcript_id": "ENST00000302118",
+     "transcript_version": "5",
+     "hgvsc": "c.5G>T",
+     "hgvsp": "p.Gly2Val",
+     "lof": null,
+     "lof_filter": null,
+     "flags": [],
+     "exome": {
+      "ac": 1,
+      "an": 1413618,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     },
+     "genome": null,
+     "joint": {
+      "ac": 1,
+      "an": 1566008,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     }
+    },
+    {
+     "variant_id": "1-55039842-G-A",
+     "pos": 55039842,
+     "rsids": [
+      "rs1018576699"
+     ],
+     "consequence": "missense_variant",
+     "gene_id": "ENSG00000169174",
+     "gene_symbol": "PCSK9",
+     "transcript_id": "ENST00000302118",
+     "transcript_version": "5",
+     "hgvsc": "c.5G>A",
+     "hgvsp": "p.Gly2Asp",
+     "lof": null,
+     "lof_filter": null,
+     "flags": [],
+     "exome": {
+      "ac": 3,
+      "an": 1413616,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     },
+     "genome": {
+      "ac": 1,
+      "an": 152272,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     },
+     "joint": {
+      "ac": 4,
+      "an": 1565888,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     }
+    },
+    {
+     "variant_id": "1-55039845-C-T",
+     "pos": 55039845,
+     "rsids": [
+      "rs966100677"
+     ],
+     "consequence": "missense_variant",
+     "gene_id": "ENSG00000169174",
+     "gene_symbol": "PCSK9",
+     "transcript_id": "ENST00000302118",
+     "transcript_version": "5",
+     "hgvsc": "c.8C>T",
+     "hgvsp": "p.Thr3Ile",
+     "lof": null,
+     "lof_filter": null,
+     "flags": [],
+     "exome": {
+      "ac": 16,
+      "an": 1413520,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     },
+     "genome": null,
+     "joint": {
+      "ac": 16,
+      "an": 1565900,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     }
+    },
+    {
+     "variant_id": "1-55039846-C-T",
+     "pos": 55039846,
+     "rsids": [
+      "rs1465865735"
+     ],
+     "consequence": "synonymous_variant",
+     "gene_id": "ENSG00000169174",
+     "gene_symbol": "PCSK9",
+     "transcript_id": "ENST00000302118",
+     "transcript_version": "5",
+     "hgvsc": "c.9C>T",
+     "hgvsp": "p.Thr3Thr",
+     "lof": null,
+     "lof_filter": null,
+     "flags": [],
+     "exome": {
+      "ac": 17,
+      "an": 1413668,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     },
+     "genome": null,
+     "joint": {
+      "ac": 17,
+      "an": 1566054,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     }
+    },
+    {
+     "variant_id": "1-55039846-C-G",
+     "pos": 55039846,
+     "rsids": [],
+     "consequence": "synonymous_variant",
+     "gene_id": "ENSG00000169174",
+     "gene_symbol": "PCSK9",
+     "transcript_id": "ENST00000302118",
+     "transcript_version": "5",
+     "hgvsc": "c.9C>G",
+     "hgvsp": "p.Thr3Thr",
+     "lof": null,
+     "lof_filter": null,
+     "flags": [],
+     "exome": {
+      "ac": 1,
+      "an": 1413668,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     },
+     "genome": null,
+     "joint": {
+      "ac": 1,
+      "an": 1566054,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     }
+    },
+    {
+     "variant_id": "1-55039866-G-A",
+     "pos": 55039866,
+     "rsids": [],
+     "consequence": "stop_gained",
+     "gene_id": "ENSG00000169174",
+     "gene_symbol": "PCSK9",
+     "transcript_id": "ENST00000302118",
+     "transcript_version": "5",
+     "hgvsc": "c.29G>A",
+     "hgvsp": "p.Trp10Ter",
+     "lof": "HC",
+     "lof_filter": null,
+     "flags": [
+      "lof_flag"
+     ],
+     "exome": {
+      "ac": 0,
+      "an": 1410978,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": [
+       "AC0"
+      ]
+     },
+     "genome": null,
+     "joint": {
+      "ac": 0,
+      "an": 1562614,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": [
+       "AC0"
+      ]
+     }
+    },
+    {
+     "variant_id": "1-55039870-G-A",
+     "pos": 55039870,
+     "rsids": [
+      "rs1164872643"
+     ],
+     "consequence": "stop_gained",
+     "gene_id": "ENSG00000169174",
+     "gene_symbol": "PCSK9",
+     "transcript_id": "ENST00000302118",
+     "transcript_version": "5",
+     "hgvsc": "c.33G>A",
+     "hgvsp": "p.Trp11Ter",
+     "lof": "HC",
+     "lof_filter": null,
+     "flags": [
+      "lof_flag"
+     ],
+     "exome": {
+      "ac": 1,
+      "an": 1410966,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     },
+     "genome": null,
+     "joint": {
+      "ac": 1,
+      "an": 1562136,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     }
+    },
+    {
+     "variant_id": "1-55039902-T-TG",
+     "pos": 55039902,
+     "rsids": [],
+     "consequence": "frameshift_variant",
+     "gene_id": "ENSG00000169174",
+     "gene_symbol": "PCSK9",
+     "transcript_id": "ENST00000302118",
+     "transcript_version": "5",
+     "hgvsc": "c.65_66insG",
+     "hgvsp": "p.Leu23ProfsTer148",
+     "lof": "HC",
+     "lof_filter": null,
+     "flags": [
+      "lof_flag",
+      "lcr"
+     ],
+     "exome": {
+      "ac": 5,
+      "an": 1414224,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     },
+     "genome": null,
+     "joint": {
+      "ac": 5,
+      "an": 1566544,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     }
+    },
+    {
+     "variant_id": "1-55039903-C-CT",
+     "pos": 55039903,
+     "rsids": [],
+     "consequence": "frameshift_variant",
+     "gene_id": "ENSG00000169174",
+     "gene_symbol": "PCSK9",
+     "transcript_id": "ENST00000302118",
+     "transcript_version": "5",
+     "hgvsc": "c.66_67insT",
+     "hgvsp": "p.Leu23SerfsTer148",
+     "lof": "HC",
+     "lof_filter": null,
+     "flags": [
+      "lof_flag"
+     ],
+     "exome": {
+      "ac": 4,
+      "an": 1405060,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     },
+     "genome": null,
+     "joint": {
+      "ac": 4,
+      "an": 1554710,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     }
+    },
+    {
+     "variant_id": "1-55039951-C-A",
+     "pos": 55039951,
+     "rsids": [],
+     "consequence": "stop_gained",
+     "gene_id": "ENSG00000169174",
+     "gene_symbol": "PCSK9",
+     "transcript_id": "ENST00000302118",
+     "transcript_version": "5",
+     "hgvsc": "c.114C>A",
+     "hgvsp": "p.Tyr38Ter",
+     "lof": "HC",
+     "lof_filter": null,
+     "flags": [
+      "lof_flag"
+     ],
+     "exome": {
+      "ac": 1,
+      "an": 1423466,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     },
+     "genome": null,
+     "joint": {
+      "ac": 1,
+      "an": 1575860,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     }
+    },
+    {
+     "variant_id": "1-55039979-G-T",
+     "pos": 55039979,
+     "rsids": [
+      "rs1278890129"
+     ],
+     "consequence": "stop_gained",
+     "gene_id": "ENSG00000169174",
+     "gene_symbol": "PCSK9",
+     "transcript_id": "ENST00000302118",
+     "transcript_version": "5",
+     "hgvsc": "c.142G>T",
+     "hgvsp": "p.Glu48Ter",
+     "lof": "HC",
+     "lof_filter": null,
+     "flags": [
+      "lof_flag"
+     ],
+     "exome": {
+      "ac": 1,
+      "an": 1428660,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     },
+     "genome": null,
+     "joint": {
+      "ac": 1,
+      "an": 1581050,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     }
+    },
+    {
+     "variant_id": "1-55040045-G-A",
+     "pos": 55040045,
+     "rsids": [],
+     "consequence": "splice_donor_variant",
+     "gene_id": "ENSG00000169174",
+     "gene_symbol": "PCSK9",
+     "transcript_id": "ENST00000302118",
+     "transcript_version": "5",
+     "hgvsc": "c.207+1G>A",
+     "hgvsp": null,
+     "lof": "HC",
+     "lof_filter": null,
+     "flags": [],
+     "exome": {
+      "ac": 1,
+      "an": 1409546,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     },
+     "genome": null,
+     "joint": {
+      "ac": 1,
+      "an": 1561940,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     }
+    },
+    {
+     "variant_id": "1-55040047-G-T",
+     "pos": 55040047,
+     "rsids": [],
+     "consequence": "intron_variant",
+     "gene_id": "ENSG00000169174",
+     "gene_symbol": "PCSK9",
+     "transcript_id": "ENST00000302118",
+     "transcript_version": "5",
+     "hgvsc": "c.207+3G>T",
+     "hgvsp": null,
+     "lof": null,
+     "lof_filter": null,
+     "flags": [],
+     "exome": {
+      "ac": 1,
+      "an": 1407554,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     },
+     "genome": null,
+     "joint": {
+      "ac": 1,
+      "an": 1559964,
+      "homozygote_count": 0,
+      "hemizygote_count": 0,
+      "filters": []
+     }
+    }
+   ],
+   "clinvar_variants": [
+    {
+     "variant_id": "1-55039842-G-A",
+     "clinvar_variation_id": "3069450",
+     "clinical_significance": "Uncertain significance",
+     "review_status": "criteria provided, single submitter",
+     "gold_stars": 1
+    },
+    {
+     "variant_id": "1-55039845-C-T",
+     "clinvar_variation_id": "3070392",
+     "clinical_significance": "Uncertain significance",
+     "review_status": "criteria provided, multiple submitters, no conflicts",
+     "gold_stars": 2
+    },
+    {
+     "variant_id": "1-55039846-C-T",
+     "clinvar_variation_id": "630657",
+     "clinical_significance": "Likely benign",
+     "review_status": "criteria provided, multiple submitters, no conflicts",
+     "gold_stars": 2
+    },
+    {
+     "variant_id": "1-55039979-G-T",
+     "clinvar_variation_id": "927517",
+     "clinical_significance": "Likely benign",
+     "review_status": "criteria provided, single submitter",
+     "gold_stars": 1
+    }
+   ]
+  }
+ }
+}

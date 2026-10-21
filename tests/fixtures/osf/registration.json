@@ -1,0 +1,428 @@
+{
+ "data": {
+  "id": "8nefz",
+  "type": "registrations",
+  "attributes": {
+   "title": "Understanding People's and GP's Experiences of Primary Care Practice for Treatment-Resistant Depression",
+   "description": "Interviews with people with treatment-resistant depression and GPs to create evidenced-based implications for primary care.",
+   "category": "project",
+   "custom_citation": "",
+   "date_created": "2022-03-09T14:15:21.743528",
+   "date_modified": "2022-03-09T13:57:29.024113",
+   "registration": true,
+   "preprint": false,
+   "fork": false,
+   "collection": false,
+   "tags": [
+    "chronic depression",
+    "GPs",
+    "interviews",
+    "lifelong depression",
+    "mental health",
+    "primary care",
+    "qualitative",
+    "qualitative research",
+    "recurrent depression",
+    "thematic analysis",
+    "treatment-resistant depression"
+   ],
+   "access_requests_enabled": false,
+   "node_license": {
+    "copyright_holders": [],
+    "year": null
+   },
+   "analytics_key": "",
+   "current_user_can_comment": false,
+   "current_user_permissions": [
+    "read"
+   ],
+   "current_user_is_contributor": false,
+   "current_user_is_contributor_or_group_member": false,
+   "wiki_enabled": true,
+   "public": true,
+   "ia_url": "https://archive.org/details/osf-registrations-8nefz-v1",
+   "reviews_state": "accepted",
+   "article_doi": null,
+   "pending_embargo_approval": false,
+   "pending_embargo_termination_approval": false,
+   "embargoed": false,
+   "pending_registration_approval": false,
+   "archiving": false,
+   "pending_withdrawal": false,
+   "withdrawn": false,
+   "has_project": true,
+   "date_registered": "2022-03-09T14:15:21.719513",
+   "date_withdrawn": null,
+   "embargo_end_date": null,
+   "withdrawal_justification": null,
+   "revision_state": "approved",
+   "has_data": false,
+   "has_analytic_code": false,
+   "has_materials": false,
+   "has_papers": false,
+   "has_supplements": false,
+   "registration_supplement": "Qualitative Preregistration",
+   "registered_meta": {
+    "q1": {
+     "extra": [],
+     "value": "1) Understand people's experiences of treatment-resistant depression.\n2) Understand how general practitioners make decisions about diagnosis, treatment, and referral for people with potential treatment-resistant depression.\n3) Develop patient-led evidenced-based implications for primary care based on interviews with GPs and patients."
+    },
+    "q2": {
+     "extra": [],
+     "value": "Understanding"
+    },
+    "q3": {
+     "extra": [],
+     "value": "1) What are people's experiences of treatment-resistant depression?\n2) How do general practitioners make decisions about diagnosis, treatment, and referral for people with potential treatment-resistant depression?"
+    },
+    "q4": {
+     "extra": [],
+     "value": "01/04/2022-01/04/2023"
+    },
+    "q5": {
+     "extra": [],
+     "value": "Qualitative interview study with GPs and Patients with self-described treatment-resistant depression."
+    },
+    "q6": {
+     "extra": [],
+     "value": "Snowball and convenience using existing departmental contacts and social media. We expect a small sample given the timeline of this project. This is the one of few qualitative studies on treatment-resistant depression so purposive/ theoretical sampling would not be appropriate. We sought for diverse perspectives (e.g., we said that we would like to hear from people from minority ethnic groups in our recruitment material).\n\nWe did not apply for NHS ethics because of COVID-19 and our awareness that this could delay the ethics process."
+    },
+    "q7": {
+     "extra": [],
+     "value": "Audio data from qualitative interviews which will be transcribed verbatim onto MS Word."
+    },
+    "q8": {
+     "extra": [],
+     "value": "Narrative interviews- very unstructured interviews. Amelia uses patient-led methodology, which includes allowing participants to talk about what is most important to them.\nField notes- for reflexivity."
+    },
+    "q9": {
+     "extra": [],
+     "value": "Topic guide/ interview questions.\nAudio recorded.\nTranscribed verbatim.\nThematically analysed on NVivo12 for Windows."
+    },
+    "q10": {
+     "extra": [],
+     "value": "When the analysis has produced an enriching answer to the research question. We expect we will achieve this at 8-15 interviews."
+    },
+    "q11": {
+     "extra": [],
+     "value": "We plan to use reflexive thematic analysis by Braun and Clarke (2006) for the patient data and a descriptive thematic analysis for the GP data, followed by an interpretative technique."
+    },
+    "q12": {
+     "extra": [],
+     "value": "Amelia will analyse the interview data on NVivo12 for Windows. She will discuss her themes with the other team members. PPIE will also reflect on whether the interpretations resonate with their experience."
+    },
+    "q13": {
+     "extra": [],
+     "value": [
+      "Member checking",
+      "Bringing in different perspectives",
+      "Have different researchers analyse the data",
+      "Consensus building among team members or 'interrater reliability'",
+      "Peer debriefing",
+      "Reflexitivity"
+     ]
+    },
+    "q14": {
+     "extra": [],
+     "value": "These are established approaches for generating rigour in qualitative analysis, which complement Amelia's ontological approach (critical realism)."
+    },
+    "q15": {
+     "extra": [],
+     "value": "Amelia has lived-experience of treatment-resistant depression and other mental health conditions. She is approaching this study from a patient-led methodological perspective, actively using her experiences to guide her research. She sees her experiences as a strength because they provide insight into the research problem and gave her access to participants.\n\nAmelia, Charlotte, and Sara are social scientists. Kamal and Laura are GPs. There are no conflicts of interest."
+    },
+    "q9a": {
+     "extra": [],
+     "value": ""
+    }
+   },
+   "registration_responses": {
+    "q1": "1) Understand people's experiences of treatment-resistant depression.\n2) Understand how general practitioners make decisions about diagnosis, treatment, and referral for people with potential treatment-resistant depression.\n3) Develop patient-led evidenced-based implications for primary care based on interviews with GPs and patients.",
+    "q2": "Understanding",
+    "q3": "1) What are people's experiences of treatment-resistant depression?\n2) How do general practitioners make decisions about diagnosis, treatment, and referral for people with potential treatment-resistant depression?",
+    "q4": "01/04/2022-01/04/2023",
+    "q5": "Qualitative interview study with GPs and Patients with self-described treatment-resistant depression.",
+    "q6": "Snowball and convenience using existing departmental contacts and social media. We expect a small sample given the timeline of this project. This is the one of few qualitative studies on treatment-resistant depression so purposive/ theoretical sampling would not be appropriate. We sought for diverse perspectives (e.g., we said that we would like to hear from people from minority ethnic groups in our recruitment material).\n\nWe did not apply for NHS ethics because of COVID-19 and our awareness that this could delay the ethics process.",
+    "q7": "Audio data from qualitative interviews which will be transcribed verbatim onto MS Word.",
+    "q8": "Narrative interviews- very unstructured interviews. Amelia uses patient-led methodology, which includes allowing participants to talk about what is most important to them.\nField notes- for reflexivity.",
+    "q9": "Topic guide/ interview questions.\nAudio recorded.\nTranscribed verbatim.\nThematically analysed on NVivo12 for Windows.",
+    "q9a": [],
+    "q10": "When the analysis has produced an enriching answer to the research question. We expect we will achieve this at 8-15 interviews.",
+    "q11": "We plan to use reflexive thematic analysis by Braun and Clarke (2006) for the patient data and a descriptive thematic analysis for the GP data, followed by an interpretative technique.",
+    "q12": "Amelia will analyse the interview data on NVivo12 for Windows. She will discuss her themes with the other team members. PPIE will also reflect on whether the interpretations resonate with their experience.",
+    "q13": [
+     "Member checking",
+     "Bringing in different perspectives",
+     "Have different researchers analyse the data",
+     "Consensus building among team members or 'interrater reliability'",
+     "Peer debriefing",
+     "Reflexitivity"
+    ],
+    "q14": "These are established approaches for generating rigour in qualitative analysis, which complement Amelia's ontological approach (critical realism).",
+    "q15": "Amelia has lived-experience of treatment-resistant depression and other mental health conditions. She is approaching this study from a patient-led methodological perspective, actively using her experiences to guide her research. She sees her experiences as a strength because they provide insight into the research problem and gave her access to participants.\n\nAmelia, Charlotte, and Sara are social scientists. Kamal and Laura are GPs. There are no conflicts of interest."
+   },
+   "provider_specific_metadata": [],
+   "subjects": [
+    [
+     {
+      "id": "584240da54be81056cecaaaa",
+      "text": "Medicine and Health Sciences"
+     }
+    ],
+    [
+     {
+      "id": "584240da54be81056cecac48",
+      "text": "Social and Behavioral Sciences"
+     }
+    ]
+   ]
+  },
+  "relationships": {
+   "root": {
+    "links": {
+     "related": {
+      "href": "https://api.osf.io/v2/registrations/8nefz/",
+      "meta": {}
+     }
+    },
+    "data": {
+     "id": "8nefz",
+     "type": "registrations"
+    }
+   }
+  },
+  "embeds": {
+   "license": {
+    "data": {
+     "id": "563c1cf88c5e4a3877f9e96a",
+     "type": "licenses",
+     "attributes": {
+      "name": "CC-By Attribution 4.0 International"
+     },
+     "links": {
+      "self": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/"
+     }
+    }
+   },
+   "contributors": {
+    "data": [
+     {
+      "id": "8nefz-t5rvf",
+      "type": "contributors",
+      "attributes": {
+       "index": 0,
+       "bibliographic": true,
+       "permission": "admin",
+       "unregistered_contributor": null,
+       "is_curator": false
+      },
+      "embeds": {
+       "users": {
+        "data": {
+         "id": "t5rvf",
+         "type": "users",
+         "attributes": {
+          "full_name": "Amelia Talbot",
+          "social": {
+           "ssrn": "",
+           "github": "",
+           "scholar": "4bWGfDsAAAAJ",
+           "twitter": "AmeliaTalbot",
+           "linkedIn": "in/ameliatalbot/?originalSubdomain=ukk",
+           "impactStory": "0000-0002-6892-5419",
+           "baiduScholar": "",
+           "researchGate": "Amelia-Talbot",
+           "researcherId": "",
+           "profileWebsites": [
+            "https://www.phc.ox.ac.uk/team/amelia-talbot"
+           ],
+           "academiaProfileID": "",
+           "academiaInstitution": ""
+          }
+         }
+        }
+       }
+      },
+      "links": {
+       "self": "https://api.osf.io/v2/registrations/8nefz/contributors/t5rvf/"
+      }
+     },
+     {
+      "id": "8nefz-y759p",
+      "type": "contributors",
+      "attributes": {
+       "index": 1,
+       "bibliographic": true,
+       "permission": "write",
+       "unregistered_contributor": null,
+       "is_curator": false
+      },
+      "embeds": {
+       "users": {
+        "data": {
+         "id": "y759p",
+         "type": "users",
+         "attributes": {
+          "full_name": "Laura Heath",
+          "social": {}
+         }
+        }
+       }
+      },
+      "links": {
+       "self": "https://api.osf.io/v2/registrations/8nefz/contributors/y759p/"
+      }
+     },
+     {
+      "id": "8nefz-zyc2k",
+      "type": "contributors",
+      "attributes": {
+       "index": 2,
+       "bibliographic": true,
+       "permission": "write",
+       "unregistered_contributor": null,
+       "is_curator": false
+      },
+      "embeds": {
+       "users": {
+        "data": {
+         "id": "zyc2k",
+         "type": "users",
+         "attributes": {
+          "full_name": "Sara Ryan",
+          "social": {}
+         }
+        }
+       }
+      },
+      "links": {
+       "self": "https://api.osf.io/v2/registrations/8nefz/contributors/zyc2k/"
+      }
+     },
+     {
+      "id": "8nefz-nbm3z",
+      "type": "contributors",
+      "attributes": {
+       "index": 3,
+       "bibliographic": true,
+       "permission": "write",
+       "unregistered_contributor": null,
+       "is_curator": false
+      },
+      "embeds": {
+       "users": {
+        "data": {
+         "id": "nbm3z",
+         "type": "users",
+         "attributes": {
+          "full_name": "Kamal R. Mahtani",
+          "social": {}
+         }
+        }
+       }
+      },
+      "links": {
+       "self": "https://api.osf.io/v2/registrations/8nefz/contributors/nbm3z/"
+      }
+     },
+     {
+      "id": "8nefz-3jrh4",
+      "type": "contributors",
+      "attributes": {
+       "index": 4,
+       "bibliographic": true,
+       "permission": "write",
+       "unregistered_contributor": null,
+       "is_curator": false
+      },
+      "embeds": {
+       "users": {
+        "data": {
+         "id": "3jrh4",
+         "type": "users",
+         "attributes": {
+          "full_name": "Charlotte Albury",
+          "social": {}
+         }
+        }
+       }
+      },
+      "links": {
+       "self": "https://api.osf.io/v2/registrations/8nefz/contributors/3jrh4/"
+      }
+     }
+    ],
+    "links": {
+     "first": null,
+     "last": null,
+     "prev": null,
+     "next": null,
+     "meta": {
+      "total": 5,
+      "per_page": 10,
+      "total_bibliographic": 5
+     }
+    }
+   },
+   "identifiers": {
+    "data": [
+     {
+      "id": "6228cb151e399c08f56013b1",
+      "type": "identifiers",
+      "attributes": {
+       "category": "doi",
+       "value": "10.17605/OSF.IO/8NEFZ"
+      },
+      "relationships": {
+       "referent": {
+        "links": {
+         "related": {
+          "href": "https://api.osf.io/v2/registrations/8nefz/",
+          "meta": {}
+         }
+        },
+        "data": {
+         "id": "8nefz",
+         "type": "registrations"
+        }
+       }
+      },
+      "links": {
+       "self": "https://api.osf.io/v2/identifiers/6228cb151e399c08f56013b1/"
+      }
+     }
+    ],
+    "links": {
+     "first": null,
+     "last": null,
+     "prev": null,
+     "next": null,
+     "meta": {
+      "total": 1,
+      "per_page": 10
+     }
+    }
+   },
+   "affiliated_institutions": {
+    "data": [],
+    "links": {
+     "first": null,
+     "last": null,
+     "prev": null,
+     "next": null,
+     "meta": {
+      "total": 0,
+      "per_page": 10
+     }
+    }
+   }
+  },
+  "links": {
+   "html": "https://osf.io/8nefz/",
+   "self": "https://api.osf.io/v2/registrations/8nefz/",
+   "iri": "https://osf.io/8nefz"
+  }
+ },
+ "meta": {
+  "version": "2.0"
+ }
+}

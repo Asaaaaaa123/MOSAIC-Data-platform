@@ -1,0 +1,129 @@
+[
+ {
+  "paperId": "a6a4899a2d1e3593fdf9c70f08d939b94ebc6979",
+  "externalIds": {
+   "DOI": "10.1038/s41586-021-03534-y",
+   "CorpusId": 234790939,
+   "PubMed": "34012082"
+  },
+  "corpusId": 234790939,
+  "publicationVenue": {
+   "id": "6c24a0a0-b07d-4d7b-a19b-fd09a3ed453a",
+   "name": "Nature",
+   "type": "journal",
+   "issn": "0028-0836",
+   "url": "https://www.nature.com/"
+  },
+  "url": "https://www.semanticscholar.org/paper/a6a4899a2d1e3593fdf9c70f08d939b94ebc6979",
+  "title": "In vivo CRISPR base editing of PCSK9 durably lowers cholesterol in primates",
+  "venue": "Nature",
+  "year": 2021,
+  "referenceCount": 52,
+  "citationCount": 719,
+  "influentialCitationCount": 25,
+  "isOpenAccess": false,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1038/s41586-021-03534-y?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1038/s41586-021-03534-y, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "fieldsOfStudy": [
+   "Medicine"
+  ],
+  "tldr": {
+   "model": "tldr@v2.0.0",
+   "text": "It is demonstrated that CRISPR base editors that are delivered in vivo using lipid nanoparticles can efficiently and precisely modify disease-related genes in living cynomolgus monkeys (Macaca fascicularis) to reduce levels of PCSK9 and low-density lipoprotein cholesterol in the blood."
+  },
+  "publicationTypes": [
+   "JournalArticle"
+  ],
+  "publicationDate": "2021-05-01",
+  "journal": {
+   "name": "Nature",
+   "pages": "429 - 434",
+   "volume": "593"
+  },
+  "authors": [
+   {
+    "authorId": "117290206",
+    "name": "K. Musunuru"
+   },
+   {
+    "authorId": "10410267",
+    "name": "A. Chadwick"
+   },
+   {
+    "authorId": "9908489",
+    "name": "Taiji Mizoguchi"
+   }
+  ],
+  "abstract": null
+ },
+ {
+  "paperId": "204e3073870fae3d05bcbc2f6a8e263d9b72e776",
+  "externalIds": {
+   "MAG": "2626778328",
+   "DBLP": "journals/corr/VaswaniSPUJGKP17",
+   "ArXiv": "1706.03762",
+   "CorpusId": 13756489
+  },
+  "corpusId": 13756489,
+  "publicationVenue": {
+   "id": "d9720b90-d60b-48bc-9df8-87a30b9a60dd",
+   "name": "Neural Information Processing Systems",
+   "type": "conference",
+   "alternate_names": [
+    "Neural Inf Process Syst",
+    "NeurIPS",
+    "NIPS"
+   ],
+   "url": "http://neurips.cc/"
+  },
+  "url": "https://www.semanticscholar.org/paper/204e3073870fae3d05bcbc2f6a8e263d9b72e776",
+  "title": "Attention is All you Need",
+  "venue": "Neural Information Processing Systems",
+  "year": 2017,
+  "referenceCount": 41,
+  "citationCount": 197597,
+  "influentialCitationCount": 21003,
+  "isOpenAccess": false,
+  "openAccessPdf": {
+   "url": "",
+   "status": null,
+   "license": null,
+   "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/1706.03762, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+  },
+  "fieldsOfStudy": [
+   "Computer Science"
+  ],
+  "tldr": {
+   "model": "tldr@v2.0.0",
+   "text": "A new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely is proposed, which generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data."
+  },
+  "publicationTypes": [
+   "JournalArticle",
+   "Conference"
+  ],
+  "publicationDate": "2017-06-12",
+  "journal": {
+   "pages": "5998-6008"
+  },
+  "authors": [
+   {
+    "authorId": "40348417",
+    "name": "Ashish Vaswani"
+   },
+   {
+    "authorId": "1846258",
+    "name": "Noam Shazeer"
+   },
+   {
+    "authorId": "3877127",
+    "name": "N. Parmar"
+   }
+  ],
+  "abstract": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experi"
+ },
+ null
+]

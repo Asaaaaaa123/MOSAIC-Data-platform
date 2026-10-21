@@ -1,0 +1,74 @@
+[
+ [
+  [
+   [
+    "column_name",
+    "data_type"
+   ],
+   [
+    {
+     "column_name": "id",
+     "data_type": "integer"
+    },
+    {
+     "column_name": "struct_id",
+     "data_type": "integer"
+    },
+    {
+     "column_name": "approval",
+     "data_type": "date"
+    },
+    {
+     "column_name": "type",
+     "data_type": "character varying"
+    },
+    {
+     "column_name": "applicant",
+     "data_type": "character varying"
+    },
+    {
+     "column_name": "orphan",
+     "data_type": "boolean"
+    }
+   ]
+  ]
+ ],
+ [
+  [
+   [
+    "id",
+    "struct_id",
+    "approval",
+    "type",
+    "applicant",
+    "orphan"
+   ],
+   [
+    {
+     "id": 4268,
+     "struct_id": 5391,
+     "approval": "2020-04-04",
+     "type": "FDA",
+     "applicant": "IMMUNOMEDICS INC",
+     "orphan": false
+    },
+    {
+     "id": 4269,
+     "struct_id": 5392,
+     "approval": "2020-05-06",
+     "type": "FDA",
+     "applicant": "NOVARTIS PHARM",
+     "orphan": true
+    },
+    {
+     "id": 4270,
+     "struct_id": 5392,
+     "approval": "2020-06-29",
+     "type": "PMDA",
+     "applicant": "Novartis Pharma K.K.",
+     "orphan": true
+    }
+   ]
+  ]
+ ]
+]

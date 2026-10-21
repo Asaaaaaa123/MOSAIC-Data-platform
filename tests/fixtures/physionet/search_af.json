@@ -1,0 +1,162 @@
+[
+ {
+  "public_project_uuid": "14d34845-f3c1-4a96-bb22-63e8d53f4db2",
+  "slug": "shdb-af",
+  "version": "1.0.1",
+  "core_doi": "10.13026/f5mp-gx65",
+  "version_doi": "10.13026/n6yq-fq90",
+  "is_latest_version": true,
+  "short_description": "Holter ECG database from Japan, containing data from 100 unique patients with paroxysmal AF including expert annotations of Supraventricular arrhythmias at the beat level.",
+  "publish_date": "2025-04-16",
+  "title": "SHDB-AF: a Japanese Holter ECG database of atrial fibrillation",
+  "abstract": "<p>Saitama Heart Database Atrial Fibrillation (SHDB-AF) is a novel open-sourced Holter ECG database from Japan, containing data from 122 unique subjects with paroxysmal atrial fibrillation. Among the 128 recordings, 98 contain raw ECG data with rhythm annotations at the beat level, manually performed by a cardiology fellow. The remaining recordings consist only of ECG traces without annotations. T</p>",
+  "license": {
+   "name": "Open Data Commons Attribution License v1.0"
+  },
+  "dua": null,
+  "main_storage_size": 8887271676,
+  "compressed_storage_size": 7816783253,
+  "resource_type": "Database",
+  "access_policy": "Open",
+  "topics": [
+   "atrial fibrillation",
+   "holters",
+   "ecg"
+  ],
+  "source_url": "https://physionet.org/content/shdb-af/1.0.1/"
+ },
+ {
+  "public_project_uuid": "a8971424-d4e2-4ed7-8831-4c0ffe45f51c",
+  "slug": "cpsc2021",
+  "version": "1.0.0",
+  "core_doi": "10.13026/h37m-r024",
+  "version_doi": "10.13026/ksya-qw89",
+  "is_latest_version": true,
+  "short_description": "CPSC2021 for paroxysmal atrial fibrillation events detection.",
+  "publish_date": "2021-06-21",
+  "title": "Paroxysmal Atrial Fibrillation Events Detection from Dynamic ECG Recordings: The 4th China Physiological Signal Challenge 2021",
+  "abstract": "<p><span><span>Atrial fibrillation (AF) is the most frequent arrhythmia, but paroxysmal atrial fibrillation (PAF) often remains unrecognized. Early detection of PAF&nbsp;is of great value for AF surgery options, drug intervention and diagnosis and treatment of various clinical complications.&nbsp;Although accurate detection of paroxysmal AF is very important, there is currently no algorithm that c</p>",
+  "license": {
+   "name": "Creative Commons Attribution 4.0 International Public License"
+  },
+  "dua": null,
+  "main_storage_size": 1392566649,
+  "compressed_storage_size": 1113858872,
+  "resource_type": "Challenge",
+  "access_policy": "Open",
+  "topics": [
+   "event detection",
+   "paroxysmal atrial fibrillation"
+  ],
+  "source_url": "https://physionet.org/content/cpsc2021/1.0.0/"
+ },
+ {
+  "public_project_uuid": "8801872b-1df7-4f53-b02e-e819e8467530",
+  "slug": "afdb",
+  "version": "1.0.0",
+  "core_doi": null,
+  "version_doi": "10.13026/C2MW2D",
+  "is_latest_version": true,
+  "short_description": "",
+  "publish_date": "2000-11-04",
+  "title": "MIT-BIH Atrial Fibrillation Database",
+  "abstract": "<p>This database includes 25 long-term ECG recordings of human subjects with atrial fibrillation (mostly paroxysmal).</p>",
+  "license": {
+   "name": "Open Data Commons Attribution License v1.0"
+  },
+  "dua": null,
+  "main_storage_size": 635350603,
+  "compressed_storage_size": 461033254,
+  "resource_type": "Database",
+  "access_policy": "Open",
+  "topics": [
+   "atrial fibrillation",
+   "ecg"
+  ],
+  "source_url": "https://physionet.org/content/afdb/1.0.0/"
+ },
+ {
+  "public_project_uuid": "d5394c31-b667-488f-b112-e462fbb4f5c9",
+  "slug": "iafdb",
+  "version": "1.0.0",
+  "core_doi": null,
+  "version_doi": "10.13026/C23S33",
+  "is_latest_version": true,
+  "short_description": "",
+  "publish_date": "2003-03-04",
+  "title": "Intracardiac Atrial Fibrillation Database",
+  "abstract": "<p>This database consists of endocardial recordings from the right atria of 8 patients in atrial fibrillation or flutter. A decapolar catheter with 2-5-2mm spacing (7mm spacing between bipoles) was placed in four separate regions of the heart. In each region, the 5 bipolar signals were recorded along with 3 surface ECG leads.</p>",
+  "license": {
+   "name": "Open Data Commons Attribution License v1.0"
+  },
+  "dua": null,
+  "main_storage_size": 107787832,
+  "compressed_storage_size": 107808500,
+  "resource_type": "Database",
+  "access_policy": "Open",
+  "topics": [
+   "atrial fibrillation",
+   "ecg"
+  ],
+  "source_url": "https://physionet.org/content/iafdb/1.0.0/"
+ },
+ {
+  "public_project_uuid": "40da732c-1ccd-4028-880c-0499ca1edcfd",
+  "slug": "challenge-2004",
+  "version": "1.0.0",
+  "core_doi": null,
+  "version_doi": null,
+  "is_latest_version": true,
+  "short_description": "",
+  "publish_date": "2004-10-08",
+  "title": "Spontaneous Termination of Atrial Fibrillation: The PhysioNet/Computing in Cardiology Challenge 2004",
+  "abstract": "<p>The fifth annual PhysioNet/Computers in Cardiology Challenge focusses on this question<strong>: </strong>Is it possible to predict if (or when) an episode of atrial fibrillation will end spontaneously?</p>",
+  "license": {
+   "name": "Open Data Commons Attribution License v1.0"
+  },
+  "dua": null,
+  "main_storage_size": 0,
+  "compressed_storage_size": 4687005,
+  "resource_type": "Challenge",
+  "access_policy": "Open",
+  "topics": [
+   "challenge",
+   "atrial fibrillation",
+   "ecg"
+  ],
+  "source_url": "https://physionet.org/content/challenge-2004/1.0.0/"
+ },
+ {
+  "public_project_uuid": "dd7ad4c8-5248-45ea-8168-efe023e9817d",
+  "slug": "ecg-ppg-simulator-arrhythmia",
+  "version": "1.3.1",
+  "core_doi": "10.13026/xf56-pm38",
+  "version_doi": "10.13026/s32e-sv15",
+  "is_latest_version": true,
+  "short_description": "A model is capable of simulating sinus rhythm, atrial fibrillation and ectopic beats in ECGs and PPGs as well as extreme bradycardia and ventricular tachycardia in PPGs. Different types of noises and artifacts can also be added to the waveforms.",
+  "publish_date": "2022-05-02",
+  "title": "Model for Simulating ECG and PPG Signals with Arrhythmia Episodes",
+  "abstract": "<p>The simulation of electrocardiographic (ECG) and photoplethysmographic (PPG) signals with cardiac arrhythmias is important when developing and testing arrhythmia detectors. This&nbsp;software is capable of simulating sinus rhythm, episodes of atrial fibrillation and atrial premature beats in ECGs and PPGs as well as extreme bradycardia and ventricular tachycardia in PPGs. Different types of noi</p>",
+  "license": {
+   "name": "GNU General Public License version 3"
+  },
+  "dua": null,
+  "main_storage_size": 5137673018,
+  "compressed_storage_size": 4938664477,
+  "resource_type": "Software",
+  "access_policy": "Open",
+  "topics": [
+   "atrial fibrillation",
+   "arrhythmia",
+   "noise",
+   "tachycardia",
+   "detection",
+   "motion artifacts",
+   "simulation",
+   "bradycardia",
+   "ppg",
+   "ecg"
+  ],
+  "source_url": "https://physionet.org/content/ecg-ppg-simulator-arrhythmia/1.3.1/"
+ }
+]

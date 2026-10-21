@@ -1,0 +1,37 @@
+{
+ "ndcStatus": {
+  "ndc11": "00006302602",
+  "status": "ACTIVE",
+  "active": "YES",
+  "rxnormNdc": "YES",
+  "rxcui": "1657751",
+  "conceptName": "4 ML pembrolizumab 25 MG/ML Injection [Keytruda]",
+  "conceptStatus": "ACTIVE",
+  "sourceList": {
+   "sourceName": [
+    "GS",
+    "MMSL",
+    "MMX",
+    "MTHSPL",
+    "RXNORM",
+    "VANDF"
+   ]
+  },
+  "altNdc": "N",
+  "comment": null,
+  "ndcHistory": [
+   {
+    "activeRxcui": "1657751",
+    "originalRxcui": "1657751",
+    "startDate": "201508",
+    "endDate": "202610"
+   },
+   {
+    "activeRxcui": "1657751",
+    "originalRxcui": "1547554",
+    "startDate": "201503",
+    "endDate": "201507"
+   }
+  ]
+ }
+}

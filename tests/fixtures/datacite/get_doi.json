@@ -1,0 +1,217 @@
+{
+ "data": {
+  "id": "10.5061/dryad.zs7h44jsj",
+  "type": "dois",
+  "attributes": {
+   "doi": "10.5061/dryad.zs7h44jsj",
+   "prefix": "10.5061",
+   "suffix": "dryad.zs7h44jsj",
+   "identifiers": [],
+   "alternateIdentifiers": [],
+   "creators": [
+    {
+     "name": "Tili, Esmerina",
+     "nameType": "Personal",
+     "affiliation": [
+      "The Ohio State University"
+     ],
+     "nameIdentifiers": [
+      {
+       "schemeUri": "https://orcid.org",
+       "nameIdentifier": "https://orcid.org/0000-0002-3540-8220",
+       "nameIdentifierScheme": "ORCID"
+      }
+     ]
+    },
+    {
+     "name": "Nuovo, Gerard",
+     "nameType": "Personal",
+     "affiliation": [
+      "Gnome"
+     ],
+     "nameIdentifiers": []
+    },
+    {
+     "name": "Croce, Carlo",
+     "nameType": "Personal",
+     "affiliation": [
+      "The Ohio State University Wexner Medical Center"
+     ],
+     "nameIdentifiers": []
+    },
+    {
+     "name": "Heineman, Thomas",
+     "nameType": "Personal",
+     "affiliation": [
+      "Oncolytics Biotech (Canada)"
+     ],
+     "nameIdentifiers": []
+    }
+   ],
+   "titles": [
+    {
+     "title": "MicroRNA-driven regulation of immunosuppressive microenvironment in viral positive hepatocellular carcinoma"
+    }
+   ],
+   "publisher": "Dryad",
+   "container": {},
+   "publicationYear": 2026,
+   "subjects": [
+    {
+     "subject": "FOS: Medical and health sciences",
+     "schemeUri": "https://web-archive.oecd.org/2012-06-15/138575-38235147.pdf",
+     "subjectScheme": "fos"
+    },
+    {
+     "subject": "Hepatitis",
+     "schemeUri": "https://github.com/PLOS/plos-thesaurus",
+     "subjectScheme": "PLOS Subject Area Thesaurus"
+    },
+    {
+     "subject": "MicroRNAs",
+     "schemeUri": "https://github.com/PLOS/plos-thesaurus",
+     "subjectScheme": "PLOS Subject Area Thesaurus"
+    },
+    {
+     "subject": "Liver cancer"
+    },
+    {
+     "subject": "Tumor microenvironment"
+    }
+   ],
+   "dates": [
+    {
+     "date": "2026-08-24T17:53:31Z",
+     "dateType": "Created"
+    },
+    {
+     "date": "2026-08-24T17:53:34Z",
+     "dateType": "Submitted"
+    },
+    {
+     "date": "2026-09-01T00:00:00Z",
+     "dateType": "Issued"
+    },
+    {
+     "date": "2026-09-01T00:00:00Z",
+     "dateType": "Available"
+    }
+   ],
+   "language": "en",
+   "types": {
+    "ris": "DATA",
+    "bibtex": "misc",
+    "citeproc": "dataset",
+    "schemaOrg": "Dataset",
+    "resourceType": "dataset",
+    "resourceTypeGeneral": "Dataset"
+   },
+   "relatedIdentifiers": [
+    {
+     "relationType": "IsCitedBy",
+     "relatedIdentifier": "10.1073/pnas.2618249123",
+     "relatedIdentifierType": "DOI"
+    }
+   ],
+   "relatedItems": [],
+   "sizes": [
+    "20986246 bytes"
+   ],
+   "formats": [],
+   "version": "3",
+   "rightsList": [
+    {
+     "rights": "Creative Commons Zero v1.0 Universal",
+     "rightsUri": "https://creativecommons.org/publicdomain/zero/1.0/legalcode",
+     "schemeUri": "https://spdx.org/licenses/",
+     "rightsIdentifier": "cc0-1.0",
+     "rightsIdentifierScheme": "SPDX"
+    }
+   ],
+   "descriptions": [
+    {
+     "description": "We investigated the role of tumor microenvironment (TME) in evolution of\n liver cirrhosis to hepatocellular carcinoma (HCC). All non-malignant\n hepatic tissues, including chronic hepatitis and cirrhosis, retained\n expression of liver specific miR-122 and HNF-4 together with an immune\n surveillance program characterized by ICOSL and NF-κB expression, low\n SOCS1 levels, and strong cytotoxic T-cell i",
+     "descriptionType": "Abstract"
+    },
+    {
+     "description": "We examined 61 cases of benign liver diseases (20 chronic active\n hepatitis (CAH) due to hepatitis B or C based on clinical serology/nucleic\n acid testing, 6 acute hepatitis due to hepatitis A based on serology, and\n 35 cases of cirrhosis), 6 normal livers from autopsy material, and 80\n cases of HCC.  Four-micron tissue samples were placed on sequentially\n labeled slides, baked at 60<sup>0</sup>C ",
+     "descriptionType": "Methods"
+    },
+    {
+     "description": "# MicroRNA-driven regulation of immunosuppressive microenvironment in\n viral positive hepatocellular carcinoma Dataset DOI:\n [10.5061/dryad.zs7h44jsj](https://doi.org/10.5061/dryad.zs7h44jsj) ##\n Description of the data and file structure We examined 61 cases of benign\n liver diseases [20 chronic active hepatitis (CAH)] due to hepatitis B or C\n based on clinical serology/nucleic acid testing, 6 ac",
+     "descriptionType": "TechnicalInfo"
+    }
+   ],
+   "fundingReferences": [
+    {
+     "funderName": "CLL Global Research Foundation",
+     "funderIdentifier": "https://ror.org/0472hmc50",
+     "funderIdentifierType": "ROR"
+    }
+   ],
+   "url": "https://datadryad.org/dataset/doi:10.5061/dryad.zs7h44jsj",
+   "contentUrl": null,
+   "metadataVersion": 1,
+   "schemaVersion": "http://datacite.org/schema/kernel-4",
+   "source": "mds",
+   "isActive": true,
+   "state": "findable",
+   "reason": null,
+   "viewCount": 0,
+   "downloadCount": 0,
+   "referenceCount": 0,
+   "citationCount": 1,
+   "partCount": 0,
+   "partOfCount": 0,
+   "versionCount": 0,
+   "versionOfCount": 0,
+   "created": "2026-09-01T20:31:30.000Z",
+   "registered": "2026-09-01T20:31:31.000Z",
+   "published": "2026",
+   "updated": "2026-10-20T16:36:52.000Z"
+  },
+  "relationships": {
+   "client": {
+    "data": {
+     "id": "dryad.dryad",
+     "type": "clients"
+    }
+   },
+   "provider": {
+    "data": {
+     "id": "dryad",
+     "type": "providers"
+    }
+   },
+   "media": {
+    "data": {
+     "id": "10.5061/dryad.zs7h44jsj",
+     "type": "media"
+    }
+   },
+   "references": {
+    "data": []
+   },
+   "citations": {
+    "data": [
+     {
+      "id": "10.1073/pnas.2618249123",
+      "type": "dois"
+     }
+    ]
+   },
+   "parts": {
+    "data": []
+   },
+   "partOf": {
+    "data": []
+   },
+   "versions": {
+    "data": []
+   },
+   "versionOf": {
+    "data": []
+   }
+  }
+ }
+}

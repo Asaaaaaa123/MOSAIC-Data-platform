@@ -1,0 +1,179 @@
+{
+ "results": [
+  {
+   "subject": {
+    "type": "Gene",
+    "primaryExternalId": "HGNC:1171",
+    "taxon": {
+     "curie": "NCBITaxon:9606",
+     "name": "Homo sapiens",
+     "descendantCount": 0,
+     "species": {
+      "fullName": "Homo sapiens",
+      "abbreviation": "Hsa",
+      "displayName": "HUMAN",
+      "phylogeneticOrder": 10
+     }
+    },
+    "geneSymbol": {
+     "formatText": "ELP4",
+     "displayText": "ELP4"
+    },
+    "geneFullName": {
+     "formatText": "elongator acetyltransferase complex subunit 4",
+     "displayText": "elongator acetyltransferase complex subunit 4"
+    }
+   },
+   "relation": {
+    "name": "is_implicated_in"
+   },
+   "object": {
+    "curie": "DOID:12271",
+    "name": "aniridia",
+    "definition": "An iris disease that is characterized by a complete or partial absence of the colored part of the eye.",
+    "descendantCount": 0
+   },
+   "category": "gene_disease_annotation",
+   "searchable": false,
+   "uniqueId": "Ri-FYKABWsOBLCd97w1p",
+   "countId": 41367,
+   "evidenceCodes": [
+    {
+     "curie": "ECO:0007191",
+     "name": "inference by association of genotype from phenotype used in manual assertion",
+     "definition": "A type of inference by association of genotype from phenotype that is used in a manual assertion.",
+     "descendantCount": 0,
+     "abbreviation": "IAGP"
+    }
+   ],
+   "generatedRelationString": "is_implicated_in",
+   "pubmedPublications": [
+    {
+     "referencedCurie": "RGD:7240710",
+     "displayName": "RGD:7240710"
+    }
+   ],
+   "pubModPublications": [
+    {
+     "referencedCurie": "RGD:7240710",
+     "displayName": "RGD:7240710"
+    }
+   ],
+   "parentSlimIDs": [
+    "DOID:4",
+    "DOID:863",
+    "DOID:7",
+    "DOID:12271",
+    "DOID:3480",
+    "DOID:0050155",
+    "DOID:240",
+    "DOID:5614"
+   ],
+   "phylogeneticSortingIndex": 10,
+   "viaOrthologyOrder": 0
+  },
+  {
+   "subject": {
+    "type": "Gene",
+    "primaryExternalId": "HGNC:8620",
+    "taxon": {
+     "curie": "NCBITaxon:9606",
+     "name": "Homo sapiens",
+     "descendantCount": 0,
+     "species": {
+      "fullName": "Homo sapiens",
+      "abbreviation": "Hsa",
+      "displayName": "HUMAN",
+      "phylogeneticOrder": 10
+     }
+    },
+    "geneSymbol": {
+     "formatText": "PAX6",
+     "displayText": "PAX6"
+    },
+    "geneFullName": {
+     "formatText": "paired box 6",
+     "displayText": "paired box 6"
+    }
+   },
+   "relation": {
+    "name": "is_implicated_in"
+   },
+   "object": {
+    "curie": "DOID:0070532",
+    "name": "aniridia 1",
+    "definition": "An aniridia that has_material_basis_in heterozygous mutation in the PAX6 gene on chromosome 11p13. Additional ocular anomalies are also common.",
+    "descendantCount": 0
+   },
+   "category": "gene_disease_annotation",
+   "searchable": false,
+   "uniqueId": "0iyFYKABWsOBLCd9fTVa",
+   "countId": 8910,
+   "evidenceCodes": [
+    {
+     "curie": "ECO:0007191",
+     "name": "inference by association of genotype from phenotype used in manual assertion",
+     "definition": "A type of inference by association of genotype from phenotype that is used in a manual assertion.",
+     "descendantCount": 0,
+     "abbreviation": "IAGP"
+    }
+   ],
+   "generatedRelationString": "is_implicated_in",
+   "pubmedPublications": [
+    {
+     "referencedCurie": "RGD:7240710",
+     "displayName": "RGD:7240710"
+    }
+   ],
+   "pubModPublications": [
+    {
+     "referencedCurie": "RGD:7240710",
+     "displayName": "RGD:7240710"
+    }
+   ],
+   "parentSlimIDs": [
+    "DOID:4",
+    "DOID:863",
+    "DOID:7",
+    "DOID:3480",
+    "DOID:0050736",
+    "DOID:0070532",
+    "DOID:0050739",
+    "DOID:12271",
+    "DOID:630",
+    "DOID:0050155",
+    "DOID:0050177",
+    "DOID:5614",
+    "DOID:240"
+   ],
+   "phylogeneticSortingIndex": 10,
+   "viaOrthologyOrder": 0
+  }
+ ],
+ "total": 50,
+ "returnedRecords": 2,
+ "requestDuration": "0s",
+ "requestDate": "2026/10/20 19:42:17",
+ "supplementalData": {
+  "distinctFieldValues": {
+   "species": [
+    "Xenopus laevis",
+    "Danio rerio",
+    "Homo sapiens",
+    "Mus musculus",
+    "Rattus norvegicus",
+    "Xenopus tropicalis",
+    "Caenorhabditis elegans",
+    "Drosophila melanogaster",
+    "Saccharomyces cerevisiae"
+   ],
+   "associationType": [
+    "is_implicated_via_orthology",
+    "is_implicated_in"
+   ],
+   "diseaseQualifiers": [
+    "susceptibility_to"
+   ]
+  }
+ }
+}

@@ -1,0 +1,123 @@
+{
+ "data": {
+  "evidenceItems": {
+   "totalCount": 124,
+   "pageInfo": {
+    "endCursor": "Mg",
+    "hasNextPage": true
+   },
+   "nodes": [
+    {
+     "id": 11238,
+     "name": "EID11238",
+     "description": "In this phase 3, randomised, double-blind, placebo-controlled trial, 514 patients with unresectable stage IIIc–IV, BRAFV600 mutation-positive melanoma were randomly assigned to either 28-day cycles of",
+     "evidenceType": "PREDICTIVE",
+     "evidenceLevel": "A",
+     "evidenceDirection": "SUPPORTS",
+     "significance": "SENSITIVITYRESPONSE",
+     "evidenceRating": 4,
+     "variantOrigin": "SOMATIC",
+     "status": "ACCEPTED",
+     "therapyInteractionType": "COMBINATION",
+     "molecularProfile": {
+      "id": 17,
+      "name": "BRAF V600",
+      "variants": [
+       {
+        "id": 17,
+        "name": "V600",
+        "feature": {
+         "name": "BRAF",
+         "featureInstance": {
+          "entrezId": 673
+         }
+        }
+       }
+      ]
+     },
+     "disease": {
+      "id": 7,
+      "name": "Melanoma",
+      "doid": "1909"
+     },
+     "therapies": [
+      {
+       "id": 261,
+       "name": "Atezolizumab",
+       "ncitId": "C106250"
+      },
+      {
+       "id": 4,
+       "name": "Vemurafenib",
+       "ncitId": "C64768"
+      },
+      {
+       "id": 342,
+       "name": "Cobimetinib",
+       "ncitId": "C68923"
+      }
+     ],
+     "source": {
+      "citationId": "32534646",
+      "sourceType": "PUBMED",
+      "citation": "Gutzmer et al., 2020",
+      "publicationYear": 2020,
+      "pmcId": null,
+      "title": "Atezolizumab, vemurafenib, and cobimetinib as first-line treatment for unresectable advanced BRAFV600 mutation-positive melanoma (IMspire150): primary analysis of the randomised, double-blind, placebo-controlled, phase 3 trial.",
+      "journal": "Lancet"
+     }
+    },
+    {
+     "id": 1409,
+     "name": "EID1409",
+     "description": "Phase 3 randomized clinical trial comparing vemurafenib with dacarbazine in 675 patients with previously untreated, metastatic melanoma with the BRAF V600E mutation. At 6 months, overall survival was ",
+     "evidenceType": "PREDICTIVE",
+     "evidenceLevel": "A",
+     "evidenceDirection": "SUPPORTS",
+     "significance": "SENSITIVITYRESPONSE",
+     "evidenceRating": 5,
+     "variantOrigin": "SOMATIC",
+     "status": "ACCEPTED",
+     "therapyInteractionType": null,
+     "molecularProfile": {
+      "id": 12,
+      "name": "BRAF V600E",
+      "variants": [
+       {
+        "id": 12,
+        "name": "V600E",
+        "feature": {
+         "name": "BRAF",
+         "featureInstance": {
+          "entrezId": 673
+         }
+        }
+       }
+      ]
+     },
+     "disease": {
+      "id": 206,
+      "name": "Skin Melanoma",
+      "doid": "8923"
+     },
+     "therapies": [
+      {
+       "id": 4,
+       "name": "Vemurafenib",
+       "ncitId": "C64768"
+      }
+     ],
+     "source": {
+      "citationId": "21639808",
+      "sourceType": "PUBMED",
+      "citation": "Chapman et al., 2011",
+      "publicationYear": 2011,
+      "pmcId": "PMC3549296",
+      "title": "Improved survival with vemurafenib in melanoma with BRAF V600E mutation.",
+      "journal": "N Engl J Med"
+     }
+    }
+   ]
+  }
+ }
+}

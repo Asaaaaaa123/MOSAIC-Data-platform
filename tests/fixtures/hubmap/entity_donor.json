@@ -1,0 +1,109 @@
+{
+ "created_by_user_displayname": "daniel cotter",
+ "created_timestamp": 1611779579789,
+ "data_access_level": "public",
+ "entity_type": "Donor",
+ "group_name": "Stanford TMC",
+ "group_uuid": "def5fd76-ed43-11e8-b56a-0e8017bdda58",
+ "hubmap_id": "HBM765.TRHD.452",
+ "last_modified_timestamp": 1746719172099,
+ "last_modified_user_displayname": "Joseph Simmons",
+ "metadata": {
+  "organ_donor_data": [
+   {
+    "grouping_concept_preferred_term": "Age",
+    "preferred_term": "Age",
+    "data_value": "24",
+    "units": "years",
+    "data_type": "Numeric"
+   },
+   {
+    "grouping_concept_preferred_term": "Race",
+    "preferred_term": "White",
+    "data_value": "White",
+    "units": "",
+    "data_type": "Nominal"
+   },
+   {
+    "grouping_concept_preferred_term": "Sex",
+    "preferred_term": "Female",
+    "data_value": "Female",
+    "units": "",
+    "data_type": "Nominal"
+   },
+   {
+    "grouping_concept_preferred_term": "Cause of Death",
+    "preferred_term": "Cerebral edema",
+    "data_value": "Cerebral edema",
+    "units": "",
+    "data_type": "Nominal"
+   },
+   {
+    "grouping_concept_preferred_term": "Death Event",
+    "preferred_term": "Natural causes",
+    "data_value": "Natural causes",
+    "units": "",
+    "data_type": "Nominal"
+   },
+   {
+    "grouping_concept_preferred_term": "Height",
+    "preferred_term": "Height",
+    "data_value": "170.2",
+    "units": "cm",
+    "data_type": "Numeric"
+   },
+   {
+    "grouping_concept_preferred_term": "Weight",
+    "preferred_term": "Weight",
+    "data_value": "67.3",
+    "units": "kg",
+    "data_type": "Numeric"
+   },
+   {
+    "grouping_concept_preferred_term": "Body Mass Index",
+    "preferred_term": "Body Mass Index",
+    "data_value": "23.2",
+    "units": "kg/m2",
+    "data_type": "Numeric"
+   },
+   {
+    "grouping_concept_preferred_term": "Kidney donor profile index",
+    "preferred_term": "Kidney donor profile index",
+    "data_value": "11",
+    "units": "%",
+    "data_type": "Numeric"
+   },
+   {
+    "grouping_concept_preferred_term": "ABO blood group system",
+    "preferred_term": "Blood Type A",
+    "data_value": "Blood Type A",
+    "units": "",
+    "data_type": "Nominal"
+   },
+   {
+    "grouping_concept_preferred_term": "Social History",
+    "preferred_term": "Heavy drinker",
+    "data_value": "Heavy drinker",
+    "units": "",
+    "data_type": "Nominal"
+   },
+   {
+    "grouping_concept_preferred_term": "Social History",
+    "preferred_term": "Intravenous drug use",
+    "data_value": "Intravenous drug use",
+    "units": "",
+    "data_type": "Nominal"
+   },
+   {
+    "grouping_concept_preferred_term": "Medical History",
+    "preferred_term": "Liver failure",
+    "data_value": "Liver failure",
+    "units": "",
+    "data_type": "Nominal"
+   }
+  ]
+ },
+ "open_consent": "False",
+ "protocol_url": "https://dx.doi.org/10.17504/protocols.io.bin8kdhw",
+ "uuid": "be425f8a2963dda1d3a7a0c79de5e466"
+}

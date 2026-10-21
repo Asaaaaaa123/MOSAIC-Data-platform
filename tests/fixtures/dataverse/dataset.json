@@ -1,0 +1,312 @@
+{
+ "status": "OK",
+ "data": {
+  "id": 3583639,
+  "identifier": "DVN/CTJN63",
+  "persistentUrl": "https://doi.org/10.7910/DVN/CTJN63",
+  "protocol": "doi",
+  "authority": "10.7910",
+  "separator": "/",
+  "publisher": "Harvard Dataverse",
+  "publicationDate": "2019-09-26",
+  "storageIdentifier": "s3://10.7910/DVN/CTJN63",
+  "effectiveDatasetFileCountLimit": 1000,
+  "datasetFileUploadsAvailable": 988,
+  "datasetType": "dataset",
+  "locks": [],
+  "latestVersion": {
+   "id": 175783,
+   "datasetId": 3583639,
+   "datasetPersistentId": "doi:10.7910/DVN/CTJN63",
+   "datasetType": "dataset",
+   "storageIdentifier": "s3://10.7910/DVN/CTJN63",
+   "versionNumber": 2,
+   "internalVersionNumber": 8,
+   "versionMinorNumber": 0,
+   "versionState": "RELEASED",
+   "latestVersionPublishingState": "RELEASED",
+   "deaccessionLink": "",
+   "UNF": "UNF:6:dwCFDYa9l+2BRGPqlf8gUA==",
+   "lastUpdateTime": "2019-10-10T14:30:46Z",
+   "releaseTime": "2019-10-10T14:30:46Z",
+   "createTime": "2019-10-10T12:31:50Z",
+   "publicationDate": "2019-09-26",
+   "citationDate": "2019-09-26",
+   "effectiveDatasetFileCountLimit": 1000,
+   "datasetFileUploadsAvailable": 988,
+   "license": {
+    "name": "CC0 1.0",
+    "uri": "http://creativecommons.org/publicdomain/zero/1.0",
+    "iconUri": "https://licensebuttons.net/p/zero/1.0/88x31.png",
+    "rightsIdentifier": "CC0-1.0",
+    "rightsIdentifierScheme": "SPDX",
+    "schemeUri": "https://spdx.org/licenses/",
+    "languageCode": "en"
+   },
+   "fileAccessRequest": false,
+   "metadataBlocks": {
+    "citation": {
+     "displayName": "Citation Metadata",
+     "name": "citation",
+     "fields": [
+      {
+       "typeName": "title",
+       "multiple": false,
+       "typeClass": "primitive",
+       "value": "Simulation Results: Global Childhood Cancer Incidence"
+      },
+      {
+       "typeName": "author",
+       "multiple": true,
+       "typeClass": "compound",
+       "value": [
+        {
+         "authorName": {
+          "typeName": "authorName",
+          "multiple": false,
+          "typeClass": "primitive",
+          "value": "Ward, Zachary"
+         },
+         "authorAffiliation": {
+          "typeName": "authorAffiliation",
+          "multiple": false,
+          "typeClass": "primitive",
+          "value": "Harvard University"
+         }
+        },
+        {
+         "authorName": {
+          "typeName": "authorName",
+          "multiple": false,
+          "typeClass": "primitive",
+          "value": "Yeh, Jennifer"
+         },
+         "authorAffiliation": {
+          "typeName": "authorAffiliation",
+          "multiple": false,
+          "typeClass": "primitive",
+          "value": "Harvard University"
+         }
+        },
+        {
+         "authorName": {
+          "typeName": "authorName",
+          "multiple": false,
+          "typeClass": "primitive",
+          "value": "Bhakta, Nickhill"
+         },
+         "authorAffiliation": {
+          "typeName": "authorAffiliation",
+          "multiple": false,
+          "typeClass": "primitive",
+          "value": "St Jude Children's Research Hospital"
+         }
+        },
+        {
+         "authorName": {
+          "typeName": "authorName",
+          "multiple": false,
+          "typeClass": "primitive",
+          "value": "Frazier, A Lindsay"
+         },
+         "authorAffiliation": {
+          "typeName": "authorAffiliation",
+          "multiple": false,
+          "typeClass": "primitive",
+          "value": "Dana-Farber/Boston Children's Cancer and Blood Disorders Center"
+         }
+        },
+        {
+         "authorName": {
+          "typeName": "authorName",
+          "multiple": false,
+          "typeClass": "primitive",
+          "value": "Atun, Rifat"
+         },
+         "authorAffiliation": {
+          "typeName": "authorAffiliation",
+          "multiple": false,
+          "typeClass": "primitive",
+          "value": "Harvard University"
+         }
+        }
+       ]
+      },
+      {
+       "typeName": "datasetContact",
+       "multiple": true,
+       "typeClass": "compound",
+       "value": []
+      },
+      {
+       "typeName": "dsDescription",
+       "multiple": true,
+       "typeClass": "compound",
+       "value": [
+        {
+         "dsDescriptionValue": {
+          "typeName": "dsDescriptionValue",
+          "multiple": false,
+          "typeClass": "primitive",
+          "value": "Simulation results (means and 95% uncertainty intervals) for: Ward ZJ, Yeh JM, Bhakta N, Frazier AL, Atun R. Estimating the total incidence of global childhood cancer: a simulation-based analysis. Lancet Oncol 2019; 20(4): 483-493."
+         }
+        }
+       ]
+      },
+      {
+       "typeName": "subject",
+       "multiple": true,
+       "typeClass": "controlledVocabulary",
+       "value": [
+        "Medicine, Health and Life Sciences"
+       ]
+      },
+      {
+       "typeName": "publication",
+       "multiple": true,
+       "typeClass": "compound",
+       "value": [
+        {
+         "publicationCitation": {
+          "typeName": "publicationCitation",
+          "multiple": false,
+          "typeClass": "primitive",
+          "value": "Ward ZJ, Yeh JM, Bhakta N, Frazier AL, Atun R. Estimating the total incidence of global childhood cancer: a simulation-based analysis. Lancet Oncol 2019; 20(4): 483-493."
+         },
+         "publicationIDType": {
+          "typeName": "publicationIDType",
+          "multiple": false,
+          "typeClass": "controlledVocabulary",
+          "value": "pmid"
+         },
+         "publicationIDNumber": {
+          "typeName": "publicationIDNumber",
+          "multiple": false,
+          "typeClass": "primitive",
+          "value": "30824204"
+         },
+         "publicationURL": {
+          "typeName": "publicationURL",
+          "multiple": false,
+          "typeClass": "primitive",
+          "value": "https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(18)30909-4/fulltext"
+         }
+        }
+       ]
+      },
+      {
+       "typeName": "depositor",
+       "multiple": false,
+       "typeClass": "primitive",
+       "value": "Ward, Zachary"
+      },
+      {
+       "typeName": "dateOfDeposit",
+       "multiple": false,
+       "typeClass": "primitive",
+       "value": "2019-09-18"
+      }
+     ]
+    }
+   },
+   "files": [
+    {
+     "label": "countryParams_LB.tab",
+     "restricted": false,
+     "version": 1,
+     "datasetVersionId": 175783,
+     "dataFile": {
+      "id": 3583662,
+      "persistentId": "doi:10.7910/DVN/CTJN63/I2CWFM",
+      "pidURL": "https://doi.org/10.7910/DVN/CTJN63/I2CWFM",
+      "filename": "countryParams_LB.tab",
+      "contentType": "text/tab-separated-values",
+      "friendlyType": "Tab-Delimited",
+      "filesize": 10739,
+      "storageIdentifier": "s3://dvn-cloud:16d49782d10-16c3ad9ed5b2",
+      "originalFileFormat": "text/csv",
+      "originalFormatLabel": "Comma Separated Values",
+      "originalFileSize": 10540,
+      "originalFileName": "countryParams_LB.csv",
+      "UNF": "UNF:6:/6Z5yNLvl3YPP+fJoGLYRg==",
+      "rootDataFileId": -1,
+      "md5": "1c5fde445476ed0e5746c963e7f356c9",
+      "checksum": {
+       "type": "MD5",
+       "value": "1c5fde445476ed0e5746c963e7f356c9"
+      },
+      "tabularData": true,
+      "creationDate": "2019-09-19",
+      "publicationDate": "2019-09-26",
+      "lastUpdateTime": "2019-10-10T14:30:46Z",
+      "fileAccessRequest": false
+     }
+    },
+    {
+     "label": "countryParams_Mean.tab",
+     "restricted": false,
+     "version": 1,
+     "datasetVersionId": 175783,
+     "dataFile": {
+      "id": 3583663,
+      "persistentId": "doi:10.7910/DVN/CTJN63/QRK0KV",
+      "pidURL": "https://doi.org/10.7910/DVN/CTJN63/QRK0KV",
+      "filename": "countryParams_Mean.tab",
+      "contentType": "text/tab-separated-values",
+      "friendlyType": "Tab-Delimited",
+      "filesize": 10761,
+      "storageIdentifier": "s3://dvn-cloud:16d49782dcc-b2b78f6ed316",
+      "originalFileFormat": "text/csv",
+      "originalFormatLabel": "Comma Separated Values",
+      "originalFileSize": 10562,
+      "originalFileName": "countryParams_Mean.csv",
+      "UNF": "UNF:6:OpOzUR+uC4SIjsYtbBEtmg==",
+      "rootDataFileId": -1,
+      "md5": "bf9ce95b30a1db091fb7b4aab2454bec",
+      "checksum": {
+       "type": "MD5",
+       "value": "bf9ce95b30a1db091fb7b4aab2454bec"
+      },
+      "tabularData": true,
+      "creationDate": "2019-09-19",
+      "publicationDate": "2019-09-26",
+      "lastUpdateTime": "2019-10-10T14:30:46Z",
+      "fileAccessRequest": false
+     }
+    },
+    {
+     "label": "countryParams_UB.tab",
+     "restricted": false,
+     "version": 1,
+     "datasetVersionId": 175783,
+     "dataFile": {
+      "id": 3583664,
+      "persistentId": "doi:10.7910/DVN/CTJN63/3PRYWA",
+      "pidURL": "https://doi.org/10.7910/DVN/CTJN63/3PRYWA",
+      "filename": "countryParams_UB.tab",
+      "contentType": "text/tab-separated-values",
+      "friendlyType": "Tab-Delimited",
+      "filesize": 9793,
+      "storageIdentifier": "s3://dvn-cloud:16d49782ea9-b6e219a6408d",
+      "originalFileFormat": "text/csv",
+      "originalFormatLabel": "Comma Separated Values",
+      "originalFileSize": 9594,
+      "originalFileName": "countryParams_UB.csv",
+      "UNF": "UNF:6:migfaSDrvc5Mc+CsU2SKhg==",
+      "rootDataFileId": -1,
+      "md5": "990f6fc3202d7126840c7f17ec5d88e6",
+      "checksum": {
+       "type": "MD5",
+       "value": "990f6fc3202d7126840c7f17ec5d88e6"
+      },
+      "tabularData": true,
+      "creationDate": "2019-09-19",
+      "publicationDate": "2019-09-26",
+      "lastUpdateTime": "2019-10-10T14:30:46Z",
+      "fileAccessRequest": false
+     }
+    }
+   ]
+  }
+ }
+}

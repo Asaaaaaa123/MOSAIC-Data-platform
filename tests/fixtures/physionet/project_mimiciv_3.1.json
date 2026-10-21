@@ -1,0 +1,25 @@
+{
+ "public_project_uuid": "08848569-9a6c-4333-a9c6-b89482ea0cc5",
+ "slug": "mimiciv",
+ "title": "MIMIC-IV",
+ "version": "3.1",
+ "abstract": "<p>Retrospectively collected medical data has the opportunity to improve patient care through knowledge discovery and algorithm development. Broad reuse of medical data is desirable for the greatest public good, but data sharing must be done in a manner which protects patient privacy. Here we present Medical Information Mart for Intensive Care (MIMIC)-IV, a large deidentified dataset of patients admitted to the emergency department or an intensive care unit at the Beth Israel Deaconess Medical Center in Boston, MA. MIMIC-IV contains data for over 65,000 patients admitted to an ICU and over 200,000 patients admitted to the emergency department. MIMIC-IV incorporates contemporary data and adopts a modular approach to data organization, highlighting data provenance and facilitating both individual and combined use of disparate data sources. MIMIC-IV is intended to carry on the success of MIMIC-III and support a broad set of applications within healthcare.</p>",
+ "license": {
+  "name": "PhysioNet Credentialed Health Data License 1.5.0"
+ },
+ "short_description": "Large database of de-identified health information from patients admitted to Beth Israel Deaconess Medical Center",
+ "project_home_page": "https://mimic.mit.edu",
+ "publish_datetime": "2024-10-11T17:54:26.942831-04:00",
+ "doi": "10.13026/kpb9-mt58",
+ "main_storage_size": 10656227926,
+ "compressed_storage_size": 10551747784,
+ "resource_type": "Database",
+ "access_policy": "Credentialed",
+ "topics": [
+  "critical care",
+  "mimic",
+  "intensive care unit",
+  "machine learning"
+ ],
+ "source_url": "https://physionet.org/content/mimiciv/3.1/"
+}

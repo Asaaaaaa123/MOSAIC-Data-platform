@@ -1,0 +1,49 @@
+{
+ "id": "https://openalex.org/I204465549",
+ "ror": "https://ror.org/01yc7t268",
+ "display_name": "Washington University in St. Louis",
+ "country_code": "US",
+ "type": "education",
+ "type_id": "https://openalex.org/institution-types/education",
+ "lineage": [
+  "https://openalex.org/I204465549"
+ ],
+ "homepage_url": "http://wustl.edu/",
+ "display_name_acronyms": [
+  "WUSTL"
+ ],
+ "display_name_alternatives": [
+  "Universidad Washington en San Luis",
+  "Université Washington à Saint-louis",
+  "Washington University",
+  "Washington University in St. Louis"
+ ],
+ "works_count": 289573,
+ "cited_by_count": 49695466,
+ "summary_stats": {
+  "2yr_mean_citedness": 4.673131095117558,
+  "h_index": 1949,
+  "i10_index": 394403
+ },
+ "ids": {
+  "openalex": "https://openalex.org/I204465549",
+  "ror": "https://ror.org/01yc7t268",
+  "grid": "grid.4367.6",
+  "wikipedia": "http://en.wikipedia.org/wiki/Washington_University_in_St._Louis",
+  "wikidata": null
+ },
+ "geo": {
+  "city": "St Louis",
+  "geonames_city_id": "4407066",
+  "region": "Missouri",
+  "country_code": "US",
+  "country": "United States",
+  "latitude": 38.62727,
+  "longitude": -90.19789
+ },
+ "is_super_system": false,
+ "status": "active",
+ "works_api_url": "https://api.openalex.org/works?filter=institutions.id:I204465549",
+ "updated_date": "2026-10-20T18:21:50",
+ "created_date": "2016-06-24T00:00:00"
+}

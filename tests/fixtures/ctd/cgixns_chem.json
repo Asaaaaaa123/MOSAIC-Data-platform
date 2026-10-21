@@ -1,0 +1,5 @@
+[
+ {"Input": "bisphenol A", "ChemicalName": "bisphenol A", "ChemicalId": "C006780", "CasRN": "80-05-7", "GeneSymbol": "ESR1", "GeneId": "2099", "GeneForms": "protein", "Organism": "Homo sapiens", "OrganismId": "9606", "Interaction": "bisphenol A binds to ESR1 protein", "InteractionActions": "affects^binding", "PubMedIds": "16123044|18331649|21458542"},
+ {"Input": "bisphenol A", "ChemicalName": "bisphenol A", "ChemicalId": "C006780", "CasRN": "80-05-7", "GeneSymbol": "ESR1", "GeneId": "2099", "GeneForms": "mRNA", "Organism": "Rattus norvegicus", "OrganismId": "10116", "Interaction": "bisphenol A results in increased expression of ESR1 mRNA", "InteractionActions": "increases^expression", "PubMedIds": "19374925"},
+ {"Input": "bisphenol A", "ChemicalName": "bisphenol A", "ChemicalId": "C006780", "CasRN": "80-05-7", "GeneSymbol": "CYP19A1", "GeneId": "1588", "GeneForms": "mRNA", "Organism": "Homo sapiens", "OrganismId": "9606", "Interaction": "bisphenol A results in decreased expression of CYP19A1 mRNA", "InteractionActions": "decreases^expression", "PubMedIds": "20056564|22228805"}
+]

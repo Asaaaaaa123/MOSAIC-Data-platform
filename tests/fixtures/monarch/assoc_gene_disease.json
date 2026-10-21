@@ -1,0 +1,77 @@
+{
+ "limit": 2,
+ "offset": 0,
+ "total": 9,
+ "items": [
+  {
+   "id": "uuid:d32f52ab-897a-4c53-84e1-ce1dbd6c2e57",
+   "predicate": "biolink:causes",
+   "category": "biolink:CausalGeneToDiseaseAssociation",
+   "agent_type": "not_provided",
+   "aggregator_knowledge_source": [
+    "infores:monarchinitiative"
+   ],
+   "knowledge_level": "not_provided",
+   "primary_knowledge_source": "infores:omim",
+   "file_source": "omim_gene_to_disease_edges",
+   "provided_by": "omim_gene_to_disease_edges",
+   "subject": "HGNC:3603",
+   "object": "MONDO:0007055",
+   "original_subject": "OMIM:134797",
+   "original_object": "OMIM:102370",
+   "evidence_count": 0,
+   "grouping_key": "HGNC:3603||biolink:causes|MONDO:0007055",
+   "subject_label": "FBN1",
+   "subject_category": "biolink:Gene",
+   "subject_namespace": "HGNC",
+   "subject_taxon": "NCBITaxon:9606",
+   "subject_taxon_label": "Homo sapiens",
+   "object_label": "Acromicric dysplasia",
+   "object_category": "biolink:Disease",
+   "object_namespace": "MONDO",
+   "provided_by_link": {
+    "id": "omim_gene_to_disease",
+    "url": "https://monarch-app.monarchinitiative.org/Sources/omim/"
+   },
+   "has_evidence_links": [],
+   "publications_links": [],
+   "direction": "outgoing"
+  },
+  {
+   "id": "uuid:d3af6dd7-cefc-450f-b20d-ff5630382c4b",
+   "predicate": "biolink:causes",
+   "category": "biolink:CausalGeneToDiseaseAssociation",
+   "agent_type": "not_provided",
+   "aggregator_knowledge_source": [
+    "infores:monarchinitiative"
+   ],
+   "knowledge_level": "not_provided",
+   "primary_knowledge_source": "infores:omim",
+   "file_source": "omim_gene_to_disease_edges",
+   "provided_by": "omim_gene_to_disease_edges",
+   "subject": "HGNC:3603",
+   "object": "MONDO:0011431",
+   "original_subject": "OMIM:134797",
+   "original_object": "OMIM:604308",
+   "evidence_count": 0,
+   "grouping_key": "HGNC:3603||biolink:causes|MONDO:0011431",
+   "subject_label": "FBN1",
+   "subject_category": "biolink:Gene",
+   "subject_namespace": "HGNC",
+   "subject_taxon": "NCBITaxon:9606",
+   "subject_taxon_label": "Homo sapiens",
+   "object_label": "MASS syndrome",
+   "object_category": "biolink:Disease",
+   "object_namespace": "MONDO",
+   "provided_by_link": {
+    "id": "omim_gene_to_disease",
+    "url": "https://monarch-app.monarchinitiative.org/Sources/omim/"
+   },
+   "has_evidence_links": [],
+   "publications_links": [],
+   "direction": "outgoing"
+  }
+ ],
+ "facet_fields": [],
+ "facet_queries": []
+}

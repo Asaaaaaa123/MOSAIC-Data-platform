@@ -208,10 +208,16 @@ class Connector:
         return self.rate_limit
 
     def setting(self, name: str) -> str | None:
-        """Read a setting by field name or env var name (``NCBI_API_KEY``)."""
-        value = getattr(self.settings, name.lower(), None)
-        if value not in (None, ""):
-            return str(value)
+        """Read a setting by field name or env var name (``NCBI_API_KEY``).
+
+        Declared ``Settings`` fields are authoritative (pydantic-settings has
+        already applied the environment and ``.env``), so a field explicitly set
+        to ``None`` stays unset. Undeclared names fall back to ``Settings.env``.
+        """
+        field = name.lower()
+        if field in type(self.settings).model_fields:
+            value = getattr(self.settings, field, None)
+            return str(value) if value not in (None, "") else None
         return self.settings.env(name)
 
     def missing_settings(self) -> list[str]:

@@ -1,0 +1,50 @@
+[
+ {
+  "project_id": null,
+  "id": 34700316,
+  "title": "DataSheet2_RETRACTED: Anticancer effects of ABTL0812, a clinical stage drug inducer of autophagy-mediated cancer cell death, in glioblastoma models.pdf",
+  "doi": "10.3389/fonc.2022.943064.s004",
+  "handle": "",
+  "url": "https://api.figshare.com/v2/articles/34700316",
+  "published_date": "2026-10-19T12:18:44Z",
+  "thumb": "https://s3-eu-west-1.amazonaws.com/ppreviews-frontiersin-8483929402184328/70334121/thumb.png",
+  "defined_type": 3,
+  "defined_type_name": "dataset",
+  "group_id": 11938,
+  "url_private_api": "https://api.figshare.com/v2/account/articles/34700316",
+  "url_public_api": "https://api.figshare.com/v2/articles/34700316",
+  "url_private_html": "https://figshare.com/account/articles/34700316",
+  "url_public_html": "https://frontiersin.figshare.com/articles/dataset/DataSheet2_RETRACTED_Anticancer_effects_of_ABTL0812_a_clinical_stage_drug_inducer_of_autophagy-mediated_cancer_cell_death_in_glioblastoma_models_pdf/34700316",
+  "timeline": {
+   "posted": "2026-10-19T12:18:44"
+  },
+  "resource_title": "RETRACTED: Anticancer effects of ABTL0812, a clinical stage drug inducer of autophagy-mediated cancer cell death, in glioblastoma models",
+  "resource_doi": "10.3389/fonc.2022.943064",
+  "created_date": "2026-10-19T12:18:44Z",
+  "modified_date": "2026-10-19T12:18:44Z"
+ },
+ {
+  "project_id": null,
+  "id": 34700313,
+  "title": "DataSheet1_RETRACTED: Anticancer effects of ABTL0812, a clinical stage drug inducer of autophagy-mediated cancer cell death, in glioblastoma models.pdf",
+  "doi": "10.3389/fonc.2022.943064.s003",
+  "handle": "",
+  "url": "https://api.figshare.com/v2/articles/34700313",
+  "published_date": "2026-10-19T12:18:40Z",
+  "thumb": "https://s3-eu-west-1.amazonaws.com/ppreviews-frontiersin-8483929402184328/70334115/thumb.png",
+  "defined_type": 3,
+  "defined_type_name": "dataset",
+  "group_id": 11938,
+  "url_private_api": "https://api.figshare.com/v2/account/articles/34700313",
+  "url_public_api": "https://api.figshare.com/v2/articles/34700313",
+  "url_private_html": "https://figshare.com/account/articles/34700313",
+  "url_public_html": "https://frontiersin.figshare.com/articles/dataset/DataSheet1_RETRACTED_Anticancer_effects_of_ABTL0812_a_clinical_stage_drug_inducer_of_autophagy-mediated_cancer_cell_death_in_glioblastoma_models_pdf/34700313",
+  "timeline": {
+   "posted": "2026-10-19T12:18:40"
+  },
+  "resource_title": "RETRACTED: Anticancer effects of ABTL0812, a clinical stage drug inducer of autophagy-mediated cancer cell death, in glioblastoma models",
+  "resource_doi": "10.3389/fonc.2022.943064",
+  "created_date": "2026-10-19T12:18:40Z",
+  "modified_date": "2026-10-19T12:18:40Z"
+ }
+]

@@ -1,0 +1,8 @@
+{
+ "service-error": {
+  "status": {
+   "statusCode": "AUTHORIZATION_ERROR",
+   "statusText": "The requestor is not authorized to access the requested view or fields of the resource"
+  }
+ }
+}

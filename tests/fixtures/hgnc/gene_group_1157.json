@@ -1,0 +1,207 @@
+{
+ "responseHeader": {
+  "status": 0,
+  "QTime": 1
+ },
+ "response": {
+  "numFound": 3,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": [
+   {
+    "pubmed_id": [
+     8521512
+    ],
+    "mane_select": [
+     "ENST00000644974.2",
+     "NM_001394583.1"
+    ],
+    "refseq_accession": [
+     "NM_014238"
+    ],
+    "agr": "HGNC:6465",
+    "date_modified": "2023-01-20T00:00:00Z",
+    "locus_type": "gene with protein product",
+    "ucsc_id": "uc002gzo.2",
+    "rgd_id": [
+     "RGD:1308105"
+    ],
+    "location": "17q11.2",
+    "prev_name": [
+     "kinase suppressor of ras"
+    ],
+    "uniprot_ids": [
+     "Q8IVT5"
+    ],
+    "hgnc_id": "HGNC:6465",
+    "alias_symbol": [
+     "RSU2"
+    ],
+    "status": "Approved",
+    "iuphar": "HGNC:6465",
+    "omim_id": [
+     "601132"
+    ],
+    "uuid": "fc8182b0-73f6-4d79-9b5c-33a8a5e15691",
+    "name": "kinase suppressor of ras 1",
+    "vega_id": "OTTHUMG00000132051",
+    "symbol": "KSR1",
+    "locus_group": "protein-coding gene",
+    "date_symbol_changed": "2005-12-14T00:00:00Z",
+    "gene_group_id": [
+     1157,
+     1678
+    ],
+    "prev_symbol": [
+     "KSR"
+    ],
+    "date_approved_reserved": "2000-03-29T00:00:00Z",
+    "date_name_changed": "2005-12-14T00:00:00Z",
+    "entrez_id": "8844",
+    "ccds_id": [
+     "CCDS58532",
+     "CCDS92281"
+    ],
+    "ensembl_gene_id": "ENSG00000141068",
+    "gene_group": [
+     "RAF family",
+     "Pseudokinases"
+    ],
+    "ena": [
+     "U43586"
+    ],
+    "mgd_id": [
+     "MGI:105051"
+    ]
+   },
+   {
+    "symbol": "KSR2",
+    "gene_group_id": [
+     1157,
+     1678
+    ],
+    "locus_group": "protein-coding gene",
+    "vega_id": "OTTHUMG00000169020",
+    "ccds_id": [
+     "CCDS61250"
+    ],
+    "ensembl_gene_id": "ENSG00000171435",
+    "mgd_id": [
+     "MGI:3610315"
+    ],
+    "gene_group": [
+     "RAF family",
+     "Pseudokinases"
+    ],
+    "ena": [
+     "AY345972"
+    ],
+    "entrez_id": "283455",
+    "date_approved_reserved": "2005-01-18T00:00:00Z",
+    "locus_type": "gene with protein product",
+    "date_modified": "2023-01-20T00:00:00Z",
+    "refseq_accession": [
+     "NM_173598"
+    ],
+    "mane_select": [
+     "ENST00000339824.7",
+     "NM_173598.6"
+    ],
+    "agr": "HGNC:18610",
+    "pubmed_id": [
+     12471243
+    ],
+    "iuphar": "HGNC:18610",
+    "status": "Approved",
+    "name": "kinase suppressor of ras 2",
+    "omim_id": [
+     "610737"
+    ],
+    "uuid": "5a68659a-437c-4372-a149-edd99beaf213",
+    "location": "12q24.22-q24.23",
+    "uniprot_ids": [
+     "Q6VAB6"
+    ],
+    "rgd_id": [
+     "RGD:1562674"
+    ],
+    "ucsc_id": "uc001two.2",
+    "alias_symbol": [
+     "FLJ25965"
+    ],
+    "hgnc_id": "HGNC:18610"
+   },
+   {
+    "date_name_changed": "2014-06-26T00:00:00Z",
+    "entrez_id": "369",
+    "date_approved_reserved": "1986-01-01T00:00:00Z",
+    "prev_symbol": [
+     "ARAF1"
+    ],
+    "mgd_id": [
+     "MGI:88065"
+    ],
+    "gene_group": [
+     "Mitogen-activated protein kinase kinase kinases",
+     "RAF family"
+    ],
+    "ena": [
+     "X04790"
+    ],
+    "ensembl_gene_id": "ENSG00000078061",
+    "ccds_id": [
+     "CCDS35232",
+     "CCDS59164"
+    ],
+    "vega_id": "OTTHUMG00000021446",
+    "date_symbol_changed": "2005-01-19T00:00:00Z",
+    "gene_group_id": [
+     654,
+     1157
+    ],
+    "locus_group": "protein-coding gene",
+    "symbol": "ARAF",
+    "alias_symbol": [
+     "A-Raf"
+    ],
+    "hgnc_id": "HGNC:646",
+    "gencc": "HGNC:646",
+    "location": "Xp11.3",
+    "prev_name": [
+     "v-raf murine sarcoma 3611 viral oncogene homolog 1"
+    ],
+    "uniprot_ids": [
+     "P10398"
+    ],
+    "ucsc_id": "uc064yvp.1",
+    "rgd_id": [
+     "RGD:2148"
+    ],
+    "name": "A-Raf proto-oncogene, serine/threonine kinase",
+    "omim_id": [
+     "311010"
+    ],
+    "uuid": "a30a07f7-62f8-41a6-8bb9-7944082c51dd",
+    "lsdb": [
+     "Global Variome shared LOVD|https://databases.lovd.nl/shared/genes/ARAF"
+    ],
+    "iuphar": "HGNC:646",
+    "status": "Approved",
+    "refseq_accession": [
+     "NM_001256196"
+    ],
+    "mane_select": [
+     "ENST00000377045.9",
+     "NM_001654.5"
+    ],
+    "agr": "HGNC:646",
+    "pubmed_id": [
+     3029685,
+     22926515
+    ],
+    "locus_type": "gene with protein product",
+    "date_modified": "2023-07-12T00:00:00Z"
+   }
+  ]
+ }
+}

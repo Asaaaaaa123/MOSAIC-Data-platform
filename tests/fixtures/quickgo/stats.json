@@ -1,0 +1,222 @@
+{
+ "numberOfHits": 2,
+ "results": [
+  {
+   "groupName": "annotation",
+   "totalHits": 3782,
+   "types": [
+    {
+     "type": "reference",
+     "approximateCount": 1336,
+     "values": [
+      {
+       "key": "GO_REF:0000107",
+       "percentage": 14.701216287678475,
+       "hits": 556,
+       "name": null
+      },
+      {
+       "key": "GO_REF:0000033",
+       "percentage": 11.475409836065573,
+       "hits": 434,
+       "name": null
+      }
+     ]
+    },
+    {
+     "type": "goId",
+     "approximateCount": 205,
+     "values": [
+      {
+       "key": "GO:0043066",
+       "percentage": 18.482284505552617,
+       "hits": 699,
+       "name": "negative regulation of apoptotic process"
+      },
+      {
+       "key": "GO:0043065",
+       "percentage": 10.655737704918032,
+       "hits": 403,
+       "name": "positive regulation of apoptotic process"
+      }
+     ]
+    },
+    {
+     "type": "taxonId",
+     "approximateCount": 1,
+     "values": [
+      {
+       "key": "9606",
+       "percentage": 100.0,
+       "hits": 3782,
+       "name": "Homo sapiens"
+      }
+     ]
+    },
+    {
+     "type": "assignedBy",
+     "approximateCount": 20,
+     "values": [
+      {
+       "key": "UniProt",
+       "percentage": 42.41142252776309,
+       "hits": 1604,
+       "name": null
+      },
+      {
+       "key": "Ensembl",
+       "percentage": 14.701216287678475,
+       "hits": 556,
+       "name": null
+      }
+     ]
+    },
+    {
+     "type": "evidenceCode",
+     "approximateCount": 17,
+     "values": [
+      {
+       "key": "ECO:0000314",
+       "percentage": 20.650449497620308,
+       "hits": 781,
+       "name": "direct assay evidence used in manual assertion"
+      },
+      {
+       "key": "ECO:0000315",
+       "percentage": 18.77313590692755,
+       "hits": 710,
+       "name": "mutant phenotype evidence used in manual assertion"
+      }
+     ]
+    },
+    {
+     "type": "aspect",
+     "approximateCount": 2,
+     "values": [
+      {
+       "key": "biological_process",
+       "percentage": 99.4711792702274,
+       "hits": 3762,
+       "name": null
+      },
+      {
+       "key": "molecular_function",
+       "percentage": 0.5288207297726071,
+       "hits": 20,
+       "name": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "groupName": "geneProduct",
+   "totalHits": 1558,
+   "types": [
+    {
+     "type": "reference",
+     "approximateCount": 1336,
+     "values": [
+      {
+       "key": "GO_REF:0000107",
+       "percentage": 23.812580231065468,
+       "hits": 371,
+       "name": null
+      },
+      {
+       "key": "GO_REF:0000033",
+       "percentage": 21.245186136071887,
+       "hits": 331,
+       "name": null
+      }
+     ]
+    },
+    {
+     "type": "goId",
+     "approximateCount": 205,
+     "values": [
+      {
+       "key": "GO:0043066",
+       "percentage": 29.781771501925547,
+       "hits": 464,
+       "name": "negative regulation of apoptotic process"
+      },
+      {
+       "key": "GO:0043065",
+       "percentage": 17.458279845956355,
+       "hits": 272,
+       "name": "positive regulation of apoptotic process"
+      }
+     ]
+    },
+    {
+     "type": "taxonId",
+     "approximateCount": 1,
+     "values": [
+      {
+       "key": "9606",
+       "percentage": 100.0,
+       "hits": 1558,
+       "name": "Homo sapiens"
+      }
+     ]
+    },
+    {
+     "type": "assignedBy",
+     "approximateCount": 20,
+     "values": [
+      {
+       "key": "UniProt",
+       "percentage": 56.73940949935815,
+       "hits": 884,
+       "name": null
+      },
+      {
+       "key": "Ensembl",
+       "percentage": 23.812580231065468,
+       "hits": 371,
+       "name": null
+      }
+     ]
+    },
+    {
+     "type": "evidenceCode",
+     "approximateCount": 17,
+     "values": [
+      {
+       "key": "ECO:0000314",
+       "percentage": 31.258023106546855,
+       "hits": 487,
+       "name": "direct assay evidence used in manual assertion"
+      },
+      {
+       "key": "ECO:0000315",
+       "percentage": 32.09242618741977,
+       "hits": 500,
+       "name": "mutant phenotype evidence used in manual assertion"
+      }
+     ]
+    },
+    {
+     "type": "aspect",
+     "approximateCount": 2,
+     "values": [
+      {
+       "key": "biological_process",
+       "percentage": 100.0,
+       "hits": 1558,
+       "name": null
+      },
+      {
+       "key": "molecular_function",
+       "percentage": 0.9627727856225932,
+       "hits": 15,
+       "name": null
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "pageInfo": null
+}

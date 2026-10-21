@@ -1,0 +1,45 @@
+{
+ "id": "MONDO_0005010",
+ "label": "coronary artery disorder",
+ "description": "Narrowing of the coronary arteries due to fatty deposits inside the arterial walls. The diagnostic criteria may include documented history of any of the following: documented coronary artery stenosis greater than or equal to 50% (by cardiac catheterization or other modality of direct imaging of the coronary arteries); previous coronary artery bypass surgery (CABG); previous percutaneous coronary intervention (PCI); previous myocardial infarction. (ACC) [NCIT: C26732]",
+ "url": "http://purl.obolibrary.org/obo/MONDO_0005010",
+ "trait_categories": [
+  "Cardiovascular disease",
+  "Other disease"
+ ],
+ "trait_synonyms": [
+  "CAD",
+  "CHD (coronary heart disease)"
+ ],
+ "trait_mapped_terms": [],
+ "associated_pgs_ids": [
+  "PGS000010",
+  "PGS000011"
+ ],
+ "child_associated_pgs_ids": [
+  "PGS000012"
+ ],
+ "child_traits": [
+  {
+   "id": "EFO_0010820",
+   "label": "spontaneous coronary artery dissection",
+   "description": "The spontaneous occurrence of a dissection of the coronary artery. The clinical recognition of this phenomenon has increased as coronary angiography is becoming more commonly used in the treatment of acute coronary syndrome. The etiology of the condition has not been fully elucidated, but the mean age of presentation is 30-45 years, more than 70% are women, and 30% of cases occur in the peripartum period.",
+   "url": "http://www.ebi.ac.uk/efo/EFO_0010820",
+   "trait_categories": [
+    "Cardiovascular disease",
+    "Other disease"
+   ],
+   "trait_synonyms": [
+    "SCAD"
+   ],
+   "trait_mapped_terms": [
+    "NCIt:C165532",
+    "PMID:32887874"
+   ],
+   "associated_pgs_ids": [
+    "PGS004899"
+   ],
+   "child_associated_pgs_ids": []
+  }
+ ]
+}

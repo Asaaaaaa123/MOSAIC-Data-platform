@@ -1,0 +1,53 @@
+{
+ "id": 43753,
+ "slug": "tcga-brca",
+ "link": "https://www.cancerimagingarchive.net/collection/tcga-brca/",
+ "cancer_types": [
+  "Breast Cancer"
+ ],
+ "citations": [
+  43731,
+  43733,
+  9225
+ ],
+ "collection_doi": "10.7937/K9/TCIA.2016.AB2NAZRP",
+ "collection_downloads": [
+  43735
+ ],
+ "cancer_locations": [
+  "Breast"
+ ],
+ "collection_page_accessibility": "Public",
+ "additional_resources": "The NCI Cancer Research Data Commons (CRDC) provides access to additional data and a cloud-based data science infrastructure that connects data sets with analytics tools to allow users to share, integrate, analyze, and visualize cancer research data.\r\n<ul>\r\n \t<li><a href=\"https://portal.imaging.data</p>",
+ "collection_status": "Complete",
+ "supporting_data": [
+  "Clinical",
+  "Genomics",
+  "Image Analyses",
+  "Histopathology"
+ ],
+ "species": [
+  "Human"
+ ],
+ "version_number": "3",
+ "collection_title": "The Cancer Genome Atlas Breast Invasive Carcinoma Collection",
+ "date_updated": "2020-05-29",
+ "related_analysis_results": [
+  45551,
+  45635
+ ],
+ "subjects": "139",
+ "usage_notes": "",
+ "collection_short_title": "TCGA-BRCA",
+ "data_types": [
+  "MR",
+  "MG"
+ ],
+ "version_change_log": "Updated clinical data link with latest spreadsheets from GDC. Added new biomedical spreadsheets from GDC.",
+ "detailed_description": "<h3>GDC Data Portal - Clinical and Genomic Data</h3>\r\nThe <a href=\"https://portal.gdc.cancer.gov/exploration?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22TCGA%22%5D%7D%7D%2C%7B%22</p>",
+ "collection_summary": "<p>The Cancer Genome Atlas Breast Invasive Carcinoma (TCGA-BRCA) data collection is part of a larger effort to build a research community focused on connecting cancer phenotypes to genotypes by providing clinical images matched to subjects from <a href=\"http://cancergenome.nih.gov/\">The Cancer Genom</p>",
+ "collection_funding": "",
+ "program": [
+  "TCGA"
+ ]
+}

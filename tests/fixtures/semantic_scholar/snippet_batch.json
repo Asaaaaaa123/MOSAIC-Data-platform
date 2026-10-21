@@ -1,0 +1,28 @@
+[
+ {
+  "paperId": "c443f9b5e4a8940977d4ae02f4c5e9c523615952",
+  "externalIds": {
+   "PubMedCentral": "8352781",
+   "DOI": "10.1038/s41587-021-00933-4",
+   "CorpusId": 234793050,
+   "PubMed": "34012094"
+  },
+  "corpusId": 234793050,
+  "venue": "Nature Biotechnology",
+  "year": 2021,
+  "publicationDate": "2021-05-19"
+ },
+ {
+  "paperId": "d5953f21a6f03b50d504f12039222382bdae9596",
+  "externalIds": {
+   "PubMedCentral": "9727216",
+   "DOI": "10.1042/CS20210862",
+   "CorpusId": 254150221,
+   "PubMed": "36459456"
+  },
+  "corpusId": 254150221,
+  "venue": "Clinical science",
+  "year": 2022,
+  "publicationDate": "2022-12-01"
+ }
+]

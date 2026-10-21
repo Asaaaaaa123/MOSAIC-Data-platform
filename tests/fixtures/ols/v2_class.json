@@ -1,0 +1,713 @@
+{
+ "appearsIn": [
+  "coho",
+  "covoc",
+  "efo",
+  "mondo",
+  "oba",
+  "pride"
+ ],
+ "curatedFromSources": [
+  "clinvar-xrefs",
+  "cttv",
+  "eva-clinvar",
+  "gwas",
+  "pgs"
+ ],
+ "curie": "MONDO:0004979",
+ "definedBy": [
+  "mondo"
+ ],
+ "definitionProperty": "http://purl.obolibrary.org/obo/IAO_0000115",
+ "hasDirectChildren": true,
+ "hasDirectParents": true,
+ "hasHierarchicalChildren": true,
+ "hasHierarchicalParents": true,
+ "hierarchicalProperty": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+ "imported": false,
+ "iri": "http://purl.obolibrary.org/obo/MONDO_0004979",
+ "isDefiningOntology": true,
+ "isObsolete": false,
+ "isPreferredRoot": false,
+ "label": [
+  "asthma"
+ ],
+ "linkedEntities": {
+  "DOID:2841": {
+   "iri": "http://purl.obolibrary.org/obo/DOID_2841",
+   "definedBy": [
+    "doid"
+   ],
+   "label": [
+    "asthma"
+   ],
+   "curie": "DOID:2841",
+   "type": [
+    "class",
+    "entity"
+   ]
+  },
+  "EFO:0000270": {
+   "iri": "http://www.ebi.ac.uk/efo/EFO_0000270",
+   "definedBy": [
+    "efo"
+   ],
+   "label": [
+    "obsolete_asthma"
+   ],
+   "curie": "EFO:0000270",
+   "type": [
+    "class",
+    "entity"
+   ]
+  },
+  "HP:0002099": {
+   "iri": "http://purl.obolibrary.org/obo/HP_0002099",
+   "definedBy": [
+    "hp"
+   ],
+   "label": [
+    "Asthma"
+   ],
+   "curie": "HP:0002099",
+   "type": [
+    "class",
+    "entity"
+   ]
+  },
+  "ICD10CM:J45": {
+   "curie": "ICD10CM:J45"
+  },
+  "ICD10WHO:J45": {
+   "curie": "ICD10WHO:J45"
+  },
+  "ICD9:493": {
+   "curie": "ICD9:493"
+  },
+  "MEDGEN:2109": {
+   "curie": "MEDGEN:2109"
+  },
+  "MESH:D001249": {
+   "curie": "MESH:D001249"
+  },
+  "MONDO:0004979": {
+   "iri": "http://purl.obolibrary.org/obo/MONDO_0004979",
+   "definedBy": [
+    "mondo"
+   ],
+   "label": [
+    "asthma"
+   ],
+   "curie": "MONDO:0004979",
+   "type": [
+    "class",
+    "entity"
+   ]
+  },
+  "NCIT:C28397": {
+   "iri": "http://purl.obolibrary.org/obo/NCIT_C28397",
+   "definedBy": [
+    "ncit"
+   ],
+   "label": [
+    "Asthma"
+   ],
+   "curie": "NCIT:C28397",
+   "type": [
+    "class",
+    "entity"
+   ]
+  },
+  "SCTID:31387002": {
+   "curie": "SCTID:31387002"
+  },
+  "UMLS:C0004096": {
+   "curie": "UMLS:C0004096"
+  },
+  "http://purl.obolibrary.org/obo/DOID_2841": {
+   "definedBy": [
+    "doid"
+   ],
+   "label": [
+    "asthma"
+   ],
+   "curie": "DOID:2841",
+   "type": [
+    "class",
+    "entity"
+   ]
+  },
+  "http://purl.obolibrary.org/obo/IAO_0000115": {
+   "definedBy": [
+    "iao"
+   ],
+   "label": [
+    "definition"
+   ],
+   "curie": "IAO:0000115",
+   "type": [
+    "annotationProperty",
+    "entity",
+    "property"
+   ]
+  },
+  "http://purl.obolibrary.org/obo/MONDO_0000001": {
+   "definedBy": [
+    "mondo"
+   ],
+   "label": [
+    "disease"
+   ],
+   "curie": "MONDO:0000001",
+   "type": [
+    "class",
+    "entity"
+   ]
+  },
+  "http://purl.obolibrary.org/obo/MONDO_0000270": {
+   "definedBy": [
+    "mondo"
+   ],
+   "label": [
+    "lower respiratory tract disorder"
+   ],
+   "curie": "MONDO:0000270",
+   "type": [
+    "class",
+    "entity"
+   ]
+  },
+  "http://purl.obolibrary.org/obo/MONDO_0001358": {
+   "definedBy": [
+    "mondo"
+   ],
+   "label": [
+    "bronchial disorder"
+   ],
+   "curie": "MONDO:0001358",
+   "type": [
+    "class",
+    "entity"
+   ]
+  },
+  "http://purl.obolibrary.org/obo/MONDO_0005087": {
+   "definedBy": [
+    "mondo"
+   ],
+   "label": [
+    "respiratory system disorder"
+   ],
+   "curie": "MONDO:0005087",
+   "type": [
+    "class",
+    "entity"
+   ]
+  },
+  "http://purl.obolibrary.org/obo/MONDO_0700096": {
+   "definedBy": [
+    "mondo"
+   ],
+   "label": [
+    "human disease"
+   ],
+   "curie": "MONDO:0700096",
+   "type": [
+    "class",
+    "entity"
+   ]
+  },
+  "http://purl.obolibrary.org/obo/MONDO_7770006": {
+   "definedBy": [
+    "mondo"
+   ],
+   "label": [
+    "disease by body system or component"
+   ],
+   "curie": "MONDO:7770006",
+   "type": [
+    "class",
+    "entity"
+   ]
+  },
+  "http://purl.obolibrary.org/obo/NCIT_C28397": {
+   "definedBy": [
+    "ncit"
+   ],
+   "label": [
+    "Asthma"
+   ],
+   "curie": "NCIT:C28397",
+   "type": [
+    "class",
+    "entity"
+   ]
+  },
+  "http://purl.obolibrary.org/obo/mondo#curated_content_resource": {
+   "label": [
+    "curated content resource"
+   ],
+   "curie": "curated_content_resource",
+   "type": [
+    "annotationProperty",
+    "entity",
+    "property"
+   ]
+  },
+  "http://purl.obolibrary.org/obo/mondo#doid_rare": {
+   "label": [
+    "doid_rare"
+   ],
+   "curie": "doid_rare",
+   "type": [
+    "annotationProperty",
+    "entity",
+    "property"
+   ]
+  },
+  "http://purl.obolibrary.org/obo/mondo#otar": {
+   "label": [
+    "otar"
+   ],
+   "curie": "otar",
+   "type": [
+    "annotationProperty",
+    "entity",
+    "property"
+   ]
+  },
+  "http://www.geneontology.org/formats/oboInOwl#hasDbXref": {
+   "definedBy": [
+    "oio"
+   ],
+   "label": [
+    "database_cross_reference",
+    "has_dbxref"
+   ],
+   "curie": "OIO:hasDbXref",
+   "type": [
+    "annotationProperty",
+    "entity",
+    "property"
+   ]
+  },
+  "http://www.geneontology.org/formats/oboInOwl#hasNarrowSynonym": {
+   "definedBy": [
+    "oio"
+   ],
+   "label": [
+    "has_narrow_synonym"
+   ],
+   "curie": "OIO:hasNarrowSynonym",
+   "type": [
+    "annotationProperty",
+    "entity",
+    "property"
+   ]
+  },
+  "http://www.geneontology.org/formats/oboInOwl#id": {
+   "definedBy": [
+    "oio"
+   ],
+   "label": [
+    "id"
+   ],
+   "curie": "OIO:id",
+   "type": [
+    "annotationProperty",
+    "entity",
+    "property"
+   ]
+  },
+  "http://www.geneontology.org/formats/oboInOwl#inSubset": {
+   "definedBy": [
+    "oio"
+   ],
+   "label": [
+    "in_subset"
+   ],
+   "curie": "OIO:inSubset",
+   "type": [
+    "annotationProperty",
+    "entity",
+    "property"
+   ]
+  },
+  "http://www.geneontology.org/formats/oboInOwl#source": {
+   "label": [
+    "source"
+   ],
+   "curie": "source",
+   "type": [
+    "annotationProperty",
+    "entity",
+    "property"
+   ]
+  },
+  "http://www.w3.org/2000/01/rdf-schema#label": {
+   "definedBy": [
+    "rdfs"
+   ],
+   "label": [
+    "label"
+   ],
+   "curie": "RDFS:label",
+   "type": [
+    "entity",
+    "property"
+   ]
+  },
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf": {
+   "definedBy": [
+    "rdfs"
+   ],
+   "label": [
+    "subClassOf"
+   ],
+   "curie": "RDFS:subClassOf",
+   "type": [
+    "entity",
+    "property"
+   ]
+  },
+  "http://www.w3.org/2001/XMLSchema#anyURI": {
+   "type": [
+    "class",
+    "entity"
+   ],
+   "label": [
+    "anyURI"
+   ],
+   "curie": "anyURI"
+  },
+  "http://www.w3.org/2004/02/skos/core#exactMatch": {
+   "definedBy": [
+    "skos"
+   ],
+   "label": [
+    "has exact match"
+   ],
+   "curie": "SKOS:exactMatch",
+   "type": [
+    "entity",
+    "objectProperty",
+    "property"
+   ]
+  },
+  "https://icd.who.int/browse10/2019/en#/J45": {
+   "curie": "icd10:J45"
+  },
+  "https://orcid.org/0000-0001-9439-5346": {
+   "curie": "orcid:0000-0001-9439-5346"
+  },
+  "https://orcid.org/0000-0002-7941-5545": {
+   "curie": "orcid:0000-0002-7941-5545"
+  },
+  "https://w3id.org/babelon/source": {
+   "label": [
+    "source"
+   ],
+   "curie": "source",
+   "type": [
+    "annotationProperty",
+    "entity",
+    "property"
+   ]
+  },
+  "https://w3id.org/babelon/source_language": {
+   "label": [
+    "source_language"
+   ],
+   "curie": "source_language",
+   "type": [
+    "annotationProperty",
+    "entity",
+    "property"
+   ]
+  },
+  "https://w3id.org/babelon/source_value": {
+   "label": [
+    "source_value"
+   ],
+   "curie": "source_value",
+   "type": [
+    "annotationProperty",
+    "entity",
+    "property"
+   ]
+  },
+  "https://w3id.org/babelon/source_version": {
+   "label": [
+    "source_version"
+   ],
+   "curie": "source_version",
+   "type": [
+    "annotationProperty",
+    "entity",
+    "property"
+   ]
+  },
+  "https://w3id.org/babelon/translation_language": {
+   "label": [
+    "translation_language"
+   ],
+   "curie": "translation_language",
+   "type": [
+    "annotationProperty",
+    "entity",
+    "property"
+   ]
+  },
+  "https://w3id.org/babelon/translation_precision": {
+   "label": [
+    "translation_precision"
+   ],
+   "curie": "translation_precision",
+   "type": [
+    "annotationProperty",
+    "entity",
+    "property"
+   ]
+  },
+  "https://w3id.org/babelon/translation_status": {
+   "label": [
+    "translation_status"
+   ],
+   "curie": "translation_status",
+   "type": [
+    "annotationProperty",
+    "entity",
+    "property"
+   ]
+  },
+  "https://w3id.org/babelon/translator": {
+   "label": [
+    "translator"
+   ],
+   "curie": "translator",
+   "type": [
+    "annotationProperty",
+    "entity",
+    "property"
+   ]
+  },
+  "https://w3id.org/babelon/translator_expertise": {
+   "label": [
+    "translator_expertise"
+   ],
+   "curie": "translator_expertise",
+   "type": [
+    "annotationProperty",
+    "entity",
+    "property"
+   ]
+  }
+ },
+ "numDescendants": 18.0,
+ "numHierarchicalDescendants": 18.0,
+ "ontologyId": "mondo",
+ "ontologyIri": "http://purl.obolibrary.org/obo/mondo/mondo-international.owl",
+ "ontologyPreferredPrefix": "MONDO",
+ "searchableAnnotationValues": [
+  false
+ ],
+ "shortForm": "MONDO_0004979",
+ "synonym": [
+  "chronic obstructive asthma with acute exacerbation",
+  "chronic obstructive asthma with status asthmaticus",
+  "chronic obstructive asthma",
+  "exercise induced asthma",
+  "exercise-induced asthma"
+ ],
+ "synonymProperty": "http://www.geneontology.org/formats/oboInOwl#hasNarrowSynonym",
+ "type": [
+  "class",
+  "entity"
+ ],
+ "http://www.geneontology.org/formats/oboInOwl#hasDbXref": [
+  {
+   "type": [
+    "reification"
+   ],
+   "value": "DOID:2841",
+   "axioms": [
+    {
+     "http://www.geneontology.org/formats/oboInOwl#source": [
+      "EFO:0000270",
+      "MONDO:equivalentTo"
+     ]
+    }
+   ]
+  },
+  {
+   "type": [
+    "reification"
+   ],
+   "value": "HP:0002099",
+   "axioms": [
+    {
+     "http://www.geneontology.org/formats/oboInOwl#source": "MONDO:otherHierarchy"
+    }
+   ]
+  },
+  {
+   "type": [
+    "reification"
+   ],
+   "value": "ICD10CM:J45",
+   "axioms": [
+    {
+     "http://www.geneontology.org/formats/oboInOwl#source": [
+      "DOID:2841",
+      "MONDO:equivalentTo"
+     ]
+    }
+   ]
+  },
+  {
+   "type": [
+    "reification"
+   ],
+   "value": "ICD10WHO:J45",
+   "axioms": [
+    {
+     "http://www.geneontology.org/formats/oboInOwl#source": [
+      "MONDO:equivalentTo",
+      "https://orcid.org/0000-0001-9439-5346",
+      "https://orcid.org/0000-0002-7941-5545"
+     ]
+    }
+   ]
+  },
+  {
+   "type": [
+    "reification"
+   ],
+   "value": "ICD9:493",
+   "axioms": [
+    {
+     "http://www.geneontology.org/formats/oboInOwl#source": [
+      "DOID:2841",
+      "EFO:0000270"
+     ]
+    }
+   ]
+  },
+  {
+   "type": [
+    "reification"
+   ],
+   "value": "ICD9:493.81",
+   "axioms": [
+    {
+     "http://www.geneontology.org/formats/oboInOwl#source": [
+      "MONDO:equivalentTo",
+      "MONDO:i2s"
+     ]
+    }
+   ]
+  },
+  {
+   "type": [
+    "reification"
+   ],
+   "value": "ICD9:493.9",
+   "axioms": [
+    {
+     "http://www.geneontology.org/formats/oboInOwl#source": "DOID:2841"
+    }
+   ]
+  },
+  {
+   "type": [
+    "reification"
+   ],
+   "value": "MEDGEN:2109",
+   "axioms": [
+    {
+     "http://www.geneontology.org/formats/oboInOwl#source": [
+      "MONDO:MEDGEN",
+      "MONDO:equivalentTo"
+     ]
+    }
+   ]
+  },
+  {
+   "type": [
+    "reification"
+   ],
+   "value": "MESH:D001249",
+   "axioms": [
+    {
+     "http://www.geneontology.org/formats/oboInOwl#source": [
+      "DOID:2841",
+      "EFO:0000270",
+      "MONDO:equivalentTo"
+     ]
+    }
+   ]
+  },
+  {
+   "type": [
+    "reification"
+   ],
+   "value": "NCIT:C28397",
+   "axioms": [
+    {
+     "http://www.geneontology.org/formats/oboInOwl#source": [
+      "DOID:2841",
+      "EFO:0000270",
+      "MONDO:equivalentTo"
+     ]
+    }
+   ]
+  },
+  {
+   "type": [
+    "reification"
+   ],
+   "value": "SCTID:31387002",
+   "axioms": [
+    {
+     "http://www.geneontology.org/formats/oboInOwl#source": "MONDO:equivalentTo"
+    }
+   ]
+  },
+  {
+   "type": [
+    "reification"
+   ],
+   "value": "UMLS:C0004096",
+   "axioms": [
+    {
+     "http://www.geneontology.org/formats/oboInOwl#source": [
+      "MEDGEN:2109",
+      "MONDO:MEDGEN",
+      "MONDO:equivalentTo"
+     ]
+    }
+   ]
+  },
+  {
+   "type": [
+    "reification"
+   ],
+   "value": "icd11.foundation:1656445230",
+   "axioms": [
+    {
+     "http://www.geneontology.org/formats/oboInOwl#source": "MONDO:equivalentTo"
+    }
+   ]
+  }
+ ],
+ "http://www.w3.org/2004/02/skos/core#exactMatch": [
+  "http://id.who.int/icd/entity/1656445230",
+  "http://identifiers.org/medgen/2109",
+  "http://identifiers.org/mesh/D001249",
+  "http://identifiers.org/snomedct/31387002",
+  "http://linkedlifedata.com/resource/umls/id/C0004096",
+  "http://purl.bioontology.org/ontology/ICD10CM/J45",
+  "http://purl.obolibrary.org/obo/DOID_2841",
+  "http://purl.obolibrary.org/obo/NCIT_C28397",
+  "https://icd.who.int/browse10/2019/en#/J45"
+ ]
+}

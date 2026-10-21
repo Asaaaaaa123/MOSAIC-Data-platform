@@ -1,0 +1,28 @@
+{
+ "numberOfHits": 352,
+ "results": [
+  {
+   "id": "GO:0097194",
+   "isObsolete": false,
+   "name": "execution phase of apoptosis",
+   "definition": {
+    "text": "A stage of the apoptotic process that starts with the controlled breakdown of the cell through the action of effector caspases or other effector molecules (e.g. cathepsins, calpains etc.). Key steps of the execution phase are rounding-up of the cell, retraction of pseudopodes, reduction of cellular volume (pyknosis), chromatin condensation, nuclear fragmentation (karyorrhexis), plasma membrane blebbing and fragmentation of the cell into apoptotic bodies. When the execution phase is completed, the cell has died."
+   },
+   "aspect": "biological_process"
+  },
+  {
+   "id": "GO:0070227",
+   "isObsolete": false,
+   "name": "lymphocyte apoptotic process",
+   "definition": {
+    "text": "Any apoptotic process in a lymphocyte, a leukocyte commonly found in the blood and lymph that has the characteristics of a large nucleus, a neutral staining cytoplasm, and prominent heterochromatin."
+   },
+   "aspect": "biological_process"
+  }
+ ],
+ "pageInfo": {
+  "resultsPerPage": 2,
+  "current": 1,
+  "total": 176
+ }
+}

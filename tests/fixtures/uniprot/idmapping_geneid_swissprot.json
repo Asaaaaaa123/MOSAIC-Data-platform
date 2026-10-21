@@ -1,0 +1,305 @@
+{
+ "results": [
+  {
+   "from": "1956",
+   "to": {
+    "entryType": "UniProtKB reviewed (Swiss-Prot)",
+    "primaryAccession": "P00533",
+    "uniProtkbId": "EGFR_HUMAN",
+    "entryAudit": {
+     "firstPublicDate": "1986-07-21",
+     "lastAnnotationUpdateDate": "2026-09-02"
+    },
+    "annotationScore": 5.0,
+    "organism": {
+     "scientificName": "Homo sapiens",
+     "commonName": "Human",
+     "taxonId": 9606
+    },
+    "proteinExistence": "1: Evidence at protein level",
+    "proteinDescription": {
+     "recommendedName": {
+      "fullName": {
+       "value": "Epidermal growth factor receptor"
+      },
+      "ecNumbers": [
+       {
+        "value": "2.7.10.1"
+       }
+      ]
+     },
+     "alternativeNames": [
+      {
+       "fullName": {
+        "value": "Proto-oncogene c-ErbB-1"
+       }
+      },
+      {
+       "fullName": {
+        "value": "Receptor tyrosine-protein kinase erbB-1"
+       }
+      }
+     ],
+     "flag": "Precursor"
+    },
+    "genes": [
+     {
+      "geneName": {
+       "value": "EGFR"
+      },
+      "synonyms": [
+       {
+        "value": "ERBB"
+       },
+       {
+        "value": "ERBB1"
+       },
+       {
+        "value": "HER1"
+       }
+      ]
+     }
+    ],
+    "comments": [
+     {
+      "texts": [
+       {
+        "value": "Receptor tyrosine kinase binding ligands of the EGF family and activating several signaling cascades to convert extracellular cues into appropriate cellular responses (PubMed:10805725, PubMed:12297050, PubMed:12620237, PubMed:12873986, PubMed:15374980, PubMed:15590694, PubMed:17115032, PubMed:19560417, PubMed:21258366, PubMed:27153536, PubMed:2790960, PubMed:35538033, PubMed:9488479). Known ligands include EGF, TGFA/TGF-alpha, AREG, epigen/EPGN, BTC/betacellulin, epiregulin/EREG and HBEGF/heparin-binding EGF (PubMed:12297049, PubMed:15611079, PubMed:17909029, PubMed:20837704, PubMed:27153536, "
+       }
+      ],
+      "commentType": "FUNCTION"
+     },
+     {
+      "texts": [
+       {
+        "value": "May act as an antagonist of EGF action"
+       }
+      ],
+      "commentType": "FUNCTION",
+      "molecule": "Isoform 2"
+     }
+    ],
+    "uniProtKBCrossReferences": [
+     {
+      "database": "RefSeq",
+      "id": "NP_005219.2",
+      "properties": [
+       {
+        "key": "NucleotideSequenceId",
+        "value": "NM_005228.5"
+       }
+      ],
+      "isoformId": "P00533-1"
+     },
+     {
+      "database": "RefSeq",
+      "id": "NP_958439.1",
+      "properties": [
+       {
+        "key": "NucleotideSequenceId",
+        "value": "NM_201282.2"
+       }
+      ],
+      "isoformId": "P00533-4"
+     },
+     {
+      "database": "PDB",
+      "id": "1IVO",
+      "properties": [
+       {
+        "key": "Method",
+        "value": "X-ray"
+       },
+       {
+        "key": "Resolution",
+        "value": "3.30 A"
+       },
+       {
+        "key": "Chains",
+        "value": "A/B=25-646"
+       }
+      ]
+     },
+     {
+      "database": "PDB",
+      "id": "1M14",
+      "properties": [
+       {
+        "key": "Method",
+        "value": "X-ray"
+       },
+       {
+        "key": "Resolution",
+        "value": "2.60 A"
+       },
+       {
+        "key": "Chains",
+        "value": "A=695-1022"
+       }
+      ]
+     },
+     {
+      "database": "PDB",
+      "id": "1M17",
+      "properties": [
+       {
+        "key": "Method",
+        "value": "X-ray"
+       },
+       {
+        "key": "Resolution",
+        "value": "2.60 A"
+       },
+       {
+        "key": "Chains",
+        "value": "A=695-1022"
+       }
+      ]
+     },
+     {
+      "database": "PDB",
+      "id": "1MOX",
+      "properties": [
+       {
+        "key": "Method",
+        "value": "X-ray"
+       },
+       {
+        "key": "Resolution",
+        "value": "2.50 A"
+       },
+       {
+        "key": "Chains",
+        "value": "A/B=25-525"
+       }
+      ]
+     },
+     {
+      "database": "AlphaFoldDB",
+      "id": "P00533",
+      "properties": [
+       {
+        "key": "Description",
+        "value": "-"
+       }
+      ]
+     },
+     {
+      "database": "ChEMBL",
+      "id": "CHEMBL203",
+      "properties": [
+       {
+        "key": "Description",
+        "value": "-"
+       }
+      ]
+     },
+     {
+      "database": "Ensembl",
+      "id": "ENST00000275493.7",
+      "properties": [
+       {
+        "key": "ProteinId",
+        "value": "ENSP00000275493.2"
+       },
+       {
+        "key": "GeneId",
+        "value": "ENSG00000146648.22"
+       }
+      ],
+      "isoformId": "P00533-1"
+     },
+     {
+      "database": "Ensembl",
+      "id": "ENST00000342916.7",
+      "properties": [
+       {
+        "key": "ProteinId",
+        "value": "ENSP00000342376.3"
+       },
+       {
+        "key": "GeneId",
+        "value": "ENSG00000146648.22"
+       }
+      ],
+      "isoformId": "P00533-4"
+     },
+     {
+      "database": "GeneID",
+      "id": "1956",
+      "properties": [
+       {
+        "key": "Description",
+        "value": "-"
+       }
+      ]
+     },
+     {
+      "database": "MANE-Select",
+      "id": "ENST00000275493.7",
+      "properties": [
+       {
+        "key": "ProteinId",
+        "value": "ENSP00000275493.2"
+       },
+       {
+        "key": "RefSeqNucleotideId",
+        "value": "NM_005228.5"
+       },
+       {
+        "key": "RefSeqProteinId",
+        "value": "NP_005219.2"
+       }
+      ]
+     },
+     {
+      "database": "HGNC",
+      "id": "HGNC:3236",
+      "properties": [
+       {
+        "key": "GeneName",
+        "value": "EGFR"
+       }
+      ]
+     },
+     {
+      "database": "MIM",
+      "id": "131550",
+      "properties": [
+       {
+        "key": "Type",
+        "value": "gene"
+       }
+      ]
+     },
+     {
+      "database": "MIM",
+      "id": "211980",
+      "properties": [
+       {
+        "key": "Type",
+        "value": "phenotype"
+       }
+      ]
+     },
+     {
+      "database": "MIM",
+      "id": "616069",
+      "properties": [
+       {
+        "key": "Type",
+        "value": "phenotype"
+       }
+      ]
+     }
+    ],
+    "sequence": {
+     "length": 1210
+    },
+    "extraAttributes": {
+     "uniParcId": "UPI000003E750"
+    }
+   }
+  }
+ ]
+}

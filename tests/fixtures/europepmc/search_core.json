@@ -1,0 +1,286 @@
+{
+ "version": "6.9",
+ "hitCount": 1073,
+ "nextCursorMark": "AoIIP5n5Kyg0MjU0NDExMQ==",
+ "nextPageUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=glioblastoma+AND+pembrolizumab+AND+PUB_YEAR%3A2019&cursorMark=AoIIP5n5Kyg0MjU0NDExMQ%3D%3D&resultType=core&pageSize=2&format=json",
+ "request": {
+  "queryString": "glioblastoma AND pembrolizumab AND PUB_YEAR:2019",
+  "resultType": "core",
+  "cursorMark": "*",
+  "pageSize": 2,
+  "sort": "",
+  "synonym": false
+ },
+ "resultList": {
+  "result": [
+   {
+    "id": "PMC6847508",
+    "source": "PMC",
+    "pmcid": "PMC6847508",
+    "fullTextIdList": {
+     "fullTextId": [
+      "PMC6847508"
+     ]
+    },
+    "title": "ATIM-39. PHASE 2 OPEN-LABELED STUDY OF ADJUVANT TEMOZOLOMIDE PLUS TUMOR TREATING FIELDS PLUS PEMBROLIZUMAB IN PATIENTS WITH NEWLY DIAGNOSED GLIOBLASTOMA (2-THE-TOP)",
+    "authorString": "Tran D, Warren S, Allen A, Sampson D, Chen D, Thomas N, Greene V, Rahman M, Ghiaseddin A.",
+    "authorList": {
+     "author": [
+      {
+       "fullName": "Tran D",
+       "lastName": "Tran",
+       "firstName": "David",
+       "initials": "D"
+      },
+      {
+       "fullName": "Warren S",
+       "lastName": "Warren",
+       "firstName": "Sonisha",
+       "initials": "S"
+      },
+      {
+       "fullName": "Allen A",
+       "lastName": "Allen",
+       "firstName": "Anne",
+       "initials": "A"
+      },
+      {
+       "fullName": "Sampson D",
+       "lastName": "Sampson",
+       "firstName": "Deborah",
+       "initials": "D"
+      },
+      {
+       "fullName": "Chen D",
+       "lastName": "Chen",
+       "firstName": "Dongjiang",
+       "initials": "D"
+      }
+     ]
+    },
+    "dataLinksTagsList": {
+     "dataLinkstag": [
+      "supporting_data"
+     ]
+    },
+    "journalInfo": {
+     "issue": "Suppl 6",
+     "volume": "21",
+     "journalIssueId": 3045306,
+     "dateOfPublication": "2019 Nov",
+     "monthOfPublication": 11,
+     "yearOfPublication": 2019,
+     "journal": {
+      "medlineAbbreviation": "Neuro Oncol",
+      "title": "Neuro-oncology",
+      "essn": "1523-5866",
+      "issn": "1522-8517",
+      "isoabbreviation": "Neuro Oncol",
+      "nlmid": "100887420"
+     },
+     "printPublicationDate": "2019-11-01"
+    },
+    "pubYear": "2019",
+    "pageInfo": "vi10-vi10",
+    "abstractText": "Abstract <h4>BACKGROUND/OBJECTIVE</h4> Tumor treating Fields (TTFields) plus maintenance temozolomide is an approved standard treatment for newly diagnosed Glioblastoma (GBM). TTFields are alternating electric fields of low intensity and intermediate frequency delivered non-invasively via transducer arrays to tumor region. Immune checkpoints have not been studied widely in newly diagnosed GBM patients. TTFields combined with temozolomide elicit anti-mitotic effects on proliferative cancer cells and augment recruitment of immune effector cells specific for glioma cells to the tumor microenviron",
+    "language": "eng",
+    "pubModel": "Undetermined",
+    "pubTypeList": {
+     "pubType": [
+      "Abstract"
+     ]
+    },
+    "fullTextUrlList": {
+     "fullTextUrl": [
+      {
+       "availability": "Free",
+       "availabilityCode": "F",
+       "documentStyle": "html",
+       "site": "PubMedCentral",
+       "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6847508/?tool=EBI"
+      },
+      {
+       "availability": "Free",
+       "availabilityCode": "F",
+       "documentStyle": "pdf",
+       "site": "PubMedCentral",
+       "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6847508/pdf/?tool=EBI"
+      },
+      {
+       "availability": "Free",
+       "availabilityCode": "F",
+       "documentStyle": "html",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC6847508"
+      },
+      {
+       "availability": "Free",
+       "availabilityCode": "F",
+       "documentStyle": "pdf",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC6847508?pdf=render"
+      }
+     ]
+    },
+    "isOpenAccess": "N",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 0,
+    "hasReferences": "N",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "N",
+    "hasData": "Y",
+    "authMan": "N",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "N",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+     "accessionType": [
+      "nct"
+     ]
+    },
+    "dateOfCreation": "2020-11-02",
+    "dateOfRevision": "2020-11-02",
+    "electronicPublicationDate": "2019-11-01",
+    "firstPublicationDate": "2019-11-01",
+    "firstIndexDate": "2020-11-02",
+    "fullTextReceivedDate": "2020-11-02",
+    "embargoDate": "2020-11-01",
+    "hasEvaluations": "N"
+   },
+   {
+    "id": "PMC6847955",
+    "source": "PMC",
+    "pmcid": "PMC6847955",
+    "fullTextIdList": {
+     "fullTextId": [
+      "PMC6847955"
+     ]
+    },
+    "title": "ATIM-33. INTERIM RESULTS OF A PHASE II MULTI-CENTER STUDY OF ONCOLYTIC ADENOVIRUS DNX-2401 WITH PEMBROLIZUMAB FOR RECURRENT GLIOBLASTOMA; CAPTIVE STUDY (KEYNOTE-192)",
+    "authorString": "Aiken R, Chen C, Cloughesy T, Colman H, Daras M, Groves M, Khagi S, Kumthekar P, Lang F, Nassiri F, Ong S, Ramakrishna R, Sonabend A, Vogelbaum M, Zadeh G, Agensky L, Bidwell C, Watkins B, Tufaro F, Peterkin J.",
+    "authorList": {
+     "author": [
+      {
+       "fullName": "Aiken R",
+       "lastName": "Aiken",
+       "firstName": "Robert",
+       "initials": "R"
+      },
+      {
+       "fullName": "Chen C",
+       "lastName": "Chen",
+       "firstName": "Clark",
+       "initials": "C"
+      },
+      {
+       "fullName": "Cloughesy T",
+       "lastName": "Cloughesy",
+       "firstName": "Timothy",
+       "initials": "T"
+      },
+      {
+       "fullName": "Colman H",
+       "lastName": "Colman",
+       "firstName": "Howard",
+       "initials": "H"
+      },
+      {
+       "fullName": "Daras M",
+       "lastName": "Daras",
+       "firstName": "Mariza",
+       "initials": "M"
+      }
+     ]
+    },
+    "journalInfo": {
+     "issue": "Suppl 6",
+     "volume": "21",
+     "journalIssueId": 3045306,
+     "dateOfPublication": "2019 Nov",
+     "monthOfPublication": 11,
+     "yearOfPublication": 2019,
+     "journal": {
+      "medlineAbbreviation": "Neuro Oncol",
+      "title": "Neuro-oncology",
+      "essn": "1523-5866",
+      "issn": "1522-8517",
+      "isoabbreviation": "Neuro Oncol",
+      "nlmid": "100887420"
+     },
+     "printPublicationDate": "2019-11-01"
+    },
+    "pubYear": "2019",
+    "pageInfo": "vi8-vi9",
+    "abstractText": "Abstract <h4>BACKGROUND</h4> DNX-2401 (tasadenoturev) is a replication-competent, tumor-selective, oncolytic adenovirus. Phase I studies in adults with recurrent glioblastoma (rGBM) have demonstrated safety and encouraging clinical activity. A Phase II open-label, dose-escalating multi-center study in rGBM was initiated to evaluate DNX-2401 with pembrolizumab. Planned enrollment of 48 subjects is complete. <h4>METHODS</h4> Subjects ≥ 18 years, with a single tumor, KPS ≥ 70% and adequate organ function were enrolled sequentially into 3 cohorts of DNX-2401 (5e8vp, 5e9vp, 5e10vp). A single intrat",
+    "language": "eng",
+    "pubModel": "Undetermined",
+    "pubTypeList": {
+     "pubType": [
+      "Abstract"
+     ]
+    },
+    "fullTextUrlList": {
+     "fullTextUrl": [
+      {
+       "availability": "Free",
+       "availabilityCode": "F",
+       "documentStyle": "html",
+       "site": "PubMedCentral",
+       "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6847955/?tool=EBI"
+      },
+      {
+       "availability": "Free",
+       "availabilityCode": "F",
+       "documentStyle": "pdf",
+       "site": "PubMedCentral",
+       "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6847955/pdf/?tool=EBI"
+      },
+      {
+       "availability": "Free",
+       "availabilityCode": "F",
+       "documentStyle": "html",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC6847955"
+      },
+      {
+       "availability": "Free",
+       "availabilityCode": "F",
+       "documentStyle": "pdf",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC6847955?pdf=render"
+      }
+     ]
+    },
+    "isOpenAccess": "N",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 0,
+    "hasReferences": "N",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "N",
+    "hasData": "N",
+    "authMan": "N",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "N",
+    "hasTMAccessionNumbers": "N",
+    "dateOfCreation": "2020-11-02",
+    "dateOfRevision": "2020-11-02",
+    "electronicPublicationDate": "2019-11-01",
+    "firstPublicationDate": "2019-11-01",
+    "firstIndexDate": "2020-11-02",
+    "fullTextReceivedDate": "2020-11-02",
+    "embargoDate": "2020-11-01",
+    "hasEvaluations": "N"
+   }
+  ]
+ }
+}

@@ -1,0 +1,104 @@
+{
+ "full-text-retrieval-response": {
+  "scopus-eid": "2-s2.0-105048028293",
+  "originalText": "serial JL 313334 291210 291850 31 90 Synthetic and Systems Biotechnology SYNTHETICSYSTEMSBIOTECHNOLOGY 2026-08-24 2026-08-24 2026-08-24 2026-08-24 2026-09-07T12:55:25 1-s2.0-S2405805X26002036 S2405-805X(26)00203-6 S2405805X26002036 10.1016/j.synbio.2026.08.006 S250 S250.2 FULL-TEXT 1-s2.0-S2405805X26X20063 2026-09-08T00:50:58.243025Z 0 0 20270401 20270430 2027 2026-08-24T15:45:31.406897Z absattachment articleinfo articletitlenorm authfirstinitialnorm authfirstsurnamenorm cid cids contenttype copyright crossmark dateloaded dateloadedtxt datesearch datesort dateupdated dco docsubtype doctype doi eid ewtransactionid fundingbodyid hubeid indexeddate issn issnnorm itemstage itemtransactionid itemweight oauserlicense openaccess openarchive pg pgfirst pglast pii piinorm pubdateend pubdatestart pubdatetxt pubyr sortorder sponsoredaccesstype srctitle srctitlenorm srctype ssids alllist content oa subj subheadings suppl tomb volfirst volissue volumelist webpdf webpdfpagecount yearnav figure table e-component body affil appendices articletitle auth authfirstini authfull authkeywords authlast grantnumber grantsponsor orcid primabst pubtype ref specialabst 2405-805X 2405805X UNLIMITED NONE true 18 18 C Volume 18 5 49 62 49 62 202704 April 2027 2027-04-01 2027-04-30 2027 article fla © 2026 The Authors. Publishing services by Elsevier B.V. on behalf of KeAi Communications Co. Ltd. STRATEGYFORENHANCEDPRODUCTIONA40926B0INNONOMURAEAGERENZANENSISUSINGEFFICIENTCRISPRASCAS12F1SYSTEM WANG X 1 Intro jiazhuang, Hebei Province, 050035, China Hebei International Joint Research Center for Biopharmaceutical Shijiazhuang University Shijiazhuang Hebei Province 050035 China Hebei International Joint Research Center for Biopharmaceutical, Shijiazhuang University, Shijiazhuang, Hebei Province, 050035, China ⁎ Corresponding author. College of Chemical Engineering, Shijiazhuang University, Shijiazhuang, Hebei Province, 050035, China. College of Chemical Engineering Shijiazhuang University Shijiazhuang Hebei Province 050035 China ⁎⁎ Corresponding author. College of Chemical Engineering, Shijiazhuang University, Shijiazhuang, Hebei Province, 050035, China. College of Chemical Engineering Shijiazhuang University Shijiazhuang Hebei Province 050035 China The global emergence of vancomycin-resistant Gram-positive pathogens underscores the urgent need for efficient production of novel lipoglycopeptide antibiotics. Dalbavancin, a last-resort therapeutic agent, relies on its key biosynthetic precursor A40926B0, whose industrial manufacture is severely limited by the low yield of wild-type Nonomuraea gerenzanensis and inefficient genetic tools for this rare actinomycete. Here, we developed a high-efficiency CRISPR/AsCas12f1 genome editing system and applied systematic metabolic engineering to boost A40926B0 biosynthesis. First, conjugation conditions were optimized to elevate the transfer efficiency in N. gerenzanensis D11. The hypercompact AsCas12f1 nuclease showed markedly lower cytotoxicity than SpCas9 and enabled 100% gene deletion efficiency with preferred PAMs (TTTG, CTTG, GTTG). Second, we strengthened the shikimate pathway via multiple genetic strategies: overexpressing feedback-resistant DAHP synthase (aroG fbr ) and chorismate mutase/prephenate dehydrogenase (tyrA fbr ), as well as knocking out pheA. This manipulation blocks the phenylalanine synthetic branch and redirects metabolic flux toward the l-tyrosine branch. Third, we engineered the branched-chain fatty acid (BCFA) pathway via promoter replacement of bkdA2B2C2, LipAB, fabF and deletion of acdH to enhance isododecanoyl side-chain supply. The combinatorial engineering yielded strain B-13, which produced 1740 mg/L A40926B0 in shake flasks. Finally, 50-L fed-batch fermentation with continuous maltodextrin feeding further increased the titer to 1817 mg/L, the highest reported titer to date. This work establishes a robust CRISPR editing tool for N. gerenzanensis and provides valuable engineering references for precursor-oriented strain improvement targeting lipoglycopeptide antibiotics, offering insights for the industrial scale production of A40926B0. Graphical abstract Keywords Nonomuraea gerenzanensis A40926B0 Dalbavancin CRISPR/AsCas12f1 Metabolic engineering Shikimate pathway Branched-chain fatty acid 1 Introduction Rare actinomycetes, representing non-streptomycete actinobacteria, produce numerous secondary metabolites with diverse chemical scaffolds and remarkable bioactivities [1]. Nevertheless, target bioactive metabolite titers from most rare actinomycetes remain insufficient for large-scale industrial manufacturing. Accordingly, the development of an efficient genome-editing system is an essential prerequisite for achieving high-level overproduction of secondary metabolites in these biotechnologically valuable microbes. Compared with model streptomycetes such as Streptomyces coelicolor, most rare actinomycetes are recalcitrant to genetic manipulation [2]. Major barriers include low intergeneric conjugation efficiency, severe cytotoxicity of conventional CRISPR-Cas systems that limits their practical application, and labor-intensive screening for double-crossover recombinants. These obstacles make multiplex genetic modification particularly challenging for this group, thereby severely constraining strain improvement and the dissection of biosynthetic mechanisms. New genome-editing tools for rare actinomycetes are therefore highly desirable to advance strain engineering toward the biosynthesis of industrially valuable natural products. In recent years, a series of hypercompact type V-F CRISPR/Cas12f systems have been extensively identified, whose nucleases range from 400 to 700 amino acids (aa) and possess intrinsic target-specific double-stranded DNA (dsDNA) cleavage activity [3]. Relative to other reported Cas effectors, Cas12f nucleases exhibit prominent advantages for genomic engineering, which stem primarily from their compact molecular size and excellent intracellular deliverability [3–5]. Among these Cas12f orthologs, AsCas12f1, a 422-aa nuclease derived from Acidibacillus sulfuroxidans, is one of the most well-characterized homologs. In vitro biochemical assays have verified that AsCas12f1 achieves its optimal dsDNA cleavage efficiency at 45–55°C, while its catalytic activity is markedly attenuated under low-temperature conditions [3,6]. This temperature-dependent enzymatic characteristic indicates that AsCas12f1 can act as a low-cytotoxicity nuclease for mesophilic actinomycetes whose optimal growth temperature is around 30°C. Beyond its fundamental functional characterization, this compact system has been successfully engineered into potent genome editing platforms, with validated applicability across diverse eukaryotic cells including plant and human cells [3,7], and several prokaryotic strains, such as Escherichia coli, Bacillus anthracis and Streptomyces coelicolor [4,5,8]. Despite these successful implementations, the editing performance of AsCas12f1 has not been evaluated in rare actinomycetes. As a novel generation antibiotic, dalbavancin is clinically utilized to treat infections induced by multidrug-resistant Gram-positive pathogens, particularly those induced by vancomycin-resistant bacterial strains [9–11]. Lipoglycopeptide A40926, the critical precursor of the semi-synthetic antibiotic dalbavancin, is a complex of structurally analogous compounds that differ solely in their linked hydrophobic acyl side chains [12,13]. In accordance with the approval requirements for dalbavancin established by the U.S. Food and Drug Administration (FDA), component B0 featuring an isododecanoyl side chain must account for more than 75% of the total complex [14–16]. The rare actinomycete Nonomuraea gerenzanensis ATCC 39727 is the only characterized natural microbial host carrying the complete dbv (from dalbavancin) biosynthetic gene cluster, which comprises 37 open reading frames (ORFs) dedicated to A40926B0 biosynthesis. ...  References [1] T. Ding L. Yang W. Zhang Y. Shen The secondary metabolites of rare actinomycetes: chemistry and bioactivity RSC Adv 9 2019 21964 21988 10.1039/c9ra03579f Ding T, Yang L, Zhang W, Shen Y. The secondary metabolites of rare actinomycetes: chemistry and bioactivity. RSC Advances 2019;9:21964-21988. https://doi.org/10.1039/c9ra03579f [2] S. Shi Y. Cheng S. Wang X. Zhang F. Han X. Li Improvement of the conjugation transfer of N. gerenzanensis based on the synergistic effect of quorum sensing and antibiotic interference AMB Express 13 2023 133 10.1186/s13568-023-01641-9 Shi S, Cheng Y",
+  "scopus-id": "105048028293",
+  "coredata": {
+   "eid": "1-s2.0-S2405805X26002036",
+   "dc:description": "The global emergence of vancomycin-resistant Gram-positive pathogens underscores the urgent need for efficient production of novel lipoglycopeptide antibiotics. Dalbavancin, a last-resort therapeutic agent, relies on its key biosynthetic precursor A40926B0, whose industrial manufacture is severely limited by the low yield of wild-type Nonomuraea gerenzanensis and inefficient genetic tools for this rare actinomycete. Here, we developed a high-efficiency CRISPR/AsCas12f1 genome editing system and applied systematic metabolic engineering to boost A40926B0 biosynthesis. First, conjugation conditions were optimized to elevate the transfer efficiency in N. gerenzanensis D11. The hypercompact AsCas12f1 nuclease showed markedly lower cytotoxicity than SpCas9 and enabled 100% gene deletion efficiency with preferred PAMs (TTTG, CTTG, GTTG). Second, we strengthened the shikimate pathway via multiple genetic strategies: overexpressing feedback-resistant DAHP synthase (aroG fbr ) and chorismate mutase/prephenate dehydrogenase (tyrA fbr ), as well as knocking out pheA. This manipulation blocks the phenylalanine synthetic branch and redirects metabolic flux toward the l-tyrosine branch. Third, we engineered the branched-chain fatty acid (BCFA) pathway via promoter replacement of bkdA2B2C2, LipAB, fabF and deletion of acdH to enhance isododecanoyl side-chain supply. The combinatorial engineering yielded strain B-13, which produced 1740 mg/L A40926B0 in shake flasks. Finally, 50-L fed-batch fermentation with continuous maltodextrin feeding further increased the titer to 1817 mg/L, the highest reported titer to date. This work establishes a robust CRISPR editing tool for N. gerenzanensis and provides valuable engineering references for precursor-oriented strain improvement targeting lipoglycopeptide antibiotics, offering insights for the industrial scale production of A40926B0.",
+   "openArchiveArticle": "false",
+   "prism:coverDate": "2027-04-30",
+   "openaccessUserLicense": "http://creativecommons.org/licenses/by/4.0/",
+   "prism:aggregationType": "Journal",
+   "prism:url": "https://api.elsevier.com/content/article/pii/S2405805X26002036",
+   "dc:creator": [
+    {
+     "@_fa": "true",
+     "$": "Wang, Xiaoru"
+    },
+    {
+     "@_fa": "true",
+     "$": "Zhai, Hongmei"
+    },
+    {
+     "@_fa": "true",
+     "$": "Gu, Dandan"
+    },
+    {
+     "@_fa": "true",
+     "$": "Wang, Yongchao"
+    },
+    {
+     "@_fa": "true",
+     "$": "Gao, Jiali"
+    },
+    {
+     "@_fa": "true",
+     "$": "Du, Luxi"
+    },
+    {
+     "@_fa": "true",
+     "$": "Zhuo, Liuxu"
+    },
+    {
+     "@_fa": "true",
+     "$": "Li, Xiaobing"
+    },
+    {
+     "@_fa": "true",
+     "$": "Wang, Yu"
+    }
+   ],
+   "dc:format": "application/json",
+   "openaccessType": "Full",
+   "pii": "S2405-805X(26)00203-6",
+   "prism:volume": "18",
+   "prism:publisher": "The Authors. Publishing services by Elsevier B.V. on behalf of KeAi Communications Co. Ltd.",
+   "dc:title": "Strategy for enhanced production of A40926B0 in Nonomuraea gerenzanensis using an efficient CRISPR/AsCas12f1 system",
+   "prism:copyright": "© 2026 The Authors. Publishing services by Elsevier B.V. on behalf of KeAi Communications Co. Ltd.",
+   "openaccess": "1",
+   "prism:issn": "2405805X",
+   "dcterms:subject": [
+    {
+     "@_fa": "true",
+     "$": "Nonomuraea gerenzanensis"
+    },
+    {
+     "@_fa": "true",
+     "$": "A40926B0"
+    },
+    {
+     "@_fa": "true",
+     "$": "Dalbavancin"
+    },
+    {
+     "@_fa": "true",
+     "$": "CRISPR/AsCas12f1"
+    },
+    {
+     "@_fa": "true",
+     "$": "Metabolic engineering"
+    },
+    {
+     "@_fa": "true",
+     "$": "Shikimate pathway"
+    },
+    {
+     "@_fa": "true",
+     "$": "Branched-chain fatty acid"
+    }
+   ],
+   "openaccessArticle": "true",
+   "prism:publicationName": "Synthetic and Systems Biotechnology",
+   "openaccessSponsorType": "Author",
+   "prism:pageRange": "49-62",
+   "prism:endingPage": "62",
+   "pubType": "fla",
+   "prism:coverDisplayDate": "April 2027",
+   "prism:doi": "10.1016/j.synbio.2026.08.006",
+   "prism:startingPage": "49",
+   "dc:identifier": "doi:10.1016/j.synbio.2026.08.006",
+   "openaccessSponsorName": null
+  }
+ }
+}

@@ -1,0 +1,94 @@
+{
+ "data": [
+  {
+   "id": "6765366d69c2930ab8c5555d",
+   "type": "files",
+   "attributes": {
+    "guid": null,
+    "checkout": null,
+    "name": "01_control_sleep-data.csv",
+    "kind": "file",
+    "path": "/6765366d69c2930ab8c5555d",
+    "size": 153,
+    "provider": "osfstorage",
+    "materialized_path": "/Sub-01/01_control_sleep-data.csv",
+    "last_touched": null,
+    "date_modified": "2024-12-20T09:18:37.689545",
+    "date_created": "2024-12-20T09:18:37.689545Z",
+    "extra": {
+     "hashes": {
+      "md5": "a07c3a60bb05196f696f22689077d66c",
+      "sha256": "bff373e0a7021c74d40a001a47f4dcb030db7ef05884f1d9bf89ab41b0d68dd8"
+     },
+     "downloads": 0
+    },
+    "tags": [],
+    "current_user_can_comment": false,
+    "current_version": 1,
+    "show_as_unviewed": false
+   },
+   "links": {
+    "info": "https://api.osf.io/v2/files/6765366d69c2930ab8c5555d/",
+    "move": "https://files.de-1.osf.io/v1/resources/gknwy/providers/osfstorage/6765366d69c2930ab8c5555d",
+    "upload": "https://files.de-1.osf.io/v1/resources/gknwy/providers/osfstorage/6765366d69c2930ab8c5555d",
+    "delete": "https://files.de-1.osf.io/v1/resources/gknwy/providers/osfstorage/6765366d69c2930ab8c5555d",
+    "download": "https://osf.io/download/6765366d69c2930ab8c5555d/",
+    "render": "https://mfr.de-1.osf.io/render?url=https%3A%2F%2Fosf.io%2Fdownload%2F6765366d69c2930ab8c5555d%2F%3Fdirect%26mode%3Drender",
+    "html": "https://osf.io/gknwy/files/osfstorage/6765366d69c2930ab8c5555d",
+    "self": "https://api.osf.io/v2/files/6765366d69c2930ab8c5555d/"
+   }
+  },
+  {
+   "id": "6765366f3eadf683e2e4b7b2",
+   "type": "files",
+   "attributes": {
+    "guid": "6bke7",
+    "checkout": null,
+    "name": "01_control_extra-sleep-data.csv",
+    "kind": "file",
+    "path": "/6765366f3eadf683e2e4b7b2",
+    "size": 293,
+    "provider": "osfstorage",
+    "materialized_path": "/Sub-01/01_control_extra-sleep-data.csv",
+    "last_touched": null,
+    "date_modified": "2024-12-20T09:18:39.088310",
+    "date_created": "2024-12-20T09:18:39.088310Z",
+    "extra": {
+     "hashes": {
+      "md5": "cd77a62421435d289db5bab0cf9b9146",
+      "sha256": "822b47ac37a02e0ba6e66d9e4e2845830bf5af01e01f0d8dcc15cdb7e8d4b15d"
+     },
+     "downloads": 2
+    },
+    "tags": [],
+    "current_user_can_comment": false,
+    "current_version": 1,
+    "show_as_unviewed": false
+   },
+   "links": {
+    "info": "https://api.osf.io/v2/files/6765366f3eadf683e2e4b7b2/",
+    "move": "https://files.de-1.osf.io/v1/resources/gknwy/providers/osfstorage/6765366f3eadf683e2e4b7b2",
+    "upload": "https://files.de-1.osf.io/v1/resources/gknwy/providers/osfstorage/6765366f3eadf683e2e4b7b2",
+    "delete": "https://files.de-1.osf.io/v1/resources/gknwy/providers/osfstorage/6765366f3eadf683e2e4b7b2",
+    "download": "https://osf.io/download/6bke7/",
+    "render": "https://mfr.de-1.osf.io/render?url=https%3A%2F%2Fosf.io%2Fdownload%2F6bke7%2F%3Fdirect%26mode%3Drender",
+    "html": "https://osf.io/gknwy/files/osfstorage/6765366f3eadf683e2e4b7b2",
+    "self": "https://api.osf.io/v2/files/6765366f3eadf683e2e4b7b2/",
+    "iri": "https://osf.io/6bke7"
+   }
+  }
+ ],
+ "links": {
+  "first": null,
+  "last": "https://api.osf.io/v2/nodes/gknwy/files/osfstorage/676535d1a457ed879faf1244/?page=7&page%5Bsize%5D=2",
+  "prev": null,
+  "next": "https://api.osf.io/v2/nodes/gknwy/files/osfstorage/676535d1a457ed879faf1244/?page=2&page%5Bsize%5D=2",
+  "meta": {
+   "total": 13,
+   "per_page": 2
+  }
+ },
+ "meta": {
+  "version": "2.0"
+ }
+}

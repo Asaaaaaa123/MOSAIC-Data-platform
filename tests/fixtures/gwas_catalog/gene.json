@@ -1,0 +1,13 @@
+{
+ "gene_name": "APOE",
+ "gene_description": "apolipoprotein E",
+ "location": "19:44903787-44909396",
+ "cytogenic_region": "19q13.32",
+ "biotype": "protein_coding",
+ "ensembl_gene_ids": [
+  "ENSG00000130203"
+ ],
+ "entrez_gene_ids": [
+  "348"
+ ]
+}

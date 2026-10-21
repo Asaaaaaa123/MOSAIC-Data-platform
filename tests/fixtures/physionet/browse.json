@@ -1,0 +1,367 @@
+[
+ {
+  "public_project_uuid": "5df79f41-857f-4e97-95d3-6e2cf0f2fe3b",
+  "slug": "slpdb",
+  "version": "1.0.0",
+  "core_doi": "10.13026/3p18-8q66",
+  "version_doi": "10.13026/C23K5S",
+  "is_latest_version": true,
+  "short_description": "Recordings of multiple physiologic signals during sleep, collected from 18 subjects monitored at Boston's Beth Israel Hospital Sleep Laboratory.",
+  "publish_date": "1999-08-03",
+  "title": "MIT-BIH Polysomnographic Database",
+  "abstract": "<p>The MIT-BIH Polysomnographic Database is a collection of recordings of multiple physiologic signals during sleep. Subjects were monitored in Boston&#39;s Beth Israel Hospital Sleep Laboratory for evaluation of chronic obstructive sleep apnea syndrome, and to test the effects of constant positive airway pressure (CPAP), a standard therapeutic intervention that usually prevents or substantially r</p>",
+  "license": {
+   "name": "Open Data Commons Attribution License v1.0"
+  },
+  "dua": null,
+  "main_storage_size": 663056564,
+  "compressed_storage_size": 663076626,
+  "resource_type": "Database",
+  "access_policy": "Open",
+  "topics": [
+   "sleep",
+   "eeg",
+   "ecg",
+   "multiparameter",
+   "respiration",
+   "apnea"
+  ],
+  "source_url": "https://physionet.org/content/slpdb/1.0.0/"
+ },
+ {
+  "public_project_uuid": "e616e6e5-b398-408c-b08f-d39eebd36dde",
+  "slug": "apnea-ecg",
+  "version": "1.0.0",
+  "core_doi": null,
+  "version_doi": "10.13026/C23W2R",
+  "is_latest_version": true,
+  "short_description": "Seventy ECG signals with expert-labelled apnea annotations and machine-generated QRS annotations.",
+  "publish_date": "2000-02-10",
+  "title": "Apnea-ECG Database",
+  "abstract": "<p>The data consist of 70 records, divided into a <em>learning set</em> of 35 records (a01 through a20, b01 through b05, and c01 through c10), and a <em>test set</em> of 35 records (x01 through x35), all of which may be downloaded from this page. Recordings vary in length from slightly less than 7 hours to nearly 10 hours each. Each recording includes a continuous digitized ECG signal, a set of ap</p>",
+  "license": {
+   "name": "Open Data Commons Attribution License v1.0"
+  },
+  "dua": null,
+  "main_storage_size": 608786550,
+  "compressed_storage_size": 608841016,
+  "resource_type": "Database",
+  "access_policy": "Open",
+  "topics": [
+   "multiparameter",
+   "challenge",
+   "ecg",
+   "sleep",
+   "apnea"
+  ],
+  "source_url": "https://physionet.org/content/apnea-ecg/1.0.0/"
+ },
+ {
+  "public_project_uuid": "852ebcdb-5d8c-4ed0-92b9-d1ccc175e492",
+  "slug": "mimicdb",
+  "version": "1.0.0",
+  "core_doi": null,
+  "version_doi": "10.13026/C2JS34",
+  "is_latest_version": true,
+  "short_description": "",
+  "publish_date": "2000-03-15",
+  "title": "MIMIC Database",
+  "abstract": "<p>The MIMIC Database includes data recorded from over 90 ICU patients. The data in each case include signals and periodic measurements obtained from a bedside monitor as well as clinical data obtained from the patient&#39;s medical record. The recordings vary in length; almost all of them are at least 20 hours, and many are 40 hours or more. In all, the database contains nearly 200 patient-days o</p>",
+  "license": {
+   "name": "Open Data Commons Attribution License v1.0"
+  },
+  "dua": null,
+  "main_storage_size": 25193606994,
+  "compressed_storage_size": 25203405584,
+  "resource_type": "Database",
+  "access_policy": "Open",
+  "topics": [
+   "critical care",
+   "icu",
+   "health record",
+   "mimic",
+   "ehr"
+  ],
+  "source_url": "https://physionet.org/content/mimicdb/1.0.0/"
+ },
+ {
+  "public_project_uuid": "8801872b-1df7-4f53-b02e-e819e8467530",
+  "slug": "afdb",
+  "version": "1.0.0",
+  "core_doi": null,
+  "version_doi": "10.13026/C2MW2D",
+  "is_latest_version": true,
+  "short_description": "",
+  "publish_date": "2000-11-04",
+  "title": "MIT-BIH Atrial Fibrillation Database",
+  "abstract": "<p>This database includes 25 long-term ECG recordings of human subjects with atrial fibrillation (mostly paroxysmal).</p>",
+  "license": {
+   "name": "Open Data Commons Attribution License v1.0"
+  },
+  "dua": null,
+  "main_storage_size": 635350603,
+  "compressed_storage_size": 461033254,
+  "resource_type": "Database",
+  "access_policy": "Open",
+  "topics": [
+   "ecg",
+   "atrial fibrillation"
+  ],
+  "source_url": "https://physionet.org/content/afdb/1.0.0/"
+ },
+ {
+  "public_project_uuid": "c963e654-30b1-411a-973b-df38b2e38c28",
+  "slug": "ucddb",
+  "version": "1.0.0",
+  "core_doi": null,
+  "version_doi": "10.13026/C26C7D",
+  "is_latest_version": true,
+  "short_description": "Overnight polysomnograms with simultaneous three-channel Holter ECG, from 25 adult subjects with suspected sleep-disordered breathing.",
+  "publish_date": "2007-10-09",
+  "title": "St. Vincent's University Hospital / University College Dublin Sleep Apnea Database",
+  "abstract": "<p>This database contains 25 full overnight polysomnograms with simultaneous three-channel Holter ECG, from adult subjects with suspected sleep-disordered breathing. A revised version of this database was posted on 1 September 2011.</p>",
+  "license": {
+   "name": "Open Data Commons Attribution License v1.0"
+  },
+  "dua": null,
+  "main_storage_size": 1368695346,
+  "compressed_storage_size": 794211974,
+  "resource_type": "Database",
+  "access_policy": "Open",
+  "topics": [
+   "sleep",
+   "ecg",
+   "holter",
+   "multiparameter",
+   "polysomnogram"
+  ],
+  "source_url": "https://physionet.org/content/ucddb/1.0.0/"
+ },
+ {
+  "public_project_uuid": "13dc7098-9786-42a2-b6b4-eb8fe21d9f75",
+  "slug": "chbmit",
+  "version": "1.0.0",
+  "core_doi": null,
+  "version_doi": "10.13026/C2K01R",
+  "is_latest_version": true,
+  "short_description": "EEG recordings from pediatric subjects with intractable seizures, collected at the Children’s Hospital Boston.",
+  "publish_date": "2010-06-09",
+  "title": "CHB-MIT Scalp EEG Database",
+  "abstract": "This database, collected at the Children’s Hospital Boston, consists of EEG recordings from pediatric subjects with intractable seizures. Subjects were monitored for up to several days following withdrawal of anti-seizure medication in order to characterize their seizures and assess their candidacy for surgical intervention. The recordings are grouped into 23 cases and were collected from 22 subje</p>",
+  "license": {
+   "name": "Open Data Commons Attribution License v1.0"
+  },
+  "dua": null,
+  "main_storage_size": 45759184625,
+  "compressed_storage_size": 45759349673,
+  "resource_type": "Database",
+  "access_policy": "Open",
+  "topics": [
+   "medication",
+   "eeg",
+   "neuroelectric",
+   "seizure"
+  ],
+  "source_url": "https://physionet.org/content/chbmit/1.0.0/"
+ },
+ {
+  "public_project_uuid": "efeee4d0-9799-4f09-8c86-43665f9fe59c",
+  "slug": "eicu-crd",
+  "version": "2.0",
+  "core_doi": "10.13026/0pzc-dm64",
+  "version_doi": "10.13026/C2WM1R",
+  "is_latest_version": true,
+  "short_description": "Multi-center database comprising deidentified health data associated with over 200,000 admissions to ICUs across the United States between 2014-2015.",
+  "publish_date": "2019-04-15",
+  "title": "eICU Collaborative Research Database",
+  "abstract": "<p>The eICU Collaborative Research Database is a multi-center database comprising deidentified health data associated with over 200,000 admissions to ICUs across the United States between 2014-2015. The database includes vital sign measurements, care plan documentation, severity of illness measures, diagnosis information, and treatment information. Data is collected through the Philips eICU progra</p>",
+  "license": {
+   "name": "PhysioNet Credentialed Health Data License 1.5.0"
+  },
+  "dua": {
+   "name": "PhysioNet Credentialed Health Data Use Agreement 1.5.0"
+  },
+  "main_storage_size": 5486758129,
+  "compressed_storage_size": 5486764761,
+  "resource_type": "Database",
+  "access_policy": "Credentialed",
+  "topics": [
+   "critical care",
+   "icu",
+   "telemedicine"
+  ],
+  "source_url": "https://physionet.org/content/eicu-crd/2.0/"
+ },
+ {
+  "public_project_uuid": "c63b8ff1-6ecd-4548-8b7b-b6e012d72fe3",
+  "slug": "ptb-xl",
+  "version": "1.0.3",
+  "core_doi": "10.13026/6sec-a640",
+  "version_doi": "10.13026/kfzx-aw45",
+  "is_latest_version": true,
+  "short_description": "The PTB-XL ECG dataset is a large dataset of 21801 clinical 12-lead ECGs from 18869 patients of 10 second length. The raw signal data has been annotated by up to two cardiologists with 71 different ECG statements and is supplemented by rich metadata.",
+  "publish_date": "2022-11-09",
+  "title": "PTB-XL, a large publicly available electrocardiography dataset",
+  "abstract": "<p>Electrocardiography (ECG) is a key diagnostic tool to assess the cardiac condition of a patient. Automatic ECG interpretation algorithms as diagnosis support systems promise large reliefs for the medical personnel - only on the basis of the number of ECGs that are routinely taken. However, the development of such algorithms requires large training datasets and clear benchmark procedures. In our</p>",
+  "license": {
+   "name": "Creative Commons Attribution 4.0 International Public License"
+  },
+  "dua": null,
+  "main_storage_size": 3181524022,
+  "compressed_storage_size": 1839504686,
+  "resource_type": "Database",
+  "access_policy": "Open",
+  "topics": [
+   "ecg",
+   "ptb-xl",
+   "ptb",
+   "electrocardiography"
+  ],
+  "source_url": "https://physionet.org/content/ptb-xl/1.0.3/"
+ },
+ {
+  "public_project_uuid": "9c49b3d8-6850-44db-b167-9d0f5d45a182",
+  "slug": "wfdb-python",
+  "version": "4.1.0",
+  "core_doi": "10.13026/jt5e-gq15",
+  "version_doi": "10.13026/9njx-6322",
+  "is_latest_version": true,
+  "short_description": "Tools for working with waveforms in Python.",
+  "publish_date": "2023-01-25",
+  "title": "Waveform Database Software Package (WFDB) for Python",
+  "abstract": "<p>Physiological waveforms - such as electrocardiograms (ECG), electroencephalograms (EEG), electromyograms (EMG) - are generated during the course of routine care. These signals contain information that can be used to understand underlying conditions of health. Effective processing and analysis of physiological data requires specialized software. The waveform-database (WFDB) package for Python is</p>",
+  "license": {
+   "name": "MIT License"
+  },
+  "dua": null,
+  "main_storage_size": 246143429,
+  "compressed_storage_size": 104257524,
+  "resource_type": "Software",
+  "access_policy": "Open",
+  "topics": [
+   "waveform",
+   "wfdb",
+   "python"
+  ],
+  "source_url": "https://physionet.org/content/wfdb-python/4.1.0/"
+ },
+ {
+  "public_project_uuid": "14d34845-f3c1-4a96-bb22-63e8d53f4db2",
+  "slug": "shdb-af",
+  "version": "1.0.1",
+  "core_doi": "10.13026/f5mp-gx65",
+  "version_doi": "10.13026/n6yq-fq90",
+  "is_latest_version": true,
+  "short_description": "Holter ECG database from Japan, containing data from 100 unique patients with paroxysmal AF including expert annotations of Supraventricular arrhythmias at the beat level.",
+  "publish_date": "2025-04-16",
+  "title": "SHDB-AF: a Japanese Holter ECG database of atrial fibrillation",
+  "abstract": "<p>Saitama Heart Database Atrial Fibrillation (SHDB-AF) is a novel open-sourced Holter ECG database from Japan, containing data from 122 unique subjects with paroxysmal atrial fibrillation. Among the 128 recordings, 98 contain raw ECG data with rhythm annotations at the beat level, manually performed by a cardiology fellow. The remaining recordings consist only of ECG traces without annotations. T</p>",
+  "license": {
+   "name": "Open Data Commons Attribution License v1.0"
+  },
+  "dua": null,
+  "main_storage_size": 8887271676,
+  "compressed_storage_size": 7816783253,
+  "resource_type": "Database",
+  "access_policy": "Open",
+  "topics": [
+   "atrial fibrillation",
+   "ecg",
+   "holters"
+  ],
+  "source_url": "https://physionet.org/content/shdb-af/1.0.1/"
+ },
+ {
+  "public_project_uuid": "08848569-9a6c-4333-a9c6-b89482ea0cc5",
+  "slug": "mimiciv",
+  "version": "3.1",
+  "core_doi": "10.13026/07hj-2a80",
+  "version_doi": "10.13026/kpb9-mt58",
+  "is_latest_version": true,
+  "short_description": "Large database of de-identified health information from patients admitted to Beth Israel Deaconess Medical Center",
+  "publish_date": "2024-10-11",
+  "title": "MIMIC-IV",
+  "abstract": "<p>Retrospectively collected medical data has the opportunity to improve patient care through knowledge discovery and algorithm development. Broad reuse of medical data is desirable for the greatest public good, but data sharing must be done in a manner which protects patient privacy. Here we present Medical Information Mart for Intensive Care (MIMIC)-IV, a large deidentified dataset of patients a</p>",
+  "license": {
+   "name": "PhysioNet Credentialed Health Data License 1.5.0"
+  },
+  "dua": {
+   "name": "PhysioNet Credentialed Health Data Use Agreement 1.5.0"
+  },
+  "main_storage_size": 10656227926,
+  "compressed_storage_size": 10551747784,
+  "resource_type": "Database",
+  "access_policy": "Credentialed",
+  "topics": [
+   "critical care",
+   "intensive care unit",
+   "mimic",
+   "machine learning"
+  ],
+  "source_url": "https://physionet.org/content/mimiciv/3.1/"
+ },
+ {
+  "public_project_uuid": "7066620d-1839-4e8e-af8e-0ec41edb1780",
+  "slug": "widsdatathon2020",
+  "version": "1.0.0",
+  "core_doi": "10.13026/530d-1e61",
+  "version_doi": "10.13026/vc0e-th79",
+  "is_latest_version": true,
+  "short_description": "WiDS (Women in Data Science) Datathon 2020: ICU Mortality Prediction focuses on patient health. Join a team, explore the data, and share your insights: http://bit.ly/WiDSdatathon2020",
+  "publish_date": "2020-01-22",
+  "title": "WiDS (Women in Data Science) Datathon 2020: ICU Mortality Prediction",
+  "abstract": "<p><strong>WiDS (Women in Data Science)</strong>&nbsp;<strong>Datathon 2020: ICU Mortality Prediction</strong> focuses on patient health through data from <a href=\"https://gossis.mit.edu/\">MIT&rsquo;s GOSSIS (Global Open Source Severity of Illness Score)</a> initiative. Brought to you by the Global WiDS team, the&nbsp;<a href=\"https://westbigdatahub.org/\">West Big Data Innovation Hub</a>, and the&</p>",
+  "license": {
+   "name": "PhysioNet Restricted Health Data License 1.5.0"
+  },
+  "dua": {
+   "name": "PhysioNet Restricted Health Data Use Agreement 1.5.0"
+  },
+  "main_storage_size": 336009,
+  "compressed_storage_size": 0,
+  "resource_type": "Challenge",
+  "access_policy": "Restricted",
+  "topics": [
+   "mortality",
+   "data science",
+   "kaggle",
+   "predictive analytics",
+   "risk",
+   "women in data science",
+   "challenge",
+   "icu"
+  ],
+  "source_url": "https://physionet.org/content/widsdatathon2020/1.0.0/"
+ },
+ {
+  "public_project_uuid": "d27bfcb8-158f-4c10-8b4c-0cb45246b695",
+  "slug": "hirid",
+  "version": "1.1.1",
+  "core_doi": "10.13026/323r-nk04",
+  "version_doi": "10.13026/nkwc-js72",
+  "is_latest_version": true,
+  "short_description": "The HiRID database contains a large selection of all routinely collected data relating to patient admissions to the Department of Intensive Care Medicine of the Bern University Hospital, Switzerland (ICU).",
+  "publish_date": "2021-02-18",
+  "title": "HiRID, a high time-resolution ICU dataset",
+  "abstract": "<p>HiRID is a freely accessible critical care dataset containing data relating to almost&nbsp;34 thousand patient admissions to the Department of Intensive Care Medicine of the Bern University Hospital, Switzerland (ICU), an interdisciplinary 60-bed unit admitting &gt;6,500 patients per year. The ICU offers the full range of modern interdisciplinary intensive care medicine for adult patients. The </p>",
+  "license": {
+   "name": "PhysioNet Contributor Review Health Data License 1.5.0"
+  },
+  "dua": {
+   "name": "PhysioNet Contributor Review Health Data Use Agreement 1.5.0"
+  },
+  "main_storage_size": 18024882962,
+  "compressed_storage_size": 17996760489,
+  "resource_type": "Database",
+  "access_policy": "Contributor Review",
+  "topics": [
+   "critical care",
+   "high resolution",
+   "intensive care",
+   "icu",
+   "clinical",
+   "machine learning"
+  ],
+  "source_url": "https://physionet.org/content/hirid/1.1.1/"
+ }
+]

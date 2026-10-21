@@ -1,0 +1,19 @@
+{
+ "linksets": [
+  {
+   "dbfrom": "pubmed",
+   "ids": [
+    "30742122"
+   ],
+   "linksetdbs": [
+    {
+     "dbto": "gds",
+     "linkname": "pubmed_gds",
+     "links": [
+      "200121810"
+     ]
+    }
+   ]
+  }
+ ]
+}

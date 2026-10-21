@@ -1,0 +1,119 @@
+{
+ "offset": 0,
+ "next": 2,
+ "data": [
+  {
+   "contexts": [],
+   "intents": [],
+   "isInfluential": false,
+   "citedPaper": {
+    "paperId": "b8a6820f746579551ae5adf3a3d2c138fcd3ca78",
+    "externalIds": {
+     "MAG": "2963629338",
+     "PubMedCentral": "6728210",
+     "DOI": "10.1038/s41587-019-0193-0",
+     "CorpusId": 198172524,
+     "PubMed": "31332326"
+    },
+    "corpusId": 198172524,
+    "url": "https://www.semanticscholar.org/paper/b8a6820f746579551ae5adf3a3d2c138fcd3ca78",
+    "title": "Continuous evolution of base editors with expanded target compatibility and improved activity",
+    "venue": "Nature Biotechnology",
+    "year": 2019,
+    "citationCount": 317,
+    "influentialCitationCount": 19,
+    "isOpenAccess": true,
+    "openAccessPdf": {
+     "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/6728210",
+     "status": "GREEN",
+     "license": null,
+     "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC6728210, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+    },
+    "fieldsOfStudy": [
+     "Computer Science",
+     "Medicine"
+    ],
+    "publicationTypes": [
+     "JournalArticle"
+    ],
+    "publicationDate": "2019-07-22",
+    "journal": {
+     "volume": "37",
+     "pages": "1070 - 1079",
+     "name": "Nature biotechnology"
+    },
+    "authors": [
+     {
+      "authorId": "7976663",
+      "name": "Benjamin W. Thuronyi"
+     },
+     {
+      "authorId": "12407421",
+      "name": "Luke W. Koblan"
+     },
+     {
+      "authorId": "1410899509",
+      "name": "Jonathan M. Levy"
+     }
+    ],
+    "abstract": "Base editors use DNA-modifying enzymes targeted with a catalytically impaired CRISPR protein to precisely install point mutations. Here, we develop phage-assisted continuous evolution of base editors (BE–PACE) to improve their editing efficiency and target sequence compatibility. We used BE–PACE to evolve cytosine base editors (CBEs) that overcome target sequence context constraints of canonical C"
+   }
+  },
+  {
+   "contexts": [],
+   "intents": [],
+   "isInfluential": false,
+   "citedPaper": {
+    "paperId": "b7f54d928a44b02ff6545f0383caba0d67ff3d72",
+    "externalIds": {
+     "PubMedCentral": "6525190",
+     "MAG": "2945532708",
+     "DOI": "10.1038/s41467-019-09983-4",
+     "CorpusId": 156055843,
+     "PubMed": "31101808"
+    },
+    "corpusId": 156055843,
+    "url": "https://www.semanticscholar.org/paper/b7f54d928a44b02ff6545f0383caba0d67ff3d72",
+    "title": "Development of hRad51–Cas9 nickase fusions that mediate HDR without double-stranded breaks",
+    "venue": "Nature Communications",
+    "year": 2019,
+    "citationCount": 91,
+    "influentialCitationCount": 3,
+    "isOpenAccess": true,
+    "openAccessPdf": {
+     "url": "https://www.nature.com/articles/s41467-019-09983-4.pdf",
+     "status": "GOLD",
+     "license": "CCBY",
+     "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC6525190, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+    },
+    "fieldsOfStudy": [
+     "Chemistry",
+     "Medicine"
+    ],
+    "publicationTypes": [
+     "JournalArticle"
+    ],
+    "publicationDate": "2019-05-17",
+    "journal": {
+     "volume": "10",
+     "name": "Nature Communications"
+    },
+    "authors": [
+     {
+      "authorId": "36729397",
+      "name": "H. Rees"
+     },
+     {
+      "authorId": "10724771",
+      "name": "Wei-Hsi Yeh"
+     },
+     {
+      "authorId": "2949942",
+      "name": "David R. Liu"
+     }
+    ],
+    "abstract": "In mammalian cells, double-stranded DNA breaks (DSBs) are preferentially repaired through end-joining processes that generally lead to mixtures of insertions and deletions (indels) or other rearrangements at the cleavage site. In the presence of homologous DNA, homology-directed repair (HDR) can generate specific mutations, albeit typically with modest efficiency and a low ratio of HDR products:in"
+   }
+  }
+ ]
+}

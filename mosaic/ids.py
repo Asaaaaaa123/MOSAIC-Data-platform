@@ -24,6 +24,7 @@ IDENTIFIER_KEYS: dict[str, str] = {
     "arxiv": "arXiv ID",
     "s2": "Semantic Scholar paperId",
     "openalex": "OpenAlex ID (W..., A..., S..., I..., C...)",
+    "mag": "Microsoft Academic Graph ID (digits; shared by OpenAlex and Semantic Scholar)",
     "scopus_eid": "Scopus EID (2-s2.0-...)",
     "wos_uid": "Web of Science UID (WOS:...)",
     "issn": "ISSN",
@@ -70,6 +71,8 @@ IDENTIFIER_KEYS: dict[str, str] = {
     "umls": "UMLS CUI",
     "go": "Gene Ontology term (GO:#######)",
     "reactome": "Reactome stable ID (R-HSA-...)",
+    "chebi": "ChEBI ID (CHEBI:#####)",
+    "kegg_compound": "KEGG compound ID (C#####)",
     # --- variants / genetics ---
     "rsid": "dbSNP rsID (rs...)",
     "clinvar": "ClinVar variation ID",
@@ -94,6 +97,7 @@ IDENTIFIER_KEYS: dict[str, str] = {
     "dandi": "DANDI dandiset ID",
     "openneuro": "OpenNeuro dataset ID (ds######)",
     "metabolomics_workbench": "Metabolomics Workbench study ID (ST######)",
+    "re3data": "re3data repository registry DOI",
 }
 
 _DOI_PREFIX = re.compile(r"^(?:https?://(?:dx\.)?doi\.org/|doi:\s*)", re.IGNORECASE)
@@ -129,6 +133,23 @@ def normalize_orcid(value: str) -> str:
     return re.sub(r"^https?://orcid\.org/", "", value.strip(), flags=re.IGNORECASE)
 
 
+def _curie(value: str, prefix: str, sep: str) -> str:
+    """``MONDO_0009061`` / ``mondo:0009061`` / IRI -> ``MONDO:0009061`` (with ``sep``)."""
+    text = value.strip().rsplit("/", 1)[-1]
+    match = re.match(rf"^{prefix}[:_]?(.+)$", text, flags=re.IGNORECASE)
+    return f"{prefix}{sep}{match.group(1)}" if match else text
+
+
+def _strip_prefix(value: str, prefixes: tuple[str, ...]) -> str:
+    """``Orphanet:586`` / ``ORPHA_586`` -> ``586``."""
+    text = value.strip()
+    for prefix in prefixes:
+        match = re.match(rf"^{prefix}[:_\s]+(.+)$", text, flags=re.IGNORECASE)
+        if match:
+            return match.group(1).strip()
+    return text
+
+
 _NORMALIZERS: dict[str, Callable[[str], str]] = {
     "doi": normalize_doi,
     "pmid": _digits,
@@ -151,6 +172,18 @@ _NORMALIZERS: dict[str, Callable[[str], str]] = {
     "rsid": lambda v: v.strip().lower(),
     "geo": _upper,
     "dbgap": lambda v: v.strip().lower(),
+    # Ontology CURIEs: one canonical separator per ontology so sources link.
+    "mondo": lambda v: _curie(v, "MONDO", ":"),
+    "hp": lambda v: _curie(v, "HP", ":"),
+    "doid": lambda v: _curie(v, "DOID", ":"),
+    "go": lambda v: _curie(v, "GO", ":"),
+    "chebi": lambda v: _curie(v, "CHEBI", ":"),
+    "efo": lambda v: _curie(v, "EFO", "_"),
+    "orphanet": lambda v: _strip_prefix(v, ("orphanet", "orpha")),
+    "omim": lambda v: _strip_prefix(v, ("omim", "mim")),
+    "mesh": lambda v: _strip_prefix(v, ("mesh",)).upper(),
+    "umls": lambda v: _strip_prefix(v, ("umls",)).upper(),
+    "icd10": lambda v: _strip_prefix(v, ("icd10cm", "icd10")).upper(),
 }
 
 

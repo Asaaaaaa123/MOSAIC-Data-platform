@@ -1,0 +1,3 @@
+# Input	GeneSymbol	GeneID	ChemicalName	ChemicalID	CasRN	GeneForms	Organism	OrganismID	Interaction	InteractionActions	PubMedIDs
+ESR1	ESR1	2099	bisphenol A	C006780	80-05-7	protein	Homo sapiens	9606	bisphenol A binds to ESR1 protein	affects^binding	16123044|18331649
+ESR1	ESR1	2099	Estradiol	D004958	50-28-2	protein	Homo sapiens	9606	Estradiol binds to ESR1 protein	affects^binding	10201789

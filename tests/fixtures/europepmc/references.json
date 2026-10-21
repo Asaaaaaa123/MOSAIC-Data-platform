@@ -1,0 +1,45 @@
+{
+ "version": "6.9",
+ "hitCount": 71,
+ "request": {
+  "id": "30742122",
+  "source": "MED",
+  "offSet": 1,
+  "pageSize": 2
+ },
+ "referenceList": {
+  "reference": [
+   {
+    "source": "MED",
+    "id": "19706884",
+    "citationType": "JOURNAL ARTICLE",
+    "title": "Comprehensive assessment of T-cell receptor beta-chain diversity in alphabeta T cells.",
+    "authorString": "Robins HS, Campregher PV, Srivastava SK, Wacher A, Turtle CJ, Kahsai O, Riddell SR, Warren EH, Carlson CS.",
+    "journalAbbreviation": "Blood",
+    "issue": "19",
+    "pubYear": 2009,
+    "volume": "114",
+    "pageInfo": "4099-4107",
+    "citedOrder": 1,
+    "match": "Y",
+    "essn": "1528-0020",
+    "issn": "0006-4971"
+   },
+   {
+    "source": "MED",
+    "id": "25083336",
+    "citationType": "JOURNAL ARTICLE",
+    "title": "Distinct immunological mechanisms of CTLA-4 and PD-1 blockade revealed by analyzing TCR usage in blood lymphocytes.",
+    "authorString": "Robert L, Harview C, Emerson R, Wang X, Mok S, Homet B, Comin-Anduix B, Koya RC, Robins H, Tumeh PC, Ribas A.",
+    "journalAbbreviation": "Oncoimmunology",
+    "pubYear": 2014,
+    "volume": "3",
+    "pageInfo": "e29244",
+    "citedOrder": 2,
+    "match": "Y",
+    "essn": "2162-402X",
+    "issn": "2162-4011"
+   }
+  ]
+ }
+}

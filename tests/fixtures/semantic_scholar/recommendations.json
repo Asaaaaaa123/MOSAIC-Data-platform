@@ -1,0 +1,101 @@
+{
+ "recommendedPapers": [
+  {
+   "paperId": "6c7b9ed6b55bfbfdcef23c65465e0f44c964f325",
+   "externalIds": {
+    "DOI": "10.1038/s41587-026-03296-w",
+    "CorpusId": 291465334,
+    "PubMed": "42665684"
+   },
+   "corpusId": 291465334,
+   "url": "https://www.semanticscholar.org/paper/6c7b9ed6b55bfbfdcef23c65465e0f44c964f325",
+   "title": "Donor-complementary prime editing enables precise kilobase and library-compatible DNA insertions.",
+   "venue": "Nature Biotechnology",
+   "year": 2026,
+   "citationCount": 1,
+   "influentialCitationCount": 0,
+   "isOpenAccess": false,
+   "openAccessPdf": {
+    "url": "",
+    "status": "CLOSED",
+    "license": null,
+    "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1038/s41587-026-03296-w?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1038/s41587-026-03296-w, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+   },
+   "fieldsOfStudy": [
+    "Medicine"
+   ],
+   "publicationTypes": [
+    "JournalArticle"
+   ],
+   "publicationDate": "2026-08-28",
+   "journal": {
+    "name": "Nature biotechnology"
+   },
+   "authors": [
+    {
+     "authorId": "2461148860",
+     "name": "Yun-Zheng Fang"
+    },
+    {
+     "authorId": "2255480141",
+     "name": "Jingyao Tang"
+    },
+    {
+     "authorId": "2461075924",
+     "name": "J. Xi"
+    }
+   ],
+   "abstract": null
+  },
+  {
+   "paperId": "3849123bcecf22bd5b92635758f3134a7dab078a",
+   "externalIds": {
+    "DOI": "10.1016/j.cbpa.2026.102771",
+    "CorpusId": 292354287,
+    "PubMed": "42790250"
+   },
+   "corpusId": 292354287,
+   "url": "https://www.semanticscholar.org/paper/3849123bcecf22bd5b92635758f3134a7dab078a",
+   "title": "Programmable large-DNA writing in the human genome.",
+   "venue": "Current Opinion in Chemical Biology",
+   "year": 2026,
+   "citationCount": 0,
+   "influentialCitationCount": 0,
+   "isOpenAccess": true,
+   "openAccessPdf": {
+    "url": "https://www.sciencedirect.com/science/article/pii/S1367593126001201/pdf",
+    "status": "HYBRID",
+    "license": "CCBYNCND",
+    "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1016/j.cbpa.2026.102771?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1016/j.cbpa.2026.102771, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+   },
+   "fieldsOfStudy": [
+    "Medicine"
+   ],
+   "publicationTypes": [
+    "Review",
+    "JournalArticle"
+   ],
+   "publicationDate": "2026-09-25",
+   "journal": {
+    "name": "Current opinion in chemical biology",
+    "pages": "\n          102771\n        ",
+    "volume": "95"
+   },
+   "authors": [
+    {
+     "authorId": "2504581687",
+     "name": "Joon A. Shin"
+    },
+    {
+     "authorId": "2339456018",
+     "name": "Matthew Hoffman"
+    },
+    {
+     "authorId": "2302278562",
+     "name": "Xin D. Gao"
+    }
+   ],
+   "abstract": "Programmable genome editing has advanced from nucleases through base and prime editors, yielding an increasingly precise and versatile editing toolkit that is nonetheless best suited to small, localized changes. Efficient, site-specific writing of kilobase-scale DNA, including whole genes, regulatory elements, and multi-component cassettes, remains a central unmet goal, with implications for disse"
+  }
+ ]
+}

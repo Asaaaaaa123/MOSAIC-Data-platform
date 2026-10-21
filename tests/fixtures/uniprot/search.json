@@ -1,0 +1,387 @@
+{
+ "results": [
+  {
+   "entryType": "UniProtKB reviewed (Swiss-Prot)",
+   "primaryAccession": "P15056",
+   "uniProtkbId": "BRAF_HUMAN",
+   "entryAudit": {
+    "firstPublicDate": "1990-11-01",
+    "lastAnnotationUpdateDate": "2026-09-02"
+   },
+   "annotationScore": 5.0,
+   "organism": {
+    "scientificName": "Homo sapiens",
+    "commonName": "Human",
+    "taxonId": 9606
+   },
+   "proteinExistence": "1: Evidence at protein level",
+   "proteinDescription": {
+    "recommendedName": {
+     "fullName": {
+      "value": "Serine/threonine-protein kinase B-raf"
+     },
+     "ecNumbers": [
+      {
+       "value": "2.7.11.1"
+      }
+     ]
+    },
+    "alternativeNames": [
+     {
+      "fullName": {
+       "value": "Proto-oncogene B-Raf"
+      }
+     },
+     {
+      "fullName": {
+       "value": "p94"
+      }
+     },
+     {
+      "fullName": {
+       "value": "v-Raf murine sarcoma viral oncogene homolog B1"
+      }
+     }
+    ]
+   },
+   "genes": [
+    {
+     "geneName": {
+      "value": "BRAF"
+     },
+     "synonyms": [
+      {
+       "value": "BRAF1"
+      },
+      {
+       "value": "RAFB1"
+      }
+     ]
+    }
+   ],
+   "comments": [
+    {
+     "texts": [
+      {
+       "value": "Protein kinase involved in the transduction of mitogenic signals from the cell membrane to the nucleus (Probable). Phosphorylates MAP2K1, and thereby activates the MAP kinase signal transduction pathway (PubMed:21441910, PubMed:29433126). Phosphorylates PFKFB2 (PubMed:36402789). May play a role in the postsynaptic responses of hippocampal neurons (PubMed:1508179)"
+      }
+     ],
+     "commentType": "FUNCTION"
+    }
+   ],
+   "uniProtKBCrossReferences": [
+    {
+     "database": "RefSeq",
+     "id": "NP_004324.2",
+     "properties": [
+      {
+       "key": "NucleotideSequenceId",
+       "value": "NM_004333.6"
+      }
+     ]
+    },
+    {
+     "database": "PDB",
+     "id": "1UWH",
+     "properties": [
+      {
+       "key": "Method",
+       "value": "X-ray"
+      },
+      {
+       "key": "Resolution",
+       "value": "2.95 A"
+      },
+      {
+       "key": "Chains",
+       "value": "A/B=448-723"
+      }
+     ]
+    },
+    {
+     "database": "PDB",
+     "id": "1UWJ",
+     "properties": [
+      {
+       "key": "Method",
+       "value": "X-ray"
+      },
+      {
+       "key": "Resolution",
+       "value": "3.50 A"
+      },
+      {
+       "key": "Chains",
+       "value": "A/B=448-723"
+      }
+     ]
+    },
+    {
+     "database": "PDB",
+     "id": "2FB8",
+     "properties": [
+      {
+       "key": "Method",
+       "value": "X-ray"
+      },
+      {
+       "key": "Resolution",
+       "value": "2.90 A"
+      },
+      {
+       "key": "Chains",
+       "value": "A/B=445-723"
+      }
+     ]
+    },
+    {
+     "database": "PDB",
+     "id": "2L05",
+     "properties": [
+      {
+       "key": "Method",
+       "value": "NMR"
+      },
+      {
+       "key": "Resolution",
+       "value": "-"
+      },
+      {
+       "key": "Chains",
+       "value": "A=149-232"
+      }
+     ]
+    },
+    {
+     "database": "AlphaFoldDB",
+     "id": "P15056",
+     "properties": [
+      {
+       "key": "Description",
+       "value": "-"
+      }
+     ]
+    },
+    {
+     "database": "ChEMBL",
+     "id": "CHEMBL5145",
+     "properties": [
+      {
+       "key": "Description",
+       "value": "-"
+      }
+     ]
+    },
+    {
+     "database": "Ensembl",
+     "id": "ENST00000646891.2",
+     "properties": [
+      {
+       "key": "ProteinId",
+       "value": "ENSP00000493543.1"
+      },
+      {
+       "key": "GeneId",
+       "value": "ENSG00000157764.15"
+      }
+     ]
+    },
+    {
+     "database": "GeneID",
+     "id": "673",
+     "properties": [
+      {
+       "key": "Description",
+       "value": "-"
+      }
+     ]
+    },
+    {
+     "database": "MANE-Select",
+     "id": "ENST00000646891.2",
+     "properties": [
+      {
+       "key": "ProteinId",
+       "value": "ENSP00000493543.1"
+      },
+      {
+       "key": "RefSeqNucleotideId",
+       "value": "NM_004333.6"
+      },
+      {
+       "key": "RefSeqProteinId",
+       "value": "NP_004324.2"
+      }
+     ]
+    },
+    {
+     "database": "HGNC",
+     "id": "HGNC:1097",
+     "properties": [
+      {
+       "key": "GeneName",
+       "value": "BRAF"
+      }
+     ]
+    },
+    {
+     "database": "MIM",
+     "id": "114500",
+     "properties": [
+      {
+       "key": "Type",
+       "value": "phenotype"
+      }
+     ]
+    },
+    {
+     "database": "MIM",
+     "id": "115150",
+     "properties": [
+      {
+       "key": "Type",
+       "value": "phenotype"
+      }
+     ]
+    },
+    {
+     "database": "MIM",
+     "id": "164757",
+     "properties": [
+      {
+       "key": "Type",
+       "value": "gene"
+      }
+     ]
+    }
+   ],
+   "sequence": {
+    "length": 766
+   },
+   "extraAttributes": {
+    "uniParcId": "UPI000013DF26"
+   }
+  },
+  {
+   "entryType": "UniProtKB reviewed (Swiss-Prot)",
+   "primaryAccession": "P28028",
+   "uniProtkbId": "BRAF_MOUSE",
+   "entryAudit": {
+    "firstPublicDate": "1992-08-01",
+    "lastAnnotationUpdateDate": "2026-09-02"
+   },
+   "annotationScore": 5.0,
+   "organism": {
+    "scientificName": "Mus musculus",
+    "commonName": "Mouse",
+    "taxonId": 10090
+   },
+   "proteinExistence": "1: Evidence at protein level",
+   "proteinDescription": {
+    "recommendedName": {
+     "fullName": {
+      "value": "Serine/threonine-protein kinase B-raf"
+     },
+     "ecNumbers": [
+      {
+       "value": "2.7.11.1"
+      }
+     ]
+    },
+    "alternativeNames": [
+     {
+      "fullName": {
+       "value": "Proto-oncogene B-Raf"
+      }
+     }
+    ]
+   },
+   "genes": [
+    {
+     "geneName": {
+      "value": "Braf"
+     },
+     "synonyms": [
+      {
+       "value": "B-raf"
+      }
+     ]
+    }
+   ],
+   "comments": [
+    {
+     "texts": [
+      {
+       "value": "Involved in the transduction of mitogenic signals from the cell membrane to the nucleus. Phosphorylates MAP2K1, and thereby activates the MAP kinase signal transduction pathway. Phosphorylates PFKFB2 (By similarity). May play a role in the postsynaptic responses of hippocampal neurons"
+      }
+     ],
+     "commentType": "FUNCTION"
+    }
+   ],
+   "uniProtKBCrossReferences": [
+    {
+     "database": "RefSeq",
+     "id": "NP_647455.3",
+     "properties": [
+      {
+       "key": "NucleotideSequenceId",
+       "value": "NM_139294.5"
+      }
+     ],
+     "isoformId": "P28028-1"
+    },
+    {
+     "database": "AlphaFoldDB",
+     "id": "P28028",
+     "properties": [
+      {
+       "key": "Description",
+       "value": "-"
+      }
+     ]
+    },
+    {
+     "database": "ChEMBL",
+     "id": "CHEMBL2331061",
+     "properties": [
+      {
+       "key": "Description",
+       "value": "-"
+      }
+     ]
+    },
+    {
+     "database": "Ensembl",
+     "id": "ENSMUST00000002487.15",
+     "properties": [
+      {
+       "key": "ProteinId",
+       "value": "ENSMUSP00000002487.9"
+      },
+      {
+       "key": "GeneId",
+       "value": "ENSMUSG00000002413.16"
+      }
+     ],
+     "isoformId": "P28028-1"
+    },
+    {
+     "database": "GeneID",
+     "id": "109880",
+     "properties": [
+      {
+       "key": "Description",
+       "value": "-"
+      }
+     ]
+    }
+   ],
+   "sequence": {
+    "length": 751
+   },
+   "extraAttributes": {
+    "uniParcId": "UPI0018C8D6F5"
+   }
+  }
+ ]
+}

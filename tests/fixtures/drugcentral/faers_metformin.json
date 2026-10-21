@@ -1,0 +1,66 @@
+[
+ [
+  [
+   [
+    "id",
+    "name"
+   ],
+   [
+    {
+     "id": 1725,
+     "name": "metformin"
+    }
+   ]
+  ]
+ ],
+ [
+  [
+   [
+    "meddra_name",
+    "meddra_code",
+    "llr",
+    "llr_threshold",
+    "drug_ae",
+    "drug_no_ae",
+    "no_drug_ae",
+    "no_drug_no_ae",
+    "total"
+   ],
+   [
+    {
+     "meddra_name": "Lactic acidosis",
+     "meddra_code": 10023676,
+     "llr": 44808.792,
+     "llr_threshold": 9.445,
+     "drug_ae": 18642,
+     "drug_no_ae": 907751,
+     "no_drug_ae": 88460,
+     "no_drug_no_ae": 152126048,
+     "total": 1534
+    },
+    {
+     "meddra_name": "Acute kidney injury",
+     "meddra_code": 10069339,
+     "llr": 11472.604,
+     "llr_threshold": 9.445,
+     "drug_ae": 18267,
+     "drug_no_ae": 908126,
+     "no_drug_ae": 750695,
+     "no_drug_no_ae": 151463813,
+     "total": 1534
+    },
+    {
+     "meddra_name": "Hypoglycaemia",
+     "meddra_code": 10020993,
+     "llr": 8379.678,
+     "llr_threshold": 9.445,
+     "drug_ae": 6904,
+     "drug_no_ae": 919489,
+     "no_drug_ae": 134713,
+     "no_drug_no_ae": 152079795,
+     "total": 1534
+    }
+   ]
+  ]
+ ]
+]

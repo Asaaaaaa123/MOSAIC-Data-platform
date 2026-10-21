@@ -1,0 +1,692 @@
+{
+ "Data": {
+  "Records": {
+   "records": {
+    "REC": [
+     {
+      "UID": "WOS:001903724100001",
+      "static_data": {
+       "summary": {
+        "pub_info": {
+         "coverdate": "JUL 18 2026",
+         "vol": 8,
+         "journal_oas_gold": "Y",
+         "pubyear": 2026,
+         "issue": 10,
+         "sortdate": "2026-07-18",
+         "has_abstract": "Y",
+         "pubmonth": "JUL 18",
+         "pubtype": "Journal",
+         "page": {
+          "page_count": 20
+         }
+        },
+        "names": {
+         "count": 2,
+         "name": [
+          {
+           "seq_no": 1,
+           "role": "author",
+           "full_name": "Mesele, Etsay",
+           "reprint": "Y",
+           "addr_no": 1,
+           "last_name": "Mesele",
+           "display_name": "Mesele, Etsay",
+           "wos_standard": "Mesele, E",
+           "first_name": "Etsay"
+          },
+          {
+           "seq_no": 2,
+           "role": "author",
+           "full_name": "Gebreslassie, Gebremedhin",
+           "addr_no": 1,
+           "last_name": "Gebreslassie",
+           "display_name": "Gebreslassie, Gebremedhin",
+           "wos_standard": "Gebreslassie, G",
+           "first_name": "Gebremedhin"
+          }
+         ]
+        },
+        "doctypes": {
+         "doctype": "Review",
+         "count": 1
+        },
+        "publishers": {
+         "publisher": {
+          "names": {
+           "count": 1,
+           "name": {
+            "seq_no": 1,
+            "role": "publisher",
+            "full_name": "SPRINGER",
+            "unified_name": "Springer Nature",
+            "addr_no": 1,
+            "display_name": "SPRINGER"
+           }
+          },
+          "address_spec": {
+           "city": "NEW YORK",
+           "addr_no": 1,
+           "full_address": "ONE NEW YORK PLAZA, SUITE 4600, NEW YORK, NY, UNITED STATES"
+          }
+         }
+        },
+        "EWUID": {
+         "siPGUID": "urn:si:172344914",
+         "WUID": {
+          "coll_id": "WOS"
+         },
+         "edition": {
+          "value": "WOS.ESCI"
+         },
+         "xmlns:xs": "http://www.w3.org/2001/XMLSchema"
+        },
+        "titles": {
+         "count": 6,
+         "title": [
+          {
+           "type": "source",
+           "content": "DISCOVER APPLIED SCIENCES"
+          },
+          {
+           "type": "source_abbrev",
+           "content": "DISCOV APPL SCI"
+          },
+          {
+           "type": "abbrev_iso",
+           "content": "DISCOV. APPL. SCI."
+          },
+          {
+           "type": "abbrev_11",
+           "content": "DISC APPL S"
+          },
+          {
+           "type": "abbrev_29",
+           "content": "DISCOV APPL SCI"
+          },
+          {
+           "type": "item",
+           "content": "Gene disruption technologies mechanisms and applications in modern biotechnology"
+          }
+         ]
+        }
+       },
+       "item": {
+        "COIStatements": {
+         "count": 1,
+         "COIStatement": {
+          "type": "COI-statement",
+          "content": "The authors declare that no conflicts of interest."
+         }
+        },
+        "xsi:type": "itemType_wos",
+        "coll_id": "WOS",
+        "ids": {
+         "avail": "N",
+         "content": "PT8WG"
+        },
+        "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+        "bib_pagecount": {
+         "type": "Journal",
+         "content": 20
+        },
+        "keywords_plus": {
+         "count": 8,
+         "keyword": [
+          "DOUBLE-STRAND BREAKS",
+          "KNOCKOUT",
+          "DNA",
+          "CRISPR/CAS9",
+          "RESISTANT",
+          "VARIANTS",
+          "STRESS",
+          "RNA"
+         ]
+        },
+        "bib_id": "8 (10): - JUL 18 2026"
+       },
+       "fullrecord_metadata": {
+        "category_info": {
+         "subjects": {
+          "subject": [
+           {
+            "ascatype": "traditional",
+            "code": "RO",
+            "content": "Multidisciplinary Sciences"
+           },
+           {
+            "ascatype": "extended",
+            "content": "Science & Technology - Other Topics"
+           }
+          ],
+          "count": 2
+         },
+         "headings": {
+          "heading": "Science & Technology",
+          "count": 1
+         }
+        },
+        "data_availability_statement": {
+         "p": "Not Applicable."
+        },
+        "normalized_languages": {
+         "count": 1,
+         "language": {
+          "type": "primary",
+          "content": "English"
+         }
+        },
+        "languages": {
+         "count": 1,
+         "language": {
+          "type": "primary",
+          "content": "English"
+         }
+        },
+        "keywords": {
+         "count": 6,
+         "keyword": [
+          "Gene disruption",
+          "CRISPR/Cas9",
+          "ZFNs",
+          "TALENs",
+          "Non-homologous end joining",
+          "Homology-directed repair"
+         ]
+        },
+        "refs": {
+         "count": 138
+        },
+        "abstracts": {
+         "count": 1,
+         "abstract": {
+          "abstract_text": {
+           "p": "Gene disruption, a specific type of gene editing, is a potent method used to inactivate genes to investigate function or eliminate undesirable traits. This review critically evaluates recent developments in gene disruption technologies, including Zinc Finger Nucleases (ZFNs), Transcription Activator-Like Effector Nucleases (TALENs), CRISPR-Cas systems, base editing, and prime editing. These tools introduce targeted DNA modifications through double-strand breaks (DSBs) repaired by homology-directed repair (HDR) or non-homologous end joining (NHEJ), or through DSB-free precision editing. This review develops a context-dependent comparative framework for gene disruption technologies, encompassing their molecular mechanisms, performance features, and applications across biotechnology sectors. These technologies have a wide range of applications, including functional genomics, industrial, medical, agricultural, and environmental biotechnology. Generally, gene disruption technologies are potent yet developing instruments that necessitate ongoing optimization, safety validation, and regulatory supervision for responsible advancement.",
+           "count": 1
+          }
+         }
+        },
+        "normalized_doctypes": {
+         "doctype": "Review",
+         "count": 1
+        }
+       }
+      },
+      "dates": {
+       "date_loaded": "2026-10-18T23:59:59.00000",
+       "date_modified": "2026-10-18T14:54:24.506152",
+       "date_created": "2026-10-18T14:54:24.506152"
+      },
+      "r_id_disclaimer": "ResearcherID data provided by Clarivate Analytics",
+      "dynamic_data": {
+       "citation_related": {
+        "tc_list": {
+         "silo_tc": [
+          {
+           "coll_id": "WOK",
+           "local_count": 0
+          },
+          {
+           "coll_id": "RC",
+           "local_count": 0
+          },
+          {
+           "coll_id": "CSCD",
+           "local_count": 0
+          },
+          {
+           "coll_id": "DRCI",
+           "local_count": 0
+          },
+          {
+           "coll_id": "BIOSIS",
+           "local_count": 0
+          },
+          {
+           "coll_id": "PQDT",
+           "local_count": 0
+          },
+          {
+           "coll_id": "KJD",
+           "local_count": 0
+          },
+          {
+           "coll_id": "RSCI",
+           "local_count": 0
+          },
+          {
+           "coll_id": "CABI",
+           "local_count": 0
+          },
+          {
+           "coll_id": "BCI",
+           "local_count": 0
+          },
+          {
+           "coll_id": "WOS",
+           "local_count": 0
+          },
+          {
+           "coll_id": "INSPEC",
+           "local_count": 0
+          },
+          {
+           "coll_id": "SCIELO",
+           "local_count": 0
+          },
+          {
+           "coll_id": "PPRN",
+           "local_count": 0
+          },
+          {
+           "coll_id": "MEDLINE",
+           "local_count": 0
+          },
+          {
+           "coll_id": "CCC",
+           "local_count": 0
+          },
+          {
+           "coll_id": "FSTA",
+           "local_count": 0
+          },
+          {
+           "coll_id": "ZOOREC",
+           "local_count": 0
+          },
+          {
+           "coll_id": "DIIDW",
+           "local_count": 0
+          },
+          {
+           "coll_id": "ARCI",
+           "local_count": 0
+          },
+          {
+           "coll_id": "BIOABS",
+           "local_count": 0
+          },
+          {
+           "coll_id": "PCI",
+           "local_count": 0
+          }
+         ]
+        }
+       },
+       "cluster_related": {
+        "identifiers": {
+         "identifier": [
+          {
+           "type": "eissn",
+           "value": "3004-9261"
+          },
+          {
+           "type": "art_no",
+           "value": "ARTN 1217"
+          },
+          {
+           "type": "doi",
+           "value": "10.1007/s42452-026-09193-w"
+          }
+         ]
+        }
+       },
+       "wos_usage": {
+        "last180days": 0,
+        "alltime": 0
+       }
+      }
+     },
+     {
+      "UID": "WOS:001902145400001",
+      "static_data": {
+       "summary": {
+        "pub_info": {
+         "early_access_month": "09",
+         "coverdate": "",
+         "journal_oas_gold": "N",
+         "pubyear": 2026,
+         "early_access_date": "SEP 2026",
+         "sortdate": "2026-09-29",
+         "has_abstract": "Y",
+         "pubmonth": "SEP 29",
+         "pubtype": "Journal",
+         "page": {
+          "page_count": 17
+         },
+         "early_access_year": 2026
+        },
+        "names": {
+         "count": 3,
+         "name": [
+          {
+           "seq_no": 1,
+           "role": "author",
+           "full_name": "Das, Pallabi",
+           "addr_no": 1,
+           "last_name": "Das",
+           "display_name": "Das, Pallabi",
+           "wos_standard": "Das, P",
+           "first_name": "Pallabi"
+          },
+          {
+           "seq_no": 2,
+           "role": "author",
+           "full_name": "Samoi, Tuhin Baran",
+           "addr_no": 1,
+           "last_name": "Samoi",
+           "display_name": "Samoi, Tuhin Baran",
+           "wos_standard": "Samoi, TB",
+           "first_name": "Tuhin Baran"
+          },
+          {
+           "seq_no": 3,
+           "role": "author",
+           "full_name": "Maji, Basudeb",
+           "reprint": "Y",
+           "addr_no": 1,
+           "last_name": "Maji",
+           "display_name": "Maji, Basudeb",
+           "wos_standard": "Maji, B",
+           "first_name": "Basudeb"
+          }
+         ]
+        },
+        "doctypes": {
+         "doctype": [
+          "Review",
+          "Early Access"
+         ],
+         "count": 2
+        },
+        "publishers": {
+         "publisher": {
+          "names": {
+           "count": 1,
+           "name": {
+            "seq_no": 1,
+            "role": "publisher",
+            "full_name": "ROYAL SOC CHEMISTRY",
+            "unified_name": "Royal Soc Chemistry",
+            "addr_no": 1,
+            "display_name": "ROYAL SOC CHEMISTRY"
+           }
+          },
+          "address_spec": {
+           "city": "CAMBRIDGE",
+           "addr_no": 1,
+           "full_address": "THOMAS GRAHAM HOUSE, SCIENCE PARK, MILTON RD, CAMBRIDGE CB4 0WF, CAMBS, ENGLAND"
+          }
+         }
+        },
+        "EWUID": {
+         "siPGUID": "urn:si:175414992",
+         "WUID": {
+          "coll_id": "WOS"
+         },
+         "edition": {
+          "value": "WOS.SCI"
+         },
+         "xmlns:xs": "http://www.w3.org/2001/XMLSchema"
+        },
+        "titles": {
+         "count": 6,
+         "title": [
+          {
+           "type": "source",
+           "content": "CHEMICAL COMMUNICATIONS"
+          },
+          {
+           "type": "source_abbrev",
+           "content": "CHEM COMMUN"
+          },
+          {
+           "type": "abbrev_iso",
+           "content": "Chem. Commun."
+          },
+          {
+           "type": "abbrev_11",
+           "content": "CHEM COMMUN"
+          },
+          {
+           "type": "abbrev_29",
+           "content": "CHEM COMMUN"
+          },
+          {
+           "type": "item",
+           "content": "Chemically composed Cas9 (ChemComCas9) for spatio-temporal regulation and precision genome engineering applications"
+          }
+         ]
+        }
+       },
+       "item": {
+        "xsi:type": "itemType_wos",
+        "coll_id": "WOS",
+        "ids": {
+         "avail": "N",
+         "content": "PR5OX"
+        },
+        "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+        "bib_pagecount": {
+         "type": "Journal",
+         "content": 17
+        },
+        "keywords_plus": {
+         "count": 10,
+         "keyword": [
+          "GENE DISRUPTION",
+          "IMMUNE-SYSTEM",
+          "GUIDE RNAS",
+          "DNA",
+          "PROTEIN",
+          "COMPLEX",
+          "CLASSIFICATION",
+          "SPECIFICITY",
+          "CRISPR/CAS",
+          "INHIBITORS"
+         ]
+        },
+        "bib_id": ": - SEP 29 2026"
+       },
+       "fullrecord_metadata": {
+        "category_info": {
+         "subheadings": {
+          "count": 1,
+          "subheading": "Physical Sciences"
+         },
+         "subjects": {
+          "subject": [
+           {
+            "ascatype": "traditional",
+            "code": "DY",
+            "content": "Chemistry, Multidisciplinary"
+           },
+           {
+            "ascatype": "extended",
+            "content": "Chemistry"
+           }
+          ],
+          "count": 2
+         },
+         "headings": {
+          "heading": "Science & Technology",
+          "count": 1
+         }
+        },
+        "data_availability_statement": {
+         "p": "Some of the figures are generated in BioRender and ChemDraw. No primary research results have been included, and no new data were generated or analyzed as part of this review."
+        },
+        "normalized_languages": {
+         "count": 1,
+         "language": {
+          "type": "primary",
+          "content": "English"
+         }
+        },
+        "languages": {
+         "count": 1,
+         "language": {
+          "type": "primary",
+          "content": "English"
+         }
+        },
+        "refs": {
+         "count": 86
+        },
+        "abstracts": {
+         "count": 1,
+         "abstract": {
+          "abstract_text": {
+           "p": "Chemically composed Cas9 (ChemComCas9) has emerged as a highly versatile CRISPR enzyme, offering tunable, on-demand, and targeted control over genome engineering functions. Despite its programmable, sequence-specific activity, uncontrolled or prolonged exposure to Cas9 can lead to severe genotoxicity, restricting its enormous clinical potential. To circumvent its non-specific and uncontrolled activities, Cas9 has been chemically modified for spatio-temporal and precision control. For developing such ChemComCas9, the WT Cas9 has been chemically modified using either its surface-exposed natural cysteine or by the installation of additional cysteine residues, or an unnatural amino acid has been incorporated for chemical modification. Such strategies include the incorporation of peptides, polymers, antibodies, stimuli-responsive moieties, and biorthogonal conjugation techniques that allow external control over Cas9 activation, localization, and activity. In addition, various short peptides have been either genetically fused or chemically conjugated for spatiotemporal regulation and probing. These approaches enable conditional activation of Cas9 in response to light, small molecules, or intracellular triggers, thereby minimizing off-target effects and increasing editing efficiency. In this review, we discuss a systematic evolution of chemically composed Cas9 (ChemComCas9) for precision genome engineering and gene therapy applications.",
+           "count": 1
+          }
+         }
+        },
+        "normalized_doctypes": {
+         "doctype": [
+          "Review",
+          "Early Access"
+         ],
+         "count": 2
+        }
+       }
+      },
+      "dates": {
+       "date_loaded": "2026-10-17T23:59:59.00000",
+       "date_modified": "2026-10-17T16:33:13.754041",
+       "date_created": "2026-10-17T16:33:13.754041"
+      },
+      "r_id_disclaimer": "ResearcherID data provided by Clarivate Analytics",
+      "dynamic_data": {
+       "citation_related": {
+        "tc_list": {
+         "silo_tc": [
+          {
+           "coll_id": "WOK",
+           "local_count": 0
+          },
+          {
+           "coll_id": "PQDT",
+           "local_count": 0
+          },
+          {
+           "coll_id": "BCI",
+           "local_count": 0
+          },
+          {
+           "coll_id": "RC",
+           "local_count": 0
+          },
+          {
+           "coll_id": "RSCI",
+           "local_count": 0
+          },
+          {
+           "coll_id": "WOS",
+           "local_count": 0
+          },
+          {
+           "coll_id": "CSCD",
+           "local_count": 0
+          },
+          {
+           "coll_id": "PPRN",
+           "local_count": 0
+          },
+          {
+           "coll_id": "DIIDW",
+           "local_count": 0
+          },
+          {
+           "coll_id": "PCI",
+           "local_count": 0
+          },
+          {
+           "coll_id": "CABI",
+           "local_count": 0
+          },
+          {
+           "coll_id": "SCIELO",
+           "local_count": 0
+          },
+          {
+           "coll_id": "FSTA",
+           "local_count": 0
+          },
+          {
+           "coll_id": "MEDLINE",
+           "local_count": 0
+          },
+          {
+           "coll_id": "KJD",
+           "local_count": 0
+          },
+          {
+           "coll_id": "BIOSIS",
+           "local_count": 0
+          },
+          {
+           "coll_id": "CCC",
+           "local_count": 0
+          },
+          {
+           "coll_id": "BIOABS",
+           "local_count": 0
+          },
+          {
+           "coll_id": "ARCI",
+           "local_count": 0
+          },
+          {
+           "coll_id": "ZOOREC",
+           "local_count": 0
+          },
+          {
+           "coll_id": "INSPEC",
+           "local_count": 0
+          },
+          {
+           "coll_id": "DRCI",
+           "local_count": 0
+          }
+         ]
+        }
+       },
+       "cluster_related": {
+        "identifiers": {
+         "identifier": [
+          {
+           "type": "issn",
+           "value": "1359-7345"
+          },
+          {
+           "type": "eissn",
+           "value": "1364-548X"
+          },
+          {
+           "type": "doi",
+           "value": "10.1039/d6cc01929c"
+          },
+          {
+           "type": "pmid",
+           "value": "MEDLINE:42872603"
+          }
+         ]
+        }
+       },
+       "wos_usage": {
+        "last180days": 0,
+        "alltime": 0
+       }
+      }
+     }
+    ]
+   }
+  }
+ },
+ "QueryResult": {
+  "QueryID": 21,
+  "RecordsSearched": 87629761,
+  "RecordsFound": 12286
+ }
+}

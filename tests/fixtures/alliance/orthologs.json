@@ -1,0 +1,145 @@
+{
+ "results": [
+  {
+   "category": "gene_to_gene_orthology",
+   "searchable": false,
+   "stringencyFilter": "stringent",
+   "geneAnnotations": [
+    {
+     "hasDiseaseAnnotations": true,
+     "hasExpressionAnnotations": false,
+     "geneIdentifier": "HGNC:8620"
+    },
+    {
+     "hasDiseaseAnnotations": false,
+     "hasExpressionAnnotations": true,
+     "geneIdentifier": "Xenbase:XB-GENE-865046"
+    }
+   ],
+   "geneToGeneOrthologyGenerated": {
+    "subjectGene": {
+     "type": "Gene",
+     "primaryExternalId": "HGNC:8620",
+     "taxon": {
+      "curie": "NCBITaxon:9606",
+      "name": "Homo sapiens",
+      "descendantCount": 0,
+      "species": {
+       "fullName": "Homo sapiens",
+       "abbreviation": "Hsa",
+       "displayName": "HUMAN"
+      }
+     },
+     "geneSymbol": {
+      "displayText": "PAX6"
+     }
+    },
+    "objectGene": {
+     "type": "Gene",
+     "primaryExternalId": "Xenbase:XB-GENE-865046",
+     "taxon": {
+      "curie": "NCBITaxon:8355",
+      "name": "Xenopus laevis",
+      "descendantCount": 0,
+      "species": {
+       "fullName": "Xenopus laevis",
+       "abbreviation": "Xla",
+       "displayName": "XBXL"
+      }
+     },
+     "geneSymbol": {
+      "displayText": "pax6.L"
+     }
+    },
+    "isBestScore": {
+     "name": "Yes"
+    },
+    "isBestScoreReverse": {
+     "name": "Yes"
+    },
+    "confidence": {
+     "name": "high"
+    },
+    "strictFilter": true,
+    "moderateFilter": true,
+    "predictionMethodsMatched": [
+     {
+      "name": "Xenbase"
+     }
+    ]
+   }
+  },
+  {
+   "category": "gene_to_gene_orthology",
+   "searchable": false,
+   "stringencyFilter": "stringent",
+   "geneAnnotations": [
+    {
+     "hasDiseaseAnnotations": true,
+     "hasExpressionAnnotations": false,
+     "geneIdentifier": "HGNC:8620"
+    },
+    {
+     "hasDiseaseAnnotations": false,
+     "hasExpressionAnnotations": true,
+     "geneIdentifier": "Xenbase:XB-GENE-6464331"
+    }
+   ],
+   "geneToGeneOrthologyGenerated": {
+    "subjectGene": {
+     "type": "Gene",
+     "primaryExternalId": "HGNC:8620",
+     "taxon": {
+      "curie": "NCBITaxon:9606",
+      "name": "Homo sapiens",
+      "descendantCount": 0,
+      "species": {
+       "fullName": "Homo sapiens",
+       "abbreviation": "Hsa",
+       "displayName": "HUMAN"
+      }
+     },
+     "geneSymbol": {
+      "displayText": "PAX6"
+     }
+    },
+    "objectGene": {
+     "type": "Gene",
+     "primaryExternalId": "Xenbase:XB-GENE-6464331",
+     "taxon": {
+      "curie": "NCBITaxon:8355",
+      "name": "Xenopus laevis",
+      "descendantCount": 0,
+      "species": {
+       "fullName": "Xenopus laevis",
+       "abbreviation": "Xla",
+       "displayName": "XBXL"
+      }
+     },
+     "geneSymbol": {
+      "displayText": "pax6.S"
+     }
+    },
+    "isBestScore": {
+     "name": "Yes"
+    },
+    "isBestScoreReverse": {
+     "name": "Yes"
+    },
+    "confidence": {
+     "name": "high"
+    },
+    "strictFilter": true,
+    "moderateFilter": true,
+    "predictionMethodsMatched": [
+     {
+      "name": "Xenbase"
+     }
+    ]
+   }
+  }
+ ],
+ "total": 9,
+ "returnedRecords": 2,
+ "requestDate": "2026/10/20 19:42:05"
+}

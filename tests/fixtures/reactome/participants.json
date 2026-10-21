@@ -1,0 +1,71 @@
+[
+ {
+  "dbId": 66371,
+  "displayName": "UniProt:Q12933 TRAF2",
+  "stId": "uniprot:Q12933",
+  "databaseName": "UniProt",
+  "identifier": "Q12933",
+  "name": [
+   "TRAF2"
+  ],
+  "moleculeType": "Protein",
+  "geneName": [
+   "TRAF2",
+   "TRAP3"
+  ],
+  "className": "ReferenceGeneProduct",
+  "schemaClass": "ReferenceGeneProduct"
+ },
+ {
+  "dbId": 66377,
+  "displayName": "UniProt:Q15628 TRADD",
+  "stId": "uniprot:Q15628",
+  "databaseName": "UniProt",
+  "identifier": "Q15628",
+  "name": [
+   "TRADD"
+  ],
+  "moleculeType": "Protein",
+  "geneName": [
+   "TRADD"
+  ],
+  "className": "ReferenceGeneProduct",
+  "schemaClass": "ReferenceGeneProduct"
+ },
+ {
+  "dbId": 63119,
+  "displayName": "UniProt:Q13546 RIPK1",
+  "stId": "uniprot:Q13546",
+  "databaseName": "UniProt",
+  "identifier": "Q13546",
+  "name": [
+   "RIPK1"
+  ],
+  "moleculeType": "Protein",
+  "geneName": [
+   "RIPK1",
+   "RIP",
+   "RIP1"
+  ],
+  "className": "ReferenceGeneProduct",
+  "schemaClass": "ReferenceGeneProduct"
+ },
+ {
+  "dbId": 54640,
+  "displayName": "UniProt:Q13158 FADD",
+  "stId": "uniprot:Q13158",
+  "databaseName": "UniProt",
+  "identifier": "Q13158",
+  "name": [
+   "FADD"
+  ],
+  "moleculeType": "Protein",
+  "geneName": [
+   "FADD",
+   "MORT1",
+   "GIG3"
+  ],
+  "className": "ReferenceGeneProduct",
+  "schemaClass": "ReferenceGeneProduct"
+ }
+]

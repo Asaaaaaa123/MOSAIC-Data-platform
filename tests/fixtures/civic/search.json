@@ -1,0 +1,76 @@
+{
+ "data": {
+  "search": [
+   {
+    "id": 12,
+    "name": "BRAF - V600E",
+    "resultType": "VARIANT",
+    "matchingText": "",
+    "link": "/variants/12"
+   },
+   {
+    "id": 704,
+    "name": "BRAF - V600E+V600K",
+    "resultType": "VARIANT",
+    "matchingText": "",
+    "link": "/variants/704"
+   },
+   {
+    "id": 3512,
+    "name": "BRAF - p61BRAF(V600E)",
+    "resultType": "VARIANT",
+    "matchingText": "",
+    "link": "/variants/3512"
+   },
+   {
+    "id": 12,
+    "name": "BRAF V600E",
+    "resultType": "MOLECULAR_PROFILE",
+    "matchingText": "",
+    "link": "/molecular-profiles/12"
+   },
+   {
+    "id": 685,
+    "name": "BRAF V600E+V600K",
+    "resultType": "MOLECULAR_PROFILE",
+    "matchingText": "",
+    "link": "/molecular-profiles/685"
+   },
+   {
+    "id": 3380,
+    "name": "BRAF p61BRAF(V600E)",
+    "resultType": "MOLECULAR_PROFILE",
+    "matchingText": "",
+    "link": "/molecular-profiles/3380"
+   },
+   {
+    "id": 4173,
+    "name": "BRAF V600E AND BRAF Amplification",
+    "resultType": "MOLECULAR_PROFILE",
+    "matchingText": "",
+    "link": "/molecular-profiles/4173"
+   },
+   {
+    "id": 4170,
+    "name": "BRAF V600E AND BRAF V600M",
+    "resultType": "MOLECULAR_PROFILE",
+    "matchingText": "",
+    "link": "/molecular-profiles/4170"
+   },
+   {
+    "id": 4707,
+    "name": "BRAF V600E OR BRAF K601E",
+    "resultType": "MOLECULAR_PROFILE",
+    "matchingText": "",
+    "link": "/molecular-profiles/4707"
+   },
+   {
+    "id": 5666,
+    "name": "BRAF V600E OR BRAF V600K",
+    "resultType": "MOLECULAR_PROFILE",
+    "matchingText": "",
+    "link": "/molecular-profiles/5666"
+   }
+  ]
+ }
+}

@@ -1,0 +1,136 @@
+[
+ {
+  "id": 45351,
+  "slug": "rhuh-gbm",
+  "link": "https://www.cancerimagingarchive.net/collection/rhuh-gbm/",
+  "cancer_types": [
+   "Glioblastoma"
+  ],
+  "collection_doi": "10.7937/4545-c905",
+  "cancer_locations": [
+   "Head"
+  ],
+  "collection_page_accessibility": "Limited",
+  "collection_status": "Complete",
+  "supporting_data": [
+   "Clinical",
+   "Image Analyses",
+   "Software/Source Code"
+  ],
+  "species": [
+   "Human"
+  ],
+  "version_number": "1",
+  "collection_title": "The Río Hortega University Hospital Glioblastoma dataset: a comprehensive collection of preoperative, early postoperative and recurrence MRI scans",
+  "date_updated": "2023-06-09",
+  "subjects": "40",
+  "collection_short_title": "RHUH-GBM",
+  "data_types": [
+   "MR"
+  ],
+  "collection_summary": "<p>&nbsp;</p><p>This data collection consists of multiparametric MRI scans of 40 adult patients with histopathologically confirmed WHO grade 4 astrocytoma, who underwent surgery at the Río Hortega University Hospital in Valladolid, Spain, between January 2018 and December 2022. The dataset encompasses 600 MRI series, covering three time points: preoperative, early post-operative (less than 72 hour</p>",
+  "program": [
+   "Community"
+  ]
+ },
+ {
+  "id": 43753,
+  "slug": "tcga-brca",
+  "link": "https://www.cancerimagingarchive.net/collection/tcga-brca/",
+  "cancer_types": [
+   "Breast Cancer"
+  ],
+  "collection_doi": "10.7937/K9/TCIA.2016.AB2NAZRP",
+  "cancer_locations": [
+   "Breast"
+  ],
+  "collection_page_accessibility": "Public",
+  "collection_status": "Complete",
+  "supporting_data": [
+   "Clinical",
+   "Genomics",
+   "Image Analyses",
+   "Histopathology"
+  ],
+  "species": [
+   "Human"
+  ],
+  "version_number": "3",
+  "collection_title": "The Cancer Genome Atlas Breast Invasive Carcinoma Collection",
+  "date_updated": "2020-05-29",
+  "subjects": "139",
+  "collection_short_title": "TCGA-BRCA",
+  "data_types": [
+   "MR",
+   "MG"
+  ],
+  "collection_summary": "<p>The Cancer Genome Atlas Breast Invasive Carcinoma (TCGA-BRCA) data collection is part of a larger effort to build a research community focused on connecting cancer phenotypes to genotypes by providing clinical images matched to subjects from <a href=\"http://cancergenome.nih.gov/\">The Cancer Genome Atlas (TCGA)</a>. Clinical, genetic, and pathological data resides in the <a href=\"https://portal.</p>",
+  "program": [
+   "TCGA"
+  ]
+ },
+ {
+  "id": 43603,
+  "slug": "breast-mri-nact-pilot",
+  "link": "https://www.cancerimagingarchive.net/collection/breast-mri-nact-pilot/",
+  "cancer_types": [
+   "Breast Cancer"
+  ],
+  "collection_doi": "10.7937/K9/TCIA.2016.QHsyhJKy",
+  "cancer_locations": [
+   "Breast"
+  ],
+  "collection_page_accessibility": "Public",
+  "collection_status": "Complete",
+  "supporting_data": [
+   "Clinical",
+   "Image Analyses"
+  ],
+  "species": [
+   "Human"
+  ],
+  "version_number": "3",
+  "collection_title": "Single site breast DCE-MRI data and segmentations from patients undergoing neoadjuvant chemotherapy",
+  "date_updated": "2023-08-07",
+  "subjects": "64",
+  "collection_short_title": "Breast-MRI-NACT-Pilot",
+  "data_types": [
+   "MR",
+   "SEG"
+  ],
+  "collection_summary": "<p>This collection contains longitudinal DCE MRI studies of 64 patients undergoing neoadjuvant chemotherapy (NACT) for invasive breast cancer. </p><h3><strong> <em>Patient population</em> </strong></h3><p>This pilot study to investigate the use of serial DCE MRI examinations during neoadjuvant chemotherapy for invasive breast cancer recruited 68 patients with stage II or III locally advanced breas</p>",
+  "program": [
+   "Community"
+  ]
+ },
+ {
+  "id": 43327,
+  "slug": "qin-lung-ct",
+  "link": "https://www.cancerimagingarchive.net/collection/qin-lung-ct/",
+  "cancer_types": [
+   "Lung Non-Small Cell Carcinoma"
+  ],
+  "collection_doi": "10.7937/K9/TCIA.2015.NPGZYZBZ",
+  "cancer_locations": [
+   "Lung"
+  ],
+  "collection_page_accessibility": "Public",
+  "collection_status": "Complete",
+  "supporting_data": false,
+  "species": [
+   "Human"
+  ],
+  "version_number": "2",
+  "collection_title": "QIN LUNG CT",
+  "date_updated": "2017-07-31",
+  "subjects": "47",
+  "collection_short_title": "QIN LUNG CT",
+  "data_types": [
+   "CT"
+  ],
+  "collection_summary": "<p>The Computed tomography (CT) Image data was obtained on patients diagnosed with Non-Small Cell Lung Cancer (NSCLC) with mixed stage &amp; histology from the H. Lee Moffitt Cancer Center and Research Institute. Scans were obtained from patients who underwent surgical resection and had corresponding pre-surgery diagnostic CTs. The scans were de-identified following HIPAA guidelines to protect pat</p>",
+  "program": [
+   "QIN"
+  ]
+ }
+]

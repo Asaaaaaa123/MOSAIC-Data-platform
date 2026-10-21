@@ -1,0 +1,82 @@
+{
+ "found": 778,
+ "start": 0,
+ "hits": [
+  {
+   "id": "syn64957327",
+   "name": "Proteomics (SomaScan)",
+   "path": {
+    "path": [
+     {
+      "name": "root",
+      "id": "syn4489",
+      "type": "org.sagebionetworks.repo.model.Folder"
+     },
+     {
+      "name": "AD Knowledge Portal - backend",
+      "id": "syn2580853",
+      "type": "org.sagebionetworks.repo.model.Project"
+     },
+     {
+      "name": "1.IndividualStudies",
+      "id": "syn5550376",
+      "type": "org.sagebionetworks.repo.model.Folder"
+     },
+     {
+      "name": "Human",
+      "id": "syn5550382",
+      "type": "org.sagebionetworks.repo.model.Folder"
+     },
+     {
+      "name": "ROSMAP",
+      "id": "syn3219045",
+      "type": "org.sagebionetworks.repo.model.Folder"
+     },
+     {
+      "name": "Data",
+      "id": "syn23446022",
+      "type": "org.sagebionetworks.repo.model.Folder"
+     },
+     {
+      "name": "Proteomics",
+      "id": "syn17008935",
+      "type": "org.sagebionetworks.repo.model.Folder"
+     },
+     {
+      "name": "Proteomics (SomaScan)",
+      "id": "syn64957327",
+      "type": "org.sagebionetworks.repo.model.Folder"
+     }
+    ]
+   },
+   "description": "\n\n**SomaScan**: All ROSMAP participants enrolled without known dementia and agreed to detailed clinical evaluation and brain donation at death12. Both studies were approved by an Institutional Review Board of Rush University Medical Center (ROS IRB# L91020181, MAP IRB# L86121802). Both studies were conducted according to the principles expressed in the Declaration of Helsinki. Each participant sig",
+   "node_type": "folder",
+   "created_on": 1741205380,
+   "modified_on": 1771973460
+  },
+  {
+   "id": "syn25006611",
+   "name": "Consensus TMT Deep Proteomics of Human Brain in Alzheimer's Disease",
+   "alias": "DeepConsensus",
+   "path": {
+    "path": [
+     {
+      "name": "root",
+      "id": "syn4489",
+      "type": "org.sagebionetworks.repo.model.Folder"
+     },
+     {
+      "name": "Consensus TMT Deep Proteomics of Human Brain in Alzheimer's Disease",
+      "id": "syn25006611",
+      "type": "org.sagebionetworks.repo.model.Project"
+     }
+    ]
+   },
+   "description": "\n\n>###See links for access to the raw proteomics and RNA sequencing data available through the [AD Knowledge Portal](https://adknowledgeportal.synapse.org/), and processed data specific for this manuscript available through this Synapse project\n\n##[Supplementary tables](https://www.synapse.org/#!Synapse:syn25453861)\n\n\n##Proteomics\n###Raw data\n* Consensus - Banner (BA-9): See the raw TMT data from ",
+   "node_type": "project",
+   "created_on": 1614621683,
+   "modified_on": 1614633765
+  }
+ ],
+ "facets": []
+}

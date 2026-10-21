@@ -1,0 +1,268 @@
+{
+ "data": {
+  "id": "gknwy",
+  "type": "nodes",
+  "attributes": {
+   "title": "Derivative Data",
+   "description": "Processed data used for statistical analyses.",
+   "category": "data",
+   "custom_citation": null,
+   "date_created": "2024-12-17T08:50:39.270562",
+   "date_modified": "2024-12-20T09:45:02.552438",
+   "registration": false,
+   "preprint": false,
+   "fork": false,
+   "collection": false,
+   "tags": [
+    "40 Hz",
+    "Alzheimer",
+    "EEG",
+    "flicker",
+    "gamma",
+    "light",
+    "PSG",
+    "sensory stimulation",
+    "sleep"
+   ],
+   "access_requests_enabled": true,
+   "node_license": {
+    "copyright_holders": [
+     "Laura Hainke",
+     "James Dowsett",
+     "Manuel Spitschan",
+     "Josef Priller"
+    ],
+    "year": "2024"
+   },
+   "analytics_key": "",
+   "current_user_can_comment": false,
+   "current_user_permissions": [
+    "read"
+   ],
+   "current_user_is_contributor": false,
+   "current_user_is_contributor_or_group_member": false,
+   "wiki_enabled": true,
+   "public": true,
+   "subjects": []
+  },
+  "relationships": {
+   "parent": {
+    "links": {
+     "related": {
+      "href": "https://api.osf.io/v2/nodes/gq73d/",
+      "meta": {}
+     }
+    },
+    "data": {
+     "id": "gq73d",
+     "type": "nodes"
+    }
+   },
+   "root": {
+    "links": {
+     "related": {
+      "href": "https://api.osf.io/v2/nodes/gq73d/",
+      "meta": {}
+     }
+    },
+    "data": {
+     "id": "gq73d",
+     "type": "nodes"
+    }
+   }
+  },
+  "embeds": {
+   "license": {
+    "data": {
+     "id": "563c1cf88c5e4a3877f9e96a",
+     "type": "licenses",
+     "attributes": {
+      "name": "CC-By Attribution 4.0 International"
+     },
+     "links": {
+      "self": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/"
+     }
+    }
+   },
+   "contributors": {
+    "data": [
+     {
+      "id": "gknwy-e9myx",
+      "type": "contributors",
+      "attributes": {
+       "index": 0,
+       "bibliographic": true,
+       "permission": "admin",
+       "unregistered_contributor": null,
+       "is_curator": false
+      },
+      "embeds": {
+       "users": {
+        "data": {
+         "id": "e9myx",
+         "type": "users",
+         "attributes": {
+          "full_name": "Laura Hainke",
+          "social": {}
+         }
+        }
+       }
+      },
+      "links": {
+       "self": "https://api.osf.io/v2/nodes/gknwy/contributors/e9myx/"
+      }
+     },
+     {
+      "id": "gknwy-mdzh7",
+      "type": "contributors",
+      "attributes": {
+       "index": 1,
+       "bibliographic": true,
+       "permission": "write",
+       "unregistered_contributor": null,
+       "is_curator": false
+      },
+      "embeds": {
+       "users": {
+        "data": {
+         "id": "mdzh7",
+         "type": "users",
+         "attributes": {
+          "full_name": "Paul Taylor",
+          "social": {}
+         }
+        }
+       }
+      },
+      "links": {
+       "self": "https://api.osf.io/v2/nodes/gknwy/contributors/mdzh7/"
+      }
+     },
+     {
+      "id": "gknwy-nf26x",
+      "type": "contributors",
+      "attributes": {
+       "index": 2,
+       "bibliographic": true,
+       "permission": "write",
+       "unregistered_contributor": null,
+       "is_curator": false
+      },
+      "embeds": {
+       "users": {
+        "data": {
+         "id": "nf26x",
+         "type": "users",
+         "attributes": {
+          "full_name": "Manuel Spitschan",
+          "social": {}
+         }
+        }
+       }
+      },
+      "links": {
+       "self": "https://api.osf.io/v2/nodes/gknwy/contributors/nf26x/"
+      }
+     },
+     {
+      "id": "gknwy-wp25k",
+      "type": "contributors",
+      "attributes": {
+       "index": 3,
+       "bibliographic": true,
+       "permission": "write",
+       "unregistered_contributor": null,
+       "is_curator": false
+      },
+      "embeds": {
+       "users": {
+        "data": {
+         "id": "wp25k",
+         "type": "users",
+         "attributes": {
+          "full_name": "James Dowsett",
+          "social": {}
+         }
+        }
+       }
+      },
+      "links": {
+       "self": "https://api.osf.io/v2/nodes/gknwy/contributors/wp25k/"
+      }
+     },
+     {
+      "id": "gknwy-bw4kg",
+      "type": "contributors",
+      "attributes": {
+       "index": 4,
+       "bibliographic": true,
+       "permission": "write",
+       "unregistered_contributor": null,
+       "is_curator": false
+      },
+      "embeds": {
+       "users": {
+        "data": {
+         "id": "bw4kg",
+         "type": "users",
+         "attributes": {
+          "full_name": "Josef Priller",
+          "social": {}
+         }
+        }
+       }
+      },
+      "links": {
+       "self": "https://api.osf.io/v2/nodes/gknwy/contributors/bw4kg/"
+      }
+     }
+    ],
+    "links": {
+     "first": null,
+     "last": null,
+     "prev": null,
+     "next": null,
+     "meta": {
+      "total": 5,
+      "per_page": 10,
+      "total_bibliographic": 5
+     }
+    }
+   },
+   "identifiers": {
+    "data": [],
+    "links": {
+     "first": null,
+     "last": null,
+     "prev": null,
+     "next": null,
+     "meta": {
+      "total": 0,
+      "per_page": 10
+     }
+    }
+   },
+   "affiliated_institutions": {
+    "data": [],
+    "links": {
+     "first": null,
+     "last": null,
+     "prev": null,
+     "next": null,
+     "meta": {
+      "total": 0,
+      "per_page": 10
+     }
+    }
+   }
+  },
+  "links": {
+   "html": "https://osf.io/gknwy/",
+   "self": "https://api.osf.io/v2/nodes/gknwy/",
+   "iri": "https://osf.io/gknwy"
+  }
+ },
+ "meta": {
+  "version": "2.0"
+ }
+}

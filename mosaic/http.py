@@ -13,7 +13,7 @@ import json
 import logging
 import time
 from dataclasses import dataclass, field
-from typing import Any, Iterable, Mapping, Sequence
+from typing import Any, Callable, Iterable, Mapping, Sequence
 from urllib.parse import urlencode, urlsplit, urlunsplit, parse_qsl
 
 import httpx
@@ -73,6 +73,7 @@ class HttpResponse:
     url: str  # redacted
     from_cache: bool = False
     elapsed_ms: float = 0.0
+    final_url: str | None = None  # redacted URL after redirects (None on cache hits)
 
     @property
     def text(self) -> str:
@@ -192,12 +193,16 @@ class HttpClient:
         secret_params: Iterable[str] = (),
         retries: int = 3,
         allow_status: Iterable[int] = (),
+        validate: Callable[[HttpResponse], None] | None = None,
     ) -> HttpResponse:
         """Perform a request. Raises :class:`SourceError` on failure.
 
         ``cache_ttl``: seconds to cache. ``None`` = settings default for GET,
         no caching for other methods. ``0`` disables caching for this call.
         ``allow_status``: non-2xx statuses returned instead of raised (e.g. 404).
+        ``validate``: called on every 2xx response before it is cached; raise
+        :class:`SourceError` to reject it (e.g. an HTML CAPTCHA page served with 200),
+        so bad payloads never enter the cache.
         """
         method = method.upper()
         clean = _clean_params(params)
@@ -254,10 +259,25 @@ class HttpClient:
             content = response.content
             resp_headers = {k.lower(): v for k, v in response.headers.items()}
             if 200 <= status < 300 or status in allowed:
-                if use_cache and 200 <= status < 300:
-                    keep = {k: v for k, v in resp_headers.items() if k in ("content-type", "x-total-count", "link")}
-                    self.cache.set(key, source, status, keep, content, ttl)
-                return HttpResponse(status, resp_headers, content, safe_url, elapsed_ms=elapsed)
+                result = HttpResponse(
+                    status,
+                    resp_headers,
+                    content,
+                    safe_url,
+                    elapsed_ms=elapsed,
+                    final_url=redact_url(str(response.url), None, secret_params),
+                )
+                if 200 <= status < 300:
+                    if validate is not None:
+                        validate(result)
+                    if use_cache:
+                        keep = {
+                            k: v
+                            for k, v in resp_headers.items()
+                            if k in ("content-type", "link") or k.startswith(("x-total", "x-wp-total"))
+                        }
+                        self.cache.set(key, source, status, keep, content, ttl)
+                return result
 
             snippet = content.decode("utf-8", errors="replace")[:300].replace("\n", " ").strip()
             raise SourceError(

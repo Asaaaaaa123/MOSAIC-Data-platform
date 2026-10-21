@@ -1,0 +1,96 @@
+{
+ "offset": 0,
+ "next": 2,
+ "data": [
+  {
+   "contexts": [
+    "Prime editing (PE) enables all 12 types of point mutations without double-strand breaks [14]."
+   ],
+   "intents": [
+    "methodology"
+   ],
+   "isInfluential": true,
+   "citingPaper": {
+    "paperId": "890986910ce72c11d1360e292a45ee6105de490b",
+    "externalIds": {
+     "DOI": "10.1016/j.apmt.2026.103429",
+     "CorpusId": 292326898
+    },
+    "corpusId": 292326898,
+    "url": "https://www.semanticscholar.org/paper/890986910ce72c11d1360e292a45ee6105de490b",
+    "title": "Engineered Cas12a enzymes in biosensing: From molecular mechanisms to clinical translation",
+    "venue": "Applied Materials Today",
+    "year": 2026,
+    "citationCount": 0,
+    "influentialCitationCount": 0,
+    "isOpenAccess": true,
+    "openAccessPdf": {
+     "url": "https://doi.org/10.1016/j.apmt.2026.103429",
+     "status": "HYBRID",
+     "license": "CCBYNCND",
+     "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1016/j.apmt.2026.103429?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1016/j.apmt.2026.103429, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+    },
+    "fieldsOfStudy": null,
+    "publicationTypes": [
+     "JournalArticle"
+    ],
+    "publicationDate": "2026-12-01",
+    "journal": {
+     "name": "Applied Materials Today"
+    },
+    "authors": [
+     {
+      "authorId": "2393664418",
+      "name": "Snehlata Kujur"
+     },
+     {
+      "authorId": "2059818503",
+      "name": "D. Prasad"
+     }
+    ],
+    "abstract": null
+   }
+  },
+  {
+   "contexts": [],
+   "intents": [],
+   "isInfluential": false,
+   "citingPaper": {
+    "paperId": "afebbbade12377ca802ce14e0e1ff88f4a221ab6",
+    "externalIds": {
+     "DOI": "10.1016/j.egg.2026.100545",
+     "CorpusId": 292762500
+    },
+    "corpusId": 292762500,
+    "url": "https://www.semanticscholar.org/paper/afebbbade12377ca802ce14e0e1ff88f4a221ab6",
+    "title": "Gene pyramiding in the era of genomics and genome editing: Advances, applications, and future perspectives for crop improvement",
+    "venue": "Ecological Genetics and Genomics",
+    "year": 2026,
+    "citationCount": 0,
+    "influentialCitationCount": 0,
+    "isOpenAccess": false,
+    "openAccessPdf": {
+     "url": "",
+     "status": "CLOSED",
+     "license": null,
+     "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1016/j.egg.2026.100545?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1016/j.egg.2026.100545, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+    },
+    "fieldsOfStudy": null,
+    "publicationTypes": [
+     "JournalArticle"
+    ],
+    "publicationDate": "2026-12-01",
+    "journal": {
+     "name": "Ecological Genetics and Genomics"
+    },
+    "authors": [
+     {
+      "authorId": "2151994644",
+      "name": "W. Yali"
+     }
+    ],
+    "abstract": null
+   }
+  }
+ ]
+}

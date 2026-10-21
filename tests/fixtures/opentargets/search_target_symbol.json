@@ -1,0 +1,507 @@
+{
+ "data": {
+  "search": {
+   "total": 13,
+   "hits": [
+    {
+     "id": "ENSG00000146648",
+     "entity": "target",
+     "name": "EGFR",
+     "description": "epidermal growth factor receptor",
+     "category": [
+      "protein_coding"
+     ],
+     "score": 5921.6934,
+     "object": {
+      "__typename": "Target",
+      "approvedSymbol": "EGFR",
+      "biotype": "protein_coding",
+      "proteinIds": [
+       {
+        "id": "P00533",
+        "source": "uniprot_swissprot"
+       },
+       {
+        "id": "A0A8V8TPW8",
+        "source": "uniprot_trembl"
+       },
+       {
+        "id": "C9JYS6",
+        "source": "uniprot_trembl"
+       },
+       {
+        "id": "Q504U8",
+        "source": "uniprot_trembl"
+       },
+       {
+        "id": "ENSP00000275493",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000342376",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000345973",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000413354",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000413843",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000415559",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000514824",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000568258",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000568259",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000568260",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000568261",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000667942",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000780270",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000782441",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000788183",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000794701",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000804243",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "O00688",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "O00732",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "P06268",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "Q14225",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "Q68GS5",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "Q92795",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "Q9BZS2",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "Q9GZX1",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "Q9H2C9",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "Q9H3C9",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "Q9UMD7",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "Q9UMD8",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "Q9UMG5",
+        "source": "uniprot_obsolete"
+       }
+      ]
+     }
+    },
+    {
+     "id": "ENSG00000224057",
+     "entity": "target",
+     "name": "EGFR-AS1",
+     "description": "EGFR antisense RNA 1",
+     "category": [
+      "lncRNA"
+     ],
+     "score": 462.1207,
+     "object": {
+      "__typename": "Target",
+      "approvedSymbol": "EGFR-AS1",
+      "biotype": "lncRNA",
+      "proteinIds": []
+     }
+    },
+    {
+     "id": "ENSG00000151491",
+     "entity": "target",
+     "name": "EPS8",
+     "description": "EGFR pathway substrate 8, signaling adaptor",
+     "category": [
+      "protein_coding"
+     ],
+     "score": 258.495,
+     "object": {
+      "__typename": "Target",
+      "approvedSymbol": "EPS8",
+      "biotype": "protein_coding",
+      "proteinIds": [
+       {
+        "id": "Q12929",
+        "source": "uniprot_swissprot"
+       },
+       {
+        "id": "A0A2R8Y4W2",
+        "source": "uniprot_trembl"
+       },
+       {
+        "id": "A0A2R8YE63",
+        "source": "uniprot_trembl"
+       },
+       {
+        "id": "F5GYM8",
+        "source": "uniprot_trembl"
+       },
+       {
+        "id": "F5H0R8",
+        "source": "uniprot_trembl"
+       },
+       {
+        "id": "F5H1B5",
+        "source": "uniprot_trembl"
+       },
+       {
+        "id": "F5H2B8",
+        "source": "uniprot_trembl"
+       },
+       {
+        "id": "F5H3Q6",
+        "source": "uniprot_trembl"
+       },
+       {
+        "id": "F5H714",
+        "source": "uniprot_trembl"
+       },
+       {
+        "id": "H0YFG1",
+        "source": "uniprot_trembl"
+       },
+       {
+        "id": "ENSP00000281172",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000437806",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000438490",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000438668",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000440591",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000441867",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000441888",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000442388",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000442883",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000444613",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000445235",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000445815",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000445985",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000494338",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000494689",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000494842",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000495312",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000495722",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000495824",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000495956",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000496406",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000496516",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000550467",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000550468",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000550469",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000550470",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000550471",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000550472",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000550473",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000550474",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000550475",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000550476",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000550477",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000550478",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000629940",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000629941",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000629942",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000629943",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000629944",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000629945",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000629946",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000629947",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000629948",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000629949",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000629950",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000660928",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000660931",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000710998",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000710999",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000711000",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000711003",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000711004",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000711006",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000711007",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000804412",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "A6NMC3",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "A8K6W2",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "A8KA66",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "B4DX66",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "Q8N6J0",
+        "source": "uniprot_obsolete"
+       }
+      ]
+     }
+    },
+    {
+     "id": "ENSG00000224407",
+     "entity": "target",
+     "name": "EUDAL",
+     "description": "EGFR ubiquitination and degradation associated lncRNA",
+     "category": [
+      "lncRNA"
+     ],
+     "score": 227.11017,
+     "object": {
+      "__typename": "Target",
+      "approvedSymbol": "EUDAL",
+      "biotype": "lncRNA",
+      "proteinIds": []
+     }
+    },
+    {
+     "id": "ENSG00000280890",
+     "entity": "target",
+     "name": "ELDR",
+     "description": "EGFR long non-coding downstream RNA",
+     "category": [
+      "lncRNA"
+     ],
+     "score": 202.8545,
+     "object": {
+      "__typename": "Target",
+      "approvedSymbol": "ELDR",
+      "biotype": "lncRNA",
+      "proteinIds": []
+     }
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,23 @@
+{
+ "data": [
+  {
+   "snpId": "rs38719",
+   "b37VariantId": "7_140693894_G_T_b37",
+   "pos": 140994094,
+   "maf01": true,
+   "variantId": "chr7_140994094_G_T_b38",
+   "alt": "T",
+   "chromosome": "chr7",
+   "snpIdUpper": "RS38719",
+   "datasetId": "gtex_v10",
+   "ref": "G",
+   "shorthand": null
+  }
+ ],
+ "paging_info": {
+  "numberOfPages": 1,
+  "page": 0,
+  "maxItemsPerPage": 250,
+  "totalNumberOfItems": 1
+ }
+}

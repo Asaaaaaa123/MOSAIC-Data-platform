@@ -1,0 +1,40 @@
+{
+ "size": 1,
+ "count": 1,
+ "next": null,
+ "previous": null,
+ "results": [
+  {
+   "id": "PGP000002",
+   "title": "Polygenic Risk Scores for Prediction of Breast Cancer and Breast Cancer Subtypes.",
+   "doi": "10.1016/j.ajhg.2018.11.002",
+   "PMID": 30554720,
+   "journal": "Am J Hum Genet",
+   "firstauthor": "Mavaddat N",
+   "date_publication": "2018-12-13",
+   "date_release": "2019-10-14",
+   "authors": "Mavaddat N, Michailidou K, Dennis J, Lush M",
+   "associated_pgs_ids": {
+    "development": [
+     "PGS000004",
+     "PGS000005",
+     "PGS000006",
+     "PGS000007",
+     "PGS000008",
+     "PGS000009"
+    ],
+    "evaluation": [
+     "PGS000001",
+     "PGS000002",
+     "PGS000003",
+     "PGS000004",
+     "PGS000005",
+     "PGS000006",
+     "PGS000007",
+     "PGS000008",
+     "PGS000009"
+    ]
+   }
+  }
+ ]
+}

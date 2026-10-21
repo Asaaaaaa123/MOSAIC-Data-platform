@@ -1,0 +1,63 @@
+{
+ "getLindsByUniprotResponse": {
+  "bdb.smile": "Cc1ccc(NC(=O)c2ccc(CN3CCN(C)CC3)cc2)cc1Nc1nccc(-c2cccnc2)n1",
+  "bdb.inchi": null,
+  "bdb.hit": "6",
+  "bdb.affinities": [
+   {
+    "bdb.monomerid": 13530,
+    "bdb.smiles": "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cccnc3)c2)CC1",
+    "bdb.inhibitor": "Cobweb_bdb",
+    "bdb.target": "Tyrosine-protein kinase ABL1 [201-500,E255K]",
+    "bdb.species": "Human",
+    "bdb.affinity_type": "Kd",
+    "bdb.affinity": " 100"
+   },
+   {
+    "bdb.monomerid": 13530,
+    "bdb.smiles": "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cccnc3)c2)CC1",
+    "bdb.inhibitor": "Cobweb_bdb",
+    "bdb.target": "Tyrosine-protein kinase ABL1 [201-500,Y253F]",
+    "bdb.species": "Human",
+    "bdb.affinity_type": "Kd",
+    "bdb.affinity": " 40"
+   },
+   {
+    "bdb.monomerid": 13530,
+    "bdb.smiles": "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cccnc3)c2)CC1",
+    "bdb.inhibitor": "Cobweb_bdb",
+    "bdb.target": "Tyrosine-protein kinase ABL1 [201-500]",
+    "bdb.species": "Human",
+    "bdb.affinity_type": "Kd",
+    "bdb.affinity": " 2"
+   },
+   {
+    "bdb.monomerid": 13530,
+    "bdb.smiles": "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cccnc3)c2)CC1",
+    "bdb.inhibitor": "Cobweb_bdb",
+    "bdb.target": "5'-AMP-activated protein kinase catalytic subunit alpha-2",
+    "bdb.species": "Human",
+    "bdb.affinity_type": "Kd",
+    "bdb.affinity": ">10000"
+   },
+   {
+    "bdb.monomerid": 13530,
+    "bdb.smiles": "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cccnc3)c2)CC1",
+    "bdb.inhibitor": "Cobweb_bdb",
+    "bdb.target": "ALK tyrosine kinase receptor",
+    "bdb.species": "Human",
+    "bdb.affinity_type": "Kd",
+    "bdb.affinity": ">10000"
+   },
+   {
+    "bdb.monomerid": 612739,
+    "bdb.smiles": "CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)-c3cccnc3)c2)CC1",
+    "bdb.inhibitor": "Cobweb_bdb",
+    "bdb.target": "Mast/stem cell growth factor receptor Kit",
+    "bdb.species": "Human",
+    "bdb.affinity_type": "IC50",
+    "bdb.affinity": " 6.80"
+   }
+  ]
+ }
+}

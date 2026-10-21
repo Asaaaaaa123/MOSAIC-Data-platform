@@ -1,0 +1,27 @@
+{
+ "data": [
+  {
+   "chromosome": "chr1",
+   "dataSource": "HAVANA",
+   "description": "proprotein convertase subtilisin/kexin type 9 [Source:HGNC Symbol;Acc:HGNC:20001]",
+   "end": 55064852,
+   "entrezGeneId": 255738,
+   "gencodeId": "ENSG00000169174.11",
+   "gencodeVersion": "v39",
+   "geneStatus": "",
+   "geneSymbol": "PCSK9",
+   "geneSymbolUpper": "PCSK9",
+   "geneType": "protein coding",
+   "genomeBuild": "GRCh38/hg38",
+   "start": 55039447,
+   "strand": "+",
+   "tss": 55039447
+  }
+ ],
+ "paging_info": {
+  "numberOfPages": 1,
+  "page": 0,
+  "maxItemsPerPage": 25,
+  "totalNumberOfItems": 1
+ }
+}

@@ -1,0 +1,96 @@
+{
+ "_embedded": {
+  "associations": [
+   {
+    "association_id": 13160,
+    "risk_frequency": "NR",
+    "pvalue_description": "",
+    "pvalue_mantissa": 1,
+    "pvalue_exponent": -100,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "-",
+    "beta": "-",
+    "p_value": 1e-100,
+    "efo_traits": [
+     {
+      "efo_id": "MONDO_0005147",
+      "efo_trait": "type 1 diabetes mellitus"
+     }
+    ],
+    "reported_trait": [
+     "Type 1 diabetes"
+    ],
+    "accession_id": "GCST000392",
+    "locations": [
+     "6:32440750"
+    ],
+    "mapped_genes": [
+     "HLA-DRA"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "19430480",
+    "first_author": "Barrett JC",
+    "snp_effect_allele": [
+     "rs9268645-?"
+    ],
+    "snp_allele": [
+     {
+      "rs_id": "rs9268645",
+      "effect_allele": "?"
+     }
+    ]
+   },
+   {
+    "association_id": 13158,
+    "risk_frequency": "0.86",
+    "pvalue_description": "",
+    "pvalue_mantissa": 5,
+    "pvalue_exponent": -7,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[1.00-1.19]",
+    "or_per_copy_num": 1.09,
+    "or_value": "1.09",
+    "beta": "-",
+    "p_value": 5e-07,
+    "efo_traits": [
+     {
+      "efo_id": "MONDO_0005147",
+      "efo_trait": "type 1 diabetes mellitus"
+     }
+    ],
+    "reported_trait": [
+     "Type 1 diabetes"
+    ],
+    "accession_id": "GCST000392",
+    "locations": [
+     "17:7730374"
+    ],
+    "mapped_genes": [
+     "DNAH2"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "19430480",
+    "first_author": "Barrett JC",
+    "ci_lower": 1.0,
+    "ci_upper": 1.19,
+    "snp_effect_allele": [
+     "rs16956936-?"
+    ],
+    "snp_allele": [
+     {
+      "rs_id": "rs16956936",
+      "effect_allele": "?"
+     }
+    ]
+   }
+  ]
+ },
+ "page": {
+  "size": 2,
+  "totalElements": 38,
+  "totalPages": 19,
+  "number": 0
+ }
+}

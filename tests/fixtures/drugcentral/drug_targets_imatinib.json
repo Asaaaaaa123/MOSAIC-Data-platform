@@ -1,0 +1,86 @@
+[
+ [
+  [
+   [
+    "id",
+    "name"
+   ],
+   [
+    {
+     "id": 1423,
+     "name": "imatinib"
+    }
+   ]
+  ]
+ ],
+ [
+  [
+   [
+    "target_id",
+    "target_name",
+    "gene",
+    "accession",
+    "swissprot",
+    "target_class",
+    "tdl",
+    "organism",
+    "moa",
+    "action_types",
+    "best_value",
+    "best_type",
+    "sources",
+    "n_activities"
+   ],
+   [
+    {
+     "target_id": 382,
+     "target_name": "Tyrosine-protein kinase ABL1",
+     "gene": "ABL1",
+     "accession": "P00519",
+     "swissprot": "ABL1_HUMAN",
+     "target_class": "Kinase",
+     "tdl": "Tclin",
+     "organism": "Homo sapiens",
+     "moa": 1,
+     "action_types": "INHIBITOR",
+     "best_value": 8.96,
+     "best_type": "Kd",
+     "sources": "CHEMBL",
+     "n_activities": 1
+    },
+    {
+     "target_id": 383,
+     "target_name": "Mast/stem cell growth factor receptor Kit",
+     "gene": "KIT",
+     "accession": "P10721",
+     "swissprot": "KIT_HUMAN",
+     "target_class": "Kinase",
+     "tdl": "Tclin",
+     "organism": "Homo sapiens",
+     "moa": 1,
+     "action_types": "INHIBITOR",
+     "best_value": 7.89,
+     "best_type": "Kd",
+     "sources": "CHEMBL",
+     "n_activities": 1
+    },
+    {
+     "target_id": 381,
+     "target_name": "Platelet-derived growth factor receptor beta",
+     "gene": "PDGFRB",
+     "accession": "P09619",
+     "swissprot": "PGFRB_HUMAN",
+     "target_class": "Kinase",
+     "tdl": "Tclin",
+     "organism": "Homo sapiens",
+     "moa": 1,
+     "action_types": "INHIBITOR",
+     "best_value": 7.85,
+     "best_type": "Kd",
+     "sources": "CHEMBL",
+     "n_activities": 1
+    }
+   ]
+  ]
+ ]
+]

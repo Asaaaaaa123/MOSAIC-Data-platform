@@ -1,0 +1,219 @@
+{
+ "data": {
+  "objCls": "Chemical",
+  "id": "PA451906",
+  "name": "warfarin",
+  "altNames": {
+   "generic": [
+    "Warfarin sodium"
+   ],
+   "trade": [
+    "Athrombin",
+    "Athrombin-K",
+    "Athrombine-K",
+    "Brumolin",
+    "Co-Rax",
+    "Coumadin"
+   ]
+  },
+  "components": [
+   {
+    "objCls": "Chemical",
+    "id": "PA166428761",
+    "name": "r-warfarin",
+    "version": 3
+   },
+   {
+    "objCls": "Chemical",
+    "id": "PA166428781",
+    "name": "s-warfarin",
+    "version": 3
+   }
+  ],
+  "inChi": "InChI=1S/C19H16O4/c1-12(20)11-15(13-7-3-2-4-8-13)17-18(21)14-9-5-6-10-16(14)23-19(17)22/h2-10,15,22H,11H2,1H3",
+  "linkOuts": [
+   {
+    "id": 1452186207,
+    "name": "warfarin",
+    "resource": "ATC",
+    "resourceId": "B01AA03",
+    "_url": "https://www.whocc.no/atc_ddd_index/?showdescription=yes&code=B01AA03",
+    "status": "Valid",
+    "version": 0
+   },
+   {
+    "id": 1452186174,
+    "resource": "ChEBI",
+    "resourceId": "CHEBI:10033",
+    "_url": "http://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI%3A10033",
+    "status": "Valid",
+    "version": 0
+   },
+   {
+    "id": 1452186211,
+    "name": "BPCA Drug",
+    "resource": "ClinPGx Tags",
+    "resourceId": "pgkbTags:1451314780",
+    "status": "Valid",
+    "version": 0
+   },
+   {
+    "id": 1452186198,
+    "resource": "DrugBank",
+    "resourceId": "DB00682",
+    "_url": "https://www.drugbank.ca/drugs/DB00682",
+    "status": "Valid",
+    "version": 0
+   },
+   {
+    "id": 1452186200,
+    "resource": "KEGG Compound",
+    "resourceId": "C01541",
+    "_url": "https://www.kegg.jp/entry/C01541",
+    "status": "Valid",
+    "version": 0
+   },
+   {
+    "id": 1452186206,
+    "name": "Warfarin",
+    "resource": "MeSH",
+    "resourceId": "D014859",
+    "_url": "https://id.nlm.nih.gov/mesh/D014859",
+    "status": "Valid",
+    "version": 0
+   },
+   {
+    "id": 1452186201,
+    "resource": "NDC",
+    "resourceId": "0056-0169-70",
+    "_url": "https://dailymed.nlm.nih.gov/dailymed/search.cfm?adv=1&labeltype=all&query=NDC:0056-0169-70",
+    "status": "Valid",
+    "version": 0
+   },
+   {
+    "id": 1452186210,
+    "name": "WARFARIN",
+    "resource": "NDF-RT",
+    "resourceId": "N0000148057",
+    "_url": "https://purl.bioontology.org/ontology/NDFRT/N0000148057",
+    "status": "Valid",
+    "version": 0
+   },
+   {
+    "id": 1452186202,
+    "resource": "PubChem Compound",
+    "resourceId": "54678486",
+    "_url": "https://pubchem.ncbi.nlm.nih.gov/compound/54678486",
+    "status": "Valid",
+    "version": 0
+   },
+   {
+    "id": 1452186203,
+    "resource": "PubChem Substance",
+    "resourceId": "4702",
+    "_url": "https://pubchem.ncbi.nlm.nih.gov/substance/4702",
+    "status": "Valid",
+    "version": 0
+   },
+   {
+    "id": 1452186209,
+    "name": "Warfarin",
+    "resource": "RxNorm",
+    "resourceId": "11289",
+    "_url": "https://purl.bioontology.org/ontology/RXNORM/11289",
+    "status": "Valid",
+    "version": 0
+   },
+   {
+    "id": 1452186208,
+    "name": "Warfarin",
+    "resource": "UMLS",
+    "resourceId": "C0043031",
+    "_url": "http://linkedlifedata.com/resource/umls/id/C0043031",
+    "status": "Valid",
+    "version": 0
+   },
+   {
+    "id": 1452186205,
+    "resource": "URL",
+    "resourceId": "http://en.wikipedia.org/wiki/Warfarin",
+    "_url": "http://en.wikipedia.org/wiki/Warfarin",
+    "status": "Valid",
+    "version": 0
+   },
+   {
+    "id": 1452186176,
+    "resource": "ClinicalTrials.gov",
+    "resourceId": "NCT00247702",
+    "_url": "https://clinicaltrials.gov/ct2/show/NCT00247702",
+    "status": "Valid",
+    "version": 0
+   },
+   {
+    "id": 1452186177,
+    "resource": "ClinicalTrials.gov",
+    "resourceId": "NCT00334464",
+    "_url": "https://clinicaltrials.gov/ct2/show/NCT00334464",
+    "status": "Valid",
+    "version": 0
+   }
+  ],
+  "metabolites": [
+   {
+    "objCls": "Chemical",
+    "id": "PA166131395",
+    "name": "10-hydroxy r-warfarin",
+    "version": 5
+   },
+   {
+    "objCls": "Chemical",
+    "id": "PA166131339",
+    "name": "4-hydroxywarfarin",
+    "version": 5
+   },
+   {
+    "objCls": "Chemical",
+    "id": "PA166131394",
+    "name": "6-hydroxy r-warfarin",
+    "version": 5
+   },
+   {
+    "objCls": "Chemical",
+    "id": "PA166131393",
+    "name": "6-hydroxy s-warfarin",
+    "version": 5
+   },
+   {
+    "objCls": "Chemical",
+    "id": "PA166131397",
+    "name": "7-hydroxy r-warfarin",
+    "version": 5
+   },
+   {
+    "objCls": "Chemical",
+    "id": "PA166131399",
+    "name": "7-hydroxy s-warfarin",
+    "version": 5
+   },
+   {
+    "objCls": "Chemical",
+    "id": "PA166131396",
+    "name": "8-hydroxy r-warfarin",
+    "version": 5
+   },
+   {
+    "objCls": "Chemical",
+    "id": "PA166131398",
+    "name": "dehydrowarfarin",
+    "version": 5
+   }
+  ],
+  "pediatric": true,
+  "smiles": "CC(=O)CC(C1=CC=CC=C1)C2=C(OC3=CC=CC=C3C2=O)O",
+  "types": [
+   "Drug"
+  ],
+  "version": 21
+ },
+ "status": "success"
+}

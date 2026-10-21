@@ -1,0 +1,140 @@
+{
+ "search-results": {
+  "opensearch:totalResults": "70968",
+  "opensearch:startIndex": "0",
+  "opensearch:itemsPerPage": "2",
+  "opensearch:Query": {
+   "@role": "request",
+   "@searchTerms": "TITLE-ABS-KEY(crispr) AND PUBYEAR > 2020",
+   "@startPage": "0"
+  },
+  "entry": [
+   {
+    "@_fa": "true",
+    "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105048028293",
+    "dc:identifier": "SCOPUS_ID:105048028293",
+    "eid": "2-s2.0-105048028293",
+    "dc:title": "Strategy for enhanced production of A40926B0 in Nonomuraea gerenzanensis using an efficient CRISPR/AsCas12f1 system",
+    "dc:creator": "Wang X.",
+    "prism:publicationName": "Synthetic and Systems Biotechnology",
+    "prism:eIssn": "2405805X",
+    "prism:volume": "18",
+    "prism:pageRange": "49-62",
+    "prism:coverDate": "2027-04-01",
+    "prism:coverDisplayDate": "April 2027",
+    "prism:doi": "10.1016/j.synbio.2026.08.006",
+    "pii": "S2405805X26002036",
+    "citedby-count": "0",
+    "affiliation": [
+     {
+      "@_fa": "true",
+      "affilname": "Shijiazhuang University",
+      "affiliation-city": "Shijiazhuang",
+      "affiliation-country": "China"
+     },
+     {
+      "@_fa": "true",
+      "affilname": "National Key Laboratory of New Pharmaceutical Preparations and Excipients",
+      "affiliation-city": "Shijiazhuang",
+      "affiliation-country": "China"
+     },
+     {
+      "@_fa": "true",
+      "affilname": "Hebei Provincial University Microbiology Pharmaceutical Application Technology Research and Development Center",
+      "affiliation-city": "Shijiazhuang",
+      "affiliation-country": "China"
+     }
+    ],
+    "prism:aggregationType": "Journal",
+    "subtype": "ar",
+    "subtypeDescription": "Article",
+    "source-id": "21100832688",
+    "openaccess": "1",
+    "openaccessFlag": true,
+    "freetoread": {
+     "value": [
+      {
+       "$": "all"
+      },
+      {
+       "$": "publisherfullgold"
+      },
+      {
+       "$": "repository"
+      },
+      {
+       "$": "repositoryam"
+      }
+     ]
+    },
+    "freetoreadLabel": {
+     "value": [
+      {
+       "$": "All Open Access"
+      },
+      {
+       "$": "Gold"
+      },
+      {
+       "$": "Green"
+      }
+     ]
+    }
+   },
+   {
+    "@_fa": "true",
+    "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/105049664895",
+    "dc:identifier": "SCOPUS_ID:105049664895",
+    "eid": "2-s2.0-105049664895",
+    "dc:title": "Glycosomal ABC transporter 3 (GAT3) is associated with antileishmanial drug susceptibility in Leishmania infantum",
+    "dc:creator": "Costa-Silva H.M.",
+    "prism:publicationName": "Parasitology International",
+    "prism:issn": "13835769",
+    "prism:eIssn": "18730329",
+    "prism:volume": "117",
+    "prism:pageRange": null,
+    "prism:coverDate": "2027-04-01",
+    "prism:coverDisplayDate": "April 2027",
+    "prism:doi": "10.1016/j.parint.2026.103382",
+    "pii": "S1383576926001534",
+    "citedby-count": "0",
+    "affiliation": [
+     {
+      "@_fa": "true",
+      "affilname": "Fundacao Oswaldo Cruz",
+      "affiliation-city": "Rio de Janeiro",
+      "affiliation-country": "Brazil"
+     }
+    ],
+    "pubmed-id": "42700952",
+    "prism:aggregationType": "Journal",
+    "subtype": "ar",
+    "subtypeDescription": "Article",
+    "article-number": "103382",
+    "source-id": "22994",
+    "openaccess": "1",
+    "openaccessFlag": true,
+    "freetoread": {
+     "value": [
+      {
+       "$": "all"
+      },
+      {
+       "$": "publisherhybridgold"
+      }
+     ]
+    },
+    "freetoreadLabel": {
+     "value": [
+      {
+       "$": "All Open Access"
+      },
+      {
+       "$": "Hybrid Gold"
+      }
+     ]
+    }
+   }
+  ]
+ }
+}

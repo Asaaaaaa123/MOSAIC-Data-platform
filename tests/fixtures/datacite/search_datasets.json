@@ -1,0 +1,226 @@
+{
+ "data": [
+  {
+   "id": "10.5281/zenodo.23408607",
+   "type": "dois",
+   "attributes": {
+    "doi": "10.5281/zenodo.23408607",
+    "titles": [
+     {
+      "title": "Data and code for \"Cellular distribution and myeloid context of FCER1G in glioblastoma\""
+     }
+    ],
+    "creators": [
+     {
+      "nameType": "Personal",
+      "affiliation": [
+       "Fu Xing Hospital, Capital Medical University, Beijing, China"
+      ],
+      "givenName": "Haodong",
+      "familyName": "Li",
+      "name": "Li, Haodong",
+      "nameIdentifiers": []
+     },
+     {
+      "nameType": "Personal",
+      "affiliation": [
+       "Beijing Luhe Hospital, Affiliated to Capital Medical University, Beijing, China"
+      ],
+      "givenName": "Zezhou",
+      "familyName": "Zhao",
+      "name": "Zhao, Zezhou",
+      "nameIdentifiers": []
+     },
+     {
+      "nameType": "Personal",
+      "affiliation": [
+       "Respiratory Medicine Department of Rehabilitation College, The Fourth Affiliated Hospital of Nanchang University, Nanchang, Jiangxi Province, China"
+      ],
+      "givenName": "Jiting",
+      "familyName": "Liu",
+      "name": "Liu, Jiting",
+      "nameIdentifiers": []
+     },
+     {
+      "nameType": "Personal",
+      "affiliation": [
+       "Department of Oncology, Ezhou Central Hospital, Ezhou, Hubei, China"
+      ],
+      "givenName": "Xin",
+      "familyName": "Liu",
+      "name": "Liu, Xin",
+      "nameIdentifiers": []
+     },
+     {
+      "nameType": "Personal",
+      "affiliation": [
+       "Fu Xing Hospital, Capital Medical University, Beijing, China"
+      ],
+      "givenName": "Jieping",
+      "familyName": "Wang",
+      "name": "Wang, Jieping",
+      "nameIdentifiers": []
+     }
+    ],
+    "publisher": "Zenodo",
+    "publicationYear": 2026,
+    "types": {
+     "schemaOrg": "Dataset",
+     "resourceTypeGeneral": "Dataset",
+     "citeproc": "dataset",
+     "bibtex": "misc",
+     "ris": "DATA",
+     "resourceType": ""
+    },
+    "subjects": [
+     {
+      "subject": "glioblastoma"
+     },
+     {
+      "subject": "FCER1G"
+     },
+     {
+      "subject": "myeloid cells"
+     },
+     {
+      "subject": "single-cell transcriptomics"
+     },
+     {
+      "subject": "sialylation"
+     },
+     {
+      "subject": "tumor microenvironment"
+     }
+    ],
+    "descriptions": [
+     {
+      "descriptionType": "Abstract",
+      "description": "This dataset contains processed transcriptomic inputs, analysis code, numerical results, exploratory prognostic-model data and fitted objects, myeloid-estimator sensitivity analyses, supplementary methods and tables, and two supplied Western blot source images accompanying the study “Cellular distribution and myeloid context of FCER1G in glioblastoma”. Public source datasets include TCGA-GBM, CGGA"
+     }
+    ],
+    "rightsList": [
+     {
+      "rightsIdentifierScheme": "SPDX",
+      "rightsUri": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "schemeUri": "https://spdx.org/licenses/",
+      "rights": "Creative Commons Attribution 4.0 International",
+      "rightsIdentifier": "cc-by-4.0"
+     }
+    ],
+    "relatedIdentifiers": [
+     {
+      "relationType": "HasVersion",
+      "relatedIdentifier": "10.5281/zenodo.23408608",
+      "relatedIdentifierType": "DOI"
+     },
+     {
+      "relationType": "HasVersion",
+      "relatedIdentifier": "10.5281/zenodo.23431863",
+      "relatedIdentifierType": "DOI"
+     }
+    ],
+    "sizes": [],
+    "formats": [],
+    "url": "https://zenodo.org/doi/10.5281/zenodo.23408607",
+    "dates": [
+     {
+      "date": "2026-10-17",
+      "dateType": "Issued"
+     }
+    ],
+    "version": "v2",
+    "fundingReferences": [],
+    "citationCount": 0,
+    "viewCount": 0,
+    "downloadCount": 0,
+    "created": "2026-10-16T14:14:17Z",
+    "registered": "2026-10-16T14:14:18Z"
+   },
+   "relationships": {
+    "client": {
+     "data": {
+      "id": "cern.zenodo",
+      "type": "clients"
+     }
+    }
+   }
+  },
+  {
+   "id": "10.21227/eba5-td89",
+   "type": "dois",
+   "attributes": {
+    "doi": "10.21227/eba5-td89",
+    "titles": [
+     {
+      "title": "\"Data\""
+     }
+    ],
+    "creators": [
+     {
+      "nameType": "Personal",
+      "givenName": "Wen",
+      "familyName": "Li",
+      "name": "Wen Li",
+      "affiliation": [],
+      "nameIdentifiers": []
+     }
+    ],
+    "publisher": "IEEE DataPort",
+    "publicationYear": 2026,
+    "types": {
+     "schemaOrg": "Dataset",
+     "resourceTypeGeneral": "Dataset",
+     "citeproc": "dataset",
+     "bibtex": "misc",
+     "ris": "DATA",
+     "resourceType": "Dataset"
+    },
+    "subjects": [],
+    "descriptions": [
+     {
+      "descriptionType": "Abstract",
+      "description": "\"Background: Multi-omics and single-cell data vary substantially in format and scale, challenging robust annotation across datasets and platforms. We hypothesized that within-sample molecular feature ranks provide stable information about tissue and cell identity. We developed a rank-based transformation, standardized normal distribution (SND), and evaluated its performance across omics modalities"
+     }
+    ],
+    "rightsList": [
+     {
+      "rightsIdentifierScheme": "SPDX",
+      "rightsUri": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "schemeUri": "https://spdx.org/licenses/",
+      "rights": "Creative Commons Attribution 4.0 International",
+      "rightsIdentifier": "cc-by-4.0"
+     }
+    ],
+    "relatedIdentifiers": [],
+    "sizes": [],
+    "formats": [],
+    "url": "https://ieee-dataport.org/documents/data-18",
+    "dates": [],
+    "version": null,
+    "fundingReferences": [],
+    "citationCount": 0,
+    "viewCount": 0,
+    "downloadCount": 0,
+    "created": "2026-10-16T07:40:21Z",
+    "registered": "2026-10-16T07:40:21Z"
+   },
+   "relationships": {
+    "client": {
+     "data": {
+      "id": "ieee.dataport",
+      "type": "clients"
+     }
+    }
+   }
+  }
+ ],
+ "meta": {
+  "total": 153,
+  "totalPages": 77,
+  "page": 1
+ },
+ "links": {
+  "self": "https://api.datacite.org/dois?page%5Bnumber%5D=1",
+  "next": "https://api.datacite.org/dois?page%5Bnumber%5D=2"
+ }
+}

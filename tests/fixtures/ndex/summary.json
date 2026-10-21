@@ -1,0 +1,71 @@
+{
+ "ownerUUID": "301a91c6-a37b-11e4-bda0-000c29202374",
+ "isReadOnly": false,
+ "subnetworkIds": [],
+ "isValid": true,
+ "warnings": [],
+ "isShowcase": true,
+ "isCertified": false,
+ "indexLevel": "ALL",
+ "hasLayout": true,
+ "hasSample": true,
+ "cxFileSize": 8372821,
+ "cx2FileSize": 5892921,
+ "showInTrash": false,
+ "name": "NCI PID - Complete Interactions",
+ "properties": [
+  {
+   "subNetworkId": null,
+   "value": "http://search.ndexbio.org/static/media/ndex-logo.04d7bf44.svg",
+   "predicateString": "__iconurl",
+   "dataType": "string"
+  },
+  {
+   "subNetworkId": null,
+   "value": "0.1",
+   "predicateString": "__normalizationversion",
+   "dataType": "string"
+  },
+  {
+   "subNetworkId": null,
+   "value": "[\"pathway\",\"interactome\"]",
+   "predicateString": "networkType",
+   "dataType": "list_of_string"
+  },
+  {
+   "subNetworkId": null,
+   "value": "Homo sapiens (human)",
+   "predicateString": "organism",
+   "dataType": "string"
+  },
+  {
+   "subNetworkId": null,
+   "value": "<a href=\"ftp://ftp.ndexbio.org/NCI_PID_BIOPAX_2016-06-08-PC2v8-API/NCI PID - Complete Interactions.owl.gz\">NCI PID - Complete Interactions.owl.gz</a>",
+   "predicateString": "prov:wasDerivedFrom",
+   "dataType": "string"
+  },
+  {
+   "subNetworkId": null,
+   "value": "<a href=\"https://github.com/ndexcontent/ndexncipidloader\">ndexncipidloader 5.0.1</a>",
+   "predicateString": "prov:wasGeneratedBy",
+   "dataType": "string"
+  },
+  {
+   "subNetworkId": null,
+   "value": "{\"pubmed\": \"http://identifiers.org/pubmed/\", \"chebi\": \"http://identifiers.org/chebi/CHEBI:\", \"uniprot\": \"http://identifiers.org/uniprot/\", \"cas\": \"http://identifiers.org/cas/\", \"kegg.compound\": \"http://identifiers.org/kegg.compound/\", \"hprd\": \"http://identifiers.org/hprd/\", \"hgnc.symbol\": \"http://identifiers.org/hgnc.symbol/\"}",
+   "predicateString": "@context",
+   "dataType": "string"
+  }
+ ],
+ "owner": "nci-pid",
+ "version": "MAY-2021",
+ "completed": true,
+ "description": "This network includes all interactions of the individual NCI-PID pathways.<br/>",
+ "visibility": "PUBLIC",
+ "nodeCount": 2794,
+ "edgeCount": 25296,
+ "creationTime": 1530030265270,
+ "modificationTime": 1665096726581,
+ "isDeleted": false,
+ "externalId": "640e2cef-795d-11e8-a4bf-0ac135e8bacf"
+}

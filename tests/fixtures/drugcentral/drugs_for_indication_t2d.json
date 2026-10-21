@@ -1,0 +1,294 @@
+[
+ [
+  [
+   [
+    "id",
+    "name",
+    "cas_reg_no",
+    "inchikey",
+    "status",
+    "stem",
+    "cd_formula",
+    "cd_molweight",
+    "no_formulations",
+    "mrdef",
+    "fda_approval",
+    "approved",
+    "xrefs",
+    "relations",
+    "concepts",
+    "cuis",
+    "doids",
+    "total"
+   ],
+   [
+    {
+     "id": 1725,
+     "name": "metformin",
+     "cas_reg_no": "657-24-9",
+     "inchikey": "XZWYZXLIPXDOLR-UHFFFAOYSA-N",
+     "status": "OFP",
+     "stem": "-formin",
+     "cd_formula": "C4H11N5",
+     "cd_molweight": 129.167,
+     "no_formulations": 669,
+     "mrdef": "A biguanide hypoglycemic agent used in the treatment of non-insulin-dependent diabetes mellitus not responding to dietary modification. Metformin improves glycemic control by improving insulin sensitivity and decreasing intestinal absorption of glucose. (From Martindale, The Extra Pharmacopoeia, 30th ed, p289)",
+     "fda_approval": "1995-03-03",
+     "approved": true,
+     "xrefs": {
+      "NUI": [
+       "N0000021984"
+      ],
+      "MMSL": [
+       "370164",
+       "41717",
+       "5063",
+       "592",
+       "d03807"
+      ],
+      "NDDF": [
+       "003483",
+       "004534"
+      ],
+      "UNII": [
+       "9100L32L2N"
+      ],
+      "VUID": [
+       "4023979"
+      ],
+      "CHEBI": [
+       "CHEBI:6801"
+      ],
+      "VANDF": [
+       "4020898",
+       "4023979"
+      ],
+      "INN_ID": [
+       "965"
+      ],
+      "RXNORM": [
+       "151827"
+      ],
+      "UMLSCUI": [
+       "C0025598"
+      ],
+      "ChEMBL_ID": [
+       "CHEMBL1431",
+       "CHEMBL1703"
+      ],
+      "KEGG_DRUG": [
+       "D00944"
+      ],
+      "DRUGBANK_ID": [
+       "DB00331"
+      ],
+      "PDB_CHEM_ID": [
+       " MF8"
+      ],
+      "PUBCHEM_CID": [
+       "4091"
+      ],
+      "SNOMEDCT_US": [
+       "109081006",
+       "109083009",
+       "372567009"
+      ],
+      "IUPHAR_LIGAND_ID": [
+       "4779"
+      ],
+      "SECONDARY_CAS_RN": [
+       "1115-70-4"
+      ],
+      "MESH_DESCRIPTOR_UI": [
+       "D008687"
+      ]
+     },
+     "relations": "indication",
+     "concepts": [
+      "Diabetes mellitus type 2",
+      "Treatment Refractory Type 2 Diabetes Mellitus"
+     ],
+     "cuis": [
+      "C0011860"
+     ],
+     "doids": [
+      "DOID:9352"
+     ],
+     "total": 64
+    },
+    {
+     "id": 1301,
+     "name": "glipizide",
+     "cas_reg_no": "29094-61-9",
+     "inchikey": "ZJJXGWJIGJFDTL-UHFFFAOYSA-N",
+     "status": "OFP",
+     "stem": "gli-",
+     "cd_formula": "C21H27N5O4S",
+     "cd_molweight": 445.54,
+     "no_formulations": 255,
+     "mrdef": "An oral hypoglycemic agent which is rapidly absorbed and completely metabolized.",
+     "fda_approval": "1984-05-08",
+     "approved": true,
+     "xrefs": {
+      "NUI": [
+       "N0000146830"
+      ],
+      "MMSL": [
+       "4783",
+       "574",
+       "595",
+       "d00246"
+      ],
+      "NDDF": [
+       "000913"
+      ],
+      "UNII": [
+       "X7WDT95N5C"
+      ],
+      "VUID": [
+       "4018508"
+      ],
+      "CHEBI": [
+       "CHEBI:5384"
+      ],
+      "VANDF": [
+       "4018508"
+      ],
+      "INN_ID": [
+       "3090"
+      ],
+      "RXNORM": [
+       "151822"
+      ],
+      "UMLSCUI": [
+       "C0017642"
+      ],
+      "ChEMBL_ID": [
+       "CHEMBL1073"
+      ],
+      "KEGG_DRUG": [
+       "D00335"
+      ],
+      "DRUGBANK_ID": [
+       "DB01067"
+      ],
+      "PUBCHEM_CID": [
+       "3478"
+      ],
+      "SNOMEDCT_US": [
+       "26124005",
+       "387143009"
+      ],
+      "INXIGHT DRUGS": [
+       "X7WDT95N5C"
+      ],
+      "IUPHAR_LIGAND_ID": [
+       "6821"
+      ],
+      "MESH_DESCRIPTOR_UI": [
+       "D005913"
+      ]
+     },
+     "relations": "indication",
+     "concepts": [
+      "Diabetes mellitus type 2"
+     ],
+     "cuis": [
+      "C0011860"
+     ],
+     "doids": [
+      "DOID:9352"
+     ],
+     "total": 64
+    },
+    {
+     "id": 1314,
+     "name": "glibenclamide",
+     "cas_reg_no": "10238-21-8",
+     "inchikey": "ZNNLBTZKUZBEKO-UHFFFAOYSA-N",
+     "status": "OFP",
+     "stem": "gli-",
+     "cd_formula": "C23H28ClN3O5S",
+     "cd_molweight": 494.0,
+     "no_formulations": 152,
+     "mrdef": "An antidiabetic sulfonylurea derivative with actions similar to those of chlorpropamide.",
+     "fda_approval": "1984-05-01",
+     "approved": true,
+     "xrefs": {
+      "NUI": [
+       "N0000146417"
+      ],
+      "MMSL": [
+       "4790",
+       "597",
+       "d00248"
+      ],
+      "NDDF": [
+       "000912"
+      ],
+      "UNII": [
+       "SX6K58TVWC"
+      ],
+      "VUID": [
+       "4018078"
+      ],
+      "CHEBI": [
+       "CHEBI:5441"
+      ],
+      "VANDF": [
+       "4018078"
+      ],
+      "INN_ID": [
+       "2386"
+      ],
+      "RXNORM": [
+       "4815"
+      ],
+      "UMLSCUI": [
+       "C0017628"
+      ],
+      "ChEMBL_ID": [
+       "CHEMBL472"
+      ],
+      "KEGG_DRUG": [
+       "D00336"
+      ],
+      "DRUGBANK_ID": [
+       "DB01016"
+      ],
+      "PDB_CHEM_ID": [
+       " GBM"
+      ],
+      "PUBCHEM_CID": [
+       "3488"
+      ],
+      "SNOMEDCT_US": [
+       "384978002",
+       "80870001"
+      ],
+      "INXIGHT DRUGS": [
+       "SX6K58TVWC"
+      ],
+      "IUPHAR_LIGAND_ID": [
+       "2414"
+      ],
+      "MESH_DESCRIPTOR_UI": [
+       "D005905"
+      ]
+     },
+     "relations": "indication",
+     "concepts": [
+      "Diabetes mellitus type 2"
+     ],
+     "cuis": [
+      "C0011860"
+     ],
+     "doids": [
+      "DOID:9352"
+     ],
+     "total": 64
+    }
+   ]
+  ]
+ ]
+]

@@ -1,0 +1,229 @@
+{
+ "apiMessage": "This JSON was provided by Springer Nature",
+ "query": "keyword:\"base editing\" datefrom:2023-01-01 dateto:2023-12-31",
+ "result": [
+  {
+   "total": "7",
+   "start": "1",
+   "pageLength": "2",
+   "recordsDisplayed": "2"
+  }
+ ],
+ "records": [
+  {
+   "contentType": "Article",
+   "identifier": "doi:10.1186/s13059-023-03097-3",
+   "language": "en",
+   "url": [
+    {
+     "format": "",
+     "platform": "",
+     "value": "http://dx.doi.org/10.1186/s13059-023-03097-3"
+    }
+   ],
+   "title": "Quantification of evolved DNA-editing enzymes at scale with DEQSeq",
+   "creators": [
+    {
+     "creator": "Schmitt, Lukas Theo"
+    },
+    {
+     "creator": "Schneider, Aksana"
+    },
+    {
+     "creator": "Posorski, Jonas"
+    },
+    {
+     "creator": "Lansing, Felix"
+    },
+    {
+     "creator": "Jelicic, Milica"
+    },
+    {
+     "creator": "Jain, Manavi"
+    },
+    {
+     "creator": "Sayed, Shady"
+    },
+    {
+     "ORCID": "0000-0002-4577-3344",
+     "creator": "Buchholz, Frank"
+    },
+    {
+     "creator": "Sürün, Duran"
+    }
+   ],
+   "publicationName": "Genome Biology",
+   "doi": "10.1186/s13059-023-03097-3",
+   "publisher": "Springer",
+   "publisherName": "BioMed Central",
+   "publicationDate": "2023-11-06",
+   "publicationType": "Journal",
+   "issn": "",
+   "eIssn": "1474-760X",
+   "volume": "24",
+   "number": "1",
+   "issueType": "Regular",
+   "topicalCollection": "",
+   "genre": [
+    "OriginalPaper",
+    "Method"
+   ],
+   "startingPage": "1",
+   "endingPage": "16",
+   "journalId": "13059",
+   "openAccess": "true",
+   "onlineDate": "2023-11-06",
+   "coverDate": "2023-12",
+   "copyright": "©2023 The Author(s)",
+   "abstract": {
+    "h1": "Abstract",
+    "p": "We introduce DEQSeq, a nanopore sequencing approach that rationalizes the selection of favorable genome editing enzymes from directed molecular evolution experiments. With the ability to capture full-length sequences, editing efficiencies, and specificities from thousands of evolved enzymes simultaneously, DEQSeq streamlines the process of identifying the most valuable variants for further study and application. We apply DEQSeq to evolved libraries of Cas12f-ABEs and designer-recombinases, identifying variants with improved properties for future applications. Our results demonstrate that DEQSeq is a powerful tool for accelerating enzyme discovery and advancing genome editing research."
+   },
+   "subjects": [
+    "Life Sciences",
+    "Animal Genetics and Genomics",
+    "Human Genetics",
+    "Plant Genetics and Genomics",
+    "Microbial Genetics and Genomics",
+    "Bioinformatics",
+    "Evolutionary Biology"
+   ],
+   "disciplines": [
+    {
+     "id": "2892",
+     "term": "Genetics and Genomics"
+    },
+    {
+     "id": "5716",
+     "term": "Epigenetics"
+    },
+    {
+     "id": "7750",
+     "term": "Bioinformatics"
+    },
+    {
+     "id": "4014",
+     "term": "Plant Genetics"
+    },
+    {
+     "id": "4796",
+     "term": "Microbial Genetics"
+    },
+    {
+     "id": "2979",
+     "term": "Evolutionary Biology"
+    }
+   ]
+  },
+  {
+   "contentType": "Article",
+   "identifier": "doi:10.1186/s13578-023-01036-0",
+   "language": "en",
+   "url": [
+    {
+     "format": "",
+     "platform": "",
+     "value": "http://dx.doi.org/10.1186/s13578-023-01036-0"
+    }
+   ],
+   "title": "Liver-specific in vivo base editing of Angptl3 via AAV delivery efficiently lowers blood lipid levels in mice",
+   "creators": [
+    {
+     "creator": "Zuo, Yuanbojiao"
+    },
+    {
+     "creator": "Zhang, Chen"
+    },
+    {
+     "creator": "Zhou, Yuan"
+    },
+    {
+     "creator": "Li, Haiwen"
+    },
+    {
+     "creator": "Xiao, Weidong"
+    },
+    {
+     "creator": "Herzog, Roland W."
+    },
+    {
+     "creator": "Xu, Jie"
+    },
+    {
+     "creator": "Zhang, Jifeng"
+    },
+    {
+     "creator": "Chen, Y. Eugene"
+    },
+    {
+     "ORCID": "0000-0002-8202-9186",
+     "creator": "Han, Renzhi"
+    }
+   ],
+   "publicationName": "Cell & Bioscience",
+   "doi": "10.1186/s13578-023-01036-0",
+   "publisher": "Springer",
+   "publisherName": "BioMed Central",
+   "publicationDate": "2023-06-15",
+   "publicationType": "Journal",
+   "issn": "",
+   "eIssn": "2045-3701",
+   "volume": "13",
+   "number": "1",
+   "issueType": "Regular",
+   "topicalCollection": "",
+   "genre": [
+    "OriginalPaper",
+    "Research"
+   ],
+   "startingPage": "1",
+   "endingPage": "9",
+   "journalId": "13578",
+   "openAccess": "true",
+   "onlineDate": "2023-06-15",
+   "coverDate": "2023-12",
+   "copyright": "©2023 The Author(s)",
+   "abstract": {
+    "h1": "Abstract",
+    "p": [
+     "Background",
+     "Gene editing has emerged as an exciting therapeutic development platform for numerous genetic and nongenetic diseases. Targeting lipid-modulating genes such as angiopoietin-related protein 3 ( ANGPTL3 ) with gene editing offers hope for a permanent solution to lower cardiovascular disease risks associated with hypercholesterolemia.",
+     "Results",
+     "In this study, we developed a hepatocyte-specific base editing therapeutic approach delivered by dual adeno-associated virus (AAV) to enable hepatocyte-specific targeting of Angptl3 to lower blood lipid levels. Systemic AAV9-mediated delivery of AncBE4max, a cytosine base editor (CBE), targeting mouse Angptl3 resulted in the installation of a premature stop codon in Angptl3 with an average efficiency of 63.3 ± 2.3% in the bulk liver tissue. A near-complete knockout of the ANGPTL3 protein in the circulation were observed within 2–4 weeks following AAV administration. Furthermore, the serum levels of triglyceride (TG) and total cholesterol (TC) were decreased by approximately 58% and 61%, respectively, at 4 weeks after treatment.",
+     "Conclusions",
+     "These results highlight the promise of liver-targeted Angptl3 base editing for blood lipid control."
+    ]
+   },
+   "subjects": [
+    "Life Sciences",
+    "Cell Biology",
+    "Microbiology",
+    "Stem Cells",
+    "Neurobiology",
+    "Proteomics"
+   ],
+   "disciplines": [
+    {
+     "id": "3018",
+     "term": "Cell Biology"
+    },
+    {
+     "id": "2922",
+     "term": "Microbiology"
+    },
+    {
+     "id": "3225",
+     "term": "Stem Cell Biology"
+    },
+    {
+     "id": "2935",
+     "term": "Neuroscience"
+    },
+    {
+     "id": "3060",
+     "term": "Protein Biochemistry"
+    }
+   ]
+  }
+ ]
+}

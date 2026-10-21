@@ -1,0 +1,52 @@
+{
+ "status": "OK",
+ "data": {
+  "q": "publicationIDNumber:\"30824204\"",
+  "total_count": 1,
+  "start": 0,
+  "spelling_alternatives": {},
+  "items": [
+   {
+    "name": "Simulation Results: Global Childhood Cancer Incidence",
+    "type": "dataset",
+    "url": "https://doi.org/10.7910/DVN/CTJN63",
+    "global_id": "doi:10.7910/DVN/CTJN63",
+    "description": "Simulation results (means and 95% uncertainty intervals) for: Ward ZJ, Yeh JM, Bhakta N, Frazier AL, Atun R. Estimating the total incidence of global childhood cancer: a simulation-based analysis. Lancet Oncol 2019; 20(4): 483-493.",
+    "published_at": "2019-10-10T14:30:46Z",
+    "publisher": "Zachary J Ward Dataverse",
+    "citationHtml": "Ward, Zachary; Yeh, Jennifer; Bhakta, Nickhill; Frazier, A Lindsay; Atun, Rifat, 2019, \"Simulation Results: Global Childhood Cancer Incidence\", <a href=\"https://doi.org/10.7910/DVN/CTJN63\" target=\"_blank\">https://doi.org/10.7910/DVN/CTJN63</a>, Harvard Dataverse, V2, UNF:6:dwCFDYa9l+2BRGPqlf8gUA== [fileUNF]",
+    "identifier_of_dataverse": "zward",
+    "name_of_dataverse": "Zachary J Ward Dataverse",
+    "citation": "Ward, Zachary; Yeh, Jennifer; Bhakta, Nickhill; Frazier, A Lindsay; Atun, Rifat, 2019, \"Simulation Results: Global Childhood Cancer Incidence\", https://doi.org/10.7910/DVN/CTJN63, Harvard Dataverse, V2, UNF:6:dwCFDYa9l+2BRGPqlf8gUA== [fileUNF]",
+    "publicationStatuses": [
+     "Published"
+    ],
+    "storageIdentifier": "s3://10.7910/DVN/CTJN63",
+    "subjects": [
+     "Medicine, Health and Life Sciences"
+    ],
+    "fileCount": 11,
+    "versionId": 175783,
+    "versionState": "RELEASED",
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "createdAt": "2019-09-19T01:19:22Z",
+    "updatedAt": "2019-10-10T14:30:46Z",
+    "publications": [
+     {
+      "citation": "Ward ZJ, Yeh JM, Bhakta N, Frazier AL, Atun R. Estimating the total incidence of global childhood cancer: a simulation-based analysis. Lancet Oncol 2019; 20(4): 483-493.",
+      "url": "https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(18)30909-4/fulltext"
+     }
+    ],
+    "authors": [
+     "Ward, Zachary",
+     "Yeh, Jennifer",
+     "Bhakta, Nickhill",
+     "Frazier, A Lindsay",
+     "Atun, Rifat"
+    ]
+   }
+  ],
+  "count_in_response": 1
+ }
+}

@@ -1,0 +1,449 @@
+{
+ "size": 3,
+ "count": 3,
+ "next": null,
+ "previous": null,
+ "results": [
+  {
+   "id": "PGS000010",
+   "name": "GRS27",
+   "ftp_scoring_file": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000010/ScoringFiles/PGS000010.txt.gz",
+   "ftp_harmonized_scoring_files": {
+    "GRCh37": {
+     "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000010/ScoringFiles/Harmonized/PGS000010_hmPOS_GRCh37.txt.gz"
+    },
+    "GRCh38": {
+     "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000010/ScoringFiles/Harmonized/PGS000010_hmPOS_GRCh38.txt.gz"
+    }
+   },
+   "publication": {
+    "id": "PGP000003",
+    "title": "Genetic risk, coronary heart disease events, and the clinical benefit of statin therapy: an analysis of primary and secondary prevention trials.",
+    "doi": "10.1016/S0140-6736(14)61730-X",
+    "PMID": 25748612,
+    "journal": "Lancet",
+    "firstauthor": "Mega JL",
+    "date_publication": "2015-03-04"
+   },
+   "matches_publication": true,
+   "samples_variants": [
+    {
+     "sample_number": 86995,
+     "sample_cases": 22233,
+     "sample_controls": 64762,
+     "sample_percent_male": null,
+     "sample_age": null,
+     "phenotyping_free": null,
+     "followup_time": null,
+     "ancestry_broad": "European",
+     "ancestry_free": null,
+     "ancestry_country": "NR",
+     "ancestry_additional": null,
+     "source_GWAS_catalog": "GCST000998",
+     "source_PMID": null,
+     "source_DOI": null,
+     "cohorts": [
+      {
+       "name_short": "PennCATH",
+       "name_full": "PennCATH",
+       "name_others": null
+      }
+     ],
+     "cohorts_additional": null
+    }
+   ],
+   "samples_training": [],
+   "trait_reported": "Coronary heart disease",
+   "trait_additional": null,
+   "trait_efo": [
+    {
+     "id": "MONDO_0005010",
+     "label": "coronary artery disorder",
+     "description": "Narrowing of the coronary arteries due to fatty deposits inside the arterial walls. The diagnostic criteria may include documented history of any of the following: documented coronary artery stenosis greater than or equal to 50% (by cardiac catheterization or other modality of direct imaging of the coronary arteries); previous coronary artery bypass surgery (CABG); previous percutaneous coronary intervention (PCI); previous myocardial infarction. (ACC) [NCIT: C26732]",
+     "url": "http://purl.obolibrary.org/obo/MONDO_0005010"
+    }
+   ],
+   "method_name": "Genome-wide significant variants",
+   "method_params": null,
+   "variants_number": 27,
+   "variants_interactions": 0,
+   "variants_genomebuild": "NR",
+   "weight_type": "NR",
+   "ancestry_distribution": {
+    "eval": {
+     "dist": {
+      "EUR": 100
+     },
+     "count": 6
+    },
+    "gwas": {
+     "dist": {
+      "EUR": 100
+     },
+     "count": 86995
+    }
+   },
+   "date_release": "2019-10-14"
+  },
+  {
+   "id": "PGS000011",
+   "name": "GRS50",
+   "ftp_scoring_file": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000011/ScoringFiles/PGS000011.txt.gz",
+   "ftp_harmonized_scoring_files": {
+    "GRCh37": {
+     "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000011/ScoringFiles/Harmonized/PGS000011_hmPOS_GRCh37.txt.gz"
+    },
+    "GRCh38": {
+     "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000011/ScoringFiles/Harmonized/PGS000011_hmPOS_GRCh38.txt.gz"
+    }
+   },
+   "publication": {
+    "id": "PGP000004",
+    "title": "Risk prediction by genetic risk scores for coronary heart disease is independent of self-reported family history.",
+    "doi": "10.1093/eurheartj/ehv462",
+    "PMID": 26392438,
+    "journal": "Eur Heart J",
+    "firstauthor": "Tada H",
+    "date_publication": "2015-09-20"
+   },
+   "matches_publication": true,
+   "samples_variants": [
+    {
+     "sample_number": 41975,
+     "sample_cases": 11202,
+     "sample_controls": 30773,
+     "sample_percent_male": null,
+     "sample_age": null,
+     "phenotyping_free": null,
+     "followup_time": null,
+     "ancestry_broad": "European",
+     "ancestry_free": null,
+     "ancestry_country": null,
+     "ancestry_additional": null,
+     "source_GWAS_catalog": null,
+     "source_PMID": 21966275,
+     "source_DOI": null,
+     "cohorts": [
+      {
+       "name_short": "PennCATH",
+       "name_full": "PennCATH",
+       "name_others": null
+      }
+     ],
+     "cohorts_additional": null
+    },
+    {
+     "sample_number": 8653,
+     "sample_cases": 4394,
+     "sample_controls": 4259,
+     "sample_percent_male": null,
+     "sample_age": null,
+     "phenotyping_free": null,
+     "followup_time": null,
+     "ancestry_broad": "South Asian",
+     "ancestry_free": null,
+     "ancestry_country": null,
+     "ancestry_additional": null,
+     "source_GWAS_catalog": null,
+     "source_PMID": 21966275,
+     "source_DOI": null,
+     "cohorts": [
+      {
+       "name_short": "PROMIS",
+       "name_full": "The Pakistan Risk Of Myocardial Infarction Study",
+       "name_others": null
+      }
+     ],
+     "cohorts_additional": null
+    },
+    {
+     "sample_number": 194427,
+     "sample_cases": 63746,
+     "sample_controls": 130681,
+     "sample_percent_male": null,
+     "sample_age": null,
+     "phenotyping_free": null,
+     "followup_time": null,
+     "ancestry_broad": "European, South Asian",
+     "ancestry_free": null,
+     "ancestry_country": null,
+     "ancestry_additional": null,
+     "source_GWAS_catalog": null,
+     "source_PMID": 23202125,
+     "source_DOI": null,
+     "cohorts": [
+      {
+       "name_short": "HPS",
+       "name_full": "Heart Protection Study",
+       "name_others": null
+      }
+     ],
+     "cohorts_additional": null
+    },
+    {
+     "sample_number": 86995,
+     "sample_cases": null,
+     "sample_controls": null,
+     "sample_percent_male": null,
+     "sample_age": null,
+     "phenotyping_free": null,
+     "followup_time": null,
+     "ancestry_broad": "European",
+     "ancestry_free": null,
+     "ancestry_country": "NR",
+     "ancestry_additional": null,
+     "source_GWAS_catalog": "GCST000998",
+     "source_PMID": 21378990,
+     "source_DOI": null,
+     "cohorts": [],
+     "cohorts_additional": null
+    },
+    {
+     "sample_number": 2520,
+     "sample_cases": null,
+     "sample_controls": null,
+     "sample_percent_male": null,
+     "sample_age": null,
+     "phenotyping_free": null,
+     "followup_time": null,
+     "ancestry_broad": "European",
+     "ancestry_free": null,
+     "ancestry_country": "Germany",
+     "ancestry_additional": null,
+     "source_GWAS_catalog": "GCST000338",
+     "source_PMID": 19198612,
+     "source_DOI": null,
+     "cohorts": [],
+     "cohorts_additional": null
+    },
+    {
+     "sample_number": 14790,
+     "sample_cases": null,
+     "sample_controls": null,
+     "sample_percent_male": null,
+     "sample_age": null,
+     "phenotyping_free": null,
+     "followup_time": null,
+     "ancestry_broad": "South Asian",
+     "ancestry_free": "India, Pakistan",
+     "ancestry_country": "U.K., Pakistan",
+     "ancestry_additional": null,
+     "source_GWAS_catalog": "GCST000999",
+     "source_PMID": 21378988,
+     "source_DOI": null,
+     "cohorts": [],
+     "cohorts_additional": null
+    },
+    {
+     "sample_number": 15682,
+     "sample_cases": null,
+     "sample_controls": null,
+     "sample_percent_male": null,
+     "sample_age": null,
+     "phenotyping_free": null,
+     "followup_time": null,
+     "ancestry_broad": "European",
+     "ancestry_free": null,
+     "ancestry_country": "Sweden, Italy, Germany, U.K.",
+     "ancestry_additional": null,
+     "source_GWAS_catalog": "GCST000999",
+     "source_PMID": 21378988,
+     "source_DOI": null,
+     "cohorts": [],
+     "cohorts_additional": null
+    }
+   ],
+   "samples_training": [],
+   "trait_reported": "Coronary artery disease",
+   "trait_additional": null,
+   "trait_efo": [
+    {
+     "id": "MONDO_0005010",
+     "label": "coronary artery disorder",
+     "description": "Narrowing of the coronary arteries due to fatty deposits inside the arterial walls. The diagnostic criteria may include documented history of any of the following: documented coronary artery stenosis greater than or equal to 50% (by cardiac catheterization or other modality of direct imaging of the coronary arteries); previous coronary artery bypass surgery (CABG); previous percutaneous coronary intervention (PCI); previous myocardial infarction. (ACC) [NCIT: C26732]",
+     "url": "http://purl.obolibrary.org/obo/MONDO_0005010"
+    }
+   ],
+   "method_name": "Genome-wide significant variants",
+   "method_params": "Also includes the SNPs from GRS 27 (Mega et al.; PMID:25748612)",
+   "variants_number": 50,
+   "variants_interactions": 0,
+   "variants_genomebuild": "NR",
+   "weight_type": "log(OR)",
+   "ancestry_distribution": {
+    "eval": {
+     "dist": {
+      "NR": 15.8,
+      "AFR": 10.5,
+      "AMR": 26.3,
+      "EUR": 42.1,
+      "MAE": 5.3
+     },
+     "count": 19,
+     "multi": [
+      "MAE_EUR",
+      "MAE_NR"
+     ]
+    },
+    "gwas": {
+     "dist": {
+      "EUR": 40.3,
+      "MAE": 53.3,
+      "SAS": 6.4
+     },
+     "count": 365042,
+     "multi": [
+      "MAE_EUR",
+      "MAE_SAS"
+     ]
+    }
+   },
+   "date_release": "2019-10-14"
+  },
+  {
+   "id": "PGS000012",
+   "name": "GRS49K",
+   "ftp_scoring_file": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000012/ScoringFiles/PGS000012.txt.gz",
+   "ftp_harmonized_scoring_files": {
+    "GRCh37": {
+     "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000012/ScoringFiles/Harmonized/PGS000012_hmPOS_GRCh37.txt.gz"
+    },
+    "GRCh38": {
+     "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000012/ScoringFiles/Harmonized/PGS000012_hmPOS_GRCh38.txt.gz"
+    }
+   },
+   "publication": {
+    "id": "PGP000005",
+    "title": "Genomic prediction of coronary heart disease.",
+    "doi": "10.1093/eurheartj/ehw450",
+    "PMID": 27655226,
+    "journal": "Eur Heart J",
+    "firstauthor": "Abraham G",
+    "date_publication": "2016-09-21"
+   },
+   "matches_publication": true,
+   "samples_variants": [
+    {
+     "sample_number": 194427,
+     "sample_cases": 63746,
+     "sample_controls": 130681,
+     "sample_percent_male": null,
+     "sample_age": null,
+     "phenotyping_free": null,
+     "followup_time": null,
+     "ancestry_broad": "European, South Asian",
+     "ancestry_free": null,
+     "ancestry_country": null,
+     "ancestry_additional": null,
+     "source_GWAS_catalog": null,
+     "source_PMID": 23202125,
+     "source_DOI": null,
+     "cohorts": [
+      {
+       "name_short": "HPS",
+       "name_full": "Heart Protection Study",
+       "name_others": null
+      }
+     ],
+     "cohorts_additional": null
+    }
+   ],
+   "samples_training": [
+    {
+     "sample_number": 1019,
+     "sample_cases": 531,
+     "sample_controls": 488,
+     "sample_percent_male": null,
+     "sample_age": null,
+     "phenotyping_free": "For MIGen, MI defined cases of early onset MI (men <50 years old, women <60 years old). MI was diagnosed from as one of: • Autopsy evidence of fatal MI  • Combination of chest pain with electrocardiographic evidence of MI • Elevation of one or more cardiac biomarkers (creatine kinase or cardiac troponin)",
+     "followup_time": null,
+     "ancestry_broad": "European",
+     "ancestry_free": null,
+     "ancestry_country": null,
+     "ancestry_additional": null,
+     "source_GWAS_catalog": "GCST000340",
+     "source_PMID": null,
+     "source_DOI": null,
+     "cohorts": [
+      {
+       "name_short": "MIGen",
+       "name_full": "Myocardial Infarction Genetics Consortium",
+       "name_others": null
+      }
+     ],
+     "cohorts_additional": "Harps subset"
+    },
+    {
+     "sample_number": 4864,
+     "sample_cases": 1926,
+     "sample_controls": 2938,
+     "sample_percent_male": null,
+     "sample_age": null,
+     "phenotyping_free": "CAD in the WTCCC was defined as a validated history of either myocardial infarction or coronary revascularization (coronary artery bypass surgery or percutaneous coronary angioplasty) before their 66th birthday. Verification of the history of CAD was required either from hospital records or the primary care physician.",
+     "followup_time": null,
+     "ancestry_broad": "European",
+     "ancestry_free": null,
+     "ancestry_country": null,
+     "ancestry_additional": null,
+     "source_GWAS_catalog": "GCST000045",
+     "source_PMID": null,
+     "source_DOI": null,
+     "cohorts": [
+      {
+       "name_short": "WTCCC",
+       "name_full": "Wellcome Trust Case Control Consortium",
+       "name_others": null
+      }
+     ],
+     "cohorts_additional": "Wellcome Trust Case/Control Consortium Coronary Artery Disease"
+    }
+   ],
+   "trait_reported": "Coronary artery disease",
+   "trait_additional": null,
+   "trait_efo": [
+    {
+     "id": "MONDO_0005010",
+     "label": "coronary artery disorder",
+     "description": "Narrowing of the coronary arteries due to fatty deposits inside the arterial walls. The diagnostic criteria may include documented history of any of the following: documented coronary artery stenosis greater than or equal to 50% (by cardiac catheterization or other modality of direct imaging of the coronary arteries); previous coronary artery bypass surgery (CABG); previous percutaneous coronary intervention (PCI); previous myocardial infarction. (ACC) [NCIT: C26732]",
+     "url": "http://purl.obolibrary.org/obo/MONDO_0005010"
+    }
+   ],
+   "method_name": "LD thinning",
+   "method_params": "r2 threshold = 0.7",
+   "variants_number": 49310,
+   "variants_interactions": 0,
+   "variants_genomebuild": "hg19",
+   "weight_type": "NR",
+   "ancestry_distribution": {
+    "dev": {
+     "dist": {
+      "EUR": 100
+     },
+     "count": 5883
+    },
+    "eval": {
+     "dist": {
+      "EUR": 80,
+      "MAE": 20
+     },
+     "count": 5,
+     "multi": [
+      "MAE_EUR",
+      "MAE_NR"
+     ]
+    },
+    "gwas": {
+     "dist": {
+      "MAE": 100
+     },
+     "count": 194427,
+     "multi": [
+      "MAE_EUR",
+      "MAE_SAS"
+     ]
+    }
+   },
+   "date_release": "2019-10-14"
+  }
+ ]
+}

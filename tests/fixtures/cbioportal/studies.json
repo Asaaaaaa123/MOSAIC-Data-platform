@@ -1,0 +1,34 @@
+[
+ {
+  "studyId": "luad_broad",
+  "cancerTypeId": "luad",
+  "name": "Lung Adenocarcinoma (Broad, Cell 2012)",
+  "description": "Whole-exome and/or whole-genome sequencing of 183 lung adenocarcinomas and matched normal tissue pairs.",
+  "publicStudy": true,
+  "pmid": "22980975",
+  "citation": "Imielinksi et al. Cell 2012",
+  "groups": "PUBLIC",
+  "status": 1,
+  "importDate": "2026-01-07 15:52:36",
+  "allSampleCount": 183,
+  "referenceGenome": "hg19",
+  "readPermission": true,
+  "resourceCounts": []
+ },
+ {
+  "studyId": "luad_cas_2020",
+  "cancerTypeId": "luad",
+  "name": "Lung Adenocarcinoma (CAS, Cell 2020)",
+  "description": "Whole-exome sequencing of 103 lung adenocarcinoma cases and their matched normals in Chinese patients.",
+  "publicStudy": true,
+  "pmid": "32649877",
+  "citation": "Xu, Jun-Yu et al. Cell 2020",
+  "groups": "",
+  "status": 1,
+  "importDate": "2026-01-19 21:56:08",
+  "allSampleCount": 103,
+  "referenceGenome": "hg19",
+  "readPermission": true,
+  "resourceCounts": []
+ }
+]

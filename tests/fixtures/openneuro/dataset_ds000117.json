@@ -1,0 +1,170 @@
+{
+ "data": {
+  "dataset": {
+   "id": "ds000117",
+   "name": "Multisubject, multimodal face processing",
+   "created": "2018-03-30T13:14:28.253Z",
+   "publishDate": "2018-03-30T13:14:28.253Z",
+   "metadata": {
+    "modalities": [
+     "mri",
+     "meg"
+    ],
+    "species": null,
+    "studyDomain": null,
+    "studyDesign": null,
+    "associatedPaperDOI": null,
+    "openneuroPaperDOI": null,
+    "dxStatus": null,
+    "tasksCompleted": [
+     "facerecognition",
+     "noise"
+    ],
+    "grantFunderName": null,
+    "grantIdentifier": null,
+    "seniorAuthor": "Henson, RN",
+    "trialCount": null,
+    "studyLongitudinal": null
+   },
+   "public": true,
+   "snapshots": [
+    {
+     "tag": "00002",
+     "created": "2018-07-16T20:16:13.000Z"
+    },
+    {
+     "tag": "00001",
+     "created": "2018-07-16T22:11:56.000Z"
+    },
+    {
+     "tag": "00003",
+     "created": "2018-07-16T23:44:28.000Z"
+    },
+    {
+     "tag": "00004",
+     "created": "2018-07-17T01:16:55.000Z"
+    },
+    {
+     "tag": "1.0.0",
+     "created": "2018-08-19T15:13:21.000Z"
+    },
+    {
+     "tag": "1.0.1",
+     "created": "2018-08-25T19:52:10.000Z"
+    },
+    {
+     "tag": "1.0.2",
+     "created": "2018-09-30T22:19:21.000Z"
+    },
+    {
+     "tag": "1.0.3",
+     "created": "2018-11-26T19:50:49.000Z"
+    },
+    {
+     "tag": "1.0.4",
+     "created": "2020-12-18T16:33:06.000Z"
+    },
+    {
+     "tag": "1.0.5",
+     "created": "2021-09-27T21:10:32.000Z"
+    },
+    {
+     "tag": "1.0.6",
+     "created": "2024-04-22T17:16:42.000Z"
+    },
+    {
+     "tag": "1.1.0",
+     "created": "2025-01-06T15:37:05.000Z"
+    },
+    {
+     "tag": "2.0.0",
+     "created": "2026-09-16T15:08:01.000Z"
+    }
+   ],
+   "latestSnapshot": {
+    "id": "ds000117:2.0.0",
+    "tag": "2.0.0",
+    "created": "2026-09-16T15:08:01.000Z",
+    "size": 90138922894,
+    "description": {
+     "Name": "Multisubject, multimodal face processing",
+     "Authors": [
+      "Wakeman, DG",
+      "Apšvalka, D",
+      "Henson, RN"
+     ],
+     "DatasetDOI": "doi:10.18112/openneuro.ds000117.v2.0.0",
+     "License": "CC0",
+     "Funding": [
+      "UK Medical Research Council (SUAG/010 RG91365), Elekta Ltd."
+     ],
+     "ReferencesAndLinks": [
+      "https://www.ncbi.nlm.nih.gov/pubmed/25977808",
+      "https://openfmri.org/dataset/ds000117/",
+      "ftp://ftp.mrc-cbu.cam.ac.uk/personal/rik.henson/wakemandg_hensonrn/Publications/"
+     ],
+     "Acknowledgements": "This work was supported by the UK Medical Research Council (SUAG/010\nRG91365) and Elekta Ltd.",
+     "HowToAcknowledge": "Cite this paper: https://www.ncbi.nlm.nih.gov/pubmed/25977808 and consider including the following message: 'This data was obtained from the OpenNeuro database. Its accession number is ds000117'",
+     "EthicsApprovals": null,
+     "BIDSVersion": "1.8.0",
+     "DatasetType": null,
+     "SeniorAuthor": "Henson, RN"
+    },
+    "summary": {
+     "modalities": [
+      "mri",
+      "meg"
+     ],
+     "primaryModality": "mri",
+     "secondaryModalities": [
+      "mri_functional",
+      "mri_structural"
+     ],
+     "subjects": [
+      "03",
+      "16",
+      "emptyroom",
+      "10",
+      "05",
+      "12",
+      "14",
+      "08",
+      "04",
+      "02",
+      "11",
+      "09",
+      "07",
+      "06",
+      "01",
+      "13",
+      "15"
+     ],
+     "sessions": [
+      "mri",
+      "meg",
+      "19110308",
+      "19110831",
+      "19110112",
+      "19110208",
+      "19110217",
+      "19110912",
+      "19110220"
+     ],
+     "tasks": [
+      "facerecognition",
+      "noise"
+     ],
+     "totalFiles": 1157,
+     "size": 90138922894,
+     "dataProcessed": false
+    },
+    "readme": "Description\n===========\n\nMulti-subject, multi-modal (sMRI+fMRI+MEG+EEG) neuroimaging dataset on face processing. 16 young healthy volunteers were scanned once in MRI and once in MEG. During the task runs, the volunteers saw three types of faces (famous, unfamiliar and scrambled), either for the first time (Initial) or Repeated either immediately or after several intervening stimuli, but otherwise randomly intermixed every few seconds. This 3x3 design results in 9 different stimulus conditions: \n\n| Label                            | Simplified Label |\n|----------------------------------|-------"
+   }
+  }
+ },
+ "extensions": {
+  "openneuro": {
+   "version": "5.9.0"
+  }
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "documents": [
+  {
+   "document_chembl_id": "CHEMBL1129035",
+   "doi": "10.1021/jm950692f",
+   "journal": "J Med Chem",
+   "pubmed_id": 8632415,
+   "title": "Tyrosine kinase inhibitors. 9. Synthesis and evaluation of fused tricyclic quinazoline analogues as ATP site inhibitors of the tyrosine kinase activity of the epidermal growth factor receptor.",
+   "year": 1996
+  },
+  {
+   "document_chembl_id": "CHEMBL6087440",
+   "doi": "10.1016/j.ejmech.2024.117140",
+   "journal": "Eur J Med Chem",
+   "pubmed_id": 39681043,
+   "title": "Catalytic Lysine745 targeting strategy in fourth-generation EGFR tyrosine kinase inhibitors to address C797S mutation resistance.",
+   "year": 2025
+  }
+ ],
+ "page_meta": {
+  "limit": 2,
+  "next": null,
+  "offset": 0,
+  "previous": null,
+  "total_count": 2
+ }
+}

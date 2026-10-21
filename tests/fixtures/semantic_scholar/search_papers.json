@@ -1,0 +1,134 @@
+{
+ "total": 1763,
+ "offset": 0,
+ "next": 2,
+ "data": [
+  {
+   "paperId": "c28355b63cd66f16786f62a8afbe2d41d8b9e902",
+   "externalIds": {
+    "PubMedCentral": "12824697",
+    "DOI": "10.1182/blood.2024028166",
+    "CorpusId": 280926129,
+    "PubMed": "40857666"
+   },
+   "corpusId": 280926129,
+   "publicationVenue": {
+    "id": "9b6db04a-2990-4cf9-a14c-01d47636ee53",
+    "name": "Blood",
+    "type": "journal",
+    "issn": "0006-4971",
+    "url": "http://www.bloodjournal.org/"
+   },
+   "url": "https://www.semanticscholar.org/paper/c28355b63cd66f16786f62a8afbe2d41d8b9e902",
+   "title": "A prime editing strategy to rewrite the γ-globin promoters and reactivate fetal hemoglobin for sickle cell disease",
+   "venue": "Blood",
+   "year": 2025,
+   "referenceCount": 0,
+   "citationCount": 6,
+   "influentialCitationCount": 1,
+   "isOpenAccess": true,
+   "openAccessPdf": {
+    "url": "https://www.biorxiv.org/content/biorxiv/early/2025/01/14/2025.01.13.632780.full.pdf",
+    "status": "GREEN",
+    "license": null,
+    "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC12824697, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+   },
+   "fieldsOfStudy": [
+    "Medicine"
+   ],
+   "tldr": {
+    "model": "tldr@v2.0.0",
+    "text": "Prime editing enables multiplex editing of the γ-globin promoters with high precision in hematopoietic cells, offering new therapeutic options for hemoglobinopathies."
+   },
+   "publicationTypes": [
+    "JournalArticle"
+   ],
+   "publicationDate": "2025-08-26",
+   "journal": {
+    "name": "Blood",
+    "pages": "2641 - 2655",
+    "volume": "146"
+   },
+   "authors": [
+    {
+     "authorId": "1454456938",
+     "name": "A. Chalumeau"
+    },
+    {
+     "authorId": null,
+     "name": "Maria Bou Dames"
+    },
+    {
+     "authorId": "2141842963",
+     "name": "Letizia Fontana"
+    }
+   ],
+   "abstract": "Key Points • Prime editing enables multiplex editing of the γ-globin promoters with high precision in hematopoietic cells.• Multiple edits in the HBG1/2 promoters boost γ-globin beyond individual mutations, offering new therapeutic options for hemoglobinopathies."
+  },
+  {
+   "paperId": "8f99bd818efdff4f543b003ea5b7dca96a27606b",
+   "externalIds": {
+    "PubMedCentral": "10195679",
+    "DOI": "10.1038/s41551-023-01026-0",
+    "CorpusId": 258188303,
+    "PubMed": "37069266"
+   },
+   "corpusId": 258188303,
+   "publicationVenue": {
+    "id": "5619586e-de5a-4bc3-ac80-04dd8530d80c",
+    "name": "Nature Biomedical Engineering",
+    "type": "journal",
+    "alternate_names": [
+     "Nat Biomed Eng"
+    ],
+    "issn": "2157-846X",
+    "url": "http://www.nature.com/natbiomedeng/"
+   },
+   "url": "https://www.semanticscholar.org/paper/8f99bd818efdff4f543b003ea5b7dca96a27606b",
+   "title": "Ex vivo prime editing of patient haematopoietic stem cells rescues sickle-cell disease phenotypes after engraftment in mice",
+   "venue": "Nature Biomedical Engineering",
+   "year": 2023,
+   "referenceCount": 73,
+   "citationCount": 143,
+   "influentialCitationCount": 5,
+   "isOpenAccess": true,
+   "openAccessPdf": {
+    "url": "https://www.nature.com/articles/s41551-023-01026-0.pdf",
+    "status": "HYBRID",
+    "license": "CCBY",
+    "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC10195679, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+   },
+   "fieldsOfStudy": [
+    "Medicine"
+   ],
+   "tldr": {
+    "model": "tldr@v2.0.0",
+    "text": "The findings support the feasibility of a one-time prime editing SCD treatment that corrects HBB ^S to HBB ^A, does not require any viral or non-viral DNA template and minimizes undesired consequences of DNA double-strand breaks."
+   },
+   "publicationTypes": [
+    "JournalArticle"
+   ],
+   "publicationDate": "2023-04-17",
+   "journal": {
+    "name": "Nature Biomedical Engineering",
+    "pages": "616 - 628",
+    "volume": "7"
+   },
+   "authors": [
+    {
+     "authorId": "2050778421",
+     "name": "Kelcee A. Everette"
+    },
+    {
+     "authorId": "7572843",
+     "name": "Gregory A. Newby"
+    },
+    {
+     "authorId": "38115320",
+     "name": "Rachel M. Levine"
+    }
+   ],
+   "abstract": "Prime editing can efficiently correct the sickle-cell allele to produce wild-type haemoglobin in patient haematopoietic stem cells that engraft efficiently in mice, yielding erythrocytes resistant to hypoxia-induced sickling. Sickle-cell disease (SCD) is caused by an A·T-to-T·A transversion mutation in the β -globin gene ( HBB ). Here we show that prime editing can correct the SCD allele ( HBB ^S)"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "data": {
+  "hits": [
+   {
+    "id": "081c1afc-ea50-4773-9402-dfc686603a16",
+    "data_format": "MAF",
+    "cases": [
+     {
+      "submitter_id": "TCGA-A8-A09E",
+      "project": {
+       "project_id": "TCGA-BRCA"
+      }
+     }
+    ],
+    "access": "open",
+    "file_name": "e35fa380-07ac-45e1-9adc-4351675c6ccf.wxs.aliquot_ensemble_masked.maf.gz",
+    "data_category": "Simple Nucleotide Variation",
+    "analysis": {
+     "workflow_type": "Aliquot Ensemble Somatic Variant Merging and Masking"
+    },
+    "platform": "Illumina",
+    "file_size": 18846,
+    "created_datetime": "2022-08-01T13:17:01.904550-05:00",
+    "md5sum": "cc1f2e7969fd9bb7002c37c42b0c6189",
+    "updated_datetime": "2024-07-31T03:58:30.131884-05:00",
+    "file_id": "081c1afc-ea50-4773-9402-dfc686603a16",
+    "data_type": "Masked Somatic Mutation",
+    "experimental_strategy": "WXS"
+   },
+   {
+    "id": "d6709b52-b2fb-4b89-89d4-a426de3f21f0",
+    "data_format": "MAF",
+    "cases": [
+     {
+      "submitter_id": "TCGA-A7-A0CD",
+      "project": {
+       "project_id": "TCGA-BRCA"
+      }
+     }
+    ],
+    "access": "open",
+    "file_name": "ac3dbb7f-2ce9-43b7-9f45-1c1521e6bbf5.wxs.aliquot_ensemble_masked.maf.gz",
+    "data_category": "Simple Nucleotide Variation",
+    "analysis": {
+     "workflow_type": "Aliquot Ensemble Somatic Variant Merging and Masking"
+    },
+    "platform": "Illumina",
+    "file_size": 10693,
+    "created_datetime": "2022-08-01T13:34:11.586104-05:00",
+    "md5sum": "80c0b61d5aae81237ed72412b05bc1d7",
+    "updated_datetime": "2024-07-31T04:11:44.846944-05:00",
+    "file_id": "d6709b52-b2fb-4b89-89d4-a426de3f21f0",
+    "data_type": "Masked Somatic Mutation",
+    "experimental_strategy": "WXS"
+   }
+  ],
+  "pagination": {
+   "count": 2,
+   "total": 992,
+   "size": 2,
+   "from": 0,
+   "sort": "",
+   "page": 1,
+   "pages": 496
+  }
+ },
+ "warnings": {}
+}

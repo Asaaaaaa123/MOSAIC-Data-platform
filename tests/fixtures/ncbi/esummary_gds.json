@@ -1,0 +1,104 @@
+{
+ "result": {
+  "uids": [
+   "200121810",
+   "200045209"
+  ],
+  "200121810": {
+   "uid": "200121810",
+   "accession": "GSE121810",
+   "gds": "",
+   "title": "Neoadjuvant anti-PD-1 immunotherapy promotes a survival benefit with intratumoral and systemic immune responses in recurrent glioblastoma",
+   "summary": "Glioblastoma is the most common primary malignant brain tumor in adults and associated with poor survival. Standard-of-care chemotherapy and radiation confer a median overall survival of under two years. The Ivy Foundation Early Phase Clinical Trials Consortium conducted a randomized, multi institution clinical trial to evaluate immune responses and survival following neoadjuvant and/or adjuvant therapy with pembrolizumab, a programmed cell death protein 1 (PD-1) monoclonal antibody, in 35 patients with recurrent, surgically resectable glioblastoma. Patients who were randomized to receive neoadjuvant pembrolizumab, with continued adjuvant therapy following surgery, had significantly extended overall survival compared to patients that were randomized to receive adjuvant, post-surgical PD-1 blockade alone (hazard ratio = 0.39; P = 0.04, log-rank test). Neoadjuvant PD-1 blockade was associated with upregulation of T cell and interferon-γ-related genes, but downregulation of cell cycle related genes within the tumor, which was not seen in patients that received adjuvant therapy alone. Focal induction of programmed death-ligand 1 (PD-L1) in the tumor microenvironment was observed more frequently in the neoadjuvant group than in tumors obtained from patients treated only in the adjuvant setting. Similarly, neoadjuvant pembrolizumab was associated with clonal T cell expansion and the overlap of T cell receptors between tumor and blood, decreased PD-1 expression in T cells and a decreasing peripheral monocytic population. These findings suggest that the neoadjuvant administration of PD-1 blockade enhances the local and systemic anti-tumor immune response and may represent a more efficacious approach to the treatment of this uniformly lethal brain tumor. This trial was registered with ClinicalTrials.gov under the identifier NCT02852655 (https://clinicaltrials.gov/ct2/show/NCT02852655).",
+   "gpl": "21290",
+   "gse": "121810",
+   "taxon": "Homo sapiens",
+   "entrytype": "GSE",
+   "gdstype": "Expression profiling by high throughput sequencing",
+   "ptechtype": "",
+   "valtype": "",
+   "ssinfo": "",
+   "subsetinfo": "",
+   "pdat": "2018/12/05",
+   "suppfile": "XLSX",
+   "samples": [
+    {
+     "accession": "GSM3447023",
+     "title": "Patient 10 tumor"
+    },
+    {
+     "accession": "GSM3447026",
+     "title": "Patient 15 tumor"
+    }
+   ],
+   "relations": [],
+   "extrelations": [
+    {
+     "relationtype": "SRA",
+     "targetobject": "SRP166889",
+     "targetftplink": "ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByStudy/sra/SRP/SRP166/SRP166889/"
+    }
+   ],
+   "n_samples": 29,
+   "seriestitle": "",
+   "platformtitle": "",
+   "platformtaxa": "",
+   "samplestaxa": "",
+   "pubmedids": [
+    "30742122"
+   ],
+   "projects": [],
+   "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE121nnn/GSE121810/",
+   "geo2r": "yes",
+   "bioproject": "PRJNA498500"
+  },
+  "200045209": {
+   "uid": "200045209",
+   "accession": "GSE45209",
+   "gds": "",
+   "title": "MicroRNA-146 function in the innate immune response of zebrafish embryos to Salmonella typhimurium infection [RNA-seq]",
+   "summary": "We used zebrafish embryos as an in vivo system to investigate the role of the microRNA-146 family (consisting of 2 members miR-146a and miR-146b) in the innate immune response to S. typhimurium infection.  To determine the role of miR-146 microRNAs in the response to S. typhimurium infection we used Illumina RNA sequencing to compare the mRNA expression profiles of control embryos versus embryos with  knockdown of miR-146a and miR-146b. RNA sequencing analysis of miR-146 knockdown embryos showed no major effects on pro-inflammatory gene expression or on the expression of transcriptional regulators and signal transduction components of the immune response. In contrast, apoliprotein-mediated lipid transport emerged as an infection-inducible pathway under miR-146 knockdown conditions, suggesting a function of miR-146 in regulating lipid metabolism during inflammation.",
+   "gpl": "14875",
+   "gse": "45209",
+   "taxon": "Danio rerio",
+   "entrytype": "GSE",
+   "gdstype": "Expression profiling by high throughput sequencing",
+   "ptechtype": "",
+   "valtype": "",
+   "ssinfo": "",
+   "subsetinfo": "",
+   "pdat": "2013/09/16",
+   "suppfile": "TSV",
+   "samples": [
+    {
+     "accession": "GSM1099148",
+     "title": "Salmonella-infected miR-146 knockdown_rep1"
+    },
+    {
+     "accession": "GSM1099145",
+     "title": "uninfected control_rep1"
+    }
+   ],
+   "relations": [],
+   "extrelations": [
+    {
+     "relationtype": "SRA",
+     "targetobject": "SRP019500",
+     "targetftplink": "ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByStudy/sra/SRP/SRP019/SRP019500/"
+    }
+   ],
+   "n_samples": 8,
+   "seriestitle": "",
+   "platformtitle": "",
+   "platformtaxa": "",
+   "samplestaxa": "",
+   "pubmedids": [
+    "24112639"
+   ],
+   "projects": [],
+   "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE45nnn/GSE45209/",
+   "geo2r": "no",
+   "bioproject": "PRJNA193208"
+  }
+ }
+}

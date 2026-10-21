@@ -1,0 +1,369 @@
+{
+ "apiMessage": "This JSON was provided by Springer Nature",
+ "query": "keyword:crispr type:Journal",
+ "result": [
+  {
+   "total": "4509",
+   "start": "1",
+   "pageLength": "2",
+   "recordsDisplayed": "2"
+  }
+ ],
+ "records": [
+  {
+   "contentType": "Article",
+   "identifier": "doi:10.1007/s12010-026-05916-2",
+   "language": "en",
+   "url": [
+    {
+     "format": "html",
+     "platform": "web",
+     "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/s12010-026-05916-2"
+    },
+    {
+     "format": "pdf",
+     "platform": "web",
+     "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/s12010-026-05916-2"
+    },
+    {
+     "format": "",
+     "platform": "",
+     "value": "http://dx.doi.org/10.1007/s12010-026-05916-2"
+    }
+   ],
+   "title": "Rapid Differential Detection of PRRSV NADC30-like and NADC34-like Strains Using a CRISPR-Cas13a/RT-RAA Assay",
+   "creators": [
+    {
+     "creator": "Wang, Hao"
+    },
+    {
+     "creator": "Wang, Xinwei"
+    },
+    {
+     "creator": "Geng, Qinghua"
+    },
+    {
+     "creator": "Li, Miao"
+    },
+    {
+     "creator": "Li, Zhuo"
+    },
+    {
+     "creator": "Liu, Jinling"
+    },
+    {
+     "creator": "Yang, Zuofeng"
+    },
+    {
+     "creator": "Lan, Desong"
+    },
+    {
+     "creator": "Chen, Zeliang"
+    }
+   ],
+   "publicationName": "Applied Biochemistry and Biotechnology",
+   "openaccess": "false",
+   "doi": "10.1007/s12010-026-05916-2",
+   "publisher": "Springer",
+   "publisherName": "Springer US",
+   "publicationDate": "2026-11-01",
+   "publicationType": "Journal",
+   "abstract": "Innovative “two-step, one-tube” system: Combines RT-RAA pre-amplification, T7 transcription, and CRISPR-Cas13a detection, retaining high specificity while enhancing speed and simplicity. Superior performance: Faster than RT-qPCR, zero cross-reactivity (ASFV/PCV), high sensitivity (LoD: 2.3 × 10¹–1.7 × 10¹ copies/µL), and 100% clinical concordance ( n  = 30). Practical application: Enables rapid PRRSV NADC30/NADC34 strain identification, typing, and surveillance, supporting precision control strategies. Graphical Abstract  The global swine industry suffers substantial economic losses from Porcine Reproductive and Respiratory Syndrome Virus (PRRSV), which causes reproductive and respiratory disorders. With NADC30- and NADC34-like strains now predominant, differentiation is complicated by their similar biology, despite characteristic Nsp2 gene deletions of 131 aa and 100 aa, respectively, highlighting a need for improved diagnostics. Moving fundamentally beyond conventional broad-spectrum detection, this assay innovatively targets the characteristic Nsp2 deletion signatures. A diagnostic platform integrating CRISPR-Cas13a with recombinase-aided amplification (RT-RAA) was constructed. Utilising aligned Nsp2 sequences, conserved crRNAs, and RT-RAA primers, NADC30- and NADC34-like strains were evaluated for their assay time, specificity, sensitivity, and consistency with RT-qPCR. The assay achieved rapid, specific detection with no cross-reactivity to common swine pathogens, and highly sensitive detection limits of 1.7 × 10¹ and 2.3 × 10¹ copies/µL for NADC30- and NADC34-like strains, respectively. Clinical validation using 30 samples demonstrated complete concordance with RT-qPCR, and the integration of T7 transcription enabled the single-tube differentiation of both strains. In summary, this one-tube, two-step fluorescent system presents a robust alternative for PRRSV diagnostics, combining specificity, sensitivity, and ease of use. It is well-suited for rapid field identification, molecular typing, and surveillance, thereby aiding in the implementation of targeted control measures.",
+   "conferenceInfo": [],
+   "keyword": [
+    "Porcine reproductive and respiratory syndrome",
+    "RT-RAA",
+    "CRISPR",
+    "LwCas13a"
+   ],
+   "subjects": [
+    "Chemistry",
+    "Biotechnology",
+    "Biochemistry, general"
+   ],
+   "disciplines": [
+    {
+     "id": "3246",
+     "term": "Biotechnology"
+    },
+    {
+     "id": "2950",
+     "term": "Chemical Biology"
+    }
+   ],
+   "sntsubjects": [
+    {
+     "id": "5971",
+     "term": "Reverse transcription polymerase chain reaction"
+    },
+    {
+     "id": "5304",
+     "term": "Riboswitches"
+    },
+    {
+     "id": "6863",
+     "term": "Next-generation sequencing"
+    },
+    {
+     "id": "5312",
+     "term": "RNA quality control"
+    },
+    {
+     "id": "4161",
+     "term": "siRNAs"
+    },
+    {
+     "id": "3946",
+     "term": "Western Blot"
+    }
+   ],
+   "issn": "0273-2289",
+   "eIssn": "1559-0291",
+   "volume": "198",
+   "number": "11",
+   "issueType": "Regular",
+   "topicalCollection": "",
+   "genre": [
+    "OriginalPaper",
+    "Original Article"
+   ],
+   "startingPage": "9312",
+   "endingPage": "9328",
+   "article-number": "",
+   "journalId": "12010",
+   "printDate": "2026-10-15",
+   "onlineDate": "2026-09-18",
+   "coverDate": "2026-11",
+   "copyright": "©2026 The Author(s), under exclusive licence to Springer Science+Business Media, LLC, part of Springer Nature"
+  },
+  {
+   "contentType": "Article",
+   "identifier": "doi:10.1007/s12010-026-05939-9",
+   "language": "en",
+   "url": [
+    {
+     "format": "html",
+     "platform": "web",
+     "value": "http://link.springer.com/openurl/fulltext?id=doi:10.1007/s12010-026-05939-9"
+    },
+    {
+     "format": "pdf",
+     "platform": "web",
+     "value": "http://link.springer.com/openurl/pdf?id=doi:10.1007/s12010-026-05939-9"
+    },
+    {
+     "format": "",
+     "platform": "",
+     "value": "http://dx.doi.org/10.1007/s12010-026-05939-9"
+    }
+   ],
+   "title": "Multi-gene Regulation Based on Metabolites Analysis Reduces Nucleus Degradation and By-product Accumulation During Phytosterols Conversion to 9-Hydroxyandrost-4-ene-3,17-Dione",
+   "creators": [
+    {
+     "creator": "Ma, Siyuan"
+    },
+    {
+     "creator": "Guo, Zuran"
+    },
+    {
+     "creator": "Xu, Lvqing"
+    },
+    {
+     "creator": "Wang, Xuedong",
+     "ORCID": "0000-0001-7618-5847"
+    }
+   ],
+   "publicationName": "Applied Biochemistry and Biotechnology",
+   "openaccess": "false",
+   "doi": "10.1007/s12010-026-05939-9",
+   "publisher": "Springer",
+   "publisherName": "Springer US",
+   "publicationDate": "2026-11-01",
+   "publicationType": "Journal",
+   "abstract": "Mycobacterium neoaurum HK86W is capable of converting phytosterols into the steroidal pharmaceutical intermediate 9-hydroxyandrost-4-ene-3,17-dione (9-OH-AD). In this study, systematic biotransformation product profiling during sterol transformation revealed that degradation of the steroidal nucleus and accumulation of multiple by-products are key factors limiting the industrial application of this process. Knockout of two newly identified 3-ketosteroid-Δ¹-dehydrogenase genes ( kstD4 and kstD5 ) effectively reduced degradation of the steroid nucleus caused by Δ¹-dehydrogenation. Meanwhile, the mechanisms underlying the generation of various major by-products were clearly elucidated. Through genetic modifications involving deletion of salA and overexpression of kshA , hsd4A , and hsd4B , a mutant strain HK86-V was successfully constructed to reduce by-product formation. In a 50 g/L phytosterol transformation system, the engineered strain significantly increased 9-OH-AD production from 21.97 g/L to 29.47 g/L, with a molar yield of 80.34%. Furthermore, by reducing the reaction rate and supplementing glucose as an auxiliary carbon source, the yield of 9-OH-AD was further enhanced to 32.14 g/L and the molar yield increased to 87.62% under optimized transformation conditions.",
+   "conferenceInfo": [],
+   "keyword": [
+    "",
+    "9-hydroxyandrost-4-ene-3,17-dione (9-OH-AD)",
+    "3-ketosteroid Δ-dehydrogenase (KstD)",
+    "CRISPR",
+    "Metabolic engineering"
+   ],
+   "subjects": [
+    "Chemistry",
+    "Biotechnology",
+    "Biochemistry, general"
+   ],
+   "disciplines": [
+    {
+     "id": "3246",
+     "term": "Biotechnology"
+    },
+    {
+     "id": "2950",
+     "term": "Chemical Biology"
+    }
+   ],
+   "sntsubjects": [
+    {
+     "id": "7534",
+     "term": "Sterols"
+    },
+    {
+     "id": "3834",
+     "term": "Brassinosteroid"
+    },
+    {
+     "id": "4514",
+     "term": "Acetyltransferases"
+    },
+    {
+     "id": "3808",
+     "term": "ER-associated degradation"
+    },
+    {
+     "id": "5919",
+     "term": "Biosynthesis"
+    },
+    {
+     "id": "3835",
+     "term": "Plant Hormones"
+    }
+   ],
+   "issn": "0273-2289",
+   "eIssn": "1559-0291",
+   "volume": "198",
+   "number": "11",
+   "issueType": "Regular",
+   "topicalCollection": "",
+   "genre": [
+    "OriginalPaper",
+    "Original Article"
+   ],
+   "startingPage": "8564",
+   "endingPage": "8575",
+   "article-number": "",
+   "journalId": "12010",
+   "printDate": "2026-10-15",
+   "onlineDate": "2026-09-16",
+   "coverDate": "2026-11",
+   "copyright": "©2026 The Author(s), under exclusive licence to Springer Science+Business Media, LLC, part of Springer Nature"
+  }
+ ],
+ "facets": [
+  {
+   "name": "subject",
+   "values": [
+    {
+     "value": "Life Sciences",
+     "count": "2481"
+    },
+    {
+     "value": "Biotechnology",
+     "count": "970"
+    },
+    {
+     "value": "Cell Biology",
+     "count": "862"
+    },
+    {
+     "value": "Microbiology",
+     "count": "733"
+    }
+   ]
+  },
+  {
+   "name": "keyword",
+   "values": [
+    {
+     "value": "CRISPR/Cas9",
+     "count": "1399"
+    },
+    {
+     "value": "CRISPR",
+     "count": "761"
+    },
+    {
+     "value": "Genome editing",
+     "count": "589"
+    },
+    {
+     "value": "CRISPR-Cas9",
+     "count": "450"
+    }
+   ]
+  },
+  {
+   "name": "pub",
+   "values": [
+    {
+     "value": "Genome Biology",
+     "count": "136"
+    },
+    {
+     "value": "Scientific Reports",
+     "count": "119"
+    },
+    {
+     "value": "Molecular Biology Reports",
+     "count": "113"
+    },
+    {
+     "value": "BMC Genomics",
+     "count": "106"
+    }
+   ]
+  },
+  {
+   "name": "year",
+   "values": [
+    {
+     "value": "2026",
+     "count": "742"
+    },
+    {
+     "value": "2025",
+     "count": "666"
+    },
+    {
+     "value": "2024",
+     "count": "548"
+    },
+    {
+     "value": "2023",
+     "count": "425"
+    }
+   ]
+  },
+  {
+   "name": "country",
+   "values": [
+    {
+     "value": "China",
+     "count": "1516"
+    },
+    {
+     "value": "United States",
+     "count": "900"
+    },
+    {
+     "value": "India",
+     "count": "579"
+    },
+    {
+     "value": "Germany",
+     "count": "257"
+    }
+   ]
+  },
+  {
+   "name": "type",
+   "values": [
+    {
+     "value": "Journal",
+     "count": "4509"
+    }
+   ]
+  }
+ ]
+}

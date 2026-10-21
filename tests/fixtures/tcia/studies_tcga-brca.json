@@ -1,0 +1,57 @@
+[
+ {
+  "StudyInstanceUID": "1.3.6.1.4.1.14519.5.2.1.3344.4002.307747749278929226311301198628",
+  "StudyDate": "2001-11-21 00:00:00.0",
+  "StudyDescription": "*MRI - BREAST",
+  "PatientAge": "049Y",
+  "PatientID": "TCGA-AR-A1AQ",
+  "PatientName": "1^TCGA-BRCA",
+  "PatientSex": "F",
+  "Collection": "TCGA-BRCA",
+  "SeriesCount": 12
+ },
+ {
+  "StudyInstanceUID": "1.3.6.1.4.1.14519.5.2.1.3344.4002.249354313922816279857767035077",
+  "StudyDate": "1999-11-25 00:00:00.0",
+  "StudyDescription": "*MRI - BREAST",
+  "PatientAge": "026Y",
+  "PatientID": "TCGA-AR-A24S",
+  "PatientName": "24^TCGA-BRCA",
+  "PatientSex": "F",
+  "Collection": "TCGA-BRCA",
+  "SeriesCount": 13
+ },
+ {
+  "StudyInstanceUID": "1.3.6.1.4.1.14519.5.2.1.3344.4002.217739545055639726726312661364",
+  "StudyDate": "2003-09-24 00:00:00.0",
+  "StudyDescription": "MRI BREAST BILATERAL",
+  "PatientAge": "065Y",
+  "PatientID": "TCGA-AR-A1AX",
+  "PatientName": "1^TCGA-BRCA",
+  "PatientSex": "F",
+  "Collection": "TCGA-BRCA",
+  "SeriesCount": 14
+ },
+ {
+  "StudyInstanceUID": "1.3.6.1.4.1.14519.5.2.1.3344.4002.100294194044853718189419781050",
+  "StudyDate": "2003-05-07 00:00:00.0",
+  "StudyDescription": "MRI BREAST BILATERAL",
+  "PatientAge": "050Y",
+  "PatientID": "TCGA-AR-A1AQ",
+  "PatientName": "1^TCGA-BRCA",
+  "PatientSex": "F",
+  "Collection": "TCGA-BRCA",
+  "SeriesCount": 13
+ },
+ {
+  "StudyInstanceUID": "1.3.6.1.4.1.14519.5.2.1.3344.4002.654345798623259073784018355235",
+  "StudyDate": "2002-09-12 00:00:00.0",
+  "StudyDescription": "MRI BREAST BILATERAL",
+  "PatientAge": "064Y",
+  "PatientID": "TCGA-AR-A1AX",
+  "PatientName": "1^TCGA-BRCA",
+  "PatientSex": "F",
+  "Collection": "TCGA-BRCA",
+  "SeriesCount": 12
+ }
+]

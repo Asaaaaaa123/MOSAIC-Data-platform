@@ -1,0 +1,61 @@
+{
+ "serial-metadata-response": {
+  "entry": [
+   {
+    "@_fa": "true",
+    "dc:title": "Cell",
+    "dc:publisher": "Elsevier B.V.",
+    "coverageStartYear": "1974",
+    "coverageEndYear": "2026",
+    "prism:aggregationType": "journal",
+    "source-id": "18434",
+    "prism:issn": "0092-8674",
+    "prism:eIssn": "1097-4172",
+    "openaccess": "0",
+    "openaccessArticle": false,
+    "openArchiveArticle": false,
+    "openaccessType": "None",
+    "openaccessStartDate": null,
+    "oaAllowsAuthorPaid": true,
+    "openaccessWindow": {
+     "openaccessSponsorName": null,
+     "openaccessSponsorType": "ElsevierBranded",
+     "openaccessUserLicense": null
+    },
+    "subject-area": [
+     {
+      "@_fa": "true",
+      "@code": "1300",
+      "@abbrev": "BIOC",
+      "$": "Biochemistry, Genetics and Molecular Biology (all)"
+     }
+    ],
+    "SNIPList": {
+     "SNIP": [
+      {
+       "@_fa": "true",
+       "@year": "2025",
+       "$": "8.498"
+      }
+     ]
+    },
+    "SJRList": {
+     "SJR": [
+      {
+       "@_fa": "true",
+       "@year": "2025",
+       "$": "24.592"
+      }
+     ]
+    },
+    "citeScoreYearInfoList": {
+     "citeScoreCurrentMetric": "67.8",
+     "citeScoreCurrentMetricYear": "2025",
+     "citeScoreTracker": "63.4",
+     "citeScoreTrackerYear": "2026"
+    },
+    "prism:url": "https://api.elsevier.com/content/serial/title/issn/0092-8674"
+   }
+  ]
+ }
+}

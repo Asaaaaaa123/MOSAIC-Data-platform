@@ -1,0 +1,188 @@
+{
+ "data": [
+  {
+   "objCls": "GuidelineAnnotation",
+   "id": "PA166182842",
+   "name": "Annotation of DPWG Clinical Guideline for warfarin and CYP2C9",
+   "alternateDrugAvailable": false,
+   "cancerGenome": false,
+   "crossReferences": [],
+   "dosingInformation": true,
+   "hasTestingInfo": false,
+   "history": [
+    {
+     "id": 1452414660,
+     "date": "2024-03-20T06:05:50.625-07:00",
+     "description": "Replaced broken links to algorithms with excel downloads.",
+     "type": "Update",
+     "version": 0
+    },
+    {
+     "id": 1454042221,
+     "date": "2025-04-25T16:38:44.712-07:00",
+     "description": "updated CYP2C9 gene information document",
+     "type": "Update",
+     "version": 0
+    }
+   ],
+   "literature": [
+    {
+     "id": 15103288,
+     "title": "Dutch Pharmacogenetics Working Group Guidelines August 2019",
+     "_sameAs": "https://api.clinpgx.org/v1/preview/download/file/attachment/DPWG_August_2019.pdf",
+     "crossReferences": [
+      {
+       "id": 1450815695,
+       "resource": "URL",
+       "resourceId": "https://api.clinpgx.org/v1/preview/download/file/attachment/DPWG_August_2019.pdf",
+       "_url": "https://api.clinpgx.org/v1/preview/download/file/attachment/DPWG_August_2019.pdf"
+      }
+     ],
+     "objCls": "Literature",
+     "terms": [],
+     "type": "Literature"
+    },
+    {
+     "id": 15102465,
+     "title": "Dutch Pharmacogenetics Working Group Guidelines November 2018",
+     "_sameAs": "https://api.clinpgx.org/v1/preview/download/file/attachment/DPWG_November_2018.pdf",
+     "crossReferences": [
+      {
+       "id": 1450415575,
+       "resource": "URL",
+       "resourceId": "https://api.clinpgx.org/v1/preview/download/file/attachment/DPWG_November_2018.pdf",
+       "_url": "https://api.clinpgx.org/v1/preview/download/file/attachment/DPWG_November_2018.pdf"
+      }
+     ],
+     "objCls": "Literature",
+     "terms": [],
+     "type": "Literature"
+    }
+   ],
+   "otherPrescribingGuidance": false,
+   "pediatric": false,
+   "recommendation": true,
+   "relatedAlleles": [],
+   "relatedChemicals": [
+    {
+     "objCls": "Chemical",
+     "id": "PA451906",
+     "name": "warfarin"
+    }
+   ],
+   "relatedGenes": [
+    {
+     "objCls": "Gene",
+     "id": "PA126",
+     "symbol": "CYP2C9",
+     "name": "cytochrome P450 family 2 subfamily C member 9"
+    }
+   ],
+   "source": "DPWG",
+   "summaryMarkdown": {
+    "id": 1450415238,
+    "html": "<p>Reduce warfarin dose in CYP2C9 poor and intermediate metabolizers (PM and IM) and patients with CYP2C9*1/*3, *2/*3, *2/*2 or *3/*3 genotype. The genotype-specific initial dose and maintenance dose can be calculated using an algorithm, as used in EU-PACT.</p>\n"
+   },
+   "textMarkdown": {
+    "id": 1450415239,
+    "html": "<h3 id=\"may-2021-update\">May 2021 update</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has made some minor changes to the names of some phenotype groups in this guideline. The table below has been updated to reflect this but the recommendations themselves have not changed.</p>\n<h3 id=\"november-2018-guideline\">November 2018 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group has evaluated therapeutic dose recommendations for warfarin based on CYP2C9 genotype/phenotype.  They recommend reducing warfarin dose for CYP2C9 poo"
+   }
+  },
+  {
+   "objCls": "GuidelineAnnotation",
+   "id": "PA166182841",
+   "name": "Annotation of DPWG Clinical Guideline for warfarin and VKORC1",
+   "alternateDrugAvailable": false,
+   "cancerGenome": false,
+   "crossReferences": [],
+   "dosingInformation": true,
+   "hasTestingInfo": false,
+   "history": [
+    {
+     "id": 1452411925,
+     "date": "2024-03-18T12:40:45.847-07:00",
+     "description": "Updated links for risk analysis pdf.",
+     "type": "Update",
+     "version": 0
+    },
+    {
+     "id": 1452414661,
+     "date": "2024-03-20T06:08:05.526-07:00",
+     "description": "Added the link for algorithm attachment and date of retrieval.",
+     "type": "Update",
+     "version": 0
+    }
+   ],
+   "literature": [
+    {
+     "id": 15103288,
+     "title": "Dutch Pharmacogenetics Working Group Guidelines August 2019",
+     "_sameAs": "https://api.clinpgx.org/v1/preview/download/file/attachment/DPWG_August_2019.pdf",
+     "crossReferences": [
+      {
+       "id": 1450815695,
+       "resource": "URL",
+       "resourceId": "https://api.clinpgx.org/v1/preview/download/file/attachment/DPWG_August_2019.pdf",
+       "_url": "https://api.clinpgx.org/v1/preview/download/file/attachment/DPWG_August_2019.pdf"
+      }
+     ],
+     "objCls": "Literature",
+     "terms": [],
+     "type": "Literature"
+    },
+    {
+     "id": 15102465,
+     "title": "Dutch Pharmacogenetics Working Group Guidelines November 2018",
+     "_sameAs": "https://api.clinpgx.org/v1/preview/download/file/attachment/DPWG_November_2018.pdf",
+     "crossReferences": [
+      {
+       "id": 1450415575,
+       "resource": "URL",
+       "resourceId": "https://api.clinpgx.org/v1/preview/download/file/attachment/DPWG_November_2018.pdf",
+       "_url": "https://api.clinpgx.org/v1/preview/download/file/attachment/DPWG_November_2018.pdf"
+      }
+     ],
+     "objCls": "Literature",
+     "terms": [],
+     "type": "Literature"
+    }
+   ],
+   "otherPrescribingGuidance": false,
+   "pediatric": false,
+   "recommendation": true,
+   "relatedAlleles": [
+    {
+     "objCls": "Variant",
+     "id": "PA166155091",
+     "symbol": "rs9923231",
+     "name": "rs9923231"
+    }
+   ],
+   "relatedChemicals": [
+    {
+     "objCls": "Chemical",
+     "id": "PA451906",
+     "name": "warfarin"
+    }
+   ],
+   "relatedGenes": [
+    {
+     "objCls": "Gene",
+     "id": "PA133787052",
+     "symbol": "VKORC1",
+     "name": "vitamin K epoxide reductase complex subunit 1"
+    }
+   ],
+   "source": "DPWG",
+   "summaryMarkdown": {
+    "id": 1450415234,
+    "html": "<p>Patients with the VKORC1 rs9923231 TT genotype (-1639 AA genotype) should be given 60% of the standard initial dose of warfarin. The genotype-specific initial dose and maintenance dose can be calculated using an algorithm. There are no recommendation for patients with the VKORC1 rs9923231 CT genotype (-1639 AG genotype).</p>\n"
+   },
+   "textMarkdown": {
+    "id": 1450415235,
+    "html": "<h3 id=\"november-2018-guideline\">November 2018 Guideline</h3>\n<p>The Royal Dutch Pharmacists Association - Pharmacogenetics Working Group (DPWG) has evaluated therapeutic dose recommendations for warfarin based on VKORC1 genotype. They recommend that patients with the VKORC1 <a href=\"/variant/PA166155091\">rs9923231</a> TT genotype (-1639 AA genotype)  receive 60% of the standard initial dose.The genotype-specific initial dose and maintenance dose can be calculated using an algorithm. No action is needed for patients with the VKORC1 rs9923231 CT genotype (-1639 AG genotype).</p>\n<p><a download="
+   }
+  }
+ ],
+ "status": "success"
+}

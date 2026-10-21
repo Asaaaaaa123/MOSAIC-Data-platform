@@ -40,6 +40,8 @@ RecordType = Literal[
     "sample",
     "study",
     "grant",
+    "guideline",
+    "software",
     "other",
 ]
 
@@ -103,11 +105,19 @@ class ToolResult(BaseModel):
     def to_llm(self, max_chars: int = 40_000, summary_chars: int = 600) -> str:
         """Serialize compactly for a Claude tool_result, staying under ``max_chars``.
 
-        Shrinks summaries first, then drops trailing records, and says so in
-        ``notes`` so the model knows the payload was trimmed.
+        Shrinks summaries first, then trims ``data`` (lists are cut, other
+        payloads dropped), then drops trailing records. Every step adds a note so
+        the model knows the payload was trimmed, and the output is always valid JSON.
         """
         records = list(self.records)
         notes = list(self.notes)
+        data = self.data
+
+        def fits(payload: dict[str, Any]) -> str | None:
+            text = json.dumps(payload, ensure_ascii=False, default=str)
+            return text if len(text) <= max_chars else None
+
+        step_notes = notes
         for chars in (summary_chars, 300, 120, 0):
             step_notes = notes
             if chars < summary_chars:
@@ -116,10 +126,26 @@ class ToolResult(BaseModel):
                     if chars
                     else "summaries omitted (trimmed) to fit the context budget; fetch individual records for abstracts"
                 ]
-            payload = self._payload(records, step_notes, chars)
-            text = json.dumps(payload, ensure_ascii=False, default=str)
-            if len(text) <= max_chars:
+            text = fits(self._payload(records, step_notes, chars, data))
+            if text:
                 return text
+        notes = step_notes
+
+        if data is not None:
+            if isinstance(data, list):
+                total_rows = len(data)
+                while len(data) > 1:
+                    data = data[: len(data) // 2]
+                    note = f"data trimmed to {len(data)} of {total_rows} rows to fit the context budget"
+                    text = fits(self._payload(records, notes + [note], 0, data))
+                    if text:
+                        return text
+            data = None
+            notes = notes + ["data payload omitted: too large for the context budget; narrow the request"]
+            text = fits(self._payload(records, notes, 0, data))
+            if text:
+                return text
+
         while records:
             dropped = max(1, len(records) // 4)
             records = records[:-dropped]
@@ -127,15 +153,22 @@ class ToolResult(BaseModel):
                 f"output trimmed to {len(records)} of {len(self.records)} records to fit the context budget; "
                 "request a smaller page or fetch records individually"
             )
-            payload = self._payload(records, notes + [trim_note], 0)
-            text = json.dumps(payload, ensure_ascii=False, default=str)
-            if len(text) <= max_chars:
+            text = fits(self._payload(records, notes + [trim_note], 0, data))
+            if text:
                 return text
-        payload = self._payload([], notes + ["payload too large; data truncated"], 0)
-        text = json.dumps(payload, ensure_ascii=False, default=str)
-        return text[:max_chars]
+        return json.dumps(
+            {
+                "source": self.source,
+                "tool": self.tool,
+                "total": self.total,
+                "returned": 0,
+                "notes": ["result too large for the context budget; narrow the request"],
+            }
+        )
 
-    def _payload(self, records: list[Record], notes: list[str], summary_chars: int) -> dict[str, Any]:
+    def _payload(
+        self, records: list[Record], notes: list[str], summary_chars: int, data: Any = None
+    ) -> dict[str, Any]:
         payload: dict[str, Any] = {"source": self.source, "tool": self.tool}
         if self.total is not None:
             payload["total"] = self.total
@@ -153,8 +186,8 @@ class ToolResult(BaseModel):
             rendered.append(item)
         if rendered:
             payload["records"] = rendered
-        if self.data is not None:
-            payload["data"] = self.data
+        if data is not None:
+            payload["data"] = data
         return payload
 
 

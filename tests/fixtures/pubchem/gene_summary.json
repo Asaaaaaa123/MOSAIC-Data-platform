@@ -1,0 +1,103 @@
+{
+ "GeneSummaries": {
+  "GeneSummary": [
+   {
+    "GeneID": 25,
+    "Symbol": "ABL1",
+    "Name": "ABL proto-oncogene 1, non-receptor tyrosine kinase",
+    "TaxonomyID": 9606,
+    "Taxonomy": "Homo sapiens (human)",
+    "Description": "This gene is a protooncogene that encodes a protein tyrosine kinase involved in a variety of cellular processes, including cell division, adhesion, differentiation, and response to stress. The activity of the protein is negatively regulated by its SH3 domain, whereby deletion of the region encoding this domain results in an oncogene. The ubiquitously expressed protein has DNA-binding activity that is regulated by CDC2-mediated phosphorylation, suggesting a cell cycle function. This gene has been found fused to a variety of translocation partner genes in various leukemias, most notably the t(9;22) translocation that results in a fusion with the 5' end of the breakpoint cluster region gene (BCR; MIM:151410). Alternative splicing of this gene results in two transcript variants, which contain alternative first exons that are spliced to the remaining common exons. [provided by RefSeq, Aug 2014]",
+    "Synonym": [
+     "ABL",
+     "BCR-ABL",
+     "CHDSKM",
+     "JTK7",
+     "bcr/abl",
+     "c-ABL",
+     "c-ABL1",
+     "p150",
+     "v-abl",
+     "tyrosine-protein kinase ABL1",
+     "ABL protooncogene 1 nonreceptor tyrosine kinase",
+     "Abelson tyrosine-protein kinase 1",
+     "BCR-ABL1 p190",
+     "BCR/ABL e8a2 fusion",
+     "BCR/ABL variant p190 fusion protein",
+     "BCR/ABL variant-p210 fusion protein",
+     "BCR/ABL1 e1a2 fusion protein",
+     "BCR/ABL1 fusion",
+     "BCR/ABL1 fusion protein e3a1",
+     "BCR::ABL1 fusion protein",
+     "H1681-BCR/ABL variant p210 fusion protein",
+     "bcr/c-abl oncogene protein",
+     "c-abl oncogene 1, receptor tyrosine kinase",
+     "chimeric BCR::ABL1 protein",
+     "proto-oncogene c-Abl",
+     "proto-oncogene tyrosine-protein kinase ABL1",
+     "v-abl Abelson murine leukemia viral oncogene homolog 1"
+    ]
+   },
+   {
+    "GeneID": 780,
+    "Symbol": "DDR1",
+    "Name": "discoidin domain receptor tyrosine kinase 1",
+    "TaxonomyID": 9606,
+    "Taxonomy": "Homo sapiens (human)",
+    "Description": "Receptor tyrosine kinases play a key role in the communication of cells with their microenvironment. These kinases are involved in the regulation of cell growth, differentiation and metabolism. The protein encoded by this gene belongs to a subfamily of tyrosine kinase receptors with homology to Dictyostelium discoideum protein discoidin I in their extracellular domain, and that are activated by various types of collagen. Expression of this protein is restricted to epithelial cells, particularly in the kidney, lung, gastrointestinal tract, and brain. In addition, it has been shown to be significantly overexpressed in several human tumors. Alternatively spliced transcript variants encoding different isoforms have been described for this gene. [provided by RefSeq, Feb 2011]",
+    "Synonym": [
+     "CAK",
+     "CD167",
+     "DDR",
+     "EDDR1",
+     "HGK2",
+     "MCK10",
+     "NEP",
+     "NTRK4",
+     "PTK3",
+     "PTK3A",
+     "RTK6",
+     "TRKE",
+     "epithelial discoidin domain-containing receptor 1",
+     "CD167 antigen-like family member A",
+     "PTK3A protein tyrosine kinase 3A",
+     "cell adhesion kinase",
+     "mammary carcinoma kinase 10",
+     "neuroepithelial tyrosine kinase",
+     "neurotrophic tyrosine kinase, receptor, type 4",
+     "protein-tyrosine kinase RTK-6",
+     "tyrosine kinase DDR",
+     "tyrosine-protein kinase CAK"
+    ]
+   },
+   {
+    "GeneID": 5159,
+    "Symbol": "PDGFRB",
+    "Name": "platelet derived growth factor receptor beta",
+    "TaxonomyID": 9606,
+    "Taxonomy": "Homo sapiens (human)",
+    "Description": "The protein encoded by this gene is a cell surface tyrosine kinase receptor for members of the platelet-derived growth factor family. These growth factors are mitogens for cells of mesenchymal origin. The identity of the growth factor bound to a receptor monomer determines whether the functional receptor is a homodimer (PDGFB or PDGFD) or a heterodimer (PDGFA and PDGFB). This gene is essential for normal development of the cardiovascular system and aids in rearrangement of the actin cytoskeleton. This gene is flanked on chromosome 5 by the genes for granulocyte-macrophage colony-stimulating factor and macrophage-colony stimulating factor receptor; all three genes may be implicated in the 5-q syndrome. A translocation between chromosomes 5 and 12, that fuses this gene to that of the ETV6 gene, results in chronic myeloproliferative disorder with eosinophilia. [provided by RefSeq, Aug 2017]",
+    "Synonym": [
+     "CD140B",
+     "IBGC4",
+     "IMF1",
+     "JTK12",
+     "KOGS",
+     "OPDKD",
+     "PDGFR",
+     "PDGFR-1",
+     "PDGFR1",
+     "PENTT",
+     "platelet-derived growth factor receptor beta",
+     "Activated tyrosine kinase PDGFRB",
+     "CD140 antigen-like family member B",
+     "PDGF-R-beta",
+     "PDGFR-beta",
+     "beta-type platelet-derived growth factor receptor",
+     "platelet-derived growth factor receptor 1",
+     "platelet-derived growth factor receptor, beta polypeptide"
+    ]
+   }
+  ]
+ }
+}

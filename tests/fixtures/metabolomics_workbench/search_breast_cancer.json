@@ -1,0 +1,53 @@
+{
+ "1": {
+  "study_id": "ST005026",
+  "study_title": "A non-canonical function of the tyrosine degradation enzyme FAH drives CDK4/6 inhibitor resistance in breast cancer",
+  "species": "Homo sapiens",
+  "institute": "Beth Israel Deaconess Medical Center (BIDMC)",
+  "analysis_type": "LC-MS",
+  "number_of_samples": "15",
+  "submission_date": "2026-07-17",
+  "release_date": "2026-08-10",
+  "version": "1",
+  "revision_no": "1",
+  "revision_datetime": "-",
+  "revision_comment": "-",
+  "license": "CC BY-NC-ND",
+  "license_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en",
+  "study_url": "https://www.metabolomicsworkbench.org/data/DRCCMetadata.php?StudyID=BREAST CANCER"
+ },
+ "2": {
+  "study_id": "ST004922",
+  "study_title": "Plasma methionine cycle metabolite signatures for diagnosis, progression stratification and palbociclib resistance prediction in luminal breast cancer",
+  "species": "Homo sapiens",
+  "institute": "Nanjing Medical University",
+  "analysis_type": "LC-MS",
+  "number_of_samples": "182",
+  "submission_date": "2026-06-11",
+  "release_date": "2026-06-17",
+  "version": "1",
+  "revision_no": "1",
+  "revision_datetime": "-",
+  "revision_comment": "-",
+  "license": "CC BY-NC-ND",
+  "license_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en",
+  "study_url": "https://www.metabolomicsworkbench.org/data/DRCCMetadata.php?StudyID=BREAST CANCER"
+ },
+ "3": {
+  "study_id": "ST004904",
+  "study_title": "Quantification of branched-chain amino acid (BCAA) metabolic flux in human breast cancer cell line extracts by 1H-13C HSQC NMR",
+  "species": "Homo sapiens",
+  "institute": "Kyoto University",
+  "analysis_type": "NMR",
+  "number_of_samples": "42",
+  "submission_date": "2026-06-04",
+  "release_date": "2026-06-09",
+  "version": "1",
+  "revision_no": "1",
+  "revision_datetime": "-",
+  "revision_comment": "-",
+  "license": "CC BY-NC-ND",
+  "license_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en",
+  "study_url": "https://www.metabolomicsworkbench.org/data/DRCCMetadata.php?StudyID=BREAST CANCER"
+ }
+}

@@ -1,0 +1,200 @@
+{
+ "meta": {
+  "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+  "terms": "https://open.fda.gov/terms/",
+  "license": "https://open.fda.gov/license/",
+  "last_updated": "2026-10-16",
+  "results": {
+   "skip": 0,
+   "limit": 2,
+   "total": 2
+  }
+ },
+ "results": [
+  {
+   "spl_product_data_elements": [
+    "KEYTRUDA QLEX pembrolizumab and berahyaluronidase alfa-pmph PEMBROLIZUMAB PEMBROLIZUMAB BERAHYALURONIDASE ALFA BERAHYALURONIDASE ALFA HISTIDINE HISTIDINE MONOHYDROCHLORIDE MONOHYDRATE METHIONINE SUCROSE POLYSORBATE 80 WATER KEYTRUDA QLEX pembrolizumab and berahyaluronidase alfa-pmph PEMBROLIZUMAB PEMBROLIZUMAB BERAHYALURONIDASE ALFA BERAHYALURONIDASE ALFA HISTIDINE HISTIDINE MONOHYDROCHLORIDE MONOHYDRATE METHIONINE SUCROSE POLYSORBATE 80 WATER"
+   ],
+   "indications_and_usage": [
+    "1 INDICATIONS AND USAGE KEYTRUDA QLEX is a combination of pembrolizumab, a programmed death receptor-1 (PD-1)-blocking antibody, and berahyaluronidase alfa, an endoglycosidase, indicated: Melanoma for the treatment of adult patients with unresectable or metastatic melanoma. ( 1.1 ) for the adjuvant treatment of adult and pediatric patients 12 years and older with Stage IIB, IIC, or III melanoma following complete resection. ( 1.1 ) Non-Small Cell Lung Cancer (NSCLC) in combination with pemetrexed and platinum chemotherapy, as first-line treatment of adult patients with metastatic nonsquamous N"
+   ],
+   "dosage_and_administration": [
+    "2 DOSAGE AND ADMINISTRATION KEYTRUDA QLEX has different recommended dosage and administration than intravenous pembrolizumab. ( 2.2 ) KEYTRUDA QLEX is for subcutaneous use in the thigh or abdomen only. ( 2.2 ) Do not administer KEYTRUDA QLEX intravenously. ( 2.2 ) KEYTRUDA QLEX must be administered by a healthcare provider. ( 2.2 ) The recommended dose for adults and pediatric patients 12 years and older who weigh greater than 40 kg is: Every 3-week dosing (395 mg/4,800 units): Inject 2.4 mL subcutaneously in the abdomen or thigh over 1 minute. ( 2.3 ) Every 6-week dosing (790 mg/9,600 units):"
+   ],
+   "contraindications": [
+    "4 CONTRAINDICATIONS KEYTRUDA QLEX is contraindicated in patients with known hypersensitivity to berahyaluronidase alfa, hyaluronidase or to any of its excipients. KEYTRUDA QLEX is contraindicated in patients with known hypersensitivity to berahyaluronidase alfa, hyaluronidase or to any of its excipients. ( 4 )"
+   ],
+   "warnings_and_cautions": [
+    "5 WARNINGS AND PRECAUTIONS Immune-Mediated Adverse Reactions ( 5.1 ) Immune-mediated adverse reactions, which may be severe or fatal, can occur in any organ system or tissue, including the following: immune-mediated pneumonitis, immune-mediated colitis, immune-mediated hepatitis, immune-mediated endocrinopathies, immune-mediated nephritis with renal dysfunction, immune-mediated dermatologic adverse reactions, and solid organ transplant rejection. Monitor for early identification and management. Evaluate liver enzymes, creatinine, and thyroid function at baseline and periodically during treatme"
+   ],
+   "adverse_reactions": [
+    "6 ADVERSE REACTIONS The following clinically significant adverse reactions are described elsewhere in the labeling. Severe and fatal immune-mediated adverse reactions [see Warnings and Precautions (5.1) ] . Hypersensitivity and Administration-Related Reactions [see Warnings and Precautions (5.2) ]. The most common adverse reactions (≥20%) in patients treated with KEYTRUDA QLEX in combination with chemotherapy were nausea, fatigue, and musculoskeletal pain. ( 6.1 ) The safety of KEYTRUDA QLEX for the approved indications is also based on the safety of intravenous pembrolizumab given as a single"
+   ],
+   "mechanism_of_action": [
+    "12.1 Mechanism of Action Binding of the PD-1 ligands, PD-L1 and PD-L2, to the PD-1 receptor found on T cells, inhibits T cell proliferation and cytokine production. Upregulation of PD-1 ligands occurs in some tumors and signaling through this pathway can contribute to inhibition of active T-cell immune surveillance of tumors. Pembrolizumab is a monoclonal antibody that binds to the PD-1 receptor and blocks its interaction with PD-L1 and PD-L2, releasing PD-1 pathway-mediated inhibition of the immune response, including the anti-tumor immune response. In syngeneic mouse tumor models, blocking P"
+   ],
+   "set_id": "097d166f-b73b-41d3-9b37-7653cd2a0c41",
+   "id": "18b3adae-863b-413b-8e36-e3551115db37",
+   "effective_time": "20260731",
+   "version": "18",
+   "openfda": {
+    "application_number": [
+     "BLA761467"
+    ],
+    "brand_name": [
+     "KEYTRUDA QLEX"
+    ],
+    "generic_name": [
+     "PEMBROLIZUMAB AND BERAHYALURONIDASE ALFA-PMPH"
+    ],
+    "manufacturer_name": [
+     "Merck Sharp & Dohme LLC"
+    ],
+    "product_ndc": [
+     "0006-3083",
+     "0006-5083"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "SUBCUTANEOUS"
+    ],
+    "substance_name": [
+     "PEMBROLIZUMAB",
+     "BERAHYALURONIDASE ALFA"
+    ],
+    "rxcui": [
+     "2723762",
+     "2723769",
+     "2723771",
+     "2723772"
+    ],
+    "spl_id": [
+     "18b3adae-863b-413b-8e36-e3551115db37"
+    ],
+    "spl_set_id": [
+     "097d166f-b73b-41d3-9b37-7653cd2a0c41"
+    ],
+    "package_ndc": [
+     "0006-5083-99",
+     "0006-5083-01",
+     "0006-3083-99",
+     "0006-3083-01"
+    ],
+    "is_original_packager": [
+     true
+    ],
+    "nui": [
+     "N0000191260",
+     "N0000191259",
+     "N0000175531",
+     "M0009499"
+    ],
+    "pharm_class_epc": [
+     "Programmed Death Receptor-1 Blocking Antibody [EPC]",
+     "Endoglycosidase [EPC]"
+    ],
+    "pharm_class_moa": [
+     "Programmed Death Receptor-1-directed Antibody Interactions [MoA]"
+    ],
+    "pharm_class_cs": [
+     "Glycoside Hydrolases [CS]"
+    ],
+    "unii": [
+     "DPT0O3T46P",
+     "9X4R4A4HQQ"
+    ]
+   }
+  },
+  {
+   "spl_product_data_elements": [
+    "KEYTRUDA pembrolizumab pembrolizumab pembrolizumab HISTIDINE SUCROSE POLYSORBATE 80 SODIUM HYDROXIDE HYDROCHLORIC ACID KEYTRUDA pembrolizumab pembrolizumab pembrolizumab HISTIDINE SUCROSE POLYSORBATE 80 WATER"
+   ],
+   "indications_and_usage": [
+    "1 INDICATIONS AND USAGE KEYTRUDA is a programmed death receptor-1 (PD-1)-blocking antibody indicated: Melanoma for the treatment of patients with unresectable or metastatic melanoma. ( 1.1 ) for the adjuvant treatment of adult and pediatric (12 years and older) patients with Stage IIB, IIC, or III melanoma following complete resection. ( 1.1 ) Non-Small Cell Lung Cancer (NSCLC) in combination with pemetrexed and platinum chemotherapy, as first-line treatment of patients with metastatic nonsquamous NSCLC, with no EGFR or ALK genomic tumor aberrations. ( 1.2 ) in combination with carboplatin and"
+   ],
+   "dosage_and_administration": [
+    "2 DOSAGE AND ADMINISTRATION Melanoma: 200 mg every 3 weeks or 400 mg every 6 weeks; 2 mg/kg (up to 200 mg) every 3 weeks for pediatrics. ( 2.2 ) NSCLC: 200 mg every 3 weeks or 400 mg every 6 weeks. ( 2.2 ) MPM: 200 mg every 3 weeks or 400 mg every 6 weeks. ( 2.2 ) HNSCC: 200 mg every 3 weeks or 400 mg every 6 weeks. ( 2.2 ) cHL or PMBCL: 200 mg every 3 weeks or 400 mg every 6 weeks for adults; 2 mg/kg (up to 200 mg) every 3 weeks for pediatrics. ( 2.2 ) Urothelial Cancer: 200 mg every 3 weeks or 400 mg every 6 weeks. ( 2.2 ) MSI-H or dMMR Cancer: 200 mg every 3 weeks or 400 mg every 6 weeks fo"
+   ],
+   "contraindications": [
+    "4 CONTRAINDICATIONS None. None. ( 4 )"
+   ],
+   "warnings_and_cautions": [
+    "5 WARNINGS AND PRECAUTIONS Immune-Mediated Adverse Reactions ( 5.1 ) Immune-mediated adverse reactions, which may be severe or fatal, can occur in any organ system or tissue, including the following: immune-mediated pneumonitis, immune-mediated colitis, immune-mediated hepatitis, immune-mediated endocrinopathies, immune-mediated nephritis with renal dysfunction, immune-mediated dermatologic adverse reactions, and solid organ transplant rejection. Monitor for early identification and management. Evaluate liver enzymes, creatinine, and thyroid function at baseline and periodically during treatme"
+   ],
+   "adverse_reactions": [
+    "6 ADVERSE REACTIONS The following clinically significant adverse reactions are described elsewhere in the labeling. Severe and fatal immune-mediated adverse reactions [see Warnings and Precautions (5.1) ] . Infusion-related reactions [see Warnings and Precautions (5.2) ]. Most common adverse reactions (reported in ≥20% of patients) were: KEYTRUDA as a single agent: fatigue, musculoskeletal pain, rash, diarrhea, pyrexia, cough, decreased appetite, pruritus, dyspnea, constipation, pain, abdominal pain, nausea, and hypothyroidism. ( 6.1 ) KEYTRUDA in combination with chemotherapy or chemoradiothe"
+   ],
+   "mechanism_of_action": [
+    "12.1 Mechanism of Action Binding of the PD-1 ligands, PD-L1 and PD-L2, to the PD-1 receptor found on T cells, inhibits T cell proliferation and cytokine production. Upregulation of PD-1 ligands occurs in some tumors and signaling through this pathway can contribute to inhibition of active T-cell immune surveillance of tumors. Pembrolizumab is a monoclonal antibody that binds to the PD-1 receptor and blocks its interaction with PD-L1 and PD-L2, releasing PD-1 pathway-mediated inhibition of the immune response, including the anti-tumor immune response. In syngeneic mouse tumor models, blocking P"
+   ],
+   "set_id": "9333c79b-d487-4538-a9f0-71b91a02b287",
+   "id": "228e1e3f-d207-481f-8e14-9fdcbd0470e9",
+   "effective_time": "20260710",
+   "version": "228",
+   "openfda": {
+    "application_number": [
+     "BLA125514"
+    ],
+    "brand_name": [
+     "KEYTRUDA"
+    ],
+    "generic_name": [
+     "PEMBROLIZUMAB"
+    ],
+    "manufacturer_name": [
+     "Merck Sharp & Dohme LLC"
+    ],
+    "product_ndc": [
+     "0006-3026",
+     "0006-3029"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "INTRAVENOUS"
+    ],
+    "substance_name": [
+     "PEMBROLIZUMAB"
+    ],
+    "rxcui": [
+     "1657746",
+     "1657749",
+     "1657750",
+     "1657751"
+    ],
+    "spl_id": [
+     "228e1e3f-d207-481f-8e14-9fdcbd0470e9"
+    ],
+    "spl_set_id": [
+     "9333c79b-d487-4538-a9f0-71b91a02b287"
+    ],
+    "package_ndc": [
+     "0006-3029-01",
+     "0006-3029-02",
+     "0006-3026-01",
+     "0006-3026-02",
+     "0006-3026-04"
+    ],
+    "is_original_packager": [
+     true
+    ],
+    "nui": [
+     "N0000191260",
+     "N0000191259"
+    ],
+    "pharm_class_epc": [
+     "Programmed Death Receptor-1 Blocking Antibody [EPC]"
+    ],
+    "pharm_class_moa": [
+     "Programmed Death Receptor-1-directed Antibody Interactions [MoA]"
+    ],
+    "unii": [
+     "DPT0O3T46P"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,4 @@
+[
+ {"Input": "asthma", "ChemicalName": "Ozone", "ChemicalId": "D010126", "CasRN": "10028-15-6", "DiseaseName": "Asthma", "DiseaseId": "MESH:D001249", "DirectEvidence": "marker/mechanism", "InferenceGeneSymbol": "", "InferenceScore": "", "OmimIds": "600807", "PubMedIds": "11290969|15563631"},
+ {"Input": "asthma", "ChemicalName": "Budesonide", "ChemicalId": "D019819", "CasRN": "51333-22-3", "DiseaseName": "Asthma", "DiseaseId": "MESH:D001249", "DirectEvidence": "therapeutic", "InferenceGeneSymbol": "", "InferenceScore": "", "OmimIds": "600807", "PubMedIds": "9449701|10712331|12093733"}
+]

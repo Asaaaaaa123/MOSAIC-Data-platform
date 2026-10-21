@@ -1,0 +1,20 @@
+{
+ "rs_id": "rs7903146",
+ "merged": 0,
+ "functional_class": "intron_variant",
+ "last_update_date": "2026-09-15T17:30:28.440+00:00",
+ "locations": [
+  {
+   "chromosome_name": "10",
+   "chromosome_position": 112998590,
+   "region": {
+    "name": "10q25.2"
+   }
+  }
+ ],
+ "alleles": "C/G/T (forward)",
+ "most_severe_consequence": "intron_variant",
+ "mapped_genes": [
+  "TCF7L2"
+ ]
+}

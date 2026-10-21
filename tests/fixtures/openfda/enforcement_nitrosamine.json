@@ -1,0 +1,191 @@
+{
+ "meta": {
+  "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+  "terms": "https://open.fda.gov/terms/",
+  "license": "https://open.fda.gov/license/",
+  "last_updated": "2026-10-07",
+  "results": {
+   "skip": 0,
+   "limit": 2,
+   "total": 35
+  }
+ },
+ "results": [
+  {
+   "status": "Ongoing",
+   "city": "Torrance",
+   "state": "CA",
+   "country": "United States",
+   "classification": "Class II",
+   "openfda": {
+    "application_number": [
+     "ANDA208706"
+    ],
+    "brand_name": [
+     "DULOXETINE"
+    ],
+    "generic_name": [
+     "DULOXETINE"
+    ],
+    "manufacturer_name": [
+     "Asclemed USA, Inc."
+    ],
+    "product_ndc": [
+     "76420-623",
+     "76420-633",
+     "76420-634",
+     "76420-636"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "substance_name": [
+     "DULOXETINE HYDROCHLORIDE"
+    ],
+    "rxcui": [
+     "596926",
+     "596930",
+     "596934",
+     "616402"
+    ],
+    "spl_id": [
+     "31e2603c-b629-1f0d-e063-6294a90a3646"
+    ],
+    "spl_set_id": [
+     "f61bd9f3-cd3d-4c76-a110-0f1dcba610af"
+    ],
+    "package_ndc": [
+     "76420-633-20",
+     "76420-633-30",
+     "76420-633-60",
+     "76420-633-90",
+     "76420-633-01",
+     "76420-633-05",
+     "76420-633-00",
+     "76420-634-20",
+     "76420-634-30",
+     "76420-634-60",
+     "76420-634-90",
+     "76420-634-01",
+     "76420-634-00",
+     "76420-636-20",
+     "76420-636-30",
+     "76420-636-60",
+     "76420-636-90",
+     "76420-636-01",
+     "76420-623-20",
+     "76420-623-30",
+     "76420-623-60",
+     "76420-623-90",
+     "76420-623-01",
+     "76420-623-00"
+    ],
+    "original_packager_product_ndc": [
+     "27241-097",
+     "27241-098",
+     "27241-164",
+     "27241-099"
+    ],
+    "unii": [
+     "9044SC542W"
+    ]
+   },
+   "product_type": "Drugs",
+   "event_id": "99019",
+   "recalling_firm": "Asclemed USA Inc.",
+   "address_1": "379 Van Ness Ave Ste 1403",
+   "address_2": "",
+   "postal_code": "90501-7211",
+   "voluntary_mandated": "Voluntary: Firm initiated",
+   "initial_firm_notification": "Letter",
+   "distribution_pattern": "US Nationwide.",
+   "recall_number": "D-0555-2026",
+   "product_description": "Duloxetine DR Capsules, 30 mg, 30 count bottles, Rx, Relabeled by: Enovachem Pharmaceuticals, Torrance, CA 90501, NDC 76420-634-30, Marketed by: Ajanta Pharma USA Inc.",
+   "product_quantity": "50 bottles",
+   "reason_for_recall": "CGMP Deviations; presence of Nitrosamine Drug Substance Related Impurity (NDSRI), N-nitroso-duloxetine, above the FDA acceptable intake limit.",
+   "recall_initiation_date": "20260514",
+   "center_classification_date": "20260602",
+   "report_date": "20260610",
+   "code_info": "Lot # 050725G-30 & 050725F-30, Exp Date: 06/30/2026",
+   "more_code_info": ""
+  },
+  {
+   "status": "Ongoing",
+   "city": "Piscataway",
+   "state": "NJ",
+   "country": "United States",
+   "classification": "Class II",
+   "openfda": {
+    "application_number": [
+     "ANDA213406"
+    ],
+    "brand_name": [
+     "PRAZOSIN HYDROCHLORIDE"
+    ],
+    "generic_name": [
+     "PRAZOSIN HYDROCHLORIDE"
+    ],
+    "manufacturer_name": [
+     "Biocon Pharma Inc."
+    ],
+    "product_ndc": [
+     "70377-066",
+     "70377-067",
+     "70377-068"
+    ],
+    "product_type": [
+     "HUMAN PRESCRIPTION DRUG"
+    ],
+    "route": [
+     "ORAL"
+    ],
+    "substance_name": [
+     "PRAZOSIN HYDROCHLORIDE"
+    ],
+    "rxcui": [
+     "198141",
+     "312593",
+     "312594"
+    ],
+    "spl_id": [
+     "99deacbe-59a1-4e72-8b23-d0f470e2633d"
+    ],
+    "spl_set_id": [
+     "82a84f69-4742-453f-96c8-532fb7df44c6"
+    ],
+    "package_ndc": [
+     "70377-066-11",
+     "70377-067-11",
+     "70377-068-11"
+    ],
+    "is_original_packager": [
+     true
+    ],
+    "unii": [
+     "X0Z7454B90"
+    ]
+   },
+   "product_type": "Drugs",
+   "event_id": "98658",
+   "recalling_firm": "Appco Pharma LLC",
+   "address_1": "262 Old New Brunswick Rd Ste N",
+   "address_2": "",
+   "postal_code": "08854-3888",
+   "voluntary_mandated": "Voluntary: Firm initiated",
+   "initial_firm_notification": "E-Mail",
+   "distribution_pattern": "U.S.A. Nationwide",
+   "recall_number": "D-0419-2026",
+   "product_description": "Prazosin Hydrochloride Capsules, USP, 1mg, 100-count bottle, Rx Only, Manufactured for: Biocon Pharma Inc., Iselin, NJ, Manufactured by: Appco Pharma LLC, Piscataway, NJ, NDC 70377-066-11.",
+   "product_quantity": "88,008 bottles- 100's count",
+   "reason_for_recall": "cGMP deviation: detection of Nitrosamine Drug Substance-Related Impurities, N-nitroso-prazosin impurity C (NNP) above acceptable limits.",
+   "recall_initiation_date": "20260327",
+   "center_classification_date": "20260331",
+   "report_date": "20260408",
+   "code_info": "Lot:2404160C, Exp.:2026/MAR; 2406253C, Exp.:2026/MAY; 2407311C, Exp.: 2026/JUL; 2407312C, Exp.:2026/JUL; 2408350C, Exp.:2026/JUL; 2505172C, Exp.:2027/MAY; 2506191C, Exp.: 2027/JUN.",
+   "more_code_info": ""
+  }
+ ]
+}

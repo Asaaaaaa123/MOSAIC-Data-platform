@@ -1,0 +1,238 @@
+{
+ "totalCount": 29,
+ "studies": [
+  {
+   "protocolSection": {
+    "identificationModule": {
+     "nctId": "NCT05665595",
+     "orgStudyIdInfo": {
+      "id": "7684A-010"
+     },
+     "secondaryIdInfos": [
+      {
+       "id": "MK-7684A-010",
+       "type": "OTHER",
+       "domain": "MSD"
+      },
+      {
+       "id": "KEYVIBE-010",
+       "type": "OTHER",
+       "domain": "MSD"
+      },
+      {
+       "id": "2022-501417-31-00",
+       "type": "REGISTRY",
+       "domain": "EU CT"
+      },
+      {
+       "id": "jRCT2031230099",
+       "type": "REGISTRY",
+       "domain": "jRCT"
+      },
+      {
+       "id": "U1111-1280-3661",
+       "type": "REGISTRY",
+       "domain": "UTN"
+      }
+     ],
+     "briefTitle": "A Study of Adjuvant Pembrolizumab/Vibostolimab (MK-7684A) Versus Pembrolizumab for Resected High-Risk Melanoma in Participants With High-Risk Stage II-IV Melanoma (MK-7684A-010/KEYVIBE-010)",
+     "officialTitle": "A Phase 3, Randomized, Double-blind, Active-Comparator-Controlled Clinical Study of Adjuvant MK-7684A (Vibostolimab With Pembrolizumab) Versus Adjuvant Pembrolizumab in Participants With High-risk Stage II-IV Melanoma (KEYVIBE-010)"
+    },
+    "statusModule": {
+     "overallStatus": "TERMINATED",
+     "whyStopped": "Business Reason",
+     "startDateStruct": {
+      "date": "2023-01-19"
+     },
+     "primaryCompletionDateStruct": {
+      "date": "2024-03-06"
+     },
+     "completionDateStruct": {
+      "date": "2025-09-24"
+     },
+     "studyFirstPostDateStruct": {
+      "date": "2022-12-27"
+     },
+     "lastUpdatePostDateStruct": {
+      "date": "2026-09-10"
+     }
+    },
+    "sponsorCollaboratorsModule": {
+     "leadSponsor": {
+      "name": "Merck Sharp & Dohme LLC",
+      "class": "INDUSTRY"
+     }
+    },
+    "descriptionModule": {
+     "briefSummary": "The primary purpose of this study is to compare pembrolizumab/vibostolimab to pembrolizumab with respect to recurrence-free survival (RFS). The primary hypothesis is that pembrolizumab/vibostolimab is superior to pembrolizumab with respect to RFS as assessed by the investigator in participants with high-risk resected Stage IIB, IIC, III and IV melanoma."
+    },
+    "conditionsModule": {
+     "conditions": [
+      "Melanoma"
+     ]
+    },
+    "designModule": {
+     "studyType": "INTERVENTIONAL",
+     "phases": [
+      "PHASE3"
+     ],
+     "designInfo": {
+      "allocation": "RANDOMIZED",
+      "primaryPurpose": "TREATMENT"
+     },
+     "enrollmentInfo": {
+      "count": 1594,
+      "type": "ACTUAL"
+     }
+    },
+    "armsInterventionsModule": {
+     "interventions": [
+      {
+       "type": "BIOLOGICAL",
+       "name": "Pembrolizumab/Vibostolimab"
+      },
+      {
+       "type": "BIOLOGICAL",
+       "name": "Pembrolizumab"
+      }
+     ]
+    },
+    "referencesModule": {
+     "references": [
+      {
+       "pmid": "41698381"
+      },
+      {
+       "pmid": "39230120"
+      }
+     ]
+    }
+   },
+   "derivedSection": {
+    "conditionBrowseModule": {
+     "meshes": [
+      {
+       "id": "D008545",
+       "term": "Melanoma"
+      },
+      {
+       "id": "C565324",
+       "term": "Parkinson Disease 4, Autosomal Dominant Lewy Body"
+      }
+     ]
+    },
+    "interventionBrowseModule": {
+     "meshes": [
+      {
+       "id": "C582435",
+       "term": "pembrolizumab"
+      }
+     ]
+    }
+   },
+   "hasResults": true
+  },
+  {
+   "protocolSection": {
+    "identificationModule": {
+     "nctId": "NCT05549297",
+     "orgStudyIdInfo": {
+      "id": "IMCgp100-203"
+     },
+     "briefTitle": "Tebentafusp Regimen Versus Investigator's Choice in Previously Treated Advanced Melanoma (TEBE-AM)",
+     "officialTitle": "Phase 2/3 Randomized Study of Tebentafusp as Monotherapy and in Combination With Pembrolizumab Versus Investigator's Choice in HLA-A*02:01-positive Participants With Previously Treated Advanced Melanoma (TEBE-AM)"
+    },
+    "statusModule": {
+     "overallStatus": "RECRUITING",
+     "startDateStruct": {
+      "date": "2022-12-19"
+     },
+     "primaryCompletionDateStruct": {
+      "date": "2028-03"
+     },
+     "completionDateStruct": {
+      "date": "2028-07"
+     },
+     "studyFirstPostDateStruct": {
+      "date": "2022-09-22"
+     },
+     "lastUpdatePostDateStruct": {
+      "date": "2026-02-25"
+     }
+    },
+    "sponsorCollaboratorsModule": {
+     "leadSponsor": {
+      "name": "Immunocore Ltd",
+      "class": "INDUSTRY"
+     }
+    },
+    "descriptionModule": {
+     "briefSummary": "The purpose of this study is to evaluate the efficacy and safety of tebentafusp-based regimens, including tebentafusp monotherapy and in combination with anti-PD1 vs investigator choice (including clinical trials of investigational agents, salvage therapy per local standard of care \\[SoC\\], best supportive care \\[BSC\\] on protocol survivor follow up) in patients with advanced non-ocular melanoma."
+    },
+    "conditionsModule": {
+     "conditions": [
+      "Advanced Melanoma"
+     ]
+    },
+    "designModule": {
+     "studyType": "INTERVENTIONAL",
+     "phases": [
+      "PHASE3"
+     ],
+     "designInfo": {
+      "allocation": "RANDOMIZED",
+      "primaryPurpose": "TREATMENT"
+     },
+     "enrollmentInfo": {
+      "count": 540,
+      "type": "ESTIMATED"
+     }
+    },
+    "armsInterventionsModule": {
+     "interventions": [
+      {
+       "type": "DRUG",
+       "name": "Tebentafusp"
+      },
+      {
+       "type": "DRUG",
+       "name": "Tebentafusp with Pembrolizumab"
+      },
+      {
+       "type": "DRUG",
+       "name": "Investigators Choice"
+      }
+     ]
+    }
+   },
+   "derivedSection": {
+    "conditionBrowseModule": {
+     "meshes": [
+      {
+       "id": "D008545",
+       "term": "Melanoma"
+      },
+      {
+       "id": "D018329",
+       "term": "Nevus, Blue"
+      }
+     ]
+    },
+    "interventionBrowseModule": {
+     "meshes": [
+      {
+       "id": "C000719808",
+       "term": "tebentafusp"
+      },
+      {
+       "id": "C582435",
+       "term": "pembrolizumab"
+      }
+     ]
+    }
+   },
+   "hasResults": false
+  }
+ ],
+ "nextPageToken": "ZVNj7o2Elu8o3lpzW96v4q2tmpOQJJxuYPKh2fUW"
+}

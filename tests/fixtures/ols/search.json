@@ -1,0 +1,50 @@
+{
+ "response": {
+  "docs": [
+   {
+    "iri": "http://purl.obolibrary.org/obo/HP_0002099",
+    "ontology_name": "hp",
+    "related_synonyms": [
+     "Reactive airway disease"
+    ],
+    "ontology_prefix": "HP",
+    "short_form": "HP_0002099",
+    "description": [
+     "Asthma is characterized by increased responsiveness of the tracheobronchial tree to multiple stimuli, leading to narrowing of the air passages with resultant dyspnea, cough, and wheezing."
+    ],
+    "label": "Asthma",
+    "obo_id": "HP:0002099",
+    "type": "class",
+    "exact_synonyms": [
+     "Bronchial asthma",
+     "Asthma"
+    ]
+   },
+   {
+    "iri": "http://purl.obolibrary.org/obo/MONDO_0004979",
+    "ontology_name": "mondo",
+    "ontology_prefix": "MONDO",
+    "short_form": "MONDO_0004979",
+    "description": [
+     "A bronchial disease that is characterized by chronic inflammation and narrowing of the airways, which is caused by a combination of environmental and genetic factors resulting in recurring periods of wheezing (a whistling sound while breathing), chest tightness, shortness of breath, mucus production and coughing. The symptoms appear due to a variety of triggers such as allergens, irritants, respiratory infections, weather changes, exercise, stress, reflux disease, medications, foods and emotional anxiety."
+    ],
+    "narrow_synonyms": [
+     "chronic obstructive asthma with acute exacerbation",
+     "chronic obstructive asthma with status asthmaticus",
+     "chronic obstructive asthma",
+     "exercise induced asthma",
+     "exercise-induced asthma"
+    ],
+    "label": "asthma",
+    "obo_id": "MONDO:0004979",
+    "type": "class"
+   }
+  ],
+  "numFound": 122,
+  "start": 0
+ },
+ "responseHeader": {
+  "QTime": 0,
+  "status": 0
+ }
+}

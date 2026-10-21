@@ -1,0 +1,107 @@
+{
+ "data": {
+  "assertions": {
+   "totalCount": 11,
+   "pageInfo": {
+    "endCursor": "Mg",
+    "hasNextPage": true
+   },
+   "nodes": [
+    {
+     "id": 275,
+     "name": "AID275",
+     "summary": "BRAF V600E-mutant melanoma is sensitive to vemurafenib.",
+     "description": "Clinical and preclinical evidence consistently demonstrate that BRAF V600E predicts response to vemurafenib in melanoma. The phase III BRIM-3 trial demonstrated significantly improved overall survival",
+     "assertionType": "PREDICTIVE",
+     "assertionDirection": "SUPPORTS",
+     "significance": "SENSITIVITYRESPONSE",
+     "ampLevel": "TIER_I_LEVEL_A",
+     "status": "SUBMITTED",
+     "regulatoryApproval": true,
+     "fdaCompanionTest": true,
+     "nccnGuidelineVersion": "1.2026",
+     "evidenceItemsCount": 19,
+     "variantOrigin": "SOMATIC",
+     "nccnGuideline": {
+      "name": "Melanoma"
+     },
+     "acmgCodes": [],
+     "molecularProfile": {
+      "id": 12,
+      "name": "BRAF V600E",
+      "variants": [
+       {
+        "id": 12,
+        "feature": {
+         "name": "BRAF",
+         "featureInstance": {
+          "entrezId": 673
+         }
+        }
+       }
+      ]
+     },
+     "disease": {
+      "id": 7,
+      "name": "Melanoma",
+      "doid": "1909"
+     },
+     "therapies": [
+      {
+       "id": 4,
+       "name": "Vemurafenib",
+       "ncitId": "C64768"
+      }
+     ]
+    },
+    {
+     "id": 305,
+     "name": "AID305",
+     "summary": "BRAF V600K-mutant melanoma is sensitive to vemurafenib.",
+     "description": "Clinical evidence supports the predictive role of BRAF V600K for response to vemurafenib in melanoma. In the phase III BRIM-3 trial, patients with BRAF V600K metastatic melanoma treated with vemurafen",
+     "assertionType": "PREDICTIVE",
+     "assertionDirection": "SUPPORTS",
+     "significance": "SENSITIVITYRESPONSE",
+     "ampLevel": "TIER_I_LEVEL_A",
+     "status": "SUBMITTED",
+     "regulatoryApproval": true,
+     "fdaCompanionTest": true,
+     "nccnGuidelineVersion": "1.2026",
+     "evidenceItemsCount": 11,
+     "variantOrigin": "SOMATIC",
+     "nccnGuideline": {
+      "name": "Melanoma"
+     },
+     "acmgCodes": [],
+     "molecularProfile": {
+      "id": 559,
+      "name": "BRAF V600K",
+      "variants": [
+       {
+        "id": 563,
+        "feature": {
+         "name": "BRAF",
+         "featureInstance": {
+          "entrezId": 673
+         }
+        }
+       }
+      ]
+     },
+     "disease": {
+      "id": 7,
+      "name": "Melanoma",
+      "doid": "1909"
+     },
+     "therapies": [
+      {
+       "id": 4,
+       "name": "Vemurafenib",
+       "ncitId": "C64768"
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

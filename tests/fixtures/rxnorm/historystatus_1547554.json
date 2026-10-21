@@ -1,0 +1,39 @@
+{
+ "rxcuiStatusHistory": {
+  "metaData": {
+   "status": "Remapped",
+   "source": "RXNORM",
+   "releaseStartDate": "102014",
+   "releaseEndDate": "072015",
+   "isCurrent": "NO",
+   "activeStartDate": "102014",
+   "activeEndDate": "072015",
+   "remappedDate": "082015"
+  },
+  "attributes": {
+   "rxcui": "1547554",
+   "name": "pembrolizumab 25 MG/ML Injectable Solution [Keytruda]",
+   "tty": "SBD",
+   "isMultipleIngredient": "",
+   "isBranded": ""
+  },
+  "definitionalFeatures": {},
+  "pack": {},
+  "derivedConcepts": {
+   "remappedConcept": [
+    {
+     "remappedRxCui": "1657749",
+     "remappedName": "pembrolizumab 50 MG Injection [Keytruda]",
+     "remappedTTY": "SBD",
+     "remappedActive": "NO"
+    },
+    {
+     "remappedRxCui": "1657753",
+     "remappedName": "pembrolizumab 25 MG/ML Injection [Keytruda]",
+     "remappedTTY": "SBD",
+     "remappedActive": "NO"
+    }
+   ]
+  }
+ }
+}

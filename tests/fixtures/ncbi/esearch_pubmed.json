@@ -1,0 +1,18 @@
+{
+ "esearchresult": {
+  "count": "3",
+  "retmax": "2",
+  "retstart": "0",
+  "idlist": [
+   "30777100",
+   "30742122"
+  ],
+  "translationset": [
+   {
+    "from": "glioblastoma[mh]",
+    "to": "\"glioblastoma\"[MeSH Terms]"
+   }
+  ],
+  "querytranslation": "\"glioblastoma\"[MeSH Terms] AND \"pembrolizumab\"[Title/Abstract] AND 2019/01/01:2019/12/31[Date - Publication]"
+ }
+}

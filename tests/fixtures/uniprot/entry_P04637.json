@@ -1,0 +1,681 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "P04637",
+ "uniProtkbId": "P53_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "1987-08-13",
+  "lastAnnotationUpdateDate": "2026-09-02"
+ },
+ "annotationScore": 5.0,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "value": "Cellular tumor antigen p53"
+   }
+  },
+  "alternativeNames": [
+   {
+    "fullName": {
+     "value": "Antigen NY-CO-13"
+    }
+   },
+   {
+    "fullName": {
+     "value": "Phosphoprotein p53"
+    }
+   },
+   {
+    "fullName": {
+     "value": "Tumor suppressor p53"
+    }
+   }
+  ]
+ },
+ "genes": [
+  {
+   "geneName": {
+    "value": "TP53"
+   },
+   "synonyms": [
+    {
+     "value": "P53"
+    }
+   ]
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "value": "Multifunctional transcription factor that induces cell cycle arrest, DNA repair or apoptosis upon binding to its target DNA sequence (PubMed:11025664, PubMed:12524540, PubMed:12810724, PubMed:15186775, PubMed:15340061, PubMed:17317671, PubMed:17349958, PubMed:19556538, PubMed:20673990, PubMed:20959462, PubMed:22726440, PubMed:24051492, PubMed:24652652, PubMed:35618207, PubMed:36634798, PubMed:38653238, PubMed:9840937). Acts as a tumor suppressor in many tumor types; induces growth arrest or apoptosis depending on the physiological circumstances and cell type (PubMed:11025664, PubMed:12524540, "
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "texts": [
+    {
+     "value": "Forms homodimers and homotetramers (PubMed:19011621). Binds DNA as a homotetramer (PubMed:36108750). Interacts with AXIN1. Probably part of a complex consisting of TP53, HIPK2 and AXIN1 (By similarity). Interacts with histone acetyltransferases EP300 and methyltransferases HRMT1L2 and CARM1, and recruits them to promoters. Interacts (via C-terminus) with TAF1; when TAF1 is part of the TFIID complex. Interacts with ING4; this interaction may be indirect. Found in a complex with CABLES1 and TP73. Interacts with HIPK1, HIPK2, and TP53INP1. Interacts with WWOX. May interact with HCV core protein. "
+    }
+   ],
+   "commentType": "SUBUNIT"
+  },
+  {
+   "texts": [
+    {
+     "value": "(Microbial infection) Interacts with cancer-associated/HPV E6 viral proteins leading to ubiquitination and degradation of TP53 giving a possible model for cell growth regulation. This complex formation requires an additional factor, E6-AP, which stably associates with TP53 in the presence of E6"
+    }
+   ],
+   "commentType": "SUBUNIT"
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "note": {
+    "texts": [
+     {
+      "value": "Recruited into PML bodies together with CHEK2 (PubMed:12810724). Translocates to mitochondria upon oxidative stress (PubMed:22726440). Translocates to mitochondria in response to mitomycin C treatment (PubMed:27323408). Competitive inhibition of TP53 interaction with HSPA9/MOT-2 by UBXN2A results in increased protein abundance and subsequent translocation of TP53 to the nucleus (PubMed:24625977)"
+     }
+    ]
+   },
+   "subcellularLocations": [
+    {
+     "location": {
+      "value": "Cytoplasm",
+      "id": "SL-0086"
+     }
+    },
+    {
+     "location": {
+      "value": "Nucleus",
+      "id": "SL-0191"
+     }
+    },
+    {
+     "location": {
+      "value": "Nucleus, PML body",
+      "id": "SL-0465"
+     }
+    },
+    {
+     "location": {
+      "value": "Endoplasmic reticulum",
+      "id": "SL-0095"
+     }
+    },
+    {
+     "location": {
+      "value": "Mitochondrion matrix",
+      "id": "SL-0170"
+     }
+    },
+    {
+     "location": {
+      "value": "Cytoplasm, cytoskeleton, microtubule organizing center, centrosome",
+      "id": "SL-0048"
+     }
+    }
+   ]
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "molecule": "Isoform 1",
+   "note": {
+    "texts": [
+     {
+      "value": "Predominantly nuclear but localizes to the cytoplasm when expressed with isoform 4"
+     }
+    ]
+   },
+   "subcellularLocations": [
+    {
+     "location": {
+      "value": "Nucleus",
+      "id": "SL-0191"
+     }
+    },
+    {
+     "location": {
+      "value": "Cytoplasm",
+      "id": "SL-0086"
+     }
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "value": "Ubiquitous. Isoforms are expressed in a wide range of normal tissues but in a tissue-dependent manner. Isoform 2 is expressed in most normal tissues but is not detected in brain, lung, prostate, muscle, fetal brain, spinal cord and fetal liver. Isoform 3 is expressed in most normal tissues but is not detected in lung, spleen, testis, fetal brain, spinal cord and fetal liver. Isoform 7 is expressed in most normal tissues but is not detected in prostate, uterus, skeletal muscle and breast. Isoform 8 is detected only in colon, bone marrow, testis, fetal brain and intestine. Isoform 9 is expressed"
+    }
+   ],
+   "commentType": "TISSUE SPECIFICITY"
+  },
+  {
+   "commentType": "DISEASE",
+   "note": {
+    "texts": [
+     {
+      "value": "TP53 is found in increased amounts in a wide variety of transformed cells. TP53 is frequently mutated or inactivated in about 60% of cancers. TP53 defects are found in Barrett metaplasia a condition in which the normally stratified squamous epithelium of the lower esophagus is replaced by a metaplastic columnar epithelium. The condition develops as a complication in approximately 10% of patients with chronic gastroesophageal reflux disease and predisposes to the development of esophageal adenocarcinoma"
+     }
+    ]
+   }
+  },
+  {
+   "commentType": "DISEASE",
+   "disease": {
+    "diseaseId": "Esophageal cancer",
+    "diseaseAccession": "DI-01537",
+    "acronym": "ESCR",
+    "description": "A malignancy of the esophagus. The most common types are esophageal squamous cell carcinoma and adenocarcinoma. Cancer of the esophagus remains a devastating disease because it is usually not detected until it has progressed to an advanced incurable stage.",
+    "diseaseCrossReference": {
+     "database": "MIM",
+     "id": "133239"
+    }
+   },
+   "note": {
+    "texts": [
+     {
+      "value": "The disease is caused by variants affecting the gene represented in this entry"
+     }
+    ]
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0002",
+   "category": "Technical term",
+   "name": "3D-structure"
+  },
+  {
+   "id": "KW-0007",
+   "category": "PTM",
+   "name": "Acetylation"
+  },
+  {
+   "id": "KW-0010",
+   "category": "Molecular function",
+   "name": "Activator"
+  },
+  {
+   "id": "KW-0877",
+   "category": "Coding sequence diversity",
+   "name": "Alternative promoter usage"
+  },
+  {
+   "id": "KW-0025",
+   "category": "Coding sequence diversity",
+   "name": "Alternative splicing"
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "CCDS",
+   "id": "CCDS11118.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "P04637-1"
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS45605.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ],
+   "isoformId": "P04637-3"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_000537.3",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_000546.6"
+    }
+   ],
+   "isoformId": "P04637-1"
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_001119584.1",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_001126112.3"
+    }
+   ],
+   "isoformId": "P04637-1"
+  },
+  {
+   "database": "PDB",
+   "id": "1A1U",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "NMR"
+    },
+    {
+     "key": "Resolution",
+     "value": "-"
+    },
+    {
+     "key": "Chains",
+     "value": "A/C=324-358"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "1AIE",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "X-ray"
+    },
+    {
+     "key": "Resolution",
+     "value": "1.50 A"
+    },
+    {
+     "key": "Chains",
+     "value": "A=326-356"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "1C26",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "X-ray"
+    },
+    {
+     "key": "Resolution",
+     "value": "1.70 A"
+    },
+    {
+     "key": "Chains",
+     "value": "A=325-356"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "1DT7",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "NMR"
+    },
+    {
+     "key": "Resolution",
+     "value": "-"
+    },
+    {
+     "key": "Chains",
+     "value": "X/Y=367-388"
+    }
+   ]
+  },
+  {
+   "database": "PDB",
+   "id": "1GZH",
+   "properties": [
+    {
+     "key": "Method",
+     "value": "X-ray"
+    },
+    {
+     "key": "Resolution",
+     "value": "2.60 A"
+    },
+    {
+     "key": "Chains",
+     "value": "A/C=95-292"
+    }
+   ]
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "P04637",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000269305",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ChEMBL",
+   "id": "CHEMBL4096",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB08363",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "1-(9-ethyl-9H-carbazol-3-yl)-N-methylmethanamine"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB13010",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "4-isothioureidobutyronitrile"
+    }
+   ]
+  },
+  {
+   "database": "DrugBank",
+   "id": "DB00945",
+   "properties": [
+    {
+     "key": "GenericName",
+     "value": "Acetylsalicylic acid"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000269305.9",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000269305.4"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000141510.20"
+    }
+   ],
+   "isoformId": "P04637-1"
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000420246.6",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000391127.2"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000141510.20"
+    }
+   ],
+   "isoformId": "P04637-2"
+  },
+  {
+   "database": "GeneID",
+   "id": "7157",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:7157",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000269305.9",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000269305.4"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_000546.6"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_000537.3"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:11998",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "TP53"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "133239",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "phenotype"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "151623",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "phenotype"
+    }
+   ]
+  },
+  {
+   "database": "MIM",
+   "id": "191170",
+   "properties": [
+    {
+     "key": "Type",
+     "value": "gene+phenotype"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000141510",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Orphanet",
+   "id": "1501",
+   "properties": [
+    {
+     "key": "Disease",
+     "value": "Adrenocortical carcinoma"
+    }
+   ]
+  },
+  {
+   "database": "Orphanet",
+   "id": "210159",
+   "properties": [
+    {
+     "key": "Disease",
+     "value": "Adult hepatocellular carcinoma"
+    }
+   ]
+  },
+  {
+   "database": "Orphanet",
+   "id": "99756",
+   "properties": [
+    {
+     "key": "Disease",
+     "value": "Alveolar rhabdomyosarcoma"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-111448",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Activation of NOXA and translocation to mitochondria"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-139915",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Activation of PUMA and translocation to mitochondria"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-1912408",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Pre-NOTCH Transcription and Translation"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005813",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:centrosome"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0000785",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:chromatin"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:BHF-UCL"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005737",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:cytoplasm"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005829",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:cytosol"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IDA:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005783",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:endoplasmic reticulum"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "EXP:UniProtKB"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005759",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:mitochondrial matrix"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "EXP:UniProtKB"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "length": 393,
+  "molWeight": 43653
+ },
+ "extraAttributes": {
+  "uniParcId": "UPI000002ED67"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "id": "232765",
+ "etag": "563a9df3-5dee-4f5b-a3f2-662d044079e0",
+ "createdOn": "2015-06-17T20:26:28.388Z",
+ "createdBy": "3327871",
+ "modifiedOn": "2021-08-18T00:13:50.801Z",
+ "modifiedBy": "3420438",
+ "title": "",
+ "markdown": "Samples were extracted using Qiagen's miRNeasy mini kit (cat. no. 217004) and the RNase free DNase Set (cat. no. 79254), and quantified by Nanodrop and quality was evaluated by Agilent Bioanalyzer. \n\n<details>\n\n<summary>Show More</summary>\n\n**Library Preparation**\n***Batch 1 (dorsolateral prefrontal cortex)***: The Broad Institutes's Genomics Platform performed RNA-Seq library preparation using the strand specific dUTP method [REF1 - Levin et al., Nature Methods 2010] with poly-A selection [REF2 - Adiconis et al., Nature Methods 2013]. This method begins with poly-A selection followed by first"
+}

@@ -1,0 +1,113 @@
+{
+ "meta": {
+  "count": 4,
+  "db_response_time_ms": 46,
+  "page": 1,
+  "per_page": 2,
+  "groups_count": null,
+  "cost_usd": 0.001
+ },
+ "results": [
+  {
+   "id": "https://openalex.org/I204465549",
+   "ror": "https://ror.org/01yc7t268",
+   "display_name": "Washington University in St. Louis",
+   "relevance_score": 915670.06,
+   "country_code": "US",
+   "type": "education",
+   "type_id": "https://openalex.org/institution-types/education",
+   "lineage": [
+    "https://openalex.org/I204465549"
+   ],
+   "homepage_url": "http://wustl.edu/",
+   "display_name_acronyms": [
+    "WUSTL"
+   ],
+   "display_name_alternatives": [
+    "Universidad Washington en San Luis",
+    "Université Washington à Saint-louis",
+    "Washington University",
+    "Washington University in St. Louis"
+   ],
+   "works_count": 289573,
+   "cited_by_count": 49695466,
+   "summary_stats": {
+    "2yr_mean_citedness": 4.673131095117558,
+    "h_index": 1949,
+    "i10_index": 394403
+   },
+   "ids": {
+    "openalex": "https://openalex.org/I204465549",
+    "ror": "https://ror.org/01yc7t268",
+    "grid": "grid.4367.6",
+    "wikipedia": "http://en.wikipedia.org/wiki/Washington_University_in_St._Louis",
+    "wikidata": null
+   },
+   "geo": {
+    "city": "St Louis",
+    "geonames_city_id": "4407066",
+    "region": "Missouri",
+    "country_code": "US",
+    "country": "United States",
+    "latitude": 38.62727,
+    "longitude": -90.19789
+   },
+   "is_super_system": false,
+   "status": "active",
+   "works_api_url": "https://api.openalex.org/works?filter=institutions.id:I204465549",
+   "updated_date": "2026-10-20T18:21:50",
+   "created_date": "2016-06-24T00:00:00"
+  },
+  {
+   "id": "https://openalex.org/I4405268834",
+   "ror": "https://ror.org/02729ja77",
+   "display_name": "Musculoskeletal Research Center, Washington University in St. Louis",
+   "relevance_score": 12165.985,
+   "country_code": "US",
+   "type": "facility",
+   "type_id": "https://openalex.org/institution-types/facility",
+   "lineage": [
+    "https://openalex.org/I4405268834"
+   ],
+   "homepage_url": "https://musculoskeletal.wustl.edu",
+   "display_name_acronyms": [
+    "MRC"
+   ],
+   "display_name_alternatives": [
+    "Musculoskeletal Research Center",
+    "Musculoskeletal Research Center, WUSTL",
+    "Musculoskeletal Research Center, Washington University in St. Louis",
+    "Washington University Musculoskeletal Research Center"
+   ],
+   "works_count": 153,
+   "cited_by_count": 13726,
+   "summary_stats": {
+    "2yr_mean_citedness": 3.1411764705882352,
+    "h_index": 58,
+    "i10_index": 295
+   },
+   "ids": {
+    "openalex": "https://openalex.org/I4405268834",
+    "ror": "https://ror.org/02729ja77",
+    "grid": null,
+    "wikipedia": null,
+    "wikidata": null
+   },
+   "geo": {
+    "city": "St Louis",
+    "geonames_city_id": "4407066",
+    "region": "Missouri",
+    "country_code": "US",
+    "country": "United States",
+    "latitude": 38.62727,
+    "longitude": -90.19789
+   },
+   "is_super_system": false,
+   "status": "active",
+   "works_api_url": "https://api.openalex.org/works?filter=institutions.id:I4405268834",
+   "updated_date": "2026-10-20T18:21:50",
+   "created_date": "2026-06-25T03:30:22"
+  }
+ ],
+ "group_by": []
+}

@@ -1,0 +1,278 @@
+{
+ "Table": {
+  "Columns": {
+   "Column": [
+    "AID",
+    "Panel Member ID",
+    "SID",
+    "CID",
+    "Activity Outcome",
+    "Target Accession",
+    "Target GeneID",
+    "Activity Value [uM]",
+    "Activity Name",
+    "Assay Name",
+    "Assay Type",
+    "PubMed ID",
+    "RNAi"
+   ]
+  },
+  "Row": [
+   {
+    "Cell": [
+     "1433",
+     "",
+     "50100104",
+     "5291",
+     "Active",
+     "NP_001945",
+     "780",
+     "0.0007",
+     "",
+     "Kinase Inhibitor Selectivity Profiling Assay",
+     "Other",
+     "",
+     ""
+    ]
+   },
+   {
+    "Cell": [
+     "1433",
+     "",
+     "50100104",
+     "5291",
+     "Active",
+     "NP_002600",
+     "5159",
+     "0.014",
+     "",
+     "Kinase Inhibitor Selectivity Profiling Assay",
+     "Other",
+     "",
+     ""
+    ]
+   },
+   {
+    "Cell": [
+     "1433",
+     "",
+     "50100104",
+     "5291",
+     "Active",
+     "NP_005148",
+     "25",
+     "0.0085",
+     "",
+     "Kinase Inhibitor Selectivity Profiling Assay",
+     "Other",
+     "",
+     ""
+    ]
+   },
+   {
+    "Cell": [
+     "1433",
+     "",
+     "50100104",
+     "5291",
+     "Active",
+     "NP_005148",
+     "25",
+     "0.012",
+     "",
+     "Kinase Inhibitor Selectivity Profiling Assay",
+     "Other",
+     "",
+     ""
+    ]
+   },
+   {
+    "Cell": [
+     "1433",
+     "",
+     "50100104",
+     "5291",
+     "Active",
+     "NP_005148",
+     "25",
+     "0.021",
+     "",
+     "Kinase Inhibitor Selectivity Profiling Assay",
+     "Other",
+     "",
+     ""
+    ]
+   },
+   {
+    "Cell": [
+     "161243",
+     "",
+     "103245522",
+     "5291",
+     "Active",
+     "P09619",
+     "5159",
+     "0.05",
+     "IC50",
+     "Inhibition of the platelet-derived growth factor receptor.",
+     "Confirmatory",
+     "",
+     ""
+    ]
+   },
+   {
+    "Cell": [
+     "161395",
+     "",
+     "103245522",
+     "5291",
+     "Active",
+     "P09619",
+     "5159",
+     "0.24",
+     "IC50",
+     "Inhibition of wild type Platelet-derived growth factor receptor beta phosphorylation in CHO cells",
+     "Confirmatory",
+     "12166950",
+     ""
+    ]
+   },
+   {
+    "Cell": [
+     "383341",
+     "",
+     "103245522",
+     "5291",
+     "Unspecified",
+     "Q08345",
+     "780",
+     "31",
+     "IC50",
+     "Inhibition of DDR1",
+     "Confirmatory",
+     "18077425",
+     ""
+    ]
+   },
+   {
+    "Cell": [
+     "435400",
+     "",
+     "103245522",
+     "5291",
+     "Active",
+     "Q08345",
+     "780",
+     "0.0007",
+     "Kd",
+     "Binding constant for DDR1 kinase domain",
+     "Confirmatory",
+     "18183025",
+     ""
+    ]
+   },
+   {
+    "Cell": [
+     "121",
+     "",
+     "91146949",
+     "5291",
+     "Active",
+     "",
+     "",
+     "",
+     "",
+     "NCI human tumor cell line growth inhibition assay. Data for the K-562 Leukemia cell line",
+     "Confirmatory",
+     "",
+     ""
+    ]
+   },
+   {
+    "Cell": [
+     "1811",
+     "",
+     "46392211",
+     "5291",
+     "Active",
+     "1IEP_A",
+     "",
+     "",
+     "",
+     "Experimentally measured binding affinity data derived from PDB",
+     "Other",
+     "12154025",
+     ""
+    ]
+   },
+   {
+    "Cell": [
+     "1811",
+     "",
+     "46393540",
+     "5291",
+     "Active",
+     "1XBB_A",
+     "",
+     "",
+     "",
+     "Experimentally measured binding affinity data derived from PDB",
+     "Other",
+     "15507431",
+     ""
+    ]
+   },
+   {
+    "Cell": [
+     "1",
+     "",
+     "91146949",
+     "5291",
+     "Inactive",
+     "",
+     "",
+     "",
+     "",
+     "NCI human tumor cell line growth inhibition assay. Data for the NCI-H23 Non-Small Cell Lung cell line",
+     "Confirmatory",
+     "",
+     ""
+    ]
+   },
+   {
+    "Cell": [
+     "3",
+     "",
+     "91146949",
+     "5291",
+     "Inactive",
+     "",
+     "",
+     "",
+     "",
+     "NCI human tumor cell line growth inhibition assay. Data for the NCI-H226 Non-Small Cell Lung cell line",
+     "Confirmatory",
+     "",
+     ""
+    ]
+   },
+   {
+    "Cell": [
+     "5",
+     "",
+     "91146949",
+     "5291",
+     "Inactive",
+     "",
+     "",
+     "",
+     "",
+     "NCI human tumor cell line growth inhibition assay. Data for the NCI-H322M Non-Small Cell Lung cell line",
+     "Confirmatory",
+     "",
+     ""
+    ]
+   }
+  ]
+ }
+}

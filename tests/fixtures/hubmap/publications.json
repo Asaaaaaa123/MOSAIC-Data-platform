@@ -1,0 +1,131 @@
+{
+ "_shards": {
+  "failed": 0,
+  "skipped": 0,
+  "successful": 5,
+  "total": 5
+ },
+ "hits": {
+  "hits": [
+   {
+    "_id": "77ab35880329b5932380104aa58795a4",
+    "_index": "hm_prod_public_portal",
+    "_score": 12.642612,
+    "_source": {
+     "ancestor_counts": {
+      "entity_type": {
+       "Dataset": 209,
+       "Donor": 9,
+       "Sample": 163
+      }
+     },
+     "contributors": [
+      {
+       "affiliation": "Stanford University",
+       "first_name": "John",
+       "is_contact": "TRUE",
+       "last_name": "Hickey",
+       "middle_name_or_initial": "W",
+       "name": "John Hickey",
+       "orcid_id": "0000-0001-9961-7673",
+       "version": "1"
+      },
+      {
+       "affiliation": "Stanford University",
+       "first_name": "Chiara",
+       "is_contact": "FALSE",
+       "last_name": "Caraccio",
+       "middle_name_or_initial": "",
+       "name": "Chiara Caraccio",
+       "orcid_id": "0000-0002-3580-1348",
+       "version": "1"
+      },
+      {
+       "affiliation": "Stanford University",
+       "first_name": "Garry",
+       "is_contact": "FALSE",
+       "last_name": "Nolan",
+       "middle_name_or_initial": "",
+       "name": "Garry Nolan",
+       "orcid_id": "0000-0002-8862-9043",
+       "version": "1"
+      }
+     ],
+     "description": "We investigated the spatial arrangement of individual cells using multiplexed imaging, as well as single-nucleus RNA and open chromatin assays, across eight different regions of the intestine from nine donors. Through comprehensive analyses, we observed significant variations in cell compositions among the intestinal regions and the intricate nature of epithelial subtypes. Furthermore, we discover",
+     "hubmap_id": "HBM222.STTH.665",
+     "publication_date": "2023-07-20",
+     "publication_doi": "10.1038/s41586-023-05915-x",
+     "publication_status": true,
+     "publication_url": "https://doi.org/10.1038/s41586-023-05915-x",
+     "publication_venue": "Nature",
+     "title": "Organization of the human intestine at single-cell resolution",
+     "uuid": "77ab35880329b5932380104aa58795a4"
+    },
+    "_type": "_doc"
+   },
+   {
+    "_id": "991198b35959d4490dea106c37d0112d",
+    "_index": "hm_prod_public_portal",
+    "_score": 1.6606312,
+    "_source": {
+     "ancestor_counts": {
+      "entity_type": {
+       "Dataset": 313,
+       "Donor": 101,
+       "Sample": 815
+      }
+     },
+     "contributors": [
+      {
+       "affiliation": "Department of Intelligent Systems Engineering, Luddy School of Informatics, Computing, and Engineering, Indiana University, Bloomington, IN 47408, USA",
+       "first_name": "Yashvardhan",
+       "is_contact": "TRUE",
+       "last_name": "Jain",
+       "middle_name_or_initial": "",
+       "name": "Yashvardhan Jain",
+       "orcid_id": "0000-0002-6300-5568",
+       "version": "1"
+      },
+      {
+       "affiliation": "Computational Biology and Bioinformatics Program, Duke University, Durham, NC, USA",
+       "first_name": "Jodie",
+       "is_contact": "FALSE",
+       "last_name": "Jepson",
+       "middle_name_or_initial": "",
+       "name": "Jodie Jepson",
+       "orcid_id": "0009-0006-3152-7798",
+       "version": "1"
+      },
+      {
+       "affiliation": "Department of Biomedical Engineering, Duke University, Durham, NC, USA",
+       "first_name": "Roy",
+       "is_contact": "FALSE",
+       "last_name": "Chen",
+       "middle_name_or_initial": "",
+       "name": "Roy Chen",
+       "orcid_id": "0009-0000-5166-2942",
+       "version": "1"
+      }
+     ],
+     "description": "Endothelial cells are ubiquitously present in the human body and line the luminal surface of blood and lymphatic vessels. The oxygen-dependence of cells impacts their proximity to blood vessels, and consequently, to endothelial cells depending on their functional properties and priorities. This paper presents cell-to-nearest-endothelial-cell distance distributions for various cell types using 399 ",
+     "hubmap_id": "HBM456.SGWT.239",
+     "publication_date": "2025-09-25",
+     "publication_doi": "https://doi.org/10.1101/2025.09.23.678129",
+     "publication_status": false,
+     "publication_url": "https://www.biorxiv.org/content/10.1101/2025.09.23.678129v1",
+     "publication_venue": "Nature Communications",
+     "title": "Exploring endothelial cell environments across organs in spatially resolved omics data",
+     "uuid": "991198b35959d4490dea106c37d0112d"
+    },
+    "_type": "_doc"
+   }
+  ],
+  "max_score": 12.642612,
+  "total": {
+   "relation": "eq",
+   "value": 2
+  }
+ },
+ "timed_out": false,
+ "took": 15
+}

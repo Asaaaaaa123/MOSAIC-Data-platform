@@ -196,3 +196,24 @@ def test_audit_redacts_secret_params():
     audit.record_tool_call(source="s", tool="t", params={"api_key": "SECRET", "q": "x"}, ok=True, latency_ms=1)
     row = audit.recent_tool_calls()[0]
     assert "SECRET" not in row["params"]
+
+
+async def test_http_validate_rejects_before_caching(offline_settings):
+    calls = {"n": 0}
+
+    def handler(request):
+        calls["n"] += 1
+        return httpx.Response(200, text="<html>verify you are a human</html>", headers={"content-type": "text/html"})
+
+    def validate(response):
+        if "text/html" in response.headers.get("content-type", ""):
+            raise SourceError("t", "blocked by a CAPTCHA page")
+
+    client = HttpClient(offline_settings, cache=ResponseCache(None, 60), transport=httpx.MockTransport(handler))
+    try:
+        for _ in range(2):
+            with pytest.raises(SourceError, match="CAPTCHA"):
+                await client.request("t", "GET", "https://example.org/x", validate=validate)
+        assert calls["n"] == 2  # the rejected page was never served from cache
+    finally:
+        await client.aclose()

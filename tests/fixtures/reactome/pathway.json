@@ -1,0 +1,234 @@
+{
+ "dbId": 109581,
+ "displayName": "Apoptosis",
+ "stId": "R-HSA-109581",
+ "stIdVersion": "R-HSA-109581.6",
+ "created": {
+  "dbId": 109608,
+  "displayName": "Alnemri, E, Hengartner, Michael, Tschopp, Jürg, Tsujimoto, Yoshihide, Hardwick, JM, 2004-01-16",
+  "dateTime": "2004-01-16 21:01:51",
+  "className": "InstanceEdit",
+  "schemaClass": "InstanceEdit"
+ },
+ "modified": {
+  "dbId": 11116865,
+  "displayName": "Weiser, Joel, 2026-06-12",
+  "dateTime": "2026-06-12 07:49:47",
+  "note": "Inserted by org.reactome.orthoinference",
+  "className": "InstanceEdit",
+  "schemaClass": "InstanceEdit"
+ },
+ "isInDisease": false,
+ "isInferred": false,
+ "maxDepth": 7,
+ "name": [
+  "Apoptosis"
+ ],
+ "releaseDate": "2004-09-20",
+ "speciesName": "Homo sapiens",
+ "authored": [
+  109608
+ ],
+ "eventOf": [
+  {
+   "dbId": 5357801,
+   "displayName": "Programmed Cell Death",
+   "stId": "R-HSA-5357801",
+   "stIdVersion": "R-HSA-5357801.4",
+   "isInDisease": false,
+   "isInferred": false,
+   "maxDepth": 8,
+   "name": [
+    "Programmed Cell Death"
+   ],
+   "releaseDate": "2014-12-11",
+   "releaseStatus": "UPDATED",
+   "speciesName": "Homo sapiens",
+   "literatureReference": [
+    {
+     "dbId": 5675514,
+     "displayName": "Essential versus accessory aspects of cell death: recommendations of the NCCD 2015",
+     "title": "Essential versus accessory aspects of cell death: recommendations of the NCCD 2015",
+     "journal": "Cell Death Differ.",
+     "pages": "58-73",
+     "pubMedIdentifier": 25236395,
+     "volume": 22,
+     "year": 2015,
+     "url": "http://www.ncbi.nlm.nih.gov/pubmed/25236395",
+     "className": "LiteratureReference",
+     "schemaClass": "LiteratureReference"
+    }
+   ],
+   "species": [
+    {
+     "dbId": 48887,
+     "displayName": "Homo sapiens",
+     "name": [
+      "Homo sapiens",
+      "H. sapiens",
+      "Hs",
+      "human",
+      "man"
+     ],
+     "taxId": "9606",
+     "crossReference": [
+      {
+       "dbId": 72938,
+       "displayName": "NCBI_taxonomy:9606",
+       "databaseName": "NCBI Taxonomy",
+       "identifier": "9606",
+       "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=9606",
+       "className": "DatabaseIdentifier",
+       "schemaClass": "DatabaseIdentifier"
+      }
+     ],
+     "abbreviation": "HSA",
+     "className": "Species",
+     "schemaClass": "Species"
+    }
+   ],
+   "hasDiagram": true,
+   "hasEHLD": true,
+   "lastUpdatedDate": "2022-09-14",
+   "hasEvent": [
+    109581
+   ],
+   "schemaClass": "TopLevelPathway",
+   "className": "TopLevelPathway"
+  }
+ ],
+ "figure": [
+  {
+   "dbId": 9628944,
+   "displayName": "/figures/ehld/R-HSA-109581.svg",
+   "url": "/figures/ehld/R-HSA-109581.svg",
+   "className": "Figure",
+   "schemaClass": "Figure"
+  }
+ ],
+ "goBiologicalProcess": {
+  "dbId": 2273,
+  "displayName": "apoptotic process",
+  "accession": "0006915",
+  "databaseName": "GO",
+  "definition": "A programmed cell death process which begins when a cell receives an internal (e.g. DNA damage) or e",
+  "name": "apoptotic process",
+  "url": "https://www.ebi.ac.uk/QuickGO/term/GO:0006915",
+  "className": "GO_BiologicalProcess",
+  "schemaClass": "GO_BiologicalProcess"
+ },
+ "literatureReference": [
+  {
+   "dbId": 141074,
+   "displayName": "Targeting death and decoy receptors of the tumour-necrosis factor superfamily",
+   "title": "Targeting death and decoy receptors of the tumour-necrosis factor superfamily",
+   "journal": "Nat Rev Cancer",
+   "pages": "420-30",
+   "pubMedIdentifier": 12189384,
+   "volume": 2,
+   "year": 2002,
+   "url": "http://www.ncbi.nlm.nih.gov/pubmed/12189384",
+   "className": "LiteratureReference",
+   "schemaClass": "LiteratureReference"
+  },
+  {
+   "dbId": 140546,
+   "displayName": "The Bcl2 family: regulators of the cellular life-or-death switch",
+   "title": "The Bcl2 family: regulators of the cellular life-or-death switch",
+   "journal": "Nat Rev Cancer",
+   "pages": "647-56",
+   "pubMedIdentifier": 12209154,
+   "volume": 2,
+   "year": 2002,
+   "url": "http://www.ncbi.nlm.nih.gov/pubmed/12209154",
+   "className": "LiteratureReference",
+   "schemaClass": "LiteratureReference"
+  },
+  {
+   "dbId": 141235,
+   "displayName": "Apoptosis: a basic biological phenomenon with wide-ranging implications in tissue kinetics",
+   "title": "Apoptosis: a basic biological phenomenon with wide-ranging implications in tissue kinetics",
+   "journal": "Br J Cancer",
+   "pages": "239-57",
+   "pubMedIdentifier": 4561027,
+   "volume": 26,
+   "year": 1972,
+   "url": "http://www.ncbi.nlm.nih.gov/pubmed/4561027",
+   "className": "LiteratureReference",
+   "schemaClass": "LiteratureReference"
+  }
+ ],
+ "species": [
+  48887
+ ],
+ "summation": [
+  {
+   "dbId": 109577,
+   "displayName": "Apoptosis is a distinct form of cell death that is functiona...",
+   "text": "Apoptosis is a distinct form of cell death that is functionally and morphologically different from necrosis. Nuclear chromatin condensation, cytoplasmic shrinking, dilated endoplasmic reticulum, and membrane blebbing characterize apoptosis in general. Mitochondria remain morphologically unchanged. In 1972 Kerr et al introduced the concept of apoptosis as a distinct form of \"cell-death\", and the mechanisms of various apoptotic pathways are still being revealed today. <BR>The two principal  pathwa",
+   "className": "Summation",
+   "schemaClass": "Summation"
+  }
+ ],
+ "reviewStatus": {
+  "dbId": 9821382,
+  "displayName": "five stars",
+  "definition": "externally reviewed",
+  "name": [
+   "five stars"
+  ],
+  "className": "ReviewStatus",
+  "schemaClass": "ReviewStatus"
+ },
+ "hasDiagram": true,
+ "hasEHLD": true,
+ "lastUpdatedDate": "2022-06-09",
+ "hasEvent": [
+  {
+   "dbId": 5357769,
+   "displayName": "Caspase activation via extrinsic apoptotic signalling pathway",
+   "stId": "R-HSA-5357769",
+   "name": [
+    "Caspase activation via extrinsic apoptotic signalling pathway"
+   ],
+   "speciesName": "Homo sapiens",
+   "schemaClass": "Pathway",
+   "className": "Pathway"
+  },
+  {
+   "dbId": 109606,
+   "displayName": "Intrinsic Pathway for Apoptosis",
+   "stId": "R-HSA-109606",
+   "name": [
+    "Intrinsic Pathway for Apoptosis"
+   ],
+   "speciesName": "Homo sapiens",
+   "schemaClass": "Pathway",
+   "className": "Pathway"
+  },
+  {
+   "dbId": 75153,
+   "displayName": "Apoptotic execution phase",
+   "stId": "R-HSA-75153",
+   "name": [
+    "Apoptotic execution phase"
+   ],
+   "speciesName": "Homo sapiens",
+   "schemaClass": "Pathway",
+   "className": "Pathway"
+  },
+  {
+   "dbId": 169911,
+   "displayName": "Regulation of Apoptosis",
+   "stId": "R-HSA-169911",
+   "name": [
+    "Regulation of Apoptosis"
+   ],
+   "speciesName": "Homo sapiens",
+   "schemaClass": "Pathway",
+   "className": "Pathway"
+  }
+ ],
+ "schemaClass": "Pathway",
+ "className": "Pathway"
+}

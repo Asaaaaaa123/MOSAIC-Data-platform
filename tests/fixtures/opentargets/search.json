@@ -1,0 +1,232 @@
+{
+ "data": {
+  "search": {
+   "total": 2731,
+   "hits": [
+    {
+     "id": "ENSG00000146648",
+     "entity": "target",
+     "name": "EGFR",
+     "description": "epidermal growth factor receptor",
+     "category": [
+      "protein_coding"
+     ],
+     "score": 5921.6934,
+     "object": {
+      "__typename": "Target",
+      "approvedSymbol": "EGFR",
+      "biotype": "protein_coding",
+      "proteinIds": [
+       {
+        "id": "P00533",
+        "source": "uniprot_swissprot"
+       },
+       {
+        "id": "A0A8V8TPW8",
+        "source": "uniprot_trembl"
+       },
+       {
+        "id": "C9JYS6",
+        "source": "uniprot_trembl"
+       },
+       {
+        "id": "Q504U8",
+        "source": "uniprot_trembl"
+       },
+       {
+        "id": "ENSP00000275493",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000342376",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000345973",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000413354",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000413843",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000415559",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000514824",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000568258",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000568259",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000568260",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000568261",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000667942",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000780270",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000782441",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000788183",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000794701",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "ENSP00000804243",
+        "source": "ensembl_PRO"
+       },
+       {
+        "id": "O00688",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "O00732",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "P06268",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "Q14225",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "Q68GS5",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "Q92795",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "Q9BZS2",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "Q9GZX1",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "Q9H2C9",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "Q9H3C9",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "Q9UMD7",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "Q9UMD8",
+        "source": "uniprot_obsolete"
+       },
+       {
+        "id": "Q9UMG5",
+        "source": "uniprot_obsolete"
+       }
+      ]
+     }
+    },
+    {
+     "id": "EFO_0022194",
+     "entity": "disease",
+     "name": "EGFR-related lung cancer",
+     "description": "Lung cancer associated with a mutation in the EGFR gene. Patients with lung cancers with EGFR mutations tend to have minimal to no smoking history.",
+     "category": [
+      "cancer or benign tumor",
+      "phenotype",
+      "respiratory or thoracic disease"
+     ],
+     "score": 1023.4875,
+     "object": {
+      "__typename": "Disease",
+      "dbXRefs": [
+       "MESH:130014"
+      ],
+      "therapeuticAreas": [
+       {
+        "name": "cancer or benign tumor"
+       },
+       {
+        "name": "respiratory or thoracic disease"
+       },
+       {
+        "name": "phenotype"
+       }
+      ]
+     }
+    },
+    {
+     "id": "MONDO_0014481",
+     "entity": "disease",
+     "name": "inflammatory skin and bowel disease, neonatal, 2",
+     "description": "Any neonatal inflammatory skin and bowel disease in which the cause of the disease is a mutation in the EGFR gene.",
+     "category": [
+      "immune system disorder",
+      "musculoskeletal or connective tissue disease",
+      "genetic, familial or congenital disease",
+      "integumentary system disorder",
+      "gastrointestinal disease"
+     ],
+     "score": 478.38376,
+     "object": {
+      "__typename": "Disease",
+      "dbXRefs": [
+       "DOID:0061191",
+       "GARD:0018430",
+       "MEDGEN:863567",
+       "OMIM:616069",
+       "UMLS:C4015130"
+      ],
+      "therapeuticAreas": [
+       {
+        "name": "immune system disorder"
+       },
+       {
+        "name": "integumentary system disorder"
+       },
+       {
+        "name": "genetic, familial or congenital disease"
+       },
+       {
+        "name": "musculoskeletal or connective tissue disease"
+       },
+       {
+        "name": "gastrointestinal disease"
+       }
+      ]
+     }
+    }
+   ]
+  }
+ }
+}

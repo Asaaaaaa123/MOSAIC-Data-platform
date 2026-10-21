@@ -1,0 +1,281 @@
+{
+ "id": "MONDO:0007947",
+ "category": "biolink:Disease",
+ "name": "Marfan syndrome",
+ "description": "A disorder of the connective tissue. Connective tissue provides strength and flexibility to structures throughout the body such as bones, ligaments, muscles, walls of blood vessels, and heart valves. Marfan syndrome affects most organs and tissues, especially the skeleton, lungs, eyes, heart, and the large blood vessel that distributes blood from the heart to the rest of the body (the aorta). It is caused by mutations in the FBN1 gene, which provides instructions for making a protein called fibrillin-1. Marfan syndrome is inherited in an autosomal dominant pattern. At least 25% of cases are due to a new (de novo) mutation. Treatment is based on the signs and symptoms in each person.",
+ "xref": [
+  "DOID:14323",
+  "GARD:0016535",
+  "ICD10CM:Q87.4",
+  "ICD9:759.82",
+  "MEDGEN:44287",
+  "MESH:D008382",
+  "MedDRA:10026829",
+  "NANDO:1200644",
+  "NANDO:2200968",
+  "NCIT:C34807",
+  "NORD:1403",
+  "OMIM:154700",
+  "Orphanet:284963",
+  "Orphanet:558",
+  "SCTID:19346006",
+  "UMLS:C0024796",
+  "icd11.foundation:236564145"
+ ],
+ "synonym": [
+  "MFS",
+  "MFS1",
+  "Marfan syndrome",
+  "Marfan syndrome type 1",
+  "Marfan syndrome, type 1",
+  "Marfan's syndrome"
+ ],
+ "exact_synonym": [
+  "MFS",
+  "MFS1",
+  "Marfan syndrome",
+  "Marfan syndrome type 1",
+  "Marfan syndrome, type 1",
+  "Marfan's syndrome"
+ ],
+ "subsets": [
+  "clingen",
+  "doid_rare",
+  "gard_rare",
+  "nord_rare",
+  "ordo_disorder",
+  "ordo_subtype_of_a_disorder",
+  "orphanet_rare",
+  "otar",
+  "prototype_pattern",
+  "rare"
+ ],
+ "file_source": "phenio_nodes",
+ "provided_by": "phenio_nodes",
+ "namespace": "MONDO",
+ "has_phenotype": [
+  "HP:0002107",
+  "HP:0000545",
+  "HP:0002996",
+  "HP:0004970",
+  "HP:0003758"
+ ],
+ "has_phenotype_label": [
+  "Spontaneous pneumothorax",
+  "Mitral regurgitation",
+  "Dilatation of an abdominal artery",
+  "Aortic regurgitation",
+  "Mitral valve prolapse"
+ ],
+ "has_phenotype_count": 105,
+ "has_descendant_count": 2,
+ "uri": "http://purl.obolibrary.org/obo/MONDO_0007947",
+ "inheritance": {
+  "id": "HP:0000006",
+  "category": "biolink:PhenotypicFeature",
+  "name": "Autosomal dominant inheritance"
+ },
+ "causal_gene": [
+  {
+   "id": "HGNC:3603",
+   "category": "biolink:Gene",
+   "name": "FBN1"
+  }
+ ],
+ "mappings": [
+  {
+   "id": "ICD10CM:Q87.4",
+   "url": "https://www.icd10data.com/search?s=Q87.4"
+  },
+  {
+   "id": "MEDGEN:44287",
+   "url": "http://identifiers.org/medgen/44287"
+  },
+  {
+   "id": "MESH:D008382",
+   "url": "http://identifiers.org/mesh/D008382"
+  },
+  {
+   "id": "NCIT:C34807",
+   "url": "http://purl.obolibrary.org/obo/NCIT_C34807"
+  },
+  {
+   "id": "UMLS:C0024796",
+   "url": "http://identifiers.org/umls/C0024796"
+  },
+  {
+   "id": "SCTID:19346006",
+   "url": "http://identifiers.org/snomedct/19346006"
+  },
+  {
+   "id": "Orphanet:558",
+   "url": "https://www.orpha.net/en/disease/detail/558"
+  },
+  {
+   "id": "OMIM:154700",
+   "url": "http://identifiers.org/mim/154700"
+  },
+  {
+   "id": "Orphanet:284963",
+   "url": "https://www.orpha.net/en/disease/detail/284963"
+  },
+  {
+   "id": "icd11.foundation:236564145",
+   "url": null
+  },
+  {
+   "id": "DOID:14323",
+   "url": "http://purl.obolibrary.org/obo/DOID_14323"
+  }
+ ],
+ "external_links": [
+  {
+   "id": "DOID:14323",
+   "url": "http://purl.obolibrary.org/obo/DOID_14323"
+  },
+  {
+   "id": "GARD:0016535",
+   "url": "https://rarediseases.info.nih.gov/diseases/0016535/index"
+  },
+  {
+   "id": "ICD10CM:Q87.4",
+   "url": "https://www.icd10data.com/search?s=Q87.4"
+  },
+  {
+   "id": "ICD9:759.82",
+   "url": null
+  },
+  {
+   "id": "MEDGEN:44287",
+   "url": "http://identifiers.org/medgen/44287"
+  },
+  {
+   "id": "MESH:D008382",
+   "url": "http://identifiers.org/mesh/D008382"
+  },
+  {
+   "id": "MedDRA:10026829",
+   "url": null
+  },
+  {
+   "id": "NANDO:1200644",
+   "url": "http://identifiers.org/NANDO:1200644"
+  },
+  {
+   "id": "NANDO:2200968",
+   "url": "http://identifiers.org/NANDO:2200968"
+  },
+  {
+   "id": "NCIT:C34807",
+   "url": "http://purl.obolibrary.org/obo/NCIT_C34807"
+  },
+  {
+   "id": "NORD:1403",
+   "url": "https://rarediseases.org/?p=1403"
+  },
+  {
+   "id": "OMIM:154700",
+   "url": "http://identifiers.org/mim/154700"
+  },
+  {
+   "id": "Orphanet:284963",
+   "url": "https://www.orpha.net/en/disease/detail/284963"
+  },
+  {
+   "id": "Orphanet:558",
+   "url": "https://www.orpha.net/en/disease/detail/558"
+  },
+  {
+   "id": "SCTID:19346006",
+   "url": "http://identifiers.org/snomedct/19346006"
+  },
+  {
+   "id": "UMLS:C0024796",
+   "url": "http://identifiers.org/umls/C0024796"
+  },
+  {
+   "id": "icd11.foundation:236564145",
+   "url": null
+  }
+ ],
+ "provided_by_link": {
+  "id": "phenio",
+  "url": "https://monarch-app.monarchinitiative.org/Sources/phenio/"
+ },
+ "association_counts": [
+  {
+   "label": "Disease to Phenotype",
+   "count": 181,
+   "key": "biolink:DiseaseToPhenotypicFeatureAssociation",
+   "category": "biolink:DiseaseToPhenotypicFeatureAssociation",
+   "count_direct": 138,
+   "count_with_orthologs": null
+  },
+  {
+   "label": "Causal Gene",
+   "count": 2,
+   "key": "biolink:CausalGeneToDiseaseAssociation",
+   "category": "biolink:CausalGeneToDiseaseAssociation",
+   "count_direct": 2,
+   "count_with_orthologs": null
+  },
+  {
+   "label": "Correlated Gene",
+   "count": 2,
+   "key": "biolink:CorrelatedGeneToDiseaseAssociation",
+   "category": "biolink:CorrelatedGeneToDiseaseAssociation",
+   "count_direct": 1,
+   "count_with_orthologs": null
+  },
+  {
+   "label": "Variant to Disease",
+   "count": 1122,
+   "key": "biolink:VariantToDiseaseAssociation",
+   "category": "biolink:VariantToDiseaseAssociation",
+   "count_direct": 1122,
+   "count_with_orthologs": null
+  },
+  {
+   "label": "Disease Model",
+   "count": 10,
+   "key": "biolink:GenotypeToDiseaseAssociation",
+   "category": "biolink:GenotypeToDiseaseAssociation",
+   "count_direct": 10,
+   "count_with_orthologs": null
+  },
+  {
+   "label": "Cases",
+   "count": 50,
+   "key": "biolink:CaseToDiseaseAssociation",
+   "category": "biolink:CaseToDiseaseAssociation",
+   "count_direct": 50,
+   "count_with_orthologs": null
+  }
+ ],
+ "node_hierarchy": {
+  "super_classes": [
+   {
+    "id": "MONDO:0002254",
+    "name": "syndromic disease",
+    "category": "biolink:Disease"
+   },
+   {
+    "id": "MONDO:0005172",
+    "name": "skeletal system disorder",
+    "category": "biolink:Disease"
+   },
+   {
+    "id": "MONDO:0000426",
+    "name": "autosomal dominant disease",
+    "category": "biolink:Disease"
+   }
+  ],
+  "sub_classes": [
+   {
+    "id": "MONDO:0017309",
+    "name": "neonatal Marfan syndrome",
+    "category": "biolink:Disease"
+   }
+  ]
+ }
+}

@@ -1,0 +1,105 @@
+[
+ {
+  "id": 43005,
+  "slug": "nsclc-radiomics",
+  "link": "https://www.cancerimagingarchive.net/collection/nsclc-radiomics/",
+  "cancer_types": [
+   "Malignant Lung Neoplasm"
+  ],
+  "collection_doi": "10.7937/K9/TCIA.2015.PF0M9REI",
+  "cancer_locations": [
+   "Lung"
+  ],
+  "collection_page_accessibility": "Public",
+  "collection_status": "Ongoing",
+  "supporting_data": [
+   "Clinical",
+   "Image Analyses"
+  ],
+  "species": [
+   "Human"
+  ],
+  "version_number": "4",
+  "collection_title": "NSCLC-Radiomics",
+  "date_updated": "2020-10-22",
+  "subjects": "422",
+  "collection_short_title": "NSCLC-Radiomics",
+  "data_types": [
+   "CT",
+   "RTSTRUCT",
+   "SEG"
+  ],
+  "collection_summary": "<p>This collection contains images from 422 non-small cell lung cancer (NSCLC) patients. For these patients pretreatment CT scans, manual delineation by a radiation oncologist of the 3D volume of the gross tumor volume and clinical outcome data are available. This dataset refers to the Lung1 dataset of the <a href=\"http://www.nature.com/ncomms/2014/140603/ncomms5006/full/ncomms5006.html\">study pub</p>",
+  "program": [
+   "Community"
+  ]
+ },
+ {
+  "id": 42323,
+  "slug": "gbm-dsc-mri-dro",
+  "link": "https://www.cancerimagingarchive.net/collection/gbm-dsc-mri-dro/",
+  "cancer_types": [
+   "Glioblastoma"
+  ],
+  "collection_doi": "10.7937/TCIA.2020.RMWVZWIX",
+  "cancer_locations": [
+   "Brain"
+  ],
+  "collection_page_accessibility": "Public",
+  "collection_status": "Complete",
+  "supporting_data": false,
+  "species": [
+   "Computational Phantom"
+  ],
+  "version_number": "1",
+  "collection_title": "GBM-DSC-MRI-DRO",
+  "date_updated": "2022-07-21",
+  "subjects": "3",
+  "collection_short_title": "GBM-DSC-MRI-DRO",
+  "data_types": [
+   "MR"
+  ],
+  "collection_summary": "<p>&nbsp;</p><p>The standardization of dynamic susceptibility contrast (DSC)-magnetic resonance imaging (MRI) has been confounded by a lack of consensus on DSC-MRI methodology for preventing potential relative cerebral blood volume (CBV) inaccuracies, including the choice of acquisition protocols and postprocessing algorithms. Therefore, a digital reference object (DRO) was developed using physiol</p>",
+  "program": [
+   "QIN"
+  ]
+ },
+ {
+  "id": 42151,
+  "slug": "lidc-idri",
+  "link": "https://www.cancerimagingarchive.net/collection/lidc-idri/",
+  "cancer_types": [
+   "Malignant Lung Neoplasm",
+   "Non-Cancer",
+   "Metastatic disease"
+  ],
+  "collection_doi": "10.7937/K9/TCIA.2015.LO9QL9SX",
+  "cancer_locations": [
+   "Chest"
+  ],
+  "collection_page_accessibility": "Public",
+  "collection_status": "Complete",
+  "supporting_data": [
+   "Clinical",
+   "Image Analyses",
+   "Software/Source Code"
+  ],
+  "species": [
+   "Human"
+  ],
+  "version_number": "4",
+  "collection_title": "Data from The Lung Image Database Consortium (LIDC) and Image Database Resource Initiative (IDRI): A completed reference database of lung nodules on CT scans",
+  "date_updated": "2020-09-21",
+  "subjects": "1010",
+  "collection_short_title": "LIDC-IDRI",
+  "data_types": [
+   "CT",
+   "CR",
+   "DX"
+  ],
+  "collection_summary": "<p>The Lung Image Database Consortium image collection (LIDC-IDRI) consists of diagnostic and lung cancer screening thoracic computed tomography (CT) scans with marked-up annotated lesions. It is a web-accessible international resource for development, training, and evaluation of computer-assisted diagnostic (CAD) methods for lung cancer detection and diagnosis. Initiated by the National Cancer In</p>",
+  "program": [
+   "Community"
+  ]
+ }
+]

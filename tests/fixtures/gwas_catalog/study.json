@@ -1,0 +1,37 @@
+{
+ "initial_sample_size": "7,514 European ancestry cases, 9,045 European ancestry controls",
+ "replication_sample_size": "4,267 European ancestry cases, 4,670 European ancestry controls, 4,342 European ancestry trios from 2,319 families",
+ "gxe": false,
+ "gxg": false,
+ "snp_count": 841622,
+ "imputed": true,
+ "pooled": false,
+ "accession_id": "GCST000392",
+ "full_summary_stats_available": true,
+ "user_requested": false,
+ "pubmed_id": 19430480,
+ "platforms": "Affymetrix,Illumina [841622] (imputed)",
+ "disease_trait": "Type 1 diabetes",
+ "genotyping_technologies": [
+  "Genome-wide genotyping array"
+ ],
+ "efo_traits": [
+  {
+   "efo_id": "MONDO_0005147",
+   "efo_trait": "type 1 diabetes mellitus"
+  }
+ ],
+ "discovery_ancestry": [
+  "16559 European (U.K.)"
+ ],
+ "replication_ancestry": [
+  "13279 European (Denmark, U.K.)"
+ ],
+ "full_summary_stats": "http://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST000001-GCST001000/GCST000392",
+ "terms_of_license": "https://www.ebi.ac.uk/about/terms-of-use/",
+ "bg_efo_traits": [],
+ "array_manufacturer": [
+  "Illumina",
+  "Affymetrix"
+ ]
+}

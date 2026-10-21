@@ -1,0 +1,88 @@
+{
+ "meta": {
+  "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+  "terms": "https://open.fda.gov/terms/",
+  "license": "https://open.fda.gov/license/",
+  "last_updated": "2026-10-16",
+  "results": {
+   "skip": 0,
+   "limit": 1,
+   "total": 1
+  }
+ },
+ "results": [
+  {
+   "product_ndc": "0006-3026",
+   "generic_name": "pembrolizumab",
+   "labeler_name": "Merck Sharp & Dohme LLC",
+   "brand_name": "KEYTRUDA",
+   "active_ingredients": [
+    {
+     "name": "PEMBROLIZUMAB",
+     "strength": "25 mg/mL"
+    }
+   ],
+   "finished": true,
+   "packaging": [
+    {
+     "package_ndc": "0006-3026-02",
+     "description": "1 VIAL in 1 CARTON (0006-3026-02)  / 4 mL in 1 VIAL (0006-3026-01)",
+     "marketing_start_date": "20150115",
+     "sample": false
+    },
+    {
+     "package_ndc": "0006-3026-04",
+     "description": "2 VIAL in 1 CARTON (0006-3026-04)  / 4 mL in 1 VIAL (0006-3026-01)",
+     "marketing_start_date": "20190801",
+     "sample": false
+    }
+   ],
+   "listing_expiration_date": "20271231",
+   "openfda": {
+    "manufacturer_name": [
+     "Merck Sharp & Dohme LLC"
+    ],
+    "rxcui": [
+     "1657746",
+     "1657749",
+     "1657750",
+     "1657751"
+    ],
+    "spl_set_id": [
+     "9333c79b-d487-4538-a9f0-71b91a02b287"
+    ],
+    "is_original_packager": [
+     true
+    ],
+    "nui": [
+     "N0000191260",
+     "N0000191259"
+    ],
+    "pharm_class_epc": [
+     "Programmed Death Receptor-1 Blocking Antibody [EPC]"
+    ],
+    "pharm_class_moa": [
+     "Programmed Death Receptor-1-directed Antibody Interactions [MoA]"
+    ],
+    "unii": [
+     "DPT0O3T46P"
+    ]
+   },
+   "marketing_category": "BLA",
+   "dosage_form": "INJECTION, SOLUTION",
+   "spl_id": "228e1e3f-d207-481f-8e14-9fdcbd0470e9",
+   "product_type": "HUMAN PRESCRIPTION DRUG",
+   "route": [
+    "INTRAVENOUS"
+   ],
+   "marketing_start_date": "20150115",
+   "product_id": "0006-3026_228e1e3f-d207-481f-8e14-9fdcbd0470e9",
+   "application_number": "BLA125514",
+   "brand_name_base": "KEYTRUDA",
+   "pharm_class": [
+    "Programmed Death Receptor-1 Blocking Antibody [EPC]",
+    "Programmed Death Receptor-1-directed Antibody Interactions [MoA]"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,128 @@
+{
+ "summary": {
+  "token": "MjAyNjEwMjAxOTI3NDdfMTAzMQ%3D%3D",
+  "projection": true,
+  "interactors": false,
+  "type": "OVERREPRESENTATION",
+  "sampleName": "",
+  "text": true,
+  "includeDisease": true
+ },
+ "expression": {
+  "columnNames": []
+ },
+ "identifiersNotFound": 1,
+ "pathwaysFound": 175,
+ "pathways": [
+  {
+   "stId": "R-HSA-6796648",
+   "dbId": 6796648,
+   "name": "TP53 Regulates Transcription of DNA Repair Genes",
+   "species": {
+    "dbId": 48887,
+    "taxId": "9606",
+    "name": "Homo sapiens"
+   },
+   "llp": true,
+   "entities": {
+    "resource": "TOTAL",
+    "total": 86,
+    "found": 7,
+    "ratio": 0.005291982031874962,
+    "pValue": 1.3766765505351941e-14,
+    "fdr": 2.76711986657574e-12,
+    "exp": []
+   },
+   "reactions": {
+    "resource": "TOTAL",
+    "total": 17,
+    "found": 15,
+    "ratio": 0.0010566225371371745
+   },
+   "inDisease": false
+  },
+  {
+   "stId": "R-HSA-3700989",
+   "dbId": 3700989,
+   "name": "Transcriptional Regulation by TP53",
+   "species": {
+    "dbId": 48887,
+    "taxId": "9606",
+    "name": "Homo sapiens"
+   },
+   "llp": true,
+   "entities": {
+    "resource": "TOTAL",
+    "total": 487,
+    "found": 9,
+    "ratio": 0.029967386622361702,
+    "pValue": 1.8962609260597674e-13,
+    "fdr": 1.8962609260597674e-11,
+    "exp": []
+   },
+   "reactions": {
+    "resource": "TOTAL",
+    "total": 258,
+    "found": 177,
+    "ratio": 0.016035800857728884
+   },
+   "inDisease": false
+  },
+  {
+   "stId": "R-HSA-212436",
+   "dbId": 212436,
+   "name": "Generic Transcription Pathway",
+   "species": {
+    "dbId": 48887,
+    "taxId": "9606",
+    "name": "Homo sapiens"
+   },
+   "llp": true,
+   "entities": {
+    "resource": "TOTAL",
+    "total": 1574,
+    "found": 9,
+    "ratio": 0.09685557811826964,
+    "pValue": 6.847178268820642e-09,
+    "fdr": 4.58760944010983e-07,
+    "exp": []
+   },
+   "reactions": {
+    "resource": "TOTAL",
+    "total": 879,
+    "found": 182,
+    "ratio": 0.05463360059668096
+   },
+   "inDisease": false
+  }
+ ],
+ "resourceSummary": [
+  {
+   "resource": "TOTAL",
+   "pathways": 175,
+   "filtered": 175
+  },
+  {
+   "resource": "UNIPROT",
+   "pathways": 171,
+   "filtered": 171
+  },
+  {
+   "resource": "ENSEMBL",
+   "pathways": 22,
+   "filtered": 22
+  }
+ ],
+ "speciesSummary": [
+  {
+   "dbId": 48887,
+   "taxId": "9606",
+   "name": "Homo sapiens",
+   "pathways": 175,
+   "filtered": 175
+  }
+ ],
+ "warnings": [
+  "Missing header. Using a default one."
+ ]
+}

@@ -1,0 +1,28 @@
+[
+ [
+  [
+   [
+    "name",
+    "action_type"
+   ],
+   [
+    {
+     "name": "erlotinib",
+     "action_type": "INHIBITOR"
+    },
+    {
+     "name": "gefitinib",
+     "action_type": "INHIBITOR"
+    },
+    {
+     "name": "lapatinib",
+     "action_type": "INHIBITOR"
+    },
+    {
+     "name": "vandetanib",
+     "action_type": "INHIBITOR"
+    }
+   ]
+  ]
+ ]
+]

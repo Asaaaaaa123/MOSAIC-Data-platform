@@ -95,7 +95,17 @@ class FederatedResult(BaseModel):
                 item.pop("summary", None)
                 item.pop("attributes", None)
         text = json.dumps(summary, ensure_ascii=False, default=str)
-        return text[:max_chars]
+        # Drop trailing records per source until it fits; never slice the JSON text.
+        while len(text) > max_chars and any(len(v) > 1 for v in by_source.values()):
+            for record_list in by_source.values():
+                if len(record_list) > 1:
+                    record_list.pop()
+            text = json.dumps(summary, ensure_ascii=False, default=str)
+        if len(text) > max_chars:
+            summary.pop("records_by_source", None)
+            summary["linked_entities"] = summary["linked_entities"][:5]
+            text = json.dumps(summary, ensure_ascii=False, default=str)
+        return text
 
 
 class Registry:
@@ -231,10 +241,15 @@ class Registry:
         )
 
     async def call_qualified(
-        self, qualified_name: str, params: dict[str, Any] | None = None, *, session_id: str | None = None
+        self,
+        qualified_name: str,
+        params: dict[str, Any] | None = None,
+        *,
+        session_id: str | None = None,
+        timeout: float | None = None,
     ) -> ToolResult:
         connector, tool_def = self.resolve_qualified(qualified_name)
-        return await self.call(connector.name, tool_def.name, params, session_id=session_id)
+        return await self.call(connector.name, tool_def.name, params, session_id=session_id, timeout=timeout)
 
     # ---- cross-database ----
     def federated_sources(self, categories: Iterable[str] | None = None) -> list[str]:

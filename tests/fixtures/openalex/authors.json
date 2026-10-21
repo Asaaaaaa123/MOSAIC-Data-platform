@@ -1,0 +1,281 @@
+{
+ "meta": {
+  "count": 28,
+  "db_response_time_ms": 36,
+  "page": null,
+  "per_page": 2,
+  "next_cursor": "Ils5MzIwLjUsIDkxNywgJ2h0dHBzOi8vb3BlbmFsZXgub3JnL0E1MDY2MDA4NjU0J10i",
+  "groups_count": null,
+  "cost_usd": 0.001
+ },
+ "results": [
+  {
+   "id": "https://openalex.org/A5065535610",
+   "orcid": "https://orcid.org/0000-0002-9943-7557",
+   "observed_orcids": [
+    "https://orcid.org/0000-0002-9943-7557",
+    "https://orcid.org/0000-0003-0346-5033"
+   ],
+   "display_name": "David R. Liu",
+   "raw_author_names": [
+    "D. Liu",
+    "D. R. LIU",
+    "D. R. Liu"
+   ],
+   "full_name": "Liu, David R.; Bryson, Jr., David Irby",
+   "relevance_score": 39252.746,
+   "works_count": 480,
+   "cited_by_count": 81654,
+   "summary_stats": {
+    "2yr_mean_citedness": 24.71276595744681,
+    "h_index": 127,
+    "i10_index": 299
+   },
+   "ids": {
+    "openalex": "https://openalex.org/A5065535610",
+    "orcid": "https://orcid.org/0000-0002-9943-7557",
+    "observed_orcids": [
+     "https://orcid.org/0000-0002-9943-7557",
+     "https://orcid.org/0000-0003-0346-5033"
+    ]
+   },
+   "last_known_institutions": [
+    {
+     "id": "https://openalex.org/I107606265",
+     "ror": "https://ror.org/05a0ya142",
+     "display_name": "Broad Institute",
+     "country_code": "US",
+     "type": "nonprofit"
+    },
+    {
+     "id": "https://openalex.org/I1344073410",
+     "ror": "https://ror.org/006w34k90",
+     "display_name": "Howard Hughes Medical Institute",
+     "country_code": "US",
+     "type": "facility"
+    },
+    {
+     "id": "https://openalex.org/I136199984",
+     "ror": "https://ror.org/03vek6s52",
+     "display_name": "Harvard University",
+     "country_code": "US",
+     "type": "education"
+    },
+    {
+     "id": "https://openalex.org/I4210117453",
+     "ror": "https://ror.org/02jzgtq86",
+     "display_name": "Dana-Farber Cancer Institute",
+     "country_code": "US",
+     "type": "facility"
+    },
+    {
+     "id": "https://openalex.org/I63966007",
+     "ror": "https://ror.org/042nb2s44",
+     "display_name": "Massachusetts Institute of Technology",
+     "country_code": "US",
+     "type": "education"
+    }
+   ],
+   "topics": [
+    {
+     "id": "https://openalex.org/T10878",
+     "display_name": "CRISPR and Genetic Engineering",
+     "count": 236,
+     "subfield": {
+      "id": "https://openalex.org/subfields/1312",
+      "display_name": "Molecular Biology"
+     },
+     "field": {
+      "id": "https://openalex.org/fields/13",
+      "display_name": "Biochemistry, Genetics and Molecular Biology"
+     },
+     "domain": {
+      "id": "https://openalex.org/domains/1",
+      "display_name": "Life Sciences"
+     }
+    },
+    {
+     "id": "https://openalex.org/T12610",
+     "display_name": "RNA regulation and disease",
+     "count": 139,
+     "subfield": {
+      "id": "https://openalex.org/subfields/1312",
+      "display_name": "Molecular Biology"
+     },
+     "field": {
+      "id": "https://openalex.org/fields/13",
+      "display_name": "Biochemistry, Genetics and Molecular Biology"
+     },
+     "domain": {
+      "id": "https://openalex.org/domains/1",
+      "display_name": "Life Sciences"
+     }
+    },
+    {
+     "id": "https://openalex.org/T10613",
+     "display_name": "Virus-based gene therapy research",
+     "count": 85,
+     "subfield": {
+      "id": "https://openalex.org/subfields/1311",
+      "display_name": "Genetics"
+     },
+     "field": {
+      "id": "https://openalex.org/fields/13",
+      "display_name": "Biochemistry, Genetics and Molecular Biology"
+     },
+     "domain": {
+      "id": "https://openalex.org/domains/1",
+      "display_name": "Life Sciences"
+     }
+    }
+   ],
+   "display_name_alternatives": [
+    "D. Liu",
+    "D. R. LIU",
+    "D. R. Liu",
+    "D.R. Liu",
+    "David Liu",
+    "David R Liu",
+    "David R. Liu",
+    "David R Liu",
+    "David R. Liu",
+    "David R. Liu",
+    "Liu, David",
+    "Liu, David R",
+    "Liu, David R.",
+    "Liu, David R.; Bryson, Jr., David Irby"
+   ],
+   "block_key": "d liu",
+   "works_api_url": "https://api.openalex.org/works?filter=author.id:A5065535610",
+   "updated_date": "2026-10-19T12:29:13",
+   "created_date": "2016-06-24T00:00:00"
+  },
+  {
+   "id": "https://openalex.org/A5066008654",
+   "orcid": "https://orcid.org/0000-0003-3188-1202",
+   "observed_orcids": [
+    "https://orcid.org/0000-0003-3188-1202"
+   ],
+   "display_name": "Peter G. Schultz",
+   "raw_author_names": [
+    "P G Schultz",
+    "P Schultz",
+    "P. G. SCHULTZ"
+   ],
+   "full_name": "Peter B. Schultz",
+   "relevance_score": 9320.5,
+   "works_count": 917,
+   "cited_by_count": 99108,
+   "summary_stats": {
+    "2yr_mean_citedness": 9.533333333333333,
+    "h_index": 160,
+    "i10_index": 662
+   },
+   "ids": {
+    "openalex": "https://openalex.org/A5066008654",
+    "orcid": "https://orcid.org/0000-0003-3188-1202",
+    "observed_orcids": [
+     "https://orcid.org/0000-0003-3188-1202"
+    ]
+   },
+   "last_known_institutions": null,
+   "topics": [
+    {
+     "id": "https://openalex.org/T10911",
+     "display_name": "Chemical Synthesis and Analysis",
+     "count": 240,
+     "subfield": {
+      "id": "https://openalex.org/subfields/1312",
+      "display_name": "Molecular Biology"
+     },
+     "field": {
+      "id": "https://openalex.org/fields/13",
+      "display_name": "Biochemistry, Genetics and Molecular Biology"
+     },
+     "domain": {
+      "id": "https://openalex.org/domains/1",
+      "display_name": "Life Sciences"
+     }
+    },
+    {
+     "id": "https://openalex.org/T10521",
+     "display_name": "RNA and protein synthesis mechanisms",
+     "count": 222,
+     "subfield": {
+      "id": "https://openalex.org/subfields/1312",
+      "display_name": "Molecular Biology"
+     },
+     "field": {
+      "id": "https://openalex.org/fields/13",
+      "display_name": "Biochemistry, Genetics and Molecular Biology"
+     },
+     "domain": {
+      "id": "https://openalex.org/domains/1",
+      "display_name": "Life Sciences"
+     }
+    },
+    {
+     "id": "https://openalex.org/T11016",
+     "display_name": "Monoclonal and Polyclonal Antibodies Research",
+     "count": 184,
+     "subfield": {
+      "id": "https://openalex.org/subfields/2741",
+      "display_name": "Radiology, Nuclear Medicine and Imaging"
+     },
+     "field": {
+      "id": "https://openalex.org/fields/27",
+      "display_name": "Medicine"
+     },
+     "domain": {
+      "id": "https://openalex.org/domains/4",
+      "display_name": "Health Sciences"
+     }
+    }
+   ],
+   "display_name_alternatives": [
+    "P G Schultz",
+    "P Schultz",
+    "P. G. SCHULTZ",
+    "P. G. Schultz",
+    "P. SCHULTZ",
+    "P. Schultz",
+    "P.G. Schultz",
+    "PETER G. SCHULTZ",
+    "PG Schultz",
+    "Peter G Schultz",
+    "Peter G. Schultz",
+    "Peter G. Schultz B",
+    "Peter Schultz",
+    "Peter. G. Schultz",
+    "Peter G. Schultz",
+    "Peter G. Schultz",
+    "Peter G. Schultz",
+    "Schultz Peter G.",
+    "Schultz, P.",
+    "Schultz, P. G.",
+    "Schultz, Peter G [La Jolla, CA]; Wang, Lei [San Diego, CA]",
+    "Schultz, Peter G [La Jolla, CA]; Wang, Lei [San Diego, CA]; Anderson, John Christopher [San Diego, CA]; Chin, Jason W [San Diego, CA]; Liu, David R [Lexington, MA]; Magliery, Thomas J [North Haven, CT]; Meggers, Eric L [Philadelphia, PA]; Mehl, Ryan Aaron [San Diego, CA]; Pastrnak, Miro [San Diego, CA]; Santoro, Stephen William [San Diego, CA]; Zhang, Zhiwen [San Diego, CA]",
+    "Schultz, Peter G [La Jolla, CA]; Xiang, Xiaodong [Danville, CA]; Goldwasser, Isy [Palo Alto, CA]; Brice{hacek over (n)}o, Gabriel (Baldwin Park, CA); Sun, Xiao-Dong [Fremont, CA]; Wang, Kai-An [Cupertino, CA]",
+    "Schultz, Peter G [Oakland, CA]",
+    "Schultz, Peter G [Oakland, CA]; Xiang, Xiaodong [Alameda, CA]; Goldwasser, Isy [Alameda, CA]",
+    "Schultz, Peter G [Oakland, CA]; Xiang, Xiaodong [Alameda, CA]; Goldwasser, Isy [Menlo Park, CA]",
+    "Schultz, Peter G.",
+    "Schultz, Peter G. (La Jolla, CA); Wang, Lei (San Diego, CA); Anderson, John Christopher (San Diego, CA); Chin, Jason (Cambridge, GB); Liu, David R. (Lexington, MA); Magliery, Thomas J. (North Haven, CT); Meggers, Eric L. (Philadelphia, PA); Mehl, Ryan Aaron (Lancaster, PA); Pastrnak, Miro (San Diego, CA); Santoro, Steven William (Cambridge, MA); Zhang, Zhiwen (San Diego, CA)",
+    "Schultz, Peter G. (Oakland, CA); Gallop, Mark A. (East Palo Alto, CA)",
+    "Schultz, Peter G.; Xiang, Xiao-Dong; Goldwasser, Isy; Briceno, Gabriel; Sun, Xiao-Dong",
+    "Schultz, Peter G.; Xiang, Xiao-Dong; Goldwasser, Isy; Briceno, Gabriel; Sun, Xiao-Dong; Wang, Kai-An",
+    "Schultz, Peter G.; Xiang, Xiaodong; Goldwasser, Isy",
+    "Schultz, Peter G.; Xiang, Xiaodong; Goldwasser, Isy; Briceno, Gabriel; Sun, Xiao-Dong; Wang, Kai-An",
+    "Schultz, Peter G.; Xie, Jianming; Zeng, Huaqiang",
+    "Schultz, Peter [La Jolla, CA]; Wang, Lei [San Diego, CA]; Anderson, John Christopher [San Diego, CA]; Chin, Jason W [Cambridge, GB]; Liu, David R [Lexington, MA]; Magliery, Thomas J [North Haven, CT]; Meggers, Eric [Philadelphia, PA]; Mehl, Ryan Aaron [Lancaster, PA]; Pastrnak, Miro [San Diego, CA]",
+    "Schultz, Peter [Oakland, CA]",
+    "Schultz, Peter; Ring, David B.; Harrison, Stephen D.; Bray, Andrew M."
+   ],
+   "block_key": "p schultz",
+   "works_api_url": "https://api.openalex.org/works?filter=author.id:A5066008654",
+   "updated_date": "2026-10-19T12:29:13",
+   "created_date": "2016-06-24T00:00:00"
+  }
+ ],
+ "group_by": []
+}

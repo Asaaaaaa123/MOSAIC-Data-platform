@@ -1,0 +1,61 @@
+[
+ {
+  "dbId": 111448,
+  "displayName": "Activation of NOXA and translocation to mitochondria",
+  "stId": "R-HSA-111448",
+  "stIdVersion": "R-HSA-111448.5",
+  "isInDisease": false,
+  "isInferred": false,
+  "maxDepth": 2,
+  "name": [
+   "Activation of NOXA and translocation to mitochondria"
+  ],
+  "releaseDate": "2004-10-27",
+  "speciesName": "Homo sapiens",
+  "hasDiagram": false,
+  "hasEHLD": false,
+  "lastUpdatedDate": "2016-03-24",
+  "schemaClass": "Pathway",
+  "className": "Pathway"
+ },
+ {
+  "dbId": 139915,
+  "displayName": "Activation of PUMA and translocation to mitochondria",
+  "stId": "R-HSA-139915",
+  "stIdVersion": "R-HSA-139915.8",
+  "isInDisease": false,
+  "isInferred": false,
+  "maxDepth": 2,
+  "name": [
+   "Activation of PUMA and translocation to mitochondria"
+  ],
+  "releaseDate": "2004-10-27",
+  "speciesName": "Homo sapiens",
+  "hasDiagram": false,
+  "hasEHLD": false,
+  "lastUpdatedDate": "2016-03-24",
+  "schemaClass": "Pathway",
+  "className": "Pathway"
+ },
+ {
+  "dbId": 1912408,
+  "displayName": "Pre-NOTCH Transcription and Translation",
+  "stId": "R-HSA-1912408",
+  "stIdVersion": "R-HSA-1912408.8",
+  "isInDisease": false,
+  "isInferred": false,
+  "maxDepth": 3,
+  "name": [
+   "Pre-NOTCH Transcription and Translation"
+  ],
+  "releaseDate": "2012-03-13",
+  "releaseStatus": "UPDATED",
+  "speciesName": "Homo sapiens",
+  "doi": "10.3180/R-HSA-1912408.3",
+  "hasDiagram": false,
+  "hasEHLD": false,
+  "lastUpdatedDate": "2018-06-13",
+  "schemaClass": "Pathway",
+  "className": "Pathway"
+ }
+]

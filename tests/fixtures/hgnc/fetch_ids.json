@@ -1,0 +1,113 @@
+{
+ "responseHeader": {
+  "status": 0,
+  "QTime": 1
+ },
+ "response": {
+  "numFound": 2,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": [
+   {
+    "pubmed_id": [
+     34438347
+    ],
+    "locus_type": "RNA, long non-coding",
+    "symbol": "LALTOP",
+    "date_modified": "2024-11-11T00:00:00Z",
+    "alias_name": [
+     "lung cancer associated lncRNA targeting Top2alpha"
+    ],
+    "gene_group_id": [
+     1992
+    ],
+    "locus_group": "non-coding RNA",
+    "location": "2p25.3",
+    "hgnc_id": "HGNC:58132",
+    "date_approved_reserved": "2024-11-11T00:00:00Z",
+    "ensembl_gene_id": "ENSG00000228613",
+    "status": "Approved",
+    "name": "lung cancer associated lncRNA targeting TOP2A",
+    "gene_group": [
+     "Long non-coding RNAs with non-systematic symbols"
+    ],
+    "uuid": "8ee1b142-a813-4ca9-aaea-572a506e768a"
+   },
+   {
+    "entrez_id": "1956",
+    "date_name_changed": "2010-06-25T00:00:00Z",
+    "date_approved_reserved": "1986-01-01T00:00:00Z",
+    "prev_symbol": [
+     "ERBB"
+    ],
+    "mgd_id": [
+     "MGI:95294"
+    ],
+    "gene_group": [
+     "Erb-b2 receptor tyrosine kinases"
+    ],
+    "ensembl_gene_id": "ENSG00000146648",
+    "ccds_id": [
+     "CCDS47587",
+     "CCDS5514",
+     "CCDS5515",
+     "CCDS5516",
+     "CCDS87507",
+     "CCDS94105"
+    ],
+    "vega_id": "OTTHUMG00000023661",
+    "gene_group_id": [
+     1096
+    ],
+    "orphanet": 121311,
+    "locus_group": "protein-coding gene",
+    "symbol": "EGFR",
+    "alias_symbol": [
+     "ERBB1",
+     "ERRP"
+    ],
+    "gencc": "HGNC:3236",
+    "hgnc_id": "HGNC:3236",
+    "uniprot_ids": [
+     "P00533"
+    ],
+    "prev_name": [
+     "epidermal growth factor receptor (avian erythroblastic leukemia viral (v-erb-b) oncogene homolog)"
+    ],
+    "cosmic": "EGFR",
+    "location": "7p11.2",
+    "ucsc_id": "uc003tqk.4",
+    "rgd_id": [
+     "RGD:2543"
+    ],
+    "name": "epidermal growth factor receptor",
+    "lsdb": [
+     "LRG_304|http://ftp.ebi.ac.uk/pub/databases/lrgex/LRG_304.xml"
+    ],
+    "uuid": "830431cd-9922-4d70-921d-1990d0fe0540",
+    "omim_id": [
+     "131550"
+    ],
+    "iuphar": "HGNC:3236",
+    "status": "Approved",
+    "agr": "HGNC:3236",
+    "refseq_accession": [
+     "NM_005228"
+    ],
+    "mane_select": [
+     "ENST00000275493.7",
+     "NM_005228.5"
+    ],
+    "pubmed_id": [
+     1505215
+    ],
+    "locus_type": "gene with protein product",
+    "alias_name": [
+     "erythroblastic leukemia viral (v-erb-b) oncogene homolog (avian)",
+     "erb-b2 receptor tyrosine kinase 1"
+    ],
+    "date_modified": "2023-03-15T00:00:00Z"
+   }
+  ]
+ }
+}

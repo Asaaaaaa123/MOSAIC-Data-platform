@@ -1,0 +1,48 @@
+{
+ "data": {
+  "molecularProfiles": {
+   "nodes": [
+    {
+     "id": 12,
+     "name": "BRAF V600E"
+    },
+    {
+     "id": 4707,
+     "name": "BRAF V600E OR BRAF K601E"
+    },
+    {
+     "id": 5175,
+     "name": "BRAF V600E AND MSI Low"
+    },
+    {
+     "id": 4174,
+     "name": "BRAF Amplification AND ( BRAF V600E OR BRAF V600K )"
+    },
+    {
+     "id": 4170,
+     "name": "BRAF V600E AND BRAF V600M"
+    },
+    {
+     "id": 4173,
+     "name": "BRAF V600E AND BRAF Amplification"
+    },
+    {
+     "id": 685,
+     "name": "BRAF V600E+V600K"
+    },
+    {
+     "id": 4213,
+     "name": "NOT KRAS Mutation AND ( BRAF V600E OR BRAF D594G )"
+    },
+    {
+     "id": 4241,
+     "name": "BRAF V600E AND EZH2 Y646F"
+    },
+    {
+     "id": 4251,
+     "name": "BRAF V600E AND EGFR L858R AND EGFR T790M"
+    }
+   ]
+  }
+ }
+}

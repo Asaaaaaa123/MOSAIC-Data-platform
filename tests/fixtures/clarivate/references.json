@@ -1,0 +1,31 @@
+{
+ "Data": [
+  {
+   "UID": "WOS:000305095400010",
+   "CitedAuthor": "Sashital, Dipali G.",
+   "TimesCited": "302",
+   "Year": "2012",
+   "Page": "606",
+   "Volume": "46",
+   "CitedWork": "MOLECULAR CELL",
+   "CitedTitle": "Mechanism of Foreign DNA Selection in a Bacterial Adaptive Immune System",
+   "DOI": "10.1016/j.molcel.2012.03.020"
+  },
+  {
+   "UID": "WOS:000295080500045",
+   "CitedAuthor": "Wiedenheft, Blake",
+   "TimesCited": "422",
+   "Year": "2011",
+   "Page": "486",
+   "Volume": "477",
+   "CitedWork": "NATURE",
+   "CitedTitle": "Structures of the RNA-guided surveillance complex from a bacterial immune system",
+   "DOI": "10.1038/nature10402"
+  }
+ ],
+ "QueryResult": {
+  "QueryID": 22,
+  "RecordsSearched": 341796489,
+  "RecordsFound": 38
+ }
+}

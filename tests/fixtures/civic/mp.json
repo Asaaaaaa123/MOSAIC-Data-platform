@@ -1,0 +1,126 @@
+{
+ "data": {
+  "molecularProfile": {
+   "id": 12,
+   "name": "BRAF V600E",
+   "description": "BRAF V600E has been shown to be recurrent in many cancer types. It is one of the most widely studied variants in cancer. This variant is correlated with poor prognosis in certain cancer types, includi",
+   "link": "/molecular-profiles/12",
+   "molecularProfileScore": 1471.5,
+   "molecularProfileAliases": [
+    "RS113488022",
+    "VAL600GLU",
+    "V640E",
+    "VAL640GLU"
+   ],
+   "isComplex": false,
+   "evidenceCountsByType": {
+    "predictiveCount": 177,
+    "diagnosticCount": 3,
+    "prognosticCount": 17,
+    "predisposingCount": 0,
+    "oncogenicCount": 14,
+    "functionalCount": 4
+   },
+   "assertions": {
+    "totalCount": 11,
+    "nodes": [
+     {
+      "id": 10,
+      "name": "AID10",
+      "ampLevel": "TIER_I_LEVEL_A",
+      "assertionType": "PREDICTIVE",
+      "assertionDirection": "SUPPORTS",
+      "significance": "SENSITIVITYRESPONSE",
+      "disease": {
+       "name": "Melanoma",
+       "doid": "1909"
+      },
+      "therapies": [
+       {
+        "name": "Vemurafenib"
+       },
+       {
+        "name": "Cobimetinib"
+       }
+      ]
+     },
+     {
+      "id": 23,
+      "name": "AID23",
+      "ampLevel": null,
+      "assertionType": "PREDICTIVE",
+      "assertionDirection": "SUPPORTS",
+      "significance": "SENSITIVITYRESPONSE",
+      "disease": {
+       "name": "Colorectal Cancer",
+       "doid": "9256"
+      },
+      "therapies": [
+       {
+        "name": "Cetuximab"
+       },
+       {
+        "name": "Encorafenib"
+       },
+       {
+        "name": "Binimetinib"
+       }
+      ]
+     }
+    ]
+   },
+   "variants": [
+    {
+     "id": 12,
+     "name": "V600E",
+     "link": "/variants/12",
+     "alleleRegistryId": "CA123643",
+     "clinvarIds": [
+      "13961",
+      "376069"
+     ],
+     "hgvsDescriptions": [
+      "NM_004333.4:c.1799T>A",
+      "NP_004324.2:p.Val600Glu",
+      "NC_000007.13:g.140453136A>T",
+      "ENST00000288602.6:c.1799T>A",
+      "NC_000007.14:g.140753336A>T",
+      "ENSP00000493543.1:p.Val600Glu",
+      "ENSP00000496776.1:p.Val640Glu"
+     ],
+     "maneSelectTranscript": "ENST00000646891.2:c.1799T>A",
+     "variantAliases": [
+      "RS113488022",
+      "VAL600GLU",
+      "V640E",
+      "VAL640GLU"
+     ],
+     "variantTypes": [
+      {
+       "name": "Missense Variant"
+      }
+     ],
+     "coordinates": {
+      "chromosome": "7",
+      "start": 140453136,
+      "stop": 140453136,
+      "referenceBases": "A",
+      "variantBases": "T",
+      "referenceBuild": "GRCH37"
+     },
+     "myVariantInfo": {
+      "dbsnpRsid": "rs113488022",
+      "cosmicId": "COSM476"
+     },
+     "feature": {
+      "id": 5,
+      "name": "BRAF",
+      "featureInstance": {
+       "entrezId": 673
+      }
+     }
+    }
+   ]
+  }
+ }
+}

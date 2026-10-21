@@ -1,0 +1,298 @@
+{
+ "data": [
+  {
+   "objCls": "Gene",
+   "id": "PA128",
+   "symbol": "CYP2D6",
+   "name": "cytochrome P450 family 2 subfamily D member 6",
+   "alleleFile": "CYP2D6_allele_definition_table.xlsx",
+   "alleleFunctionSource": "CPIC",
+   "altNames": {
+    "synonym": [
+     "cytochrome P450 family 2 subfamily D member 6",
+     "cytochrome P450, family 2, subfamily D, polypeptide 6"
+    ],
+    "symbol": [
+     "CPD6",
+     "CYP2D",
+     "CYP2D7AP",
+     "CYP2D7BP",
+     "CYP2D7P2",
+     "CYP2D8P2",
+     "CYP2DL1",
+     "P450-DB1",
+     "P450C2D"
+    ]
+   },
+   "amp": true,
+   "buildVersion": "GRCh38.p7",
+   "cbStart": "q13.1",
+   "cbStop": "q13.2",
+   "chr": {
+    "objCls": "Chromosome",
+    "id": "PA525",
+    "name": "chr22",
+    "version": 3
+   },
+   "chrStartPosB37": 42522501,
+   "chrStartPosB38": 42125531,
+   "chrStopPosB37": 42526883,
+   "chrStopPosB38": 42130881,
+   "cpicGene": true,
+   "crossReferences": [
+    {
+     "id": 553242505,
+     "resource": "Comparative Toxicogenomics Database",
+     "resourceId": "1565",
+     "_url": "http://ctdbase.org/detail.go?type=gene&acc=1565",
+     "version": 0
+    },
+    {
+     "id": 132256032,
+     "resource": "Ensembl",
+     "resourceId": "ENSG00000100197",
+     "_url": "https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000100197",
+     "version": 0
+    },
+    {
+     "id": 73375,
+     "resource": "GenAtlas",
+     "resourceId": "CYP2D6",
+     "_url": "http://genatlas.medecine.univ-paris5.fr/fiche.php?symbol=CYP2D6",
+     "version": 1
+    },
+    {
+     "id": 1445332056,
+     "resource": "GenBank",
+     "resourceId": "AY545216.1",
+     "_url": "https://www.ncbi.nlm.nih.gov/nuccore/AY545216.1",
+     "version": 0
+    },
+    {
+     "id": 88303,
+     "resource": "GeneCard",
+     "resourceId": "CYP2D6",
+     "_url": "https://www.genecards.org/cgi-bin/carddisp.pl?gene=CYP2D6",
+     "version": 1
+    },
+    {
+     "id": 605873023,
+     "resource": "HGNC",
+     "resourceId": "HGNC:2625",
+     "_url": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC%3A2625",
+     "version": 1
+    },
+    {
+     "id": 605873080,
+     "resource": "HumanCyc Gene",
+     "resourceId": "HS01997",
+     "_url": "http://biocyc.org/HUMAN/NEW-IMAGE?object=HS01997",
+     "version": 0
+    },
+    {
+     "id": 560877840,
+     "resource": "ModBase",
+     "resourceId": "P10635",
+     "_url": "http://salilab.org/modbase/search?modelflag=longest&databaseID=P10635",
+     "version": 0
+    },
+    {
+     "id": 10749,
+     "resource": "NCBI Gene",
+     "resourceId": "1565",
+     "_url": "https://www.ncbi.nlm.nih.gov/gene/1565",
+     "version": 1
+    },
+    {
+     "id": 717,
+     "resource": "OMIM",
+     "resourceId": "124030",
+     "_url": "https://omim.org/entry/124030",
+     "version": 1
+    },
+    {
+     "id": 560556323,
+     "resource": "OMIM",
+     "resourceId": "608902",
+     "_url": "https://omim.org/entry/608902",
+     "version": 0
+    },
+    {
+     "id": 1451280333,
+     "resource": "PharmVar Gene",
+     "resourceId": "CYP2D6",
+     "_url": "https://www.pharmvar.org/gene/CYP2D6",
+     "version": 0
+    },
+    {
+     "id": 1451167850,
+     "name": "NG_008376.4",
+     "resource": "RefSeq DNA",
+     "resourceId": "NG_008376.4",
+     "_url": "https://www.ncbi.nlm.nih.gov/nuccore/NG_008376.4",
+     "version": 0
+    },
+    {
+     "id": 37278,
+     "resource": "RefSeq Protein",
+     "resourceId": "NP_000097",
+     "_url": "https://www.ncbi.nlm.nih.gov/nuccore/NP_000097",
+     "version": 1
+    },
+    {
+     "id": 123170196,
+     "resource": "RefSeq Protein",
+     "resourceId": "NP_001020332",
+     "_url": "https://www.ncbi.nlm.nih.gov/nuccore/NP_001020332",
+     "version": 1
+    },
+    {
+     "id": 46353,
+     "resource": "RefSeq RNA",
+     "resourceId": "NM_000106",
+     "_url": "https://www.ncbi.nlm.nih.gov/nuccore/NM_000106",
+     "version": 1
+    },
+    {
+     "id": 123170193,
+     "resource": "RefSeq RNA",
+     "resourceId": "NM_001025161",
+     "_url": "https://www.ncbi.nlm.nih.gov/nuccore/NM_001025161",
+     "version": 1
+    },
+    {
+     "id": 121670,
+     "resource": "UCSC Genome Browser",
+     "resourceId": "NM_000106",
+     "_url": "https://genome.ucsc.edu/cgi-bin/hgTracks?Submit=Submit&position=NM_000106",
+     "version": 1
+    },
+    {
+     "id": 605873078,
+     "name": "Q6NWU0_HUMAN",
+     "resource": "UniProtKB",
+     "resourceId": "Q6NWU0",
+     "_url": "https://www.uniprot.org/uniprot/Q6NWU0",
+     "version": 1
+    },
+    {
+     "id": 605873076,
+     "name": "Q6NXU8_HUMAN",
+     "resource": "UniProtKB",
+     "resourceId": "Q6NXU8",
+     "_url": "https://www.uniprot.org/uniprot/Q6NXU8",
+     "version": 1
+    }
+   ],
+   "hasNonStandardHaplotypes": false,
+   "hideHaplotypes": false,
+   "history": [],
+   "pharmVarGene": true,
+   "strand": "minus",
+   "terms": [
+    {
+     "id": 560498878,
+     "_url": "http://amigo.geneontology.org/amigo/term/GO:0004497",
+     "resource": "Gene Ontology",
+     "term": "monooxygenase activity",
+     "termId": "GO:0004497"
+    },
+    {
+     "id": 560500079,
+     "_url": "http://amigo.geneontology.org/amigo/term/GO:0005739",
+     "resource": "Gene Ontology",
+     "term": "mitochondrion",
+     "termId": "GO:0005739"
+    },
+    {
+     "id": 560500134,
+     "_url": "http://amigo.geneontology.org/amigo/term/GO:0005783",
+     "resource": "Gene Ontology",
+     "term": "endoplasmic reticulum",
+     "termId": "GO:0005783"
+    }
+   ],
+   "usesStarAlleles": true,
+   "version": 7891,
+   "vipCitation": {
+    "id": 7144344,
+    "title": "Cytochrome P450 2D6.",
+    "_sameAs": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4373606",
+    "authors": [
+     "Owen Ryan P",
+     "Sangkuhl Katrin",
+     "Klein Teri E",
+     "Altman Russ B"
+    ],
+    "crossReferences": [
+     {
+      "id": 1449247412,
+      "resource": "PubMed Central",
+      "resourceId": "PMC4373606",
+      "_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4373606",
+      "version": 0
+     },
+     {
+      "id": 562114580,
+      "resource": "PubMed",
+      "resourceId": "19512959",
+      "_url": "https://www.ncbi.nlm.nih.gov/pubmed/19512959",
+      "version": 0
+     },
+     {
+      "id": 1449247413,
+      "resource": "DOI",
+      "resourceId": "10.1097/FPC.0b013e32832e0e97",
+      "_url": "https://doi.org/10.1097%2FFPC.0b013e32832e0e97",
+      "version": 0
+     }
+    ],
+    "day": -1,
+    "hasKeyword": false,
+    "journal": "Pharmacogenetics and genomics",
+    "meshTerms": [
+     "Animals",
+     "Cytochrome P-450 CYP2D6",
+     "Haplotypes",
+     "Humans",
+     "Polymorphism, Single Nucleotide",
+     "Substrate Specificity"
+    ],
+    "month": 7,
+    "nonHuman": false,
+    "objCls": "Literature",
+    "page": "559-62",
+    "pediatric": false,
+    "pgkbPublication": true,
+    "pubDate": "2009-07-01",
+    "pubmedMeshTerms": [],
+    "terms": [
+     {
+      "id": 1454108640,
+      "resource": "ClinPGx Tags",
+      "term": "PharmGKB",
+      "termId": "pgkbTags:1454108640"
+     },
+     {
+      "id": 1451577482,
+      "resource": "PGx Paper Types",
+      "term": "Review",
+      "termId": "pgxPaperTypes:1451577482"
+     }
+    ],
+    "type": "Literature",
+    "version": 9,
+    "volume": "19",
+    "year": 2009
+   },
+   "vipId": "PA166170264",
+   "vipSummary": {
+    "id": 1448995144,
+    "html": "<p>CYP2D6 is one of the key pharmacogenes involved in implementation of pharmacogenomics. It is highly polymorphic and involved in the metabolism of up to 25% of the drugs that are in common use in the clinic.</p>\n<ul>\n<li>It is involved in guidelines for <a href=\"/guidelineAnnotation/PA166104996\">codeine</a> and other opioids, antidepressants, and tamoxifen <a href=\"/gene/PA128/prescribingInfo#guideline-annotations\">go to list of all guidelines with CYP2D6</a>.</li>\n<li>the nomenclature has been set by <a rel=\"noopener noreferrer\" href=\"https://www.pharmvar.org/gene/CYP2D6\" target=\"_blank\">PharmVar</a>.</li>\n<li>the AMP tier 1 alleles are <a href=\"/allele/PA165816577\">CYP2D6*2</a>, <a href=\"/allele/PA165816578\">CYP2D6*3</a>, <a href=\"/allele/PA165816579\">CYP2D6*4</a>, <a href=\"/allele/PA165948092\">CYP2D6*5</a>, <a href=\"/allele/PA165816581\">CYP2D6*6</a>, <a href=\"/allele/PA165948317\">CYP2D6*9</a>, <a href=\"/allele/PA165816582\">CYP2D6*10</a>, <a href=\"/allele/PA165816583\">CYP2D6*17</a>, <a href=\"/allele/PA165948318\">CYP2D6*29</a>, <a href=\"/allele/PA165816584\">CYP2D6*41</a>, CYP2D6 duplications and other copy number variants <a href=\"/ampAllelesToTest\">see all alleles on the AMP recommended to test list</a>.</li>\n<li>See the <a href=\"/page/cyp2d6RefMaterials\">Gene-specific Information Tables</a> for Allele Definitions (for which variants comprise which star alleles), Allele function assignments (normal function, no function, decreased or increased function etc) and Diplotype-Phenotype Table (for how the alleles combine to form metabolizer phenotypes for PM, NM, UM).</li>\n<li>CYP2D6 is the most studied CYP for phenoconversion, where a drug-drug interaction mimics a metabolizer phenotype. <a href=\"/chemical/PA450801\">paroxetine</a>, <a href=\"/chemical/PA449673\">fluoxetine</a> and <a href=\"/chemical/PA448687\">bupropion</a> are strong inhibitors of CYP2D6 as per <a rel=\"noopener noreferrer\" href=\"https://drug-interactions.medicine.iu.edu/MainTable.aspx\" target=\"_blank\">Flockhart Table</a>.</li>\n</ul>\n",
+    "version": 7
+   },
+   "vipTier": "Tier 1"
+  }
+ ],
+ "status": "success"
+}

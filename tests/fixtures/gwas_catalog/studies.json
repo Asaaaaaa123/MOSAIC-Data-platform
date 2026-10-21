@@ -1,0 +1,86 @@
+{
+ "_embedded": {
+  "studies": [
+   {
+    "initial_sample_size": "58 cases, 323 controls",
+    "replication_sample_size": "NA",
+    "gxe": false,
+    "gxg": false,
+    "snp_count": 13185383,
+    "imputed": false,
+    "accession_id": "GCST91000572",
+    "full_summary_stats_available": false,
+    "user_requested": false,
+    "pubmed_id": 38750426,
+    "platforms": "Illumina [13185383]",
+    "disease_trait": "Asthma in severe COVID-19",
+    "genotyping_technologies": [
+     "Genome-wide sequencing"
+    ],
+    "efo_traits": [
+     {
+      "efo_id": "MONDO_0004979",
+      "efo_trait": "asthma"
+     }
+    ],
+    "discovery_ancestry": [
+     "381 NR (Canada)"
+    ],
+    "replication_ancestry": [],
+    "full_summary_stats": "NA",
+    "terms_of_license": "https://www.ebi.ac.uk/about/terms-of-use/",
+    "bg_efo_traits": [
+     {
+      "efo_id": "MONDO_0100096",
+      "efo_trait": "COVID-19"
+     }
+    ],
+    "cohort": [
+     "BQC19"
+    ],
+    "array_manufacturer": [
+     "Illumina"
+    ]
+   },
+   {
+    "initial_sample_size": "23,991 European ancestry cases, 146,766 European ancestry controls",
+    "replication_sample_size": "NA",
+    "gxg": false,
+    "snp_count": 299582,
+    "imputed": false,
+    "accession_id": "GCST90103412",
+    "full_summary_stats_available": true,
+    "user_requested": false,
+    "pubmed_id": 36779085,
+    "platforms": "NR [299582]",
+    "disease_trait": "Source of report of J45 (asthma) (UKB data field 131495) (CNV dosage model)",
+    "genotyping_technologies": [
+     "Exome-wide sequencing"
+    ],
+    "efo_traits": [
+     {
+      "efo_id": "MONDO_0004979",
+      "efo_trait": "asthma"
+     }
+    ],
+    "discovery_ancestry": [
+     "170757 European (U.K.)"
+    ],
+    "replication_ancestry": [],
+    "full_summary_stats": "http://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST90103001-GCST90104000/GCST90103412",
+    "terms_of_license": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "bg_efo_traits": [],
+    "cohort": [
+     "UKB"
+    ],
+    "array_manufacturer": []
+   }
+  ]
+ },
+ "page": {
+  "size": 2,
+  "totalElements": 288,
+  "totalPages": 144,
+  "number": 0
+ }
+}

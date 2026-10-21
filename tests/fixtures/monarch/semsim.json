@@ -1,0 +1,55 @@
+[
+ {
+  "subject": {
+   "id": "MONDO:0859194",
+   "category": "biolink:Disease",
+   "name": "Boudin-Mortier syndrome",
+   "xref": [
+    "MEDGEN:1794202",
+    "OMIM:619543",
+    "UMLS:C5561992"
+   ],
+   "iri": "http://purl.obolibrary.org/obo/MONDO_0859194",
+   "file_source": "phenio_nodes",
+   "provided_by": "phenio_nodes",
+   "namespace": "MONDO",
+   "uri": "http://purl.obolibrary.org/obo/MONDO_0859194"
+  },
+  "score": 14.065982249818614,
+  "similarity": {
+   "average_score": 14.065982249818614,
+   "best_score": 18.679672519319315,
+   "metric": "ancestor_information_content"
+  }
+ },
+ {
+  "subject": {
+   "id": "MONDO:0012171",
+   "category": "biolink:Disease",
+   "name": "marfanoid habitus with situs inversus",
+   "xref": [
+    "MEDGEN:323046",
+    "MESH:C563814",
+    "OMIM:609008",
+    "UMLS:C1836994"
+   ],
+   "synonym": [
+    "marfanoid habitus with situs inversus"
+   ],
+   "exact_synonym": [
+    "marfanoid habitus with situs inversus"
+   ],
+   "iri": "http://purl.obolibrary.org/obo/MONDO_0012171",
+   "file_source": "phenio_nodes",
+   "provided_by": "phenio_nodes",
+   "namespace": "MONDO",
+   "uri": "http://purl.obolibrary.org/obo/MONDO_0012171"
+  },
+  "score": 13.766095002062716,
+  "similarity": {
+   "average_score": 13.766095002062713,
+   "best_score": 18.679672519319315,
+   "metric": "ancestor_information_content"
+  }
+ }
+]

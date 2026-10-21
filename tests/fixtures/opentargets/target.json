@@ -1,0 +1,402 @@
+{
+ "data": {
+  "target": {
+   "id": "ENSG00000146648",
+   "approvedSymbol": "EGFR",
+   "approvedName": "epidermal growth factor receptor",
+   "biotype": "protein_coding",
+   "functionDescriptions": [
+    "Receptor tyrosine kinase binding ligands of the EGF family and activating several signaling cascades to convert extracellular cues into appropriate cellular responses (PubMed:10805725, PubMed:12297050, PubMed:12620237, PubMed:12873986, PubMed:15374980, PubMed:15590694, PubMed:17115032, PubMed:19560417, PubMed:21258366, PubMed:27153536, PubMed:2790960, PubMed:35538033, PubMed:9488479). Known ligand"
+   ],
+   "genomicLocation": {
+    "chromosome": "7",
+    "start": 55018820,
+    "end": 55211628,
+    "strand": "POSITIVE"
+   },
+   "proteinIds": [
+    {
+     "id": "P00533",
+     "source": "uniprot_swissprot"
+    },
+    {
+     "id": "A0A8V8TPW8",
+     "source": "uniprot_trembl"
+    },
+    {
+     "id": "C9JYS6",
+     "source": "uniprot_trembl"
+    }
+   ],
+   "dbXrefs": [
+    {
+     "id": "3236",
+     "source": "HGNC"
+    },
+    {
+     "id": "CHEMBL203",
+     "source": "ChEMBL"
+    }
+   ],
+   "symbolSynonyms": [
+    {
+     "label": "EGFR"
+    },
+    {
+     "label": "ERBB"
+    },
+    {
+     "label": "ERBB1"
+    },
+    {
+     "label": "HER1"
+    },
+    {
+     "label": "ERBB1"
+    },
+    {
+     "label": "ERRP"
+    },
+    {
+     "label": "ERBB"
+    },
+    {
+     "label": "ERBB1"
+    },
+    {
+     "label": "ERRP"
+    },
+    {
+     "label": "HER1"
+    },
+    {
+     "label": "NISBD2"
+    },
+    {
+     "label": "NNCIS"
+    },
+    {
+     "label": "PIG61"
+    },
+    {
+     "label": "mENA"
+    },
+    {
+     "label": "EGFR"
+    }
+   ],
+   "targetClass": [
+    {
+     "label": "Kinase",
+     "level": "l2"
+    },
+    {
+     "label": "Protein Kinase",
+     "level": "l3"
+    },
+    {
+     "label": "Tyrosine protein kinase EGFR family",
+     "level": "l5"
+    },
+    {
+     "label": "Enzyme",
+     "level": "l1"
+    },
+    {
+     "label": "TK protein kinase group",
+     "level": "l4"
+    }
+   ],
+   "subcellularLocations": [
+    {
+     "location": "Cell membrane ; Single-pass type I membrane protein"
+    },
+    {
+     "location": "Endoplasmic reticulum membrane ; Single-pass type I membrane protein"
+    },
+    {
+     "location": "Golgi apparatus membrane; Single-pass type I membrane protein"
+    }
+   ],
+   "tractability": [
+    {
+     "label": "Approved Drug",
+     "modality": "SM",
+     "value": true
+    },
+    {
+     "label": "Advanced Clinical",
+     "modality": "SM",
+     "value": false
+    },
+    {
+     "label": "Phase 1 Clinical",
+     "modality": "SM",
+     "value": false
+    },
+    {
+     "label": "Structure with Ligand",
+     "modality": "SM",
+     "value": true
+    },
+    {
+     "label": "High-Quality Ligand",
+     "modality": "SM",
+     "value": true
+    },
+    {
+     "label": "High-Quality Pocket",
+     "modality": "SM",
+     "value": true
+    },
+    {
+     "label": "Med-Quality Pocket",
+     "modality": "SM",
+     "value": false
+    },
+    {
+     "label": "Druggable Family",
+     "modality": "SM",
+     "value": true
+    },
+    {
+     "label": "Approved Drug",
+     "modality": "AB",
+     "value": true
+    },
+    {
+     "label": "Advanced Clinical",
+     "modality": "AB",
+     "value": false
+    },
+    {
+     "label": "Phase 1 Clinical",
+     "modality": "AB",
+     "value": false
+    },
+    {
+     "label": "UniProt loc high conf",
+     "modality": "AB",
+     "value": true
+    },
+    {
+     "label": "GO CC high conf",
+     "modality": "AB",
+     "value": true
+    },
+    {
+     "label": "UniProt loc med conf",
+     "modality": "AB",
+     "value": true
+    },
+    {
+     "label": "UniProt SigP or TMHMM",
+     "modality": "AB",
+     "value": true
+    },
+    {
+     "label": "GO CC med conf",
+     "modality": "AB",
+     "value": false
+    },
+    {
+     "label": "Human Protein Atlas loc",
+     "modality": "AB",
+     "value": true
+    },
+    {
+     "label": "Approved Drug",
+     "modality": "PR",
+     "value": false
+    },
+    {
+     "label": "Advanced Clinical",
+     "modality": "PR",
+     "value": false
+    },
+    {
+     "label": "Phase 1 Clinical",
+     "modality": "PR",
+     "value": false
+    },
+    {
+     "label": "Literature",
+     "modality": "PR",
+     "value": true
+    },
+    {
+     "label": "UniProt Ubiquitination",
+     "modality": "PR",
+     "value": true
+    },
+    {
+     "label": "Database Ubiquitination",
+     "modality": "PR",
+     "value": true
+    },
+    {
+     "label": "Half-life Data",
+     "modality": "PR",
+     "value": true
+    },
+    {
+     "label": "Small Molecule Binder",
+     "modality": "PR",
+     "value": true
+    },
+    {
+     "label": "Approved Drug",
+     "modality": "OC",
+     "value": false
+    },
+    {
+     "label": "Advanced Clinical",
+     "modality": "OC",
+     "value": true
+    },
+    {
+     "label": "Phase 1 Clinical",
+     "modality": "OC",
+     "value": false
+    }
+   ],
+   "safetyLiabilities": [
+    {
+     "event": "ALT increase",
+     "eventId": "OBA_2050062",
+     "datasource": "Brennan et al. (2024)",
+     "literature": "38773351",
+     "effects": [
+      {
+       "direction": "Inhibition/Decrease/Downregulation"
+      }
+     ],
+     "biosamples": [
+      {
+       "tissueLabel": "liver"
+      }
+     ]
+    },
+    {
+     "event": "AST increase",
+     "eventId": "EFO_0004736",
+     "datasource": "Brennan et al. (2024)",
+     "literature": "38773351",
+     "effects": [
+      {
+       "direction": "Inhibition/Decrease/Downregulation"
+      }
+     ],
+     "biosamples": [
+      {
+       "tissueLabel": "liver"
+      }
+     ]
+    }
+   ],
+   "pathways": [
+    {
+     "pathwayId": "R-HSA-9009391",
+     "pathway": "Extra-nuclear estrogen signaling",
+     "topLevelTerm": "Signal Transduction"
+    },
+    {
+     "pathwayId": "R-HSA-6811558",
+     "pathway": "PI5P, PP2A and IER3 Regulate PI3K/AKT Signaling",
+     "topLevelTerm": "Signal Transduction"
+    },
+    {
+     "pathwayId": "R-HSA-180336",
+     "pathway": "SHC1 events in EGFR signaling",
+     "topLevelTerm": "Signal Transduction"
+    }
+   ],
+   "drugAndClinicalCandidates": {
+    "count": 82,
+    "rows": [
+     {
+      "maxClinicalStage": "PHASE_2",
+      "drug": {
+       "id": "CHEMBL2109389",
+       "name": "IMGATUZUMAB",
+       "drugType": "Antibody"
+      },
+      "diseases": [
+       {
+        "disease": {
+         "id": "EFO_1001480",
+         "name": "metastatic colorectal cancer"
+        }
+       },
+       {
+        "disease": {
+         "id": "MONDO_0005233",
+         "name": "non-small cell lung carcinoma"
+        }
+       },
+       {
+        "disease": {
+         "id": "MONDO_0005575",
+         "name": "colorectal cancer"
+        }
+       }
+      ]
+     },
+     {
+      "maxClinicalStage": "APPROVAL",
+      "drug": {
+       "id": "CHEMBL4298088",
+       "name": "CETUXIMAB SAROTALOCAN",
+       "drugType": "Antibody drug conjugate"
+      },
+      "diseases": [
+       {
+        "disease": {
+         "id": "MONDO_0005627",
+         "name": "head and neck cancer"
+        }
+       },
+       {
+        "disease": {
+         "id": "MONDO_0010150",
+         "name": "head and neck squamous cell carcinoma"
+        }
+       },
+       {
+        "disease": {
+         "id": "MONDO_0010150",
+         "name": "head and neck squamous cell carcinoma"
+        }
+       }
+      ]
+     },
+     {
+      "maxClinicalStage": "APPROVAL",
+      "drug": {
+       "id": "CHEMBL3545311",
+       "name": "BRIGATINIB",
+       "drugType": "Small molecule"
+      },
+      "diseases": [
+       {
+        "disease": {
+         "id": "MONDO_0005233",
+         "name": "non-small cell lung carcinoma"
+        }
+       },
+       {
+        "disease": null
+       },
+       {
+        "disease": {
+         "id": "MONDO_0020325",
+         "name": "anaplastic large cell lymphoma"
+        }
+       }
+      ]
+     }
+    ]
+   }
+  }
+ }
+}

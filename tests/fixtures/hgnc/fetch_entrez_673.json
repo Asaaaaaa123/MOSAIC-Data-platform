@@ -1,0 +1,85 @@
+{
+ "responseHeader": {
+  "status": 0,
+  "QTime": 1
+ },
+ "response": {
+  "numFound": 1,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": [
+   {
+    "date_modified": "2023-01-20T00:00:00Z",
+    "locus_type": "gene with protein product",
+    "pubmed_id": [
+     2284096,
+     1565476
+    ],
+    "mane_select": [
+     "ENST00000646891.2",
+     "NM_004333.6"
+    ],
+    "refseq_accession": [
+     "NM_004333"
+    ],
+    "agr": "HGNC:1097",
+    "omim_id": [
+     "164757"
+    ],
+    "uuid": "8e94013b-9cce-4254-9194-78d2bd33dfaa",
+    "lsdb": [
+     "LRG_299|http://ftp.ebi.ac.uk/pub/databases/lrgex/LRG_299.xml"
+    ],
+    "name": "B-Raf proto-oncogene, serine/threonine kinase",
+    "status": "Approved",
+    "iuphar": "HGNC:1097",
+    "hgnc_id": "HGNC:1097",
+    "gencc": "HGNC:1097",
+    "alias_symbol": [
+     "BRAF1",
+     "BRAF-1"
+    ],
+    "rgd_id": [
+     "RGD:619908"
+    ],
+    "ucsc_id": "uc003vwc.5",
+    "location": "7q34",
+    "cosmic": "BRAF",
+    "prev_name": [
+     "v-raf murine sarcoma viral oncogene homolog B"
+    ],
+    "uniprot_ids": [
+     "P15056"
+    ],
+    "locus_group": "protein-coding gene",
+    "orphanet": 119066,
+    "gene_group_id": [
+     654,
+     1157
+    ],
+    "symbol": "BRAF",
+    "vega_id": "OTTHUMG00000157457",
+    "gene_group": [
+     "Mitogen-activated protein kinase kinase kinases",
+     "RAF family"
+    ],
+    "ena": [
+     "M95712"
+    ],
+    "mgd_id": [
+     "MGI:88190"
+    ],
+    "ccds_id": [
+     "CCDS5863",
+     "CCDS87555",
+     "CCDS94218",
+     "CCDS94219"
+    ],
+    "ensembl_gene_id": "ENSG00000157764",
+    "date_approved_reserved": "1991-07-16T00:00:00Z",
+    "date_name_changed": "2014-06-26T00:00:00Z",
+    "entrez_id": "673"
+   }
+  ]
+ }
+}

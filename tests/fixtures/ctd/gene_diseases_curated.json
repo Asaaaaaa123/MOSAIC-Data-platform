@@ -1,0 +1,4 @@
+[
+ {"Input": "TP53", "GeneSymbol": "TP53", "GeneId": "7157", "DiseaseName": "Li-Fraumeni Syndrome", "DiseaseId": "MESH:D016864", "DirectEvidence": "marker/mechanism", "InferenceChemicalName": "", "InferenceScore": "", "OmimIds": "151623", "PubMedIds": "1978757|2259385"},
+ {"Input": "TP53", "GeneSymbol": "TP53", "GeneId": "7157", "DiseaseName": "Adrenocortical Carcinoma, Hereditary", "DiseaseId": "OMIM:202300", "DirectEvidence": "marker/mechanism", "InferenceChemicalName": "", "InferenceScore": "", "OmimIds": "202300", "PubMedIds": "11481490"}
+]

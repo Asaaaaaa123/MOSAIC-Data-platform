@@ -1,0 +1,16 @@
+{
+ "InformationList": {
+  "Information": [
+   {
+    "CID": 5291,
+    "Title": "Imatinib"
+   },
+   {
+    "CID": 5291,
+    "Description": "Imatinib is a benzamide obtained by formal condensation of the carboxy group of 4-[(4-methylpiperazin-1-yl)methyl]benzoic acid with the primary aromatic amino group of 4-methyl-N3-[4-(pyridin-3-yl)pyrimidin-2-yl]benzene-1,3-diamine. Used (as its mesylate salt) for treatment of chronic myelogenous leukemia and gastrointestinal stromal tumours. It has a role as an antineoplastic agent, a tyrosine kinase inhibitor and an apoptosis inducer. It is a member of benzamides, a member of pyridines, an aromatic amine, a member of pyrimidines and a N-methylpiperazine. It is functionally related to a benzamide.",
+    "DescriptionSourceName": "ChEBI",
+    "DescriptionURL": "https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:45783"
+   }
+  ]
+ }
+}

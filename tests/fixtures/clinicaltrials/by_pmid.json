@@ -1,0 +1,473 @@
+{
+ "totalCount": 3,
+ "studies": [
+  {
+   "protocolSection": {
+    "identificationModule": {
+     "nctId": "NCT05665595",
+     "orgStudyIdInfo": {
+      "id": "7684A-010"
+     },
+     "secondaryIdInfos": [
+      {
+       "id": "MK-7684A-010",
+       "type": "OTHER",
+       "domain": "MSD"
+      },
+      {
+       "id": "KEYVIBE-010",
+       "type": "OTHER",
+       "domain": "MSD"
+      },
+      {
+       "id": "2022-501417-31-00",
+       "type": "REGISTRY",
+       "domain": "EU CT"
+      },
+      {
+       "id": "jRCT2031230099",
+       "type": "REGISTRY",
+       "domain": "jRCT"
+      },
+      {
+       "id": "U1111-1280-3661",
+       "type": "REGISTRY",
+       "domain": "UTN"
+      }
+     ],
+     "briefTitle": "A Study of Adjuvant Pembrolizumab/Vibostolimab (MK-7684A) Versus Pembrolizumab for Resected High-Risk Melanoma in Participants With High-Risk Stage II-IV Melanoma (MK-7684A-010/KEYVIBE-010)",
+     "officialTitle": "A Phase 3, Randomized, Double-blind, Active-Comparator-Controlled Clinical Study of Adjuvant MK-7684A (Vibostolimab With Pembrolizumab) Versus Adjuvant Pembrolizumab in Participants With High-risk Stage II-IV Melanoma (KEYVIBE-010)"
+    },
+    "statusModule": {
+     "overallStatus": "TERMINATED",
+     "whyStopped": "Business Reason",
+     "startDateStruct": {
+      "date": "2023-01-19"
+     },
+     "primaryCompletionDateStruct": {
+      "date": "2024-03-06"
+     },
+     "completionDateStruct": {
+      "date": "2025-09-24"
+     },
+     "studyFirstPostDateStruct": {
+      "date": "2022-12-27"
+     },
+     "lastUpdatePostDateStruct": {
+      "date": "2026-09-10"
+     }
+    },
+    "sponsorCollaboratorsModule": {
+     "leadSponsor": {
+      "name": "Merck Sharp & Dohme LLC",
+      "class": "INDUSTRY"
+     }
+    },
+    "descriptionModule": {
+     "briefSummary": "The primary purpose of this study is to compare pembrolizumab/vibostolimab to pembrolizumab with respect to recurrence-free survival (RFS). The primary hypothesis is that pembrolizumab/vibostolimab is"
+    },
+    "conditionsModule": {
+     "conditions": [
+      "Melanoma"
+     ]
+    },
+    "designModule": {
+     "studyType": "INTERVENTIONAL",
+     "phases": [
+      "PHASE3"
+     ],
+     "designInfo": {
+      "allocation": "RANDOMIZED",
+      "primaryPurpose": "TREATMENT"
+     },
+     "enrollmentInfo": {
+      "count": 1594,
+      "type": "ACTUAL"
+     }
+    },
+    "armsInterventionsModule": {
+     "interventions": [
+      {
+       "type": "BIOLOGICAL",
+       "name": "Pembrolizumab/Vibostolimab"
+      },
+      {
+       "type": "BIOLOGICAL",
+       "name": "Pembrolizumab"
+      }
+     ]
+    },
+    "referencesModule": {
+     "references": [
+      {
+       "pmid": "41698381"
+      },
+      {
+       "pmid": "39230120"
+      }
+     ]
+    }
+   },
+   "derivedSection": {
+    "conditionBrowseModule": {
+     "meshes": [
+      {
+       "id": "D008545",
+       "term": "Melanoma"
+      },
+      {
+       "id": "C565324",
+       "term": "Parkinson Disease 4, Autosomal Dominant Lewy Body"
+      }
+     ]
+    },
+    "interventionBrowseModule": {
+     "meshes": [
+      {
+       "id": "C582435",
+       "term": "pembrolizumab"
+      }
+     ]
+    }
+   },
+   "hasResults": true
+  },
+  {
+   "protocolSection": {
+    "identificationModule": {
+     "nctId": "NCT05226598",
+     "orgStudyIdInfo": {
+      "id": "7684A-007"
+     },
+     "secondaryIdInfos": [
+      {
+       "id": "MK-7684A-007",
+       "type": "OTHER",
+       "domain": "MSD"
+      },
+      {
+       "id": "KEYVIBE-007",
+       "type": "OTHER",
+       "domain": "MSD"
+      },
+      {
+       "id": "jRCT2031220098",
+       "type": "REGISTRY",
+       "domain": "jRCT"
+      },
+      {
+       "id": "2023-506074-12-00",
+       "type": "REGISTRY",
+       "domain": "EU CT"
+      },
+      {
+       "id": "U1111-1293-2114",
+       "type": "REGISTRY",
+       "domain": "UTN"
+      },
+      {
+       "id": "2023",
+       "type": "NIH",
+       "link": "https://reporter.nih.gov/quickSearch/2023"
+      }
+     ],
+     "briefTitle": "Study of Pembrolizumab/Vibostolimab Coformulation (MK-7684A) in Combination With Chemotherapy Versus Pembrolizumab Plus Chemotherapy in Participants With Metastatic Non-Small Cell Lung Cancer (MK-7684A-007/KEYVIBE-007)",
+     "officialTitle": "A Randomized, Double-Blind, Phase 3 Study of Pembrolizumab/Vibostolimab Coformulation (MK-7684A) in Combination With Chemotherapy Versus Pembrolizumab Plus Chemotherapy as First Line Treatment for Participants With Metastatic Non-Small Cell Lung Cancer (MK-7684A-007/KEYVIBE-007)"
+    },
+    "statusModule": {
+     "overallStatus": "TERMINATED",
+     "whyStopped": "MK-7684A-007 was terminated early due to futility. A non-submission CSR, not intended to support any registration, was issued; therefore, an abbreviated CSR was generated.",
+     "startDateStruct": {
+      "date": "2022-03-24"
+     },
+     "primaryCompletionDateStruct": {
+      "date": "2024-09-24"
+     },
+     "completionDateStruct": {
+      "date": "2026-01-09"
+     },
+     "studyFirstPostDateStruct": {
+      "date": "2022-02-07"
+     },
+     "lastUpdatePostDateStruct": {
+      "date": "2026-09-11"
+     }
+    },
+    "sponsorCollaboratorsModule": {
+     "leadSponsor": {
+      "name": "Merck Sharp & Dohme LLC",
+      "class": "INDUSTRY"
+     }
+    },
+    "descriptionModule": {
+     "briefSummary": "The primary hypothesis is that pembrolizumab/vibostolimab (MK-7684A) in combination with chemotherapy is superior to pembrolizumab in combination with chemotherapy with respect to overall survival (OS"
+    },
+    "conditionsModule": {
+     "conditions": [
+      "Metastatic Non-Small Cell Lung Cancer"
+     ]
+    },
+    "designModule": {
+     "studyType": "INTERVENTIONAL",
+     "phases": [
+      "PHASE3"
+     ],
+     "designInfo": {
+      "allocation": "RANDOMIZED",
+      "primaryPurpose": "TREATMENT"
+     },
+     "enrollmentInfo": {
+      "count": 739,
+      "type": "ACTUAL"
+     }
+    },
+    "armsInterventionsModule": {
+     "interventions": [
+      {
+       "type": "BIOLOGICAL",
+       "name": "Pembrolizumab/Vibostolimab"
+      },
+      {
+       "type": "DRUG",
+       "name": "Carboplatin"
+      },
+      {
+       "type": "DRUG",
+       "name": "Cisplatin"
+      },
+      {
+       "type": "DRUG",
+       "name": "Paclitaxel"
+      },
+      {
+       "type": "DRUG",
+       "name": "Nab-paclitaxel"
+      },
+      {
+       "type": "DRUG",
+       "name": "Pemetrexed"
+      },
+      {
+       "type": "BIOLOGICAL",
+       "name": "Pembrolizumab"
+      }
+     ]
+    },
+    "referencesModule": {
+     "references": [
+      {
+       "pmid": "39230120"
+      }
+     ]
+    }
+   },
+   "derivedSection": {
+    "conditionBrowseModule": {
+     "meshes": [
+      {
+       "id": "D002289",
+       "term": "Carcinoma, Non-Small-Cell Lung"
+      }
+     ]
+    },
+    "interventionBrowseModule": {
+     "meshes": [
+      {
+       "id": "C582435",
+       "term": "pembrolizumab"
+      },
+      {
+       "id": "D016190",
+       "term": "Carboplatin"
+      },
+      {
+       "id": "D002945",
+       "term": "Cisplatin"
+      },
+      {
+       "id": "D017239",
+       "term": "Paclitaxel"
+      },
+      {
+       "id": "C520255",
+       "term": "130-nm albumin-bound paclitaxel"
+      },
+      {
+       "id": "D000068196",
+       "term": "Albumin-Bound Paclitaxel"
+      },
+      {
+       "id": "D000068437",
+       "term": "Pemetrexed"
+      }
+     ]
+    }
+   },
+   "hasResults": true
+  },
+  {
+   "protocolSection": {
+    "identificationModule": {
+     "nctId": "NCT05224141",
+     "orgStudyIdInfo": {
+      "id": "7684A-008"
+     },
+     "secondaryIdInfos": [
+      {
+       "id": "MK-7684A-008",
+       "type": "OTHER",
+       "domain": "MSD"
+      },
+      {
+       "id": "KEYVIBE-008",
+       "type": "OTHER",
+       "domain": "MSD"
+      },
+      {
+       "id": "jRCT2021220008",
+       "type": "REGISTRY",
+       "domain": "jRCT"
+      },
+      {
+       "id": "2023-503517-30-00",
+       "type": "REGISTRY",
+       "domain": "EU CT"
+      },
+      {
+       "id": "U1111-1287-4436",
+       "type": "REGISTRY",
+       "domain": "UTN"
+      },
+      {
+       "id": "2021-005034-42",
+       "type": "EUDRACT_NUMBER"
+      },
+      {
+       "id": "2023",
+       "type": "NIH",
+       "link": "https://reporter.nih.gov/quickSearch/2023"
+      }
+     ],
+     "briefTitle": "Pembrolizumab/Vibostolimab (MK-7684A) or Atezolizumab in Combination With Chemotherapy in First Line Treatment of Extensive-Stage Small Cell Lung Cancer (MK-7684A-008/KEYVIBE-008)",
+     "officialTitle": "A Phase 3, Randomized, Double-Blind Study of MK-7684A in Combination With Etoposide and Platinum Followed by MK-7684A vs Atezolizumab in Combination With Etoposide and Platinum Followed by Atezolizumab for the First-Line Treatment of Participants With Extensive-Stage Small Cell Lung Cancer (KEYVIBE-008)"
+    },
+    "statusModule": {
+     "overallStatus": "ACTIVE_NOT_RECRUITING",
+     "startDateStruct": {
+      "date": "2022-03-24"
+     },
+     "primaryCompletionDateStruct": {
+      "date": "2024-06-04"
+     },
+     "completionDateStruct": {
+      "date": "2027-06-07"
+     },
+     "studyFirstPostDateStruct": {
+      "date": "2022-02-04"
+     },
+     "lastUpdatePostDateStruct": {
+      "date": "2025-07-08"
+     }
+    },
+    "sponsorCollaboratorsModule": {
+     "leadSponsor": {
+      "name": "Merck Sharp & Dohme LLC",
+      "class": "INDUSTRY"
+     }
+    },
+    "descriptionModule": {
+     "briefSummary": "This study will evaluate the combination of a fixed dose pembrolizumab/vibostolimab co-formulation (MK-7684A) with etoposide/platinum chemotherapy followed by MK-7684A compared to the combination of a"
+    },
+    "conditionsModule": {
+     "conditions": [
+      "Small Cell Lung Carcinoma"
+     ]
+    },
+    "designModule": {
+     "studyType": "INTERVENTIONAL",
+     "phases": [
+      "PHASE3"
+     ],
+     "designInfo": {
+      "allocation": "RANDOMIZED",
+      "primaryPurpose": "TREATMENT"
+     },
+     "enrollmentInfo": {
+      "count": 460,
+      "type": "ACTUAL"
+     }
+    },
+    "armsInterventionsModule": {
+     "interventions": [
+      {
+       "type": "BIOLOGICAL",
+       "name": "Pembrolizumab/Vibostolimab Co-Formulation"
+      },
+      {
+       "type": "DRUG",
+       "name": "Saline placebo"
+      },
+      {
+       "type": "DRUG",
+       "name": "Etoposide"
+      },
+      {
+       "type": "DRUG",
+       "name": "Cisplatin"
+      },
+      {
+       "type": "BIOLOGICAL",
+       "name": "Atezolizumab"
+      },
+      {
+       "type": "DRUG",
+       "name": "Carboplatin"
+      }
+     ]
+    },
+    "referencesModule": {
+     "references": [
+      {
+       "pmid": "39230120"
+      }
+     ]
+    }
+   },
+   "derivedSection": {
+    "conditionBrowseModule": {
+     "meshes": [
+      {
+       "id": "D055752",
+       "term": "Small Cell Lung Carcinoma"
+      }
+     ]
+    },
+    "interventionBrowseModule": {
+     "meshes": [
+      {
+       "id": "C582435",
+       "term": "pembrolizumab"
+      },
+      {
+       "id": "D005047",
+       "term": "Etoposide"
+      },
+      {
+       "id": "D002945",
+       "term": "Cisplatin"
+      },
+      {
+       "id": "C000594389",
+       "term": "atezolizumab"
+      },
+      {
+       "id": "D016190",
+       "term": "Carboplatin"
+      }
+     ]
+    }
+   },
+   "hasResults": true
+  }
+ ]
+}

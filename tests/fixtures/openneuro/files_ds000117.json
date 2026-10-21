@@ -1,0 +1,75 @@
+{
+ "data": {
+  "snapshot": {
+   "id": "ds000117:2.0.0",
+   "tag": "2.0.0",
+   "files": [
+    {
+     "id": "b058daf3c5b35de63436f3eee3def46dd8de3fa6",
+     "filename": "CHANGES",
+     "size": 3715,
+     "directory": false,
+     "annexed": false,
+     "urls": [
+      "https://s3.amazonaws.com/openneuro.org/ds000117/CHANGES?versionId=MKzOOu6v0d0prm34286uIdzqYjIrAloG"
+     ]
+    },
+    {
+     "id": "2dfb510a03284c6bdcd9bd80270818548ff9b2f0",
+     "filename": "README",
+     "size": 7586,
+     "directory": false,
+     "annexed": false,
+     "urls": [
+      "https://s3.amazonaws.com/openneuro.org/ds000117/README?versionId=zt62ci7jDjTp09E6uFXn14oKT_gACZdW"
+     ]
+    },
+    {
+     "id": "aa6a0be1a6e3349c014492024a010926fb9bca2e",
+     "filename": "dataset_description.json",
+     "size": 931,
+     "directory": false,
+     "annexed": false,
+     "urls": [
+      "https://s3.amazonaws.com/openneuro.org/ds000117/dataset_description.json?versionId=yE7D9jdtvu4t6dA70ZWBP2IvbXzEl7mF"
+     ]
+    },
+    {
+     "id": "1e2bdcff93ec5fc921716179d3235401a32fbca7",
+     "filename": ".gitattributes",
+     "size": 458,
+     "directory": false,
+     "annexed": false,
+     "urls": [
+      "https://s3.amazonaws.com/openneuro.org/ds000117/.gitattributes?versionId=YbwT9uIe03BfP92VQ.9J2HYVZeuwbIXf"
+     ]
+    },
+    {
+     "id": "74864cb1f0db550c77839d0c5b5d1e5a3c27e113",
+     "filename": "participants.json",
+     "size": 316,
+     "directory": false,
+     "annexed": false,
+     "urls": [
+      "https://s3.amazonaws.com/openneuro.org/ds000117/participants.json?versionId=QNtIsTto9MLsmSIqK2i_ZmW1sRu07XkG"
+     ]
+    },
+    {
+     "id": "266792ef94360f58b2ddebf73171c62402d46cb8",
+     "filename": "participants.tsv",
+     "size": 315,
+     "directory": false,
+     "annexed": false,
+     "urls": [
+      "https://s3.amazonaws.com/openneuro.org/ds000117/participants.tsv?versionId=WUGNUO1QKyDgaG6iPqQ7_pPEQvgVtvSb"
+     ]
+    }
+   ]
+  }
+ },
+ "extensions": {
+  "openneuro": {
+   "version": "5.9.0"
+  }
+ }
+}

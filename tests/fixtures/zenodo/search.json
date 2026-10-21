@@ -1,0 +1,236 @@
+{
+ "hits": {
+  "hits": [
+   {
+    "created": "2024-10-24T17:11:52.996370+00:00",
+    "modified": "2024-10-24T17:11:53.198867+00:00",
+    "id": 13984673,
+    "conceptrecid": "13984672",
+    "doi": "10.5281/zenodo.13984673",
+    "conceptdoi": "10.5281/zenodo.13984672",
+    "doi_url": "https://doi.org/10.5281/zenodo.13984673",
+    "metadata": {
+     "title": "Processed GBM DEFND-seq Data",
+     "doi": "10.5281/zenodo.13984673",
+     "publication_date": "2024-10-25",
+     "description": "<p>This repository contains the fragments files for the gDNA component of two DEFND-seq libraries from each of two GBM patients.&nbsp; The correspond scRNA-seq data and additional metadata can be found on the Gene Expression Omnibus (GEO) under accession GSE224149. The two samples correspond to GEO ",
+     "access_right": "open",
+     "creators": [
+      {
+       "name": "Olsen, Timothy",
+       "affiliation": null
+      }
+     ],
+     "contributors": [
+      {
+       "name": "Sims, Peter",
+       "affiliation": "Columbia University Medical Center",
+       "type": "ContactPerson",
+       "orcid": "0000-0002-3921-4837"
+      },
+      {
+       "name": "Olsen, Timothy",
+       "affiliation": "Columbia University Medical Center",
+       "type": "DataCollector"
+      }
+     ],
+     "keywords": [
+      "Glioblastoma",
+      "Single-Cell Genomics"
+     ],
+     "related_identifiers": [
+      {
+       "identifier": "10.1101/2023.02.09.527940",
+       "relation": "isSupplementTo",
+       "resource_type": "dataset",
+       "scheme": "doi"
+      }
+     ],
+     "dates": [
+      {
+       "type": "available"
+      }
+     ],
+     "resource_type": {
+      "title": "Dataset",
+      "type": "dataset"
+     },
+     "alternate_identifiers": [
+      {
+       "identifier": "GSE224149"
+      }
+     ],
+     "license": {
+      "id": "cc-by-4.0"
+     },
+     "relations": {
+      "version": [
+       {
+        "index": 0,
+        "is_last": true,
+        "parent": {
+         "pid_type": "recid",
+         "pid_value": "13984672"
+        }
+       }
+      ]
+     }
+    },
+    "title": "Processed GBM DEFND-seq Data",
+    "links": {
+     "self": "https://zenodo.org/api/records/13984673",
+     "self_html": "https://zenodo.org/records/13984673"
+    },
+    "updated": "2024-10-24T17:11:53.198867+00:00",
+    "recid": "13984673",
+    "revision": 4,
+    "files": [
+     {
+      "id": "d267ae63-73be-4f10-809c-cc3b174800d3",
+      "key": "GSM7817780_PTO037.fragments.tsv.bz2",
+      "size": 6838939966,
+      "checksum": "md5:956978248393b529ec82caa960ec352d",
+      "links": {
+       "self": "https://zenodo.org/api/records/13984673/files/GSM7817780_PTO037.fragments.tsv.bz2/content"
+      }
+     },
+     {
+      "id": "77fac11c-6030-485a-9631-1900487eb602",
+      "key": "GSM7016419_TB5471.fragments.tsv.bz2",
+      "size": 13318383087,
+      "checksum": "md5:5bd43ff77caeb21189651502d1ea9f7b",
+      "links": {
+       "self": "https://zenodo.org/api/records/13984673/files/GSM7016419_TB5471.fragments.tsv.bz2/content"
+      }
+     }
+    ],
+    "status": "published",
+    "stats": {
+     "downloads": 467,
+     "unique_downloads": 128,
+     "views": 258,
+     "unique_views": 240,
+     "version_downloads": 467,
+     "version_unique_downloads": 128,
+     "version_unique_views": 240,
+     "version_views": 258
+    },
+    "state": "done",
+    "submitted": true
+   },
+   {
+    "created": "2024-08-13T08:50:18.221187+00:00",
+    "modified": "2024-08-13T08:50:18.441385+00:00",
+    "id": 13309748,
+    "conceptrecid": "13309747",
+    "doi": "10.5281/zenodo.13309748",
+    "conceptdoi": "10.5281/zenodo.13309747",
+    "doi_url": "https://doi.org/10.5281/zenodo.13309748",
+    "metadata": {
+     "title": "Dataset of single-cell transcriptomic matrix of 10 human glioblastoma tissue",
+     "doi": "10.5281/zenodo.13309748",
+     "publication_date": "2024-08-13",
+     "description": "<p>Dataset of single-cell transcriptomic matrix of 10 human glioblastoma tissue. <span>scRNA-seq was performed using the droplet-based 10x Genomics platform</span><span> </span><span>(10x Genomics, Pleasanton, CA, USA)<span>. <span>GBM tissues for single-cell RNA sequencing (<a name=\"_Hlk147870629\">",
+     "access_right": "open",
+     "creators": [
+      {
+       "name": "Li, Yuzhe",
+       "affiliation": null
+      },
+      {
+       "name": "Wu, Minghua",
+       "affiliation": null
+      },
+      {
+       "name": "Long, Xinmiao",
+       "affiliation": null
+      }
+     ],
+     "contributors": [
+      {
+       "name": "Li, Yuzhe",
+       "affiliation": null,
+       "type": "ProjectMember"
+      },
+      {
+       "name": "Wu, Minghua",
+       "affiliation": null,
+       "type": "ProjectLeader"
+      },
+      {
+       "name": "Long, Xinmiao",
+       "affiliation": null,
+       "type": "ProjectMember"
+      }
+     ],
+     "keywords": [
+      "glioblastoma",
+      "single-cell RNA sequencing"
+     ],
+     "dates": [
+      {
+       "type": "collected"
+      }
+     ],
+     "language": "eng",
+     "resource_type": {
+      "title": "Dataset",
+      "type": "dataset"
+     },
+     "license": {
+      "id": "cc-by-4.0"
+     },
+     "relations": {
+      "version": [
+       {
+        "index": 0,
+        "is_last": true,
+        "parent": {
+         "pid_type": "recid",
+         "pid_value": "13309747"
+        }
+       }
+      ]
+     }
+    },
+    "title": "Dataset of single-cell transcriptomic matrix of 10 human glioblastoma tissue",
+    "links": {
+     "self": "https://zenodo.org/api/records/13309748",
+     "self_html": "https://zenodo.org/records/13309748"
+    },
+    "updated": "2024-08-13T08:50:18.441385+00:00",
+    "recid": "13309748",
+    "revision": 4,
+    "files": [
+     {
+      "id": "8d403aa8-b57a-40d0-832c-97cb8280af89",
+      "key": "matrix.tar.gz",
+      "size": 1187196289,
+      "checksum": "md5:891d3ab45bd65e6f2846f713a0c73dc1",
+      "links": {
+       "self": "https://zenodo.org/api/records/13309748/files/matrix.tar.gz/content"
+      }
+     }
+    ],
+    "status": "published",
+    "stats": {
+     "downloads": 24,
+     "unique_downloads": 22,
+     "views": 141,
+     "unique_views": 123,
+     "version_downloads": 24,
+     "version_unique_downloads": 22,
+     "version_unique_views": 123,
+     "version_views": 141
+    },
+    "state": "done",
+    "submitted": true
+   }
+  ],
+  "total": 16007
+ },
+ "links": {
+  "self": "https://zenodo.org/api/records?page=1&q=glioblastoma+single-cell&size=2&sort=bestmatch&type=dataset",
+  "next": "https://zenodo.org/api/records?page=2&q=glioblastoma+single-cell&size=2&sort=bestmatch&type=dataset"
+ }
+}

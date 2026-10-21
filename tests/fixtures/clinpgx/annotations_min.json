@@ -1,0 +1,378 @@
+{
+ "data": [
+  {
+   "id": 1183618159,
+   "accessionId": "PA166135161",
+   "levelOfEvidence": {
+    "id": 827923054,
+    "resource": "Level of Evidence",
+    "term": "2A",
+    "termId": "levelsOfEvidence:827923054"
+   },
+   "location": {
+    "id": 1451338972,
+    "copyNumber": "1",
+    "diplotypes": [],
+    "displayName": "CYP2D6*1, CYP2D6*3, CYP2D6*4, CYP2D6*5, CYP2D6*6, CYP2D6*10",
+    "genes": [
+     {
+      "objCls": "Gene",
+      "id": "PA128",
+      "symbol": "CYP2D6",
+      "name": "cytochrome P450 family 2 subfamily D member 6"
+     }
+    ],
+    "gpPosition": -1,
+    "haplotypes": [
+     {
+      "objCls": "StarAllele",
+      "id": "PA165816576",
+      "symbol": "CYP2D6*1",
+      "name": "*1"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA165816578",
+      "symbol": "CYP2D6*3",
+      "name": "*3"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA165816579",
+      "symbol": "CYP2D6*4",
+      "name": "*4"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA165948092",
+      "symbol": "CYP2D6*5",
+      "name": "*5"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA165816581",
+      "symbol": "CYP2D6*6",
+      "name": "*6"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA165816582",
+      "symbol": "CYP2D6*10",
+      "name": "*10"
+     }
+    ],
+    "linkedObjects": [
+     {
+      "objCls": "StarAllele",
+      "id": "PA165816576",
+      "symbol": "CYP2D6*1",
+      "name": "*1"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA165816582",
+      "symbol": "CYP2D6*10",
+      "name": "*10"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA165816578",
+      "symbol": "CYP2D6*3",
+      "name": "*3"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA165816579",
+      "symbol": "CYP2D6*4",
+      "name": "*4"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA165948092",
+      "symbol": "CYP2D6*5",
+      "name": "*5"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA165816581",
+      "symbol": "CYP2D6*6",
+      "name": "*6"
+     }
+    ],
+    "refSeqPosition": -1,
+    "tagGene": false,
+    "type": "haplotype"
+   },
+   "name": "CYP2D6*1, CYP2D6*3, CYP2D6*4, CYP2D6*5, CYP2D6*6, CYP2D6*10; tramadol; Pain (level 2A Dosage)",
+   "relatedChemicals": [
+    {
+     "objCls": "Chemical",
+     "id": "PA451735",
+     "name": "tramadol"
+    }
+   ],
+   "relatedChemicalsLogic": "Or",
+   "relatedGuidelines": [],
+   "relatedLabels": [],
+   "types": [
+    "Dosage"
+   ]
+  },
+  {
+   "id": 1183700477,
+   "accessionId": "PA166135389",
+   "levelOfEvidence": {
+    "id": 827923057,
+    "resource": "Level of Evidence",
+    "term": "4",
+    "termId": "levelsOfEvidence:827923057"
+   },
+   "location": {
+    "id": 1183700480,
+    "copyNumber": "1",
+    "diplotypes": [
+     {
+      "id": 1183700482
+     },
+     {
+      "id": 1183700481
+     }
+    ],
+    "displayName": "CYP2D6*1, CYP2D6*10",
+    "genes": [
+     {
+      "objCls": "Gene",
+      "id": "PA128",
+      "symbol": "CYP2D6",
+      "name": "cytochrome P450 family 2 subfamily D member 6"
+     }
+    ],
+    "gpPosition": -1,
+    "haplotypes": [
+     {
+      "objCls": "StarAllele",
+      "id": "PA165816576",
+      "symbol": "CYP2D6*1",
+      "name": "*1"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA165816582",
+      "symbol": "CYP2D6*10",
+      "name": "*10"
+     }
+    ],
+    "linkedObjects": [
+     {
+      "objCls": "StarAllele",
+      "id": "PA165816576",
+      "symbol": "CYP2D6*1",
+      "name": "*1"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA165816582",
+      "symbol": "CYP2D6*10",
+      "name": "*10"
+     }
+    ],
+    "refSeqPosition": -1,
+    "tagGene": false,
+    "type": "haplotype"
+   },
+   "name": "CYP2D6*1, CYP2D6*10; propranolol (level 4)",
+   "relatedChemicals": [
+    {
+     "objCls": "Chemical",
+     "id": "PA451145",
+     "name": "propranolol"
+    }
+   ],
+   "relatedChemicalsLogic": "Or",
+   "relatedGuidelines": [],
+   "relatedLabels": [],
+   "types": [
+    "Other"
+   ]
+  },
+  {
+   "id": 1448999816,
+   "accessionId": "PA166170554",
+   "levelOfEvidence": {
+    "id": 827923056,
+    "resource": "Level of Evidence",
+    "term": "3",
+    "termId": "levelsOfEvidence:827923056"
+   },
+   "location": {
+    "id": 1451282300,
+    "copyNumber": "1",
+    "diplotypes": [],
+    "displayName": "CYP2D6*1, CYP2D6*87, CYP2D6*88, CYP2D6*89, CYP2D6*90, CYP2D6*91, CYP2D6*93, CYP2D6*94, CYP2D6*95, CYP2D6*97, CYP2D6*98",
+    "genes": [
+     {
+      "objCls": "Gene",
+      "id": "PA128",
+      "symbol": "CYP2D6",
+      "name": "cytochrome P450 family 2 subfamily D member 6"
+     }
+    ],
+    "gpPosition": -1,
+    "haplotypes": [
+     {
+      "objCls": "StarAllele",
+      "id": "PA165816576",
+      "symbol": "CYP2D6*1",
+      "name": "*1"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA166123327",
+      "symbol": "CYP2D6*87",
+      "name": "*87"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA166123328",
+      "symbol": "CYP2D6*88",
+      "name": "*88"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA166123329",
+      "symbol": "CYP2D6*89",
+      "name": "*89"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA166123330",
+      "symbol": "CYP2D6*90",
+      "name": "*90"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA166123331",
+      "symbol": "CYP2D6*91",
+      "name": "*91"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA166123333",
+      "symbol": "CYP2D6*93",
+      "name": "*93"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA166128737",
+      "symbol": "CYP2D6*94",
+      "name": "*94"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA166123336",
+      "symbol": "CYP2D6*95",
+      "name": "*95"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA166123338",
+      "symbol": "CYP2D6*97",
+      "name": "*97"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA166123339",
+      "symbol": "CYP2D6*98",
+      "name": "*98"
+     }
+    ],
+    "linkedObjects": [
+     {
+      "objCls": "StarAllele",
+      "id": "PA165816576",
+      "symbol": "CYP2D6*1",
+      "name": "*1"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA166123327",
+      "symbol": "CYP2D6*87",
+      "name": "*87"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA166123328",
+      "symbol": "CYP2D6*88",
+      "name": "*88"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA166123329",
+      "symbol": "CYP2D6*89",
+      "name": "*89"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA166123330",
+      "symbol": "CYP2D6*90",
+      "name": "*90"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA166123331",
+      "symbol": "CYP2D6*91",
+      "name": "*91"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA166123333",
+      "symbol": "CYP2D6*93",
+      "name": "*93"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA166128737",
+      "symbol": "CYP2D6*94",
+      "name": "*94"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA166123336",
+      "symbol": "CYP2D6*95",
+      "name": "*95"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA166123338",
+      "symbol": "CYP2D6*97",
+      "name": "*97"
+     },
+     {
+      "objCls": "StarAllele",
+      "id": "PA166123339",
+      "symbol": "CYP2D6*98",
+      "name": "*98"
+     }
+    ],
+    "refSeqPosition": -1,
+    "tagGene": false,
+    "type": "haplotype"
+   },
+   "name": "CYP2D6*1, CYP2D6*87, CYP2D6*88, CYP2D6*89, CYP2D6*90, CYP2D6*91, CYP2D6*93, CYP2D6*94, CYP2D6*95, CYP2D6*97, CYP2D6*98; amitriptyline (level 3 Metabolism/PK)",
+   "relatedChemicals": [
+    {
+     "objCls": "Chemical",
+     "id": "PA448385",
+     "name": "amitriptyline"
+    }
+   ],
+   "relatedChemicalsLogic": "Or",
+   "relatedGuidelines": [],
+   "relatedLabels": [],
+   "types": [
+    "Metabolism/PK"
+   ]
+  }
+ ],
+ "status": "success"
+}

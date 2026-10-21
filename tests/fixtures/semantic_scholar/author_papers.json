@@ -1,0 +1,105 @@
+{
+ "offset": 0,
+ "next": 2,
+ "data": [
+  {
+   "paperId": "7b01145a861a9f02edd16c5e774edd5593c92acb",
+   "externalIds": {
+    "DOI": "10.1016/j.jacc.2026.02.5092",
+    "CorpusId": 286886353,
+    "PubMed": "41885675"
+   },
+   "corpusId": 286886353,
+   "url": "https://www.semanticscholar.org/paper/7b01145a861a9f02edd16c5e774edd5593c92acb",
+   "title": "Gene Editing Therapy in Cardiovascular Disease: 2026 ACC Scientific Statement: A Report of the American College of Cardiology.",
+   "venue": "Journal of the American College of Cardiology",
+   "year": 2026,
+   "citationCount": 9,
+   "influentialCitationCount": 0,
+   "isOpenAccess": false,
+   "openAccessPdf": {
+    "url": "",
+    "status": "CLOSED",
+    "license": null,
+    "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1016/j.jacc.2026.02.5092?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1016/j.jacc.2026.02.5092, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+   },
+   "fieldsOfStudy": [
+    "Medicine"
+   ],
+   "publicationTypes": [
+    "JournalArticle",
+    "Review"
+   ],
+   "publicationDate": "2026-03-01",
+   "journal": {
+    "name": "Journal of the American College of Cardiology"
+   },
+   "authors": [
+    {
+     "authorId": "1833697",
+     "name": "A. Ambardekar"
+    },
+    {
+     "authorId": "2215731808",
+     "name": "A. Bhatt"
+    },
+    {
+     "authorId": "46709727",
+     "name": "M. Hoekstra"
+    }
+   ],
+   "abstract": "It is increasingly recognized that many cardiovascular diseases have a genetic basis. Advancements in genome sequencing have allowed for dramatically higher rates of genetic testing with improved availability at a reduced cost. Technologic innovations-catalyzed by clustered regularly interspaced short palindromic repeats (CRISPR)-associated protein 9 (Cas9)-related approaches-have enabled the abil"
+  },
+  {
+   "paperId": "06ae9958286bac15526f3f7d163cb779963a135d",
+   "externalIds": {
+    "PubMedCentral": "12927645",
+    "DOI": "10.1038/s41588-025-02428-3",
+    "CorpusId": 283249396,
+    "PubMed": "41286106"
+   },
+   "corpusId": 283249396,
+   "url": "https://www.semanticscholar.org/paper/06ae9958286bac15526f3f7d163cb779963a135d",
+   "title": "Measurement and clinical interpretation of CRISPR off-targets",
+   "venue": "Nature Genetics",
+   "year": 2025,
+   "citationCount": 14,
+   "influentialCitationCount": 0,
+   "isOpenAccess": false,
+   "openAccessPdf": {
+    "url": "",
+    "status": null,
+    "license": null,
+    "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC12927645, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+   },
+   "fieldsOfStudy": [
+    "Medicine"
+   ],
+   "publicationTypes": [
+    "Review",
+    "JournalArticle"
+   ],
+   "publicationDate": "2025-11-24",
+   "journal": {
+    "volume": "58",
+    "pages": "20 - 27",
+    "name": "Nature genetics"
+   },
+   "authors": [
+    {
+     "authorId": "2443017663",
+     "name": "Ariella Angelini Stewart"
+    },
+    {
+     "authorId": "2392147012",
+     "name": "Rebecca C. Ahrens-Nicklas"
+    },
+    {
+     "authorId": "2262485158",
+     "name": "Shengdar Q. Tsai"
+    }
+   ],
+   "abstract": "CRISPR genetic therapies are revolutionizing the landscape of preclinical research and clinical studies, providing new potential routes for curative intervention for a range of previously untreatable diseases. As with any therapy, the therapeutic benefits and risks must be weighed against consideration of the disease threat. Genome-related adverse events are an inherent risk of CRISPR genetic ther"
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+{
+ "data": {
+  "id": "10.13026/kpb9-mt58",
+  "type": "dois",
+  "attributes": {
+   "doi": "10.13026/kpb9-mt58",
+   "prefix": "10.13026",
+   "suffix": "kpb9-mt58",
+   "url": "https://physionet.org/content/mimiciv/3.1/",
+   "titles": [
+    {
+     "title": "MIMIC-IV"
+    }
+   ],
+   "publisher": "PhysioNet",
+   "publicationYear": 2024,
+   "version": "3.1"
+  }
+ }
+}

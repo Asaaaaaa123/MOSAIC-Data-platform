@@ -1,0 +1,138 @@
+{
+ "id": "PGS000004",
+ "name": "PRS313_BC",
+ "ftp_scoring_file": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000004/ScoringFiles/PGS000004.txt.gz",
+ "ftp_harmonized_scoring_files": {
+  "GRCh37": {
+   "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000004/ScoringFiles/Harmonized/PGS000004_hmPOS_GRCh37.txt.gz"
+  },
+  "GRCh38": {
+   "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000004/ScoringFiles/Harmonized/PGS000004_hmPOS_GRCh38.txt.gz"
+  }
+ },
+ "publication": {
+  "id": "PGP000002",
+  "title": "Polygenic Risk Scores for Prediction of Breast Cancer and Breast Cancer Subtypes.",
+  "doi": "10.1016/j.ajhg.2018.11.002",
+  "PMID": 30554720,
+  "journal": "Am J Hum Genet",
+  "firstauthor": "Mavaddat N",
+  "date_publication": "2018-12-13"
+ },
+ "matches_publication": true,
+ "samples_variants": [
+  {
+   "sample_number": 158648,
+   "sample_cases": 88916,
+   "sample_controls": 69732,
+   "sample_percent_male": 0.0,
+   "sample_age": null,
+   "phenotyping_free": "Invasive breast cancer-affected",
+   "followup_time": null,
+   "ancestry_broad": "European",
+   "ancestry_free": null,
+   "ancestry_country": null,
+   "ancestry_additional": null,
+   "source_GWAS_catalog": null,
+   "source_PMID": null,
+   "source_DOI": null,
+   "cohorts": [
+    {
+     "name_short": "ABCFS",
+     "name_full": "Australian Breast Cancer Family Study",
+     "name_others": null
+    },
+    {
+     "name_short": "MCCS",
+     "name_full": "Melbourne Collaborative Cohort Study",
+     "name_others": null
+    }
+   ],
+   "cohorts_additional": "Training Cohort"
+  }
+ ],
+ "samples_training": [
+  {
+   "sample_number": 10444,
+   "sample_cases": 5159,
+   "sample_controls": 5285,
+   "sample_percent_male": 0.0,
+   "sample_age": null,
+   "phenotyping_free": "Invasive breast cancer-affected",
+   "followup_time": null,
+   "ancestry_broad": "European",
+   "ancestry_free": null,
+   "ancestry_country": null,
+   "ancestry_additional": null,
+   "source_GWAS_catalog": null,
+   "source_PMID": null,
+   "source_DOI": null,
+   "cohorts": [
+    {
+     "name_short": "MCCS",
+     "name_full": "Melbourne Collaborative Cohort Study",
+     "name_others": null
+    },
+    {
+     "name_short": "HMBCS",
+     "name_full": "Hannover-Minsk Breast Cancer Study",
+     "name_others": null
+    }
+   ],
+   "cohorts_additional": "Validation Cohort"
+  }
+ ],
+ "trait_reported": "Breast cancer",
+ "trait_additional": null,
+ "trait_efo": [
+  {
+   "id": "MONDO_0004989",
+   "label": "breast carcinoma",
+   "description": "A carcinoma that arises from epithelial cells of the breast",
+   "url": "http://purl.obolibrary.org/obo/MONDO_0004989"
+  }
+ ],
+ "method_name": "Hard-Thresholding Stepwise Forward Regression",
+ "method_params": "p < 10^-5",
+ "variants_number": 313,
+ "variants_interactions": 0,
+ "variants_genomebuild": "GRCh37",
+ "weight_type": "NR",
+ "ancestry_distribution": {
+  "dev": {
+   "dist": {
+    "EUR": 100
+   },
+   "count": 10444
+  },
+  "eval": {
+   "dist": {
+    "NR": 3.1,
+    "AFR": 6.2,
+    "AMR": 3.1,
+    "ASN": 4.7,
+    "EAS": 3.1,
+    "EUR": 71.9,
+    "MAE": 6.2,
+    "MAO": 1.6
+   },
+   "count": 64,
+   "multi": [
+    "MAE_EUR",
+    "MAE_AFR",
+    "MAE_ASN",
+    "MAE_NR",
+    "MAO_AFR",
+    "MAE_AMR",
+    "MAE_EAS"
+   ]
+  },
+  "gwas": {
+   "dist": {
+    "EUR": 100
+   },
+   "count": 158648
+  }
+ },
+ "date_release": "2019-10-14"
+}

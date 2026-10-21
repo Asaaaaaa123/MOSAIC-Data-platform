@@ -1,0 +1,31 @@
+{
+ "identifier": "000003",
+ "created": "2020-03-15T22:56:55.655000Z",
+ "modified": "2020-11-06T17:20:30.673000Z",
+ "contact_person": "Senzai, Yuta",
+ "embargo_status": "OPEN",
+ "star_count": 1,
+ "is_starred": false,
+ "most_recent_published_version": {
+  "version": "0.260218.2052",
+  "name": "Physiological Properties and Behavioral Correlates of Hippocampal Granule Cells and Mossy Cells",
+  "asset_count": 101,
+  "active_uploads": 0,
+  "size": 2559248010229,
+  "status": "Valid",
+  "created": "2026-02-18T20:52:23.688362Z",
+  "modified": "2026-02-18T20:52:29.214285Z",
+  "release_notes": ""
+ },
+ "draft_version": {
+  "version": "draft",
+  "name": "Physiological Properties and Behavioral Correlates of Hippocampal Granule Cells and Mossy Cells",
+  "asset_count": 101,
+  "active_uploads": 439,
+  "size": 2559248010229,
+  "status": "Valid",
+  "created": "2020-03-15T22:56:55.655000Z",
+  "modified": "2026-05-28T09:03:28.409127Z",
+  "release_notes": ""
+ }
+}

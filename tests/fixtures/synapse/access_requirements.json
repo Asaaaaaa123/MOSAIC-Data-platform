@@ -1,0 +1,36 @@
+{
+ "totalNumberOfResults": 2,
+ "results": [
+  {
+   "id": 5592528,
+   "subjectIds": [
+    {
+     "id": "syn5550376",
+     "type": "ENTITY"
+    },
+    {
+     "id": "syn12177273",
+     "type": "ENTITY"
+    }
+   ],
+   "accessType": "DOWNLOAD",
+   "concreteType": "org.sagebionetworks.repo.model.TermsOfUseAccessRequirement",
+   "termsOfUse": "<p>Publications generated using data accessed through the AD Knowledge Portal must acknowledge and cite both the <a href=\"https://adknowledgeportal.synapse.org/\" target=\"_blank\" ref=\"noopener noreferrer\"><strong>AD Knowledge Portal</strong></a> and the data contributor(s) as described in the study specific <a href=\"https://help.adknowledgeportal.org/apd/Data-Use-Acknowledgement.2623242281.html\" ta"
+  },
+  {
+   "id": 9603055,
+   "subjectIds": [
+    {
+     "id": "syn8272982",
+     "type": "ENTITY"
+    },
+    {
+     "id": "syn10901601",
+     "type": "ENTITY"
+    }
+   ],
+   "accessType": "DOWNLOAD",
+   "concreteType": "org.sagebionetworks.repo.model.ManagedACTAccessRequirement"
+  }
+ ]
+}

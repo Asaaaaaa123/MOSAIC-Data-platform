@@ -1,0 +1,13 @@
+{
+ "entryType": "Inactive",
+ "primaryAccession": "A0A008APQ8",
+ "uniProtkbId": "A0A008APQ8_STAAU",
+ "annotationScore": 0.0,
+ "inactiveReason": {
+  "inactiveReasonType": "DELETED",
+  "deletedReason": "Not part of a reference proteome"
+ },
+ "extraAttributes": {
+  "uniParcId": "UPI0000054276"
+ }
+}

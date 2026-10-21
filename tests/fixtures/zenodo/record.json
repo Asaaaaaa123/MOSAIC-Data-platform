@@ -1,0 +1,118 @@
+{
+ "created": "2022-08-08T21:19:22.559247+00:00",
+ "modified": "2022-08-10T20:13:03.686841+00:00",
+ "id": 6962483,
+ "conceptrecid": "5720285",
+ "doi": "10.5281/zenodo.6962483",
+ "conceptdoi": "10.5281/zenodo.5720285",
+ "doi_url": "https://doi.org/10.5281/zenodo.6962483",
+ "metadata": {
+  "title": "EBF1 primes B-lymphoid enhancers and limits the myeloid bias in murine multipotent progenitors",
+  "doi": "10.5281/zenodo.6962483",
+  "publication_date": "2021-11-24",
+  "description": "<p>Haematopoietic stem cells (HSC) and multipotent progenitors (MPP) generate all cells of the blood system. Despite their multipotency, MPPs display poorly understood lineage bias. Here, we examine whether lineage-specifying transcription factors, such as the B-lineage determinant EBF1, regulate li",
+  "access_right": "open",
+  "creators": [
+   {
+    "name": "Lenaerts, Aurelie",
+    "affiliation": null,
+    "orcid": "0000-0002-5420-7125"
+   },
+   {
+    "name": "Kucinski, Iwo",
+    "affiliation": null,
+    "orcid": "0000-0002-9385-0359"
+   },
+   {
+    "name": "Deboutte, Ward",
+    "affiliation": null,
+    "orcid": "0000-0002-3829-1056"
+   },
+   {
+    "name": "Derecka, Marta",
+    "affiliation": null,
+    "orcid": "0000-0001-6265-9781"
+   },
+   {
+    "name": "Cauchy, Pierre",
+    "affiliation": null,
+    "orcid": "0000-0002-0659-0799"
+   },
+   {
+    "name": "Manke, Thomas",
+    "affiliation": null,
+    "orcid": "0000-0003-3702-0868"
+   },
+   {
+    "name": "Göttgens, Berthold",
+    "affiliation": null,
+    "orcid": "0000-0001-6302-5705"
+   },
+   {
+    "name": "Grosschedl, Rudolf",
+    "affiliation": null
+   }
+  ],
+  "resource_type": {
+   "title": "Dataset",
+   "type": "dataset"
+  },
+  "license": {
+   "id": "cc-by-4.0"
+  },
+  "relations": {
+   "version": [
+    {
+     "index": 1,
+     "is_last": true,
+     "parent": {
+      "pid_type": "recid",
+      "pid_value": "5720285"
+     }
+    }
+   ]
+  },
+  "notes": "Included is the data, scripts and container (singularity) for the single-cell RNA-seq analysis, Lenaerts_et_al_scRNA_data.tar.gz.\nATAC-seq data are included in the Lenaerts_et_al_ATAC_LFS.tar.gz file."
+ },
+ "title": "EBF1 primes B-lymphoid enhancers and limits the myeloid bias in murine multipotent progenitors",
+ "links": {
+  "self": "https://zenodo.org/api/records/6962483",
+  "self_html": "https://zenodo.org/records/6962483"
+ },
+ "updated": "2022-08-10T20:13:03.686841+00:00",
+ "recid": "6962483",
+ "revision": 8,
+ "files": [
+  {
+   "id": "a766beb9-5947-4c72-86dd-2bc201cb8347",
+   "key": "Lenaerts_et_al_ATAC_LFS_v2.tar.gz",
+   "size": 15416683379,
+   "checksum": "md5:353631f81e539b7fc21525cac3fbcf8b",
+   "links": {
+    "self": "https://zenodo.org/api/records/6962483/files/Lenaerts_et_al_ATAC_LFS_v2.tar.gz/content"
+   }
+  },
+  {
+   "id": "f050f1ce-433f-4d42-80ad-63dc4ad01d7b",
+   "key": "Lenaerts_et_al_scRNA_data.tar.gz",
+   "size": 5974420990,
+   "checksum": "md5:4edf5823599c4e27fae1dce71fd4ba96",
+   "links": {
+    "self": "https://zenodo.org/api/records/6962483/files/Lenaerts_et_al_scRNA_data.tar.gz/content"
+   }
+  }
+ ],
+ "status": "published",
+ "stats": {
+  "downloads": 121,
+  "unique_downloads": 113,
+  "views": 677,
+  "unique_views": 641,
+  "version_downloads": 70,
+  "version_unique_downloads": 66,
+  "version_unique_views": 446,
+  "version_views": 473
+ },
+ "state": "done",
+ "submitted": true
+}

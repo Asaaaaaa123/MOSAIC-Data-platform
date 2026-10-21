@@ -1,0 +1,32 @@
+[
+ {
+  "molecularProfileId": "coadread_tcga_pan_can_atlas_2018_mutations",
+  "studyId": "coadread_tcga_pan_can_atlas_2018",
+  "molecularAlterationType": "MUTATION_EXTENDED",
+  "datatype": "MAF",
+  "name": "Mutations",
+  "description": "Mutation data from whole exome sequencing of 594 Colorectal Adenocarcinoma samples.",
+  "showProfileInAnalysisTab": true,
+  "patientLevel": false
+ },
+ {
+  "molecularProfileId": "luad_tcga_pan_can_atlas_2018_mutations",
+  "studyId": "luad_tcga_pan_can_atlas_2018",
+  "molecularAlterationType": "MUTATION_EXTENDED",
+  "datatype": "MAF",
+  "name": "Mutations",
+  "description": "Mutation data from whole exome sequencing of 566 Lung Adenocarcinoma samples.",
+  "showProfileInAnalysisTab": true,
+  "patientLevel": false
+ },
+ {
+  "molecularProfileId": "coadread_tcga_pan_can_atlas_2018_gistic",
+  "studyId": "coadread_tcga_pan_can_atlas_2018",
+  "molecularAlterationType": "COPY_NUMBER_ALTERATION",
+  "datatype": "DISCRETE",
+  "name": "Putative copy-number alterations from GISTIC",
+  "description": "Putative copy-number from GISTIC 2.0. Values: -2 = homozygous deletion; -1 = hemizygous deletion; 0 = neutral / no change; 1 = gain; 2 = high level amplification.",
+  "showProfileInAnalysisTab": true,
+  "patientLevel": false
+ }
+]

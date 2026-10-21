@@ -1,0 +1,136 @@
+{
+ "_links": {
+  "self": {
+   "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.4qrfj6qk2"
+  },
+  "stash:versions": {
+   "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.4qrfj6qk2/versions"
+  },
+  "stash:version": {
+   "href": "/api/v2/versions/323737"
+  },
+  "stash:download": {
+   "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.4qrfj6qk2/download"
+  },
+  "curies": [
+   {
+    "name": "stash",
+    "href": "https://github.com/datadryad/dryad-app/blob/main/documentation/apis/link_relations.md#{rel}",
+    "templated": "true"
+   }
+  ]
+ },
+ "identifier": "doi:10.5061/dryad.4qrfj6qk2",
+ "id": 138402,
+ "storageSize": 192424178482,
+ "relatedPublicationISSN": "0028-3908",
+ "title": "A selective small-molecule agonist of G protein-gated inwardly-rectifying potassium channels reduces epileptiform activity in a mouse model of tumor associated epilepsy - Thy1-GCaMP Tumor Electrophysiology",
+ "authors": [
+  {
+   "firstName": "Robert",
+   "lastName": "Rifkin",
+   "orcid": "0000-0002-3947-257X",
+   "affiliation": "Columbia University Irving Medical Center"
+  },
+  {
+   "firstName": "Xiaoping",
+   "lastName": "Wu",
+   "orcid": null,
+   "affiliation": "Columbia University Irving Medical Center"
+  },
+  {
+   "firstName": "Brianna",
+   "lastName": "Pereira",
+   "orcid": null,
+   "affiliation": "Columbia University Irving Medical Center"
+  },
+  {
+   "firstName": "Brian",
+   "lastName": "Gill",
+   "orcid": null,
+   "affiliation": "Columbia University Irving Medical Center"
+  }
+ ],
+ "abstract": "<p>Tumor associated epilepsy is a common and debilitating co-morbidity of brain tumors, for which inadequate treatments are available. Additionally, animal models suggest a potential link between seizures and tumor progression. Our group has previously described a mouse model of diffusely infiltrati",
+ "funders": [
+  {
+   "organization": "National Institute of Neurological Disorders and Stroke",
+   "identifierType": "ror",
+   "identifier": "https://ror.org/01s5ya894",
+   "awardNumber": "R25 NS070697",
+   "awardDescription": "",
+   "order": 0
+  },
+  {
+   "organization": "New York Presbyterian Hospital Rhodes Center for Glioblastoma Collaborative Research Institute*",
+   "identifierType": "crossref_funder_id",
+   "identifier": "",
+   "awardNumber": "",
+   "awardDescription": "",
+   "order": 1
+  },
+  {
+   "organization": "National Institute of Neurological Disorders and Stroke",
+   "identifierType": "ror",
+   "identifier": "https://ror.org/01s5ya894",
+   "awardNumber": "R01 NS084142",
+   "awardDescription": "",
+   "order": 2
+  },
+  {
+   "organization": "National Institute of Neurological Disorders and Stroke",
+   "identifierType": "ror",
+   "identifier": "https://ror.org/01s5ya894",
+   "awardNumber": "R01 NS110669",
+   "awardDescription": "",
+   "order": 3
+  },
+  {
+   "organization": "National Institute on Drug Abuse",
+   "identifierType": "ror",
+   "identifier": "https://ror.org/00fq5cm18",
+   "awardNumber": "R01 AA018734",
+   "awardDescription": "",
+   "order": 4
+  }
+ ],
+ "keywords": [
+  "GIRK",
+  "GiGA1",
+  "GABA-B receptor",
+  "Glioma",
+  "antiseizure medication"
+ ],
+ "fieldOfScience": "Biological sciences",
+ "relatedWorks": [
+  {
+   "relationship": "dataset",
+   "identifierType": "DOI",
+   "identifier": "https://doi.org/10.5061/dryad.g79cnp602"
+  },
+  {
+   "relationship": "dataset",
+   "identifierType": "DOI",
+   "identifier": "https://doi.org/10.5061/dryad.m0cfxppd0"
+  },
+  {
+   "relationship": "primary_article",
+   "identifierType": "DOI",
+   "identifier": "https://doi.org/10.1016/j.neuropharm.2024.110259"
+  }
+ ],
+ "versionNumber": 7,
+ "versionStatus": "submitted",
+ "curationStatus": "Published",
+ "versionChanges": "files_changed",
+ "publicationDate": "2024-10-23",
+ "lastModificationDate": "2024-10-23",
+ "visibility": "public",
+ "sharingLink": "http://datadryad.org/dataset/doi:10.5061/dryad.4qrfj6qk2",
+ "license": "https://spdx.org/licenses/CC0-1.0.html",
+ "metrics": {
+  "views": 45,
+  "downloads": 4,
+  "citations": 3
+ }
+}

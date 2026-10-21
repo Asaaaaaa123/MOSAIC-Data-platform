@@ -1,0 +1,176 @@
+{
+ "limit": 3,
+ "offset": 0,
+ "total": 29,
+ "items": [
+  {
+   "id": "MONDO:0017310",
+   "category": "biolink:Disease",
+   "name": "Marfan and Marfan-related disorder",
+   "xref": [
+    "GARD:0021129",
+    "MEDGEN:1842966",
+    "Orphanet:284993",
+    "UMLS:C5681015"
+   ],
+   "subsets": [
+    "disease_grouping",
+    "gard_rare",
+    "ordo_group_of_disorders",
+    "otar",
+    "rare"
+   ],
+   "file_source": "phenio_nodes",
+   "provided_by": "phenio_nodes",
+   "namespace": "MONDO",
+   "score": 48.40715,
+   "highlighting": {
+    "name": [
+     "<em>Marfan</em> and <em>Marfan</em>-related disorder"
+    ]
+   }
+  },
+  {
+   "id": "MONDO:0007947",
+   "category": "biolink:Disease",
+   "name": "Marfan syndrome",
+   "description": "A disorder of the connective tissue. Connective tissue provides strength and flexibility to structures throughout the body such as bones, ligaments, muscles, walls of blood vessels, and heart valves. Marfan syndrome affects most organs and tissues, especially the skeleton, lungs, eyes, heart, and the large blood vessel that distributes blood from the heart to the rest of the body (the aorta). It is caused by mutations in the FBN1 gene, which provides instructions for making a protein called fibrillin-1. Marfan syndrome is inherited in an autosomal dominant pattern. At least 25% of cases are due to a new (de novo) mutation. Treatment is based on the signs and symptoms in each person.",
+   "xref": [
+    "DOID:14323",
+    "GARD:0016535",
+    "ICD10CM:Q87.4",
+    "ICD9:759.82",
+    "MEDGEN:44287",
+    "MESH:D008382",
+    "MedDRA:10026829",
+    "NANDO:1200644",
+    "NANDO:2200968",
+    "NCIT:C34807",
+    "NORD:1403",
+    "OMIM:154700",
+    "Orphanet:284963",
+    "Orphanet:558",
+    "SCTID:19346006",
+    "UMLS:C0024796",
+    "icd11.foundation:236564145"
+   ],
+   "synonym": [
+    "MFS",
+    "MFS1",
+    "Marfan syndrome",
+    "Marfan syndrome type 1",
+    "Marfan syndrome, type 1",
+    "Marfan's syndrome"
+   ],
+   "exact_synonym": [
+    "MFS",
+    "MFS1",
+    "Marfan syndrome",
+    "Marfan syndrome type 1",
+    "Marfan syndrome, type 1",
+    "Marfan's syndrome"
+   ],
+   "subsets": [
+    "clingen",
+    "doid_rare",
+    "gard_rare",
+    "nord_rare",
+    "ordo_disorder",
+    "ordo_subtype_of_a_disorder",
+    "orphanet_rare",
+    "otar",
+    "prototype_pattern",
+    "rare"
+   ],
+   "file_source": "phenio_nodes",
+   "provided_by": "phenio_nodes",
+   "namespace": "MONDO",
+   "score": 46.699764,
+   "highlighting": {
+    "name": [
+     "<em>Marfan</em> syndrome"
+    ],
+    "description": [
+     ". <em>Marfan</em> syndrome affects most organs and tissues, especially the skeleton, lungs, eyes, heart, and the"
+    ],
+    "synonym": [
+     "<em>Marfan</em> syndrome"
+    ]
+   }
+  },
+  {
+   "id": "MONDO:0017309",
+   "category": "biolink:Disease",
+   "name": "neonatal Marfan syndrome",
+   "description": "Neonatal Marfan syndrome is a rare, severe and life-threatening genetic disease, occurring during the neonatal period, characterized by classical Marfan syndrome manifestations in addition to facial dysmorphism (megalocornea, iridodonesis, ectopia lentis, crumpled ears, loose redundant skin giving a 'senile' facial appearance), flexion joint contractures, pulmonary emphysema, and a severe, rapidly progressive cardiovascular disease (including ascending aortic dilatation and severe mitral and/or tricuspid valve insufficiency). Additionally, skeletal manifestations (arachnodactyly, dolichostenomelia, pectus deformities) are also associated.",
+   "xref": [
+    "GARD:0021128",
+    "MEDGEN:864491",
+    "Orphanet:284979",
+    "SCTID:763839005",
+    "UMLS:C4016054",
+    "icd11.foundation:1102890898"
+   ],
+   "synonym": [
+    "neonatal MFS"
+   ],
+   "exact_synonym": [
+    "neonatal MFS"
+   ],
+   "subsets": [
+    "gard_rare",
+    "nord_rare",
+    "ordo_disorder",
+    "orphanet_rare",
+    "otar",
+    "rare"
+   ],
+   "file_source": "phenio_nodes",
+   "provided_by": "phenio_nodes",
+   "namespace": "MONDO",
+   "score": 42.085938,
+   "highlighting": {
+    "name": [
+     "neonatal <em>Marfan</em> syndrome"
+    ],
+    "description": [
+     "Neonatal <em>Marfan</em> syndrome is a rare, severe and life-threatening genetic disease, occurring during"
+    ]
+   }
+  }
+ ],
+ "facet_fields": [
+  {
+   "label": "category",
+   "facet_values": [
+    {
+     "label": "biolink:Disease",
+     "count": 24
+    },
+    {
+     "label": "biolink:Gene",
+     "count": 4
+    },
+    {
+     "label": "biolink:PhenotypicFeature",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "label": "in_taxon_label",
+   "facet_values": [
+    {
+     "label": "Bos taurus",
+     "count": 2
+    },
+    {
+     "label": "Homo sapiens",
+     "count": 2
+    }
+   ]
+  }
+ ],
+ "facet_queries": [],
+ "scope": null
+}

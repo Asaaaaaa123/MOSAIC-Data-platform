@@ -1,0 +1,77 @@
+{
+ "drugGroup": {
+  "name": null,
+  "conceptGroup": [
+   {
+    "tty": "BPCK"
+   },
+   {
+    "tty": "GPCK"
+   },
+   {
+    "tty": "SBD",
+    "conceptProperties": [
+     {
+      "rxcui": "1043567",
+      "name": "24 HR metformin hydrochloride 1000 MG / saxagliptin 2.5 MG Extended Release Oral Tablet [Kombiglyze]",
+      "synonym": "Kombiglyze 2.5/1000 24 HR Extended Release Oral Tablet",
+      "tty": "SBD",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1043574",
+      "name": "24 HR metformin hydrochloride 1000 MG / saxagliptin 5 MG Extended Release Oral Tablet [Kombiglyze]",
+      "synonym": "Kombiglyze 5/1000 24 HR Extended Release Oral Tablet",
+      "tty": "SBD",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1043582",
+      "name": "24 HR metformin hydrochloride 500 MG / saxagliptin 5 MG Extended Release Oral Tablet [Kombiglyze]",
+      "synonym": "Kombiglyze 5/500 24 HR Extended Release Oral Tablet",
+      "tty": "SBD",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     }
+    ]
+   },
+   {
+    "tty": "SCD",
+    "conceptProperties": [
+     {
+      "rxcui": "1043563",
+      "name": "24 HR metformin hydrochloride 1000 MG / saxagliptin 2.5 MG Extended Release Oral Tablet",
+      "synonym": "metformin hydrochloride 1000 MG / saxagliptin (as saxagliptin hydrochloride) 2.5 MG 24 HR Extended Release Oral Tablet",
+      "tty": "SCD",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1043570",
+      "name": "24 HR metformin hydrochloride 1000 MG / saxagliptin 5 MG Extended Release Oral Tablet",
+      "synonym": "metformin hydrochloride 1000 MG / saxagliptin (as saxagliptin hydrochloride) 5 MG 24 HR Extended Release Oral Tablet",
+      "tty": "SCD",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     },
+     {
+      "rxcui": "1043578",
+      "name": "24 HR metformin hydrochloride 500 MG / saxagliptin 5 MG Extended Release Oral Tablet",
+      "synonym": "metformin hydrochloride 500 MG / saxagliptin (as saxagliptin hydrochloride) 5 MG 24 HR Extended Release Oral Tablet",
+      "tty": "SCD",
+      "language": "ENG",
+      "suppress": "N",
+      "umlscui": ""
+     }
+    ]
+   }
+  ]
+ }
+}

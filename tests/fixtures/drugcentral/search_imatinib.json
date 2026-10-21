@@ -1,0 +1,111 @@
+[
+ [
+  [
+   [
+    "id",
+    "name",
+    "cas_reg_no",
+    "inchikey",
+    "status",
+    "stem",
+    "cd_formula",
+    "cd_molweight",
+    "no_formulations",
+    "mrdef",
+    "fda_approval",
+    "approved",
+    "xrefs",
+    "rank",
+    "total"
+   ],
+   [
+    {
+     "id": 1423,
+     "name": "imatinib",
+     "cas_reg_no": "152459-95-5",
+     "inchikey": "KTUFNOKKBVMGRW-UHFFFAOYSA-N",
+     "status": "OFP",
+     "stem": "-tinib",
+     "cd_formula": "C29H31N7O",
+     "cd_molweight": 493.615,
+     "no_formulations": 43,
+     "mrdef": "A tyrosine kinase inhibitor and ANTINEOPLASTIC AGENT that inhibits the BCR-ABL kinase created by chromosome rearrangements in CHRONIC MYELOID LEUKEMIA and ACUTE LYMPHOBLASTIC LEUKEMIA, as well as PDG-derived tyrosine kinases that are overexpressed in gastrointestinal stromal tumors.",
+     "fda_approval": "2001-05-10",
+     "approved": true,
+     "xrefs": {
+      "NUI": [
+       "N0000148698"
+      ],
+      "MMSL": [
+       "16030",
+       "238904",
+       "41395",
+       "d04758"
+      ],
+      "NDDF": [
+       "009151",
+       "009152"
+      ],
+      "UNII": [
+       "BKJ8M8G5HI"
+      ],
+      "VUID": [
+       "4021257"
+      ],
+      "CHEBI": [
+       "CHEBI:45783"
+      ],
+      "VANDF": [
+       "4021257",
+       "4021258"
+      ],
+      "INN_ID": [
+       "8031"
+      ],
+      "RXNORM": [
+       "282386"
+      ],
+      "UMLSCUI": [
+       "C0939537"
+      ],
+      "ChEMBL_ID": [
+       "CHEMBL1642",
+       "CHEMBL941"
+      ],
+      "KEGG_DRUG": [
+       "D01441"
+      ],
+      "DRUGBANK_ID": [
+       "DB00619"
+      ],
+      "PDB_CHEM_ID": [
+       " STI"
+      ],
+      "PUBCHEM_CID": [
+       "5291"
+      ],
+      "SNOMEDCT_US": [
+       "129558005",
+       "391634008",
+       "414460008"
+      ],
+      "INXIGHT DRUGS": [
+       "BKJ8M8G5HI"
+      ],
+      "IUPHAR_LIGAND_ID": [
+       "5687"
+      ],
+      "SECONDARY_CAS_RN": [
+       "220127-57-1"
+      ],
+      "MESH_DESCRIPTOR_UI": [
+       "D000068877"
+      ]
+     },
+     "rank": 1,
+     "total": 1
+    }
+   ]
+  ]
+ ]
+]

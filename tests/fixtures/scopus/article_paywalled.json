@@ -1,0 +1,53 @@
+{
+ "full-text-retrieval-response": {
+  "coredata": {
+   "prism:url": "https://api.elsevier.com/content/article/pii/S0168952526001691",
+   "dc:identifier": "doi:10.1016/j.tig.2026.06.007",
+   "eid": "1-s2.0-S0168952526001691",
+   "prism:doi": "10.1016/j.tig.2026.06.007",
+   "pii": "S0168-9525(26)00169-1",
+   "dc:title": "Olduvai domains: humanity’s lucky brake ",
+   "prism:publicationName": "Trends in Genetics",
+   "prism:aggregationType": "Journal",
+   "pubType": "ssu",
+   "prism:issn": "01689525",
+   "dc:format": "application/json",
+   "prism:coverDate": "2026-07-18",
+   "prism:coverDisplayDate": "Available online 18 July 2026",
+   "prism:copyright": "© 2026 Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and similar technologies.",
+   "prism:publisher": "Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and similar technologies.",
+   "dc:creator": [
+    {
+     "@_fa": "true",
+     "$": "Sikela, James M."
+    }
+   ],
+   "dc:description": "\n                  Neoteny—a developmental slowdown that results in the retention of juvenile traits into adulthood—has long been viewed as central to human brain expansion. Olduvai domains are proposed here to function as a dosage-dependent metabolic ‘brake’ that slows development via mitochondrial downregulation. Their human-specific hyperamplification, paired with NOTCH2NL accelerators and new metabolic insights, may solve a century-old evolutionary puzzle.\n               ",
+   "openaccess": "0",
+   "openaccessArticle": false,
+   "openaccessType": null,
+   "openArchiveArticle": false,
+   "openaccessSponsorName": null,
+   "openaccessSponsorType": null,
+   "openaccessUserLicense": null
+  },
+  "scopus-id": "105045055723",
+  "scopus-eid": "2-s2.0-105045055723",
+  "originalText": {
+   "xocs:doc": {
+    "xocs:meta": {
+     "xocs:open-access": {
+      "xocs:oa-article-status": {
+       "@is-open-access": "0",
+       "@is-open-archive": "0"
+      }
+     },
+     "xocs:available-online-date": {
+      "@yyyymmdd": "20260718",
+      "$": "2026-07-18"
+     }
+    }
+   }
+  }
+ }
+}

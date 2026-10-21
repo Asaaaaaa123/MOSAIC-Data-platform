@@ -1,0 +1,600 @@
+{
+ "Data": {
+  "Records": {
+   "records": {
+    "REC": [
+     {
+      "UID": "WOS:000307535600036",
+      "static_data": {
+       "summary": {
+        "pub_info": {
+         "coverdate": "AUG 17 2012",
+         "vol": 337,
+         "journal_oas_gold": "N",
+         "pubyear": 2012,
+         "issue": 6096,
+         "sortdate": "2012-08-17",
+         "has_abstract": "Y",
+         "pubmonth": "AUG 17",
+         "pubtype": "Journal",
+         "page": {
+          "end": 821,
+          "begin": 816,
+          "page_count": 6,
+          "content": "816-821"
+         }
+        },
+        "names": {
+         "count": 6,
+         "name": [
+          {
+           "seq_no": 1,
+           "ishighlycited": true,
+           "role": "author",
+           "claim_status": true,
+           "last_name": "Jinek",
+           "display_name": "Jinek, Martin",
+           "daisng_id": 383895,
+           "orcid_id": "0000-0002-7601-210X",
+           "full_name": "Jinek, Martin",
+           "hcr": {
+            "hcrcategory": {
+             "year": 2025,
+             "content": "Cross-Field"
+            }
+           },
+           "addr_no": "1 2",
+           "data-item-ids": {
+            "data-item-id": [
+             {
+              "type": "person",
+              "content": "E-6621-2011",
+              "id-type": "PreferredRID"
+             },
+             {
+              "type": "person",
+              "content": "0000-0002-7601-210X",
+              "id-type": "OtherORCID"
+             }
+            ]
+           },
+           "wos_standard": "Jinek, M",
+           "r_id": "E-6621-2011",
+           "first_name": "Martin",
+           "preferred_name": {
+            "full_name": "Jinek, Martin",
+            "last_name": "Jinek",
+            "first_name": "Martin"
+           }
+          },
+          {
+           "seq_no": 2,
+           "role": "author",
+           "claim_status": false,
+           "last_name": "Chylinski",
+           "display_name": "Chylinski, Krzysztof",
+           "daisng_id": 15874456,
+           "orcid_id": "0000-0001-7029-8090",
+           "full_name": "Chylinski, Krzysztof",
+           "addr_no": "3 4",
+           "data-item-ids": {
+            "data-item-id": [
+             {
+              "type": "person",
+              "content": "DXS-4054-2022",
+              "id-type": "PreferredRID"
+             },
+             {
+              "type": "person",
+              "content": "0000-0001-7029-8090",
+              "id-type": "OtherORCID"
+             }
+            ]
+           },
+           "wos_standard": "Chylinski, K",
+           "r_id": "DXS-4054-2022",
+           "first_name": "Krzysztof",
+           "preferred_name": {
+            "full_name": "Chylinski, Krzysztof",
+            "last_name": "Chylinski",
+            "first_name": "Krzysztof"
+           }
+          },
+          {
+           "seq_no": 3,
+           "role": "author",
+           "claim_status": true,
+           "last_name": "Fonfara",
+           "display_name": "Fonfara, Ines",
+           "daisng_id": 544961,
+           "orcid_id": "0000-0003-4075-9217",
+           "full_name": "Fonfara, Ines",
+           "addr_no": 4,
+           "data-item-ids": {
+            "data-item-id": [
+             {
+              "type": "person",
+              "content": "S-8369-2018",
+              "id-type": "PreferredRID"
+             },
+             {
+              "type": "person",
+              "content": "0000-0003-4075-9217",
+              "id-type": "OtherORCID"
+             }
+            ]
+           },
+           "wos_standard": "Fonfara, I",
+           "r_id": "S-8369-2018",
+           "first_name": "Ines"
+          },
+          {
+           "seq_no": 4,
+           "role": "author",
+           "claim_status": true,
+           "last_name": "Hauer",
+           "display_name": "Hauer, Michael",
+           "daisng_id": 1514840,
+           "orcid_id": "0000-0001-7463-3191",
+           "full_name": "Hauer, Michael",
+           "addr_no": 2,
+           "data-item-ids": {
+            "data-item-id": [
+             {
+              "type": "person",
+              "content": "U-4800-2019",
+              "id-type": "PreferredRID"
+             },
+             {
+              "type": "person",
+              "content": "0000-0001-7463-3191",
+              "id-type": "OtherORCID"
+             }
+            ]
+           },
+           "wos_standard": "Hauer, M",
+           "r_id": "U-4800-2019",
+           "first_name": "Michael"
+          },
+          {
+           "seq_no": 5,
+           "role": "author",
+           "claim_status": false,
+           "reprint": "Y",
+           "last_name": "Doudna",
+           "display_name": "Doudna, Jennifer A.",
+           "daisng_id": 83437889,
+           "orcid_id": "0000-0001-9161-999X",
+           "full_name": "Doudna, Jennifer A.",
+           "addr_no": "1 2 5 6",
+           "data-item-ids": {
+            "data-item-id": [
+             {
+              "type": "person",
+              "content": "OOV-0084-2025",
+              "id-type": "PreferredRID"
+             },
+             {
+              "type": "person",
+              "content": "0000-0001-9161-999X",
+              "id-type": "OtherORCID"
+             }
+            ]
+           },
+           "wos_standard": "Doudna, JA",
+           "r_id": "OOV-0084-2025",
+           "first_name": "Jennifer A.",
+           "preferred_name": {
+            "full_name": "Doudna, Jennifer A.",
+            "last_name": "Doudna",
+            "first_name": "Jennifer A."
+           }
+          },
+          {
+           "seq_no": 6,
+           "ishighlycited": true,
+           "role": "author",
+           "claim_status": true,
+           "last_name": "Charpentier",
+           "display_name": "Charpentier, Emmanuelle",
+           "daisng_id": 3265045,
+           "full_name": "Charpentier, Emmanuelle",
+           "hcr": {
+            "hcrcategory": [
+             {
+              "year": 2021,
+              "content": "Microbiology"
+             },
+             {
+              "year": 2020,
+              "content": "Cross-Field"
+             },
+             {
+              "year": 2023,
+              "content": "Cross-Field"
+             },
+             {
+              "year": 2024,
+              "content": "Cross-Field"
+             },
+             {
+              "year": 2025,
+              "content": "Cross-Field"
+             }
+            ]
+           },
+           "addr_no": 4,
+           "data-item-ids": {
+            "data-item-id": [
+             {
+              "type": "person",
+              "content": "ADT-1781-2022",
+              "id-type": "PreferredRID"
+             },
+             {
+              "type": "person",
+              "content": "0000-0002-0254-0778",
+              "id-type": "PreferredORCID"
+             },
+             {
+              "type": "person",
+              "content": "0000-0001-8534-8388",
+              "id-type": "OtherORCID"
+             },
+             {
+              "type": "person",
+              "content": "0000-0002-0254-0778",
+              "id-type": "OtherORCID"
+             }
+            ]
+           },
+           "wos_standard": "Charpentier, E",
+           "r_id": "ADT-1781-2022",
+           "first_name": "Emmanuelle",
+           "preferred_name": {
+            "full_name": "Charpentier, Emmanuelle",
+            "last_name": "Charpentier",
+            "first_name": "Emmanuelle"
+           }
+          }
+         ]
+        },
+        "doctypes": {
+         "doctype": "Article",
+         "count": 1
+        },
+        "publishers": {
+         "publisher": {
+          "names": {
+           "count": 1,
+           "name": {
+            "seq_no": 1,
+            "role": "publisher",
+            "full_name": "AMER ASSOC ADVANCEMENT SCIENCE",
+            "unified_name": "Amer Assoc Advancement Science",
+            "addr_no": 1,
+            "display_name": "AMER ASSOC ADVANCEMENT SCIENCE"
+           }
+          },
+          "address_spec": {
+           "city": "WASHINGTON",
+           "addr_no": 1,
+           "full_address": "1200 NEW YORK AVE, NW, WASHINGTON, DC 20005 USA"
+          }
+         }
+        },
+        "EWUID": {
+         "WUID": {
+          "coll_id": "WOS"
+         },
+         "edition": {
+          "value": "WOS.SCI"
+         },
+         "xmlns:xs": "http://www.w3.org/2001/XMLSchema"
+        },
+        "titles": {
+         "count": 6,
+         "title": [
+          {
+           "type": "source",
+           "content": "SCIENCE"
+          },
+          {
+           "type": "source_abbrev",
+           "content": "SCIENCE"
+          },
+          {
+           "type": "abbrev_iso",
+           "content": "Science"
+          },
+          {
+           "type": "abbrev_11",
+           "content": "SCIENCE"
+          },
+          {
+           "type": "abbrev_29",
+           "content": "SCIENCE"
+          },
+          {
+           "type": "item",
+           "content": "A Programmable Dual-RNA-Guided DNA Endonuclease in Adaptive Bacterial Immunity"
+          }
+         ]
+        }
+       },
+       "item": {
+        "xsi:type": "itemType_wos",
+        "coll_id": "WOS",
+        "ids": {
+         "avail": "N",
+         "content": "989BQ"
+        },
+        "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+        "bib_pagecount": {
+         "type": "Journal",
+         "content": 92
+        },
+        "keywords_plus": {
+         "count": 10,
+         "keyword": [
+          "CRISPR RNA",
+          "ANTIVIRAL DEFENSE",
+          "COMPLEX",
+          "SYSTEM",
+          "INTERFERENCE",
+          "RECOGNITION",
+          "MECHANISM",
+          "ENDORIBONUCLEASE",
+          "MATURATION",
+          "RESISTANCE"
+         ]
+        },
+        "bib_id": "337 (6096): 816-821 AUG 17 2012"
+       },
+       "fullrecord_metadata": {
+        "category_info": {
+         "subjects": {
+          "subject": [
+           {
+            "ascatype": "traditional",
+            "code": "RO",
+            "content": "Multidisciplinary Sciences"
+           },
+           {
+            "ascatype": "extended",
+            "content": "Science & Technology - Other Topics"
+           }
+          ],
+          "count": 2
+         },
+         "headings": {
+          "heading": "Science & Technology",
+          "count": 1
+         }
+        },
+        "normalized_languages": {
+         "count": 1,
+         "language": {
+          "type": "primary",
+          "content": "English"
+         }
+        },
+        "languages": {
+         "count": 1,
+         "language": {
+          "type": "primary",
+          "content": "English"
+         }
+        },
+        "refs": {
+         "count": 38
+        },
+        "abstracts": {
+         "count": 1,
+         "abstract": {
+          "abstract_text": {
+           "p": "Clustered regularly interspaced short palindromic repeats (CRISPR)/CRISPR-associated (Cas) systems provide bacteria and archaea with adaptive immunity against viruses and plasmids by using CRISPR RNAs (crRNAs) to guide the silencing of invading nucleic acids. We show here that in a subset of these systems, the mature crRNA that is base-paired to trans-activating crRNA (tracrRNA) forms a two-RNA structure that directs the CRISPR-associated protein Cas9 to introduce double-stranded (ds) breaks in target DNA. At sites complementary to the crRNA-guide sequence, the Cas9 HNH nuclease domain cleaves the complementary strand, whereas the Cas9 RuvC-like domain cleaves the noncomplementary strand. The dual-tracrRNA:crRNA, when engineered as a single RNA chimera, also directs sequence-specific Cas9 dsDNA cleavage. Our study reveals a family of endonucleases that use dual-RNAs for site-specific DNA cleavage and highlights the potential to exploit the system for RNA-programmable genome editing.",
+           "count": 1
+          }
+         }
+        },
+        "normalized_doctypes": {
+         "doctype": "Article",
+         "count": 1
+        }
+       }
+      },
+      "dates": {
+       "date_loaded": "2012-08-17T23:59:59.00000",
+       "date_modified": "2026-03-15T22:01:12.13141",
+       "date_created": "2012-12-25T12:25:20.684325"
+      },
+      "r_id_disclaimer": "ResearcherID data provided by Clarivate Analytics",
+      "dynamic_data": {
+       "citation_related": {
+        "tc_list_cc": {
+         "dedup_total_count": 1983,
+         "function_tc": [
+          {
+           "local_count": 208,
+           "func_class": "basis"
+          },
+          {
+           "local_count": 1687,
+           "func_class": "background"
+          },
+          {
+           "local_count": 24,
+           "func_class": "support"
+          },
+          {
+           "local_count": 0,
+           "func_class": "differ"
+          },
+          {
+           "local_count": 285,
+           "func_class": "discuss"
+          }
+         ]
+        },
+        "SDG": {
+         "sdg_category": {
+          "content": "03 Good Health and Well-being",
+          "status": "Active"
+         },
+         "code": 1401
+        },
+        "citation_topics": {
+         "subj-group": {
+          "subject": [
+           {
+            "content-type": "macro",
+            "content-id": "1",
+            "content": "Clinical & Life Sciences"
+           },
+           {
+            "content-type": "meso",
+            "content-id": "1.54",
+            "content": "Molecular & Cell Biology - Genetics"
+           },
+           {
+            "content-type": "micro",
+            "content-id": "1.54.1401",
+            "content": "Genome Editing"
+           }
+          ]
+         }
+        },
+        "tc_list": {
+         "tc_mod_date": "2026-10-19",
+         "retracted_count": 9,
+         "silo_tc": [
+          {
+           "coll_id": "WOK",
+           "local_count": 18571
+          },
+          {
+           "coll_id": "KJD",
+           "local_count": 0
+          },
+          {
+           "coll_id": "INSPEC",
+           "local_count": 0
+          },
+          {
+           "coll_id": "BCI",
+           "local_count": 10093
+          },
+          {
+           "coll_id": "WOS",
+           "local_count": 12993
+          },
+          {
+           "coll_id": "BIOABS",
+           "local_count": 0
+          },
+          {
+           "coll_id": "BIOSIS",
+           "local_count": 0
+          },
+          {
+           "coll_id": "CSCD",
+           "local_count": 1170
+          },
+          {
+           "coll_id": "RSCI",
+           "local_count": 1
+          },
+          {
+           "coll_id": "PCI",
+           "local_count": 18
+          },
+          {
+           "coll_id": "PPRN",
+           "local_count": 528
+          },
+          {
+           "coll_id": "ZOOREC",
+           "local_count": 0
+          },
+          {
+           "coll_id": "CABI",
+           "local_count": 0
+          },
+          {
+           "coll_id": "PQDT",
+           "local_count": 2154
+          },
+          {
+           "coll_id": "MEDLINE",
+           "local_count": 0
+          },
+          {
+           "coll_id": "SCIELO",
+           "local_count": 43
+          },
+          {
+           "coll_id": "DRCI",
+           "local_count": 3
+          },
+          {
+           "coll_id": "ARCI",
+           "local_count": 0
+          },
+          {
+           "coll_id": "DIIDW",
+           "local_count": 1906
+          },
+          {
+           "coll_id": "FSTA",
+           "local_count": 0
+          },
+          {
+           "coll_id": "RC",
+           "local_count": 685
+          },
+          {
+           "coll_id": "CCC",
+           "local_count": 0
+          }
+         ]
+        }
+       },
+       "cluster_related": {
+        "identifiers": {
+         "identifier": [
+          {
+           "type": "issn",
+           "value": "0036-8075"
+          },
+          {
+           "type": "eissn",
+           "value": "1095-9203"
+          },
+          {
+           "type": "doi",
+           "value": "10.1126/science.1225829"
+          },
+          {
+           "type": "pmid",
+           "value": "MEDLINE:22745249"
+          }
+         ]
+        }
+       },
+       "wos_usage": {
+        "last180days": 179,
+        "alltime": 9549
+       }
+      }
+     }
+    ]
+   }
+  }
+ },
+ "QueryResult": {
+  "QueryID": 19,
+  "RecordsSearched": 87629761,
+  "RecordsFound": 1
+ }
+}

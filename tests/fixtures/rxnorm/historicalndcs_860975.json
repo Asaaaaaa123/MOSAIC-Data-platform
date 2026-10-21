@@ -1,0 +1,40 @@
+{
+ "historicalNdcConcept": {
+  "historicalNdcTime": [
+   {
+    "status": "direct",
+    "rxcui": "860975",
+    "ndcTime": [
+     {
+      "ndc": [
+       "00087092105"
+      ],
+      "startDate": "200910",
+      "endDate": "201206"
+     },
+     {
+      "ndc": [
+       "00093726701"
+      ],
+      "startDate": "200910",
+      "endDate": "202208"
+     },
+     {
+      "ndc": [
+       "00093726710"
+      ],
+      "startDate": "200910",
+      "endDate": "202208"
+     },
+     {
+      "ndc": [
+       "00093726719"
+      ],
+      "startDate": "201210",
+      "endDate": "201908"
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,375 @@
+{
+ "data": {
+  "disease": {
+   "id": "MONDO_0005233",
+   "name": "non-small cell lung carcinoma",
+   "associatedTargets": {
+    "count": 13555,
+    "rows": [
+     {
+      "score": 0.812639901007996,
+      "datatypeScores": [
+       {
+        "id": "literature",
+        "score": 0.9986655400216085
+       },
+       {
+        "id": "affected_pathway",
+        "score": 0.979400228199195
+       },
+       {
+        "id": "somatic_mutation",
+        "score": 0.8215585199131575
+       },
+       {
+        "id": "clinical",
+        "score": 0.9890250504174458
+       }
+      ],
+      "target": {
+       "id": "ENSG00000171094",
+       "approvedSymbol": "ALK",
+       "approvedName": "ALK receptor tyrosine kinase",
+       "biotype": "protein_coding",
+       "proteinIds": [
+        {
+         "id": "Q9UM73",
+         "source": "uniprot_swissprot"
+        },
+        {
+         "id": "A0A087WZL3",
+         "source": "uniprot_trembl"
+        },
+        {
+         "id": "A0A0K2YUJ3",
+         "source": "uniprot_trembl"
+        },
+        {
+         "id": "E7EPW7",
+         "source": "uniprot_trembl"
+        },
+        {
+         "id": "H7BZ33",
+         "source": "uniprot_trembl"
+        },
+        {
+         "id": "ENSP00000373700",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000387488",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000414027",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000482733",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000493203",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000811409",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "A6P4T4",
+         "source": "uniprot_obsolete"
+        },
+        {
+         "id": "A6P4V4",
+         "source": "uniprot_obsolete"
+        },
+        {
+         "id": "Q4ZFX9",
+         "source": "uniprot_obsolete"
+        },
+        {
+         "id": "Q53QQ6",
+         "source": "uniprot_obsolete"
+        },
+        {
+         "id": "Q53RZ4",
+         "source": "uniprot_obsolete"
+        },
+        {
+         "id": "Q59FI3",
+         "source": "uniprot_obsolete"
+        },
+        {
+         "id": "Q9Y4K6",
+         "source": "uniprot_obsolete"
+        }
+       ]
+      }
+     },
+     {
+      "score": 0.8115535061703569,
+      "datatypeScores": [
+       {
+        "id": "literature",
+        "score": 0.9941894203660991
+       },
+       {
+        "id": "affected_pathway",
+        "score": 0.9513974960387728
+       },
+       {
+        "id": "somatic_mutation",
+        "score": 0.8083905411094173
+       },
+       {
+        "id": "clinical",
+        "score": 0.9822682241514765
+       }
+      ],
+      "target": {
+       "id": "ENSG00000141736",
+       "approvedSymbol": "ERBB2",
+       "approvedName": "erb-b2 receptor tyrosine kinase 2",
+       "biotype": "protein_coding",
+       "proteinIds": [
+        {
+         "id": "P04626",
+         "source": "uniprot_swissprot"
+        },
+        {
+         "id": "B4DTR1",
+         "source": "uniprot_trembl"
+        },
+        {
+         "id": "F5H1T4",
+         "source": "uniprot_trembl"
+        },
+        {
+         "id": "J3KRI9",
+         "source": "uniprot_trembl"
+        },
+        {
+         "id": "J3KTI5",
+         "source": "uniprot_trembl"
+        },
+        {
+         "id": "J3QL83",
+         "source": "uniprot_trembl"
+        },
+        {
+         "id": "J3QLU9",
+         "source": "uniprot_trembl"
+        },
+        {
+         "id": "J3QLV2",
+         "source": "uniprot_trembl"
+        },
+        {
+         "id": "J3QRJ7",
+         "source": "uniprot_trembl"
+        },
+        {
+         "id": "J3QRX1",
+         "source": "uniprot_trembl"
+        },
+        {
+         "id": "X5DNK3",
+         "source": "uniprot_trembl"
+        },
+        {
+         "id": "ENSP00000269571",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000404047",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000462024",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000462438",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000462808",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000463002",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000463427",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000463714",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000463719",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000464252",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000464420",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000521134",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000533154",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000533155",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000533156",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000533157",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000533158",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000533159",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000533160",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000533161",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000533162",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000608982",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000608983",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000608984",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000629833",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000629834",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000675551",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000688109",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000688110",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000688111",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000736602",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000736603",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000736604",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000736605",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000736606",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000736607",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000736608",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000736609",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000736611",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000785808",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "ENSP00000804009",
+         "source": "ensembl_PRO"
+        },
+        {
+         "id": "B2RZG3",
+         "source": "uniprot_obsolete"
+        },
+        {
+         "id": "B4DHN3",
+         "source": "uniprot_obsolete"
+        },
+        {
+         "id": "Q14256",
+         "source": "uniprot_obsolete"
+        },
+        {
+         "id": "Q6LDV1",
+         "source": "uniprot_obsolete"
+        },
+        {
+         "id": "Q9UMK4",
+         "source": "uniprot_obsolete"
+        },
+        {
+         "id": "X5D2V5",
+         "source": "uniprot_obsolete"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ }
+}

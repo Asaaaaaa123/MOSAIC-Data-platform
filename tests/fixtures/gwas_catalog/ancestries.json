@@ -1,0 +1,45 @@
+{
+ "_embedded": {
+  "ancestries": [
+   {
+    "type": "initial",
+    "number_of_individuals": 16559,
+    "ancestral_groups": [
+     {
+      "ancestral_group": "European"
+     }
+    ],
+    "country_of_origin": [],
+    "country_of_recruitment": [
+     {
+      "major_area": "Europe",
+      "region": "Northern Europe",
+      "country_name": "U.K."
+     }
+    ]
+   },
+   {
+    "type": "replication",
+    "number_of_individuals": 13279,
+    "ancestral_groups": [
+     {
+      "ancestral_group": "European"
+     }
+    ],
+    "country_of_origin": [],
+    "country_of_recruitment": [
+     {
+      "major_area": "Europe",
+      "region": "Northern Europe",
+      "country_name": "U.K."
+     },
+     {
+      "major_area": "Europe",
+      "region": "Northern Europe",
+      "country_name": "Denmark"
+     }
+    ]
+   }
+  ]
+ }
+}

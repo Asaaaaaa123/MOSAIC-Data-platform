@@ -1,0 +1,25 @@
+{
+ "count": 101,
+ "next": "https://api.dandiarchive.org/api/dandisets/000003/versions/0.260218.2052/assets/?order=path&page=2&page_size=2",
+ "previous": null,
+ "results": [
+  {
+   "asset_id": "d426ff9a-bab3-446d-8104-e373ae188bd3",
+   "blob": "bb81f7b3-4cfa-40e7-aa89-95beb1954d8c",
+   "zarr": null,
+   "path": "sub-YutaMouse20/sub-YutaMouse20_ses-YutaMouse20-140321_behavior+ecephys.nwb",
+   "size": 11694713998,
+   "created": "2021-07-01T20:14:18.116542Z",
+   "modified": "2021-08-05T18:44:12.490376Z"
+  },
+  {
+   "asset_id": "e7a983ff-7d03-4eef-a625-4cf3cc61a0bc",
+   "blob": "b1cbe7d9-d3b0-40ea-b53f-3429627e56f2",
+   "zarr": null,
+   "path": "sub-YutaMouse20/sub-YutaMouse20_ses-YutaMouse20-140324_behavior+ecephys.nwb",
+   "size": 15090018364,
+   "created": "2021-07-01T20:14:19.268656Z",
+   "modified": "2021-08-05T18:44:12.567141Z"
+  }
+ ]
+}

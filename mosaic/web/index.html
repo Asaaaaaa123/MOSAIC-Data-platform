@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <title>Mosaic</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='2' width='13' height='13' rx='3' fill='%233b6fd8'/%3E%3Crect x='17' y='2' width='13' height='13' rx='3' fill='%2314a38b'/%3E%3Crect x='2' y='17' width='13' height='13' rx='3' fill='%23e3913b'/%3E%3Crect x='17' y='17' width='13' height='13' rx='3' fill='%238a5cd6'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <rect x="2" y="2" width="13" height="13" rx="3" class="tile t1"/>
+          <rect x="17" y="2" width="13" height="13" rx="3" class="tile t2"/>
+          <rect x="2" y="17" width="13" height="13" rx="3" class="tile t3"/>
+          <rect x="17" y="17" width="13" height="13" rx="3" class="tile t4"/>
+        </svg>
+        <div class="brand-text">
+          <span class="brand-name">Mosaic</span>
+          <span class="brand-tag">Federated biomedical research with Claude</span>
+        </div>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-controls="nav" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="#ask" data-view="ask">Ask Mosaic</a>
+        <a href="#sources" data-view="sources">Sources</a>
+        <a href="#search" data-view="search">Cross-database search</a>
+        <a href="#catalog" data-view="catalog">NIH repositories</a>
+        <a href="#exports" data-view="exports">Exports</a>
+        <a href="#audit" data-view="audit">Audit log</a>
+      </nav>
+      <div class="status" id="status" role="status" aria-live="polite">
+        <span class="dot" id="status-dot"></span><span id="status-text">Connecting...</span>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <!-- ============================================================ Ask -->
+      <section class="view view-ask" id="view-ask" data-view="ask" aria-labelledby="ask-title" hidden>
+        <aside class="sessions" aria-label="Conversations">
+          <div class="sessions-head">
+            <h2 id="ask-title" class="sessions-title">Conversations</h2>
+            <button type="button" class="btn btn-primary btn-sm" id="new-chat">New chat</button>
+          </div>
+          <ul class="session-list" id="session-list"></ul>
+          <p class="muted small" id="sessions-empty" hidden>No saved conversations yet.</p>
+        </aside>
+        <div class="chat">
+          <div class="agent-banner" id="agent-banner" role="alert" hidden></div>
+          <div class="chat-scroll" id="chat-scroll">
+            <div class="chat-welcome" id="chat-welcome">
+              <h1 class="welcome-title">Ask across every database at once</h1>
+              <p class="welcome-sub">Mosaic lets Claude query literature, clinical trials, drug labels, safety reports,
+                chemistry, protein and genomics databases and NIH repositories in one conversation, link the same entity
+                across sources, and save the extracted table as CSV or JSON.</p>
+              <div class="examples" id="examples" role="list"></div>
+            </div>
+            <ol class="messages" id="messages" aria-live="polite" aria-relevant="additions"></ol>
+          </div>
+          <form class="composer" id="composer" autocomplete="off">
+            <label for="prompt" class="sr-only">Your question</label>
+            <textarea id="prompt" rows="2" maxlength="50000"
+              placeholder="Ask a research question. Enter to send, Shift+Enter for a new line."></textarea>
+            <div class="composer-actions">
+              <span class="muted small" id="composer-hint"></span>
+              <button type="button" class="btn btn-danger" id="stop" hidden>Stop</button>
+              <button type="submit" class="btn btn-primary" id="send">Send</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- ======================================================== Sources -->
+      <section class="view" id="view-sources" data-view="sources" aria-labelledby="sources-title" hidden>
+        <div class="view-head">
+          <div>
+            <h1 id="sources-title">Data sources</h1>
+            <p class="muted" id="sources-summary">Loading sources...</p>
+          </div>
+          <div class="head-actions">
+            <label class="sr-only" for="sources-filter">Filter sources</label>
+            <input type="search" id="sources-filter" class="input" placeholder="Filter sources">
+            <button type="button" class="btn" id="check-all">Check all health</button>
+          </div>
+        </div>
+        <div class="chips" id="sources-cats" role="group" aria-label="Filter by category"></div>
+
+        <section class="panel try-panel" id="try-panel" aria-labelledby="try-title">
+          <div class="panel-head">
+            <h2 id="try-title">Try a tool</h2>
+            <p class="muted small">Pick a source and tool; the form is generated from the tool's JSON schema.</p>
+          </div>
+          <div class="try-grid">
+            <div class="field">
+              <label for="try-source">Source</label>
+              <select id="try-source" class="input"></select>
+            </div>
+            <div class="field">
+              <label for="try-tool">Tool</label>
+              <select id="try-tool" class="input"></select>
+            </div>
+          </div>
+          <p class="tool-desc muted small" id="try-desc"></p>
+          <form id="try-form" class="try-form" novalidate>
+            <div id="try-fields" class="form-grid"></div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary" id="try-run">Run tool</button>
+              <span class="muted small" id="try-status" role="status"></span>
+            </div>
+          </form>
+          <div id="try-result" class="try-result"></div>
+        </section>
+
+        <div id="sources-groups"></div>
+      </section>
+
+      <!-- ========================================================= Search -->
+      <section class="view" id="view-search" data-view="search" aria-labelledby="search-title" hidden>
+        <div class="view-head">
+          <div>
+            <h1 id="search-title">Cross-database search</h1>
+            <p class="muted">Runs every selected source's primary search in parallel, then links records that share
+              identifiers (DOI, PMID, NCT, ChEBI, UniProt ...) into entities.</p>
+          </div>
+        </div>
+        <form class="search-form panel" id="search-form" role="search">
+          <div class="search-row">
+            <label for="search-q" class="sr-only">Search query</label>
+            <input type="search" id="search-q" class="input input-lg" required maxlength="1000"
+              placeholder="e.g. sotorasib, KRAS G12C, CRISPR base editing">
+            <label for="search-limit" class="sr-only">Results per source</label>
+            <select id="search-limit" class="input" title="Results per source">
+              <option value="3">3 per source</option>
+              <option value="5" selected>5 per source</option>
+              <option value="10">10 per source</option>
+              <option value="20">20 per source</option>
+            </select>
+            <button type="submit" class="btn btn-primary" id="search-go">Search</button>
+          </div>
+          <fieldset class="chips" id="search-cats">
+            <legend class="small muted">Categories (none selected = all)</legend>
+          </fieldset>
+        </form>
+        <div id="search-results" aria-live="polite"></div>
+      </section>
+
+      <!-- ======================================================== Catalog -->
+      <section class="view" id="view-catalog" data-view="catalog" aria-labelledby="catalog-title" hidden>
+        <div class="view-head">
+          <div>
+            <h1 id="catalog-title">NIH scientific data repositories</h1>
+            <p class="muted" id="catalog-summary">Loading catalog...</p>
+          </div>
+        </div>
+        <form class="panel filters" id="catalog-form" role="search">
+          <div class="field grow">
+            <label for="cat-q">Search</label>
+            <input type="search" id="cat-q" class="input" placeholder="imaging, microbiome, Alzheimer, genomics ..." maxlength="500">
+          </div>
+          <div class="field">
+            <label for="cat-kind">Kind</label>
+            <select id="cat-kind" class="input">
+              <option value="">All</option>
+              <option value="domain_specific">Domain-specific</option>
+              <option value="generalist">Generalist</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cat-access">Access</label>
+            <select id="cat-access" class="input">
+              <option value="">Any</option>
+              <option value="open">Open</option>
+              <option value="registered">Registered</option>
+              <option value="controlled">Controlled</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cat-inst">Institute</label>
+            <select id="cat-inst" class="input"><option value="">Any</option></select>
+          </div>
+          <div class="field field-check">
+            <input type="checkbox" id="cat-live">
+            <label for="cat-live">Live connector only</label>
+          </div>
+        </form>
+        <div id="catalog-results"></div>
+      </section>
+
+      <!-- ======================================================== Exports -->
+      <section class="view" id="view-exports" data-view="exports" aria-labelledby="exports-title" hidden>
+        <div class="view-head">
+          <div>
+            <h1 id="exports-title">Saved tables</h1>
+            <p class="muted">Cross-database extraction tables saved by Ask Mosaic, as CSV and JSON (with provenance).</p>
+          </div>
+          <div class="head-actions"><button type="button" class="btn" id="exports-refresh">Refresh</button></div>
+        </div>
+        <div id="exports-list"></div>
+        <div id="export-preview"></div>
+      </section>
+
+      <!-- ========================================================== Audit -->
+      <section class="view" id="view-audit" data-view="audit" aria-labelledby="audit-title" hidden>
+        <div class="view-head">
+          <div>
+            <h1 id="audit-title">Audit log</h1>
+            <p class="muted">Every tool call, agent turn and export is recorded locally (parameters are redacted).</p>
+          </div>
+          <div class="head-actions">
+            <label class="sr-only" for="audit-window">Time window</label>
+            <select id="audit-window" class="input">
+              <option value="1">Last hour</option>
+              <option value="24" selected>Last 24 hours</option>
+              <option value="168">Last 7 days</option>
+              <option value="720">Last 30 days</option>
+            </select>
+            <button type="button" class="btn" id="audit-refresh">Refresh</button>
+          </div>
+        </div>
+        <div class="tiles" id="audit-tiles"></div>
+        <div class="audit-grid">
+          <section class="panel" aria-labelledby="audit-sources-title">
+            <h2 id="audit-sources-title">Per source</h2>
+            <div id="audit-sources"></div>
+          </section>
+          <section class="panel" aria-labelledby="audit-turns-title">
+            <h2 id="audit-turns-title">Agent turns</h2>
+            <div id="audit-turns"></div>
+          </section>
+        </div>
+        <section class="panel" aria-labelledby="audit-calls-title">
+          <div class="panel-head row">
+            <h2 id="audit-calls-title">Recent tool calls</h2>
+            <form class="inline-filters" id="audit-filter">
+              <label for="audit-source" class="sr-only">Source</label>
+              <select id="audit-source" class="input"><option value="">All sources</option></select>
+              <label for="audit-session" class="sr-only">Session id</label>
+              <input type="search" id="audit-session" class="input" placeholder="Session id">
+              <button type="submit" class="btn btn-sm">Apply</button>
+            </form>
+          </div>
+          <div id="audit-calls"></div>
+        </section>
+      </section>
+    </main>
+  </div>
+  <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+</body>
+</html>

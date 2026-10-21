@@ -1,0 +1,86 @@
+{
+ "_links": {
+  "self": {
+   "href": "/api/v2/versions/323737/files?per_page=2"
+  },
+  "first": {
+   "href": "/api/v2/versions/323737/files?per_page=2"
+  },
+  "last": {
+   "href": "/api/v2/versions/323737/files?page=18&per_page=2"
+  },
+  "next": {
+   "href": "/api/v2/versions/323737/files?page=2&per_page=2"
+  }
+ },
+ "count": 2,
+ "total": 35,
+ "_embedded": {
+  "stash:files": [
+   {
+    "_links": {
+     "self": {
+      "href": "/api/v2/files/3564587"
+     },
+     "stash:dataset": {
+      "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.4qrfj6qk2"
+     },
+     "stash:version": {
+      "href": "/api/v2/versions/323737"
+     },
+     "stash:files": {
+      "href": "/api/v2/versions/323737/files"
+     },
+     "stash:download": {
+      "href": "/api/v2/files/3564587/download"
+     },
+     "curies": [
+      {
+       "name": "stash",
+       "href": "https://github.com/datadryad/dryad-app/blob/main/documentation/apis/link_relations.md#{rel}",
+       "templated": "true"
+      }
+     ]
+    },
+    "path": "2022.11.07_Thy1-GCaMP_Tumor_MEA-GECI_GiGA1_vs._Vehicle__slice_1__ACSF.ns5",
+    "size": 3564066257,
+    "mimeType": "",
+    "status": "copied",
+    "digest": "49ab6fc9bd9061736017475097245bb2e7bb438d5ce441dbf6a5b9f7815d668a",
+    "digestType": "sha-256"
+   },
+   {
+    "_links": {
+     "self": {
+      "href": "/api/v2/files/3564590"
+     },
+     "stash:dataset": {
+      "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.4qrfj6qk2"
+     },
+     "stash:version": {
+      "href": "/api/v2/versions/323737"
+     },
+     "stash:files": {
+      "href": "/api/v2/versions/323737/files"
+     },
+     "stash:download": {
+      "href": "/api/v2/files/3564590/download"
+     },
+     "curies": [
+      {
+       "name": "stash",
+       "href": "https://github.com/datadryad/dryad-app/blob/main/documentation/apis/link_relations.md#{rel}",
+       "templated": "true"
+      }
+     ]
+    },
+    "path": "2022.11.07_Thy1-GCaMP_Tumor_MEA-GECI_GiGA1_vs._Vehicle__slice_1__ZMG-DMSO.ns5",
+    "size": 7128066257,
+    "mimeType": "",
+    "status": "copied",
+    "digest": "58e969c86d509b09dffecd1fa87bcfd5cf0d64e2763cb9263b723d0c28414bdf",
+    "digestType": "sha-256"
+   }
+  ]
+ }
+}

@@ -1,0 +1,99 @@
+{
+ "summary": {
+  "token": "MjAyNjEwMjAxODA1MzhfNDY%3D",
+  "projection": true,
+  "interactors": false,
+  "type": "OVERREPRESENTATION",
+  "sampleName": "",
+  "text": true,
+  "includeDisease": true
+ },
+ "expression": {
+  "columnNames": []
+ },
+ "identifiersNotFound": 0,
+ "pathwaysFound": 129,
+ "pathways": [
+  {
+   "stId": "R-HSA-6804754",
+   "dbId": 6804754,
+   "name": "Regulation of TP53 Expression",
+   "species": {
+    "dbId": 48887,
+    "taxId": "9606",
+    "name": "Homo sapiens"
+   },
+   "llp": true,
+   "entities": {
+    "resource": "TOTAL",
+    "total": 4,
+    "found": 2,
+    "ratio": 0.00024613869915697496,
+    "pValue": 6.058425927601974e-08,
+    "fdr": 9.208807409955e-06,
+    "exp": []
+   },
+   "reactions": {
+    "resource": "TOTAL",
+    "total": 5,
+    "found": 5,
+    "ratio": 0.00031077133445211015
+   },
+   "inDisease": false
+  },
+  {
+   "stId": "R-HSA-6806003",
+   "dbId": 6806003,
+   "name": "Regulation of TP53 Expression and Degradation",
+   "species": {
+    "dbId": 48887,
+    "taxId": "9606",
+    "name": "Homo sapiens"
+   },
+   "llp": true,
+   "entities": {
+    "resource": "TOTAL",
+    "total": 46,
+    "found": 2,
+    "ratio": 0.002830595040305212,
+    "pValue": 8.012268282175938e-06,
+    "fdr": 0.00043620666640431516,
+    "exp": []
+   },
+   "reactions": {
+    "resource": "TOTAL",
+    "total": 35,
+    "found": 16,
+    "ratio": 0.002175399341164771
+   },
+   "inDisease": false
+  }
+ ],
+ "resourceSummary": [
+  {
+   "resource": "TOTAL",
+   "pathways": 129,
+   "filtered": 129
+  },
+  {
+   "resource": "UNIPROT",
+   "pathways": 125,
+   "filtered": 125
+  },
+  {
+   "resource": "ENSEMBL",
+   "pathways": 16,
+   "filtered": 16
+  }
+ ],
+ "speciesSummary": [
+  {
+   "dbId": 48887,
+   "taxId": "9606",
+   "name": "Homo sapiens",
+   "pathways": 129,
+   "filtered": 129
+  }
+ ],
+ "warnings": []
+}

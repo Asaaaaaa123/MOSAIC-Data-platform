@@ -1,0 +1,352 @@
+{
+ "id": "https://openalex.org/W2981137429",
+ "doi": "https://doi.org/10.1038/s41586-019-1711-4",
+ "display_name": "Search-and-replace genome editing without double-strand breaks or donor DNA",
+ "publication_year": 2019,
+ "publication_date": "2019-10-21",
+ "ids": {
+  "openalex": "https://openalex.org/W2981137429",
+  "doi": "https://doi.org/10.1038/s41586-019-1711-4",
+  "mag": "2981137429",
+  "pmid": "https://pubmed.ncbi.nlm.nih.gov/31634902"
+ },
+ "type": "article",
+ "language": "en",
+ "primary_location": {
+  "id": "doi:10.1038/s41586-019-1711-4",
+  "doi": "https://doi.org/10.1038/s41586-019-1711-4",
+  "is_oa": false,
+  "landing_page_url": "https://doi.org/10.1038/s41586-019-1711-4",
+  "pdf_url": null,
+  "source": {
+   "id": "https://openalex.org/S137773608",
+   "display_name": "Nature",
+   "issn_l": "0028-0836",
+   "issn": [
+    "0028-0836",
+    "1476-4687"
+   ],
+   "is_oa": false,
+   "is_in_doaj": false,
+   "is_core": true,
+   "host_organization": "https://openalex.org/P4310319908",
+   "host_organization_name": "Nature Portfolio",
+   "type": "journal"
+  },
+  "license": null,
+  "license_id": null,
+  "version": "publishedVersion",
+  "is_accepted": true,
+  "is_published": true,
+  "raw_source_name": "Nature",
+  "raw_type": "journal-article"
+ },
+ "locations": [
+  {
+   "id": "pmh:oai:pubmedcentral.nih.gov:6907074",
+   "doi": null,
+   "is_oa": true,
+   "landing_page_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/6907074",
+   "pdf_url": null,
+   "source": {
+    "id": "https://openalex.org/S2764455111",
+    "display_name": "PubMed Central",
+    "issn_l": null,
+    "issn": null,
+    "is_oa": true,
+    "is_in_doaj": false,
+    "is_core": false,
+    "host_organization": "https://openalex.org/I1299303238",
+    "host_organization_name": "National Institutes of Health",
+    "type": "repository"
+   },
+   "license": null,
+   "license_id": null,
+   "version": "submittedVersion",
+   "is_accepted": false,
+   "is_published": false,
+   "raw_source_name": "Nature",
+   "raw_type": "Text"
+  },
+  {
+   "id": "doi:10.1038/s41586-019-1711-4",
+   "doi": "https://doi.org/10.1038/s41586-019-1711-4",
+   "is_oa": false,
+   "landing_page_url": "https://doi.org/10.1038/s41586-019-1711-4",
+   "pdf_url": null,
+   "source": {
+    "id": "https://openalex.org/S137773608",
+    "display_name": "Nature",
+    "issn_l": "0028-0836",
+    "issn": [
+     "0028-0836",
+     "1476-4687"
+    ],
+    "is_oa": false,
+    "is_in_doaj": false,
+    "is_core": true,
+    "host_organization": "https://openalex.org/P4310319908",
+    "host_organization_name": "Nature Portfolio",
+    "type": "journal"
+   },
+   "license": null,
+   "license_id": null,
+   "version": "publishedVersion",
+   "is_accepted": true,
+   "is_published": true,
+   "raw_source_name": "Nature",
+   "raw_type": "journal-article"
+  }
+ ],
+ "best_oa_location": {
+  "id": "pmh:oai:pubmedcentral.nih.gov:6907074",
+  "doi": null,
+  "is_oa": true,
+  "landing_page_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/6907074",
+  "pdf_url": null,
+  "source": {
+   "id": "https://openalex.org/S2764455111",
+   "display_name": "PubMed Central",
+   "issn_l": null,
+   "issn": null,
+   "is_oa": true,
+   "is_in_doaj": false,
+   "is_core": false,
+   "host_organization": "https://openalex.org/I1299303238",
+   "host_organization_name": "National Institutes of Health",
+   "type": "repository"
+  },
+  "license": null,
+  "license_id": null,
+  "version": "submittedVersion",
+  "is_accepted": false,
+  "is_published": false,
+  "raw_source_name": "Nature",
+  "raw_type": "Text"
+ },
+ "open_access": {
+  "is_oa": true,
+  "oa_status": "green",
+  "oa_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/6907074",
+  "any_repository_has_fulltext": true
+ },
+ "authorships": [
+  {
+   "author_position": "first",
+   "author": {
+    "id": "https://openalex.org/A5045186411",
+    "display_name": "Andrew V. Anzalone",
+    "orcid": "https://orcid.org/0000-0003-2531-5589",
+    "observed_orcids": [
+     "https://orcid.org/0000-0003-2531-5589"
+    ]
+   },
+   "institutions": [
+    {
+     "id": "https://openalex.org/I107606265",
+     "display_name": "Broad Institute",
+     "ror": "https://ror.org/05a0ya142",
+     "country_code": "US",
+     "type": "nonprofit"
+    },
+    {
+     "id": "https://openalex.org/I1344073410",
+     "display_name": "Howard Hughes Medical Institute",
+     "ror": "https://ror.org/006w34k90",
+     "country_code": "US",
+     "type": "facility"
+    },
+    {
+     "id": "https://openalex.org/I136199984",
+     "display_name": "Harvard University",
+     "ror": "https://ror.org/03vek6s52",
+     "country_code": "US",
+     "type": "education"
+    }
+   ],
+   "countries": [
+    "US"
+   ],
+   "is_corresponding": false,
+   "raw_author_name": "Andrew V. Anzalone",
+   "raw_orcid": null
+  },
+  {
+   "author_position": "middle",
+   "author": {
+    "id": "https://openalex.org/A5029181080",
+    "display_name": "Peyton B. Randolph",
+    "orcid": "https://orcid.org/0000-0001-6385-364X",
+    "observed_orcids": [
+     "https://orcid.org/0000-0001-6385-364X"
+    ]
+   },
+   "institutions": [
+    {
+     "id": "https://openalex.org/I107606265",
+     "display_name": "Broad Institute",
+     "ror": "https://ror.org/05a0ya142",
+     "country_code": "US",
+     "type": "nonprofit"
+    },
+    {
+     "id": "https://openalex.org/I1344073410",
+     "display_name": "Howard Hughes Medical Institute",
+     "ror": "https://ror.org/006w34k90",
+     "country_code": "US",
+     "type": "facility"
+    },
+    {
+     "id": "https://openalex.org/I136199984",
+     "display_name": "Harvard University",
+     "ror": "https://ror.org/03vek6s52",
+     "country_code": "US",
+     "type": "education"
+    }
+   ],
+   "countries": [
+    "US"
+   ],
+   "is_corresponding": false,
+   "raw_author_name": "Peyton B. Randolph",
+   "raw_orcid": null
+  }
+ ],
+ "cited_by_count": 4737,
+ "fwci": 135.0611,
+ "biblio": {
+  "volume": "576",
+  "issue": "7785",
+  "first_page": "149",
+  "last_page": "157"
+ },
+ "is_retracted": false,
+ "primary_topic": {
+  "id": "https://openalex.org/T10878",
+  "display_name": "CRISPR and Genetic Engineering",
+  "score": 1.0,
+  "subfield": {
+   "id": "https://openalex.org/subfields/1312",
+   "display_name": "Molecular Biology"
+  },
+  "field": {
+   "id": "https://openalex.org/fields/13",
+   "display_name": "Biochemistry, Genetics and Molecular Biology"
+  },
+  "domain": {
+   "id": "https://openalex.org/domains/1",
+   "display_name": "Life Sciences"
+  }
+ },
+ "topics": [
+  {
+   "id": "https://openalex.org/T10878",
+   "display_name": "CRISPR and Genetic Engineering",
+   "score": 1.0,
+   "subfield": {
+    "id": "https://openalex.org/subfields/1312",
+    "display_name": "Molecular Biology"
+   },
+   "field": {
+    "id": "https://openalex.org/fields/13",
+    "display_name": "Biochemistry, Genetics and Molecular Biology"
+   },
+   "domain": {
+    "id": "https://openalex.org/domains/1",
+    "display_name": "Life Sciences"
+   }
+  },
+  {
+   "id": "https://openalex.org/T12610",
+   "display_name": "RNA regulation and disease",
+   "score": 9.999999747378752e-05,
+   "subfield": {
+    "id": "https://openalex.org/subfields/1312",
+    "display_name": "Molecular Biology"
+   },
+   "field": {
+    "id": "https://openalex.org/fields/13",
+    "display_name": "Biochemistry, Genetics and Molecular Biology"
+   },
+   "domain": {
+    "id": "https://openalex.org/domains/1",
+    "display_name": "Life Sciences"
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "id": "https://openalex.org/keywords/prime-editing",
+   "display_name": "prime editing",
+   "score": 1.0
+  },
+  {
+   "id": "https://openalex.org/keywords/genome-editing",
+   "display_name": "genome editing",
+   "score": 0.7300000190734863
+  },
+  {
+   "id": "https://openalex.org/keywords/cas9-endonuclease",
+   "display_name": "Cas9 endonuclease",
+   "score": 0.7480000257492065
+  }
+ ],
+ "mesh": [
+  {
+   "descriptor_ui": "D000072669",
+   "descriptor_name": "Gene Editing",
+   "qualifier_ui": null,
+   "qualifier_name": null,
+   "is_major_topic": true
+  },
+  {
+   "descriptor_ui": "D000072669",
+   "descriptor_name": "Gene Editing",
+   "qualifier_ui": null,
+   "qualifier_name": null,
+   "is_major_topic": true
+  },
+  {
+   "descriptor_ui": "D000072669",
+   "descriptor_name": "Gene Editing",
+   "qualifier_ui": null,
+   "qualifier_name": null,
+   "is_major_topic": true
+  }
+ ],
+ "abstract_inverted_index": null,
+ "awards": [
+  {
+   "id": "https://openalex.org/G1001736056",
+   "display_name": null,
+   "funder_award_id": "T32 GM095450",
+   "funder_id": "https://openalex.org/F4320337354",
+   "funder_display_name": "National Institute of General Medical Sciences"
+  },
+  {
+   "id": "https://openalex.org/G5052434461",
+   "display_name": null,
+   "funder_award_id": "RM1HG009490",
+   "funder_id": "https://openalex.org/F4320337348",
+   "funder_display_name": "National Human Genome Research Institute"
+  }
+ ],
+ "funders": [
+  {
+   "id": "https://openalex.org/F4320306082",
+   "display_name": "Howard Hughes Medical Institute",
+   "ror": "https://ror.org/006w34k90"
+  },
+  {
+   "id": "https://openalex.org/F4320337348",
+   "display_name": "National Human Genome Research Institute",
+   "ror": "https://ror.org/00baak391"
+  }
+ ],
+ "referenced_works_count": 51,
+ "citation_normalized_percentile": {
+  "value": 0.99993589,
+  "is_in_top_1_percent": true,
+  "is_in_top_10_percent": true
+ }
+}

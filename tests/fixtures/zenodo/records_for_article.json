@@ -1,0 +1,147 @@
+{
+ "hits": {
+  "hits": [
+   {
+    "created": "2024-07-10T19:22:18.389330+00:00",
+    "modified": "2024-07-10T19:22:18.673474+00:00",
+    "id": 10060876,
+    "conceptrecid": "10060875",
+    "doi": "10.5281/zenodo.10060876",
+    "conceptdoi": "10.5281/zenodo.10060875",
+    "doi_url": "https://doi.org/10.5281/zenodo.10060876",
+    "metadata": {
+     "title": "Diffusion map objects of FACS-sorted (CD31+/CD45-) endothelial cells",
+     "doi": "10.5281/zenodo.10060876",
+     "publication_date": "2023-11-01",
+     "description": "<p><strong>Diffusion map objects of FACS-sorted (CD31+/CD45-) endothelial cells<br></strong></p>\n<p><em><span>-&gt; part of the manuscript:&nbsp;Single-cell atlas of the human brain vasculature across development, adulthood and disease</span></em><span><br><em><span>https://www.nature.com/articles/s",
+     "access_right": "open",
+     "creators": [
+      {
+       "name": "Ghobrial, Moheb",
+       "affiliation": "ETH Zurich",
+       "orcid": "0009-0000-2255-1215"
+      }
+     ],
+     "related_identifiers": [
+      {
+       "identifier": "10.1038/s41586-024-07493-y",
+       "relation": "isPublishedIn",
+       "resource_type": "publication-article",
+       "scheme": "doi"
+      }
+     ],
+     "resource_type": {
+      "title": "Dataset",
+      "type": "dataset"
+     },
+     "license": {
+      "id": "cc-by-4.0"
+     },
+     "relations": {
+      "version": [
+       {
+        "index": 0,
+        "is_last": true,
+        "parent": {
+         "pid_type": "recid",
+         "pid_value": "10060875"
+        }
+       }
+      ]
+     }
+    },
+    "title": "Diffusion map objects of FACS-sorted (CD31+/CD45-) endothelial cells",
+    "links": {
+     "self": "https://zenodo.org/api/records/10060876",
+     "self_html": "https://zenodo.org/records/10060876"
+    },
+    "updated": "2024-07-10T19:22:18.673474+00:00",
+    "recid": "10060876",
+    "revision": 4,
+    "files": [
+     {
+      "id": "a2e90af9-3cb1-4ebc-a98e-e160371262bc",
+      "key": "GBM sorted endothelial cells_diffusionmap.rds",
+      "size": 665748411,
+      "checksum": "md5:5559f9d2e94b0ca5fbdeb8c713c86836",
+      "links": {
+       "self": "https://zenodo.org/api/records/10060876/files/GBM%20sorted%20endothelial%20cells_diffusionmap.rds/content"
+      }
+     },
+     {
+      "id": "6a206498-e3be-4b98-96ea-80eb33046e2f",
+      "key": "Fetal CNS sorted endothelial cells_diffusionmap.rds",
+      "size": 245605507,
+      "checksum": "md5:189b9903870518601d3cda3344ded317",
+      "links": {
+       "self": "https://zenodo.org/api/records/10060876/files/Fetal%20CNS%20sorted%20endothelial%20cells_diffusionmap.rds/content"
+      }
+     },
+     {
+      "id": "de40e350-c552-4f90-8288-be5bc459771c",
+      "key": "LGG sorted endothelial cells_diffusionmap.rds",
+      "size": 373965144,
+      "checksum": "md5:a34394696c721023b2ac751977d67e21",
+      "links": {
+       "self": "https://zenodo.org/api/records/10060876/files/LGG%20sorted%20endothelial%20cells_diffusionmap.rds/content"
+      }
+     },
+     {
+      "id": "b01d6699-95de-48ad-a6fd-70bb02ce8352",
+      "key": "AVM sorted endothelial cells_diffusionmap.rds",
+      "size": 657720161,
+      "checksum": "md5:7565aa05c9d337a514d4aa9b9c2b1249",
+      "links": {
+       "self": "https://zenodo.org/api/records/10060876/files/AVM%20sorted%20endothelial%20cells_diffusionmap.rds/content"
+      }
+     },
+     {
+      "id": "02160bcc-c0ad-4cf8-8fb5-bd163718c586",
+      "key": "MET sorted endothelial cells_diffusionmap.rds",
+      "size": 870777256,
+      "checksum": "md5:dcd7f0a39ab63f19b3512ebcd78f164d",
+      "links": {
+       "self": "https://zenodo.org/api/records/10060876/files/MET%20sorted%20endothelial%20cells_diffusionmap.rds/content"
+      }
+     },
+     {
+      "id": "484baaef-e910-4db6-956f-9de240379c7e",
+      "key": "MEN sorted endothelial cells_diffusionmap.rds",
+      "size": 1104173813,
+      "checksum": "md5:cb50e59cdcb841761152bd46d4ea9625",
+      "links": {
+       "self": "https://zenodo.org/api/records/10060876/files/MEN%20sorted%20endothelial%20cells_diffusionmap.rds/content"
+      }
+     },
+     {
+      "id": "117a62ca-5a03-4f16-9495-b6467071e1fd",
+      "key": "Adult control brain (temporal lobe) sorted endothelial cells.rds",
+      "size": 2188600511,
+      "checksum": "md5:b505feea224c24a71f61925a2e7d4f2b",
+      "links": {
+       "self": "https://zenodo.org/api/records/10060876/files/Adult%20control%20brain%20(temporal%20lobe)%20sorted%20endothelial%20cells.rds/content"
+      }
+     }
+    ],
+    "status": "published",
+    "stats": {
+     "downloads": 449,
+     "unique_downloads": 446,
+     "views": 203,
+     "unique_views": 195,
+     "version_downloads": 449,
+     "version_unique_downloads": 446,
+     "version_unique_views": 195,
+     "version_views": 203
+    },
+    "state": "done",
+    "submitted": true
+   }
+  ],
+  "total": 11
+ },
+ "links": {
+  "self": "https://zenodo.org/api/records?page=1&q=metadata.related_identifiers.identifier:(%2210.1038/s41586-024-07493-y%22)&size=1&sort=bestmatch",
+  "next": "https://zenodo.org/api/records?page=2&q=metadata.related_identifiers.identifier:(%2210.1038/s41586-024-07493-y%22)&size=1&sort=bestmatch"
+ }
+}

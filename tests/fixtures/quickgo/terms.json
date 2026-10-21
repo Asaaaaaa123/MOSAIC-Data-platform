@@ -1,0 +1,254 @@
+{
+ "numberOfHits": 2,
+ "results": [
+  {
+   "id": "GO:0000005",
+   "isObsolete": true,
+   "name": "obsolete ribosomal chaperone activity",
+   "definition": {
+    "text": "OBSOLETE. Assists in the correct assembly of ribosomes or ribosomal subunits in vivo, but is not a component of the assembled ribosome when performing its normal biological function.",
+    "xrefs": [
+     {
+      "dbCode": "PMID",
+      "dbId": "12150913"
+     }
+    ]
+   },
+   "comment": "This term was made obsolete because it refers to a class of gene products and a biological process rather than a molecular function.",
+   "synonyms": [
+    {
+     "name": "ribosomal chaperone activity",
+     "type": "exact"
+    }
+   ],
+   "replacements": [
+    {
+     "id": "GO:0042254",
+     "type": "consider"
+    },
+    {
+     "id": "GO:0044183",
+     "type": "consider"
+    },
+    {
+     "id": "GO:0140309",
+     "type": "consider"
+    }
+   ],
+   "history": [
+    {
+     "timestamp": "2026-04-01",
+     "action": "Deleted",
+     "category": "OBSOLETION",
+     "text": "consider GO:0051082 (obsolete unfolded protein binding)"
+    },
+    {
+     "timestamp": "2026-04-01",
+     "action": "Added",
+     "category": "OBSOLETION",
+     "text": "consider GO:0140309 (unfolded protein holdase activity)"
+    }
+   ],
+   "aspect": "molecular_function",
+   "usage": "Unrestricted"
+  },
+  {
+   "id": "GO:0006915",
+   "isObsolete": false,
+   "name": "apoptotic process",
+   "definition": {
+    "text": "A programmed cell death process which begins when a cell receives an internal (e.g. DNA damage) or external signal (e.g. an extracellular death ligand), and proceeds through a series of biochemical events (signaling pathway phase) which trigger an execution phase. The execution phase is the last step of an apoptotic process, and is typically characterized by rounding-up of the cell, retraction of pseudopodes, reduction of cellular volume (pyknosis), chromatin condensation, nuclear fragmentation (karyorrhexis), plasma membrane blebbing and fragmentation of the cell into apoptotic bodies. When the execution phase is completed, the cell has died.",
+    "xrefs": [
+     {
+      "dbCode": "ISBN",
+      "dbId": "0198506732"
+     },
+     {
+      "dbCode": "PMID",
+      "dbId": "18846107"
+     },
+     {
+      "dbCode": "PMID",
+      "dbId": "21494263"
+     }
+    ]
+   },
+   "synonyms": [
+    {
+     "name": "activation of apoptosis",
+     "type": "narrow"
+    },
+    {
+     "name": "apoptosis",
+     "type": "narrow"
+    },
+    {
+     "name": "apoptosis activator activity",
+     "type": "related"
+    },
+    {
+     "name": "apoptosis signaling",
+     "type": "narrow"
+    },
+    {
+     "name": "apoptotic cell death",
+     "type": "exact"
+    },
+    {
+     "name": "apoptotic program",
+     "type": "narrow"
+    },
+    {
+     "name": "apoptotic programmed cell death",
+     "type": "exact"
+    },
+    {
+     "name": "caspase-dependent programmed cell death",
+     "type": "related"
+    },
+    {
+     "name": "cell suicide",
+     "type": "broad"
+    },
+    {
+     "name": "cellular suicide",
+     "type": "broad"
+    },
+    {
+     "name": "commitment to apoptosis",
+     "type": "related"
+    },
+    {
+     "name": "induction of apoptosis",
+     "type": "related"
+    },
+    {
+     "name": "induction of apoptosis by p53",
+     "type": "related"
+    },
+    {
+     "name": "programmed cell death by apoptosis",
+     "type": "exact"
+    },
+    {
+     "name": "signaling (initiator) caspase activity",
+     "type": "related"
+    },
+    {
+     "name": "type I programmed cell death",
+     "type": "narrow"
+    }
+   ],
+   "replaces": [
+    {
+     "id": "GO:0003276",
+     "type": "consider"
+    },
+    {
+     "id": "GO:0003296",
+     "type": "consider"
+    },
+    {
+     "id": "GO:0006918",
+     "type": "consider"
+    }
+   ],
+   "children": [
+    {
+     "id": "GO:0097194",
+     "relation": "part_of"
+    },
+    {
+     "id": "GO:0097152",
+     "relation": "is_a"
+    },
+    {
+     "id": "GO:0097190",
+     "relation": "part_of"
+    }
+   ],
+   "secondaryIds": [
+    "GO:0006917",
+    "GO:0008632"
+   ],
+   "history": [
+    {
+     "timestamp": "2024-12-05",
+     "action": "Added",
+     "category": "XREF",
+     "text": "Reactome:R-HSA-109581"
+    },
+    {
+     "timestamp": "2024-09-05",
+     "action": "Deleted",
+     "category": "CONSTRAINT",
+     "text": "Bad taxon ID"
+    }
+   ],
+   "xRefs": [
+    {
+     "dbCode": "Reactome",
+     "dbId": "R-HSA-109581"
+    },
+    {
+     "dbCode": "UniProtKB-KW",
+     "dbId": "KW-0053",
+     "name": "Apoptosis"
+    },
+    {
+     "dbCode": "Wikipedia",
+     "dbId": "Apoptosis"
+    }
+   ],
+   "annotationGuidelines": [
+    {
+     "description": "Annotating cell death and apoptosis using the new guidelines",
+     "url": "https://wiki.geneontology.org/index.php/Apoptosis_Curation_Manual"
+    }
+   ],
+   "taxonConstraints": [
+    {
+     "ancestorId": "GO:0006915",
+     "ancestorName": "apoptotic process",
+     "relationship": "never_in_taxon",
+     "taxId": "4896",
+     "taxIdType": "NCBITaxon",
+     "taxName": "Schizosaccharomyces pombe"
+    },
+    {
+     "ancestorId": "GO:0006915",
+     "ancestorName": "apoptotic process",
+     "relationship": "only_in_taxon",
+     "taxId": "33154",
+     "taxIdType": "NCBITaxon",
+     "taxName": "Opisthokonta"
+    }
+   ],
+   "aspect": "biological_process",
+   "usage": "Unrestricted",
+   "blacklist": [
+    {
+     "goId": "GO:0006915",
+     "reason": "1 NOT-qualified manual annotation exists with evidence code ECO:0000315 from this reference: PMID:3470709",
+     "category": "NOT-qualified manual",
+     "entityType": "protein",
+     "entityId": "P01137-PRO_0000033762",
+     "taxonId": "9606",
+     "entityName": "TGFB1_HUMAN",
+     "ancestorGoId": "GO:0006915"
+    },
+    {
+     "goId": "GO:0006915",
+     "reason": "1 NOT-qualified manual annotation exists with evidence code ECO:0000266 from this reference: GO_REF:0000121",
+     "category": "NOT-qualified manual",
+     "entityType": "protein",
+     "entityId": "P17246",
+     "taxonId": "10116",
+     "entityName": "TGFB1_RAT",
+     "ancestorGoId": "GO:0006915"
+    }
+   ]
+  }
+ ],
+ "pageInfo": null
+}

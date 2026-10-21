@@ -1,0 +1,151 @@
+{
+ "category": "gene_summary",
+ "searchable": false,
+ "gene": {
+  "type": "Gene",
+  "primaryExternalId": "HGNC:8620",
+  "dataProviderCrossReference": {
+   "referencedCurie": "RGD:737459",
+   "displayName": "RGD:737459"
+  },
+  "relatedNotes": [
+   {
+    "freeText": "This gene encodes paired box protein Pax-6, one of many human homologs of the Drosophila melanogaster gene prd. In addition to a conserved paired box domain, a hallmark feature of this gene family, the encoded protein also contains a homeobox domain. Both domains are known to bind DNA and function as regulators of gene transcription. Activity of this protein is key in the development of neural tissues, particularly the eye. This gene is regulated by multiple enhancers located up to hundreds of kilobases distant from this locus. Mutations in this gene or in the enhancer regions can cause ocular disorders such as aniridia and Peter's anomaly. Use of alternate promoters and alternative splicing results in multiple transcript variants encoding different isoforms. Interestingly, inclusion of a particular alternate coding exon has been shown to increase the length of the paired box domain and alter its DNA binding specificity. Consequently, isoforms that carry the shorter paired box domain regulate a different set of genes compared to the isoforms carrying the longer paired box domain. [provided by RefSeq, Mar 2019]",
+    "noteType": {
+     "name": "MOD_provided_gene_description"
+    }
+   },
+   {
+    "freeText": "Enables DNA-binding transcription activator activity, RNA polymerase II-specific; R-SMAD binding activity; and RNA polymerase II cis-regulatory region sequence-specific DNA binding activity. Involved in several processes, including camera-type eye development; pancreatic A cell development; and positive regulation of DNA-templated transcription. Located in chromatin; cytoplasm; and nucleoplasm. Implicated in bilateral optic nerve hypoplasia; eye disease (multiple); glucose intolerance; and paranoid schizophrenia. Biomarker of pancreatic ductal carcinoma.",
+    "noteType": {
+     "name": "automated_gene_description"
+    }
+   }
+  ],
+  "taxon": {
+   "curie": "NCBITaxon:9606",
+   "name": "Homo sapiens",
+   "descendantCount": 0,
+   "species": {
+    "fullName": "Homo sapiens",
+    "abbreviation": "Hsa",
+    "displayName": "HUMAN",
+    "commonNames": [
+     "human",
+     "hsa"
+    ],
+    "genomeAssembly": {
+     "type": "GenomeAssembly",
+     "primaryExternalId": "GRCh38"
+    }
+   }
+  },
+  "crossReferences": [
+   {
+    "referencedCurie": "RGD:737459",
+    "displayName": "RGD"
+   },
+   {
+    "referencedCurie": "ENSEMBL:ENSG00000007372",
+    "displayName": "ENSEMBL:ENSG00000007372"
+   },
+   {
+    "referencedCurie": "HGNC:8620",
+    "displayName": "HGNC:8620"
+   },
+   {
+    "referencedCurie": "NCBI_Gene:5080",
+    "displayName": "NCBI_Gene:5080"
+   },
+   {
+    "referencedCurie": "OMIM:607108",
+    "displayName": "OMIM:607108"
+   },
+   {
+    "referencedCurie": "PANTHER:PTHR45636",
+    "displayName": "PANTHER:PTHR45636"
+   },
+   {
+    "referencedCurie": "UniProtKB:Q66SS1",
+    "displayName": "UniProtKB:Q66SS1"
+   },
+   {
+    "referencedCurie": "UniProtKB:E9PKM0",
+    "displayName": "UniProtKB:E9PKM0"
+   }
+  ],
+  "geneType": {
+   "curie": "SO:0001217",
+   "name": "protein_coding_gene",
+   "descendantCount": 0
+  },
+  "geneSymbol": {
+   "formatText": "PAX6",
+   "displayText": "PAX6"
+  },
+  "geneFullName": {
+   "formatText": "paired box 6",
+   "displayText": "paired box 6"
+  },
+  "geneSynonyms": [
+   {
+    "formatText": "AN",
+    "displayText": "AN"
+   },
+   {
+    "formatText": "AN2",
+    "displayText": "AN2"
+   },
+   {
+    "formatText": "MGDA",
+    "displayText": "MGDA"
+   },
+   {
+    "formatText": "WAGR",
+    "displayText": "WAGR"
+   },
+   {
+    "formatText": "D11S812E",
+    "displayText": "D11S812E"
+   }
+  ],
+  "geneSecondaryIds": [
+   {
+    "secondaryId": "RGD:737459"
+   }
+  ],
+  "geneGenomicLocationAssociations": [
+   {
+    "start": 31784779,
+    "end": 31817967,
+    "geneGenomicLocationAssociationObject": {
+     "type": "AssemblyComponent",
+     "taxon": {
+      "curie": "NCBITaxon:9606",
+      "name": "Homo sapiens",
+      "descendantCount": 0,
+      "species": {
+       "fullName": "Homo sapiens",
+       "abbreviation": "Hsa",
+       "displayName": "HUMAN",
+       "commonNames": [
+        "human",
+        "hsa"
+       ],
+       "genomeAssembly": {
+        "type": "GenomeAssembly",
+        "primaryExternalId": "GRCh38"
+       }
+      }
+     },
+     "name": "11"
+    },
+    "strand": "-"
+   }
+  ],
+  "gcrpCrossReference": {
+   "referencedCurie": "UniProtKB:P26367",
+   "displayName": "UniProtKB:P26367"
+  }
+ }
+}

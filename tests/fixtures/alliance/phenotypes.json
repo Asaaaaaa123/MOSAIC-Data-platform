@@ -1,0 +1,88 @@
+{
+ "results": [
+  {
+   "subject": {
+    "type": "Gene",
+    "primaryExternalId": "MGI:97490",
+    "taxon": {
+     "curie": "NCBITaxon:10090",
+     "name": "Mus musculus",
+     "descendantCount": 0,
+     "species": {
+      "fullName": "Mus musculus",
+      "abbreviation": "Mmu",
+      "displayName": "MGI",
+      "phylogeneticOrder": 30
+     }
+    },
+    "geneSymbol": {
+     "formatText": "Pax6",
+     "displayText": "Pax6"
+    },
+    "geneFullName": {
+     "formatText": "paired box 6",
+     "displayText": "paired box 6"
+    }
+   },
+   "relation": {
+    "name": "is_implicated_in"
+   },
+   "category": "gene_phenotype_annotation",
+   "searchable": false,
+   "uniqueId": "zDS4YKABWsOBLCd9Amxc",
+   "phenotypeStatement": "abnormal anterior eye segment morphology",
+   "pubmedPublications": [
+    {
+     "referencedCurie": "PMID:11481423",
+     "displayName": "PMID:11481423"
+    },
+    {
+     "referencedCurie": "PMID:19563798",
+     "displayName": "PMID:19563798"
+    }
+   ]
+  },
+  {
+   "subject": {
+    "type": "Gene",
+    "primaryExternalId": "MGI:97490",
+    "taxon": {
+     "curie": "NCBITaxon:10090",
+     "name": "Mus musculus",
+     "descendantCount": 0,
+     "species": {
+      "fullName": "Mus musculus",
+      "abbreviation": "Mmu",
+      "displayName": "MGI",
+      "phylogeneticOrder": 30
+     }
+    },
+    "geneSymbol": {
+     "formatText": "Pax6",
+     "displayText": "Pax6"
+    },
+    "geneFullName": {
+     "formatText": "paired box 6",
+     "displayText": "paired box 6"
+    }
+   },
+   "relation": {
+    "name": "is_implicated_in"
+   },
+   "category": "gene_phenotype_annotation",
+   "searchable": false,
+   "uniqueId": "nzS4YKABWsOBLCd9AnC6",
+   "phenotypeStatement": "abnormal Bowman membrane morphology",
+   "pubmedPublications": [
+    {
+     "referencedCurie": "PMID:12714618",
+     "displayName": "PMID:12714618"
+    }
+   ]
+  }
+ ],
+ "total": 184,
+ "returnedRecords": 2,
+ "requestDuration": "0s",
+ "requestDate": "2026/10/20 19:42:18"
+}

@@ -35,6 +35,13 @@ class Settings(BaseSettings):
     mosaic_enable_web_tools: bool = True
     mosaic_tool_loading: str = "deferred"  # "deferred" (tool search) | "eager"
     mosaic_max_agent_turns: int = 40
+    mosaic_fallbacks: str = "default"  # server-side refusal fallback; "off" disables
+    mosaic_extraction_model: str | None = None  # defaults to mosaic_model
+    mosaic_extraction_effort: str = "low"
+
+    # --- API server ---
+    mosaic_cors_origins: str | None = None  # comma-separated; CORS is off when unset
+    mosaic_allowed_hosts: str | None = None  # extra Host headers beyond localhost
 
     # --- Keyed sources ---
     ncbi_api_key: str | None = None

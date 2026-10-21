@@ -1,0 +1,29 @@
+{
+ "total": 7,
+ "offset": 0,
+ "next": 2,
+ "data": [
+  {
+   "authorId": "117290206",
+   "externalIds": {},
+   "url": "https://www.semanticscholar.org/author/117290206",
+   "name": "K. Musunuru",
+   "affiliations": [],
+   "homepage": null,
+   "paperCount": 295,
+   "citationCount": 30508,
+   "hIndex": 71
+  },
+  {
+   "authorId": "1785699",
+   "externalIds": {},
+   "url": "https://www.semanticscholar.org/author/1785699",
+   "name": "Musunuru Kiran",
+   "affiliations": [],
+   "homepage": null,
+   "paperCount": 4,
+   "citationCount": 17,
+   "hIndex": 1
+  }
+ ]
+}

@@ -1,0 +1,245 @@
+{
+ "id": "DANDI:000003/0.260218.2052",
+ "doi": "10.48324/dandi.000003/0.260218.2052",
+ "url": "https://dandiarchive.org/dandiset/000003/0.260218.2052",
+ "name": "Physiological Properties and Behavioral Correlates of Hippocampal Granule Cells and Mossy Cells",
+ "about": [
+  {
+   "name": "hippocampus",
+   "schemaKey": "Anatomy",
+   "identifier": "UBERON:0002421"
+  }
+ ],
+ "access": [
+  {
+   "status": "dandi:OpenAccess",
+   "schemaKey": "AccessRequirements"
+  }
+ ],
+ "license": [
+  "spdx:CC-BY-4.0"
+ ],
+ "version": "0.260218.2052",
+ "@context": "https://raw.githubusercontent.com/dandi/schema/master/releases/0.6.0/context.json",
+ "citation": "Senzai, Yuta; Fernandez-Ruiz, Antonio; Buzsáki, György (2026) Physiological Properties and Behavioral Correlates of Hippocampal Granule Cells and Mossy Cells (Version 0.260218.2052) [Data set]. DANDI Archive. https://doi.org/10.48324/dandi.000003/0.260218.2052",
+ "keywords": [
+  "cell types",
+  "current source density",
+  "laminar recordings",
+  "oscillations",
+  "mossy cells",
+  "granule cells",
+  "optogenetics",
+  "electrophysiology",
+  "local field potential",
+  "spikes",
+  "neural activity",
+  "spatial navigation",
+  "theta maze"
+ ],
+ "schemaKey": "Dandiset",
+ "identifier": "DANDI:000003",
+ "repository": "https://dandiarchive.org",
+ "contributor": [
+  {
+   "name": "Senzai, Yuta",
+   "roleName": [
+    "dcite:Author",
+    "dcite:ContactPerson",
+    "dcite:DataCollector",
+    "dcite:FormalAnalysis"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0000-0002-2990-9889",
+   "affiliation": [
+    {
+     "name": "New York University Langone Medical Center",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/005dvqh91"
+    },
+    {
+     "name": "New York University",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/0190ak572"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "name": "Fernandez-Ruiz, Antonio",
+   "roleName": [
+    "dcite:Author",
+    "dcite:FormalAnalysis"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0000-0001-8481-0796",
+   "affiliation": [],
+   "includeInCitation": true
+  },
+  {
+   "name": "Buzsáki, György",
+   "roleName": [
+    "dcite:Author"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0000-0002-3100-4800",
+   "affiliation": [
+    {
+     "name": "New York University Langone Medical Center",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/005dvqh91"
+    },
+    {
+     "name": "New York University",
+     "schemaKey": "Affiliation",
+     "identifier": "https://ror.org/0190ak572"
+    }
+   ],
+   "includeInCitation": true
+  },
+  {
+   "url": "https://www.nih.gov/",
+   "name": "National Institutes of Health",
+   "roleName": [
+    "dcite:Funder"
+   ],
+   "schemaKey": "Organization",
+   "identifier": "https://ror.org/01cwqze88",
+   "awardNumber": "NIHMH54671, MH107396, NS090583",
+   "includeInCitation": false
+  },
+  {
+   "url": "http://hnf.jp/",
+   "name": "Nakajima Foundation",
+   "roleName": [
+    "dcite:Funder"
+   ],
+   "schemaKey": "Organization",
+   "identifier": "https://ror.org/000k40t10",
+   "includeInCitation": false
+  },
+  {
+   "url": "http://www.nsf.gov/",
+   "name": "National Science Foundation",
+   "roleName": [
+    "dcite:Funder"
+   ],
+   "schemaKey": "Organization",
+   "identifier": "https://ror.org/021nxhr62",
+   "awardNumber": "PIRE",
+   "includeInCitation": false
+  },
+  {
+   "url": "https://www.simonsfoundation.org",
+   "name": "Simons Foundation",
+   "roleName": [
+    "dcite:Funder"
+   ],
+   "schemaKey": "Organization",
+   "identifier": "https://ror.org/01cmst727",
+   "includeInCitation": false
+  },
+  {
+   "name": "Baker, Cody",
+   "roleName": [
+    "dcite:DataCurator"
+   ],
+   "schemaKey": "Person",
+   "identifier": "0000-0002-0829-4790"
+  }
+ ],
+ "dateCreated": "2020-03-15T22:56:55.655000+00:00",
+ "description": "Data from \"Physiological Properties and Behavioral Correlates of Hippocampal Granule Cells and Mossy Cells\" Senzai, Buzsaki, Neuron 2017. Electrophysiology recordings of hippocampus during theta maze exploration.",
+ "publishedBy": {
+  "id": "urn:uuid:2aa95bab-dea6-4a6f-af5f-c155f8d33df0",
+  "name": "DANDI publish",
+  "endDate": "2026-02-18T20:52:23.681896+00:00",
+  "schemaKey": "PublishActivity",
+  "startDate": "2026-02-18T20:52:23.681896+00:00",
+  "wasAssociatedWith": [
+   {
+    "id": "urn:uuid:00f583ae-dbad-42da-9829-5d1238ef39fe",
+    "name": "DANDI API",
+    "version": "0.1.0",
+    "schemaKey": "Software",
+    "identifier": "RRID:SCR_017571"
+   }
+  ]
+ },
+ "assetsSummary": {
+  "species": [
+   {
+    "name": "House mouse",
+    "schemaKey": "SpeciesType",
+    "identifier": "http://purl.obolibrary.org/obo/NCBITaxon_10090"
+   }
+  ],
+  "approach": [
+   {
+    "name": "electrophysiological approach",
+    "schemaKey": "ApproachType"
+   },
+   {
+    "name": "behavioral approach",
+    "schemaKey": "ApproachType"
+   }
+  ],
+  "schemaKey": "AssetsSummary",
+  "dataStandard": [
+   {
+    "name": "Neurodata Without Borders (NWB)",
+    "schemaKey": "StandardsType",
+    "identifier": "RRID:SCR_015242"
+   }
+  ],
+  "numberOfBytes": 2559248010229,
+  "numberOfFiles": 101,
+  "numberOfSubjects": 16,
+  "variableMeasured": [
+   "DecompositionSeries",
+   "LFP",
+   "Units",
+   "Position",
+   "ElectricalSeries"
+  ],
+  "measurementTechnique": [
+   {
+    "name": "signal filtering technique",
+    "schemaKey": "MeasurementTechniqueType"
+   },
+   {
+    "name": "fourier analysis technique",
+    "schemaKey": "MeasurementTechniqueType"
+   },
+   {
+    "name": "spike sorting technique",
+    "schemaKey": "MeasurementTechniqueType"
+   },
+   {
+    "name": "behavioral technique",
+    "schemaKey": "MeasurementTechniqueType"
+   },
+   {
+    "name": "multi electrode extracellular electrophysiology recording technique",
+    "schemaKey": "MeasurementTechniqueType"
+   }
+  ]
+ },
+ "datePublished": "2026-02-18T20:52:23.681896+00:00",
+ "schemaVersion": "0.6.0",
+ "ethicsApproval": [],
+ "wasGeneratedBy": [],
+ "relatedResource": [
+  {
+   "url": "https://doi.org/10.1016/j.neuron.2016.12.011",
+   "name": "Physiological Properties and Behavioral Correlates of Hippocampal Granule Cells and Mossy Cells",
+   "relation": "dcite:IsDescribedBy",
+   "schemaKey": "Resource",
+   "identifier": "doi:10.1016/j.neuron.2016.12.011",
+   "resourceType": "dcite:JournalArticle"
+  }
+ ],
+ "manifestLocation": [
+  "https://dandiarchive.s3.amazonaws.com/dandisets/000003/0.260218.2052/assets.yaml"
+ ]
+}

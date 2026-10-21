@@ -1,0 +1,326 @@
+{
+ "files": [
+  {
+   "id": 70334115,
+   "name": "DataSheet1_RETRACTED: Anticancer effects of ABTL0812, a clinical stage drug inducer of autophagy-mediated cancer cell death, in glioblastoma models.pdf",
+   "size": 265006,
+   "is_link_only": false,
+   "download_url": "https://ndownloader.figshare.com/files/70334115",
+   "supplied_md5": "6257497ac76facc0d443c3879fde9336",
+   "computed_md5": "6257497ac76facc0d443c3879fde9336",
+   "mimetype": "application/pdf"
+  }
+ ],
+ "folder_structure": {},
+ "authors": [
+  {
+   "id": 4254934,
+   "full_name": "Andrea Mancini",
+   "first_name": "Andrea",
+   "last_name": "Mancini",
+   "is_active": false,
+   "url_name": "_",
+   "orcid_id": ""
+  },
+  {
+   "id": 4896883,
+   "full_name": "Alessandro Colapietro",
+   "first_name": "Alessandro",
+   "last_name": "Colapietro",
+   "is_active": false,
+   "url_name": "_",
+   "orcid_id": ""
+  },
+  {
+   "id": 3753436,
+   "full_name": "Loredana Cristiano",
+   "first_name": "Loredana",
+   "last_name": "Cristiano",
+   "is_active": false,
+   "url_name": "_",
+   "orcid_id": ""
+  }
+ ],
+ "custom_fields": [],
+ "figshare_url": "https://frontiersin.figshare.com/articles/dataset/DataSheet1_RETRACTED_Anticancer_effects_of_ABTL0812_a_clinical_stage_drug_inducer_of_autophagy-mediated_cancer_cell_death_in_glioblastoma_models_pdf/34700313",
+ "download_disabled": false,
+ "description": "Background<p>Glioblastoma multiforme (GBM) is the most malignant adult brain tumor. Current standard of care treatments have very limited efficacy, being the patients´ overall survival 14 months and the 2-year survival rate less than 10%. Therefore, the treatment of GBM is an urgent unmet clinical need. </p>Methods<p>The aim of this study was to investigate in vitro and in vivo the potential of AB",
+ "funding": null,
+ "funding_list": [],
+ "version": 1,
+ "status": "public",
+ "size": 265006,
+ "created_date": "2026-10-19T12:18:40Z",
+ "modified_date": "2026-10-19T12:18:40Z",
+ "is_public": true,
+ "is_confidential": false,
+ "is_metadata_record": false,
+ "confidential_reason": "",
+ "metadata_reason": "",
+ "license": {
+  "value": 1,
+  "name": "CC BY 4.0",
+  "url": "https://creativecommons.org/licenses/by/4.0/"
+ },
+ "tags": [
+  "ABTL0812",
+  "glioblastoma",
+  "TRIB3",
+  "Akt",
+  "mTOR",
+  "ER stress",
+  "UPR",
+  "autophagy"
+ ],
+ "keywords": [
+  "ABTL0812",
+  "glioblastoma",
+  "TRIB3",
+  "Akt",
+  "mTOR",
+  "ER stress",
+  "UPR",
+  "autophagy"
+ ],
+ "categories": [
+  {
+   "id": 64,
+   "title": "Cancer",
+   "parent_id": 48,
+   "path": "",
+   "source_id": "",
+   "taxonomy_id": 10
+  },
+  {
+   "id": 384,
+   "title": "Haematological Tumours",
+   "parent_id": 142,
+   "path": "",
+   "source_id": "",
+   "taxonomy_id": 10
+  },
+  {
+   "id": 385,
+   "title": "Molecular Targets",
+   "parent_id": 142,
+   "path": "",
+   "source_id": "",
+   "taxonomy_id": 10
+  },
+  {
+   "id": 386,
+   "title": "Radiation Therapy",
+   "parent_id": 142,
+   "path": "",
+   "source_id": "",
+   "taxonomy_id": 10
+  },
+  {
+   "id": 388,
+   "title": "Oncology and Carcinogenesis not elsewhere classified",
+   "parent_id": 142,
+   "path": "",
+   "source_id": "",
+   "taxonomy_id": 10
+  },
+  {
+   "id": 387,
+   "title": "Solid Tumours",
+   "parent_id": 142,
+   "path": "",
+   "source_id": "",
+   "taxonomy_id": 10
+  },
+  {
+   "id": 379,
+   "title": "Cancer Cell Biology",
+   "parent_id": 142,
+   "path": "",
+   "source_id": "",
+   "taxonomy_id": 10
+  },
+  {
+   "id": 380,
+   "title": "Cancer Diagnosis",
+   "parent_id": 142,
+   "path": "",
+   "source_id": "",
+   "taxonomy_id": 10
+  },
+  {
+   "id": 381,
+   "title": "Cancer Genetics",
+   "parent_id": 142,
+   "path": "",
+   "source_id": "",
+   "taxonomy_id": 10
+  },
+  {
+   "id": 382,
+   "title": "Cancer Therapy (excl. Chemotherapy and Radiation Therapy)",
+   "parent_id": 142,
+   "path": "",
+   "source_id": "",
+   "taxonomy_id": 10
+  },
+  {
+   "id": 383,
+   "title": "Chemotherapy",
+   "parent_id": 142,
+   "path": "",
+   "source_id": "",
+   "taxonomy_id": 10
+  }
+ ],
+ "references": [
+  "https://doi.org//10.1080/02688697.2019.1699903",
+  "https://doi.org//10.1016/j.pharmthera.2015.05.005",
+  "https://doi.org//10.1186/s13014-019-1272-6",
+  "https://doi.org//10.1007/s10147-020-01628-7",
+  "https://doi.org//10.3390/cancers11101564",
+  "https://doi.org//10.3390/ijms20112746",
+  "https://doi.org//10.1002/med.21408",
+  "https://doi.org//10.1016/j.ebiom.2019.03.064",
+  "https://doi.org//10.1038/s41419-019-2108-x",
+  "https://doi.org//10.18632/oncotarget.18363",
+  "https://doi.org//10.1080/2162402X.2019.1655360",
+  "https://doi.org//10.1038/s41525-019-0108-5"
+ ],
+ "has_linked_file": false,
+ "citation": "Mancini, Andrea; Colapietro, Alessandro; Cristiano, Loredana; Rossetti, Alessandra; Mattei, Vincenzo; Gravina, Giovanni Luca; et al. (2026). DataSheet1_RETRACTED: Anticancer effects of ABTL0812, a clinical stage drug inducer of autophagy-mediated cancer cell death, in glioblastoma models.pdf. Frontiers. Dataset. https://doi.org/10.3389/fonc.2022.943064.s003",
+ "related_materials": [
+  {
+   "id": 291511179,
+   "identifier": "https://doi.org//10.1080/02688697.2019.1699903",
+   "title": "",
+   "relation": "References",
+   "identifier_type": "URL",
+   "is_linkout": false,
+   "link": "https://doi.org//10.1080/02688697.2019.1699903"
+  },
+  {
+   "id": 291511182,
+   "identifier": "https://doi.org//10.1016/j.pharmthera.2015.05.005",
+   "title": "",
+   "relation": "References",
+   "identifier_type": "URL",
+   "is_linkout": false,
+   "link": "https://doi.org//10.1016/j.pharmthera.2015.05.005"
+  },
+  {
+   "id": 291511185,
+   "identifier": "https://doi.org//10.1186/s13014-019-1272-6",
+   "title": "",
+   "relation": "References",
+   "identifier_type": "URL",
+   "is_linkout": false,
+   "link": "https://doi.org//10.1186/s13014-019-1272-6"
+  },
+  {
+   "id": 291511188,
+   "identifier": "https://doi.org//10.1007/s10147-020-01628-7",
+   "title": "",
+   "relation": "References",
+   "identifier_type": "URL",
+   "is_linkout": false,
+   "link": "https://doi.org//10.1007/s10147-020-01628-7"
+  },
+  {
+   "id": 291511191,
+   "identifier": "https://doi.org//10.3390/cancers11101564",
+   "title": "",
+   "relation": "References",
+   "identifier_type": "URL",
+   "is_linkout": false,
+   "link": "https://doi.org//10.3390/cancers11101564"
+  },
+  {
+   "id": 291511194,
+   "identifier": "https://doi.org//10.3390/ijms20112746",
+   "title": "",
+   "relation": "References",
+   "identifier_type": "URL",
+   "is_linkout": false,
+   "link": "https://doi.org//10.3390/ijms20112746"
+  },
+  {
+   "id": 291511197,
+   "identifier": "https://doi.org//10.1002/med.21408",
+   "title": "",
+   "relation": "References",
+   "identifier_type": "URL",
+   "is_linkout": false,
+   "link": "https://doi.org//10.1002/med.21408"
+  },
+  {
+   "id": 291511200,
+   "identifier": "https://doi.org//10.1016/j.ebiom.2019.03.064",
+   "title": "",
+   "relation": "References",
+   "identifier_type": "URL",
+   "is_linkout": false,
+   "link": "https://doi.org//10.1016/j.ebiom.2019.03.064"
+  },
+  {
+   "id": 291511203,
+   "identifier": "https://doi.org//10.1038/s41419-019-2108-x",
+   "title": "",
+   "relation": "References",
+   "identifier_type": "URL",
+   "is_linkout": false,
+   "link": "https://doi.org//10.1038/s41419-019-2108-x"
+  },
+  {
+   "id": 291511206,
+   "identifier": "https://doi.org//10.18632/oncotarget.18363",
+   "title": "",
+   "relation": "References",
+   "identifier_type": "URL",
+   "is_linkout": false,
+   "link": "https://doi.org//10.18632/oncotarget.18363"
+  },
+  {
+   "id": 291511209,
+   "identifier": "https://doi.org//10.1080/2162402X.2019.1655360",
+   "title": "",
+   "relation": "References",
+   "identifier_type": "URL",
+   "is_linkout": false,
+   "link": "https://doi.org//10.1080/2162402X.2019.1655360"
+  },
+  {
+   "id": 291511212,
+   "identifier": "https://doi.org//10.1038/s41525-019-0108-5",
+   "title": "",
+   "relation": "References",
+   "identifier_type": "URL",
+   "is_linkout": false,
+   "link": "https://doi.org//10.1038/s41525-019-0108-5"
+  }
+ ],
+ "is_embargoed": false,
+ "embargo_date": null,
+ "embargo_type": null,
+ "embargo_title": "",
+ "embargo_reason": "",
+ "embargo_options": [],
+ "id": 34700313,
+ "title": "DataSheet1_RETRACTED: Anticancer effects of ABTL0812, a clinical stage drug inducer of autophagy-mediated cancer cell death, in glioblastoma models.pdf",
+ "doi": "10.3389/fonc.2022.943064.s003",
+ "handle": "",
+ "url": "https://api.figshare.com/v2/articles/34700313",
+ "published_date": "2026-10-19T12:18:40Z",
+ "thumb": "https://s3-eu-west-1.amazonaws.com/ppreviews-frontiersin-8483929402184328/70334115/thumb.png",
+ "defined_type": 3,
+ "defined_type_name": "dataset",
+ "group_id": 11938,
+ "url_private_api": "https://api.figshare.com/v2/account/articles/34700313",
+ "url_public_api": "https://api.figshare.com/v2/articles/34700313",
+ "url_private_html": "https://figshare.com/account/articles/34700313",
+ "url_public_html": "https://frontiersin.figshare.com/articles/dataset/DataSheet1_RETRACTED_Anticancer_effects_of_ABTL0812_a_clinical_stage_drug_inducer_of_autophagy-mediated_cancer_cell_death_in_glioblastoma_models_pdf/34700313",
+ "timeline": {
+  "posted": "2026-10-19T12:18:40"
+ },
+ "resource_title": "RETRACTED: Anticancer effects of ABTL0812, a clinical stage drug inducer of autophagy-mediated cancer cell death, in glioblastoma models",
+ "resource_doi": "10.3389/fonc.2022.943064"
+}

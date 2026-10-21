@@ -1,0 +1,166 @@
+{
+ "page_meta": {
+  "limit": 2,
+  "next": "/chembl/api/data/target/search.json?limit=2&offset=2&q=EGFR&organism=Homo+sapiens",
+  "offset": 0,
+  "previous": null,
+  "total_count": 21
+ },
+ "targets": [
+  {
+   "cross_references": [],
+   "organism": "Homo sapiens",
+   "pref_name": "EGFR/PPP1CA",
+   "score": 17.0,
+   "species_group_flag": false,
+   "target_chembl_id": "CHEMBL4523747",
+   "target_components": [
+    {
+     "accession": "P00533",
+     "component_description": "Epidermal growth factor receptor",
+     "component_id": 147,
+     "component_type": "PROTEIN",
+     "relationship": "INTERACTING PROTEIN",
+     "target_component_synonyms": [
+      {
+       "component_synonym": "EGFR",
+       "syn_type": "GENE_SYMBOL"
+      },
+      {
+       "component_synonym": "Epidermal growth factor receptor",
+       "syn_type": "UNIPROT"
+      }
+     ],
+     "target_component_xrefs": [
+      {
+       "xref_id": "PA7360",
+       "xref_name": "epidermal growth factor receptor",
+       "xref_src_db": "PharmGKB"
+      },
+      {
+       "xref_id": "HGNC:3236",
+       "xref_name": "EGFR",
+       "xref_src_db": "HGNC"
+      },
+      {
+       "xref_id": "4WRG",
+       "xref_name": "A",
+       "xref_src_db": "PDBe"
+      }
+     ]
+    },
+    {
+     "accession": "P62136",
+     "component_description": "Serine/threonine-protein phosphatase PP1-alpha catalytic subunit",
+     "component_id": 505,
+     "component_type": "PROTEIN",
+     "relationship": "INTERACTING PROTEIN",
+     "target_component_synonyms": [
+      {
+       "component_synonym": "PPP1CA",
+       "syn_type": "GENE_SYMBOL"
+      },
+      {
+       "component_synonym": "Serine/threonine-protein phosphatase PP1-alpha catalytic subunit",
+       "syn_type": "UNIPROT"
+      }
+     ],
+     "target_component_xrefs": [
+      {
+       "xref_id": "PA33609",
+       "xref_name": "protein phosphatase 1 catalytic subunit alpha",
+       "xref_src_db": "PharmGKB"
+      },
+      {
+       "xref_id": "HGNC:9281",
+       "xref_name": "PPP1CA",
+       "xref_src_db": "HGNC"
+      },
+      {
+       "xref_id": "6ALZ",
+       "xref_name": "A",
+       "xref_src_db": "PDBe"
+      }
+     ]
+    }
+   ],
+   "target_type": "PROTEIN-PROTEIN INTERACTION",
+   "tax_id": 9606
+  },
+  {
+   "cross_references": [],
+   "organism": "Homo sapiens",
+   "pref_name": "CCN2-EGFR",
+   "score": 17.0,
+   "species_group_flag": false,
+   "target_chembl_id": "CHEMBL5465557",
+   "target_components": [
+    {
+     "accession": "P00533",
+     "component_description": "Epidermal growth factor receptor",
+     "component_id": 147,
+     "component_type": "PROTEIN",
+     "relationship": "INTERACTING PROTEIN",
+     "target_component_synonyms": [
+      {
+       "component_synonym": "EGFR",
+       "syn_type": "GENE_SYMBOL"
+      },
+      {
+       "component_synonym": "Epidermal growth factor receptor",
+       "syn_type": "UNIPROT"
+      }
+     ],
+     "target_component_xrefs": [
+      {
+       "xref_id": "PA7360",
+       "xref_name": "epidermal growth factor receptor",
+       "xref_src_db": "PharmGKB"
+      },
+      {
+       "xref_id": "HGNC:3236",
+       "xref_name": "EGFR",
+       "xref_src_db": "HGNC"
+      },
+      {
+       "xref_id": "4WRG",
+       "xref_name": "A",
+       "xref_src_db": "PDBe"
+      }
+     ]
+    },
+    {
+     "accession": "P29279",
+     "component_description": "CCN family member 2",
+     "component_id": 15055,
+     "component_type": "PROTEIN",
+     "relationship": "INTERACTING PROTEIN",
+     "target_component_synonyms": [
+      {
+       "component_synonym": "CCN2",
+       "syn_type": "GENE_SYMBOL"
+      },
+      {
+       "component_synonym": "CCN family member 2",
+       "syn_type": "UNIPROT"
+      }
+     ],
+     "target_component_xrefs": [
+      {
+       "xref_id": "PA27003",
+       "xref_name": "cellular communication network factor 2",
+       "xref_src_db": "PharmGKB"
+      },
+      {
+       "xref_id": "HGNC:2500",
+       "xref_name": "CCN2",
+       "xref_src_db": "HGNC"
+      }
+     ]
+    }
+   ],
+   "target_type": "PROTEIN-PROTEIN INTERACTION",
+   "tax_id": 9606
+  }
+ ]
+}

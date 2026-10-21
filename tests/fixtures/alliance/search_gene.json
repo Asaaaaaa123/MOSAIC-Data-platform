@@ -1,0 +1,79 @@
+{
+ "results": [
+  {
+   "symbol": "Pax6",
+   "synonyms": [
+    "paired box protein Pax-6",
+    "Paired box homeotic gene 6",
+    "oculorhombin",
+    "paired box 6",
+    "Pax6",
+    "paired box gene 6"
+   ],
+   "diseases": [
+    "congenital nystagmus",
+    "bilateral optic nerve hypoplasia",
+    "coloboma of optic nerve",
+    "anterior segment dysgenesis 5",
+    "microphthalmia",
+    "cataract"
+   ],
+   "automatedGeneDescription": "Enables DNA-binding transcription factor activity, RNA polymerase II-specific; RNA polymerase II cis-regulatory region sequence-specific DNA binding activity; and minor groove of adenine-thymine-rich DNA binding activity. Involved in several processes, including endocrine pancreas development; nervous system development; and positive regulation of cell differentiation. Located in chromatin and nucleus. Used to study autistic disorder; eye disease; and microphthalmia. Biomarker of Smith-Lemli-Opitz syndrome; optic nerve disease; transient cerebral ischemia; and type 2 diabetes mellitus. Human ortholog(s) of this gene implicated in bilateral optic nerve hypoplasia; eye disease (multiple); glucose intolerance; and paranoid schizophrenia. Orthologous to human PAX6 (paired box 6).",
+   "geneDescription": "Enables DNA-binding transcription factor activity, RNA polymerase II-specific; RNA polymerase II cis-regulatory region sequence-specific DNA binding activity; and minor groove of adenine-thymine-rich DNA binding activity. Involved in several processes, including endocrine pancreas development; nervous system development; and positive regulation of cell differentiation. Located in chromatin. Used to study autistic disorder and microphthalmia. Biomarker of Smith-Lemli-Opitz syndrome; transient cerebral ischemia; and type 2 diabetes mellitus. Human ortholog(s) of this gene implicated in bilateral optic nerve hypoplasia; eye disease (multiple); glucose intolerance; and paranoid schizophrenia. Orthologous to human PAX6 (paired box 6); PARTICIPATES IN maturity-onset diabetes of the young pathway; INTERACTS WITH (S)-nicotine; 1,2-dimethylhydrazine; 3H-1,2-dithiole-3-thione.",
+   "score": 1058909.2,
+   "curie": "RGD:3258",
+   "species": "Rattus norvegicus",
+   "nameKey": "Pax6 (Rno)",
+   "name": "paired box 6",
+   "id": "RGD:3258",
+   "soTermName": "protein_coding_gene",
+   "category": "gene_search_result",
+   "crossReferences": [
+    "UniProtKB:A0A0G2JZE2",
+    "NCBI_Gene:25509",
+    "ENSEMBL:ENSRNOG00000004410",
+    "PANTHER:PTHR45636",
+    "ENSEMBL:ENSRNOG00055022908",
+    "UniProtKB:Q6QHS5"
+   ]
+  },
+  {
+   "symbol": "PAX6",
+   "synonyms": [
+    "paired box 6 PAX6A-ASdel6-AS7 isoform",
+    "paired box homeotic gene-6",
+    "AN1",
+    "AN2",
+    "paired box 6",
+    "paired box 6 PAX6B-ASdel6 isoform"
+   ],
+   "diseases": [
+    "congenital nystagmus",
+    "bilateral optic nerve hypoplasia",
+    "coloboma of optic nerve",
+    "anterior segment dysgenesis 5",
+    "microphthalmia",
+    "cataract"
+   ],
+   "automatedGeneDescription": "Enables DNA-binding transcription activator activity, RNA polymerase II-specific; R-SMAD binding activity; and RNA polymerase II cis-regulatory region sequence-specific DNA binding activity. Involved in several processes, including camera-type eye development; pancreatic A cell development; and positive regulation of DNA-templated transcription. Located in chromatin; cytoplasm; and nucleoplasm. Implicated in bilateral optic nerve hypoplasia; eye disease (multiple); glucose intolerance; and paranoid schizophrenia. Biomarker of pancreatic ductal carcinoma.",
+   "geneDescription": "This gene encodes paired box protein Pax-6, one of many human homologs of the Drosophila melanogaster gene prd. In addition to a conserved paired box domain, a hallmark feature of this gene family, the encoded protein also contains a homeobox domain. Both domains are known to bind DNA and function as regulators of gene transcription. Activity of this protein is key in the development of neural tissues, particularly the eye. This gene is regulated by multiple enhancers located up to hundreds of kilobases distant from this locus. Mutations in this gene or in the enhancer regions can cause ocular disorders such as aniridia and Peter's anomaly. Use of alternate promoters and alternative splicing results in multiple transcript variants encoding different isoforms. Interestingly, inclusion of a particular alternate coding exon has been shown to increase the length of the paired box domain and alter its DNA binding specificity. Consequently, isoforms that carry the shorter paired box domain regulate a different set of genes compared to the isoforms carrying the longer paired box domain. [provided by RefSeq, Mar 2019]",
+   "score": 733303.06,
+   "curie": "HGNC:8620",
+   "species": "Homo sapiens",
+   "nameKey": "PAX6 (Hsa)",
+   "name": "paired box 6",
+   "id": "HGNC:8620",
+   "soTermName": "protein_coding_gene",
+   "category": "gene_search_result",
+   "crossReferences": [
+    "UniProtKB:Q7Z6F0",
+    "UniProtKB:A0A1W2PPN2",
+    "UniProtKB:A0A1W2PR58",
+    "UniProtKB:A0A1W2PPJ2",
+    "PANTHER:PTHR45636",
+    "UniProtKB:Q8IVH0"
+   ]
+  }
+ ],
+ "total": 22
+}

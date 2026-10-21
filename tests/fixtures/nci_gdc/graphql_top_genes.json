@@ -1,0 +1,54 @@
+{
+ "data": {
+  "viewer": {
+   "explore": {
+    "genes": {
+     "hits": {
+      "edges": [
+       {
+        "node": {
+         "gene_id": "ENSG00000155657",
+         "is_cancer_gene_census": null,
+         "name": "titin",
+         "score": 284,
+         "symbol": "TTN"
+        }
+       },
+       {
+        "node": {
+         "gene_id": "ENSG00000141510",
+         "is_cancer_gene_census": true,
+         "name": "tumor protein p53",
+         "score": 281,
+         "symbol": "TP53"
+        }
+       },
+       {
+        "node": {
+         "gene_id": "ENSG00000181143",
+         "is_cancer_gene_census": true,
+         "name": "mucin 16, cell surface associated",
+         "score": 248,
+         "symbol": "MUC16"
+        }
+       }
+      ],
+      "total": 20368
+     }
+    },
+    "profiled": {
+     "aggregations": {
+      "project__project_id": {
+       "buckets": [
+        {
+         "doc_count": 559,
+         "key": "TCGA-LUAD"
+        }
+       ]
+      }
+     }
+    }
+   }
+  }
+ }
+}

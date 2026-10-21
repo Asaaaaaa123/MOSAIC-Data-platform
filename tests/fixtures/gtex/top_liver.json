@@ -1,0 +1,37 @@
+{
+ "data": [
+  {
+   "tissueSiteDetailId": "Liver",
+   "ontologyId": "UBERON:0001114",
+   "datasetId": "gtex_v10",
+   "gencodeId": "ENSG00000163631.17",
+   "geneSymbol": "ALB",
+   "median": 25339.7,
+   "unit": "TPM"
+  },
+  {
+   "tissueSiteDetailId": "Liver",
+   "ontologyId": "UBERON:0001114",
+   "datasetId": "gtex_v10",
+   "gencodeId": "ENSG00000257017.10",
+   "geneSymbol": "HP",
+   "median": 11251.1,
+   "unit": "TPM"
+  },
+  {
+   "tissueSiteDetailId": "Liver",
+   "ontologyId": "UBERON:0001114",
+   "datasetId": "gtex_v10",
+   "gencodeId": "ENSG00000229314.6",
+   "geneSymbol": "ORM1",
+   "median": 8670.89,
+   "unit": "TPM"
+  }
+ ],
+ "paging_info": {
+  "numberOfPages": 19666,
+  "page": 0,
+  "maxItemsPerPage": 3,
+  "totalNumberOfItems": 58996
+ }
+}

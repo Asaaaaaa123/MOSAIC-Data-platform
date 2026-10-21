@@ -1,0 +1,64 @@
+{
+ "data": [
+  {
+   "median": 0.0780285,
+   "tissueSiteDetailId": "Adipose_Subcutaneous",
+   "ontologyId": "UBERON:0002190",
+   "datasetId": "gtex_v10",
+   "gencodeId": "ENSG00000169174.11",
+   "geneSymbol": "PCSK9",
+   "unit": "TPM"
+  },
+  {
+   "median": 0.297361,
+   "tissueSiteDetailId": "Adipose_Visceral_Omentum",
+   "ontologyId": "UBERON:0010414",
+   "datasetId": "gtex_v10",
+   "gencodeId": "ENSG00000169174.11",
+   "geneSymbol": "PCSK9",
+   "unit": "TPM"
+  },
+  {
+   "median": 0.159198,
+   "tissueSiteDetailId": "Adrenal_Gland",
+   "ontologyId": "UBERON:0002369",
+   "datasetId": "gtex_v10",
+   "gencodeId": "ENSG00000169174.11",
+   "geneSymbol": "PCSK9",
+   "unit": "TPM"
+  },
+  {
+   "median": 0.213793,
+   "tissueSiteDetailId": "Artery_Aorta",
+   "ontologyId": "UBERON:0001496",
+   "datasetId": "gtex_v10",
+   "gencodeId": "ENSG00000169174.11",
+   "geneSymbol": "PCSK9",
+   "unit": "TPM"
+  },
+  {
+   "median": 0.089605,
+   "tissueSiteDetailId": "Artery_Coronary",
+   "ontologyId": "UBERON:0001621",
+   "datasetId": "gtex_v10",
+   "gencodeId": "ENSG00000169174.11",
+   "geneSymbol": "PCSK9",
+   "unit": "TPM"
+  },
+  {
+   "median": 0.114112,
+   "tissueSiteDetailId": "Artery_Tibial",
+   "ontologyId": "UBERON:0007610",
+   "datasetId": "gtex_v10",
+   "gencodeId": "ENSG00000169174.11",
+   "geneSymbol": "PCSK9",
+   "unit": "TPM"
+  }
+ ],
+ "paging_info": {
+  "numberOfPages": 1,
+  "page": 0,
+  "maxItemsPerPage": 250,
+  "totalNumberOfItems": 6
+ }
+}

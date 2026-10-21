@@ -1,0 +1,223 @@
+{
+ "data": {
+  "evidenceItems": {
+   "totalCount": 33,
+   "pageInfo": {
+    "endCursor": "NA",
+    "hasNextPage": true
+   },
+   "nodes": [
+    {
+     "id": 781,
+     "name": "EID781",
+     "description": "Five patients with acquired resistance to crizotinib showed high concentration of amphiregulin in malignant pleural effusions.",
+     "evidenceType": "PREDICTIVE",
+     "evidenceLevel": "B",
+     "evidenceDirection": "SUPPORTS",
+     "significance": "RESISTANCE",
+     "evidenceRating": 2,
+     "variantOrigin": "NA",
+     "status": "ACCEPTED",
+     "therapyInteractionType": null,
+     "molecularProfile": {
+      "id": 311,
+      "name": "AREG Expression",
+      "variants": [
+       {
+        "id": 315,
+        "name": "Expression",
+        "feature": {
+         "name": "AREG",
+         "featureInstance": {
+          "entrezId": 374
+         }
+        }
+       }
+      ]
+     },
+     "disease": {
+      "id": 8,
+      "name": "Lung Non-small Cell Carcinoma",
+      "doid": "3908"
+     },
+     "therapies": [
+      {
+       "id": 12,
+       "name": "Crizotinib",
+       "ncitId": "C74061"
+      }
+     ],
+     "source": {
+      "citationId": "23344087",
+      "sourceType": "PUBMED",
+      "citation": "Kim et al., 2013",
+      "publicationYear": 2013,
+      "pmcId": null,
+      "title": "Heterogeneity of genetic changes associated with acquired crizotinib resistance in ALK-rearranged lung cancer.",
+      "journal": "J Thorac Oncol"
+     }
+    },
+    {
+     "id": 846,
+     "name": "EID846",
+     "description": "47 HNSCC patients treated with cetuximab/docetaxel were retrospectively analyzed for EGFRvIII, EGFR and AREG expression with IHC. 45% of cases expressed high level of AREG. High AREG expression in tum",
+     "evidenceType": "PREDICTIVE",
+     "evidenceLevel": "B",
+     "evidenceDirection": "SUPPORTS",
+     "significance": "RESISTANCE",
+     "evidenceRating": 2,
+     "variantOrigin": "NA",
+     "status": "ACCEPTED",
+     "therapyInteractionType": "COMBINATION",
+     "molecularProfile": {
+      "id": 311,
+      "name": "AREG Expression",
+      "variants": [
+       {
+        "id": 315,
+        "name": "Expression",
+        "feature": {
+         "name": "AREG",
+         "featureInstance": {
+          "entrezId": 374
+         }
+        }
+       }
+      ]
+     },
+     "disease": {
+      "id": 37,
+      "name": "Head And Neck Squamous Cell Carcinoma",
+      "doid": "5520"
+     },
+     "therapies": [
+      {
+       "id": 16,
+       "name": "Cetuximab",
+       "ncitId": "C1723"
+      },
+      {
+       "id": 73,
+       "name": "Docetaxel",
+       "ncitId": "C1526"
+      }
+     ],
+     "source": {
+      "citationId": "21653686",
+      "sourceType": "PUBMED",
+      "citation": "Tinhofer et al., 2011",
+      "publicationYear": 2011,
+      "pmcId": null,
+      "title": "Expression of amphiregulin and EGFRvIII affect outcome of patients with squamous cell carcinoma of the head and neck receiving cetuximab-docetaxel treatment.",
+      "journal": "Clin Cancer Res"
+     }
+    },
+    {
+     "id": 788,
+     "name": "EID788",
+     "description": "226 cetuximab-treated patients with colorectal cancer (CRC) were analyzed for mRNA expression (by qPCR) of EGFR and its ligands (EGF, TGFA, AREG and EREG). High AREG mRNA expression in KRAS wild type ",
+     "evidenceType": "PREDICTIVE",
+     "evidenceLevel": "B",
+     "evidenceDirection": "SUPPORTS",
+     "significance": "SENSITIVITYRESPONSE",
+     "evidenceRating": 3,
+     "variantOrigin": "NA",
+     "status": "ACCEPTED",
+     "therapyInteractionType": null,
+     "molecularProfile": {
+      "id": 311,
+      "name": "AREG Expression",
+      "variants": [
+       {
+        "id": 315,
+        "name": "Expression",
+        "feature": {
+         "name": "AREG",
+         "featureInstance": {
+          "entrezId": 374
+         }
+        }
+       }
+      ]
+     },
+     "disease": {
+      "id": 11,
+      "name": "Colorectal Cancer",
+      "doid": "9256"
+     },
+     "therapies": [
+      {
+       "id": 16,
+       "name": "Cetuximab",
+       "ncitId": "C1723"
+      }
+     ],
+     "source": {
+      "citationId": "23374602",
+      "sourceType": "PUBMED",
+      "citation": "Pentheroudakis et al., 2013",
+      "publicationYear": 2013,
+      "pmcId": "PMC3599697",
+      "title": "Biomarkers of benefit from cetuximab-based therapy in metastatic colorectal cancer: interaction of EGFR ligand expression with RAS/RAF, PIK3CA genotypes.",
+      "journal": "BMC Cancer"
+     }
+    },
+    {
+     "id": 863,
+     "name": "EID863",
+     "description": "This prospective study enrolled 31 Enzalutamide-treated (group 1) and 31 Abiraterone-treated (group 2) patients with metastatic castration-resistant prostate cancers (CRPC). AR-V7 variant was detected",
+     "evidenceType": "PREDICTIVE",
+     "evidenceLevel": "B",
+     "evidenceDirection": "SUPPORTS",
+     "significance": "RESISTANCE",
+     "evidenceRating": 3,
+     "variantOrigin": "SOMATIC",
+     "status": "ACCEPTED",
+     "therapyInteractionType": "SUBSTITUTES",
+     "molecularProfile": {
+      "id": 358,
+      "name": "AR AR-V7",
+      "variants": [
+       {
+        "id": 362,
+        "name": "AR-V7",
+        "feature": {
+         "name": "AR",
+         "featureInstance": {
+          "entrezId": 367
+         }
+        }
+       }
+      ]
+     },
+     "disease": {
+      "id": 46,
+      "name": "Prostate Cancer",
+      "doid": "10283"
+     },
+     "therapies": [
+      {
+       "id": 163,
+       "name": "Enzalutamide",
+       "ncitId": "C71744"
+      },
+      {
+       "id": 164,
+       "name": "Abiraterone",
+       "ncitId": "C77333"
+      }
+     ],
+     "source": {
+      "citationId": "25184630",
+      "sourceType": "PUBMED",
+      "citation": "Antonarakis et al., 2014",
+      "publicationYear": 2014,
+      "pmcId": "PMC4201502",
+      "title": "AR-V7 and resistance to enzalutamide and abiraterone in prostate cancer.",
+      "journal": "N Engl J Med"
+     }
+    }
+   ]
+  }
+ }
+}

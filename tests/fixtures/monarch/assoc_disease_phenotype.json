@@ -1,0 +1,112 @@
+{
+ "limit": 2,
+ "offset": 0,
+ "total": 138,
+ "items": [
+  {
+   "id": "uuid:9e1a6d36-bed6-11f1-9774-6045bd00b3c3",
+   "predicate": "biolink:has_phenotype",
+   "category": "biolink:DiseaseToPhenotypicFeatureAssociation",
+   "agent_type": "manual_agent",
+   "aggregator_knowledge_source": [
+    "infores:monarchinitiative",
+    "infores:hpo-annotations"
+   ],
+   "knowledge_level": "knowledge_assertion",
+   "primary_knowledge_source": "infores:omim",
+   "file_source": "hpoa_disease_to_phenotype_edges",
+   "provided_by": "hpoa_disease_to_phenotype_edges",
+   "publications": [
+    "PMID:10489951",
+    "PMID:3189335"
+   ],
+   "has_evidence": [
+    "ECO:0006017"
+   ],
+   "has_count": 112,
+   "has_percentage": 80.0,
+   "has_quotient": 0.8,
+   "has_total": 140,
+   "negated": false,
+   "subject": "MONDO:0007947",
+   "object": "HP:0100775",
+   "original_subject": "OMIM:154700",
+   "evidence_count": 3,
+   "grouping_key": "MONDO:0007947|False|biolink:has_phenotype|HP:0100775",
+   "subject_label": "Marfan syndrome",
+   "subject_category": "biolink:Disease",
+   "subject_namespace": "MONDO",
+   "object_label": "Dural ectasia",
+   "object_category": "biolink:PhenotypicFeature",
+   "object_namespace": "HP",
+   "provided_by_link": {
+    "id": "hpoa_disease_to_phenotype",
+    "url": "https://monarch-app.monarchinitiative.org/Sources/hpoa/"
+   },
+   "has_evidence_links": [
+    {
+     "id": "ECO:0006017",
+     "url": "http://purl.obolibrary.org/obo/ECO_0006017"
+    }
+   ],
+   "publications_links": [
+    {
+     "id": "PMID:10489951",
+     "url": "http://identifiers.org/pubmed/10489951"
+    },
+    {
+     "id": "PMID:3189335",
+     "url": "http://identifiers.org/pubmed/3189335"
+    }
+   ],
+   "direction": "outgoing"
+  },
+  {
+   "id": "uuid:a4107aee-bed6-11f1-9774-6045bd00b3c3",
+   "predicate": "biolink:has_phenotype",
+   "category": "biolink:DiseaseToPhenotypicFeatureAssociation",
+   "agent_type": "manual_agent",
+   "aggregator_knowledge_source": [
+    "infores:monarchinitiative",
+    "infores:hpo-annotations"
+   ],
+   "knowledge_level": "knowledge_assertion",
+   "primary_knowledge_source": "infores:orphanet",
+   "file_source": "hpoa_disease_to_phenotype_edges",
+   "provided_by": "hpoa_disease_to_phenotype_edges",
+   "has_evidence": [
+    "ECO:0000304"
+   ],
+   "frequency_qualifier": "HP:0040281",
+   "negated": false,
+   "subject": "MONDO:0007947",
+   "object": "HP:0004942",
+   "original_subject": "Orphanet:558",
+   "evidence_count": 1,
+   "grouping_key": "MONDO:0007947|False|biolink:has_phenotype|HP:0004942",
+   "subject_label": "Marfan syndrome",
+   "subject_category": "biolink:Disease",
+   "subject_namespace": "MONDO",
+   "object_label": "Aortic aneurysm",
+   "object_category": "biolink:PhenotypicFeature",
+   "object_namespace": "HP",
+   "frequency_qualifier_label": "Very frequent",
+   "frequency_qualifier_category": "biolink:PhenotypicFeature",
+   "frequency_qualifier_namespace": "HP",
+   "provided_by_link": {
+    "id": "hpoa_disease_to_phenotype",
+    "url": "https://monarch-app.monarchinitiative.org/Sources/hpoa/"
+   },
+   "has_evidence_links": [
+    {
+     "id": "ECO:0000304",
+     "url": "http://purl.obolibrary.org/obo/ECO_0000304"
+    }
+   ],
+   "publications_links": [],
+   "direction": "outgoing"
+  }
+ ],
+ "facet_fields": [],
+ "facet_queries": []
+}

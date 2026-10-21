@@ -1,0 +1,222 @@
+{
+ "_shards": {
+  "failed": 0,
+  "skipped": 0,
+  "successful": 5,
+  "total": 5
+ },
+ "hits": {
+  "hits": [
+   {
+    "_id": "b6adb50fe8ab0d3d596a04b233d5c702",
+    "_index": "hm_prod_public_portal",
+    "_score": 14.402908,
+    "_source": {
+     "anatomy_2": [
+      "cortex of kidney",
+      "kidney capsule",
+      "right kidney"
+     ],
+     "assay_display_name": [
+      "snATACseq (SNARE-seq2) [SnapATAC]"
+     ],
+     "contains_human_genetic_sequences": false,
+     "created_timestamp": 1631584998026,
+     "data_access_level": "public",
+     "dataset_type": "ATACseq [SnapATAC]",
+     "doi_url": "https://doi.org/10.35079/HBM292.XZZJ.243",
+     "donor_demographics": {
+      "abo_blood_group_system": [
+       "Blood Type A"
+      ],
+      "age": {
+       "max": 57.0,
+       "mean": 57.0,
+       "min": 57.0
+      },
+      "age_unit": [
+       "years"
+      ],
+      "age_value": [
+       57.0
+      ],
+      "body_mass_index": {
+       "max": 19.6,
+       "mean": 19.6,
+       "min": 19.6
+      },
+      "body_mass_index_unit": [
+       "kg/m2"
+      ],
+      "body_mass_index_value": [
+       19.6
+      ],
+      "cause_of_death": [
+       "Cerebrovascular accident"
+      ],
+      "death_event": [
+       "Natural causes"
+      ],
+      "height": {
+       "max": 160.0,
+       "mean": 160.0,
+       "min": 160.0
+      },
+      "height_unit": [
+       "cm"
+      ],
+      "height_value": [
+       160.0
+      ],
+      "mechanism_of_injury": [
+       "Intracranial hemorrhage"
+      ],
+      "medical_history": [
+       "Cardiac Arrest",
+       "Coronary Artery Disease",
+       "Hypertension"
+      ],
+      "race": [
+       "White"
+      ],
+      "sex": [
+       "Female"
+      ],
+      "social_history": [
+       "Smoker"
+      ],
+      "weight": {
+       "max": 50.2,
+       "mean": 50.2,
+       "min": 50.2
+      },
+      "weight_unit": [
+       "kg"
+      ],
+      "weight_value": [
+       50.2
+      ]
+     },
+     "entity_type": "Dataset",
+     "group_name": "University of California San Diego TMC",
+     "hubmap_id": "HBM292.XZZJ.243",
+     "is_spatial": true,
+     "last_modified_timestamp": 1791832789464,
+     "mapped_consortium": "HuBMAP",
+     "origin_samples_unique_mapped_organs": [
+      "Kidney (Right)"
+     ],
+     "pipeline": "SnapATAC",
+     "processing": "processed",
+     "published_timestamp": 1643320159207,
+     "raw_dataset_type": "ATACseq",
+     "registered_doi": "10.35079/HBM292.XZZJ.243",
+     "status": "Published",
+     "title": "ATACseq [SnapATAC] data from the kidney (right) of a 57-year-old white female",
+     "uuid": "b6adb50fe8ab0d3d596a04b233d5c702"
+    },
+    "_type": "_doc"
+   },
+   {
+    "_id": "16784f68e919aeebfb0addaaa4f0cecb",
+    "_index": "hm_prod_public_portal",
+    "_score": 14.402908,
+    "_source": {
+     "anatomy_2": [
+      "cortex of kidney",
+      "kidney capsule",
+      "left kidney"
+     ],
+     "assay_display_name": [
+      "snATACseq (SNARE-seq2) [SnapATAC]"
+     ],
+     "contains_human_genetic_sequences": false,
+     "created_timestamp": 1629818703293,
+     "data_access_level": "public",
+     "dataset_type": "ATACseq [SnapATAC]",
+     "doi_url": "https://doi.org/10.35079/HBM488.MJXX.468",
+     "donor_demographics": {
+      "age": {
+       "max": 45.0,
+       "mean": 45.0,
+       "min": 45.0
+      },
+      "age_unit": [
+       "years"
+      ],
+      "age_value": [
+       45.0
+      ],
+      "body_mass_index": {
+       "max": 22.6,
+       "mean": 22.6,
+       "min": 22.6
+      },
+      "body_mass_index_unit": [
+       "kg/m2"
+      ],
+      "body_mass_index_value": [
+       22.6
+      ],
+      "height": {
+       "max": 177.8,
+       "mean": 177.8,
+       "min": 177.8
+      },
+      "height_unit": [
+       "cm"
+      ],
+      "height_value": [
+       177.8
+      ],
+      "medical_history": [
+       "Gastrointestinal disease"
+      ],
+      "race": [
+       "White"
+      ],
+      "sex": [
+       "Female"
+      ],
+      "weight": {
+       "max": 71.6,
+       "mean": 71.6,
+       "min": 71.6
+      },
+      "weight_unit": [
+       "kg"
+      ],
+      "weight_value": [
+       71.6
+      ]
+     },
+     "entity_type": "Dataset",
+     "group_name": "University of California San Diego TMC",
+     "hubmap_id": "HBM488.MJXX.468",
+     "is_spatial": true,
+     "last_modified_timestamp": 1791833168862,
+     "mapped_consortium": "HuBMAP",
+     "origin_samples_unique_mapped_organs": [
+      "Kidney (Left)"
+     ],
+     "pipeline": "SnapATAC",
+     "processing": "processed",
+     "published_timestamp": 1643320167535,
+     "raw_dataset_type": "ATACseq",
+     "registered_doi": "10.35079/HBM488.MJXX.468",
+     "status": "Published",
+     "title": "ATACseq [SnapATAC] data from the kidney (left) of a 45-year-old white female",
+     "uuid": "16784f68e919aeebfb0addaaa4f0cecb"
+    },
+    "_type": "_doc"
+   }
+  ],
+  "max_score": 14.402908,
+  "total": {
+   "relation": "eq",
+   "value": 312
+  }
+ },
+ "timed_out": false,
+ "took": 5
+}

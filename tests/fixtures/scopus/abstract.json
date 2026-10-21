@@ -1,0 +1,76 @@
+{
+ "abstracts-retrieval-response": {
+  "affiliation": [
+   {
+    "affiliation-city": "Cambridge",
+    "affilname": "Massachusetts Institute of Technology",
+    "affiliation-country": "United States"
+   },
+   {
+    "affiliation-city": "Cambridge",
+    "affilname": "Broad Institute",
+    "affiliation-country": "United States"
+   },
+   {
+    "affiliation-city": "Cambridge",
+    "affilname": "Whitehead Institute",
+    "affiliation-country": "United States"
+   },
+   {
+    "affiliation-city": "Cambridge",
+    "affilname": "McGovern Institute",
+    "affiliation-country": "United States"
+   }
+  ],
+  "coredata": {
+   "srctype": "j",
+   "eid": "2-s2.0-84877707375",
+   "pubmed-id": "23643243",
+   "prism:coverDate": "2013-05-09",
+   "prism:aggregationType": "Journal",
+   "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/84877707375",
+   "dc:creator": {
+    "author": [
+     {
+      "ce:given-name": "Haoyi",
+      "preferred-name": {
+       "ce:given-name": "Haoyi",
+       "ce:initials": "H.",
+       "ce:surname": "Wang",
+       "ce:indexed-name": "Wang H."
+      },
+      "@seq": "1",
+      "ce:initials": "H.",
+      "@_fa": "true",
+      "affiliation": {
+       "@id": "60019356",
+       "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60019356"
+      },
+      "ce:surname": "Wang",
+      "@auid": "24176407700",
+      "author-url": "https://api.elsevier.com/content/author/author_id/24176407700",
+      "ce:indexed-name": "Wang H."
+     }
+    ]
+   },
+   "source-id": "18434",
+   "pii": "S0092867413004674",
+   "citedby-count": "3074",
+   "prism:volume": "153",
+   "subtype": "ar",
+   "dc:title": "One-step generation of mice carrying mutations in multiple genes by CRISPR/cas-mediated genome engineering",
+   "openaccess": "1",
+   "prism:issn": "10974172 00928674",
+   "prism:issueIdentifier": "4",
+   "subtypeDescription": "Article",
+   "prism:publicationName": "Cell",
+   "prism:pageRange": "910-918",
+   "prism:endingPage": "918",
+   "openaccessFlag": "true",
+   "prism:doi": "10.1016/j.cell.2013.04.025",
+   "prism:startingPage": "910",
+   "dc:identifier": "SCOPUS_ID:84877707375",
+   "dc:publisher": "Elsevier B.V."
+  }
+ }
+}

@@ -1,0 +1,44 @@
+{
+ "data": [
+  {
+   "chromosome": "chr7",
+   "dataSource": "HAVANA",
+   "description": "B-Raf proto-oncogene, serine/threonine kinase [Source:HGNC Symbol;Acc:HGNC:1097]",
+   "end": 140924929,
+   "entrezGeneId": 673,
+   "gencodeId": "ENSG00000157764.14",
+   "gencodeVersion": "v39",
+   "geneStatus": "",
+   "geneSymbol": "BRAF",
+   "geneSymbolUpper": "BRAF",
+   "geneType": "protein coding",
+   "genomeBuild": "GRCh38/hg38",
+   "start": 140719327,
+   "strand": "-",
+   "tss": 140924929
+  },
+  {
+   "chromosome": "chrX",
+   "dataSource": "HAVANA",
+   "description": "BRAF pseudogene 1 [Source:HGNC Symbol;Acc:HGNC:18615]",
+   "end": 75585506,
+   "entrezGeneId": null,
+   "gencodeId": "ENSG00000224775.2",
+   "gencodeVersion": "v39",
+   "geneStatus": "",
+   "geneSymbol": "BRAFP1",
+   "geneSymbolUpper": "BRAFP1",
+   "geneType": "unprocessed pseudogene",
+   "genomeBuild": "GRCh38/hg38",
+   "start": 75582676,
+   "strand": "+",
+   "tss": 75582676
+  }
+ ],
+ "paging_info": {
+  "numberOfPages": 1,
+  "page": 0,
+  "maxItemsPerPage": 2,
+  "totalNumberOfItems": 2
+ }
+}

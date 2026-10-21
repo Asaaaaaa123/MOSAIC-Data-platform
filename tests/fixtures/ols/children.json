@@ -1,0 +1,102 @@
+{
+ "_embedded": {
+  "terms": [
+   {
+    "iri": "http://purl.obolibrary.org/obo/MONDO_0001491",
+    "lang": "en",
+    "description": [
+     "An asthma that is characterized by chronic nonproductive cough without shortness of breath."
+    ],
+    "synonyms": [],
+    "label": "cough variant asthma",
+    "ontology_name": "mondo",
+    "ontology_prefix": "MONDO",
+    "ontology_iri": "http://purl.obolibrary.org/obo/mondo/mondo-international.owl",
+    "is_obsolete": false,
+    "term_replaced_by": null,
+    "is_defining_ontology": true,
+    "has_children": false,
+    "is_root": false,
+    "short_form": "MONDO_0001491",
+    "obo_id": "MONDO:0001491",
+    "in_subset": null,
+    "obo_synonym": null,
+    "is_preferred_root": false
+   },
+   {
+    "iri": "http://purl.obolibrary.org/obo/MONDO_0004765",
+    "lang": "en",
+    "description": [
+     "An asthma that is triggered by factors not related to allergies such as anxiety, stress, exercise, cold air, dry air, hyperventilation, smoke, viruses, chemical irritants, autonomic imbalance, hormonal deficiencies and psychogenic influences. It is characterized by airway obstruction and inflammation that is at least partially reversible with medication. The symptoms include coughing, wheezing, shortness of breath or rapid breathing, and chest tightness."
+    ],
+    "synonyms": [
+     "non-allergic asthma"
+    ],
+    "label": "intrinsic asthma",
+    "ontology_name": "mondo",
+    "ontology_prefix": "MONDO",
+    "ontology_iri": "http://purl.obolibrary.org/obo/mondo/mondo-international.owl",
+    "is_obsolete": false,
+    "term_replaced_by": null,
+    "is_defining_ontology": true,
+    "has_children": true,
+    "is_root": false,
+    "short_form": "MONDO_0004765",
+    "obo_id": "MONDO:0004765",
+    "in_subset": null,
+    "obo_synonym": [
+     {
+      "name": "non-allergic asthma",
+      "scope": "hasExactSynonym",
+      "type": null,
+      "xrefs": [
+       {
+        "database": null,
+        "id": "https://orcid.org/0000-0002-7371-8158",
+        "description": null,
+        "url": "https://orcid.org/0000-0002-7371-8158"
+       },
+       {
+        "database": null,
+        "id": "https://orcid.org/0000-0003-0113-912X",
+        "description": null,
+        "url": "https://orcid.org/0000-0003-0113-912X"
+       }
+      ]
+     }
+    ],
+    "is_preferred_root": false
+   },
+   {
+    "iri": "http://purl.obolibrary.org/obo/MONDO_0004766",
+    "lang": "en",
+    "description": [
+     "An acute exacerbation of asthma, characterized by inadequate response to initial bronchodilators."
+    ],
+    "synonyms": [],
+    "label": "status asthmaticus",
+    "ontology_name": "mondo",
+    "ontology_prefix": "MONDO",
+    "ontology_iri": "http://purl.obolibrary.org/obo/mondo/mondo-international.owl",
+    "is_obsolete": false,
+    "term_replaced_by": null,
+    "is_defining_ontology": true,
+    "has_children": false,
+    "is_root": false,
+    "short_form": "MONDO_0004766",
+    "obo_id": "MONDO:0004766",
+    "in_subset": [
+     "otar"
+    ],
+    "obo_synonym": null,
+    "is_preferred_root": false
+   }
+  ]
+ },
+ "page": {
+  "size": 3,
+  "totalElements": 8,
+  "totalPages": 3,
+  "number": 0
+ }
+}

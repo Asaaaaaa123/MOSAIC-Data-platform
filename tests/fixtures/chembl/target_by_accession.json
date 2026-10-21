@@ -1,0 +1,282 @@
+{
+ "page_meta": {
+  "limit": 50,
+  "next": null,
+  "offset": 0,
+  "previous": null,
+  "total_count": 3
+ },
+ "targets": [
+  {
+   "cross_references": [],
+   "organism": "Homo sapiens",
+   "pref_name": "Epidermal growth factor receptor",
+   "species_group_flag": false,
+   "target_chembl_id": "CHEMBL203",
+   "target_components": [
+    {
+     "accession": "P00533",
+     "component_description": "Epidermal growth factor receptor",
+     "component_id": 147,
+     "component_type": "PROTEIN",
+     "relationship": "SINGLE PROTEIN",
+     "target_component_synonyms": [
+      {
+       "component_synonym": "EGFR",
+       "syn_type": "GENE_SYMBOL"
+      },
+      {
+       "component_synonym": "Epidermal growth factor receptor",
+       "syn_type": "UNIPROT"
+      }
+     ],
+     "target_component_xrefs": [
+      {
+       "xref_id": "PA7360",
+       "xref_name": "epidermal growth factor receptor",
+       "xref_src_db": "PharmGKB"
+      },
+      {
+       "xref_id": "HGNC:3236",
+       "xref_name": "EGFR",
+       "xref_src_db": "HGNC"
+      },
+      {
+       "xref_id": "4WRG",
+       "xref_name": "A",
+       "xref_src_db": "PDBe"
+      }
+     ]
+    }
+   ],
+   "target_type": "SINGLE PROTEIN",
+   "tax_id": 9606
+  },
+  {
+   "cross_references": [],
+   "organism": "Homo sapiens",
+   "pref_name": "Epidermal growth factor receptor and ErbB2 (HER1 and HER2)",
+   "species_group_flag": false,
+   "target_chembl_id": "CHEMBL2111431",
+   "target_components": [
+    {
+     "accession": "P04626",
+     "component_description": "Receptor tyrosine-protein kinase erbB-2",
+     "component_id": 120,
+     "component_type": "PROTEIN",
+     "relationship": "GROUP MEMBER",
+     "target_component_synonyms": [
+      {
+       "component_synonym": "ERBB2",
+       "syn_type": "GENE_SYMBOL"
+      },
+      {
+       "component_synonym": "Receptor tyrosine-protein kinase erbB-2",
+       "syn_type": "UNIPROT"
+      }
+     ],
+     "target_component_xrefs": [
+      {
+       "xref_id": "PA27844",
+       "xref_name": "erb-b2 receptor tyrosine kinase 2",
+       "xref_src_db": "PharmGKB"
+      },
+      {
+       "xref_id": "HGNC:3430",
+       "xref_name": "ERBB2",
+       "xref_src_db": "HGNC"
+      },
+      {
+       "xref_id": "7PCD",
+       "xref_name": "A",
+       "xref_src_db": "PDBe"
+      }
+     ]
+    },
+    {
+     "accession": "P00533",
+     "component_description": "Epidermal growth factor receptor",
+     "component_id": 147,
+     "component_type": "PROTEIN",
+     "relationship": "GROUP MEMBER",
+     "target_component_synonyms": [
+      {
+       "component_synonym": "EGFR",
+       "syn_type": "GENE_SYMBOL"
+      },
+      {
+       "component_synonym": "Epidermal growth factor receptor",
+       "syn_type": "UNIPROT"
+      }
+     ],
+     "target_component_xrefs": [
+      {
+       "xref_id": "PA7360",
+       "xref_name": "epidermal growth factor receptor",
+       "xref_src_db": "PharmGKB"
+      },
+      {
+       "xref_id": "HGNC:3236",
+       "xref_name": "EGFR",
+       "xref_src_db": "HGNC"
+      },
+      {
+       "xref_id": "4WRG",
+       "xref_name": "A",
+       "xref_src_db": "PDBe"
+      }
+     ]
+    }
+   ],
+   "target_type": "PROTEIN FAMILY",
+   "tax_id": 9606
+  },
+  {
+   "cross_references": [],
+   "organism": "Homo sapiens",
+   "pref_name": "Epidermal growth factor receptor",
+   "species_group_flag": false,
+   "target_chembl_id": "CHEMBL2363049",
+   "target_components": [
+    {
+     "accession": "P04626",
+     "component_description": "Receptor tyrosine-protein kinase erbB-2",
+     "component_id": 120,
+     "component_type": "PROTEIN",
+     "relationship": "GROUP MEMBER",
+     "target_component_synonyms": [
+      {
+       "component_synonym": "ERBB2",
+       "syn_type": "GENE_SYMBOL"
+      },
+      {
+       "component_synonym": "Receptor tyrosine-protein kinase erbB-2",
+       "syn_type": "UNIPROT"
+      }
+     ],
+     "target_component_xrefs": [
+      {
+       "xref_id": "PA27844",
+       "xref_name": "erb-b2 receptor tyrosine kinase 2",
+       "xref_src_db": "PharmGKB"
+      },
+      {
+       "xref_id": "HGNC:3430",
+       "xref_name": "ERBB2",
+       "xref_src_db": "HGNC"
+      },
+      {
+       "xref_id": "7PCD",
+       "xref_name": "A",
+       "xref_src_db": "PDBe"
+      }
+     ]
+    },
+    {
+     "accession": "P00533",
+     "component_description": "Epidermal growth factor receptor",
+     "component_id": 147,
+     "component_type": "PROTEIN",
+     "relationship": "GROUP MEMBER",
+     "target_component_synonyms": [
+      {
+       "component_synonym": "EGFR",
+       "syn_type": "GENE_SYMBOL"
+      },
+      {
+       "component_synonym": "Epidermal growth factor receptor",
+       "syn_type": "UNIPROT"
+      }
+     ],
+     "target_component_xrefs": [
+      {
+       "xref_id": "PA7360",
+       "xref_name": "epidermal growth factor receptor",
+       "xref_src_db": "PharmGKB"
+      },
+      {
+       "xref_id": "HGNC:3236",
+       "xref_name": "EGFR",
+       "xref_src_db": "HGNC"
+      },
+      {
+       "xref_id": "4WRG",
+       "xref_name": "A",
+       "xref_src_db": "PDBe"
+      }
+     ]
+    },
+    {
+     "accession": "Q15303",
+     "component_description": "Receptor tyrosine-protein kinase erbB-4",
+     "component_id": 1338,
+     "component_type": "PROTEIN",
+     "relationship": "GROUP MEMBER",
+     "target_component_synonyms": [
+      {
+       "component_synonym": "ERBB4",
+       "syn_type": "GENE_SYMBOL"
+      },
+      {
+       "component_synonym": "Receptor tyrosine-protein kinase erbB-4",
+       "syn_type": "UNIPROT"
+      }
+     ],
+     "target_component_xrefs": [
+      {
+       "xref_id": "PA27847",
+       "xref_name": "erb-b2 receptor tyrosine kinase 4",
+       "xref_src_db": "PharmGKB"
+      },
+      {
+       "xref_id": "HGNC:3432",
+       "xref_name": "ERBB4",
+       "xref_src_db": "HGNC"
+      },
+      {
+       "xref_id": "3U9U",
+       "xref_name": "A",
+       "xref_src_db": "PDBe"
+      }
+     ]
+    },
+    {
+     "accession": "P21860",
+     "component_description": "Receptor tyrosine-protein kinase erbB-3",
+     "component_id": 4282,
+     "component_type": "PROTEIN",
+     "relationship": "GROUP MEMBER",
+     "target_component_synonyms": [
+      {
+       "component_synonym": "ERBB3",
+       "syn_type": "GENE_SYMBOL"
+      },
+      {
+       "component_synonym": "Receptor tyrosine-protein kinase erbB-3",
+       "syn_type": "UNIPROT"
+      }
+     ],
+     "target_component_xrefs": [
+      {
+       "xref_id": "PA27846",
+       "xref_name": "erb-b2 receptor tyrosine kinase 3",
+       "xref_src_db": "PharmGKB"
+      },
+      {
+       "xref_id": "HGNC:3431",
+       "xref_name": "ERBB3",
+       "xref_src_db": "HGNC"
+      },
+      {
+       "xref_id": "3P11",
+       "xref_name": "A",
+       "xref_src_db": "PDBe"
+      }
+     ]
+    }
+   ],
+   "target_type": "PROTEIN FAMILY",
+   "tax_id": 9606
+  }
+ ]
+}

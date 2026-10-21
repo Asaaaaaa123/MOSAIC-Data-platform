@@ -1,0 +1,151 @@
+{
+ "apiMessage": "This JSON was provided by Springer Nature",
+ "query": "doi:10.1038/s41586-019-1711-4",
+ "result": [
+  {
+   "total": "1",
+   "start": "1",
+   "pageLength": "10",
+   "recordsDisplayed": "1"
+  }
+ ],
+ "records": [
+  {
+   "contentType": "Article",
+   "identifier": "doi:10.1038/s41586-019-1711-4",
+   "language": "en",
+   "url": [
+    {
+     "format": "html",
+     "platform": "web",
+     "value": "https://www.nature.com/articles/s41586-019-1711-4"
+    },
+    {
+     "format": "pdf",
+     "platform": "web",
+     "value": "https://www.nature.com/articles/s41586-019-1711-4.pdf"
+    },
+    {
+     "format": "",
+     "platform": "",
+     "value": "http://dx.doi.org/10.1038/s41586-019-1711-4"
+    }
+   ],
+   "title": "Search-and-replace genome editing without double-strand breaks or donor DNA",
+   "creators": [
+    {
+     "creator": "Anzalone, Andrew V."
+    },
+    {
+     "creator": "Randolph, Peyton B."
+    },
+    {
+     "creator": "Davis, Jessie R."
+    },
+    {
+     "creator": "Sousa, Alexander A."
+    },
+    {
+     "creator": "Koblan, Luke W."
+    },
+    {
+     "creator": "Levy, Jonathan M."
+    },
+    {
+     "creator": "Chen, Peter J."
+    },
+    {
+     "creator": "Wilson, Christopher"
+    },
+    {
+     "creator": "Newby, Gregory A."
+    },
+    {
+     "creator": "Raguram, Aditya"
+    },
+    {
+     "creator": "Liu, David R."
+    }
+   ],
+   "publicationName": "Nature",
+   "openaccess": "false",
+   "doi": "10.1038/s41586-019-1711-4",
+   "publisher": "Nature",
+   "publisherName": "Nature Publishing Group UK",
+   "publicationDate": "2019-12-05",
+   "publicationType": "Journal",
+   "abstract": "A new DNA-editing technique called prime editing offers improved versatility and efficiency with reduced byproducts compared with existing techniques, and shows potential for correcting disease-associated mutations. Most genetic variants that contribute to disease^ 1 are challenging to correct efficiently and without excess byproducts^ 2 – 5 . Here we describe prime editing, a versatile and precise genome editing method that directly writes new genetic information into a specified DNA site using a catalytically impaired Cas9 endonuclease fused to an engineered reverse transcriptase, programmed with a prime editing guide RNA (pegRNA) that both specifies the target site and encodes the desired edit. We performed more than 175 edits in human cells, including targeted insertions, deletions, and all 12 types of point mutation, without requiring double-strand breaks or donor DNA templates. We used prime editing in human cells to correct, efficiently and with few byproducts, the primary genetic causes of sickle cell disease (requiring a transversion in HBB ) and Tay–Sachs disease (requiring a deletion in HEXA ); to install a protective transversion in PRNP ; and to insert various tags and epitopes precisely into target loci. Four human cell lines and primary post-mitotic mouse cortical neurons support prime editing with varying efficiencies. Prime editing shows higher or similar efficiency and fewer byproducts than homology-directed repair, has complementary strengths and weaknesses compared to base editing, and induces much lower off-target editing than Cas9 nuclease at known Cas9 off-target sites. Prime editing substantially expands the scope and capabilities of genome editing, and in principle could correct up to 89% of known genetic variants associated with human diseases.",
+   "conferenceInfo": [],
+   "subjects": [
+    "Science, Humanities and Social Sciences, multidisciplinary",
+    "Science, Humanities and Social Sciences, multidisciplinary",
+    "Science, multidisciplinary"
+   ],
+   "disciplines": [
+    {
+     "id": "2874",
+     "term": "Life Sciences"
+    },
+    {
+     "id": "2867",
+     "term": "Physical Sciences"
+    },
+    {
+     "id": "2887",
+     "term": "Technology and Engineering"
+    },
+    {
+     "id": "2925",
+     "term": "Mathematics and Computing"
+    },
+    {
+     "id": "2883",
+     "term": "Humanities and Social Sciences"
+    }
+   ],
+   "sntsubjects": [
+    {
+     "id": "5913",
+     "term": "RNA editing"
+    },
+    {
+     "id": "6363",
+     "term": "CRISPR-Cas9 Genome Editing"
+    },
+    {
+     "id": "6449",
+     "term": "Genetic Modification"
+    },
+    {
+     "id": "4283",
+     "term": "DNA mismatch repair"
+    },
+    {
+     "id": "4986",
+     "term": "Targeted Gene Repair"
+    },
+    {
+     "id": "3349",
+     "term": "Genetic Engineering"
+    }
+   ],
+   "issn": "0028-0836",
+   "eIssn": "1476-4687",
+   "volume": "576",
+   "number": "7785",
+   "issueType": "Regular",
+   "topicalCollection": "",
+   "genre": [
+    "OriginalPaper",
+    "Article"
+   ],
+   "startingPage": "149",
+   "endingPage": "157",
+   "article-number": "",
+   "journalId": "41586",
+   "onlineDate": "2019-10-21",
+   "coverDate": "2019-12-05",
+   "copyright": "©2019 The Author(s), under exclusive licence to Springer Nature Limited"
+  }
+ ]
+}

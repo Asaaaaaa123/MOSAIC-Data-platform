@@ -1,0 +1,263 @@
+{
+ "data": [
+  {
+   "objCls": "LabelAnnotation",
+   "id": "PA166104776",
+   "name": "Annotation of FDA Drug Label for warfarin and CYP2C9, VKORC1",
+   "alternateDrugAvailable": false,
+   "biomarkerStatus": "On FDA Biomarker List",
+   "cancerGenome": false,
+   "crossReferences": [],
+   "dosingInformation": true,
+   "highlightedLabelLink": "Warfarin_03_01_19_FDA.pdf",
+   "history": [
+    {
+     "id": 1452711484,
+     "date": "2024-11-21T00:00:00-08:00",
+     "description": "moved PROC, PROS1 genes to a separate label annotation",
+     "type": "Update",
+     "version": 1
+    }
+   ],
+   "indication": false,
+   "labelDocumentAvailable": true,
+   "literature": [
+    {
+     "id": 15101939,
+     "title": "Drugs@FDA: Drug Product COUMADIN (warfarin sodium), NDA009218, Bristol-Myers Squibb Pharma Company",
+     "_sameAs": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=009218",
+     "crossReferences": [
+      {
+       "id": 1449891982,
+       "resource": "FDA Application",
+       "resourceId": "NDA009218",
+       "_url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&varApplNo=009218"
+      }
+     ],
+     "fullTextUrl": "https://api.clinpgx.org/v1/download/file/attachment/Warfarin_03_01_19_FDA.pdf",
+     "objCls": "Literature",
+     "terms": [
+      {
+       "id": 1452267780,
+       "resource": "ClinPGx Tags",
+       "term": "Has PGx",
+       "termId": "pgkbTags:1452267780"
+      }
+     ],
+     "type": "Drug Label"
+    }
+   ],
+   "otherPrescribingGuidance": false,
+   "pediatric": false,
+   "pgxRelated": true,
+   "prescribingGenes": [
+    {
+     "objCls": "Gene",
+     "id": "PA126",
+     "symbol": "CYP2C9",
+     "name": "cytochrome P450 family 2 subfamily C member 9"
+    },
+    {
+     "objCls": "Gene",
+     "id": "PA133787052",
+     "symbol": "VKORC1",
+     "name": "vitamin K epoxide reductase complex subunit 1"
+    }
+   ],
+   "prescribingMarkdown": {
+    "id": 1450384944,
+    "html": "<p>Table 1 in the drug label provides ranges of expected maintenance daily doses of warfarin (COUMADIN) based on CYP2C9*2, CYP2C9*3 and &quot;VKORC1−1639G&gt;A (rs9923231)&quot; genotypes.</p>\n"
+   },
+   "relatedAlleles": [
+    {
+     "objCls": "StarAllele",
+     "id": "PA165816542",
+     "symbol": "CYP2C9*1",
+     "name": "*1"
+    },
+    {
+     "objCls": "StarAllele",
+     "id": "PA165816543",
+     "symbol": "CYP2C9*2",
+     "name": "*2"
+    },
+    {
+     "objCls": "StarAllele",
+     "id": "PA165816544",
+     "symbol": "CYP2C9*3",
+     "name": "*3"
+    },
+    {
+     "objCls": "Variant",
+     "id": "PA166155091",
+     "symbol": "rs9923231",
+     "name": "rs9923231"
+    }
+   ],
+   "relatedChemicals": [
+    {
+     "objCls": "Chemical",
+     "id": "PA451906",
+     "name": "warfarin"
+    }
+   ],
+   "relatedGenes": [
+    {
+     "objCls": "Gene",
+     "id": "PA126",
+     "symbol": "CYP2C9",
+     "name": "cytochrome P450 family 2 subfamily C member 9"
+    },
+    {
+     "objCls": "Gene",
+     "id": "PA133787052",
+     "symbol": "VKORC1",
+     "name": "vitamin K epoxide reductase complex subunit 1"
+    }
+   ],
+   "source": "FDA",
+   "summaryMarkdown": {
+    "id": 1447981534,
+    "html": "<p>Warfarin (COUMADIN) is an anticoagulant used as a prophylaxis and to treat venous thrombosis, pulmonary embolism, thromboembolic complications from atrial fibrillation and cardiac valve replacement, and to reduce the recurrence of myocardial infarction. Pharmacogenomics-related dosing information for CYP2C9 and VKORC1 variants is provided within the label.</p>\n"
+   },
+   "testing": {
+    "id": 1183672111,
+    "resource": "Genetic Testing Level",
+    "synonyms": [],
+    "term": "Actionable PGx",
+    "termId": "geneTestLevel:1183672111",
+    "valid": true
+   },
+   "textMarkdown": {
+    "id": 1447981533,
+    "html": "<p>The VKORC1:G-1639A polymorphism is associated with lower dose requirements for warfarin in Caucasian and Asian patients. Increased bleeding risk and lower initial warfarin dose requirements have been associated with the CYP2C9*2 and CYP2C9*3 alleles. Approximately 30% of the variance in warfarin dose could be attributed to genetic variation in VKORC1, and about 40% of dose variance could be exp"
+   }
+  },
+  {
+   "objCls": "LabelAnnotation",
+   "id": "PA166127732",
+   "name": "Annotation of HCSC Drug Label for warfarin and CYP2C9, VKORC1",
+   "alternateDrugAvailable": false,
+   "cancerGenome": false,
+   "crossReferences": [],
+   "dosingInformation": true,
+   "history": [
+    {
+     "id": 1452711361,
+     "date": "2024-11-21T12:04:06.764-08:00",
+     "description": "changed PGx level to Actionable, added Dosing Info tag, prescribing info",
+     "type": "Update",
+     "version": 0
+    }
+   ],
+   "indication": false,
+   "labelDocumentAvailable": true,
+   "literature": [
+    {
+     "id": 15161082,
+     "title": "Drugs@HCSC: Drug Product Apo-Warfarin (warfarin), Apotex Inc.",
+     "_sameAs": "https://health-products.canada.ca/dpd-bdpp/info?lang=eng&code=66762",
+     "crossReferences": [
+      {
+       "id": 1452532241,
+       "resource": "URL",
+       "resourceId": "https://health-products.canada.ca/dpd-bdpp/info?lang=eng&code=66762",
+       "_url": "https://health-products.canada.ca/dpd-bdpp/info?lang=eng&code=66762"
+      }
+     ],
+     "fullTextUrl": "https://api.clinpgx.org/v1/download/file/attachment/Warfarin_2024_07_19_HCSC.pdf",
+     "objCls": "Literature",
+     "terms": [
+      {
+       "id": 1452267780,
+       "resource": "ClinPGx Tags",
+       "term": "Has PGx",
+       "termId": "pgkbTags:1452267780"
+      }
+     ],
+     "type": "Drug Label"
+    }
+   ],
+   "otherPrescribingGuidance": false,
+   "pediatric": false,
+   "pgxRelated": true,
+   "prescribingGenes": [
+    {
+     "objCls": "Gene",
+     "id": "PA126",
+     "symbol": "CYP2C9",
+     "name": "cytochrome P450 family 2 subfamily C member 9"
+    },
+    {
+     "objCls": "Gene",
+     "id": "PA133787052",
+     "symbol": "VKORC1",
+     "name": "vitamin K epoxide reductase complex subunit 1"
+    }
+   ],
+   "prescribingMarkdown": {
+    "id": 1452711360,
+    "html": "<blockquote class=\"blockquote\">\n<p>It is recommended that APO-WARFARIN therapy be initiated with a dose of 2 to 5 mg per day with dosage adjustments based on the results of PT/INR determinations. The lower initiation doses should be considered for patients with certain genetic variations in CYP2C9 and VKORC1 enzymes [...]</p>\n</blockquote>\n"
+   },
+   "relatedAlleles": [
+    {
+     "objCls": "StarAllele",
+     "id": "PA165816543",
+     "symbol": "CYP2C9*2",
+     "name": "*2"
+    },
+    {
+     "objCls": "StarAllele",
+     "id": "PA165816544",
+     "symbol": "CYP2C9*3",
+     "name": "*3"
+    },
+    {
+     "objCls": "Variant",
+     "id": "PA166155091",
+     "symbol": "rs9923231",
+     "name": "rs9923231"
+    }
+   ],
+   "relatedChemicals": [
+    {
+     "objCls": "Chemical",
+     "id": "PA451906",
+     "name": "warfarin"
+    }
+   ],
+   "relatedGenes": [
+    {
+     "objCls": "Gene",
+     "id": "PA126",
+     "symbol": "CYP2C9",
+     "name": "cytochrome P450 family 2 subfamily C member 9"
+    },
+    {
+     "objCls": "Gene",
+     "id": "PA133787052",
+     "symbol": "VKORC1",
+     "name": "vitamin K epoxide reductase complex subunit 1"
+    }
+   ],
+   "source": "HCSC",
+   "summaryMarkdown": {
+    "id": 1447982243,
+    "html": "<p>The product monograph for warfarin notes that patients carrying one or two copies of the CYP2C9*2 or *3 alleles may require a decreased mean daily warfarin dose, and have an increased bleeding risk, as compared to those homozygous for the CYP2C9*1 allele. Additionally, variations in the <em>VKORC1</em> gene, such as -1639G&gt;A, are also associated with changes in the dose requirement of warfarin.</p>\n"
+   },
+   "testing": {
+    "id": 1183672111,
+    "resource": "Genetic Testing Level",
+    "synonyms": [],
+    "term": "Actionable PGx",
+    "termId": "geneTestLevel:1183672111",
+    "valid": true
+   },
+   "textMarkdown": {
+    "id": 1447982242,
+    "html": "<p>Warfarin is an anticoagulant. Excerpts from the warfarin product monograph:</p>\n<blockquote class=\"blockquote\">\n<p>A meta-analysis of 9 qualified studies including 2775 patients (99% Caucasian)...suggested an increased bleeding risk for patients carrying either the CYP2C9*2 or CYP2C9*3 alleles. Patients carrying at least one copy of the CYP2C9*2 allele required a mean daily warfarin dose that w"
+   }
+  }
+ ],
+ "status": "success"
+}

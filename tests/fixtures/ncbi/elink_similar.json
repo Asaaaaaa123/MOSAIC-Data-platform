@@ -1,0 +1,34 @@
+{
+ "linksets": [
+  {
+   "dbfrom": "pubmed",
+   "ids": [
+    "30742122"
+   ],
+   "linksetdbs": [
+    {
+     "dbto": "pubmed",
+     "linkname": "pubmed_pubmed",
+     "links": [
+      {
+       "id": "30742120",
+       "score": 39851993
+      },
+      {
+       "id": "30742119",
+       "score": 36132526
+      },
+      {
+       "id": "34836966",
+       "score": 34901211
+      },
+      {
+       "id": "34188042",
+       "score": 34710054
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

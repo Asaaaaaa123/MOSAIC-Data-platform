@@ -1,0 +1,202 @@
+{
+ "data": {
+  "drug": {
+   "id": "CHEMBL941",
+   "name": "IMATINIB",
+   "drugType": "Small molecule",
+   "maximumClinicalStage": "APPROVAL",
+   "description": "Small molecule drug with a maximum clinical stage of Approval (across all indications), with 11 approved and 88 investigational indications.",
+   "synonyms": [
+    {
+     "label": "CGP-57148B",
+     "source": "ChEMBL"
+    },
+    {
+     "label": "CGP057148B",
+     "source": "ChEMBL"
+    },
+    {
+     "label": "GLAMOX",
+     "source": "ChEMBL"
+    },
+    {
+     "label": "GLEEVEC",
+     "source": "ChEMBL"
+    },
+    {
+     "label": "GLEEVEC,STI-571",
+     "source": "ChEMBL"
+    },
+    {
+     "label": "GLIVEC",
+     "source": "ChEMBL"
+    }
+   ],
+   "tradeNames": [],
+   "crossReferences": [
+    {
+     "source": "drugbank",
+     "ids": [
+      "DB00619"
+     ]
+    },
+    {
+     "source": "Probes&Drugs",
+     "ids": [
+      "PD001319"
+     ]
+    }
+   ],
+   "parentMolecule": null,
+   "childMolecules": [
+    {
+     "id": "CHEMBL1642",
+     "name": "IMATINIB MESYLATE"
+    }
+   ],
+   "drugWarnings": [],
+   "mechanismsOfAction": {
+    "rows": [
+     {
+      "mechanismOfAction": "Tyrosine-protein kinase ABL inhibitor",
+      "actionType": "INHIBITOR",
+      "targetName": "Tyrosine-protein kinase ABL1",
+      "targets": [
+       {
+        "id": "ENSG00000097007",
+        "approvedSymbol": "ABL1"
+       }
+      ],
+      "references": [
+       {
+        "source": "DailyMed",
+        "ids": [
+         "setid=211ef2da-2868-4a77-8055-1cb2cd78e24b#section-13",
+         "setid=211ef2da-2868-4a77-8055-1cb2cd78e24b#section-13",
+         "setid=211ef2da-2868-4a77-8055-1cb2cd78e24b#section-13"
+        ]
+       }
+      ]
+     },
+     {
+      "mechanismOfAction": "Platelet-derived growth factor receptor beta inhibitor",
+      "actionType": "INHIBITOR",
+      "targetName": "Platelet-derived growth factor receptor beta",
+      "targets": [
+       {
+        "id": "ENSG00000113721",
+        "approvedSymbol": "PDGFRB"
+       }
+      ],
+      "references": [
+       {
+        "source": "DailyMed",
+        "ids": [
+         "setid=211ef2da-2868-4a77-8055-1cb2cd78e24b#section-13",
+         "setid=211ef2da-2868-4a77-8055-1cb2cd78e24b#section-13",
+         "setid=211ef2da-2868-4a77-8055-1cb2cd78e24b#section-13"
+        ]
+       }
+      ]
+     },
+     {
+      "mechanismOfAction": "Stem cell growth factor receptor inhibitor",
+      "actionType": "INHIBITOR",
+      "targetName": "Mast/stem cell growth factor receptor Kit",
+      "targets": [
+       {
+        "id": "ENSG00000157404",
+        "approvedSymbol": "KIT"
+       }
+      ],
+      "references": [
+       {
+        "source": "DailyMed",
+        "ids": [
+         "setid=211ef2da-2868-4a77-8055-1cb2cd78e24b#section-13",
+         "setid=211ef2da-2868-4a77-8055-1cb2cd78e24b#section-13",
+         "setid=211ef2da-2868-4a77-8055-1cb2cd78e24b#section-13"
+        ]
+       }
+      ]
+     },
+     {
+      "mechanismOfAction": "Bcr/Abl fusion protein inhibitor",
+      "actionType": "INHIBITOR",
+      "targetName": "Bcr/Abl fusion protein",
+      "targets": [
+       {
+        "id": "ENSG00000097007",
+        "approvedSymbol": "ABL1"
+       },
+       {
+        "id": "ENSG00000186716",
+        "approvedSymbol": "BCR"
+       }
+      ],
+      "references": [
+       {
+        "source": "DailyMed",
+        "ids": [
+         "setid=211ef2da-2868-4a77-8055-1cb2cd78e24b#section-13",
+         "setid=211ef2da-2868-4a77-8055-1cb2cd78e24b#section-13",
+         "setid=211ef2da-2868-4a77-8055-1cb2cd78e24b#section-13"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "indications": {
+    "count": 94,
+    "rows": [
+     {
+      "maxClinicalStage": "PHASE_2",
+      "disease": {
+       "id": "MONDO_0006325",
+       "name": "ocular melanoma"
+      }
+     },
+     {
+      "maxClinicalStage": "APPROVAL",
+      "disease": {
+       "id": "MONDO_0005070",
+       "name": "neoplasm"
+      }
+     },
+     {
+      "maxClinicalStage": "APPROVAL",
+      "disease": {
+       "id": "MONDO_0015691",
+       "name": "hypereosinophilic syndrome"
+      }
+     }
+    ]
+   },
+   "adverseEvents": {
+    "count": 24,
+    "criticalValue": 211.13347410179267,
+    "rows": [
+     {
+      "name": "second primary malignancy",
+      "meddraCode": "",
+      "count": 508,
+      "logLR": 1511.2815555808484
+     },
+     {
+      "name": "drug resistance",
+      "meddraCode": "",
+      "count": 639,
+      "logLR": 1290.0883320472058
+     },
+     {
+      "name": "gastrointestinal stromal tumour",
+      "meddraCode": "",
+      "count": 318,
+      "logLR": 1264.1195804123126
+     }
+    ]
+   }
+  }
+ }
+}

@@ -1,0 +1,8 @@
+{
+ "status": "Fail",
+ "message": "Access to this resource is restricted. This is a premium feature",
+ "error": {
+  "error": "Forbidden",
+  "error_description": "You are attempting to access a premium feature. Please write to supportapi@springernature.com for assistance."
+ }
+}

@@ -1,0 +1,377 @@
+{
+ "data": {
+  "v0": {
+   "variant_id": "19-44908684-T-C",
+   "reference_genome": "GRCh38",
+   "chrom": "19",
+   "pos": 44908684,
+   "ref": "T",
+   "alt": "C",
+   "caid": "CA127512",
+   "rsids": [
+    "rs429358"
+   ],
+   "flags": [],
+   "exome": {
+    "ac": 208931,
+    "an": 1415800,
+    "homozygote_count": 15700,
+    "hemizygote_count": 0,
+    "filters": [],
+    "faf95": {
+     "popmax": 0.2222636,
+     "popmax_population": "afr"
+    },
+    "populations": [
+     {
+      "id": "remaining",
+      "ac": 8171,
+      "an": 58660,
+      "homozygote_count": 609
+     },
+     {
+      "id": "remaining_XX",
+      "ac": 4416,
+      "an": 31040,
+      "homozygote_count": 348
+     },
+     {
+      "id": "remaining_XY",
+      "ac": 3755,
+      "an": 27620,
+      "homozygote_count": 261
+     },
+     {
+      "id": "amr",
+      "ac": 3877,
+      "an": 37182,
+      "homozygote_count": 204
+     },
+     {
+      "id": "amr_XX",
+      "ac": 2160,
+      "an": 20998,
+      "homozygote_count": 109
+     },
+     {
+      "id": "amr_XY",
+      "ac": 1717,
+      "an": 16184,
+      "homozygote_count": 95
+     },
+     {
+      "id": "fin",
+      "ac": 9464,
+      "an": 49490,
+      "homozygote_count": 911
+     },
+     {
+      "id": "fin_XX",
+      "ac": 5033,
+      "an": 26026,
+      "homozygote_count": 472
+     },
+     {
+      "id": "fin_XY",
+      "ac": 4431,
+      "an": 23464,
+      "homozygote_count": 439
+     },
+     {
+      "id": "mid",
+      "ac": 384,
+      "an": 5642,
+      "homozygote_count": 15
+     },
+     {
+      "id": "mid_XX",
+      "ac": 174,
+      "an": 2462,
+      "homozygote_count": 4
+     },
+     {
+      "id": "mid_XY",
+      "ac": 210,
+      "an": 3180,
+      "homozygote_count": 11
+     }
+    ]
+   },
+   "genome": {
+    "ac": 23933,
+    "an": 152092,
+    "homozygote_count": 2010,
+    "hemizygote_count": 0,
+    "filters": [],
+    "faf95": {
+     "popmax": 0.21196047,
+     "popmax_population": "afr"
+    },
+    "populations": [
+     {
+      "id": "remaining",
+      "ac": 243,
+      "an": 2116,
+      "homozygote_count": 14
+     },
+     {
+      "id": "remaining_XX",
+      "ac": 112,
+      "an": 1050,
+      "homozygote_count": 5
+     },
+     {
+      "id": "remaining_XY",
+      "ac": 131,
+      "an": 1066,
+      "homozygote_count": 9
+     },
+     {
+      "id": "amr",
+      "ac": 1734,
+      "an": 15300,
+      "homozygote_count": 95
+     },
+     {
+      "id": "amr_XX",
+      "ac": 791,
+      "an": 6790,
+      "homozygote_count": 48
+     },
+     {
+      "id": "amr_XY",
+      "ac": 943,
+      "an": 8510,
+      "homozygote_count": 47
+     },
+     {
+      "id": "fin",
+      "ac": 2069,
+      "an": 10600,
+      "homozygote_count": 189
+     },
+     {
+      "id": "fin_XX",
+      "ac": 488,
+      "an": 2566,
+      "homozygote_count": 49
+     },
+     {
+      "id": "fin_XY",
+      "ac": 1581,
+      "an": 8034,
+      "homozygote_count": 140
+     },
+     {
+      "id": "ami",
+      "ac": 124,
+      "an": 910,
+      "homozygote_count": 7
+     },
+     {
+      "id": "ami_XX",
+      "ac": 66,
+      "an": 470,
+      "homozygote_count": 5
+     },
+     {
+      "id": "ami_XY",
+      "ac": 58,
+      "an": 440,
+      "homozygote_count": 2
+     }
+    ]
+   },
+   "joint": {
+    "ac": 232864,
+    "an": 1567892,
+    "homozygote_count": 17710,
+    "hemizygote_count": 0,
+    "filters": [
+     "discrepant_frequencies"
+    ],
+    "faf95": {
+     "popmax": 0.21762494000000002,
+     "popmax_population": "afr"
+    },
+    "populations": [
+     {
+      "id": "remaining",
+      "ac": 8414,
+      "an": 60776,
+      "homozygote_count": 623
+     },
+     {
+      "id": "remaining_XX",
+      "ac": 4528,
+      "an": 32090,
+      "homozygote_count": 353
+     },
+     {
+      "id": "remaining_XY",
+      "ac": 3886,
+      "an": 28686,
+      "homozygote_count": 270
+     },
+     {
+      "id": "amr",
+      "ac": 5611,
+      "an": 52482,
+      "homozygote_count": 299
+     },
+     {
+      "id": "amr_XX",
+      "ac": 2951,
+      "an": 27788,
+      "homozygote_count": 157
+     },
+     {
+      "id": "amr_XY",
+      "ac": 2660,
+      "an": 24694,
+      "homozygote_count": 142
+     },
+     {
+      "id": "fin",
+      "ac": 11533,
+      "an": 60090,
+      "homozygote_count": 1100
+     },
+     {
+      "id": "fin_XX",
+      "ac": 5521,
+      "an": 28592,
+      "homozygote_count": 521
+     },
+     {
+      "id": "fin_XY",
+      "ac": 6012,
+      "an": 31498,
+      "homozygote_count": 579
+     },
+     {
+      "id": "ami",
+      "ac": 124,
+      "an": 910,
+      "homozygote_count": 7
+     },
+     {
+      "id": "ami_XX",
+      "ac": 66,
+      "an": 470,
+      "homozygote_count": 5
+     },
+     {
+      "id": "ami_XY",
+      "ac": 58,
+      "an": 440,
+      "homozygote_count": 2
+     }
+    ]
+   },
+   "transcript_consequences": [
+    {
+     "gene_id": "ENSG00000130203",
+     "gene_symbol": "APOE",
+     "transcript_id": "ENST00000252486",
+     "transcript_version": "9",
+     "hgvsc": "c.388T>C",
+     "hgvsp": "p.Cys130Arg",
+     "is_canonical": true,
+     "is_mane_select": true,
+     "major_consequence": "missense_variant",
+     "lof": null,
+     "lof_filter": null,
+     "lof_flags": null,
+     "polyphen_prediction": null,
+     "sift_prediction": null
+    },
+    {
+     "gene_id": "ENSG00000130203",
+     "gene_symbol": "APOE",
+     "transcript_id": "ENST00000425718",
+     "transcript_version": "1",
+     "hgvsc": "c.388T>C",
+     "hgvsp": "p.Cys130Arg",
+     "is_canonical": null,
+     "is_mane_select": false,
+     "major_consequence": "missense_variant",
+     "lof": null,
+     "lof_filter": null,
+     "lof_flags": null,
+     "polyphen_prediction": null,
+     "sift_prediction": null
+    },
+    {
+     "gene_id": "ENSG00000130203",
+     "gene_symbol": "APOE",
+     "transcript_id": "ENST00000434152",
+     "transcript_version": "5",
+     "hgvsc": "c.466T>C",
+     "hgvsp": "p.Cys156Arg",
+     "is_canonical": null,
+     "is_mane_select": false,
+     "major_consequence": "missense_variant",
+     "lof": null,
+     "lof_filter": null,
+     "lof_flags": null,
+     "polyphen_prediction": null,
+     "sift_prediction": null
+    },
+    {
+     "gene_id": "ENSG00000130203",
+     "gene_symbol": "APOE",
+     "transcript_id": "ENST00000446996",
+     "transcript_version": "5",
+     "hgvsc": "c.388T>C",
+     "hgvsp": "p.Cys130Arg",
+     "is_canonical": null,
+     "is_mane_select": false,
+     "major_consequence": "missense_variant",
+     "lof": null,
+     "lof_filter": null,
+     "lof_flags": null,
+     "polyphen_prediction": null,
+     "sift_prediction": null
+    }
+   ],
+   "in_silico_predictors": [
+    {
+     "id": "cadd",
+     "value": "16.6"
+    },
+    {
+     "id": "revel_max",
+     "value": "0.229"
+    },
+    {
+     "id": "spliceai_ds_max",
+     "value": "0.00"
+    },
+    {
+     "id": "pangolin_largest_ds",
+     "value": "0.00"
+    },
+    {
+     "id": "phylop",
+     "value": "4.92"
+    },
+    {
+     "id": "sift_max",
+     "value": "1.00"
+    },
+    {
+     "id": "polyphen_max",
+     "value": "0.00100"
+    }
+   ]
+  },
+  "c0": {
+   "clinvar_variation_id": "17864",
+   "clinical_significance": "Conflicting classifications of pathogenicity; other; risk factor",
+   "review_status": "criteria provided, conflicting classifications",
+   "gold_stars": 1,
+   "last_evaluated": "2026-01-26"
+  }
+ }
+}

@@ -1,0 +1,100 @@
+{
+ "results": [
+  {
+   "category": "affected_genomic_model_annotation",
+   "searchable": false,
+   "model": {
+    "type": "AffectedGenomicModel",
+    "primaryExternalId": "MGI:2680573",
+    "subtype": {
+     "name": "genotype"
+    },
+    "agmFullName": {
+     "formatText": "Pax6<sup>1Jrt</sup>/Pax6<sup>+</sup>  [background:] C3.B6-Pax6<sup>1Jrt</sup>",
+     "displayText": "Pax6<sup>1Jrt</sup>/Pax6<sup>+</sup>  [background:] C3.B6-Pax6<sup>1Jrt</sup>"
+    }
+   },
+   "associatedPhenotype": [
+    "abnormal iris morphology",
+    "abnormal lens morphology",
+    "abnormal retina ganglion layer morphology",
+    "anophthalmia",
+    "anterior iris synechia",
+    "cornea opacity",
+    "microphthalmia"
+   ],
+   "gene": {
+    "type": "Gene",
+    "primaryExternalId": "MGI:97490",
+    "geneSymbol": {
+     "formatText": "Pax6",
+     "displayText": "Pax6"
+    }
+   },
+   "diseaseModels": [
+    {
+     "disease": {},
+     "associationType": "IS_MODEL_OF",
+     "diseaseModel": "Peters anomaly"
+    }
+   ],
+   "modifierRelationshipTypes": [
+    "ameliorated_by",
+    "exacerbated_by"
+   ],
+   "hasDiseaseAnnotations": true,
+   "hasDiseaseAndPhenotypeAnnotations": true,
+   "hasPhenotypeAnnotations": true
+  },
+  {
+   "category": "affected_genomic_model_annotation",
+   "searchable": false,
+   "model": {
+    "type": "AffectedGenomicModel",
+    "primaryExternalId": "MGI:3590307",
+    "subtype": {
+     "name": "genotype"
+    },
+    "agmFullName": {
+     "formatText": "Pax6<sup>3Neu</sup>/Pax6<sup>+</sup>  [background:] either: (involves: 102 * C3H) or (involves: C3H)",
+     "displayText": "Pax6<sup>3Neu</sup>/Pax6<sup>+</sup>  [background:] either: (involves: 102 * C3H) or (involves: C3H)"
+    }
+   },
+   "associatedPhenotype": [
+    "anterior iris synechia",
+    "anterior polar cataract",
+    "cataract",
+    "cornea opacity",
+    "fused cornea and lens",
+    "irregularly shaped pupil",
+    "microphthalmia"
+   ],
+   "gene": {
+    "type": "Gene",
+    "primaryExternalId": "MGI:97490",
+    "geneSymbol": {
+     "formatText": "Pax6",
+     "displayText": "Pax6"
+    }
+   },
+   "diseaseModels": [
+    {
+     "disease": {},
+     "associationType": "IS_MODEL_OF",
+     "diseaseModel": "Peters anomaly"
+    }
+   ],
+   "modifierRelationshipTypes": [
+    "ameliorated_by",
+    "exacerbated_by"
+   ],
+   "hasDiseaseAnnotations": true,
+   "hasDiseaseAndPhenotypeAnnotations": true,
+   "hasPhenotypeAnnotations": true
+  }
+ ],
+ "total": 183,
+ "returnedRecords": 2,
+ "requestDuration": "0s",
+ "requestDate": "2026/10/20 19:42:17"
+}

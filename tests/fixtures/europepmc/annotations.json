@@ -1,0 +1,478 @@
+[
+ {
+  "source": "MED",
+  "extId": "30742122",
+  "pmcid": "PMC6408961",
+  "annotations": [
+   {
+    "prefix": "umoral and systemic ",
+    "exact": "immune",
+    "postfix": " responses in recurr",
+    "tags": [
+     {
+      "name": "immune system",
+      "uri": "http://purl.obolibrary.org/obo/UBERON_0002405"
+     }
+    ],
+    "id": "http://europepmc.org/article/MED/30742122#ontogene-e07cb4d0cb0a796b5e80870b16fc26ac",
+    "type": "Organ Tissue",
+    "section": "Title (http://purl.org/dc/elements/1.1/title)",
+    "provider": "OntoGene"
+   },
+   {
+    "prefix": "n primary malignant ",
+    "exact": "brain",
+    "postfix": " tumor in adults and",
+    "tags": [
+     {
+      "name": "brain",
+      "uri": "http://purl.obolibrary.org/obo/UBERON_0000955"
+     }
+    ],
+    "id": "http://europepmc.org/article/MED/30742122#ontogene-38d0d3e4ec3392f08816460bf5dcb8fb",
+    "type": "Organ Tissue",
+    "section": "Abstract (http://purl.org/dc/terms/abstract)",
+    "provider": "OntoGene"
+   },
+   {
+    "prefix": "juvant therapy with ",
+    "exact": "pembrolizumab",
+    "postfix": " in 35 patients with",
+    "tags": [
+     {
+      "name": "pembrolizumab",
+      "uri": "http://purl.bioontology.org/ontology/RXNORM/1547545"
+     }
+    ],
+    "id": "http://europepmc.org/article/MED/30742122#ontogene-a70dd70b4481658445ce1ac0851f1fdf",
+    "type": "Clinical Drug",
+    "section": "Abstract (http://purl.org/dc/terms/abstract)",
+    "provider": "OntoGene"
+   },
+   {
+    "prefix": "receive neoadjuvant ",
+    "exact": "pembrolizumab",
+    "postfix": ", with continued adj",
+    "tags": [
+     {
+      "name": "pembrolizumab",
+      "uri": "http://purl.bioontology.org/ontology/RXNORM/1547545"
+     }
+    ],
+    "id": "http://europepmc.org/article/MED/30742122#ontogene-786506622f652661566b242d9d3bca0b",
+    "type": "Clinical Drug",
+    "section": "Abstract (http://purl.org/dc/terms/abstract)",
+    "provider": "OntoGene"
+   },
+   {
+    "prefix": "ith upregulation of ",
+    "exact": "T cell",
+    "postfix": "- and interferon-γ-r",
+    "tags": [
+     {
+      "name": "T cell",
+      "uri": "http://purl.obolibrary.org/obo/CL_0000084"
+     }
+    ],
+    "id": "http://europepmc.org/article/MED/30742122#ontogene-390630076c9da7f422fdd026ad25176e",
+    "type": "Cell",
+    "section": "Abstract (http://purl.org/dc/terms/abstract)",
+    "provider": "OntoGene"
+   },
+   {
+    "prefix": "nterferon-γ-related ",
+    "exact": "gene",
+    "postfix": " expression, but dow",
+    "tags": [
+     {
+      "name": "gene",
+      "uri": "http://purl.obolibrary.org/obo/SO_0000704"
+     }
+    ],
+    "id": "http://europepmc.org/article/MED/30742122#ontogene-c17600ac450ca2f127e96556aea1a757",
+    "type": "Sequence",
+    "section": "Abstract (http://purl.org/dc/terms/abstract)",
+    "provider": "OntoGene"
+   },
+   {
+    "prefix": " cell-cycle-related ",
+    "exact": "gene",
+    "postfix": " expression within t",
+    "tags": [
+     {
+      "name": "gene",
+      "uri": "http://purl.obolibrary.org/obo/SO_0000704"
+     }
+    ],
+    "id": "http://europepmc.org/article/MED/30742122#ontogene-81a0dbcac2d5c7b5154a600bf8e4951a",
+    "type": "Sequence",
+    "section": "Abstract (http://purl.org/dc/terms/abstract)",
+    "provider": "OntoGene"
+   },
+   {
+    "prefix": "clonal expansion of ",
+    "exact": "T cells",
+    "postfix": ", decreased PD-1 exp",
+    "tags": [
+     {
+      "name": "T cell",
+      "uri": "http://purl.obolibrary.org/obo/CL_0000084"
+     }
+    ],
+    "id": "http://europepmc.org/article/MED/30742122#ontogene-7ed4343832ea09eee4ab2a0ed5d5fc0c",
+    "type": "Cell",
+    "section": "Abstract (http://purl.org/dc/terms/abstract)",
+    "provider": "OntoGene"
+   },
+   {
+    "exact": "Among the array of available cancer immunotherapeutics, PD-1 monoclonal antibody blockade has yielded promising results in patients with metastatic cancer.6-12 PD-1 inhibition is thought to disrupt the engagement of PD-1 with its inhibitory ligands, spurring cytotoxic T cell-mediated tumor eliminati",
+    "tags": [
+     {
+      "name": "cancer",
+      "uri": "https://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=MONDO_0004992"
+     },
+     {
+      "name": "Pembrolizumab",
+      "uri": "https://www.ebi.ac.uk/chembl/compound_report_card/CHEMBL3137343"
+     }
+    ],
+    "id": "http://europepmc.org/article/PMC/PMC6408961#opentargets-b0bbdbe3def01e09aff8bb5ffdf1e69f",
+    "type": "Disease Drug Relationship",
+    "section": "Introduction (http://purl.org/orb/Introduction)",
+    "provider": "Open Targets Platform"
+   },
+   {
+    "exact": "Tumor infiltration with interferon-γ-producing, PD-1/PD-L1-suppressed T cells is likely essential for the systemic priming of tumor-specific T lymphocytes after neoadjuvant pembrolizumab.",
+    "tags": [
+     {
+      "name": "Tumor",
+      "uri": "https://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0000616"
+     },
+     {
+      "name": "pembrolizumab",
+      "uri": "https://www.ebi.ac.uk/chembl/compound_report_card/CHEMBL3137343"
+     }
+    ],
+    "id": "http://europepmc.org/article/PMC/PMC6408961#opentargets-ffc49ac2ac5371921348b39da145a61d",
+    "type": "Disease Drug Relationship",
+    "section": "Discussion (http://purl.org/orb/Discussion)",
+    "provider": "Open Targets Platform"
+   },
+   {
+    "exact": "Focal induction of programmed death-ligand 1 (PD-L1) in the tumor microenvironment, enhanced clonal expansion of T cells, decreased PD-1 expression on peripheral blood T cells, and a decreasing monocytic population was observed more frequently in the neoadjuvant group than patients treated only in t",
+    "tags": [
+     {
+      "name": "PD-L1",
+      "uri": "https://www.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g=ENSG00000120217"
+     },
+     {
+      "name": "tumor",
+      "uri": "https://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0000616"
+     }
+    ],
+    "id": "http://europepmc.org/article/MED/30742122#opentargets-762122617a0f862e5e87453d2ae9aa25",
+    "type": "Gene Disease Relationship",
+    "section": "Abstract (http://purl.org/dc/terms/abstract)",
+    "provider": "Open Targets Platform"
+   },
+   {
+    "exact": "Tumor infiltration with interferon-γ-producing, PD-1/PD-L1-suppressed T cells is likely essential for the systemic priming of tumor-specific T lymphocytes after neoadjuvant pembrolizumab.",
+    "tags": [
+     {
+      "name": "PD-L1",
+      "uri": "https://www.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g=ENSG00000120217"
+     },
+     {
+      "name": "tumor",
+      "uri": "https://www.ebi.ac.uk/ols/ontologies/efo/terms?short_form=EFO_0000616"
+     }
+    ],
+    "id": "http://europepmc.org/article/PMC/PMC6408961#opentargets-2e08676edb865e6e5fa464a4c2e96f30",
+    "type": "Gene Disease Relationship",
+    "section": "Discussion (http://purl.org/orb/Discussion)",
+    "provider": "Open Targets Platform"
+   },
+   {
+    "exact": "To date, PD-1 blockade has demonstrated limited efficacy in patients with glioblastoma, except in isolated case reports associated with mismatch repair deficiency.21-24 Pre-clinical studies, however, have suggested that the PD-1/PD-L1 axis is immunologically relevant and a therapeutic window exists.",
+    "tags": [
+     {
+      "name": "PD-L1",
+      "uri": "https://www.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g=ENSG00000120217"
+     },
+     {
+      "name": "pembrolizumab",
+      "uri": "https://www.ebi.ac.uk/chembl/compound_report_card/CHEMBL3137343"
+     }
+    ],
+    "id": "http://europepmc.org/article/PMC/PMC6408961#opentargets-e9b2ebae13ce4a3d23e6d46a25dce15b",
+    "type": "Gene Drug Relationship",
+    "section": "Introduction (http://purl.org/orb/Introduction)",
+    "provider": "Open Targets Platform"
+   },
+   {
+    "exact": "Neoadjuvant pembrolizumab was not associated with a significant change in T cell receptor diversity, supporting previous findings that diversification of the T cell repertoire is not mediated via the PD-1 axis.45 However, as our data indicate that increased baseline T cell receptor clonality may be ",
+    "tags": [
+     {
+      "name": "T",
+      "uri": "https://www.ensembl.org/Homo_sapiens/Gene/Summary?db=core;g=ENSG00000164458"
+     },
+     {
+      "name": "pembrolizumab",
+      "uri": "https://www.ebi.ac.uk/chembl/compound_report_card/CHEMBL3137343"
+     }
+    ],
+    "id": "http://europepmc.org/article/PMC/PMC6408961#opentargets-9759078d46fb4a463a6484edb8a6c515",
+    "type": "Gene Drug Relationship",
+    "section": "Discussion (http://purl.org/orb/Discussion)",
+    "provider": "Open Targets Platform"
+   },
+   {
+    "prefix": "Neoadjuvant anti-",
+    "exact": "PD-1",
+    "postfix": "immunotherapy promotes a",
+    "tags": [
+     {
+      "name": "PD-1",
+      "uri": "https://www.uniprot.org/uniprotkb/P18621/entry"
+     }
+    ],
+    "id": "http://europepmc.org/article/MED/30742122#europepmc-9484ca8657dd77b8f27b0f3af684f7ad",
+    "type": "Gene_Proteins",
+    "section": "Title (http://purl.org/dc/elements/1.1/title)",
+    "provider": "Europe PMC"
+   },
+   {
+    "prefix": "intratumoral and systemic",
+    "exact": "immune responses",
+    "postfix": "responses in recurrent",
+    "tags": [
+     {
+      "name": "innate immune response",
+      "uri": "http://identifiers.org/GO:0045087"
+     }
+    ],
+    "id": "http://europepmc.org/article/MED/30742122#europepmc-a5b25970f25ed8481127c21027b3d9c1",
+    "type": "Gene Ontology",
+    "section": "Title (http://purl.org/dc/elements/1.1/title)",
+    "provider": "Europe PMC"
+   },
+   {
+    "prefix": "",
+    "exact": "Glioblastoma",
+    "postfix": "is the most",
+    "tags": [
+     {
+      "name": "gbm glioblastoma",
+      "uri": "http://linkedlifedata.com/resource/umls-concept/C1621958"
+     }
+    ],
+    "id": "http://europepmc.org/article/MED/30742122#europepmc-08d2ace7f15fbb2329bf731b558a278d",
+    "type": "Diseases",
+    "section": "Abstract (http://purl.org/dc/terms/abstract)",
+    "provider": "Europe PMC"
+   },
+   {
+    "prefix": "common primary malignant",
+    "exact": "brain tumor",
+    "postfix": "tumor in adults",
+    "tags": [
+     {
+      "name": "neopl brain",
+      "uri": "http://linkedlifedata.com/resource/umls-concept/C0006118"
+     }
+    ],
+    "id": "http://europepmc.org/article/MED/30742122#europepmc-44ddb4bec65b97a92a83e9af02acc717",
+    "type": "Diseases",
+    "section": "Abstract (http://purl.org/dc/terms/abstract)",
+    "provider": "Europe PMC"
+   },
+   {
+    "prefix": "trial to evaluate",
+    "exact": "immune responses",
+    "postfix": "responses and survival",
+    "tags": [
+     {
+      "name": "innate immune response",
+      "uri": "http://identifiers.org/GO:0045087"
+     }
+    ],
+    "id": "http://europepmc.org/article/MED/30742122#europepmc-871828d50e823f64954a2fc189c8f9c9",
+    "type": "Gene Ontology",
+    "section": "Abstract (http://purl.org/dc/terms/abstract)",
+    "provider": "Europe PMC"
+   },
+   {
+    "prefix": "adjuvant therapy with",
+    "exact": "pembrolizumab",
+    "postfix": "in 35 patients",
+    "tags": [
+     {
+      "name": "pembrolizumab",
+      "uri": "http://purl.obolibrary.org/obo/CHEBI_82976"
+     }
+    ],
+    "id": "http://europepmc.org/article/MED/30742122#europepmc-a3008c468f42d1d3eeab15b840165672",
+    "type": "Chemicals",
+    "section": "Abstract (http://purl.org/dc/terms/abstract)",
+    "provider": "Europe PMC"
+   },
+   {
+    "prefix": "to receive neoadjuvant",
+    "exact": "pembrolizumab",
+    "postfix": ", with continued adjuvant",
+    "tags": [
+     {
+      "name": "pembrolizumab",
+      "uri": "http://purl.obolibrary.org/obo/CHEBI_82976"
+     }
+    ],
+    "id": "http://europepmc.org/article/MED/30742122#europepmc-e8896115a440bb55fa7201bbbe2b53b0",
+    "type": "Chemicals",
+    "section": "Abstract (http://purl.org/dc/terms/abstract)",
+    "provider": "Europe PMC"
+   },
+   {
+    "prefix": "Neoadjuvant",
+    "exact": "PD-1",
+    "postfix": "blockade was associated",
+    "tags": [
+     {
+      "name": "PD-1",
+      "uri": "https://www.uniprot.org/uniprotkb/P18621/entry"
+     }
+    ],
+    "id": "http://europepmc.org/article/MED/30742122#europepmc-cf36b923b5952d3204b221766e673023",
+    "type": "Gene_Proteins",
+    "section": "Abstract (http://purl.org/dc/terms/abstract)",
+    "provider": "Europe PMC"
+   },
+   {
+    "prefix": "and quantitative multiplex",
+    "exact": "immunofluorescence",
+    "postfix": "to explore the",
+    "tags": [
+     {
+      "name": "co-ip",
+      "uri": "http://purl.obolibrary.org/obo/MI_0019"
+     }
+    ],
+    "id": "http://europepmc.org/article/PMC/PMC6408961#europepmc-dc344afa62c2005d8925069744998d4e",
+    "type": "Experimental Methods",
+    "section": "Introduction (http://purl.org/orb/Introduction)",
+    "provider": "Europe PMC"
+   },
+   {
+    "prefix": "Genome Reference Consortium",
+    "exact": "Human",
+    "postfix": "Build 38 (GRCh38)",
+    "tags": [
+     {
+      "name": "human",
+      "uri": "http://identifiers.org/taxonomy/9606"
+     }
+    ],
+    "id": "http://europepmc.org/article/PMC/PMC6408961#europepmc-c343bab6aaf71d55798c21c919ad24ee",
+    "type": "Organisms",
+    "section": "Methods (http://purl.org/orb/Methods)",
+    "provider": "Europe PMC"
+   },
+   {
+    "prefix": "and the pre-treatment",
+    "exact": "RNAseq",
+    "postfix": "dataset GSE79671 (a",
+    "tags": [
+     {
+      "name": "rnaseq",
+      "uri": "http://www.ebi.ac.uk/efo/EFO_0008896"
+     }
+    ],
+    "id": "http://europepmc.org/article/PMC/PMC6408961#europepmc-67919ce6369b6ddd2b241fe89452cb03",
+    "type": "Experimental Methods",
+    "section": "Methods (http://purl.org/orb/Methods)",
+    "provider": "Europe PMC"
+   },
+   {
+    "prefix": "In addition,",
+    "exact": "mice",
+    "postfix": "that received no",
+    "tags": [
+     {
+      "name": "mus sp.",
+      "uri": "http://identifiers.org/taxonomy/10095"
+     }
+    ],
+    "id": "http://europepmc.org/article/PMC/PMC6408961#europepmc-183473cb1e13984b815c1026ec1290d5",
+    "type": "Organisms",
+    "section": "Discussion (http://purl.org/orb/Discussion)",
+    "provider": "Europe PMC"
+   },
+   {
+    "prefix": "apsed glioblastoma (",
+    "exact": "NCT02550249",
+    "postfix": ") demonstrated simil",
+    "tags": [
+     {
+      "name": "NCT02550249",
+      "uri": "http://identifiers.org/clinicaltrials:NCT02550249"
+     }
+    ],
+    "id": "http://europepmc.org/article/PMC/PMC6408961#europepmc-b2bc2fee89c7edbadf27e8bf8530503d",
+    "type": "Accession Numbers",
+    "section": "Discussion (http://purl.org/orb/Discussion)",
+    "provider": "Europe PMC",
+    "subType": "NCT"
+   },
+   {
+    "prefix": "to the Gene Expression Omnibus (GEO; ",
+    "exact": "GSE121810",
+    "postfix": "). ",
+    "tags": [
+     {
+      "name": "GSE121810",
+      "uri": "http://identifiers.org/geo:GSE121810"
+     }
+    ],
+    "id": "http://europepmc.org/article/PMC/PMC6408961#europepmc-62a8028566f50b8c8d16bbb6827def30",
+    "type": "Accession Numbers",
+    "section": "Methods (http://purl.org/orb/Methods)",
+    "provider": "Europe PMC",
+    "subType": "GEO"
+   },
+   {
+    "prefix": "ment RNAseq dataset ",
+    "exact": "GSE79671",
+    "postfix": " (a study of patient",
+    "tags": [
+     {
+      "name": "GSE79671",
+      "uri": "http://identifiers.org/geo:GSE79671"
+     }
+    ],
+    "id": "http://europepmc.org/article/PMC/PMC6408961#europepmc-543807fca946e9770816d6f5fedaa9a1",
+    "type": "Accession Numbers",
+    "section": "Methods (http://purl.org/orb/Methods)",
+    "provider": "Europe PMC",
+    "subType": "GEO"
+   },
+   {
+    "prefix": " adjuvant (n = 15), ",
+    "exact": "GSE79671",
+    "postfix": " (n = 20) and TCGA p",
+    "tags": [
+     {
+      "name": "GSE79671",
+      "uri": "http://identifiers.org/geo:GSE79671"
+     }
+    ],
+    "id": "http://europepmc.org/article/PMC/PMC6408961#europepmc-bc722c51d6cf83b24672d4e2f0d278f3",
+    "type": "Accession Numbers",
+    "section": "Methods (http://purl.org/orb/Methods)",
+    "provider": "Europe PMC",
+    "subType": "GEO"
+   }
+  ],
+  "fullTextIdList": [
+   "PMC6408961"
+  ]
+ }
+]

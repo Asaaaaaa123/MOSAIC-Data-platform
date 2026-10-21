@@ -1,0 +1,4 @@
+[
+ {"Input": "arsenic", "ChemicalName": "Arsenic", "ChemicalId": "D001151", "CasRN": "7440-38-2", "DiseaseName": "Liver Neoplasms", "DiseaseId": "MESH:D008113", "DirectEvidence": "", "InferenceGeneSymbol": "TP53|CDKN2A|MT1A", "InferenceScore": "88.41", "OmimIds": "114550", "PubMedIds": "12345678|23456789"},
+ {"Input": "arsenic", "ChemicalName": "Arsenic", "ChemicalId": "D001151", "CasRN": "7440-38-2", "DiseaseName": "Hepatitis", "DiseaseId": "MESH:D006505", "DirectEvidence": "", "InferenceGeneSymbol": "IL6", "InferenceScore": "12.05", "OmimIds": "", "PubMedIds": "34567890"}
+]

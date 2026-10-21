@@ -1,0 +1,170 @@
+{
+ "meta": {
+  "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+  "terms": "https://open.fda.gov/terms/",
+  "license": "https://open.fda.gov/license/",
+  "last_updated": "2026-07-30"
+ },
+ "results": [
+  {
+   "time": "20180102",
+   "count": 1
+  },
+  {
+   "time": "20180105",
+   "count": 2
+  },
+  {
+   "time": "20180123",
+   "count": 1
+  },
+  {
+   "time": "20180212",
+   "count": 1
+  },
+  {
+   "time": "20180216",
+   "count": 1
+  },
+  {
+   "time": "20180227",
+   "count": 1
+  },
+  {
+   "time": "20180301",
+   "count": 1
+  },
+  {
+   "time": "20180305",
+   "count": 1
+  },
+  {
+   "time": "20180309",
+   "count": 1
+  },
+  {
+   "time": "20180319",
+   "count": 15
+  },
+  {
+   "time": "20180327",
+   "count": 1
+  },
+  {
+   "time": "20180402",
+   "count": 1
+  },
+  {
+   "time": "20180412",
+   "count": 1
+  },
+  {
+   "time": "20180413",
+   "count": 1
+  },
+  {
+   "time": "20180416",
+   "count": 1
+  },
+  {
+   "time": "20180417",
+   "count": 2
+  },
+  {
+   "time": "20180426",
+   "count": 2
+  },
+  {
+   "time": "20180504",
+   "count": 1
+  },
+  {
+   "time": "20180514",
+   "count": 3
+  },
+  {
+   "time": "20180515",
+   "count": 1
+  },
+  {
+   "time": "20180521",
+   "count": 1
+  },
+  {
+   "time": "20180524",
+   "count": 1
+  },
+  {
+   "time": "20180529",
+   "count": 3
+  },
+  {
+   "time": "20180531",
+   "count": 1
+  },
+  {
+   "time": "20180601",
+   "count": 1
+  },
+  {
+   "time": "20180603",
+   "count": 1
+  },
+  {
+   "time": "20180604",
+   "count": 2
+  },
+  {
+   "time": "20180606",
+   "count": 1
+  },
+  {
+   "time": "20180611",
+   "count": 2
+  },
+  {
+   "time": "20180612",
+   "count": 1
+  },
+  {
+   "time": "20180613",
+   "count": 2
+  },
+  {
+   "time": "20180614",
+   "count": 3
+  },
+  {
+   "time": "20180618",
+   "count": 1
+  },
+  {
+   "time": "20180619",
+   "count": 1
+  },
+  {
+   "time": "20180620",
+   "count": 121
+  },
+  {
+   "time": "20180621",
+   "count": 1
+  },
+  {
+   "time": "20180623",
+   "count": 1
+  },
+  {
+   "time": "20180625",
+   "count": 2
+  },
+  {
+   "time": "20180629",
+   "count": 1
+  },
+  {
+   "time": "20180702",
+   "count": 1
+  }
+ ]
+}

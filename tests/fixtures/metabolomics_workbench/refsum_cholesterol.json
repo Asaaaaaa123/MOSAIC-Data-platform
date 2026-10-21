@@ -1,0 +1,17 @@
+{
+ "1": {
+  "refmet_name": "Cholesterol",
+  "kegg_id": "C00187",
+  "study_id": "ST000002"
+ },
+ "2": {
+  "refmet_name": "Cholesterol",
+  "kegg_id": "C00187",
+  "study_id": "ST000004"
+ },
+ "3": {
+  "refmet_name": "Cholesterol",
+  "kegg_id": "C00187",
+  "study_id": "ST000005"
+ }
+}

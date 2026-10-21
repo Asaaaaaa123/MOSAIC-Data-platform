@@ -1,0 +1,112 @@
+{
+ "version": "6.9",
+ "hitCount": 4324,
+ "nextCursorMark": "AoIIQFH8Ayg1NjY4NTU3OQ==",
+ "nextPageUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=SRC%3APPR+AND+glioblastoma&cursorMark=AoIIQFH8Ayg1NjY4NTU3OQ%3D%3D&resultType=core&pageSize=1&format=json",
+ "request": {
+  "queryString": "SRC:PPR AND glioblastoma",
+  "resultType": "core",
+  "cursorMark": "*",
+  "pageSize": 1,
+  "sort": "",
+  "synonym": false
+ },
+ "resultList": {
+  "result": [
+   {
+    "id": "PPR1344431",
+    "source": "PPR",
+    "doi": "10.21203/rs.3.rs-11028208/v1",
+    "title": "Gold Nanoparticle-Loaded Biodegradable Polyanhydride Wafers Provide Sustained Gold Availability and Enhance Radiosensitization of Glioblastoma Cells",
+    "authorString": "Zhang D, Wang T, Yi T, Chen T.",
+    "authorList": {
+     "author": [
+      {
+       "fullName": "Zhang D",
+       "lastName": "Zhang",
+       "firstName": "Di",
+       "initials": "D"
+      },
+      {
+       "fullName": "Wang T",
+       "lastName": "Wang",
+       "firstName": "Tianzhu",
+       "initials": "T"
+      },
+      {
+       "fullName": "Yi T",
+       "lastName": "Yi",
+       "firstName": "Tianqi",
+       "initials": "T"
+      },
+      {
+       "fullName": "Chen T",
+       "lastName": "Chen",
+       "firstName": "Tong",
+       "initials": "T"
+      }
+     ]
+    },
+    "pubYear": "2026",
+    "abstractText": "<title>Abstract</title>  <p>Background  Local recurrence and radioresistance remain major obstacles to durable control of glioblastoma after surgical resection. Implantable biodegradable matrices could maintain radiosensitizer availability near the resection margin while limiting systemic exposure. This study evaluated gold nanoparticle (AuNP)-loaded poly[1,3-bis(p-carboxyphenoxy)propane-co-sebacic anhydride] [P(CPP:SA)] wafers as a local radiosensitizer platform for glioblastoma. Methods  AuNP-loaded P(CPP:SA) wafers were fabricated by dry blending and compression molding and characterized by",
+    "pubTypeList": {
+     "pubType": [
+      "Preprint"
+     ]
+    },
+    "bookOrReportDetails": {
+     "publisher": "Research Square",
+     "yearOfPublication": 2026
+    },
+    "fullTextUrlList": {
+     "fullTextUrl": [
+      {
+       "availability": "Free",
+       "availabilityCode": "F",
+       "documentStyle": "doi",
+       "site": "DOI",
+       "url": "https://doi.org/10.21203/rs.3.rs-11028208/v1"
+      }
+     ]
+    },
+    "isOpenAccess": "N",
+    "inEPMC": "N",
+    "inPMC": "N",
+    "citedByCount": 0,
+    "hasReferences": "N",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "N",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "N",
+    "hasData": "N",
+    "authMan": "N",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "N",
+    "hasTMAccessionNumbers": "N",
+    "dateOfCreation": "2026-10-19",
+    "firstPublicationDate": "2026-10-18",
+    "firstIndexDate": "2026-10-19",
+    "versionList": {
+     "version": [
+      {
+       "id": "PPR1344431",
+       "source": "PPR",
+       "versionNumber": 1,
+       "firstPublishDate": "2026-10-18",
+       "pubTypeList": {
+        "pubType": [
+         "preprint"
+        ]
+       },
+       "hasEvaluations": "N"
+      }
+     ]
+    },
+    "versionNumber": 1,
+    "hasEvaluations": "N"
+   }
+  ]
+ }
+}

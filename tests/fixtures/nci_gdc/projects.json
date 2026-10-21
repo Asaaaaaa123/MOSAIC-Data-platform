@@ -1,0 +1,675 @@
+{
+ "data": {
+  "hits": [
+   {
+    "id": "TCGA-LUAD",
+    "summary": {
+     "file_count": 36740,
+     "data_categories": [
+      {
+       "case_count": 573,
+       "data_category": "Simple Nucleotide Variation"
+      },
+      {
+       "case_count": 584,
+       "data_category": "Sequencing Reads"
+      },
+      {
+       "case_count": 585,
+       "data_category": "Biospecimen"
+      },
+      {
+       "case_count": 585,
+       "data_category": "Clinical"
+      },
+      {
+       "case_count": 519,
+       "data_category": "Copy Number Variation"
+      },
+      {
+       "case_count": 520,
+       "data_category": "Transcriptome Profiling"
+      },
+      {
+       "case_count": 579,
+       "data_category": "DNA Methylation"
+      },
+      {
+       "case_count": 365,
+       "data_category": "Proteome Profiling"
+      },
+      {
+       "case_count": 243,
+       "data_category": "Somatic Structural Variation"
+      },
+      {
+       "case_count": 518,
+       "data_category": "Structural Variation"
+      }
+     ],
+     "experimental_strategies": [
+      {
+       "case_count": 518,
+       "experimental_strategy": "RNA-Seq"
+      },
+      {
+       "case_count": 513,
+       "experimental_strategy": "miRNA-Seq"
+      },
+      {
+       "case_count": 471,
+       "experimental_strategy": "WGS"
+      },
+      {
+       "case_count": 582,
+       "experimental_strategy": "WXS"
+      },
+      {
+       "case_count": 22,
+       "experimental_strategy": "ATAC-Seq"
+      },
+      {
+       "case_count": 518,
+       "experimental_strategy": "Genotyping Array"
+      },
+      {
+       "case_count": 579,
+       "experimental_strategy": "Methylation Array"
+      },
+      {
+       "case_count": 365,
+       "experimental_strategy": "Reverse Phase Protein Array"
+      },
+      {
+       "case_count": 514,
+       "experimental_strategy": "Tissue Slide"
+      },
+      {
+       "case_count": 478,
+       "experimental_strategy": "Diagnostic Slide"
+      }
+     ],
+     "case_count": 585,
+     "file_size": 349938158027998
+    },
+    "primary_site": [
+     "Bronchus and lung"
+    ],
+    "dbgap_accession_number": null,
+    "project_id": "TCGA-LUAD",
+    "disease_type": [
+     "Cystic, Mucinous and Serous Neoplasms",
+     "Ductal and Lobular Neoplasms",
+     "Acinar Cell Neoplasms",
+     "Adenomas and Adenocarcinomas"
+    ],
+    "name": "Lung Adenocarcinoma",
+    "state": "open",
+    "program": {
+     "dbgap_accession_number": "phs000178",
+     "name": "TCGA"
+    },
+    "released": true
+   },
+   {
+    "id": "TARGET-AML",
+    "summary": {
+     "file_count": 52213,
+     "data_categories": [
+      {
+       "case_count": 836,
+       "data_category": "Simple Nucleotide Variation"
+      },
+      {
+       "case_count": 2463,
+       "data_category": "Sequencing Reads"
+      },
+      {
+       "case_count": 197,
+       "data_category": "Combined Nucleotide Variation"
+      },
+      {
+       "case_count": 988,
+       "data_category": "Biospecimen"
+      },
+      {
+       "case_count": 2181,
+       "data_category": "Clinical"
+      },
+      {
+       "case_count": 219,
+       "data_category": "Copy Number Variation"
+      },
+      {
+       "case_count": 2300,
+       "data_category": "Transcriptome Profiling"
+      },
+      {
+       "case_count": 319,
+       "data_category": "DNA Methylation"
+      },
+      {
+       "case_count": 30,
+       "data_category": "Somatic Structural Variation"
+      },
+      {
+       "case_count": 2281,
+       "data_category": "Structural Variation"
+      }
+     ],
+     "experimental_strategies": [
+      {
+       "case_count": 2281,
+       "experimental_strategy": "RNA-Seq"
+      },
+      {
+       "case_count": 1836,
+       "experimental_strategy": "miRNA-Seq"
+      },
+      {
+       "case_count": 227,
+       "experimental_strategy": "WGS"
+      },
+      {
+       "case_count": 22,
+       "experimental_strategy": "WXS"
+      },
+      {
+       "case_count": 803,
+       "experimental_strategy": "Targeted Sequencing"
+      },
+      {
+       "case_count": 190,
+       "experimental_strategy": "Genotyping Array"
+      },
+      {
+       "case_count": 319,
+       "experimental_strategy": "Methylation Array"
+      }
+     ],
+     "case_count": 2492,
+     "file_size": 105240992376259
+    },
+    "primary_site": [
+     "Unknown",
+     "Hematopoietic and reticuloendothelial systems"
+    ],
+    "dbgap_accession_number": "phs000465",
+    "project_id": "TARGET-AML",
+    "disease_type": [
+     "Myeloid Leukemias",
+     "Not Applicable"
+    ],
+    "name": "Acute Myeloid Leukemia",
+    "state": "open",
+    "program": {
+     "dbgap_accession_number": "phs000218",
+     "name": "TARGET"
+    },
+    "released": true
+   },
+   {
+    "id": "TCGA-OV",
+    "summary": {
+     "file_count": 32891,
+     "data_categories": [
+      {
+       "case_count": 603,
+       "data_category": "Simple Nucleotide Variation"
+      },
+      {
+       "case_count": 584,
+       "data_category": "Sequencing Reads"
+      },
+      {
+       "case_count": 608,
+       "data_category": "Biospecimen"
+      },
+      {
+       "case_count": 608,
+       "data_category": "Clinical"
+      },
+      {
+       "case_count": 601,
+       "data_category": "Copy Number Variation"
+      },
+      {
+       "case_count": 559,
+       "data_category": "Transcriptome Profiling"
+      },
+      {
+       "case_count": 602,
+       "data_category": "DNA Methylation"
+      },
+      {
+       "case_count": 422,
+       "data_category": "Proteome Profiling"
+      },
+      {
+       "case_count": 330,
+       "data_category": "Somatic Structural Variation"
+      },
+      {
+       "case_count": 493,
+       "data_category": "Structural Variation"
+      }
+     ],
+     "experimental_strategies": [
+      {
+       "case_count": 457,
+       "experimental_strategy": "WXS"
+      },
+      {
+       "case_count": 522,
+       "experimental_strategy": "miRNA-Seq"
+      },
+      {
+       "case_count": 427,
+       "experimental_strategy": "RNA-Seq"
+      },
+      {
+       "case_count": 363,
+       "experimental_strategy": "WGS"
+      },
+      {
+       "case_count": 597,
+       "experimental_strategy": "Genotyping Array"
+      },
+      {
+       "case_count": 602,
+       "experimental_strategy": "Methylation Array"
+      },
+      {
+       "case_count": 422,
+       "experimental_strategy": "Reverse Phase Protein Array"
+      },
+      {
+       "case_count": 106,
+       "experimental_strategy": "Diagnostic Slide"
+      },
+      {
+       "case_count": 589,
+       "experimental_strategy": "Tissue Slide"
+      },
+      {
+       "case_count": 530,
+       "experimental_strategy": "Expression Array"
+      }
+     ],
+     "case_count": 608,
+     "file_size": 242320592685044
+    },
+    "primary_site": [
+     "Ovary",
+     "Retroperitoneum and peritoneum"
+    ],
+    "dbgap_accession_number": null,
+    "project_id": "TCGA-OV",
+    "disease_type": [
+     "Not Reported",
+     "Cystic, Mucinous and Serous Neoplasms"
+    ],
+    "name": "Ovarian Serous Cystadenocarcinoma",
+    "state": "open",
+    "program": {
+     "dbgap_accession_number": "phs000178",
+     "name": "TCGA"
+    },
+    "released": true
+   },
+   {
+    "id": "TCGA-LUSC",
+    "summary": {
+     "file_count": 32404,
+     "data_categories": [
+      {
+       "case_count": 504,
+       "data_category": "Simple Nucleotide Variation"
+      },
+      {
+       "case_count": 504,
+       "data_category": "Sequencing Reads"
+      },
+      {
+       "case_count": 504,
+       "data_category": "Biospecimen"
+      },
+      {
+       "case_count": 504,
+       "data_category": "Clinical"
+      },
+      {
+       "case_count": 504,
+       "data_category": "Copy Number Variation"
+      },
+      {
+       "case_count": 504,
+       "data_category": "Transcriptome Profiling"
+      },
+      {
+       "case_count": 503,
+       "data_category": "DNA Methylation"
+      },
+      {
+       "case_count": 328,
+       "data_category": "Proteome Profiling"
+      },
+      {
+       "case_count": 284,
+       "data_category": "Somatic Structural Variation"
+      },
+      {
+       "case_count": 501,
+       "data_category": "Structural Variation"
+      }
+     ],
+     "experimental_strategies": [
+      {
+       "case_count": 501,
+       "experimental_strategy": "RNA-Seq"
+      },
+      {
+       "case_count": 488,
+       "experimental_strategy": "miRNA-Seq"
+      },
+      {
+       "case_count": 502,
+       "experimental_strategy": "WXS"
+      },
+      {
+       "case_count": 337,
+       "experimental_strategy": "WGS"
+      },
+      {
+       "case_count": 16,
+       "experimental_strategy": "ATAC-Seq"
+      },
+      {
+       "case_count": 504,
+       "experimental_strategy": "Genotyping Array"
+      },
+      {
+       "case_count": 503,
+       "experimental_strategy": "Methylation Array"
+      },
+      {
+       "case_count": 328,
+       "experimental_strategy": "Reverse Phase Protein Array"
+      },
+      {
+       "case_count": 495,
+       "experimental_strategy": "Tissue Slide"
+      },
+      {
+       "case_count": 478,
+       "experimental_strategy": "Diagnostic Slide"
+      },
+      {
+       "case_count": 134,
+       "experimental_strategy": "Expression Array"
+      }
+     ],
+     "case_count": 504,
+     "file_size": 234062285950102
+    },
+    "primary_site": [
+     "Bronchus and lung"
+    ],
+    "dbgap_accession_number": null,
+    "project_id": "TCGA-LUSC",
+    "disease_type": [
+     "Adenomas and Adenocarcinomas",
+     "Squamous Cell Neoplasms"
+    ],
+    "name": "Lung Squamous Cell Carcinoma",
+    "state": "open",
+    "program": {
+     "dbgap_accession_number": "phs000178",
+     "name": "TCGA"
+    },
+    "released": true
+   },
+   {
+    "id": "TCGA-BRCA",
+    "summary": {
+     "file_count": 71423,
+     "data_categories": [
+      {
+       "case_count": 1098,
+       "data_category": "Simple Nucleotide Variation"
+      },
+      {
+       "case_count": 1098,
+       "data_category": "Sequencing Reads"
+      },
+      {
+       "case_count": 1098,
+       "data_category": "Biospecimen"
+      },
+      {
+       "case_count": 1098,
+       "data_category": "Clinical"
+      },
+      {
+       "case_count": 1098,
+       "data_category": "Copy Number Variation"
+      },
+      {
+       "case_count": 1097,
+       "data_category": "Transcriptome Profiling"
+      },
+      {
+       "case_count": 1097,
+       "data_category": "DNA Methylation"
+      },
+      {
+       "case_count": 881,
+       "data_category": "Proteome Profiling"
+      },
+      {
+       "case_count": 927,
+       "data_category": "Somatic Structural Variation"
+      },
+      {
+       "case_count": 1098,
+       "data_category": "Structural Variation"
+      }
+     ],
+     "experimental_strategies": [
+      {
+       "case_count": 1095,
+       "experimental_strategy": "RNA-Seq"
+      },
+      {
+       "case_count": 1072,
+       "experimental_strategy": "WXS"
+      },
+      {
+       "case_count": 1079,
+       "experimental_strategy": "miRNA-Seq"
+      },
+      {
+       "case_count": 952,
+       "experimental_strategy": "WGS"
+      },
+      {
+       "case_count": 74,
+       "experimental_strategy": "ATAC-Seq"
+      },
+      {
+       "case_count": 1098,
+       "experimental_strategy": "Genotyping Array"
+      },
+      {
+       "case_count": 1097,
+       "experimental_strategy": "Methylation Array"
+      },
+      {
+       "case_count": 881,
+       "experimental_strategy": "Reverse Phase Protein Array"
+      },
+      {
+       "case_count": 1062,
+       "experimental_strategy": "Diagnostic Slide"
+      },
+      {
+       "case_count": 1093,
+       "experimental_strategy": "Tissue Slide"
+      }
+     ],
+     "case_count": 1098,
+     "file_size": 624999074551338
+    },
+    "primary_site": [
+     "Breast"
+    ],
+    "dbgap_accession_number": null,
+    "project_id": "TCGA-BRCA",
+    "disease_type": [
+     "Cystic, Mucinous and Serous Neoplasms",
+     "Adenomas and Adenocarcinomas",
+     "Fibroepithelial Neoplasms",
+     "Basal Cell Neoplasms",
+     "Ductal and Lobular Neoplasms",
+     "Epithelial Neoplasms, NOS",
+     "Squamous Cell Neoplasms",
+     "Complex Epithelial Neoplasms",
+     "Adnexal and Skin Appendage Neoplasms"
+    ],
+    "name": "Breast Invasive Carcinoma",
+    "state": "open",
+    "program": {
+     "dbgap_accession_number": "phs000178",
+     "name": "TCGA"
+    },
+    "released": true
+   },
+   {
+    "id": "CPTAC-3",
+    "summary": {
+     "file_count": 110077,
+     "data_categories": [
+      {
+       "case_count": 1815,
+       "data_category": "Simple Nucleotide Variation"
+      },
+      {
+       "case_count": 1866,
+       "data_category": "Sequencing Reads"
+      },
+      {
+       "case_count": 1817,
+       "data_category": "DNA Methylation"
+      },
+      {
+       "case_count": 1762,
+       "data_category": "Copy Number Variation"
+      },
+      {
+       "case_count": 1858,
+       "data_category": "Transcriptome Profiling"
+      },
+      {
+       "case_count": 1753,
+       "data_category": "Somatic Structural Variation"
+      },
+      {
+       "case_count": 1835,
+       "data_category": "Structural Variation"
+      }
+     ],
+     "experimental_strategies": [
+      {
+       "case_count": 1844,
+       "experimental_strategy": "WXS"
+      },
+      {
+       "case_count": 73,
+       "experimental_strategy": "Targeted Sequencing"
+      },
+      {
+       "case_count": 1824,
+       "experimental_strategy": "RNA-Seq"
+      },
+      {
+       "case_count": 1827,
+       "experimental_strategy": "WGS"
+      },
+      {
+       "case_count": 1826,
+       "experimental_strategy": "miRNA-Seq"
+      },
+      {
+       "case_count": 30,
+       "experimental_strategy": "scRNA-Seq"
+      },
+      {
+       "case_count": 1817,
+       "experimental_strategy": "Methylation Array"
+      }
+     ],
+     "case_count": 1866,
+     "file_size": 816871963467036
+    },
+    "primary_site": [
+     "Stomach",
+     "Other and ill-defined sites in lip, oral cavity and pharynx",
+     "Unknown",
+     "Colon",
+     "Other and unspecified urinary organs",
+     "Floor of mouth",
+     "Other and unspecified parts of mouth",
+     "Gum",
+     "Bronchus and lung",
+     "Oropharynx",
+     "Other and unspecified parts of tongue",
+     "Base of tongue",
+     "Breast",
+     "Other and ill-defined sites",
+     "Larynx",
+     "Lip",
+     "Uterus, NOS",
+     "Hematopoietic and reticuloendothelial systems",
+     "Kidney",
+     "Brain",
+     "Skin",
+     "Pancreas",
+     "Tonsil"
+    ],
+    "dbgap_accession_number": "phs001287",
+    "project_id": "CPTAC-3",
+    "disease_type": [
+     "Not Applicable",
+     "Transitional Cell Papillomas and Carcinomas",
+     "Ductal and Lobular Neoplasms",
+     "Adenomas and Adenocarcinomas",
+     "Gliomas",
+     "Epithelial Neoplasms, NOS",
+     "Complex Epithelial Neoplasms",
+     "Complex Mixed and Stromal Neoplasms",
+     "Lipomatous Neoplasms",
+     "Squamous Cell Neoplasms",
+     "Myeloid Leukemias",
+     "Nevi and Melanomas"
+    ],
+    "name": "CPTAC-Brain, Head and Neck, Kidney, Lung, Pancreas, Uterus",
+    "state": "open",
+    "program": {
+     "dbgap_accession_number": null,
+     "name": "CPTAC"
+    },
+    "released": true
+   }
+  ],
+  "pagination": {
+   "count": 93,
+   "total": 6,
+   "size": 200,
+   "from": 0,
+   "sort": "",
+   "page": 1,
+   "pages": 1
+  }
+ },
+ "warnings": {}
+}

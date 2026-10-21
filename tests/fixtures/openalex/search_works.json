@@ -1,0 +1,797 @@
+{
+ "meta": {
+  "count": 2125,
+  "db_response_time_ms": 18,
+  "page": null,
+  "per_page": 2,
+  "next_cursor": "IlsxMDQuNjc2OTIsIDEwMC4wLCA0NzIsICdodHRwczovL29wZW5hbGV4Lm9yZy9XMzA4MTU4MDY1NSddIg==",
+  "groups_count": null,
+  "cost_usd": 0.001
+ },
+ "results": [
+  {
+   "id": "https://openalex.org/W3202931255",
+   "doi": "https://doi.org/10.1038/s41587-021-01039-7",
+   "display_name": "Engineered pegRNAs improve prime editing efficiency",
+   "publication_year": 2021,
+   "publication_date": "2021-10-04",
+   "ids": {
+    "openalex": "https://openalex.org/W3202931255",
+    "doi": "https://doi.org/10.1038/s41587-021-01039-7",
+    "mag": "3202931255",
+    "pmid": "https://pubmed.ncbi.nlm.nih.gov/34608327"
+   },
+   "type": "article",
+   "language": "en",
+   "primary_location": {
+    "id": "doi:10.1038/s41587-021-01039-7",
+    "doi": "https://doi.org/10.1038/s41587-021-01039-7",
+    "is_oa": false,
+    "landing_page_url": "https://doi.org/10.1038/s41587-021-01039-7",
+    "pdf_url": null,
+    "source": {
+     "id": "https://openalex.org/S106963461",
+     "display_name": "Nature Biotechnology",
+     "issn_l": "0733-222X",
+     "issn": [
+      "0733-222X",
+      "1087-0156",
+      "1546-1696",
+      "2331-3684"
+     ],
+     "is_oa": false,
+     "is_in_doaj": false,
+     "is_core": true,
+     "host_organization": "https://openalex.org/P4310319908",
+     "host_organization_name": "Nature Portfolio",
+     "type": "journal"
+    },
+    "license": null,
+    "license_id": null,
+    "version": "publishedVersion",
+    "is_accepted": true,
+    "is_published": true,
+    "raw_source_name": "Nature Biotechnology",
+    "raw_type": "journal-article"
+   },
+   "locations": [
+    {
+     "id": "pmh:oai:pubmedcentral.nih.gov:8930418",
+     "doi": null,
+     "is_oa": true,
+     "landing_page_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/8930418",
+     "pdf_url": null,
+     "source": {
+      "id": "https://openalex.org/S2764455111",
+      "display_name": "PubMed Central",
+      "issn_l": null,
+      "issn": null,
+      "is_oa": true,
+      "is_in_doaj": false,
+      "is_core": false,
+      "host_organization": "https://openalex.org/I1299303238",
+      "host_organization_name": "National Institutes of Health",
+      "type": "repository"
+     },
+     "license": null,
+     "license_id": null,
+     "version": "acceptedVersion",
+     "is_accepted": true,
+     "is_published": false,
+     "raw_source_name": "Nat Biotechnol",
+     "raw_type": "Text"
+    },
+    {
+     "id": "doi:10.1038/s41587-021-01039-7",
+     "doi": "https://doi.org/10.1038/s41587-021-01039-7",
+     "is_oa": false,
+     "landing_page_url": "https://doi.org/10.1038/s41587-021-01039-7",
+     "pdf_url": null,
+     "source": {
+      "id": "https://openalex.org/S106963461",
+      "display_name": "Nature Biotechnology",
+      "issn_l": "0733-222X",
+      "issn": [
+       "0733-222X",
+       "1087-0156",
+       "1546-1696",
+       "2331-3684"
+      ],
+      "is_oa": false,
+      "is_in_doaj": false,
+      "is_core": true,
+      "host_organization": "https://openalex.org/P4310319908",
+      "host_organization_name": "Nature Portfolio",
+      "type": "journal"
+     },
+     "license": null,
+     "license_id": null,
+     "version": "publishedVersion",
+     "is_accepted": true,
+     "is_published": true,
+     "raw_source_name": "Nature Biotechnology",
+     "raw_type": "journal-article"
+    }
+   ],
+   "best_oa_location": {
+    "id": "pmh:oai:pubmedcentral.nih.gov:8930418",
+    "doi": null,
+    "is_oa": true,
+    "landing_page_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/8930418",
+    "pdf_url": null,
+    "source": {
+     "id": "https://openalex.org/S2764455111",
+     "display_name": "PubMed Central",
+     "issn_l": null,
+     "issn": null,
+     "is_oa": true,
+     "is_in_doaj": false,
+     "is_core": false,
+     "host_organization": "https://openalex.org/I1299303238",
+     "host_organization_name": "National Institutes of Health",
+     "type": "repository"
+    },
+    "license": null,
+    "license_id": null,
+    "version": "acceptedVersion",
+    "is_accepted": true,
+    "is_published": false,
+    "raw_source_name": "Nat Biotechnol",
+    "raw_type": "Text"
+   },
+   "open_access": {
+    "is_oa": true,
+    "oa_status": "green",
+    "oa_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/8930418",
+    "any_repository_has_fulltext": true
+   },
+   "authorships": [
+    {
+     "author_position": "first",
+     "author": {
+      "id": null,
+      "display_name": "James W. Nelson",
+      "orcid": null,
+      "observed_orcids": []
+     },
+     "institutions": [
+      {
+       "id": "https://openalex.org/I107606265",
+       "display_name": "Broad Institute",
+       "ror": "https://ror.org/05a0ya142",
+       "country_code": "US",
+       "type": "nonprofit"
+      },
+      {
+       "id": "https://openalex.org/I1344073410",
+       "display_name": "Howard Hughes Medical Institute",
+       "ror": "https://ror.org/006w34k90",
+       "country_code": "US",
+       "type": "facility"
+      },
+      {
+       "id": "https://openalex.org/I136199984",
+       "display_name": "Harvard University",
+       "ror": "https://ror.org/03vek6s52",
+       "country_code": "US",
+       "type": "education"
+      }
+     ],
+     "countries": [
+      "US"
+     ],
+     "is_corresponding": false,
+     "raw_author_name": "James W. Nelson",
+     "raw_orcid": null
+    },
+    {
+     "author_position": "middle",
+     "author": {
+      "id": "https://openalex.org/A5029181080",
+      "display_name": "Peyton B. Randolph",
+      "orcid": "https://orcid.org/0000-0001-6385-364X",
+      "observed_orcids": [
+       "https://orcid.org/0000-0001-6385-364X"
+      ]
+     },
+     "institutions": [
+      {
+       "id": "https://openalex.org/I107606265",
+       "display_name": "Broad Institute",
+       "ror": "https://ror.org/05a0ya142",
+       "country_code": "US",
+       "type": "nonprofit"
+      },
+      {
+       "id": "https://openalex.org/I1344073410",
+       "display_name": "Howard Hughes Medical Institute",
+       "ror": "https://ror.org/006w34k90",
+       "country_code": "US",
+       "type": "facility"
+      },
+      {
+       "id": "https://openalex.org/I136199984",
+       "display_name": "Harvard University",
+       "ror": "https://ror.org/03vek6s52",
+       "country_code": "US",
+       "type": "education"
+      }
+     ],
+     "countries": [
+      "US"
+     ],
+     "is_corresponding": false,
+     "raw_author_name": "Peyton B. Randolph",
+     "raw_orcid": "https://orcid.org/0000-0001-6385-364X"
+    }
+   ],
+   "cited_by_count": 722,
+   "fwci": 28.8931,
+   "biblio": {
+    "volume": "40",
+    "issue": "3",
+    "first_page": "402",
+    "last_page": "410"
+   },
+   "is_retracted": false,
+   "primary_topic": {
+    "id": "https://openalex.org/T10878",
+    "display_name": "CRISPR and Genetic Engineering",
+    "score": 0.9970999956130981,
+    "subfield": {
+     "id": "https://openalex.org/subfields/1312",
+     "display_name": "Molecular Biology"
+    },
+    "field": {
+     "id": "https://openalex.org/fields/13",
+     "display_name": "Biochemistry, Genetics and Molecular Biology"
+    },
+    "domain": {
+     "id": "https://openalex.org/domains/1",
+     "display_name": "Life Sciences"
+    }
+   },
+   "topics": [
+    {
+     "id": "https://openalex.org/T10878",
+     "display_name": "CRISPR and Genetic Engineering",
+     "score": 0.9970999956130981,
+     "subfield": {
+      "id": "https://openalex.org/subfields/1312",
+      "display_name": "Molecular Biology"
+     },
+     "field": {
+      "id": "https://openalex.org/fields/13",
+      "display_name": "Biochemistry, Genetics and Molecular Biology"
+     },
+     "domain": {
+      "id": "https://openalex.org/domains/1",
+      "display_name": "Life Sciences"
+     }
+    },
+    {
+     "id": "https://openalex.org/T12610",
+     "display_name": "RNA regulation and disease",
+     "score": 0.00279999990016222,
+     "subfield": {
+      "id": "https://openalex.org/subfields/1312",
+      "display_name": "Molecular Biology"
+     },
+     "field": {
+      "id": "https://openalex.org/fields/13",
+      "display_name": "Biochemistry, Genetics and Molecular Biology"
+     },
+     "domain": {
+      "id": "https://openalex.org/domains/1",
+      "display_name": "Life Sciences"
+     }
+    }
+   ],
+   "keywords": [
+    {
+     "id": "https://openalex.org/keywords/prime-editing",
+     "display_name": "prime editing",
+     "score": 0.9950000047683716
+    },
+    {
+     "id": "https://openalex.org/keywords/rna-stability",
+     "display_name": "RNA stability",
+     "score": 0.5960000157356262
+    },
+    {
+     "id": "https://openalex.org/keywords/primer-binding-site",
+     "display_name": "primer binding site",
+     "score": 0.9729999899864197
+    }
+   ],
+   "mesh": [
+    {
+     "descriptor_ui": "D000072669",
+     "descriptor_name": "Gene Editing",
+     "qualifier_ui": "Q000379",
+     "qualifier_name": "methods",
+     "is_major_topic": true
+    },
+    {
+     "descriptor_ui": "D000072669",
+     "descriptor_name": "Gene Editing",
+     "qualifier_ui": "Q000379",
+     "qualifier_name": "methods",
+     "is_major_topic": true
+    },
+    {
+     "descriptor_ui": "D000072669",
+     "descriptor_name": "Gene Editing",
+     "qualifier_ui": "Q000379",
+     "qualifier_name": "methods",
+     "is_major_topic": true
+    }
+   ],
+   "abstract_inverted_index": null,
+   "awards": [
+    {
+     "id": "https://openalex.org/G1187679441",
+     "display_name": null,
+     "funder_award_id": "R01 EB031172",
+     "funder_id": "https://openalex.org/F4320337363",
+     "funder_display_name": "National Institute of Biomedical Imaging and Bioengineering"
+    },
+    {
+     "id": "https://openalex.org/G4630203202",
+     "display_name": null,
+     "funder_award_id": "R35GM118062",
+     "funder_id": "https://openalex.org/F4320306085",
+     "funder_display_name": "U.S. Department of Health and Human Services"
+    }
+   ],
+   "funders": [
+    {
+     "id": "https://openalex.org/F4320306082",
+     "display_name": "Howard Hughes Medical Institute",
+     "ror": "https://ror.org/006w34k90"
+    },
+    {
+     "id": "https://openalex.org/F4320306085",
+     "display_name": "U.S. Department of Health and Human Services",
+     "ror": "https://ror.org/033jnv181"
+    }
+   ],
+   "referenced_works_count": 62,
+   "citation_normalized_percentile": {
+    "value": 0.9989882,
+    "is_in_top_1_percent": true,
+    "is_in_top_10_percent": true
+   }
+  },
+  {
+   "id": "https://openalex.org/W3081580655",
+   "doi": "https://doi.org/10.3390/ijms21176240",
+   "display_name": "CRISPR-Cas9 DNA Base-Editing and Prime-Editing",
+   "publication_year": 2020,
+   "publication_date": "2020-08-28",
+   "ids": {
+    "openalex": "https://openalex.org/W3081580655",
+    "doi": "https://doi.org/10.3390/ijms21176240",
+    "mag": "3081580655",
+    "pmid": "https://pubmed.ncbi.nlm.nih.gov/32872311"
+   },
+   "type": "article",
+   "language": "en",
+   "primary_location": {
+    "id": "doi:10.3390/ijms21176240",
+    "doi": "https://doi.org/10.3390/ijms21176240",
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.3390/ijms21176240",
+    "pdf_url": "https://www.mdpi.com/1422-0067/21/17/6240/pdf?version=1598944845",
+    "source": {
+     "id": "https://openalex.org/S10623703",
+     "display_name": "International Journal of Molecular Sciences",
+     "issn_l": "1422-0067",
+     "issn": [
+      "1422-0067",
+      "1661-6596"
+     ],
+     "is_oa": true,
+     "is_in_doaj": false,
+     "is_core": true,
+     "host_organization": "https://openalex.org/P4310310987",
+     "host_organization_name": "Multidisciplinary Digital Publishing Institute",
+     "type": "journal"
+    },
+    "license": "cc-by",
+    "license_id": "https://openalex.org/licenses/cc-by",
+    "version": "publishedVersion",
+    "is_accepted": true,
+    "is_published": true,
+    "raw_source_name": "International Journal of Molecular Sciences",
+    "raw_type": "journal-article"
+   },
+   "locations": [
+    {
+     "id": "pmh:oai:pubmedcentral.nih.gov:7503568",
+     "doi": null,
+     "is_oa": true,
+     "landing_page_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/7503568",
+     "pdf_url": null,
+     "source": {
+      "id": "https://openalex.org/S2764455111",
+      "display_name": "PubMed Central",
+      "issn_l": null,
+      "issn": null,
+      "is_oa": true,
+      "is_in_doaj": false,
+      "is_core": false,
+      "host_organization": "https://openalex.org/I1299303238",
+      "host_organization_name": "National Institutes of Health",
+      "type": "repository"
+     },
+     "license": "cc-by",
+     "license_id": "https://openalex.org/licenses/cc-by",
+     "version": "submittedVersion",
+     "is_accepted": false,
+     "is_published": false,
+     "raw_source_name": "Int J Mol Sci",
+     "raw_type": "Text"
+    },
+    {
+     "id": "doi:10.3390/ijms21176240",
+     "doi": "https://doi.org/10.3390/ijms21176240",
+     "is_oa": true,
+     "landing_page_url": "https://doi.org/10.3390/ijms21176240",
+     "pdf_url": "https://www.mdpi.com/1422-0067/21/17/6240/pdf?version=1598944845",
+     "source": {
+      "id": "https://openalex.org/S10623703",
+      "display_name": "International Journal of Molecular Sciences",
+      "issn_l": "1422-0067",
+      "issn": [
+       "1422-0067",
+       "1661-6596"
+      ],
+      "is_oa": true,
+      "is_in_doaj": false,
+      "is_core": true,
+      "host_organization": "https://openalex.org/P4310310987",
+      "host_organization_name": "Multidisciplinary Digital Publishing Institute",
+      "type": "journal"
+     },
+     "license": "cc-by",
+     "license_id": "https://openalex.org/licenses/cc-by",
+     "version": "publishedVersion",
+     "is_accepted": true,
+     "is_published": true,
+     "raw_source_name": "International Journal of Molecular Sciences",
+     "raw_type": "journal-article"
+    }
+   ],
+   "best_oa_location": {
+    "id": "doi:10.3390/ijms21176240",
+    "doi": "https://doi.org/10.3390/ijms21176240",
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.3390/ijms21176240",
+    "pdf_url": "https://www.mdpi.com/1422-0067/21/17/6240/pdf?version=1598944845",
+    "source": {
+     "id": "https://openalex.org/S10623703",
+     "display_name": "International Journal of Molecular Sciences",
+     "issn_l": "1422-0067",
+     "issn": [
+      "1422-0067",
+      "1661-6596"
+     ],
+     "is_oa": true,
+     "is_in_doaj": false,
+     "is_core": true,
+     "host_organization": "https://openalex.org/P4310310987",
+     "host_organization_name": "Multidisciplinary Digital Publishing Institute",
+     "type": "journal"
+    },
+    "license": "cc-by",
+    "license_id": "https://openalex.org/licenses/cc-by",
+    "version": "publishedVersion",
+    "is_accepted": true,
+    "is_published": true,
+    "raw_source_name": "International Journal of Molecular Sciences",
+    "raw_type": "journal-article"
+   },
+   "open_access": {
+    "is_oa": true,
+    "oa_status": "gold",
+    "oa_url": "https://www.mdpi.com/1422-0067/21/17/6240/pdf?version=1598944845",
+    "any_repository_has_fulltext": true
+   },
+   "authorships": [
+    {
+     "author_position": "first",
+     "author": {
+      "id": "https://openalex.org/A5002164193",
+      "display_name": "Ariel Kantor",
+      "orcid": null,
+      "observed_orcids": []
+     },
+     "institutions": [
+      {
+       "id": "https://openalex.org/I40120149",
+       "display_name": "University of Oxford",
+       "ror": "https://ror.org/052gg0110",
+       "country_code": "GB",
+       "type": "education"
+      },
+      {
+       "id": "https://openalex.org/I4210088942",
+       "display_name": "NIHR Oxford Biomedical Research Centre",
+       "ror": "https://ror.org/00aps1a34",
+       "country_code": "GB",
+       "type": "government"
+      },
+      {
+       "id": "https://openalex.org/I4210147381",
+       "display_name": "Oxford University Hospitals NHS Trust",
+       "ror": "https://ror.org/03h2bh287",
+       "country_code": "GB",
+       "type": "healthcare"
+      }
+     ],
+     "countries": [
+      "GB"
+     ],
+     "is_corresponding": true,
+     "raw_author_name": "Ariel Kantor",
+     "raw_orcid": null
+    },
+    {
+     "author_position": "middle",
+     "author": {
+      "id": "https://openalex.org/A5091479881",
+      "display_name": "Michelle E. McClements",
+      "orcid": "https://orcid.org/0000-0002-2941-4464",
+      "observed_orcids": [
+       "https://orcid.org/0000-0002-2941-4464"
+      ]
+     },
+     "institutions": [
+      {
+       "id": "https://openalex.org/I40120149",
+       "display_name": "University of Oxford",
+       "ror": "https://ror.org/052gg0110",
+       "country_code": "GB",
+       "type": "education"
+      },
+      {
+       "id": "https://openalex.org/I4210088942",
+       "display_name": "NIHR Oxford Biomedical Research Centre",
+       "ror": "https://ror.org/00aps1a34",
+       "country_code": "GB",
+       "type": "government"
+      },
+      {
+       "id": "https://openalex.org/I4210147381",
+       "display_name": "Oxford University Hospitals NHS Trust",
+       "ror": "https://ror.org/03h2bh287",
+       "country_code": "GB",
+       "type": "healthcare"
+      }
+     ],
+     "countries": [
+      "GB"
+     ],
+     "is_corresponding": false,
+     "raw_author_name": "Michelle McClements",
+     "raw_orcid": "https://orcid.org/0000-0002-2941-4464"
+    }
+   ],
+   "cited_by_count": 472,
+   "fwci": 12.515,
+   "biblio": {
+    "volume": "21",
+    "issue": "17",
+    "first_page": "6240",
+    "last_page": "6240"
+   },
+   "is_retracted": false,
+   "primary_topic": {
+    "id": "https://openalex.org/T10878",
+    "display_name": "CRISPR and Genetic Engineering",
+    "score": 0.9984999895095825,
+    "subfield": {
+     "id": "https://openalex.org/subfields/1312",
+     "display_name": "Molecular Biology"
+    },
+    "field": {
+     "id": "https://openalex.org/fields/13",
+     "display_name": "Biochemistry, Genetics and Molecular Biology"
+    },
+    "domain": {
+     "id": "https://openalex.org/domains/1",
+     "display_name": "Life Sciences"
+    }
+   },
+   "topics": [
+    {
+     "id": "https://openalex.org/T10878",
+     "display_name": "CRISPR and Genetic Engineering",
+     "score": 0.9984999895095825,
+     "subfield": {
+      "id": "https://openalex.org/subfields/1312",
+      "display_name": "Molecular Biology"
+     },
+     "field": {
+      "id": "https://openalex.org/fields/13",
+      "display_name": "Biochemistry, Genetics and Molecular Biology"
+     },
+     "domain": {
+      "id": "https://openalex.org/domains/1",
+      "display_name": "Life Sciences"
+     }
+    },
+    {
+     "id": "https://openalex.org/T12610",
+     "display_name": "RNA regulation and disease",
+     "score": 0.000699999975040555,
+     "subfield": {
+      "id": "https://openalex.org/subfields/1312",
+      "display_name": "Molecular Biology"
+     },
+     "field": {
+      "id": "https://openalex.org/fields/13",
+      "display_name": "Biochemistry, Genetics and Molecular Biology"
+     },
+     "domain": {
+      "id": "https://openalex.org/domains/1",
+      "display_name": "Life Sciences"
+     }
+    }
+   ],
+   "keywords": [
+    {
+     "id": "https://openalex.org/keywords/crispr-cas9",
+     "display_name": "CRISPR/Cas9",
+     "score": 0.9570000171661377
+    },
+    {
+     "id": "https://openalex.org/keywords/prime-editing",
+     "display_name": "prime editing",
+     "score": 0.9779999852180481
+    },
+    {
+     "id": "https://openalex.org/keywords/cytosine-base-editors",
+     "display_name": "cytosine base editors",
+     "score": 0.996999979019165
+    }
+   ],
+   "mesh": [
+    {
+     "descriptor_ui": "D000072669",
+     "descriptor_name": "Gene Editing",
+     "qualifier_ui": "Q000379",
+     "qualifier_name": "methods",
+     "is_major_topic": false
+    },
+    {
+     "descriptor_ui": "D000072669",
+     "descriptor_name": "Gene Editing",
+     "qualifier_ui": "Q000379",
+     "qualifier_name": "methods",
+     "is_major_topic": false
+    },
+    {
+     "descriptor_ui": "D000072669",
+     "descriptor_name": "Gene Editing",
+     "qualifier_ui": "Q000379",
+     "qualifier_name": "methods",
+     "is_major_topic": false
+    }
+   ],
+   "abstract_inverted_index": {
+    "Many": [
+     0
+    ],
+    "genetic": [
+     1
+    ],
+    "diseases": [
+     2
+    ],
+    "and": [
+     3
+    ],
+    "undesirable": [
+     4
+    ],
+    "traits": [
+     5
+    ],
+    "are": [
+     6
+    ],
+    "due": [
+     7
+    ],
+    "to": [
+     8
+    ],
+    "base-pair": [
+     9
+    ],
+    "alterations": [
+     10
+    ],
+    "in": [
+     11
+    ],
+    "genomic": [
+     12
+    ],
+    "DNA.": [
+     13
+    ],
+    "Base-editing,": [
+     14
+    ],
+    "the": [
+     15
+    ],
+    "newest": [
+     16
+    ],
+    "evolution": [
+     17
+    ],
+    "of": [
+     18
+    ],
+    "clustered": [
+     19
+    ],
+    "regularly": [
+     20
+    ],
+    "interspaced": [
+     21
+    ],
+    "short": [
+     22
+    ],
+    "palindromic": [
+     23
+    ],
+    "repeats": [
+     24
+    ]
+   },
+   "awards": [
+    {
+     "id": "https://openalex.org/G4957989404",
+     "display_name": "NIHR Senior Investigator Award",
+     "funder_award_id": "NF-SI-0515-10047",
+     "funder_id": "https://openalex.org/F4320319990",
+     "funder_display_name": "National Institute for Health and Care Research"
+    },
+    {
+     "id": "https://openalex.org/G6478192530",
+     "display_name": null,
+     "funder_award_id": "MC_PC_18059",
+     "funder_id": "https://openalex.org/F4320334626",
+     "funder_display_name": "Medical Research Council"
+    }
+   ],
+   "funders": [
+    {
+     "id": "https://openalex.org/F4320319990",
+     "display_name": "National Institute for Health and Care Research",
+     "ror": "https://ror.org/0187kwz08"
+    },
+    {
+     "id": "https://openalex.org/F4320334626",
+     "display_name": "Medical Research Council",
+     "ror": "https://ror.org/03x94j517"
+    }
+   ],
+   "referenced_works_count": 134,
+   "citation_normalized_percentile": {
+    "value": 0.9945016,
+    "is_in_top_1_percent": true,
+    "is_in_top_10_percent": true
+   }
+  }
+ ],
+ "group_by": []
+}

@@ -1,0 +1,932 @@
+{
+ "data": {
+  "id": "aHR0cHM6Ly9zaGFyZS5vc2YuaW8vYXBpL3YzL2luZGV4LWNhcmQtc2VhcmNoP2NhcmRTZWFyY2hUZXh0PWFsemhlaW1lcitFRUcmY2FyZFNlYXJjaEZpbHRlciU1QmFjY2Vzc1NlcnZpY2UlNUQ9aHR0cHMlM0ElMkYlMkZvc2YuaW8lMkYmcGFnZSU1QnNpemUlNUQ9MiZjYXJkU2VhcmNoRmlsdGVyJTVCcmVzb3VyY2VUeXBlJTVEPVByb2plY3QlMkNQcm9qZWN0Q29tcG9uZW50JTJDUmVnaXN0cmF0aW9uJTJDUmVnaXN0cmF0aW9uQ29tcG9uZW50",
+  "type": "index-card-search",
+  "relationships": {
+   "searchResultPage": {
+    "data": [
+     {
+      "id": "1792525096297516791-0",
+      "type": "search-result"
+     },
+     {
+      "id": "1792525096297516791-1",
+      "type": "search-result"
+     }
+    ],
+    "links": {
+     "next": {
+      "href": "https://share.osf.io/api/v3/index-card-search?cardSearchText%5B%2A%5D=alzheimer+EEG&page%5Bcursor%5D=WyJPQyIsIDIsIDYsIDJd&cardSearchFilter%5BresourceType%5D%5Bany-of%5D=ProjectComponent%2CProject%2CRegistration%2CRegistrationComponent&cardSearchFilter%5BaccessService%5D%5Bany-of%5D=https%3A%2F%2Fosf.io%2F"
+     },
+     "first": {
+      "href": "https://share.osf.io/api/v3/index-card-search?cardSearchText%5B%2A%5D=alzheimer+EEG&page%5Bcursor%5D=WyJPQyIsIDIsIDYsIDBd&cardSearchFilter%5BresourceType%5D%5Bany-of%5D=ProjectComponent%2CProject%2CRegistration%2CRegistrationComponent&cardSearchFilter%5BaccessService%5D%5Bany-of%5D=https%3A%2F%2Fosf.io%2F"
+     }
+    }
+   },
+   "relatedProperties": {
+    "data": [
+     {
+      "id": "1792525096297516791-2",
+      "type": "related-property-path"
+     },
+     {
+      "id": "1792525096297516791-3",
+      "type": "related-property-path"
+     },
+     {
+      "id": "1792525096297516791-4",
+      "type": "related-property-path"
+     },
+     {
+      "id": "1792525096297516791-5",
+      "type": "related-property-path"
+     },
+     {
+      "id": "1792525096297516791-6",
+      "type": "related-property-path"
+     },
+     {
+      "id": "1792525096297516791-7",
+      "type": "related-property-path"
+     },
+     {
+      "id": "1792525096297516791-8",
+      "type": "related-property-path"
+     },
+     {
+      "id": "1792525096297516791-9",
+      "type": "related-property-path"
+     },
+     {
+      "id": "1792525096297516791-10",
+      "type": "related-property-path"
+     }
+    ]
+   }
+  },
+  "attributes": {
+   "totalResultCount": 6
+  },
+  "links": {
+   "self": "https://share.osf.io/api/v3/index-card-search?cardSearchText=alzheimer+EEG&cardSearchFilter%5BaccessService%5D=https%3A%2F%2Fosf.io%2F&page%5Bsize%5D=2&cardSearchFilter%5BresourceType%5D=Project%2CProjectComponent%2CRegistration%2CRegistrationComponent"
+  }
+ },
+ "included": [
+  {
+   "id": "1792525096297516791-1",
+   "type": "search-result",
+   "attributes": {},
+   "relationships": {
+    "indexCard": {
+     "data": {
+      "id": "4e01aabc-865d-4a08-8621-0c5f2a8d1782",
+      "type": "index-card"
+     }
+    }
+   }
+  },
+  {
+   "id": "1792525096297516791-0",
+   "type": "search-result",
+   "relationships": {
+    "indexCard": {
+     "data": {
+      "id": "af68a896-23e2-435a-81ca-4d719df396ea",
+      "type": "index-card"
+     }
+    }
+   },
+   "attributes": {}
+  },
+  {
+   "id": "4e01aabc-865d-4a08-8621-0c5f2a8d1782",
+   "type": "index-card",
+   "attributes": {
+    "resourceIdentifier": [
+     "https://osf.io/5xnwj"
+    ],
+    "resourceMetadata": {
+     "@id": "https://osf.io/5xnwj",
+     "resourceType": [
+      {
+       "@id": "ProjectComponent"
+      }
+     ],
+     "dateCreated": [
+      {
+       "@value": "2024-12-17"
+      }
+     ],
+     "creator": [
+      {
+       "@id": "https://osf.io/bw4kg",
+       "resourceType": [
+        {
+         "@id": "Agent"
+        },
+        {
+         "@id": "Person"
+        }
+       ],
+       "identifier": [
+        {
+         "@value": "https://orcid.org/0000-0001-7596-0979"
+        },
+        {
+         "@value": "https://osf.io/bw4kg"
+        }
+       ],
+       "sameAs": [
+        {
+         "@id": "https://orcid.org/0000-0001-7596-0979"
+        }
+       ],
+       "name": [
+        {
+         "@value": "Josef Priller"
+        }
+       ]
+      },
+      {
+       "@id": "https://osf.io/e9myx",
+       "resourceType": [
+        {
+         "@id": "Agent"
+        },
+        {
+         "@id": "Person"
+        }
+       ],
+       "identifier": [
+        {
+         "@value": "https://orcid.org/0000-0002-8348-5554"
+        },
+        {
+         "@value": "https://osf.io/e9myx"
+        }
+       ],
+       "sameAs": [
+        {
+         "@id": "https://orcid.org/0000-0002-8348-5554"
+        }
+       ],
+       "name": [
+        {
+         "@value": "Laura Hainke"
+        }
+       ]
+      },
+      {
+       "@id": "https://osf.io/mdzh7",
+       "resourceType": [
+        {
+         "@id": "Agent"
+        },
+        {
+         "@id": "Person"
+        }
+       ],
+       "identifier": [
+        {
+         "@value": "https://osf.io/mdzh7"
+        }
+       ],
+       "name": [
+        {
+         "@value": "Paul Taylor"
+        }
+       ]
+      },
+      {
+       "@id": "https://osf.io/nf26x",
+       "resourceType": [
+        {
+         "@id": "Agent"
+        },
+        {
+         "@id": "Person"
+        }
+       ],
+       "identifier": [
+        {
+         "@value": "https://orcid.org/0000-0002-8572-9268"
+        },
+        {
+         "@value": "https://osf.io/nf26x"
+        }
+       ],
+       "sameAs": [
+        {
+         "@id": "https://orcid.org/0000-0002-8572-9268"
+        }
+       ],
+       "name": [
+        {
+         "@value": "Manuel Spitschan"
+        }
+       ]
+      },
+      {
+       "@id": "https://osf.io/wp25k",
+       "resourceType": [
+        {
+         "@id": "Agent"
+        },
+        {
+         "@id": "Person"
+        }
+       ],
+       "identifier": [
+        {
+         "@value": "https://orcid.org/0000-0002-0949-8939"
+        },
+        {
+         "@value": "https://osf.io/wp25k"
+        }
+       ],
+       "sameAs": [
+        {
+         "@id": "https://orcid.org/0000-0002-0949-8939"
+        }
+       ],
+       "name": [
+        {
+         "@value": "James Dowsett"
+        }
+       ]
+      }
+     ],
+     "dateCopyrighted": [
+      {
+       "@value": "2024"
+      }
+     ],
+     "identifier": [
+      {
+       "@value": "https://osf.io/5xnwj"
+      }
+     ],
+     "isPartOf": [
+      {
+       "@id": "https://osf.io/gq73d"
+      }
+     ],
+     "dateModified": [
+      {
+       "@value": "2024-12-18"
+      }
+     ],
+     "rights": [
+      {
+       "@id": "https://creativecommons.org/licenses/by/4.0/legalcode",
+       "identifier": [
+        {
+         "@value": "https://creativecommons.org/licenses/by/4.0/legalcode"
+        }
+       ],
+       "name": [
+        {
+         "@value": "CC-By Attribution 4.0 International"
+        }
+       ]
+      }
+     ],
+     "title": [
+      {
+       "@value": "Raw Data: Subjects 21 - 32"
+      }
+     ],
+     "keyword": [
+      {
+       "@value": "40 Hz"
+      },
+      {
+       "@value": "Alzheimer"
+      },
+      {
+       "@value": "EEG"
+      },
+      {
+       "@value": "PSG"
+      },
+      {
+       "@value": "flicker"
+      },
+      {
+       "@value": "gamma"
+      },
+      {
+       "@value": "light"
+      },
+      {
+       "@value": "sensory stimulation"
+      },
+      {
+       "@value": "sleep"
+      }
+     ],
+     "usage": [
+      {
+       "temporalCoverage": [
+        {
+         "@value": "2026-09",
+         "@type": "xsd:gYearMonth"
+        }
+       ],
+       "downloadSessionCount": [
+        {
+         "@value": "0",
+         "@type": "xsd:integer"
+        }
+       ],
+       "downloadCount": [
+        {
+         "@value": "0",
+         "@type": "xsd:integer"
+        }
+       ],
+       "viewCount": [
+        {
+         "@value": "3",
+         "@type": "xsd:integer"
+        }
+       ],
+       "foaf:primaryTopic": [
+        {
+         "@id": "https://osf.io/5xnwj"
+        }
+       ],
+       "viewSessionCount": [
+        {
+         "@value": "3",
+         "@type": "xsd:integer"
+        }
+       ],
+       "accessService": [
+        {
+         "@id": "https://osf.io"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "links": {
+    "self": "https://share.osf.io/trove/index-card/4e01aabc-865d-4a08-8621-0c5f2a8d1782"
+   }
+  },
+  {
+   "id": "af68a896-23e2-435a-81ca-4d719df396ea",
+   "type": "index-card",
+   "attributes": {
+    "resourceIdentifier": [
+     "https://osf.io/5sfa4"
+    ],
+    "resourceMetadata": {
+     "@id": "https://osf.io/5sfa4",
+     "resourceType": [
+      {
+       "@id": "Project"
+      }
+     ],
+     "dateCreated": [
+      {
+       "@value": "2022-02-17"
+      }
+     ],
+     "creator": [
+      {
+       "@id": "https://osf.io/6qwxg",
+       "resourceType": [
+        {
+         "@id": "Agent"
+        },
+        {
+         "@id": "Person"
+        }
+       ],
+       "identifier": [
+        {
+         "@value": "https://orcid.org/0000-0002-6170-5608"
+        },
+        {
+         "@value": "https://osf.io/6qwxg"
+        }
+       ],
+       "sameAs": [
+        {
+         "@id": "https://orcid.org/0000-0002-6170-5608"
+        }
+       ],
+       "foaf:familyName": [
+        {
+         "@value": "Erdal"
+        }
+       ],
+       "foaf:givenName": [
+        {
+         "@value": "Furkan"
+        }
+       ],
+       "name": [
+        {
+         "@value": "Furkan Erdal"
+        }
+       ]
+      },
+      {
+       "@id": "https://osf.io/8gb4d",
+       "resourceType": [
+        {
+         "@id": "Agent"
+        },
+        {
+         "@id": "Person"
+        }
+       ],
+       "identifier": [
+        {
+         "@value": "https://orcid.org/0000-0002-3941-3019"
+        },
+        {
+         "@value": "https://osf.io/8gb4d"
+        }
+       ],
+       "sameAs": [
+        {
+         "@id": "https://orcid.org/0000-0002-3941-3019"
+        }
+       ],
+       "foaf:familyName": [
+        {
+         "@value": "Bölükbaş"
+        }
+       ],
+       "foaf:givenName": [
+        {
+         "@value": "Burcu"
+        }
+       ],
+       "name": [
+        {
+         "@value": "Burcu Bölükbaş"
+        }
+       ]
+      },
+      {
+       "@id": "https://osf.io/ar3jf",
+       "resourceType": [
+        {
+         "@id": "Agent"
+        },
+        {
+         "@id": "Person"
+        }
+       ],
+       "identifier": [
+        {
+         "@value": "https://osf.io/ar3jf"
+        }
+       ],
+       "foaf:familyName": [
+        {
+         "@value": "Hanoğlu"
+        }
+       ],
+       "foaf:givenName": [
+        {
+         "@value": "Lütfü"
+        }
+       ],
+       "name": [
+        {
+         "@value": "Lütfü Hanoğlu"
+        }
+       ]
+      },
+      {
+       "@id": "https://osf.io/gujm9",
+       "resourceType": [
+        {
+         "@id": "Agent"
+        },
+        {
+         "@id": "Person"
+        }
+       ],
+       "identifier": [
+        {
+         "@value": "https://osf.io/gujm9"
+        },
+        {
+         "@value": "https://www.linkedin.com/www.linkedin.com/in/rümeysa-duygun-2aa445127"
+        }
+       ],
+       "foaf:familyName": [
+        {
+         "@value": "Duygun"
+        }
+       ],
+       "foaf:givenName": [
+        {
+         "@value": "Rümeysa"
+        }
+       ],
+       "name": [
+        {
+         "@value": "Rümeysa Duygun"
+        }
+       ]
+      },
+      {
+       "@id": "https://osf.io/nsfua",
+       "resourceType": [
+        {
+         "@id": "Agent"
+        },
+        {
+         "@id": "Person"
+        }
+       ],
+       "identifier": [
+        {
+         "@value": "https://orcid.org/0000-0002-0860-0524"
+        },
+        {
+         "@value": "https://osf.io/nsfua"
+        }
+       ],
+       "sameAs": [
+        {
+         "@id": "https://orcid.org/0000-0002-0860-0524"
+        }
+       ],
+       "foaf:familyName": [
+        {
+         "@value": "Güntekin"
+        }
+       ],
+       "foaf:givenName": [
+        {
+         "@value": "Bahar"
+        }
+       ],
+       "name": [
+        {
+         "@value": "Bahar Güntekin"
+        }
+       ]
+      },
+      {
+       "@id": "https://osf.io/rjmzk",
+       "resourceType": [
+        {
+         "@id": "Agent"
+        },
+        {
+         "@id": "Person"
+        }
+       ],
+       "identifier": [
+        {
+         "@value": "https://orcid.org/0000-0002-7756-4387"
+        },
+        {
+         "@value": "https://osf.io/rjmzk"
+        }
+       ],
+       "sameAs": [
+        {
+         "@id": "https://orcid.org/0000-0002-7756-4387"
+        }
+       ],
+       "foaf:familyName": [
+        {
+         "@value": "Yener"
+        }
+       ],
+       "foaf:givenName": [
+        {
+         "@value": "Görsev"
+        }
+       ],
+       "name": [
+        {
+         "@value": "Görsev Yener"
+        }
+       ]
+      }
+     ],
+     "hasPart": [
+      {
+       "@id": "https://osf.io/6zktj",
+       "resourceType": [
+        {
+         "@id": "ProjectComponent"
+        }
+       ],
+       "dateCreated": [
+        {
+         "@value": "2022-02-17"
+        }
+       ],
+       "creator": [
+        {
+         "@id": "https://osf.io/6qwxg",
+         "resourceType": [
+          {
+           "@id": "Agent"
+          },
+          {
+           "@id": "Person"
+          }
+         ],
+         "identifier": [
+          {
+           "@value": "https://orcid.org/0000-0002-6170-5608"
+          },
+          {
+           "@value": "https://osf.io/6qwxg"
+          }
+         ],
+         "sameAs": [
+          {
+           "@id": "https://orcid.org/0000-0002-6170-5608"
+          }
+         ],
+         "foaf:familyName": [
+          {
+           "@value": "Erdal"
+          }
+         ],
+         "foaf:givenName": [
+          {
+           "@value": "Furkan"
+          }
+         ],
+         "name": [
+          {
+           "@value": "Furkan Erdal"
+          }
+         ]
+        },
+        {
+         "@id": "https://osf.io/8gb4d",
+         "resourceType": [
+          {
+           "@id": "Agent"
+          },
+          {
+           "@id": "Person"
+          }
+         ],
+         "identifier": [
+          {
+           "@value": "https://orcid.org/0000-0002-3941-3019"
+          },
+          {
+           "@value": "https://osf.io/8gb4d"
+          }
+         ],
+         "sameAs": [
+          {
+           "@id": "https://orcid.org/0000-0002-3941-3019"
+          }
+         ],
+         "foaf:familyName": [
+          {
+           "@value": "Bölükbaş"
+          }
+         ],
+         "foaf:givenName": [
+          {
+           "@value": "Burcu"
+          }
+         ],
+         "name": [
+          {
+           "@value": "Burcu Bölükbaş"
+          }
+         ]
+        },
+        {
+         "@id": "https://osf.io/gujm9",
+         "resourceType": [
+          {
+           "@id": "Agent"
+          },
+          {
+           "@id": "Person"
+          }
+         ],
+         "identifier": [
+          {
+           "@value": "https://osf.io/gujm9"
+          },
+          {
+           "@value": "https://www.linkedin.com/www.linkedin.com/in/rümeysa-duygun-2aa445127"
+          }
+         ],
+         "foaf:familyName": [
+          {
+           "@value": "Duygun"
+          }
+         ],
+         "foaf:givenName": [
+          {
+           "@value": "Rümeysa"
+          }
+         ],
+         "name": [
+          {
+           "@value": "Rümeysa Duygun"
+          }
+         ]
+        },
+        {
+         "@id": "https://osf.io/nsfua",
+         "resourceType": [
+          {
+           "@id": "Agent"
+          },
+          {
+           "@id": "Person"
+          }
+         ],
+         "identifier": [
+          {
+           "@value": "https://orcid.org/0000-0002-0860-0524"
+          },
+          {
+           "@value": "https://osf.io/nsfua"
+          }
+         ],
+         "sameAs": [
+          {
+           "@id": "https://orcid.org/0000-0002-0860-0524"
+          }
+         ],
+         "foaf:familyName": [
+          {
+           "@value": "Güntekin"
+          }
+         ],
+         "foaf:givenName": [
+          {
+           "@value": "Bahar"
+          }
+         ],
+         "name": [
+          {
+           "@value": "Bahar Güntekin"
+          }
+         ]
+        },
+        {
+         "@id": "https://osf.io/rjmzk",
+         "resourceType": [
+          {
+           "@id": "Agent"
+          },
+          {
+           "@id": "Person"
+          }
+         ],
+         "identifier": [
+          {
+           "@value": "https://orcid.org/0000-0002-7756-4387"
+          },
+          {
+           "@value": "https://osf.io/rjmzk"
+          }
+         ],
+         "sameAs": [
+          {
+           "@id": "https://orcid.org/0000-0002-7756-4387"
+          }
+         ],
+         "foaf:familyName": [
+          {
+           "@value": "Yener"
+          }
+         ],
+         "foaf:givenName": [
+          {
+           "@value": "Görsev"
+          }
+         ],
+         "name": [
+          {
+           "@value": "Görsev Yener"
+          }
+         ]
+        }
+       ],
+       "identifier": [
+        {
+         "@value": "https://osf.io/6zktj"
+        }
+       ],
+       "publisher": [
+        {
+         "@id": "https://osf.io",
+         "resourceType": [
+          {
+           "@id": "Agent"
+          },
+          {
+           "@id": "Organization"
+          }
+         ],
+         "identifier": [
+          {
+           "@value": "https://osf.io"
+          }
+         ],
+         "name": [
+          {
+           "@value": "OSF"
+          }
+         ]
+        }
+       ],
+       "title": [
+        {
+         "@value": "Data"
+        }
+       ]
+      }
+     ],
+     "identifier": [
+      {
+       "@value": "https://osf.io/5sfa4"
+      }
+     ],
+     "dateModified": [
+      {
+       "@value": "2023-07-09"
+      }
+     ],
+     "title": [
+      {
+       "@value": "Resting-state EEG Gamma in Alzheimer"
+      }
+     ],
+     "storageByteCount": [
+      {
+       "@value": "0",
+       "@type": "xsd:integer"
+      }
+     ],
+     "usage": [
+      {
+       "viewSessionCount": [
+        {
+         "@value": "2",
+         "@type": "xsd:integer"
+        }
+       ],
+       "viewCount": [
+        {
+         "@value": "3",
+         "@type": "xsd:integer"
+        }
+       ],
+       "foaf:primaryTopic": [
+        {
+         "@id": "https://osf.io/5sfa4"
+        }
+       ],
+       "downloadSessionCount": [
+        {
+         "@value": "0",
+         "@type": "xsd:integer"
+        }
+       ],
+       "downloadCount": [
+        {
+         "@value": "0",
+         "@type": "xsd:integer"
+        }
+       ],
+       "accessService": [
+        {
+         "@id": "https://osf.io"
+        }
+       ],
+       "temporalCoverage": [
+        {
+         "@value": "2026-09",
+         "@type": "xsd:gYearMonth"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "links": {
+    "self": "https://share.osf.io/trove/index-card/af68a896-23e2-435a-81ca-4d719df396ea"
+   }
+  }
+ ]
+}

@@ -1,0 +1,39 @@
+{
+ "responseHeader": {
+  "status": 0,
+  "QTime": 3
+ },
+ "response": {
+  "numFound": 485,
+  "start": 0,
+  "maxScore": 203.06775,
+  "numFoundExact": true,
+  "docs": [
+   {
+    "symbol": "LALTOP",
+    "hgnc_id": "HGNC:58132",
+    "score": 203.06775
+   },
+   {
+    "symbol": "LCAL1",
+    "hgnc_id": "HGNC:25837",
+    "score": 203.06775
+   },
+   {
+    "symbol": "LCIIAR",
+    "hgnc_id": "HGNC:56346",
+    "score": 203.06775
+   },
+   {
+    "hgnc_id": "HGNC:48498",
+    "symbol": "LUCAT1",
+    "score": 203.06775
+   },
+   {
+    "hgnc_id": "HGNC:55933",
+    "symbol": "CHILL1",
+    "score": 203.06775
+   }
+  ]
+ }
+}

@@ -1,0 +1,15 @@
+{
+ "query_id": "f9c2ce90-30cd-44ab-9d77-707290010301",
+ "result_type": "entry",
+ "total_count": 31,
+ "result_set": [
+  {
+   "identifier": "6LUD",
+   "score": 1.0
+  },
+  {
+   "identifier": "7JXP",
+   "score": 0.9561229890811113
+  }
+ ]
+}

@@ -1,0 +1,39 @@
+{
+ "version": "6.9",
+ "hitCount": 1152,
+ "request": {
+  "id": "30742122",
+  "source": "MED",
+  "offSet": 0,
+  "pageSize": 2
+ },
+ "citationList": {
+  "citation": [
+   {
+    "source": "MED",
+    "id": "42843924",
+    "citationType": "journal article",
+    "title": "TCASIA: an integrative atlas linking alternative splicing landscapes for cancer immunotherapy.",
+    "authorString": "Zhang Y, Guo Y, Wang H, Xiong Y, Chen M, Cai Y, Li X, Wu J, Hao J, Jin SH, Zhang W, Dai L, Liu H, Li J, Zhang J, Hecht M, Frey B, Gaipl US, Chen X, Li X, Wang S, Ma H, Zhou JG.",
+    "journalAbbreviation": "J Immunother Cancer",
+    "pubYear": 2026,
+    "volume": "14",
+    "issue": "10",
+    "pageInfo": "e015364",
+    "citedByCount": 0
+   },
+   {
+    "source": "MED",
+    "id": "42721675",
+    "citationType": "review; journal article",
+    "title": "Context-dependent roles of cGAS-STING signaling in glioblastoma: Therapeutic resistance, drug delivery, and heterogeneity-informed translation.",
+    "authorString": "Long Y, Jiang T, Long Y, Qin Y, Cheng H, Li B, Zhu K, Li N, Jiang T.",
+    "journalAbbreviation": "Biomed Pharmacother",
+    "pubYear": 2026,
+    "volume": "203",
+    "pageInfo": "119915",
+    "citedByCount": 0
+   }
+  ]
+ }
+}

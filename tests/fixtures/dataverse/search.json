@@ -1,0 +1,78 @@
+{
+ "status": "OK",
+ "data": {
+  "q": "glioblastoma",
+  "total_count": 39,
+  "start": 0,
+  "spelling_alternatives": {},
+  "items": [
+   {
+    "name": "3D Cell Culture Confocal Images for Glioblastoma & Astrocyte Interaction",
+    "type": "dataset",
+    "url": "https://doi.org/10.7910/DVN/QRYIQZ",
+    "global_id": "doi:10.7910/DVN/QRYIQZ",
+    "description": "Confocal Images of 3D Cell Culture for Glioblastoma–Astrocyte Interactions. Normalized confocal image data were acquired from two technical replicates. This study aimed to investigate and predict the migratory and proliferative behavior of U87 human glioblastoma cells in a three-dimensional (3D) co-",
+    "published_at": "2026-08-07T04:04:20Z",
+    "publisher": "Harvard Dataverse",
+    "citationHtml": "Sokullu, Emel, 2026, \"3D Cell Culture Confocal Images for Glioblastoma &amp; Astrocyte Interaction\", <a href=\"https://doi.org/10.7910/DVN/QRYIQZ\" target=\"_blank\">https://doi.org/10.7910/DVN/QRYIQZ</a>, Harvard Dataverse, V1",
+    "identifier_of_dataverse": "harvard",
+    "name_of_dataverse": "Harvard Dataverse",
+    "citation": "Sokullu, Emel, 2026, \"3D Cell Culture Confocal Images for Glioblastoma & Astrocyte Interaction\", https://doi.org/10.7910/DVN/QRYIQZ, Harvard Dataverse, V1",
+    "publicationStatuses": [
+     "Published"
+    ],
+    "storageIdentifier": "s3://10.7910/DVN/QRYIQZ",
+    "keywords": [
+     "U87 human glioblastoma"
+    ],
+    "subjects": [
+     "Computer and Information Science",
+     "Engineering",
+     "Medicine, Health and Life Sciences",
+     "Physics"
+    ],
+    "fileCount": 2,
+    "versionId": 744243,
+    "versionState": "RELEASED",
+    "majorVersion": 1,
+    "minorVersion": 0,
+    "createdAt": "2026-08-06T16:39:53Z",
+    "updatedAt": "2026-08-07T04:04:20Z",
+    "authors": [
+     "Sokullu, Emel"
+    ]
+   },
+   {
+    "name": "Somatic Mutation Profiles of Glioblastoma Multiforme from TCGA",
+    "type": "dataset",
+    "url": "https://doi.org/10.7910/DVN/ACJ69K",
+    "global_id": "doi:10.7910/DVN/ACJ69K",
+    "description": "This dataset contains whole-exome sequencing (WXS)-based somatic mutation data for Glioblastoma Multiforme (GBM) patients, derived from The Cancer Genome Atlas (TCGA). It includes information on genomic alterations such as single nucleotide variants (SNVs) and small insertions/deletions (indels), an",
+    "published_at": "2025-08-03T16:04:16Z",
+    "publisher": "Harvard Dataverse",
+    "citationHtml": "Kyle Ellrott, Matthew H. Bailey, Gordon Saksena, Li Ding, et. al., 2025, \"Somatic Mutation Profiles of Glioblastoma Multiforme from TCGA\", <a href=\"https://doi.org/10.7910/DVN/ACJ69K\" target=\"_blank\">https://doi.org/10.7910/DVN/ACJ69K</a>, Harvard Dataverse, V1",
+    "identifier_of_dataverse": "harvard",
+    "name_of_dataverse": "Harvard Dataverse",
+    "citation": "Kyle Ellrott, Matthew H. Bailey, Gordon Saksena, Li Ding, et. al., 2025, \"Somatic Mutation Profiles of Glioblastoma Multiforme from TCGA\", https://doi.org/10.7910/DVN/ACJ69K, Harvard Dataverse, V1",
+    "publicationStatuses": [
+     "Published"
+    ],
+    "storageIdentifier": "s3://10.7910/DVN/ACJ69K",
+    "subjects": [
+     "Medicine, Health and Life Sciences"
+    ],
+    "fileCount": 1,
+    "versionId": 499733,
+    "versionState": "RELEASED",
+    "majorVersion": 1,
+    "minorVersion": 0,
+    "createdAt": "2025-08-03T15:35:06Z",
+    "updatedAt": "2025-08-03T16:04:16Z",
+    "authors": [
+     "Kyle Ellrott, Matthew H. Bailey, Gordon Saksena, Li Ding, et. al."
+    ]
+   }
+  ],
+  "count_in_response": 2
+ }
+}

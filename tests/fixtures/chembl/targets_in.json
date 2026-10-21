@@ -1,0 +1,113 @@
+{
+ "page_meta": {
+  "limit": 2,
+  "next": null,
+  "offset": 0,
+  "previous": null,
+  "total_count": 2
+ },
+ "targets": [
+  {
+   "organism": "Homo sapiens",
+   "pref_name": "Tyrosine-protein kinase ABL1",
+   "target_chembl_id": "CHEMBL1862",
+   "target_components": [
+    {
+     "accession": "P00519",
+     "component_description": "Tyrosine-protein kinase ABL1",
+     "component_id": 173,
+     "component_type": "PROTEIN",
+     "relationship": "SINGLE PROTEIN",
+     "target_component_synonyms": [
+      {
+       "component_synonym": "2.7.10.2",
+       "syn_type": "EC_NUMBER"
+      },
+      {
+       "component_synonym": "Abelson murine leukemia viral oncogene homolog 1",
+       "syn_type": "UNIPROT"
+      },
+      {
+       "component_synonym": "Abelson tyrosine-protein kinase 1",
+       "syn_type": "UNIPROT"
+      }
+     ],
+     "target_component_xrefs": [
+      {
+       "xref_id": "PA24413",
+       "xref_name": "ABL proto-oncogene 1, non-receptor tyrosine kinase",
+       "xref_src_db": "PharmGKB"
+      },
+      {
+       "xref_id": "A3KFJ3",
+       "xref_name": "Tyrosine-protein kinase ABL1",
+       "xref_src_db": "UniProt"
+      },
+      {
+       "xref_id": "Q13869",
+       "xref_name": "Tyrosine-protein kinase ABL1",
+       "xref_src_db": "UniProt"
+      },
+      {
+       "xref_id": "Q13870",
+       "xref_name": "Tyrosine-protein kinase ABL1",
+       "xref_src_db": "UniProt"
+      }
+     ]
+    }
+   ],
+   "target_type": "SINGLE PROTEIN"
+  },
+  {
+   "organism": "Homo sapiens",
+   "pref_name": "Platelet-derived growth factor receptor beta",
+   "target_chembl_id": "CHEMBL1913",
+   "target_components": [
+    {
+     "accession": "P09619",
+     "component_description": "Platelet-derived growth factor receptor beta",
+     "component_id": 227,
+     "component_type": "PROTEIN",
+     "relationship": "SINGLE PROTEIN",
+     "target_component_synonyms": [
+      {
+       "component_synonym": "2.7.10.1",
+       "syn_type": "EC_NUMBER"
+      },
+      {
+       "component_synonym": "Beta platelet-derived growth factor receptor",
+       "syn_type": "UNIPROT"
+      },
+      {
+       "component_synonym": "Beta-type platelet-derived growth factor receptor",
+       "syn_type": "UNIPROT"
+      }
+     ],
+     "target_component_xrefs": [
+      {
+       "xref_id": "PA33148",
+       "xref_name": "platelet derived growth factor receptor beta",
+       "xref_src_db": "PharmGKB"
+      },
+      {
+       "xref_id": "B5A957",
+       "xref_name": "Platelet-derived growth factor receptor beta",
+       "xref_src_db": "UniProt"
+      },
+      {
+       "xref_id": "Q8N5L4",
+       "xref_name": "Platelet-derived growth factor receptor beta",
+       "xref_src_db": "UniProt"
+      },
+      {
+       "xref_id": "P09619",
+       "xref_name": "Platelet-derived growth factor receptor beta",
+       "xref_src_db": "UniProt"
+      }
+     ]
+    }
+   ],
+   "target_type": "SINGLE PROTEIN"
+  }
+ ]
+}

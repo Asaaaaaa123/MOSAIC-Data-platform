@@ -1,0 +1,272 @@
+{
+ "data": {
+  "entries": [
+   {
+    "rcsb_id": "9SPA",
+    "struct": {
+     "title": "Apo ACE2 extracellular domain"
+    },
+    "struct_keywords": {
+     "pdbx_keywords": "HYDROLASE",
+     "text": "Hydrolase"
+    },
+    "exptl": [
+     {
+      "method": "X-RAY DIFFRACTION"
+     }
+    ],
+    "rcsb_entry_info": {
+     "resolution_combined": [
+      1.79
+     ],
+     "experimental_method": "X-ray",
+     "polymer_entity_count": 1,
+     "nonpolymer_entity_count": 2,
+     "deposited_atom_count": 5310,
+     "molecular_weight": 70.76
+    },
+    "rcsb_accession_info": {
+     "initial_release_date": "2026-04-08T00:00:00Z",
+     "deposit_date": "2025-09-16T00:00:00Z",
+     "revision_date": "2026-04-22T00:00:00Z"
+    },
+    "rcsb_primary_citation": {
+     "title": "Yeast Display Technology Enables Rapid Discovery of Low-Nanomolar Macrocyclic Peptide Inhibitors of Human Angiotensin-Converting Enzyme 2.",
+     "pdbx_database_id_PubMed": 41875055,
+     "pdbx_database_id_DOI": "10.1021/acs.jmedchem.5c02876",
+     "rcsb_journal_abbrev": "J Med Chem",
+     "journal_abbrev": "J.Med.Chem.",
+     "year": 2026,
+     "rcsb_authors": [
+      "Romanyuk, Z.",
+      "Bettin, G.",
+      "Brear, P.",
+      "Linciano, S.",
+      "Mazzocato, Y.",
+      "Bonadies, S.",
+      "Zanotto, I.",
+      "Mazzucco, C.",
+      "Monferone, A.",
+      "Soler, M.A.",
+      "Pasut, G.",
+      "Martin, S.",
+      "Scarso, A.",
+      "Heinis, C.",
+      "Rothenberger, S.",
+      "Hyvonen, M.",
+      "Angelini, A."
+     ]
+    },
+    "audit_author": [
+     {
+      "name": "Brear, P."
+     },
+     {
+      "name": "Hyvonen, M."
+     }
+    ],
+    "pubmed": {
+     "rcsb_pubmed_abstract_text": "Macrocyclic peptides (MPs) are valuable molecular formats for drug development, bridging small molecules and larger biologics due to their favorable pharmacological properties. Here, we describe the discovery of low-nanomolar inhibitors of human angiotensin-converting enzyme 2 (hACE2) by quantitatively screening millions of structurally diverse disulfide-cyclized peptide ligands using yeast display technology. The most potent yeast-encoded \"one-ring\" and \"two-ring\" MP inhibit hACE2 with  <i>K </i> <sub>i </sub> values of 1.9 and 1.5 nM, respectively. These inhibitory potencies are comparable to those of other cyclic peptides discovered using well-established  <i>in vitro </i> display technologies. Crystal structures of the two MPs in complex with hACE2 reveal the adoption of either a rigid β-hairpin or a cysteine-stabilized α-helix/α-helix motif. Both MPs exhibit binding modes distinct from those of previously reported inhibitors. Thus, yeast display is a valid technology to rapidly generate MPs with desired binding properties for the development of potential therapeutics."
+    },
+    "polymer_entities": [
+     {
+      "rcsb_id": "9SPA_1",
+      "rcsb_polymer_entity": {
+       "pdbx_description": "Processed angiotensin-converting enzyme 2"
+      },
+      "rcsb_polymer_entity_container_identifiers": {
+       "uniprot_ids": [
+        "Q9BYF1"
+       ],
+       "reference_sequence_identifiers": [
+        {
+         "database_accession": "Q9BYF1",
+         "database_name": "UniProt"
+        }
+       ]
+      },
+      "rcsb_entity_source_organism": [
+       {
+        "ncbi_scientific_name": "Homo sapiens",
+        "ncbi_taxonomy_id": 9606
+       }
+      ],
+      "entity_poly": {
+       "rcsb_entity_polymer_type": "Protein",
+       "pdbx_strand_id": "C",
+       "rcsb_sample_sequence_length": 609
+      }
+     }
+    ],
+    "nonpolymer_entities": [
+     {
+      "nonpolymer_comp": {
+       "chem_comp": {
+        "id": "MLA",
+        "name": "MALONIC ACID",
+        "formula": "C3 H4 O4"
+       },
+       "rcsb_chem_comp_descriptor": {
+        "InChIKey": "OFOBLEOULBTSOW-UHFFFAOYSA-N"
+       },
+       "rcsb_chem_comp_container_identifiers": {
+        "drugbank_id": "DB02175"
+       }
+      }
+     },
+     {
+      "nonpolymer_comp": {
+       "chem_comp": {
+        "id": "ZN",
+        "name": "ZINC ION",
+        "formula": "Zn"
+       },
+       "rcsb_chem_comp_descriptor": {
+        "InChIKey": "PTFCDOFLOPIGGS-UHFFFAOYSA-N"
+       },
+       "rcsb_chem_comp_container_identifiers": {
+        "drugbank_id": null
+       }
+      }
+     }
+    ]
+   },
+   {
+    "rcsb_id": "28KD",
+    "struct": {
+     "title": "ACE2 extracellular domain in complex with the macrocyclic peptide GR3.1.2"
+    },
+    "struct_keywords": {
+     "pdbx_keywords": "HYDROLASE",
+     "text": "Hydrolase"
+    },
+    "exptl": [
+     {
+      "method": "X-RAY DIFFRACTION"
+     }
+    ],
+    "rcsb_entry_info": {
+     "resolution_combined": [
+      2.02
+     ],
+     "experimental_method": "X-ray",
+     "polymer_entity_count": 2,
+     "nonpolymer_entity_count": 1,
+     "deposited_atom_count": 10621,
+     "molecular_weight": 145.68
+    },
+    "rcsb_accession_info": {
+     "initial_release_date": "2026-04-08T00:00:00Z",
+     "deposit_date": "2026-02-04T00:00:00Z",
+     "revision_date": "2026-04-22T00:00:00Z"
+    },
+    "rcsb_primary_citation": {
+     "title": "Yeast Display Technology Enables Rapid Discovery of Low-Nanomolar Macrocyclic Peptide Inhibitors of Human Angiotensin-Converting Enzyme 2.",
+     "pdbx_database_id_PubMed": 41875055,
+     "pdbx_database_id_DOI": "10.1021/acs.jmedchem.5c02876",
+     "rcsb_journal_abbrev": "J Med Chem",
+     "journal_abbrev": "J.Med.Chem.",
+     "year": 2026,
+     "rcsb_authors": [
+      "Romanyuk, Z.",
+      "Bettin, G.",
+      "Brear, P.",
+      "Linciano, S.",
+      "Mazzocato, Y.",
+      "Bonadies, S.",
+      "Zanotto, I.",
+      "Mazzucco, C.",
+      "Monferone, A.",
+      "Soler, M.A.",
+      "Pasut, G.",
+      "Martin, S.",
+      "Scarso, A.",
+      "Heinis, C.",
+      "Rothenberger, S.",
+      "Hyvonen, M.",
+      "Angelini, A."
+     ]
+    },
+    "audit_author": [
+     {
+      "name": "Brear, P."
+     },
+     {
+      "name": "Hyvonen, M."
+     }
+    ],
+    "pubmed": {
+     "rcsb_pubmed_abstract_text": "Macrocyclic peptides (MPs) are valuable molecular formats for drug development, bridging small molecules and larger biologics due to their favorable pharmacological properties. Here, we describe the discovery of low-nanomolar inhibitors of human angiotensin-converting enzyme 2 (hACE2) by quantitatively screening millions of structurally diverse disulfide-cyclized peptide ligands using yeast display technology. The most potent yeast-encoded \"one-ring\" and \"two-ring\" MP inhibit hACE2 with  <i>K </i> <sub>i </sub> values of 1.9 and 1.5 nM, respectively. These inhibitory potencies are comparable to those of other cyclic peptides discovered using well-established  <i>in vitro </i> display technologies. Crystal structures of the two MPs in complex with hACE2 reveal the adoption of either a rigid β-hairpin or a cysteine-stabilized α-helix/α-helix motif. Both MPs exhibit binding modes distinct from those of previously reported inhibitors. Thus, yeast display is a valid technology to rapidly generate MPs with desired binding properties for the development of potential therapeutics."
+    },
+    "polymer_entities": [
+     {
+      "rcsb_id": "28KD_2",
+      "rcsb_polymer_entity": {
+       "pdbx_description": "ALA-CYS-PHE-LEU-ARG-CYS-HIS-ARG-ASP-VAL-LYS-CYS-TRP-LEU-TRP-CYS-SER-GLY"
+      },
+      "rcsb_polymer_entity_container_identifiers": {
+       "uniprot_ids": null,
+       "reference_sequence_identifiers": null
+      },
+      "rcsb_entity_source_organism": [
+       {
+        "ncbi_scientific_name": "Synthetic plasmid",
+        "ncbi_taxonomy_id": 1440148
+       }
+      ],
+      "entity_poly": {
+       "rcsb_entity_polymer_type": "Protein",
+       "pdbx_strand_id": "C,D",
+       "rcsb_sample_sequence_length": 18
+      }
+     },
+     {
+      "rcsb_id": "28KD_1",
+      "rcsb_polymer_entity": {
+       "pdbx_description": "Processed angiotensin-converting enzyme 2"
+      },
+      "rcsb_polymer_entity_container_identifiers": {
+       "uniprot_ids": [
+        "Q9BYF1"
+       ],
+       "reference_sequence_identifiers": [
+        {
+         "database_accession": "Q9BYF1",
+         "database_name": "UniProt"
+        }
+       ]
+      },
+      "rcsb_entity_source_organism": [
+       {
+        "ncbi_scientific_name": "Homo sapiens",
+        "ncbi_taxonomy_id": 9606
+       }
+      ],
+      "entity_poly": {
+       "rcsb_entity_polymer_type": "Protein",
+       "pdbx_strand_id": "B,A",
+       "rcsb_sample_sequence_length": 609
+      }
+     }
+    ],
+    "nonpolymer_entities": [
+     {
+      "nonpolymer_comp": {
+       "chem_comp": {
+        "id": "ZN",
+        "name": "ZINC ION",
+        "formula": "Zn"
+       },
+       "rcsb_chem_comp_descriptor": {
+        "InChIKey": "PTFCDOFLOPIGGS-UHFFFAOYSA-N"
+       },
+       "rcsb_chem_comp_container_identifiers": {
+        "drugbank_id": null
+       }
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

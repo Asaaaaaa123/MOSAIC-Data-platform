@@ -1,0 +1,60 @@
+{
+ "size": 2,
+ "count": 13,
+ "next": "https://www.pgscatalog.org/rest/trait/search?limit=2&offset=2&term=breast+cancer",
+ "previous": null,
+ "results": [
+  {
+   "id": "MONDO_0007254",
+   "label": "breast cancer",
+   "description": "A primary or metastatic malignant neoplasm involving the breast. The vast majority of cases are carcinomas arising from the breast parenchyma or the nipple. Malignant breast neoplasms occur more frequently in females than in males. [NCIT: C9335]",
+   "url": "http://purl.obolibrary.org/obo/MONDO_0007254",
+   "trait_categories": [
+    "Other disease"
+   ],
+   "trait_synonyms": [
+    "BC",
+    "breast cancer",
+    "breast tumor"
+   ],
+   "trait_mapped_terms": [],
+   "associated_pgs_ids": [
+    "PGS018525",
+    "PGS018526",
+    "PGS018527"
+   ],
+   "child_associated_pgs_ids": [
+    "PGS000001",
+    "PGS000002",
+    "PGS000003",
+    "PGS000004"
+   ]
+  },
+  {
+   "id": "MONDO_0004989",
+   "label": "breast carcinoma",
+   "description": "A carcinoma that arises from epithelial cells of the breast",
+   "url": "http://purl.obolibrary.org/obo/MONDO_0004989",
+   "trait_categories": [
+    "Other disease"
+   ],
+   "trait_synonyms": [
+    "breast cancer",
+    "breast cancer, NOS",
+    "breast carcinoma"
+   ],
+   "trait_mapped_terms": [],
+   "associated_pgs_ids": [
+    "PGS000001",
+    "PGS000004",
+    "PGS000007"
+   ],
+   "child_associated_pgs_ids": [
+    "PGS000002",
+    "PGS000003",
+    "PGS000005",
+    "PGS000006"
+   ]
+  }
+ ]
+}

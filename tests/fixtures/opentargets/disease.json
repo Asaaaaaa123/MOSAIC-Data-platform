@@ -1,0 +1,98 @@
+{
+ "data": {
+  "disease": {
+   "id": "MONDO_0005233",
+   "name": "non-small cell lung carcinoma",
+   "description": "A group of at least three distinct histological types of lung cancer, including non-small cell squamous cell carcinoma, adenocarcinoma, and large cell carcinoma. Non-small cell lung carcinomas have a poor response to conventional chemotherapy.",
+   "dbXRefs": [
+    "DOID:3908",
+    "EFO:0003060",
+    "HP:0030358",
+    "MEDGEN:40104",
+    "MESH:D002289",
+    "NCIT:C2926",
+    "ONCOTREE:NSCLC",
+    "Orphanet:488201",
+    "SCTID:254637007",
+    "UMLS:C0007131"
+   ],
+   "synonyms": [
+    {
+     "relation": "hasExactSynonym",
+     "terms": [
+      "NSCLC",
+      "NSCLC - non-small cell lung cancer",
+      "non-small cell cancer of lung",
+      "non-small cell cancer of the lung",
+      "non-small cell carcinoma of lung",
+      "non-small cell carcinoma of the lung",
+      "non-small cell lung cancer",
+      "non-small cell lung carcinoma",
+      "non-small cell lung carcinoma (disease)"
+     ]
+    },
+    {
+     "relation": "hasRelatedSynonym",
+     "terms": []
+    },
+    {
+     "relation": "hasNarrowSynonym",
+     "terms": []
+    },
+    {
+     "relation": "hasBroadSynonym",
+     "terms": []
+    }
+   ],
+   "therapeuticAreas": [
+    {
+     "id": "OTAR_0000010",
+     "name": "respiratory or thoracic disease"
+    },
+    {
+     "id": "MONDO_0045024",
+     "name": "cancer or benign tumor"
+    },
+    {
+     "id": "EFO_0000651",
+     "name": "phenotype"
+    }
+   ],
+   "parents": [
+    {
+     "id": "MONDO_0005138",
+     "name": "lung carcinoma"
+    }
+   ],
+   "drugAndClinicalCandidates": {
+    "count": 1066,
+    "rows": [
+     {
+      "maxClinicalStage": "PHASE_1",
+      "drug": {
+       "id": "CHEMBL362558",
+       "name": "LY-2090314",
+       "drugType": "Small molecule"
+      }
+     },
+     {
+      "maxClinicalStage": "APPROVAL",
+      "drug": {
+       "id": "CHEMBL3707227",
+       "name": "ATEZOLIZUMAB",
+       "drugType": "Antibody"
+      }
+     },
+     {
+      "maxClinicalStage": "APPROVAL",
+      "drug": {
+       "id": "CHEMBL502835",
+       "name": "NINTEDANIB",
+       "drugType": "Small molecule"
+      }
+     }
+    ]
+   }
+  }
+ }
+}

@@ -1,0 +1,231 @@
+{
+ "results": [
+  {
+   "subject": {
+    "type": "Gene",
+    "primaryExternalId": "HGNC:8620",
+    "taxon": {
+     "curie": "NCBITaxon:9606",
+     "name": "Homo sapiens",
+     "descendantCount": 0,
+     "species": {
+      "fullName": "Homo sapiens",
+      "abbreviation": "Hsa",
+      "displayName": "HUMAN",
+      "phylogeneticOrder": 10
+     }
+    },
+    "geneSymbol": {
+     "formatText": "PAX6",
+     "displayText": "PAX6"
+    },
+    "geneFullName": {
+     "formatText": "paired box 6",
+     "displayText": "paired box 6"
+    }
+   },
+   "relation": {
+    "name": "is_implicated_in"
+   },
+   "object": {
+    "curie": "DOID:12271",
+    "name": "aniridia",
+    "definition": "An iris disease that is characterized by a complete or partial absence of the colored part of the eye.",
+    "descendantCount": 0
+   },
+   "category": "gene_disease_annotation",
+   "searchable": false,
+   "uniqueId": "dSyFYKABWsOBLCd9fTVE",
+   "countId": 8904,
+   "evidenceCodes": [
+    {
+     "curie": "ECO:0007191",
+     "name": "inference by association of genotype from phenotype used in manual assertion",
+     "definition": "A type of inference by association of genotype from phenotype that is used in a manual assertion.",
+     "descendantCount": 0,
+     "abbreviation": "IAGP"
+    }
+   ],
+   "generatedRelationString": "is_implicated_in",
+   "pubmedPublications": [
+    {
+     "referencedCurie": "PMID:25366758",
+     "displayName": "PMID:25366758"
+    },
+    {
+     "referencedCurie": "PMID:22550392",
+     "displayName": "PMID:22550392"
+    },
+    {
+     "referencedCurie": "PMID:22393272",
+     "displayName": "PMID:22393272"
+    },
+    {
+     "referencedCurie": "PMID:19862335",
+     "displayName": "PMID:19862335"
+    },
+    {
+     "referencedCurie": "PMID:9138149",
+     "displayName": "PMID:9138149"
+    }
+   ],
+   "pubModPublications": [
+    {
+     "referencedCurie": "RGD:1601209",
+     "displayName": "RGD:1601209"
+    },
+    {
+     "referencedCurie": "RGD:8552277",
+     "displayName": "RGD:8552277"
+    },
+    {
+     "referencedCurie": "RGD:8551870",
+     "displayName": "RGD:8551870"
+    },
+    {
+     "referencedCurie": "RGD:8552301",
+     "displayName": "RGD:8552301"
+    },
+    {
+     "referencedCurie": "RGD:12790966",
+     "displayName": "RGD:12790966"
+    }
+   ],
+   "parentSlimIDs": [
+    "DOID:4",
+    "DOID:863",
+    "DOID:7",
+    "DOID:12271",
+    "DOID:3480",
+    "DOID:0050155",
+    "DOID:240",
+    "DOID:5614"
+   ],
+   "phylogeneticSortingIndex": 10,
+   "providers": [
+    {}
+   ],
+   "viaOrthologyOrder": 0
+  },
+  {
+   "subject": {
+    "type": "Gene",
+    "primaryExternalId": "HGNC:8620",
+    "taxon": {
+     "curie": "NCBITaxon:9606",
+     "name": "Homo sapiens",
+     "descendantCount": 0,
+     "species": {
+      "fullName": "Homo sapiens",
+      "abbreviation": "Hsa",
+      "displayName": "HUMAN",
+      "phylogeneticOrder": 10
+     }
+    },
+    "geneSymbol": {
+     "formatText": "PAX6",
+     "displayText": "PAX6"
+    },
+    "geneFullName": {
+     "formatText": "paired box 6",
+     "displayText": "paired box 6"
+    }
+   },
+   "relation": {
+    "name": "is_implicated_in"
+   },
+   "object": {
+    "curie": "DOID:12271",
+    "name": "aniridia",
+    "definition": "An iris disease that is characterized by a complete or partial absence of the colored part of the eye.",
+    "descendantCount": 0
+   },
+   "category": "gene_disease_annotation",
+   "searchable": false,
+   "uniqueId": "2yyFYKABWsOBLCd9fTVa",
+   "countId": 8905,
+   "evidenceCodes": [
+    {
+     "curie": "ECO:0007191",
+     "name": "inference by association of genotype from phenotype used in manual assertion",
+     "definition": "A type of inference by association of genotype from phenotype that is used in a manual assertion.",
+     "descendantCount": 0,
+     "abbreviation": "IAGP"
+    }
+   ],
+   "generatedRelationString": "is_implicated_in",
+   "diseaseQualifiers": [
+    "susceptibility_to"
+   ],
+   "pubmedPublications": [
+    {
+     "referencedCurie": "PMID:22171157",
+     "displayName": "PMID:22171157"
+    },
+    {
+     "referencedCurie": "PMID:22815628",
+     "displayName": "PMID:22815628"
+    },
+    {
+     "referencedCurie": "PMID:23734086",
+     "displayName": "PMID:23734086"
+    },
+    {
+     "referencedCurie": "PMID:20664694",
+     "displayName": "PMID:20664694"
+    }
+   ],
+   "pubModPublications": [
+    {
+     "referencedCurie": "RGD:8551860",
+     "displayName": "RGD:8551860"
+    },
+    {
+     "referencedCurie": "RGD:8551856",
+     "displayName": "RGD:8551856"
+    },
+    {
+     "referencedCurie": "RGD:8551859",
+     "displayName": "RGD:8551859"
+    },
+    {
+     "referencedCurie": "RGD:8551858",
+     "displayName": "RGD:8551858"
+    }
+   ],
+   "parentSlimIDs": [
+    "DOID:4",
+    "DOID:863",
+    "DOID:7",
+    "DOID:12271",
+    "DOID:3480",
+    "DOID:0050155",
+    "DOID:240",
+    "DOID:5614"
+   ],
+   "phylogeneticSortingIndex": 10,
+   "providers": [
+    {}
+   ],
+   "viaOrthologyOrder": 0
+  }
+ ],
+ "total": 17,
+ "returnedRecords": 2,
+ "requestDuration": "00:00:00",
+ "requestDate": "2026/10/20 19:42:16",
+ "supplementalData": {
+  "distinctFieldValues": {
+   "species": [
+    "Homo sapiens"
+   ],
+   "associationType": [
+    "is_implicated_in",
+    "is_marker_for"
+   ],
+   "diseaseQualifiers": [
+    "susceptibility_to"
+   ]
+  }
+ }
+}

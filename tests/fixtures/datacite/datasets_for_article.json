@@ -1,0 +1,203 @@
+{
+ "data": [
+  {
+   "id": "10.7910/dvn/ctjn63",
+   "type": "dois",
+   "attributes": {
+    "doi": "10.7910/dvn/ctjn63",
+    "titles": [
+     {
+      "title": "Simulation Results: Global Childhood Cancer Incidence"
+     }
+    ],
+    "creators": [
+     {
+      "nameType": "Personal",
+      "affiliation": [
+       "Harvard University"
+      ],
+      "givenName": "Zachary",
+      "familyName": "Ward",
+      "name": "Ward, Zachary",
+      "nameIdentifiers": []
+     },
+     {
+      "nameType": "Personal",
+      "affiliation": [
+       "Harvard University"
+      ],
+      "givenName": "Jennifer",
+      "familyName": "Yeh",
+      "name": "Yeh, Jennifer",
+      "nameIdentifiers": []
+     },
+     {
+      "nameType": "Personal",
+      "affiliation": [
+       "St Jude Children&apos;s Research Hospital"
+      ],
+      "givenName": "Nickhill",
+      "familyName": "Bhakta",
+      "name": "Bhakta, Nickhill",
+      "nameIdentifiers": []
+     },
+     {
+      "nameType": "Personal",
+      "affiliation": [
+       "Dana-Farber/Boston Children&apos;s Cancer and Blood Disorders Center"
+      ],
+      "givenName": "A Lindsay",
+      "familyName": "Frazier",
+      "name": "Frazier, A Lindsay",
+      "nameIdentifiers": []
+     },
+     {
+      "nameType": "Personal",
+      "affiliation": [
+       "Harvard University"
+      ],
+      "givenName": "Rifat",
+      "familyName": "Atun",
+      "name": "Atun, Rifat",
+      "nameIdentifiers": []
+     }
+    ],
+    "publisher": "Harvard Dataverse",
+    "publicationYear": 2019,
+    "types": {
+     "schemaOrg": "Dataset",
+     "resourceTypeGeneral": "Dataset",
+     "citeproc": "dataset",
+     "bibtex": "misc",
+     "ris": "DATA"
+    },
+    "subjects": [
+     {
+      "subject": "Medicine, Health and Life Sciences"
+     }
+    ],
+    "descriptions": [
+     {
+      "descriptionType": "Abstract",
+      "description": "Simulation results (means and 95% uncertainty intervals) for: Ward ZJ, Yeh JM, Bhakta N, Frazier AL, Atun R. Estimating the total incidence of global childhood cancer: a simulation-based analysis. Lancet Oncol 2019; 20(4): 483-493."
+     }
+    ],
+    "rightsList": [
+     {
+      "rightsUri": "info:eu-repo/semantics/openAccess"
+     },
+     {
+      "rightsIdentifierScheme": "SPDX",
+      "rightsUri": "https://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "schemeUri": "https://spdx.org/licenses/",
+      "rights": "Creative Commons Zero v1.0 Universal",
+      "lang": "en",
+      "rightsIdentifier": "cc0-1.0"
+     }
+    ],
+    "relatedIdentifiers": [
+     {
+      "relationType": "IsSupplementTo",
+      "relatedIdentifier": "30824204",
+      "relatedIdentifierType": "PMID"
+     },
+     {
+      "relationType": "HasPart",
+      "relatedIdentifier": "10.7910/dvn/ctjn63/i2cwfm",
+      "relatedIdentifierType": "DOI"
+     },
+     {
+      "relationType": "HasPart",
+      "relatedIdentifier": "10.7910/dvn/ctjn63/qrk0kv",
+      "relatedIdentifierType": "DOI"
+     },
+     {
+      "relationType": "HasPart",
+      "relatedIdentifier": "10.7910/dvn/ctjn63/3prywa",
+      "relatedIdentifierType": "DOI"
+     },
+     {
+      "relationType": "HasPart",
+      "relatedIdentifier": "10.7910/dvn/ctjn63/fsrjfi",
+      "relatedIdentifierType": "DOI"
+     },
+     {
+      "relationType": "HasPart",
+      "relatedIdentifier": "10.7910/dvn/ctjn63/sgbeo9",
+      "relatedIdentifierType": "DOI"
+     }
+    ],
+    "sizes": [
+     "3196",
+     "10739",
+     "10761",
+     "9793",
+     "1977",
+     "1064844",
+     "2676927",
+     "1267238",
+     "4439464",
+     "9743135",
+     "6633",
+     "3937109"
+    ],
+    "formats": [
+     "text/plain",
+     "text/tab-separated-values",
+     "text/tab-separated-values",
+     "text/tab-separated-values",
+     "text/tab-separated-values",
+     "text/tab-separated-values",
+     "text/tab-separated-values",
+     "text/tab-separated-values",
+     "text/tab-separated-values",
+     "text/tab-separated-values",
+     "text/plain",
+     "text/tab-separated-values"
+    ],
+    "url": "https://dataverse.harvard.edu/citation?persistentId=doi:10.7910/DVN/CTJN63",
+    "dates": [
+     {
+      "date": "2019-09-18",
+      "dateType": "Submitted"
+     },
+     {
+      "date": "2019-09-26",
+      "dateType": "Available"
+     },
+     {
+      "date": "2019-10-10",
+      "dateType": "Updated"
+     },
+     {
+      "date": "2019",
+      "dateType": "Issued"
+     }
+    ],
+    "version": "2.0",
+    "fundingReferences": [],
+    "citationCount": 0,
+    "viewCount": 335,
+    "downloadCount": 31,
+    "created": "2019-09-26T18:04:26Z",
+    "registered": "2019-09-26T18:04:27Z"
+   },
+   "relationships": {
+    "client": {
+     "data": {
+      "id": "gdcc.harvard-dv",
+      "type": "clients"
+     }
+    }
+   }
+  }
+ ],
+ "meta": {
+  "total": 1,
+  "totalPages": 1,
+  "page": 1
+ },
+ "links": {
+  "self": "x"
+ }
+}
