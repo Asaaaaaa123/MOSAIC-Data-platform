@@ -21,7 +21,7 @@ SpeciesGroup = Literal["human", "primate", "mammal", "bird", "amphibian", "fish"
 class SpeciesInfo(BaseModel):
     key: str
     label: str
-    label_zh: str
+    label_zh: str = ""  # kept so older saved comparisons still load
     scientific_name: str
     taxon_id: int
     group: SpeciesGroup
@@ -30,31 +30,31 @@ class SpeciesInfo(BaseModel):
 
 
 SPECIES: list[SpeciesInfo] = [
-    SpeciesInfo(key="human", label="Human", label_zh="人", scientific_name="Homo sapiens", taxon_id=9606, group="human",
+    SpeciesInfo(key="human", label="Human", scientific_name="Homo sapiens", taxon_id=9606, group="human",
                 ensembl_name="homo_sapiens", pubmed_filter="humans[mh]"),
-    SpeciesInfo(key="macaque", label="Macaque", label_zh="猕猴", scientific_name="Macaca mulatta", taxon_id=9544, group="primate",
+    SpeciesInfo(key="macaque", label="Macaque", scientific_name="Macaca mulatta", taxon_id=9544, group="primate",
                 ensembl_name="macaca_mulatta", pubmed_filter="(macaca[mh] OR macaque[tiab] OR monkey[tiab])"),
-    SpeciesInfo(key="mouse", label="Mouse", label_zh="小鼠", scientific_name="Mus musculus", taxon_id=10090, group="mammal",
+    SpeciesInfo(key="mouse", label="Mouse", scientific_name="Mus musculus", taxon_id=10090, group="mammal",
                 ensembl_name="mus_musculus", pubmed_filter="mice[mh]"),
-    SpeciesInfo(key="rat", label="Rat", label_zh="大鼠", scientific_name="Rattus norvegicus", taxon_id=10116, group="mammal",
+    SpeciesInfo(key="rat", label="Rat", scientific_name="Rattus norvegicus", taxon_id=10116, group="mammal",
                 ensembl_name="rattus_norvegicus", pubmed_filter="rats[mh]"),
-    SpeciesInfo(key="dog", label="Dog", label_zh="狗", scientific_name="Canis lupus familiaris", taxon_id=9615, group="mammal",
+    SpeciesInfo(key="dog", label="Dog", scientific_name="Canis lupus familiaris", taxon_id=9615, group="mammal",
                 ensembl_name="canis_lupus_familiaris", pubmed_filter="dogs[mh]"),
-    SpeciesInfo(key="pig", label="Pig", label_zh="猪", scientific_name="Sus scrofa", taxon_id=9823, group="mammal",
+    SpeciesInfo(key="pig", label="Pig", scientific_name="Sus scrofa", taxon_id=9823, group="mammal",
                 ensembl_name="sus_scrofa", pubmed_filter="swine[mh]"),
-    SpeciesInfo(key="chicken", label="Chicken", label_zh="鸡（鸟类）", scientific_name="Gallus gallus", taxon_id=9031, group="bird",
+    SpeciesInfo(key="chicken", label="Chicken", scientific_name="Gallus gallus", taxon_id=9031, group="bird",
                 ensembl_name="gallus_gallus", pubmed_filter="(chickens[mh] OR birds[mh])"),
-    SpeciesInfo(key="frog", label="Frog (Xenopus)", label_zh="爪蟾（蛙）", scientific_name="Xenopus tropicalis", taxon_id=8364,
+    SpeciesInfo(key="frog", label="Frog (Xenopus)", scientific_name="Xenopus tropicalis", taxon_id=8364,
                 group="amphibian", ensembl_name="xenopus_tropicalis", pubmed_filter="xenopus[mh]"),
-    SpeciesInfo(key="zebrafish", label="Zebrafish", label_zh="斑马鱼", scientific_name="Danio rerio", taxon_id=7955, group="fish",
+    SpeciesInfo(key="zebrafish", label="Zebrafish", scientific_name="Danio rerio", taxon_id=7955, group="fish",
                 ensembl_name="danio_rerio", pubmed_filter="zebrafish[mh]"),
-    SpeciesInfo(key="fly", label="Fruit fly", label_zh="果蝇", scientific_name="Drosophila melanogaster", taxon_id=7227,
+    SpeciesInfo(key="fly", label="Fruit fly", scientific_name="Drosophila melanogaster", taxon_id=7227,
                 group="insect", ensembl_name="drosophila_melanogaster", pubmed_filter="drosophila[mh]"),
-    SpeciesInfo(key="worm", label="Worm (C. elegans)", label_zh="线虫", scientific_name="Caenorhabditis elegans", taxon_id=6239,
+    SpeciesInfo(key="worm", label="Worm (C. elegans)", scientific_name="Caenorhabditis elegans", taxon_id=6239,
                 group="nematode", ensembl_name="caenorhabditis_elegans", pubmed_filter="caenorhabditis elegans[mh]"),
-    SpeciesInfo(key="yeast", label="Yeast", label_zh="酵母", scientific_name="Saccharomyces cerevisiae", taxon_id=559292,
+    SpeciesInfo(key="yeast", label="Yeast", scientific_name="Saccharomyces cerevisiae", taxon_id=559292,
                 group="fungus", ensembl_name="saccharomyces_cerevisiae", pubmed_filter="saccharomyces cerevisiae[mh]"),
-    SpeciesInfo(key="arabidopsis", label="Plant (Arabidopsis)", label_zh="植物（拟南芥）", scientific_name="Arabidopsis thaliana",
+    SpeciesInfo(key="arabidopsis", label="Plant (Arabidopsis)", scientific_name="Arabidopsis thaliana",
                 taxon_id=3702, group="plant", ensembl_name=None, pubmed_filter="(arabidopsis[mh] OR plants[mh])"),
 ]
 SPECIES_BY_KEY: dict[str, SpeciesInfo] = {s.key: s for s in SPECIES}
@@ -144,7 +144,7 @@ PaperExtractor = Callable[[list[tuple[Paper, Record]]], Awaitable[list[Paper]]]
 class SpeciesSummary(BaseModel):
     species: str
     label: str
-    label_zh: str
+    label_zh: str = ""  # kept so older saved comparisons still load
     group: SpeciesGroup
     scientific_name: str
     mean_identity_pct: float | None = None  # mean over targets with an ortholog

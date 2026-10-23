@@ -38,6 +38,8 @@ class Settings(BaseSettings):
     mosaic_fallbacks: str = "default"  # server-side refusal fallback; "off" disables
     mosaic_extraction_model: str | None = None  # defaults to mosaic_model
     mosaic_extraction_effort: str = "low"
+    # Figure Studio ("graph generation" folder) that draws the journal-style figures; empty = look next to Mosaic
+    mosaic_figuregen_path: str | None = None
 
     # --- API server ---
     mosaic_cors_origins: str | None = None  # comma-separated; CORS is off when unset

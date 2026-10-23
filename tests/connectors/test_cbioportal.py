@@ -8,6 +8,8 @@ import httpx
 import pytest
 import respx
 
+from mosaic.curation import curate
+from mosaic.models import Record
 from tests.conftest import load_fixture
 
 API = "https://www.cbioportal.org/api"
@@ -111,9 +113,16 @@ async def test_mutations_in_gene(make_registry):
     assert top.id == "KRAS G12D" and top.type == "variant"
     assert top.attributes["samples"] == 3
     assert top.attributes["mutation_type"] == "Missense_Mutation"
-    assert top.identifiers == {"gene_symbol": "KRAS", "entrez_gene": "3845"}
+    assert top.identifiers == {"gene_symbol": "KRAS"} and top.attributes["entrez_gene"] == "3845"
     assert result.total == 2
     assert result.data["mutated_samples"] == 4 and result.data["profiled_samples"] == 534
+
+    # each protein change stays its own entity, apart from the gene record
+    gene = Record(source="hgnc", id="HGNC:6407", type="gene", title="KRAS",
+                  identifiers={"hgnc": "HGNC:6407", "entrez_gene": "3845", "gene_symbol": "KRAS"})
+    curated = curate([*result.records, gene])
+    assert curated.stats["entities_out"] == len(result.records) + 1
+    assert [e.type for e in curated.entities].count("gene") == 1
 
 
 @respx.mock
@@ -147,3 +156,19 @@ def test_tcga_studies_link_to_gdc_projects():
     assert _gdc_project("brca_tcga_pan_can_atlas_2018") == "TCGA-BRCA"
     assert _gdc_project("luad_tcga") == "TCGA-LUAD"
     assert _gdc_project("luad_broad") is None
+
+
+def test_only_the_gdc_import_is_the_same_entity_as_its_gdc_project():
+    from mosaic.connectors.cbioportal import study_record
+
+    cohorts = [study_record({"studyId": sid, "name": sid}) for sid in (
+        "brca_tcga_pan_can_atlas_2018", "brca_tcga_pub2015", "brca_tcga_firehose_legacy", "brca_tcga_gdc")]
+    assert cohorts[0].identifiers == {"cbioportal": "brca_tcga_pan_can_atlas_2018"}
+    assert cohorts[0].attributes["gdc_project"] == "TCGA-BRCA"  # related, not the same data
+    assert cohorts[3].identifiers == {"cbioportal": "brca_tcga_gdc", "gdc_project": "TCGA-BRCA"}
+    gdc = Record(source="nci_gdc", id="TCGA-BRCA", type="study", title="Breast Invasive Carcinoma",
+                 identifiers={"gdc_project": "TCGA-BRCA"})
+    curated = curate([*cohorts, gdc])
+    assert curated.stats["entities_out"] == 4  # three cohorts apart; the GDC import merges with its project
+    merged = next(e for e in curated.entities if len(e.sources) > 1)
+    assert sorted(s["id"] for s in merged.sources) == ["TCGA-BRCA", "brca_tcga_gdc"]

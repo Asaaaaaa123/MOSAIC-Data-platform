@@ -34,7 +34,7 @@
         <a href="#ask" data-view="ask">Ask Mosaic</a>
         <a href="#sources" data-view="sources">Sources</a>
         <a href="#search" data-view="search">Cross-database search</a>
-        <a href="#species" data-view="species" lang="zh" title="跨物种比较 Cross-species comparison">跨物种比较<span class="nav-en" lang="en"> Cross-species</span></a>
+        <a href="#species" data-view="species" title="Cross-species comparison">Cross-species</a>
         <a href="#catalog" data-view="catalog">NIH repositories</a>
         <a href="#exports" data-view="exports">Exports</a>
         <a href="#audit" data-view="audit">Audit log</a>
@@ -129,8 +129,9 @@
         <div class="view-head">
           <div>
             <h1 id="search-title">Cross-database search</h1>
-            <p class="muted">Runs every selected source's primary search in parallel, then links records that share
-              identifiers (DOI, PMID, NCT, ChEBI, UniProt ...) into entities.</p>
+            <p class="muted">Runs every selected source's primary search in parallel, links records that share
+              identifiers (DOI, PMID, NCT, ChEBI, UniProt ...) into entities, and shows the data as cards, a mind map,
+              charts, a body map and side-by-side comparisons, and saves it all as a data package.</p>
           </div>
         </div>
         <form class="search-form panel" id="search-form" role="search">
@@ -146,6 +147,11 @@
               <option value="20">20 per source</option>
             </select>
             <button type="submit" class="btn btn-primary" id="search-go">Search</button>
+          </div>
+          <div class="search-row compare-row">
+            <label for="search-compare" class="compare-label">Compare with</label>
+            <input type="search" id="search-compare" class="input" maxlength="1000"
+              placeholder="Optional, up to 3, comma-separated: e.g. adagrasib, divarasib">
           </div>
           <fieldset class="chips" id="search-cats">
             <legend class="small muted">Categories (none selected = all)</legend>
@@ -179,33 +185,32 @@
       <section class="view view-species" id="view-species" data-view="species" aria-labelledby="species-title" hidden>
         <div class="view-head">
           <div>
-            <h1 id="species-title">跨物种比较 <span class="muted h-en">Cross-species comparison</span></h1>
-            <p class="muted">输入药物、化合物或治疗药物：Mosaic 找出它在人体中的靶点，计算每个物种直系同源蛋白与人的序列一致性 / 相似性，
-              并汇总各物种的文献、剂量和效果，附数据包和参考文献。<br><span lang="en">Enter a drug or compound: Mosaic finds its human
-              targets, the sequence identity / similarity of each species' ortholog to the human protein, and the papers, doses and
-              effects reported per species, with a data package and references.</span></p>
+            <h1 id="species-title">Cross-species comparison</h1>
+            <p class="muted">Enter a drug or compound: Mosaic finds its human targets, the sequence identity / similarity of
+              each species' ortholog to the human protein, and the papers, doses and effects reported per species, with a data
+              package and references.</p>
           </div>
         </div>
         <div class="sp-layout">
           <aside class="sp-side">
             <form class="panel sp-form" id="sp-form" autocomplete="off" aria-labelledby="sp-form-title">
-              <h2 id="sp-form-title">新比较 <span class="muted h-en">New comparison</span></h2>
+              <h2 id="sp-form-title">New comparison</h2>
               <div class="field">
-                <label for="sp-q">化合物 / 药物 <span class="h-en">Compound or drug</span><span class="req" aria-hidden="true">*</span></label>
+                <label for="sp-q">Compound or drug<span class="req" aria-hidden="true">*</span></label>
                 <input type="search" id="sp-q" class="input input-lg" required maxlength="200"
-                  placeholder="例如 e.g. sotorasib, imatinib, bisphenol A, metformin">
-                <span class="hint">名称、ChEMBL ID 或 InChIKey · name, ChEMBL ID or InChIKey</span>
+                  placeholder="e.g. sotorasib, imatinib, bisphenol A, metformin">
+                <span class="hint">Name, ChEMBL ID or InChIKey</span>
               </div>
               <fieldset class="sp-species" id="sp-species">
-                <legend>物种 <span class="h-en">Species</span></legend>
+                <legend>Species</legend>
                 <div class="sp-species-actions">
-                  <button type="button" class="btn-link" id="sp-all">全选 All</button>
-                  <button type="button" class="btn-link" id="sp-none">全不选 None</button>
+                  <button type="button" class="btn-link" id="sp-all">All</button>
+                  <button type="button" class="btn-link" id="sp-none">None</button>
                 </div>
-                <div id="sp-species-groups"><p class="muted small">加载物种… Loading species…</p></div>
+                <div id="sp-species-groups"><p class="muted small">Loading species…</p></div>
               </fieldset>
               <div class="field">
-                <label for="sp-papers">每个物种的文献数 <span class="h-en">Papers per species</span></label>
+                <label for="sp-papers">Papers per species</label>
                 <select id="sp-papers" class="input">
                   <option value="3">3</option>
                   <option value="5" selected>5</option>
@@ -215,17 +220,17 @@
               </div>
               <div class="field-check sp-check">
                 <input type="checkbox" id="sp-claude">
-                <label for="sp-claude">用 Claude 从摘要中提取剂量和效果 <span class="h-en">(extract dose/effect with Claude; uses API credits)</span></label>
+                <label for="sp-claude">Extract dose and effect from abstracts with Claude (uses API credits)</label>
               </div>
               <div class="form-actions">
-                <button type="submit" class="btn btn-primary" id="sp-run">运行比较 Run</button>
+                <button type="submit" class="btn btn-primary" id="sp-run">Run comparison</button>
               </div>
               <div class="sp-status small" id="sp-status" role="status" aria-live="polite"></div>
             </form>
             <section class="panel" aria-labelledby="sp-history-title">
               <div class="panel-head row">
-                <h2 id="sp-history-title">历史比较 <span class="muted h-en">Previous</span></h2>
-                <button type="button" class="btn btn-sm" id="sp-history-refresh">刷新 Refresh</button>
+                <h2 id="sp-history-title">Previous comparisons</h2>
+                <button type="button" class="btn btn-sm" id="sp-history-refresh">Refresh</button>
               </div>
               <ul class="sp-history" id="sp-history"></ul>
             </section>

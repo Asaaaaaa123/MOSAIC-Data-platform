@@ -269,15 +269,19 @@ def classify_paper(record: Record) -> EvidenceLevel:
     return "none"
 
 
-def paper_from_record(record: Record, species: str) -> Paper:
-    attrs = record.attributes or {}
-    text = " ".join(filter(None, [record.title, record.summary]))
-    evidence = classify_paper(record)
-    mesh = {str(t).rstrip("*").lower() for t in attrs.get("mesh_terms") or []}
+def evidence_for_species(evidence: EvidenceLevel, species: str, record: Record) -> EvidenceLevel:
+    mesh = {str(t).rstrip("*").lower() for t in (record.attributes or {}).get("mesh_terms") or []}
     if species != "human" and evidence == "clinical" and "humans" in mesh:
         # a human trial that also reports data in this animal: for the animal it is in vivo evidence
         # (veterinary trials have no 'Humans' MeSH tag and stay clinical)
-        evidence = "in_vivo"
+        return "in_vivo"
+    return evidence
+
+
+def paper_from_record(record: Record, species: str) -> Paper:
+    attrs = record.attributes or {}
+    text = " ".join(filter(None, [record.title, record.summary]))
+    evidence = evidence_for_species(classify_paper(record), species, record)
     return Paper(
         species=species,
         pmid=record.identifiers.get("pmid") or (record.id if record.id.isdigit() else None),

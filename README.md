@@ -57,6 +57,7 @@ Keyed sources show as *not configured* until their key is set, and nothing else 
 | `MOSAIC_ENABLE_WEB_TOOLS` | Let Claude use server-side `web_search` / `web_fetch` (default `true`) |
 | `MOSAIC_FALLBACKS` | Server-side refusal fallback (`default`, or `off`) |
 | `MOSAIC_EXTRACTION_MODEL` / `MOSAIC_EXTRACTION_EFFORT` | Model / effort for `extract_structured` (defaults: main model, `low`) |
+| `MOSAIC_FIGUREGEN_PATH` | Figure Studio folder (the "graph generation" project) that draws the figures; empty = a `graph generation` folder next to Mosaic |
 | `BIOPHA_CONTACT_EMAIL` | Contact email for the Crossref / OpenAlex / NCBI polite pools; required by Unpaywall |
 | `NCBI_API_KEY`, `SEMANTIC_SCHOLAR_API_KEY`, `OPENALEX_API_KEY`, `ELSEVIER_SCOPUS_API_KEY` (+ optional `ELSEVIER_INSTTOKEN`), `SPRINGER_META_API_KEY`, `SPRINGER_OPENACCESS_API_KEY`, `OPENFDA_API_KEY`, `CLARIVATE_API_KEY` | Keyed sources |
 | `DRUGCENTRAL_PG_*` | DrugCentral's public read-only PostgreSQL (defaults are DrugCentral's published credentials) |
@@ -204,7 +205,7 @@ Mosaic answers with the associated data itself; links are kept as provenance.
    (not causal), unreviewed TrEMBL entry, electronic-only GO annotation, non-human. Every grade
    carries the reasons it was computed from (hover the grade in the web app).
 
-## Cross-species comparison (跨物种比较)
+## Cross-species comparison
 
 For a drug, medicine or chemical compound, Mosaic compares human with macaque, mouse, rat, dog,
 pig, chicken, frog, zebrafish, fruit fly, worm, yeast and Arabidopsis:
@@ -223,8 +224,58 @@ pig, chicken, frog, zebrafish, fruit fly, worm, yeast and Arabidopsis:
   bars, dose-effect scatter, paper list with references), a card in chat answers, and a data package
   with one CSV per species
 
-Use the *跨物种比较 Cross-species* tab, ask in chat ("compare metformin in human, mouse and zebrafish"),
+Use the *Cross-species* tab, ask in chat ("compare metformin in human, mouse and zebrafish"),
 `mosaic species metformin`, or `POST /api/species/compare`.
+
+## Search results: data, mind map, charts, body map, comparison
+
+The *Cross-database search* view shows what a search found in five tabs:
+
+- **Data**: the cleaned, merged, graded entities (the data itself, sources as references).
+- **Mind map**: the query, the kinds of data found (with counts) and the best-graded entities of
+  each with their key facts (phase, status, enrollment, journal, citations, max phase ...). Branches open and
+  close; clicking an entry shows its data and can jump to its card or add it to a comparison.
+- **Charts**: data by kind, records per database, quality grades, data by year, trials by phase and
+  status, which database supplied which data, and (when comparing) shared versus unique data. Each value is
+  counted from the returned records and keeps the entity numbers it counted (*the numbers and what each one
+  counted* under each chart). The figures are drawn by **Figure Studio** (`figuregen` from the separate
+  "graph generation" project, Nature house style) as SVG, PNG (300 dpi) and PDF, plus a multi-panel overview
+  figure; without Figure Studio the same numbers are drawn in the browser.
+- **Compare**: put up to 4 entities side by side (differences highlighted). Enter up to 3 more terms in
+  *Compare with* (for example `sotorasib` vs `adagrasib`) to search each one the same way: the charts,
+  the mind map and a table then show the queries side by side, with the entities they share.
+
+- **Body map**: where the searched drug, chemical or disease acts in the human body, drawn by
+  Figure Studio's body and organ illustrations (and as an interactive body on the page). Every organ comes
+  from a database record, coloured by what kind of evidence it is:
+  - red, *approved use / disease site*: approved indications (ChEMBL); for a disease, its name, parent
+    terms (MONDO via OLS, Open Targets) and therapeutic areas, and HPO phenotypes (Monarch)
+  - yellow, *adverse effects reported*: FAERS reaction counts (openFDA; terms naming the treated disease,
+    death or off-label use are not counted), FDA label warnings and boxed warnings, PubChem / Haz-Map toxicity
+  - purple, *in clinical trials*: indications in phase 1-3 (pharmacokinetic studies in liver or kidney
+    impairment are not counted)
+  - blue, *target / gene expressed*: GTEx tissues where the drug's targets (or the disease's top genes)
+    are made at 2x or more their median level; genes expressed everywhere are not drawn
+
+  On the page the body is assembled from Figure Studio's illustrations (one picture per organ, plus the
+  skeleton, blood vessels and nerves as whole-body systems), each served as SVG from
+  `GET /api/body/art/{name}.svg?tone=…`. It is fully interactive: scroll or pinch to zoom, drag to move,
+  click or Tab + Enter on any organ to fly to it and see its evidence, double-click to zoom, keys + − 0,
+  arrows, N / P (next / previous organ) and Esc; toggle evidence levels, labels, body systems, all organs,
+  natural colours and female / male organs; find an organ by name; full screen.
+
+  Next to it: key facts (phase and approval, mechanism, targets, indications, trials by phase, FAERS
+  totals, boxed warning, formula; for diseases definition, drugs, top genes, trials, phenotypes), each
+  organ's evidence with the exact words or GTEx tissue that placed it, and an export (organs.csv,
+  organ_evidence.csv, key_facts.csv, figures, Excel, ZIP). `POST /api/body {"query": "imatinib"}`.
+
+**Data checks**: every chart is added up again and compared with the data (entities per kind,
+records per database against each database's reported count, grades, trial phases and status, years, every
+mind-map item); exports also recount the written tables. The result (for example *13/13 passed*) is shown
+above the tabs and written to the package README.
+
+API: `POST /api/search` (with `"compare": [...]`) returns `visuals` and a `search_id`;
+`GET /api/search/{search_id}/figures/{name}.svg|png|pdf`, `/figure_data.csv` and `/mindmap.json`.
 
 ## Data packages (exports)
 
@@ -240,8 +291,12 @@ to save or export data, writes a folder `data/exports/<name>__<id>/`:
 - `data_files.csv`: every file of every dataset (name, size, format, checksum, download URL), and
   `files/`: the small open tables (CSV/TSV/TXT/JSON/Excel up to 10 MB each, 50 MB per package)
   downloaded from the repositories, previewed as sheets in the workbook
-- `mosaic_data.xlsx` (one sheet per table), `README.txt` (including how much of the package is data
-  values versus identifiers and links), `manifest.json` and `mosaic_data.zip`
+- `figures/`: the mind map, the overview figure and every chart as SVG, PNG and PDF with a drafted legend
+  (Figure Studio); `figure_data.csv`: every plotted number with how it was counted and the entities it
+  counted; `mindmap.json`; for compared searches a `matched_queries` column in every table
+- `mosaic_data.xlsx` (one sheet per table, plus a *Figures* sheet with the pictures and a *figure_data* sheet),
+  `README.txt` (including how much of the package is data values versus identifiers and links, and the data
+  checks), `manifest.json` and `mosaic_data.zip`
 
 ## How it fits together
 
@@ -257,6 +312,8 @@ mosaic/
   curation/        cleaning, cross-database consolidation and quality evaluation
   species/         cross-species comparison engine (orthologs, alignment, per-species evidence)
   datapackage.py   multi-table exports; enrich.py full records; datafiles.py dataset files
+  visuals/         mind map, charts and data checks counted from the data; Figure Studio bridge
+  body/            body map: organ evidence from indications, FAERS, labels, phenotypes, GTEx
   catalog/         NIH repository catalog (nih_repositories.json) + BM25 search
   agent/           Claude agent: streaming tool loop, meta tools, extraction, exports, sessions
   api/             FastAPI app (JSON + SSE), security middleware

@@ -106,6 +106,22 @@ async def test_get_drug_not_found(make_registry, db):
     assert result.records == [] and "no DrugCentral drug" in result.notes[0]
 
 
+@pytest.mark.parametrize("value,query_params,looked_up_as", [
+    ("CHEMBL941", {"t": "ChEMBL_ID", "v": "CHEMBL941"}, "chembl"),  # was read as struct_id 941, another drug
+    ("db00619", {"t": "DRUGBANK_ID", "v": "db00619"}, "drugbank"),
+    ("KTUFNOKKBVMGRW-UHFFFAOYSA-N", {"v": "KTUFNOKKBVMGRW-UHFFFAOYSA-N"}, "inchikey"),
+    ("STI-571", {"n": "STI-571"}, "name"),  # was struct_id 571
+])
+async def test_get_drug_default_id_type_never_strips_an_id_to_its_digits(make_registry, db, value, query_params, looked_up_as):
+    fake = db([[[["struct_id"], []]]])
+    registry = make_registry("drugcentral")
+    result = await registry.call("drugcentral", "get_drug", {"id": value})
+    _, params = fake.calls[0][0]
+    assert params == query_params
+    assert result.records == [] and result.notes[0] == f"{value!r} is not a DrugCentral struct_id; looked up as {looked_up_as}"
+    assert result.notes[1] == f"no DrugCentral drug for {looked_up_as} {value}"
+
+
 async def test_drug_targets(make_registry, db):
     fake = db("drug_targets_imatinib.json")
     registry = make_registry("drugcentral")

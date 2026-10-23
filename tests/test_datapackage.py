@@ -151,7 +151,8 @@ async def test_search_export_and_download(pkg_client, offline_settings, respx_mo
     entry = res.json()
     assert entry["kind"] == "package" and entry["n_rows"] == 2
     files = {f["file"]: f for f in entry["files"]}
-    assert set(files) == {"papers.csv"}  # an article and a preprint are both papers
+    assert set(files) == {"papers.csv", "figure_data.csv"}  # an article and a preprint are both papers
+    assert entry["checks"]["total"] > 0 and entry["checks"]["passed"] == entry["checks"]["total"]
 
     dl = await pkg_client.get(files["papers.csv"]["url"])
     assert dl.status_code == 200 and dl.headers["content-type"].startswith("text/csv")
@@ -190,4 +191,16 @@ def test_comparison_species_have_their_own_buckets():
                              attributes={"organism": organism})]).entities[0]
         assert species_of(entity) == [bucket], organism
     package = build_package([rec("chembl", "a1", "activity", title="PK in dogs", attributes={"species": "Canis lupus familiaris"})], "species")
-    assert [t.key for t in package.tables] == ["dog"] and package.tables[0].title == "Dog 狗"
+    assert [t.key for t in package.tables] == ["dog"] and package.tables[0].title == "Dog"
+
+
+def test_package_keeps_one_row_per_activity_against_the_same_target():
+    # every ChEMBL activity of a compound against ABL1 carries ABL1's ChEMBL ID
+    records = [rec("chembl", str(aid), "activity", title=f"IMATINIB IC50 {value} nM vs ABL1",
+                   identifiers={"chembl": "CHEMBL1862"}, attributes={"standard_value": value})
+               for aid, value in ((101, 25), (102, 38), (103, 600))]
+    package = build_package(records, "type")
+    assert package.stats["tables"] == {"bioactivity_assays": 3}
+    rows = package.tables[0].rows
+    assert sorted(r["standard_value"] for r in rows) == [25, 38, 600]
+    assert sorted(r["sources"] for r in rows) == ["chembl:101", "chembl:102", "chembl:103"]

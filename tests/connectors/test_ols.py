@@ -7,6 +7,7 @@ import pytest
 import respx
 
 from mosaic.connectors.ols import identifiers_from_curies, map_curie
+from mosaic.curation import curate
 from tests.conftest import load_fixture
 
 API = "https://www.ebi.ac.uk/ols4/api"
@@ -149,6 +150,53 @@ async def test_map_term_uses_v2_linked_entities(make_registry):
     assert doid.attributes["mapped_from"] == "MONDO:0004979"
     assert any(m["relation"] == "exactMatch" for m in result.data["mappings"])
     assert result.total == len(result.data["mappings"])
+
+
+@respx.mock
+async def test_close_narrow_and_broad_matches_are_not_identifiers(make_registry):
+    term = load_fixture("ols", "term.json")
+    v2 = load_fixture("ols", "v2_class.json")
+    v2["http://www.w3.org/2004/02/skos/core#closeMatch"] = ["OMIM:600807"]
+    v2["http://www.w3.org/2004/02/skos/core#narrowMatch"] = [{"value": "Orphanet:1234", "axioms": []}]
+    v2["http://www.w3.org/2004/02/skos/core#broadMatch"] = "MONDO:0005087"
+    respx.get(f"{API}/terms/findByIdAndIsDefiningOntology").mock(return_value=httpx.Response(200, json=term))
+    respx.get(f"{API}/v2/ontologies/mondo/classes/{ASTHMA_IRI_2X}").mock(return_value=httpx.Response(200, json=v2))
+    registry = make_registry("ols")
+    result = await registry.call("ols", "map_term", {"term_id": "MONDO:0004979"})
+    source = result.records[0]
+    assert source.identifiers["doid"] == "DOID:2841"  # cross-references and exact matches still link
+    assert "omim" not in source.identifiers and "orphanet" not in source.identifiers
+    assert source.attributes["loose_matches"] == [
+        "OMIM:600807 (closeMatch)", "Orphanet:1234 (narrowMatch)", "MONDO:0005087 (broadMatch)"]
+    omim = next(r for r in result.records if r.id == "OMIM:600807")
+    assert omim.identifiers == {"omim": "600807"} and omim.attributes["relation"] == "closeMatch"
+    entity = next(e for e in curate(result.records).entities if any(s["id"] == "MONDO:0004979" for s in e.sources))
+    assert {s["id"] for s in entity.sources}.isdisjoint({"OMIM:600807", "Orphanet:1234", "MONDO:0005087"})
+
+
+@respx.mock
+async def test_map_term_identifiers_are_normalized(make_registry):
+    v2 = load_fixture("ols", "v2_class.json")
+    v2["http://www.w3.org/2004/02/skos/core#exactMatch"].append("ORDO:558")  # map_curie gives 'Orphanet:558'
+    respx.get(f"{API}/terms/findByIdAndIsDefiningOntology").mock(
+        return_value=httpx.Response(200, json=load_fixture("ols", "term.json")))
+    respx.get(f"{API}/v2/ontologies/mondo/classes/{ASTHMA_IRI_2X}").mock(return_value=httpx.Response(200, json=v2))
+    registry = make_registry("ols")
+    result = await registry.call("ols", "map_term", {"term_id": "MONDO:0004979"})
+    orphanet = next(r for r in result.records if r.id == "ORDO:558")
+    assert result.records[0].identifiers["orphanet"] == orphanet.identifiers["orphanet"] == "558"  # so they link
+
+
+@respx.mock
+async def test_get_term_close_match_annotation_is_not_an_identifier(make_registry):
+    term = load_fixture("ols", "term.json")
+    found = term["_embedded"]["terms"][0] if "_embedded" in term else term
+    found.setdefault("annotation", {})["closeMatch"] = ["http://identifiers.org/omim/600807"]
+    respx.get(f"{API}/terms/findByIdAndIsDefiningOntology").mock(return_value=httpx.Response(200, json=term))
+    registry = make_registry("ols")
+    rec = (await registry.call("ols", "get_term", {"term_id": "MONDO:0004979"})).records[0]
+    assert "omim" not in rec.identifiers and rec.identifiers["doid"] == "DOID:2841"
+    assert rec.attributes["loose_matches"] == ["http://identifiers.org/omim/600807 (closeMatch)"]
 
 
 @pytest.mark.live

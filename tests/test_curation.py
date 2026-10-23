@@ -56,6 +56,17 @@ def test_clean_record_dedupes_authors_and_counts_fixes():
     assert any("authors" in s for s in log.summary())
 
 
+def test_cleaning_keeps_an_unknown_trial_status_and_its_flag():
+    # ClinicalTrials.gov's UNKNOWN: completion date passed and status not verified for 2+ years
+    trial = rec("clinicaltrials", "NCT01234567", type="trial", title="A trial",
+                identifiers={"nct": "NCT01234567"}, attributes={"status": " UNKNOWN ", "phase": "N/A", "why_stopped": "unknown"})
+    out = clean_record(trial)
+    assert out.attributes == {"status": "UNKNOWN"}  # other placeholders still go
+    assert list(clean_record(rec("x", "1", attributes={"a": 1, "status": "Recruiting", "b": 2})).attributes) == ["a", "status", "b"]
+    assert clean_record(rec("x", "2", attributes={"status": "  "})).attributes == {}
+    assert "trial status unknown (registry not updated)" in curate([trial]).entities[0].evaluation.flags
+
+
 # ---------------------------------------------------------------- evaluation
 def test_flags():
     assert "retracted" in record_flags(rec("openalex", "W1", attributes={"is_retracted": True}))
@@ -133,6 +144,40 @@ def test_curate_merges_same_title_without_shared_ids_but_not_across_years():
     ])
     assert result.stats["entities_out"] == 2
     assert sorted(s["source"] for s in result.entities[0].sources) == ["figshare", "zenodo"]
+
+
+def test_curate_keeps_relationship_records_that_share_a_counterpart_apart():
+    # relationship records carry the counterpart entity's IDs, which sibling rows of one result share
+    activities = [
+        rec("chembl", aid, type="activity", title=f"IMATINIB IC50 {value} nM vs ABL1",
+            identifiers={"chembl": "CHEMBL1862"}, attributes={"standard_value": value})
+        for aid, value in (("101", 25), ("102", 38), ("103", 600))
+    ]
+    associations = [  # GWAS association ids can be empty
+        rec("gwas_catalog", "", type="association", title=f"rs334 - {trait}", identifiers={"rsid": "rs334"},
+            attributes={"trait": trait})
+        for trait in ("malaria", "sickle cell anaemia")
+    ]
+    target = rec("chembl", "CHEMBL1862", type="target", title="Tyrosine-protein kinase ABL1",
+                 identifiers={"chembl": "CHEMBL1862", "uniprot": "P00519"})
+    protein = rec("uniprot", "P00519", type="protein", title="ABL1", identifiers={"uniprot": "P00519"})
+    by_target = rec("chembl", "101", type="activity", title="IMATINIB IC50 25 nM vs ABL1",  # activity 101 fetched by target
+                    identifiers={"chembl": "CHEMBL941", "smiles": "Cc1ccc(NC(=O)c2ccc(CN3CCN(C)CC3)cc2)cc1"},
+                    attributes={"standard_value": 25})
+    same_id = rec("gwas_catalog", "101", type="association", title="rs7903146 - type 2 diabetes",
+                  identifiers={"rsid": "rs7903146"}, attributes={"trait": "type 2 diabetes"})
+    result = curate([*activities, *associations, target, protein, by_target, same_id])
+
+    assert result.stats["records_in"] == 9 and result.stats["entities_out"] == 7
+    acts = {e.sources[0]["id"]: e for e in result.entities if e.type == "activity"}
+    assert [acts[a].fields["standard_value"] for a in ("101", "102", "103")] == [25, 38, 600]
+    assert acts["102"].identifiers == {"chembl": "CHEMBL1862"}  # the counterpart's ID is kept as data
+    # the same activity fetched from the other side merges, without a false identifier conflict
+    assert [s["id"] for s in acts["101"].sources] == ["101", "101"] and not acts["101"].conflicts
+    traits = sorted(e.fields["trait"] for e in result.entities if e.type == "association")
+    assert traits == ["malaria", "sickle cell anaemia", "type 2 diabetes"]  # gwas_catalog:101 is not chembl:101
+    gene = [e for e in result.entities if e.type in ("target", "protein")]
+    assert len(gene) == 1 and sorted(s["source"] for s in gene[0].sources) == ["chembl", "uniprot"]
 
 
 def test_curated_to_llm_is_valid_json_within_budget():
