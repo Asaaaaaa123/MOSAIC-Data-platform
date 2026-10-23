@@ -512,7 +512,7 @@
     const first = !loaded.has(view);
     loaded.add(view);
     if (loaders[view]) loaders[view](first);
-    const titles = { ask: 'Ask Mosaic', sources: 'Sources', search: 'Cross-database search', species: '跨物种比较 Cross-species', catalog: 'NIH repositories', exports: 'Exports', audit: 'Audit log' };
+    const titles = { ask: 'Ask Mosaic', sources: 'Sources', search: 'Cross-database search', species: 'Cross-species comparison', catalog: 'NIH repositories', exports: 'Exports', audit: 'Audit log' };
     document.title = titles[view] + ' · Mosaic';
   }
 
@@ -800,8 +800,24 @@
   }
 
   const PACKAGE_PATH_RE = /^\/api\/exports\/[0-9a-f]{32}\/[A-Za-z0-9_]{1,64}\.(csv|xlsx|zip|txt|json)(\/preview)?$/;
+  const PACKAGE_FIGURE_RE = /^\/api\/exports\/[0-9a-f]{32}\/figures\/[a-z0-9_]{1,48}\.(svg|png|pdf|txt)$/;
   /** Same-origin URL of a data-package file (strictly validated), or null. */
   function pkgUrl(u) { return typeof u === 'string' && PACKAGE_PATH_RE.test(u) ? u : null; }
+
+  /** Figures and data checks of a package (Figure Studio SVG / PNG / PDF files in its figures/ folder). */
+  function packageFigures(ev) {
+    const figs = (Array.isArray(ev.figures) ? ev.figures : []).filter((f) => f && f.urls && Object.values(f.urls).some((u) => PACKAGE_FIGURE_RE.test(u)));
+    const checks = ev.checks && ev.checks.total ? ev.checks : null;
+    if (!figs.length && !checks) return null;
+    const ok = checks && checks.passed === checks.total;
+    return h('div', { class: 'pkg-figs small' },
+      checks ? h('span', { class: 'badge ' + (ok ? 'ok' : 'err'), text: (ok ? '✓ ' : '✗ ') + 'Data checks ' + checks.passed + '/' + checks.total }) : null,
+      figs.length ? h('span', { class: 'muted', text: ' Figures: ' }) : null,
+      figs.map((f) => h('span', { class: 'pkg-fig' }, h('b', { text: f.title || f.name }), ' ',
+        ['svg', 'png', 'pdf'].filter((x) => PACKAGE_FIGURE_RE.test((f.urls || {})[x] || '')).map((x) =>
+          h('a', { class: 'btn btn-xs', href: f.urls[x] + (x === 'svg' ? '' : '?download=1'), target: x === 'svg' ? '_blank' : null,
+            rel: 'noopener', download: x === 'svg' ? null : '' }, x.toUpperCase())))));
+  }
 
   /** Card for a multi-file data package (chat event or Exports entry). */
   function packageCard(ev, onPreview) {
@@ -818,6 +834,7 @@
           pkgUrl(f.url) ? h('a', { href: pkgUrl(f.url), download: '' }, f.file) : h('code', { text: f.file }),
           h('span', { class: 'muted small', text: ' ' + fmtNum(f.rows) + ' rows · ' + (f.title || '') }),
           onPreview && pkgUrl(f.preview_url) ? h('button', { type: 'button', class: 'btn btn-xs', onclick: () => onPreview(ev, f) }, 'Preview') : null))),
+        packageFigures(ev),
         ev.folder ? h('div', { class: 'small muted' }, 'On disk: ', h('code', { text: ev.folder })) : null),
       h('div', { class: 'tc-actions' },
         xlsx ? h('a', { class: 'btn btn-sm btn-primary', href: xlsx, download: '' }, 'Excel workbook') : null,
@@ -1428,7 +1445,16 @@
   // ===================================================================
   // Cross-database search
   // ===================================================================
-  const searchState = { cats: new Set(), controller: null };
+  // Results come in four tabs: the data (entity cards), a mind map, charts (drawn by Figure Studio
+  // from the counted values) and a comparison (queries side by side, chosen entities side by side).
+  const searchState = { cats: new Set(), controller: null, res: null, byId: new Map(), selected: [], showTab: null, showAll: null };
+  const SEARCH_ID_RE = /^[0-9a-f]{32}$/;
+  const MAX_COMPARE_ENTITIES = 4;
+  const GROUP_CAT = {
+    papers: 'literature', clinical_trials: 'clinical', safety_regulatory: 'clinical', drugs_compounds: 'drugs',
+    bioactivity_assays: 'chemistry', genes_proteins: 'proteins', variants_associations: 'genomics', diseases_phenotypes: 'biology',
+    pathways_ontology: 'biology', datasets_repositories: 'datasets', projects_studies: 'datasets',
+  };
 
   function renderSearchCats(data) {
     const box = $('#search-cats');
@@ -1489,16 +1515,50 @@
       h('td', { text: clip(fieldText(v), 400) })))));
   }
 
+  function entityQueries(id) {
+    const vis = searchState.res && searchState.res.visuals;
+    return vis && vis.compare ? ((vis.entity_queries || {})[id] || []) : [];
+  }
+  function queryIndex(q) { return Math.max(0, ((searchState.res && searchState.res.queries) || []).indexOf(q)); }
+  function queryBadges(list) {
+    return list.length ? h('span', { class: 'q-badges' }, list.map((q) => h('span', { class: 'badge q-badge q' + (queryIndex(q) % 4), text: q }))) : null;
+  }
+
+  function compareToggle(id) {
+    const on = searchState.selected.includes(id);
+    return h('label', { class: 'cmp-toggle small', title: 'Add to the comparison (up to ' + MAX_COMPARE_ENTITIES + ')' },
+      h('input', { type: 'checkbox', checked: on, dataset: { cmp: id }, onchange: () => toggleCompare(id) }), 'Compare');
+  }
+
+  function toggleCompare(id) {
+    const list = searchState.selected;
+    const at = list.indexOf(id);
+    if (at >= 0) list.splice(at, 1);
+    else {
+      list.push(id);
+      if (list.length > MAX_COMPARE_ENTITIES) {
+        const dropped = list.shift();
+        toast('At most ' + MAX_COMPARE_ENTITIES + ' entities can be compared: removed ' + dropped);
+      }
+    }
+    document.querySelectorAll('#search-results input[data-cmp]').forEach((box) => { box.checked = list.includes(box.dataset.cmp); });
+    const count = $('#tab-count-compare');
+    if (count) count.textContent = list.length ? String(list.length) : '';
+    if (searchState.refreshCompare) searchState.refreshCompare();
+  }
+
   function entityCard(e) {
     const ev = e.evaluation || {};
     const fields = Object.entries(e.fields || {}).filter(([, v]) => fieldText(v)).slice(0, 40);
     const multi = (ev.corroborated_by || []).length > 1;
-    return h('article', { class: 'entity' + (multi ? ' linked' : '') },
+    return h('article', { class: 'entity' + (multi ? ' linked' : ''), id: /^e\d+$/.test(e.entity_id) ? 'ent-' + e.entity_id : null },
       h('div', { class: 'card-meta' },
         gradeBadge(ev),
         h('span', { class: 'badge outline', text: e.type || 'other' }),
         multi ? h('span', { class: 'badge accent', text: 'confirmed by ' + ev.corroborated_by.length + ' databases' }) : null,
-        e.date ? h('span', { class: 'muted small', text: e.date }) : null),
+        e.date ? h('span', { class: 'muted small', text: e.date }) : null,
+        queryBadges(entityQueries(e.entity_id)),
+        h('span', { class: 'card-meta-end' }, h('code', { class: 'small muted', text: e.entity_id }), compareToggle(e.entity_id))),
       h('div', { class: 'cluster-title', text: e.title || '(untitled)' }),
       e.authors && e.authors.length ? h('div', { class: 'muted small', text: clip(e.authors.slice(0, 6).join(', ') + (e.authors.length > 6 ? ' et al.' : ''), 200) }) : null,
       (ev.flags || []).length ? h('div', { class: 'flags' }, ev.flags.map((f) => h('span', { class: 'flag', text: f }))) : null,
@@ -1514,36 +1574,148 @@
         sourceBadge(s.source), ' ', s.url ? extLink(s.url, clip(s.id, 36)) : h('code', { text: clip(s.id, 36) })))));
   }
 
+  /** Switch to the data tab and bring an entity card into view. */
+  function showEntity(id) {
+    if (!/^e\d+$/.test(String(id || ''))) return;
+    if (searchState.showTab) searchState.showTab('data');
+    if (!document.getElementById('ent-' + id) && searchState.showAll) searchState.showAll();
+    const el = document.getElementById('ent-' + id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    el.classList.add('flash');
+    setTimeout(() => el.classList.remove('flash'), 1800);
+  }
+  function entityLink(id) {
+    return /^e\d+$/.test(id) ? h('button', { type: 'button', class: 'id-link', title: 'Show in data', onclick: () => showEntity(id) }, id)
+      : h('code', { class: 'small', text: id });
+  }
+
+  // ------------------------------------------------------------- results page
+  function statusChip(s) {
+    return h('span', { class: 'status-chip ' + (s.ok ? (s.returned ? 'ok' : 'zero') : 'err'), role: 'listitem', title: s.ok ? (s.returned ? '' : 'no matches') : (s.error || 'failed') },
+      sourceBadge(s.source),
+      s.ok ? fmtNum(s.returned) + (s.total !== null && s.total !== undefined ? ' / ' + fmtNum(s.total) : '') : 'failed',
+      h('span', { class: 'lat', text: fmtMs(s.latency_ms) }));
+  }
+
+  function checksSummary(checks, okText) {
+    const list = Array.isArray(checks) ? checks : [];
+    if (!list.length) return null;
+    const passed = list.filter((c) => c.ok).length;
+    const ok = passed === list.length;
+    return h('details', { class: 'checks ' + (ok ? 'ok' : 'bad') },
+      h('summary', null, h('span', { class: 'badge ' + (ok ? 'ok' : 'err'), text: (ok ? '✓ ' : '✗ ') + 'Data checks ' + passed + '/' + list.length }),
+        h('span', { class: 'muted small', text: ok ? ' ' + (okText || 'every chart number was re-added and matches the data') : ' some checks failed: see below' })),
+      h('ul', { class: 'small' }, list.map((c) => h('li', { class: c.ok ? null : 'bad' }, h('b', { text: (c.ok ? '✓ ' : '✗ ') + c.name }), ' – ' + c.detail))));
+  }
+
   function renderSearchResults(res) {
+    searchState.res = res;
+    searchState.selected = [];
+    searchState.refreshCompare = null;
+    const curated = res.curated || { entities: [], stats: {} };
+    searchState.byId = new Map((curated.entities || []).map((e) => [e.entity_id, e]));
     const box = clear($('#search-results'));
+    const queries = Array.isArray(res.queries) && res.queries.length ? res.queries : [res.query];
     const statuses = (res.sources || []).slice().sort((a, b) => (b.ok - a.ok) || a.source.localeCompare(b.source));
     const okCount = statuses.filter((s) => s.ok).length;
-    const curated = res.curated || { entities: [], stats: {} };
     const st = curated.stats || {};
     const grades = Object.entries(st.grades || {}).map(([g, n]) => g + ': ' + n).join(', ');
     box.appendChild(h('p', { class: 'muted', text:
-      fmtNum((res.records || []).length) + ' records from ' + okCount + ' of ' + statuses.length + ' sources, cleaned and merged into ' +
+      (queries.length > 1 ? queries.join(' vs ') + ': ' : '') +
+      fmtNum((res.records || []).length) + ' records from ' + okCount + ' of ' + statuses.length + ' source searches, cleaned and merged into ' +
       fmtNum(st.entities_out || 0) + ' entities (' + fmtNum(st.duplicates_merged || 0) + ' duplicates merged, ' +
       fmtNum(st.multi_source_entities || 0) + ' confirmed by 2+ databases) · grades ' + (grades || '-') + ' · ' + fmtMs(res.elapsed_ms) }));
-    box.appendChild(h('div', { class: 'status-chips', role: 'list', 'aria-label': 'Per-source status' }, statuses.map((s) =>
-      h('span', { class: 'status-chip ' + (s.ok ? (s.returned ? 'ok' : 'zero') : 'err'), role: 'listitem', title: s.ok ? (s.returned ? '' : 'no matches') : (s.error || 'failed') },
-        sourceBadge(s.source),
-        s.ok ? fmtNum(s.returned) + (s.total !== null && s.total !== undefined ? ' / ' + fmtNum(s.total) : '') : 'failed',
-        h('span', { class: 'lat', text: fmtMs(s.latency_ms) })))));
+    if (queries.length > 1) {
+      for (const q of queries) {
+        box.appendChild(h('div', { class: 'status-row' }, h('span', { class: 'badge q-badge q' + (queryIndex(q) % 4), text: q }),
+          h('div', { class: 'status-chips', role: 'list', 'aria-label': 'Per-source status for ' + q }, statuses.filter((s) => s.query === q).map(statusChip))));
+      }
+    } else {
+      box.appendChild(h('div', { class: 'status-chips', role: 'list', 'aria-label': 'Per-source status' }, statuses.map(statusChip)));
+    }
     const failed = statuses.filter((s) => !s.ok);
     if (failed.length) {
-      box.appendChild(h('details', null, h('summary', { class: 'small muted', text: failed.length + ' source(s) failed - details' }),
-        h('ul', { class: 'small' }, failed.map((s) => h('li', null, h('b', { text: s.source + ': ' }), s.error || 'failed')))));
+      box.appendChild(h('details', null, h('summary', { class: 'small muted', text: failed.length + ' source search(es) failed - details' }),
+        h('ul', { class: 'small' }, failed.map((s) => h('li', null, h('b', { text: s.source + (s.query && queries.length > 1 ? ' (' + s.query + ')' : '') + ': ' }), s.error || 'failed')))));
     }
-    box.appendChild(h('div', { class: 'section-title' }, h('h2', { text: 'Data' }),
-      h('span', { class: 'muted small', text: 'cleaned, de-duplicated across databases and quality-graded (hover a grade for how it was scored)' })));
-    const entities = curated.entities || [];
-    if (entities.length) box.appendChild(h('div', { class: 'entities' }, entities.slice(0, 60).map(entityCard)));
-    else box.appendChild(h('div', { class: 'empty', text: 'No data matched. Try a more specific query (a drug, gene, DOI or trial).' }));
-    if (entities.length > 60) box.appendChild(h('p', { class: 'muted small', text: 'Showing 60 of ' + entities.length + ' entities.' }));
-    if ((st.cleaning || []).length) box.appendChild(h('p', { class: 'muted small', text: 'Cleaning applied: ' + st.cleaning.join('; ') }));
-    if (entities.length) box.insertBefore(exportPanel(), box.children[2] || null);
+    const vis = res.visuals;
+    if (vis) box.appendChild(checksSummary(vis.checks));
+    if ((curated.entities || []).length) box.appendChild(exportPanel());
+    box.appendChild(searchTabs(res));
+  }
 
+  function searchTabs(res) {
+    const vis = res.visuals;
+    const tabs = [
+      ['data', '', 'Data', () => dataPanel(res)],
+      vis ? ['mindmap', '', 'Mind map', () => mindMapPanel(res)] : null,
+      vis ? ['charts', '', 'Charts', () => chartsPanel(res)] : null,
+      ['body', '', 'Body map', () => bodyPanel(res)],
+      ['compare', '', 'Compare', () => comparePanel(res)],
+    ].filter(Boolean);
+    const list = h('div', { class: 'tabs', role: 'tablist', 'aria-label': 'Search results' });
+    const panels = h('div', { class: 'tab-panels' });
+    const built = new Map();
+    function show(key) {
+      for (const [k] of tabs) {
+        const btn = list.querySelector('[data-tab="' + k + '"]');
+        const panel = panels.querySelector('[data-panel="' + k + '"]');
+        const on = k === key;
+        btn.setAttribute('aria-selected', String(on));
+        btn.tabIndex = on ? 0 : -1;
+        panel.hidden = !on;
+        if (on && (!built.has(k) || k === 'compare')) {
+          panel.replaceChildren(tabs.find((t) => t[0] === k)[3]());
+          built.set(k, true);
+        }
+      }
+    }
+    for (const [key, , en] of tabs) {
+      const btn = h('button', {
+        type: 'button', class: 'tab', role: 'tab', id: 'tab-' + key, 'aria-controls': 'panel-' + key, dataset: { tab: key },
+        onclick: () => show(key),
+        onkeydown: (e) => {
+          if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+          const i = tabs.findIndex((t) => t[0] === key);
+          const next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length][0];
+          show(next);
+          list.querySelector('[data-tab="' + next + '"]').focus();
+        },
+      }, en, key === 'compare' ? h('span', { class: 'tab-count', id: 'tab-count-compare' }) : null);
+      list.appendChild(btn);
+      panels.appendChild(h('div', { role: 'tabpanel', id: 'panel-' + key, 'aria-labelledby': 'tab-' + key, dataset: { panel: key }, hidden: true }));
+    }
+    searchState.showTab = show;
+    show('data');
+    return h('div', { class: 'results-tabs' }, list, panels);
+  }
+
+  function dataPanel(res) {
+    const curated = res.curated || { entities: [], stats: {} };
+    const st = curated.stats || {};
+    const entities = curated.entities || [];
+    const box = h('div');
+    box.appendChild(h('div', { class: 'section-title' }, h('h2', { text: 'Data' }),
+      h('span', { class: 'muted small', text: 'cleaned, de-duplicated across databases and quality-graded (hover a grade for how it was scored); tick Compare to put entities side by side' })));
+    const grid = h('div', { class: 'entities' });
+    const PAGE = 60;
+    let shown = 0;
+    const more = h('div', { class: 'show-more' });
+    function renderUpTo(n) {
+      for (; shown < Math.min(n, entities.length); shown++) grid.appendChild(entityCard(entities[shown]));
+      more.replaceChildren(shown < entities.length ? h('button', { type: 'button', class: 'btn', onclick: () => renderUpTo(entities.length) },
+        'Show all ' + entities.length + ' entities (' + (entities.length - shown) + ' more)') : '');
+    }
+    searchState.showAll = () => renderUpTo(entities.length);
+    if (entities.length) {
+      box.appendChild(grid);
+      box.appendChild(more);
+      renderUpTo(PAGE);
+    } else {
+      box.appendChild(h('div', { class: 'empty', text: 'No data matched. Try a more specific query (a drug, gene, DOI or trial).' }));
+    }
+    if ((st.cleaning || []).length) box.appendChild(h('p', { class: 'muted small', text: 'Cleaning applied: ' + st.cleaning.join('; ') }));
     const bySource = new Map();
     for (const r of res.records || []) {
       if (!bySource.has(r.source)) bySource.set(r.source, []);
@@ -1556,20 +1728,990 @@
           h('summary', null, sourceBadge(name), h('span', { text: recs.length + ' record' + (recs.length === 1 ? '' : 's') })),
           h('ul', { class: 'record-list' }, recs.map(recordItem))))));
     }
+    return box;
   }
 
+  // ------------------------------------------------------------- mind map
+  function walkMind(node, fn) {
+    fn(node);
+    for (const child of node.children || []) walkMind(child, fn);
+  }
+  function mindLabel(n) {
+    if (n.kind === 'group') return n.label;
+    if (n.kind === 'shared') return n.label;
+    return n.label || '';
+  }
+  /** Approximate rendered text width (CJK glyphs are about one em wide). */
+  function textWidth(s, size) {
+    let w = 0;
+    for (const ch of String(s || '')) w += ch.codePointAt(0) > 0x2e80 ? size : size * 0.56;
+    return w;
+  }
+  function mindColor(n) {
+    if (n.kind === 'root') return 'mm-root';
+    if (n.kind === 'query') return 'mm-q' + (queryIndex(n.label) % 4);
+    if (n.kind === 'shared') return 'mm-shared';
+    return 'cat-' + (GROUP_CAT[n.group] || 'other');
+  }
+
+  /** Interactive mind map: query -> kinds of data -> best entities, collapsible, with entity details. */
+  function mindMapView(vis, onPick) {
+    const collapsed = new Set();
+    walkMind(vis.mindmap, (n) => { if (vis.compare && n.kind === 'group') collapsed.add(n.id); });
+    let selected = null;
+    const holder = h('div', { class: 'mm-scroll' });
+
+    function size(n) {
+      const label = clip(mindLabel(n), n.kind === 'entity' ? 64 : 48);
+      const sub = n.kind === 'entity' ? clip(n.detail || '', 70) : n.kind === 'group' ? '' : clip(n.detail || '', 60);
+      const kids = (n.children || []).length > 0;
+      const pad = n.kind === 'entity' ? 44 : 26;
+      const w = Math.min(420, Math.max(96, Math.max(textWidth(label, 13), textWidth(sub, 11.5)) + pad + (kids && n.kind !== 'root' ? 34 : 0)));
+      return { label, sub, w, hgt: sub ? 40 : 30, kids };
+    }
+
+    function draw() {
+      const items = [];
+      const colW = [];
+      let y = 10;
+      function place(n, d, parent) {
+        const m = size(n);
+        const kids = collapsed.has(n.id) ? [] : (n.children || []);
+        const it = { n, d, parent, ...m };
+        colW[d] = Math.max(colW[d] || 0, m.w);
+        items.push(it);
+        if (!kids.length) { it.y = y + m.hgt / 2; y += m.hgt + 10; } else {
+          const placed = kids.map((k) => place(k, d + 1, it));
+          it.y = (placed[0].y + placed[placed.length - 1].y) / 2;
+        }
+        return it;
+      }
+      place(vis.mindmap, 0, null);
+      const xs = [8];
+      for (let d = 1; d < colW.length; d++) xs[d] = xs[d - 1] + colW[d - 1] + 54;
+      const W = xs[colW.length - 1] + colW[colW.length - 1] + 10;
+      const H = Math.max(y, 60);
+      const svg = svgEl('svg', { class: 'mm', viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, role: 'group', 'aria-label': 'Mind map of ' + vis.mindmap.label });
+      const edges = svgEl('g', { class: 'mm-edges', 'aria-hidden': 'true' });
+      const nodes = svgEl('g', { class: 'mm-nodes' });
+      svg.append(edges, nodes);
+      for (const it of items) {
+        const x = xs[it.d];
+        const n = it.n;
+        if (it.parent) {
+          const px = xs[it.parent.d] + it.parent.w;
+          const mx = (px + x) / 2;
+          edges.appendChild(svgEl('path', { class: 'mm-edge ' + mindColor(n.kind === 'entity' ? it.parent.n : n), d: 'M' + px + ',' + it.parent.y + ' C' + mx + ',' + it.parent.y + ' ' + mx + ',' + it.y + ' ' + x + ',' + it.y }));
+        }
+        const toggles = it.kids && n.kind !== 'root';
+        const isOpen = !collapsed.has(n.id);
+        const g = svgEl('g', {
+          class: 'mm-node mm-' + n.kind + ' ' + mindColor(n) + (selected === n.id ? ' is-sel' : ''), transform: 'translate(' + x + ',' + (it.y - it.hgt / 2) + ')',
+          tabindex: n.kind === 'root' ? null : 0, role: n.kind === 'root' ? 'img' : 'button',
+          'aria-expanded': toggles ? String(isOpen) : null,
+          'aria-label': mindLabel(n) + (n.count !== null && n.count !== undefined ? ', ' + n.count + ' entities' : '') + (n.detail ? ', ' + n.detail : ''),
+        });
+        g.appendChild(svgEl('rect', { class: 'mm-box', width: it.w, height: it.hgt, rx: n.kind === 'entity' ? 6 : it.hgt / 2 }));
+        let tx = 12;
+        if (n.kind === 'entity') {
+          g.appendChild(svgEl('rect', { class: 'mm-grade grade-' + (n.grade || 'x'), x: 8, y: it.hgt / 2 - 9, width: 22, height: 18, rx: 9 }));
+          g.appendChild(svgEl('text', { class: 'mm-grade-t', x: 19, y: it.hgt / 2 + 4, 'text-anchor': 'middle', text: n.grade || '?' }));
+          tx = 38;
+        }
+        g.appendChild(svgEl('text', { class: 'mm-t', x: tx, y: it.sub ? 17 : it.hgt / 2 + 4.5, text: it.label }));
+        if (it.sub) g.appendChild(svgEl('text', { class: 'mm-sub', x: tx, y: 32, text: it.sub }));
+        if (toggles) {
+          const cx = it.w - 16;
+          if (n.count !== null && n.count !== undefined && n.kind === 'group') {
+            g.appendChild(svgEl('text', { class: 'mm-count', x: cx - 12, y: it.hgt / 2 + 4.5, 'text-anchor': 'end', text: String(n.count) }));
+          }
+          g.appendChild(svgEl('text', { class: 'mm-caret', x: cx, y: it.hgt / 2 + 4.5, 'text-anchor': 'middle', text: isOpen ? '−' : '+' }));
+        }
+        const act = () => {
+          if (n.kind === 'entity') { selected = n.id; hideTip(); onPick(n); rerender(); return; }
+          if (!toggles) return;
+          if (collapsed.has(n.id)) collapsed.delete(n.id); else collapsed.add(n.id);
+          rerender();
+          const again = holder.querySelector('[data-id="' + CSS.escape(n.id) + '"]');
+          if (again) again.focus();
+        };
+        g.setAttribute('data-id', n.id);
+        if (n.kind !== 'root') activate(g, act);
+        if (n.kind === 'entity') {
+          withTip(g, [n.label, (n.type || '') + (n.date ? ' · ' + n.date : '') + ' · grade ' + (n.grade || '?') + (n.score !== null && n.score !== undefined ? ' (' + n.score + ')' : ''),
+            ...(n.facts || []).slice(0, 4).map((f) => f[0] + ': ' + f[1]), 'Click for details']);
+        }
+        nodes.appendChild(g);
+      }
+      return svg;
+    }
+    function rerender() { holder.replaceChildren(draw()); }
+    rerender();
+    return {
+      el: holder,
+      expandAll: () => { collapsed.clear(); rerender(); },
+      collapseAll: () => { walkMind(vis.mindmap, (n) => { if (n.kind === 'group' || n.kind === 'shared') collapsed.add(n.id); }); rerender(); },
+    };
+  }
+
+  function figuresOn(res) { return !!(res.figures && res.figures.available && SEARCH_ID_RE.test(res.search_id || '')); }
+  function figUrl(res, name, fmt, download) {
+    return '/api/search/' + res.search_id + '/figures/' + encodeURIComponent(name) + '.' + fmt + (download ? '?download=1' : '');
+  }
+  function figDownloads(res, name) {
+    if (!figuresOn(res) || !(res.figures.names || []).includes(name)) return null;
+    return h('span', { class: 'fig-dl' }, ['svg', 'png', 'pdf'].map((fmt) =>
+      h('a', { class: 'btn btn-xs', href: figUrl(res, name, fmt, true), download: '', title: 'Figure Studio ' + fmt.toUpperCase() }, fmt.toUpperCase())));
+  }
+  function figureNote(res) {
+    if (figuresOn(res)) return null;
+    return h('p', { class: 'notice small' }, 'Journal-style figures are drawn by Figure Studio, which is not available: ',
+      h('span', { text: (res.figures && res.figures.error) || 'unknown reason' }), '. The charts below are drawn in the browser from the same numbers.');
+  }
+
+  function entityDetail(n) {
+    const e = searchState.byId.get(n.entity);
+    if (!e) return h('p', { class: 'muted small', text: n.label });
+    return h('div', { class: 'mm-detail panel' },
+      h('div', { class: 'card-meta' }, gradeBadge(e.evaluation), h('span', { class: 'badge outline', text: e.type || 'other' }),
+        e.date ? h('span', { class: 'muted small', text: e.date }) : null, queryBadges(entityQueries(e.entity_id)),
+        h('span', { class: 'card-meta-end' }, h('code', { class: 'small muted', text: e.entity_id }))),
+      h('h3', { class: 'mm-detail-title', text: e.title || n.label }),
+      (n.facts || []).length ? h('table', { class: 'data kv' }, h('tbody', null, n.facts.map((f) => h('tr', null, h('th', { text: f[0] }), h('td', { text: f[1] }))))) : null,
+      e.summary ? h('p', { class: 'small mm-detail-sum', text: clip(e.summary, 600) }) : null,
+      h('div', { class: 'citations small' }, 'Sources: ', (e.sources || []).map((s, i) => h('span', null, i ? ', ' : '', sourceBadge(s.source), ' ',
+        s.url ? extLink(s.url, clip(s.id, 36)) : h('code', { text: clip(s.id, 36) })))),
+      h('div', { class: 'form-actions' },
+        h('button', { type: 'button', class: 'btn btn-sm btn-primary', onclick: () => showEntity(e.entity_id) }, 'Show in data'),
+        h('button', { type: 'button', class: 'btn btn-sm', onclick: () => { if (!searchState.selected.includes(e.entity_id)) toggleCompare(e.entity_id); searchState.showTab('compare'); } }, 'Compare')));
+  }
+
+  function mindMapPanel(res) {
+    const vis = res.visuals;
+    const detail = h('div', { class: 'mm-detail-slot' }, h('p', { class: 'muted small', text: 'Click an entry to see its data; click a branch to open or close it.' }));
+    const view = mindMapView(vis, (n) => detail.replaceChildren(entityDetail(n)));
+    const sid = SEARCH_ID_RE.test(res.search_id || '') ? res.search_id : null;
+    return h('div', { class: 'mm-panel' },
+      h('div', { class: 'panel-head row' },
+        h('div', null, h('h2', null, 'Mind map'),
+          h('p', { class: 'muted small', text: vis.compare
+            ? 'Each query, the kinds of data it found, and what they share'
+            : 'Kinds of data (entities) and the best-graded entries of each' })),
+        h('div', { class: 'head-actions' },
+          h('button', { type: 'button', class: 'btn btn-sm', onclick: view.expandAll }, 'Expand'),
+          h('button', { type: 'button', class: 'btn btn-sm', onclick: view.collapseAll }, 'Collapse'),
+          figDownloads(res, 'mindmap'),
+          sid ? h('a', { class: 'btn btn-xs', href: '/api/search/' + sid + '/mindmap.json', download: '' }, 'JSON') : null)),
+      figureNote(res),
+      h('div', { class: 'panel mm-frame' }, view.el),
+      detail);
+  }
+
+  // ------------------------------------------------------------- charts
+  function seriesClass(chart, s, i) {
+    if (/^Grade [ABCD]$/.test(s.name)) return 'vz-grade-' + s.name.slice(-1);
+    const q = ((searchState.res && searchState.res.queries) || []).indexOf(s.name);
+    return 'vz-s' + ((q >= 0 ? q : i) % 6);
+  }
+
+  /** Same numbers as the figure, drawn in the browser (used when Figure Studio is unavailable). */
+  function htmlChart(chart) {
+    const series = chart.series || [];
+    const cats = chart.categories || [];
+    if (chart.kind === 'heatmap') {
+      const max = Math.max(1, ...series.flatMap((s) => s.values));
+      return h('div', { class: 'table-wrap' }, h('table', { class: 'data vz-heat' },
+        h('thead', null, h('tr', null, h('th', { text: '' }), cats.map((c) => h('th', { class: 'num', text: c })))),
+        h('tbody', null, series.map((s) => h('tr', null, h('th', { text: s.name }), s.values.map((v) => {
+          const td = h('td', { class: 'num', text: v ? fmtNum(v) : '' });
+          td.style.setProperty('--heat', String(v / max));
+          return td;
+        }))))));
+    }
+    const stacked = chart.kind === 'stacked';
+    const totals = cats.map((_, i) => series.reduce((a, s) => a + (s.values[i] || 0), 0));
+    const max = Math.max(1, ...(stacked ? totals : series.flatMap((s) => s.values)));
+    return h('div', { class: 'vz-bars' },
+      series.length > 1 ? h('div', { class: 'vz-legend small' }, series.map((s, i) => h('span', null, h('i', { class: 'vz-sw ' + seriesClass(chart, s, i) }), s.name))) : null,
+      cats.map((c, ci) => h('div', { class: 'vz-row' }, h('span', { class: 'vz-cat', text: c }),
+        stacked
+          ? h('span', { class: 'vz-stack' }, series.map((s, i) => {
+            const bar = h('i', { class: 'vz-bar ' + seriesClass(chart, s, i), title: s.name + ': ' + s.values[ci] });
+            bar.style.width = (100 * (s.values[ci] || 0) / max) + '%';
+            return bar;
+          }), h('b', { class: 'vz-val', text: fmtNum(totals[ci]) }))
+          : h('span', { class: 'vz-group' }, series.map((s, i) => {
+            const bar = h('i', { class: 'vz-bar ' + seriesClass(chart, s, i), title: s.name + ': ' + s.values[ci] });
+            bar.style.width = (100 * (s.values[ci] || 0) / max) + '%';
+            return h('span', { class: 'vz-line' }, bar, h('b', { class: 'vz-val', text: fmtNum(s.values[ci] || 0) }));
+          })))));
+  }
+
+  function numbersTable(chart) {
+    const rows = [];
+    for (const s of chart.series || []) {
+      (chart.categories || []).forEach((c, i) => {
+        const counted = (chart.members || {})[c + '|' + s.name] || [];
+        if (!s.values[i] && !counted.length) return;
+        rows.push([c, s.name, fmtNum(s.values[i]), h('span', { class: 'counted' }, counted.slice(0, 14).map((id) => entityLink(id)),
+          counted.length > 14 ? h('span', { class: 'muted small', text: ' +' + (counted.length - 14) + ' more (figure_data.csv)' }) : null)]);
+      });
+    }
+    return miniTable(['Category', 'Series', 'Value', 'What was counted'], rows, [2]);
+  }
+
+  function chartCard(res, chart) {
+    let fig;
+    if (figuresOn(res) && (res.figures.names || []).includes(chart.id)) {
+      const img = h('img', { class: 'vz-img', src: figUrl(res, chart.id, 'svg'), alt: chart.title + ' (drawn by Figure Studio from the numbers below)', loading: 'lazy' });
+      img.addEventListener('error', () => img.replaceWith(htmlChart(chart)), { once: true });
+      fig = h('div', { class: 'vz-paper' }, img);
+    } else {
+      fig = htmlChart(chart);
+    }
+    return h('section', { class: 'panel vz-card', id: 'chart-' + chart.id },
+      h('div', { class: 'panel-head row' },
+        h('div', null, h('h3', { text: chart.title }),
+          h('p', { class: 'muted small vz-def', text: chart.definition })),
+        figDownloads(res, chart.id)),
+      fig,
+      h('details', { class: 'vz-data' }, h('summary', { class: 'small', text: 'The numbers and what each one counted' }), numbersTable(chart)));
+  }
+
+  function chartsPanel(res) {
+    const vis = res.visuals;
+    const sid = SEARCH_ID_RE.test(res.search_id || '') ? res.search_id : null;
+    const box = h('div', { class: 'vz' },
+      h('div', { class: 'panel-head row' },
+        h('div', null, h('h2', null, 'Charts'),
+          h('p', { class: 'muted small', text: 'Every number is counted from the returned records; figures are drawn by Figure Studio.' })),
+        h('div', { class: 'head-actions' }, sid ? h('a', { class: 'btn btn-sm', href: '/api/search/' + sid + '/figure_data.csv', download: '' }, 'figure_data.csv') : null)),
+      figureNote(res));
+    if (figuresOn(res) && (res.figures.names || []).includes('overview')) {
+      const img = h('img', { class: 'vz-img', src: figUrl(res, 'overview', 'svg'), alt: 'Overview figure, panels a-d', loading: 'lazy' });
+      img.addEventListener('error', () => img.closest('.vz-card') && img.closest('.vz-card').remove(), { once: true });
+      box.appendChild(h('section', { class: 'panel vz-card vz-overview' },
+        h('div', { class: 'panel-head row' }, h('h3', null, 'Overview figure (a–d), Nature double-column width'), figDownloads(res, 'overview')),
+        h('div', { class: 'vz-paper' }, img)));
+    }
+    const grid = h('div', { class: 'vz-grid' });
+    for (const chart of vis.charts || []) grid.appendChild(chartCard(res, chart));
+    box.appendChild(grid);
+    return box;
+  }
+
+  // ------------------------------------------------------------- compare
+  /** Queries side by side, read from the chart numbers (so the table and the figures always agree). */
+  function queryComparison(vis) {
+    const queries = vis.queries || [];
+    const sections = [];
+    const byId = new Map((vis.charts || []).map((c) => [c.id, c]));
+    const sum = (arr) => arr.reduce((a, b) => a + b, 0);
+    const types = byId.get('entities_by_type');
+    const recs = byId.get('records_by_source');
+    const overview = [];
+    if (types) overview.push(['Entities found', queries.map((q) => sum((types.series.find((s) => s.name === q) || { values: [] }).values))]);
+    if (recs) {
+      overview.push(['Records returned', queries.map((q) => sum((recs.series.find((s) => s.name === q) || { values: [] }).values))]);
+    }
+    const overlap = byId.get('overlap');
+    if (overlap) {
+      const shared = overlap.series[0].values[overlap.categories.length - 1];
+      overview.push(['Shared with another query', queries.map(() => shared)]);
+      overview.push(['Found only by this query', queries.map((q) => overlap.series[0].values[overlap.categories.indexOf('Only ' + q)] || 0)]);
+    }
+    sections.push(['Overview', overview]);
+    for (const id of ['entities_by_type', 'trial_phases', 'trial_status']) {
+      const c = byId.get(id);
+      if (!c) continue;
+      sections.push([c.title, c.categories.map((cat, i) => [cat, queries.map((q) => {
+        const s = c.series.find((x) => x.name === q);
+        return s ? s.values[i] : 0;
+      })])]);
+    }
+    const grades = byId.get('quality_grades');
+    if (grades) {
+      sections.push([grades.title, grades.series.map((s) => [s.name, queries.map((q) => s.values[grades.categories.indexOf(q)] || 0)])]);
+    }
+    const table = h('table', { class: 'data cmp-q' },
+      h('thead', null, h('tr', null, h('th', { text: '' }), queries.map((q) => h('th', { class: 'num' }, h('span', { class: 'badge q-badge q' + (queryIndex(q) % 4), text: q }))))),
+      sections.map(([title, rows]) => h('tbody', null,
+        h('tr', { class: 'cmp-sec' }, h('th', { colspan: queries.length + 1, text: title })),
+        rows.map(([label, values]) => {
+          const top = Math.max(...values);
+          return h('tr', null, h('th', { text: label }), values.map((v) => h('td', { class: 'num' + (v === top && v > 0 && values.filter((x) => x === top).length < values.length ? ' best' : ''), text: fmtNum(v) })));
+        }))));
+    return h('section', { class: 'panel' },
+      h('div', { class: 'panel-head' }, h('h3', null, 'Queries side by side'),
+        h('p', { class: 'muted small', text: 'Same counts as the charts (bold = highest).' })),
+      h('div', { class: 'table-wrap' }, table));
+  }
+
+  function entityComparison() {
+    const ids = searchState.selected.filter((id) => searchState.byId.has(id));
+    const holder = h('section', { class: 'panel' });
+    const onlyDiff = h('input', { type: 'checkbox', id: 'cmp-diff' });
+    function cellText(v) { return clip(fieldText(v), 300); }
+    function render() {
+      const ents = ids.map((id) => searchState.byId.get(id));
+      const head = h('div', { class: 'panel-head row' },
+        h('div', null, h('h3', null, 'Entities side by side'),
+          h('p', { class: 'muted small', text: 'Tick Compare on entity cards or in the mind map (up to ' + MAX_COMPARE_ENTITIES + ').' })),
+        ents.length > 1 ? h('label', { class: 'small field-check' }, onlyDiff, 'Only differences') : null);
+      if (!ents.length) { holder.replaceChildren(head, h('div', { class: 'empty', text: 'No entities chosen yet.' })); return; }
+      const rows = [
+        ['Type', ents.map((e) => e.type || '')],
+        ['Date', ents.map((e) => e.date || '')],
+        ['Quality', ents.map((e) => (e.evaluation || {}).grade + ' (' + (e.evaluation || {}).score + ')')],
+        ['Confirmed by', ents.map((e) => ((e.evaluation || {}).corroborated_by || []).join(', '))],
+        ['Flags', ents.map((e) => ((e.evaluation || {}).flags || []).join('; '))],
+      ];
+      if (searchState.res.visuals && searchState.res.visuals.compare) rows.push(['Found by', ents.map((e) => entityQueries(e.entity_id).join(', '))]);
+      const idKeys = [...new Set(ents.flatMap((e) => Object.keys(e.identifiers || {})))];
+      for (const k of idKeys) rows.push(['ID ' + k, ents.map((e) => (e.identifiers || {})[k] || '')]);
+      const fieldCount = new Map();
+      for (const e of ents) for (const [k, v] of Object.entries(e.fields || {})) if (fieldText(v)) fieldCount.set(k, (fieldCount.get(k) || 0) + 1);
+      const fieldKeys = [...fieldCount.keys()].sort((a, b) => fieldCount.get(b) - fieldCount.get(a) || a.localeCompare(b)).slice(0, 60);
+      for (const k of fieldKeys) rows.push([humanKey(k), ents.map((e) => cellText((e.fields || {})[k]))]);
+      rows.push(['Sources', ents.map((e) => (e.sources || []).map((s) => s.source + ':' + s.id).join('; '))]);
+      const body = h('tbody');
+      for (const [label, values] of rows) {
+        const filled = values.filter((v) => v !== '' && v !== null && v !== undefined);
+        const same = filled.length === values.length && new Set(values.map(String)).size === 1;
+        if (!filled.length) continue;
+        body.appendChild(h('tr', { class: same ? 'same' : 'diff' }, h('th', { text: label }), values.map((v) => h('td', { text: String(v || '–') }))));
+      }
+      const table = h('table', { class: 'data cmp-e' + (onlyDiff.checked ? ' only-diff' : '') },
+        h('thead', null, h('tr', null, h('th', { text: '' }), ents.map((e) => h('th', null,
+          h('div', { class: 'cmp-head' }, gradeBadge(e.evaluation), entityLink(e.entity_id),
+            h('button', { type: 'button', class: 'btn-link small', title: 'Remove', onclick: () => toggleCompare(e.entity_id) }, '×')),
+          h('div', { class: 'cmp-title', text: clip(e.title || e.entity_id, 140) }))))),
+        body);
+      onlyDiff.onchange = () => table.classList.toggle('only-diff', onlyDiff.checked);
+      holder.replaceChildren(head, h('div', { class: 'table-wrap' }, table));
+    }
+    render();
+    return holder;
+  }
+
+  function comparePanel(res) {
+    const vis = res.visuals;
+    const box = h('div', { class: 'cmp' });
+    box.appendChild(h('div', { class: 'panel-head' }, h('h2', null, 'Compare'),
+      vis && !vis.compare ? h('p', { class: 'muted small', text: 'To compare searches, enter more terms in “Compare with” under the search box.' }) : null));
+    if (vis && vis.compare) box.appendChild(queryComparison(vis));
+    const slot = h('div');
+    const fill = () => slot.replaceChildren(entityComparison());
+    fill();
+    searchState.refreshCompare = () => { if (slot.isConnected) fill(); };
+    box.appendChild(slot);
+    return box;
+  }
+
+  // ------------------------------------------------------------- body map
+  // Where a drug / compound / disease acts in the body (POST /api/body): key facts, an interactive
+  // body drawn from the organ layout, the evidence per organ, and Figure Studio's illustrated figure.
+  const BODY_LEVELS = {
+    primary: 'Approved use / disease site', safety: 'Adverse effects reported',
+    investigational: 'In clinical trials', expression: 'Target / gene expressed',
+  };
+  const BODY_KINDS = {
+    treats: 'Approved indication', studied: 'Tested in trials for', disease: 'Disease site', phenotype: 'Clinical feature (HPO)',
+    adverse_event: 'Adverse event reports (FAERS)', label: 'FDA label warning', toxicity: 'Toxicity',
+    expression: 'Target / gene expression (GTEx)',
+  };
+  const BODY_TYPES = { drug: 'Drug', compound: 'Chemical compound', disease: 'Disease' };
+
+  /** Catmull-Rom spline through points as an SVG path (the same curve Figure Studio draws). */
+  function smoothPath(pts, closed) {
+    const n = pts.length;
+    if (n < 2) return '';
+    const p = (i) => pts[closed ? (i + n) % n : Math.max(0, Math.min(n - 1, i))];
+    let d = 'M' + pts[0][0].toFixed(1) + ',' + pts[0][1].toFixed(1);
+    for (let i = 0; i < (closed ? n : n - 1); i++) {
+      const p0 = p(i - 1); const p1 = p(i); const p2 = p(i + 1); const p3 = p(i + 2);
+      const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
+      const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+      d += ' C' + c1.map((v) => v.toFixed(1)).join(',') + ' ' + c2.map((v) => v.toFixed(1)).join(',') + ' ' + p2.map((v) => v.toFixed(1)).join(',');
+    }
+    return d + (closed ? ' Z' : '');
+  }
+
+  /**
+   * Interactive body map built from Figure Studio's illustrations: one picture per organ and per body
+   * system (skeleton, vessels, nerves), coloured by evidence. Zoom (wheel, pinch, buttons, double-click,
+   * + / -), pan (drag, arrow keys), hover and click organs (the view flies to them), filter evidence
+   * levels, labels, all organs, natural colours, female / male organs, organ search and full screen.
+   * Without Figure Studio the organs are drawn as plain shapes from the same layout.
+   */
+  function bodyViewer(bm, onPick) {
+    const L = bm.layout || { organs: [] };
+    const art = L.art && (bm.figures || {}).available ? L.art : null;
+    const found = new Map((bm.organs || []).map((f) => [f.key, f]));
+    const organsByKey = new Map((L.organs || []).map((o) => [o.key, o]));
+    const K = 500;                                     // svg units per body unit (the body is 1000 tall)
+    const BASE = { x: -660, y: -545, w: 1320, h: 1090 };
+    const MAX_ZOOM = 14;
+    const COL_W = 360;                                 // label column width (svg units)
+    const st = { levels: new Set(Object.keys(BODY_LEVELS)), labels: true, systems: true, all: false, natural: false, sex: 'auto', sel: null, vb: Object.assign({}, BASE) };
+    const P = (u, v) => [u * K, -v * K];
+    const nodes = new Map();
+    const hits = new Map();
+    const labels = new Map();
+    let anim = 0;
+
+    const svg = svgEl('svg', { class: 'bv-svg', viewBox: [BASE.x, BASE.y, BASE.w, BASE.h].join(' '), role: 'application', tabindex: 0,
+      'aria-roledescription': 'zoomable body map', 'aria-label': 'Body map of ' + bm.name +
+        '. Scroll or press + and - to zoom, drag or use the arrow keys to move, Tab to the organs, Enter to open one.' });
+    const gBody = svgEl('g', { class: 'bv-body-layer' });
+    const gArt = svgEl('g', { class: 'bv-art' });
+    const gHit = svgEl('g', { class: 'bv-hits' });
+    const gLab = svgEl('g', { class: 'bv-labels' });
+    svg.append(gBody, gArt, gHit, gLab);
+
+    const artUrl = (glyph, tone) => '/api/body/art/' + encodeURIComponent(glyph) + '.svg?tone=' + tone + '&v=' + encodeURIComponent(art.version);
+    const toneOf = (key) => {
+      const f = found.get(key);
+      return f && st.levels.has(f.level) ? f.level : (st.natural ? 'natural' : 'none');
+    };
+    const visible = (o) => {
+      if (o.system && !st.systems && o.key !== st.sel) return false;
+      if (o.sex) return st.sex === 'auto' ? found.has(o.key) : st.sex === o.sex;
+      return found.has(o.key) || o.always || st.all;
+    };
+    const geom = (o) => {
+      const H = o.size * K;
+      return { H, W: ((art && art.aspects && art.aspects[o.glyph]) || o.aspect || 1) * H };
+    };
+    const anchorOf = (o) => P.apply(null, o.anchor || [o.u, o.v]);
+
+    function picture(glyph, tone, x, y, W, H, flip, rotation) {
+      const pad = art.pad * H;
+      const el = svgEl('image', { href: artUrl(glyph, tone), x: x - W / 2 - pad, y: y - H / 2 - pad, width: W + 2 * pad,
+        height: H + 2 * pad, preserveAspectRatio: 'none' });
+      const t = [];
+      if (rotation) t.push('rotate(' + (-rotation) + ' ' + x + ' ' + y + ')');
+      if (flip) t.push('translate(' + (2 * x) + ' 0) scale(-1 1)');
+      if (t.length) el.setAttribute('transform', t.join(' '));
+      return el;
+    }
+    function plainShape(o, x, y, W, H) {
+      if (o.system) return null;
+      if (o.key === 'colon') {
+        return svgEl('path', { class: 'bm-frame', 'stroke-width': (W * 0.14).toFixed(1),
+          d: 'M' + (x - W * 0.41) + ',' + (y + H * 0.45) + ' V' + (y - H * 0.36) + ' H' + (x + W * 0.41) + ' V' + (y + H * 0.3) + ' L' + (x + 0.03 * W) + ',' + (y + H * 0.42) });
+      }
+      if (o.key === 'lung') {
+        return svgEl('g', null, [-1, 1].map((s) => svgEl('ellipse', { class: 'bm-shape', cx: x + s * W * 0.24, cy: y + H * 0.06, rx: W * 0.22, ry: H * 0.44 })));
+      }
+      return svgEl('ellipse', { class: 'bm-shape', cx: x, cy: y, rx: W / 2, ry: H / 2 });
+    }
+    function hitShapes(o, x, y, W, H) {
+      if (o.key === 'colon') {
+        return svgEl('path', { class: 'bv-hit-stroke', 'stroke-width': (W * 0.2).toFixed(1),
+          d: 'M' + (x - W * 0.41) + ',' + (y + H * 0.45) + ' V' + (y - H * 0.36) + ' H' + (x + W * 0.41) + ' V' + (y + H * 0.3) });
+      }
+      if (o.key === 'lung') return svgEl('g', null, [-1, 1].map((s) => svgEl('ellipse', { cx: x + s * W * 0.24, cy: y + H * 0.04, rx: W * 0.24, ry: H * 0.42 })));
+      return svgEl('ellipse', { cx: x, cy: y, rx: Math.max(10, W * 0.42), ry: Math.max(10, H * 0.42) });
+    }
+
+    function tipLines(o) {
+      const f = found.get(o.key);
+      if (!f) return [o.en, 'No evidence found'];
+      return [o.en, BODY_LEVELS[f.level], f.summary,
+        Object.entries(f.kinds || {}).map(([kk, n]) => (BODY_KINDS[kk] || kk) + ' ' + n).join(' · '), 'Click to zoom in and see the evidence'];
+    }
+    function hover(key, on) {
+      const n = nodes.get(key);
+      if (n) n.classList.toggle('is-hover', on);
+      const lab = labels.get(key);
+      if (lab) lab.classList.toggle('is-hover', on);
+    }
+
+    function draw() {
+      for (const g of [gBody, gArt, gHit, gLab]) g.replaceChildren();
+      nodes.clear();
+      hits.clear();
+      labels.clear();
+      if (art) {
+        const bodyH = 2 * K;
+        gBody.appendChild(picture('human_body', st.natural ? 'natural' : 'none', 0, 0, ((art.aspects || {}).human_body || 0.33) * bodyH, bodyH, false, 0));
+      } else {
+        gBody.appendChild(svgEl('path', { class: 'bm-body', d: smoothPath((L.outline || []).map(([u, v]) => P(u, v)), true) }));
+        if (L.head) {
+          const [hu, hv, ru, rv] = L.head;
+          const [x, y] = P(hu, hv);
+          gBody.appendChild(svgEl('ellipse', { class: 'bm-body', cx: x, cy: y, rx: ru * K, ry: rv * K }));
+        }
+      }
+      const shown = (L.organs || []).filter(visible).sort((a, b) => b.size - a.size);
+      for (const o of shown) {
+        const f = found.get(o.key);
+        const tone = toneOf(o.key);
+        const level = BODY_LEVELS[tone] ? tone : 'none';
+        const { H, W } = geom(o);
+        const copies = [[o.u, o.v, false]].concat(o.mirror ? [[-o.u, o.v, true]] : []);
+        const g = svgEl('g', { class: 'bv-o lv-' + level + (o.system ? ' is-system' : '') + (f ? ' has-ev' : ''), 'data-organ': o.key });
+        const hit = svgEl('g', { class: 'bv-hit' + (f ? ' has-ev' : ''), 'data-organ': o.key, tabindex: 0, role: 'button',
+          'aria-label': o.en + (f ? ': ' + BODY_LEVELS[f.level] + '. ' + f.summary : ': no evidence') });
+        for (const [u, v, flip] of copies) {
+          const [x, y] = P(u, v);
+          const pic = art ? picture(o.glyph, tone, x, y, W, H, flip, o.rotation) : plainShape(o, x, y, W, H);
+          if (pic) g.appendChild(pic);
+          if (!o.system) hit.appendChild(hitShapes(o, x, y, W, H));
+        }
+        if (o.system) {  // a whole-body system: grab it at its anchor (arm artery, femur, leg nerve)
+          const [ax, ay] = anchorOf(o);
+          hit.appendChild(svgEl('circle', { cx: ax, cy: ay, r: 24 }));
+          if (f) g.appendChild(svgEl('circle', { class: 'bv-anchor', cx: ax, cy: ay, r: 9, 'data-r': 9 }));
+        }
+        withTip(hit, tipLines(o));
+        hit.addEventListener('mouseenter', () => hover(o.key, true));
+        hit.addEventListener('mouseleave', () => hover(o.key, false));
+        hit.addEventListener('focus', () => hover(o.key, true));
+        hit.addEventListener('blur', () => hover(o.key, false));
+        hit.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); select(o.key, { fly: true }); }
+        });
+        gArt.appendChild(g);
+        gHit.appendChild(hit);
+        nodes.set(o.key, g);
+        hits.set(o.key, hit);
+      }
+      drawLabels(shown);
+      applySelection();
+      fitText();
+    }
+
+    function drawLabels(shown) {
+      if (!st.labels) return;
+      const rows = { left: [], right: [] };
+      for (const o of shown) {
+        const f = found.get(o.key);
+        if (!f || !st.levels.has(f.level)) continue;
+        const [ax, ay] = anchorOf(o);
+        const u = (o.anchor || [o.u])[0];
+        const side = u < 0 ? 'left' : u > 0 ? 'right' : (rows.left.length <= rows.right.length ? 'left' : 'right');
+        const tx = o.mirror ? (side === 'left' ? -Math.abs(ax) : Math.abs(ax)) : ax;
+        rows[side].push({ o, f, ax: tx, ay, y: ay });
+      }
+      const LINE = 62;
+      for (const side of ['left', 'right']) {
+        const list = rows[side].sort((a, b) => a.y - b.y);
+        for (let i = 1; i < list.length; i++) list[i].y = Math.max(list[i].y, list[i - 1].y + LINE);
+        const hi = BASE.y + BASE.h - 40;
+        const over = list.length ? list[list.length - 1].y - hi : 0;
+        if (over > 0) {
+          list[list.length - 1].y -= over;
+          for (let i = list.length - 2; i >= 0; i--) list[i].y = Math.min(list[i].y, list[i + 1].y - LINE);
+        }
+        const left = side === 'left';
+        const tx = left ? BASE.x + 16 : BASE.x + BASE.w - 16;
+        const edge = left ? BASE.x + 16 + COL_W : BASE.x + BASE.w - 16 - COL_W;
+        for (const r of list) {
+          const y = Math.max(BASE.y + 30, r.y);
+          const g = svgEl('g', { class: 'bv-label lv-' + r.f.level, 'data-organ': r.o.key });
+          g.appendChild(svgEl('path', { class: 'bv-leader', d: 'M' + edge + ',' + (y - 6) + ' L' + r.ax + ',' + r.ay }));
+          g.appendChild(svgEl('circle', { class: 'bv-leader-dot', cx: r.ax, cy: r.ay, r: 4, 'data-r': 4 }));
+          const anchor = left ? 'start' : 'end';
+          g.appendChild(svgEl('text', { class: 'bv-name', x: tx, y: y - 4, 'text-anchor': anchor, 'data-size': 27, text: r.o.en }));
+          g.appendChild(svgEl('text', { class: 'bv-detail', x: tx, y: y + 22, 'text-anchor': anchor, 'data-size': 20,
+            text: clip((r.f.summary || '').split(' · ')[0], 46) }));
+          g.addEventListener('mouseenter', () => hover(r.o.key, true));
+          g.addEventListener('mouseleave', () => hover(r.o.key, false));
+          labels.set(r.o.key, g);
+          gLab.appendChild(g);
+        }
+      }
+    }
+
+    // ---- view: zoom and pan
+    const zoom = () => BASE.w / st.vb.w;
+    function clampView(v) {
+      const w = Math.min(BASE.w, Math.max(BASE.w / MAX_ZOOM, v.w));
+      const h = w * BASE.h / BASE.w;
+      const cx = Math.min(BASE.x + BASE.w, Math.max(BASE.x, v.x + v.w / 2));
+      const cy = Math.min(BASE.y + BASE.h, Math.max(BASE.y, v.y + v.h / 2));
+      return { x: cx - w / 2, y: cy - h / 2, w, h };
+    }
+    function setView(v) {
+      st.vb = clampView(v);
+      svg.setAttribute('viewBox', [st.vb.x, st.vb.y, st.vb.w, st.vb.h].map((n) => n.toFixed(1)).join(' '));
+      zoomOut.textContent = Math.round(zoom() * 100) + '%';
+      fitText();
+    }
+    function fitText() {  // labels keep their size on screen at any zoom
+      const z = zoom();
+      for (const t of gLab.querySelectorAll('text')) t.setAttribute('font-size', (Number(t.getAttribute('data-size')) / Math.pow(z, 0.85)).toFixed(2));
+      for (const c of svg.querySelectorAll('circle[data-r]')) c.setAttribute('r', (Number(c.getAttribute('data-r')) / Math.pow(z, 0.85)).toFixed(2));
+      svg.style.setProperty('--bv-z', String(z));
+      svg.classList.toggle('is-zoomed', z > 1.8);
+    }
+    function animateTo(target, ms) {
+      cancelAnimationFrame(anim);
+      const from = Object.assign({}, st.vb);
+      const to = clampView(target);
+      const t0 = performance.now();
+      const dur = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : (ms || 380);
+      const step = (now) => {
+        const t = dur ? Math.min(1, (now - t0) / dur) : 1;
+        const e = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        setView({ x: from.x + (to.x - from.x) * e, y: from.y + (to.y - from.y) * e, w: from.w + (to.w - from.w) * e, h: from.h + (to.h - from.h) * e });
+        if (t < 1) anim = requestAnimationFrame(step);
+      };
+      anim = requestAnimationFrame(step);
+    }
+    function zoomAt(factor, px, py, smooth) {
+      const v = st.vb;
+      const w = Math.min(BASE.w, Math.max(BASE.w / MAX_ZOOM, v.w / factor));
+      const k = w / v.w;
+      const target = { x: px - (px - v.x) * k, y: py - (py - v.y) * k, w, h: v.h * k };
+      if (smooth) animateTo(target, 220); else setView(target);
+    }
+    const centre = () => [st.vb.x + st.vb.w / 2, st.vb.y + st.vb.h / 2];
+    function toSvg(clientX, clientY) {
+      const m = svg.getScreenCTM();
+      if (!m) return centre();
+      const p = new DOMPoint(clientX, clientY).matrixTransform(m.inverse());
+      return [p.x, p.y];
+    }
+    function focusRect(key) {
+      const o = organsByKey.get(key);
+      if (!o) return BASE;
+      let cx; let cy; let w; let h;
+      if (o.system) {
+        [cx, cy] = anchorOf(o);
+        w = 340; h = 340;
+      } else {
+        const g = geom(o);
+        [cx, cy] = P(o.mirror ? 0 : o.u, o.v);
+        w = (o.mirror ? 2 * Math.abs(o.u) * K : 0) + g.W;
+        h = g.H;
+      }
+      const span = Math.max(w * 2.6, h * 2.6 * BASE.w / BASE.h, BASE.w / MAX_ZOOM * 1.5);
+      const hh = span * BASE.h / BASE.w;
+      return { x: cx - span / 2, y: cy - hh / 2, w: span, h: hh };
+    }
+
+    function applySelection() {
+      for (const [kk, n] of nodes) n.classList.toggle('is-sel', kk === st.sel);
+      for (const [kk, n] of labels) n.classList.toggle('is-sel', kk === st.sel);
+      svg.classList.toggle('has-sel', !!st.sel);
+      const o = st.sel ? organsByKey.get(st.sel) : null;
+      const f = st.sel ? found.get(st.sel) : null;
+      if (!o) {
+        info.replaceChildren(h('span', { class: 'muted', text: 'Scroll or pinch to zoom, drag to move, click an organ. Keys: + − 0, arrows, N / P.' }));
+        return;
+      }
+      info.replaceChildren(
+        h('div', { class: 'bv-info-head' }, h('span', { class: 'bm-dot lv-' + (f ? f.level : 'none') }), h('b', { text: o.en }),
+          h('button', { type: 'button', class: 'btn-link', 'aria-label': 'Close', onclick: () => select(null, { fly: true }) }, '✕')),
+        f ? h('div', { class: 'small' }, h('b', { text: BODY_LEVELS[f.level] })) : h('div', { class: 'small muted', text: 'No evidence found' }),
+        f ? h('div', { class: 'small', text: f.summary }) : null,
+        f ? h('div', { class: 'small muted', text: Object.entries(f.kinds || {}).map(([kk, n]) => (BODY_KINDS[kk] || kk) + ' ' + n).join(' · ') }) : null,
+        h('div', { class: 'bv-info-actions' },
+          h('button', { type: 'button', class: 'btn btn-xs', onclick: () => animateTo(focusRect(o.key)) }, 'Zoom to'),
+          f ? h('button', { type: 'button', class: 'btn btn-xs', onclick: () => onPick(o.key, true) }, 'Evidence ↓') : null));
+    }
+    function select(key, opts) {
+      opts = opts || {};
+      hideTip();
+      st.sel = key && organsByKey.has(key) ? key : null;
+      const o = st.sel ? organsByKey.get(st.sel) : null;
+      if (!st.systems || (o && !visible(o))) draw(); else applySelection();  // a hidden system or organ shows while selected
+      if (opts.fly) animateTo(st.sel ? focusRect(st.sel) : BASE);
+      if (opts.notify !== false && st.sel) onPick(st.sel, false);
+    }
+    function cycle(dir) {
+      const keys = (bm.organs || []).map((f) => f.key).filter((kk) => organsByKey.has(kk) && hits.has(kk));
+      if (!keys.length) return;
+      const i = keys.indexOf(st.sel);
+      select(keys[(i + dir + keys.length) % keys.length], { fly: true });
+    }
+
+    // ---- pointer, wheel and keyboard
+    const pointers = new Map();
+    let gesture = null;
+    svg.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const [px, py] = toSvg(e.clientX, e.clientY);
+      cancelAnimationFrame(anim);
+      zoomAt(Math.exp(-e.deltaY * (e.deltaMode === 1 ? 0.05 : 0.0015)), px, py, false);
+    }, { passive: false });
+    svg.addEventListener('pointerdown', (e) => {
+      if (e.button !== 0 && e.pointerType === 'mouse') return;
+      try { svg.setPointerCapture(e.pointerId); } catch (_) { /* synthetic or finished pointer */ }
+      pointers.set(e.pointerId, [e.clientX, e.clientY]);
+      cancelAnimationFrame(anim);
+      const pts = Array.from(pointers.values());
+      gesture = { view: Object.assign({}, st.vb), pts, target: e.target, moved: false, scale: (svg.getScreenCTM() || { a: 1 }).a };
+      svg.classList.add('is-dragging');
+    });
+    svg.addEventListener('pointermove', (e) => {
+      if (!gesture || !pointers.has(e.pointerId)) return;
+      pointers.set(e.pointerId, [e.clientX, e.clientY]);
+      const pts = Array.from(pointers.values());
+      if (pts.length === 1 && gesture.pts.length === 1) {
+        const dx = pts[0][0] - gesture.pts[0][0];
+        const dy = pts[0][1] - gesture.pts[0][1];
+        if (Math.abs(dx) + Math.abs(dy) > 4) gesture.moved = true;
+        if (gesture.moved) {
+          hideTip();
+          setView({ x: gesture.view.x - dx / gesture.scale, y: gesture.view.y - dy / gesture.scale, w: gesture.view.w, h: gesture.view.h });
+        }
+      } else if (pts.length === 2) {
+        if (gesture.pts.length !== 2) gesture = { view: Object.assign({}, st.vb), pts, target: null, moved: true, scale: gesture.scale };
+        const d0 = Math.hypot(gesture.pts[0][0] - gesture.pts[1][0], gesture.pts[0][1] - gesture.pts[1][1]) || 1;
+        const d1 = Math.hypot(pts[0][0] - pts[1][0], pts[0][1] - pts[1][1]) || 1;
+        const mid = toSvg((pts[0][0] + pts[1][0]) / 2, (pts[0][1] + pts[1][1]) / 2);
+        setView(gesture.view);
+        zoomAt(d1 / d0, mid[0], mid[1], false);
+      }
+    });
+    const endPointer = (e) => {
+      if (!pointers.has(e.pointerId)) return;
+      pointers.delete(e.pointerId);
+      if (pointers.size) return;
+      svg.classList.remove('is-dragging');
+      const g = gesture;
+      gesture = null;
+      if (!g || g.moved || e.type === 'pointercancel') return;
+      const el = g.target && g.target.closest ? g.target.closest('[data-organ]') : null;
+      const key = el ? el.getAttribute('data-organ') : null;
+      if (key) select(key, { fly: true });
+      else select(null, { fly: false });
+    };
+    svg.addEventListener('pointerup', endPointer);
+    svg.addEventListener('pointercancel', endPointer);
+    svg.addEventListener('dblclick', (e) => {
+      e.preventDefault();
+      const [px, py] = toSvg(e.clientX, e.clientY);
+      zoomAt(e.shiftKey ? 0.5 : 2, px, py, true);
+    });
+    svg.addEventListener('keydown', (e) => {
+      const step = st.vb.w * 0.12;
+      const [cx, cy] = centre();
+      const keys = {
+        '+': () => zoomAt(1.5, cx, cy, true), '=': () => zoomAt(1.5, cx, cy, true), '-': () => zoomAt(1 / 1.5, cx, cy, true),
+        '_': () => zoomAt(1 / 1.5, cx, cy, true), '0': () => animateTo(BASE),
+        ArrowLeft: () => setView(Object.assign({}, st.vb, { x: st.vb.x - step })), ArrowRight: () => setView(Object.assign({}, st.vb, { x: st.vb.x + step })),
+        ArrowUp: () => setView(Object.assign({}, st.vb, { y: st.vb.y - step })), ArrowDown: () => setView(Object.assign({}, st.vb, { y: st.vb.y + step })),
+        n: () => cycle(1), N: () => cycle(1), p: () => cycle(-1), P: () => cycle(-1),
+        Escape: () => select(null, { fly: true }),
+      };
+      if (keys[e.key] && !e.ctrlKey && !e.metaKey && !e.altKey) { e.preventDefault(); keys[e.key](); }
+    });
+
+    // ---- toolbar
+    const zoomOut = h('span', { class: 'bv-zoom small muted', 'aria-live': 'polite', text: '100%' });
+    const toggle = (label, getter, setter, title) => {
+      const b = h('button', { type: 'button', class: 'chip bv-toggle', 'aria-pressed': String(getter()), title: title || null, onclick: () => {
+        setter(!getter());
+        b.setAttribute('aria-pressed', String(getter()));
+        draw();
+      } }, label);
+      return b;
+    };
+    const levelChips = Object.entries(BODY_LEVELS).map(([lv, en]) => {
+      const n = (bm.organs || []).filter((f) => f.level === lv).length;
+      const b = h('button', { type: 'button', class: 'chip bv-level', 'aria-pressed': 'true', disabled: !n, title: en, onclick: () => {
+        if (st.levels.has(lv)) st.levels.delete(lv); else st.levels.add(lv);
+        b.setAttribute('aria-pressed', String(st.levels.has(lv)));
+        draw();
+      } }, h('span', { class: 'bm-dot lv-' + lv }), en, h('span', { class: 'count', text: String(n) }));
+      return b;
+    });
+    const sexSel = h('select', { class: 'input bv-sex', 'aria-label': 'Reproductive organs shown', onchange: () => { st.sex = sexSel.value; draw(); } },
+      h('option', { value: 'auto', text: 'Reproductive: with evidence' }),
+      h('option', { value: 'female', text: 'Female' }), h('option', { value: 'male', text: 'Male' }));
+    const listId = 'bv-organs-' + bm.map_id;
+    const search = h('input', { type: 'search', class: 'input bv-search', list: listId, placeholder: 'Find organ…', 'aria-label': 'Find an organ' });
+    const options = h('datalist', { id: listId }, (L.organs || []).map((o) => h('option', { value: o.en })));
+    search.addEventListener('change', () => {
+      const q = search.value.trim().toLowerCase();
+      if (!q) return;
+      const o = (L.organs || []).find((x) => x.en.toLowerCase() === q) ||
+        (L.organs || []).find((x) => x.en.toLowerCase().includes(q) || x.key.includes(q));
+      if (!o) { toast('No organ called "' + search.value + '"', true); return; }
+      if (!visible(o)) { st.all = true; allBtn.setAttribute('aria-pressed', 'true'); if (o.sex) { st.sex = o.sex; sexSel.value = o.sex; } draw(); }
+      select(o.key, { fly: true });
+    });
+    const allBtn = toggle('All organs', () => st.all, (v) => { st.all = v; }, 'Draw every organ, also those without evidence');
+    const box = h('div', { class: 'bv' });
+    const fullBtn = h('button', { type: 'button', class: 'btn btn-sm', title: 'Full screen', onclick: () => {
+      if (document.fullscreenElement) document.exitFullscreen(); else if (box.requestFullscreen) box.requestFullscreen().catch(() => toast('Full screen is not available here', true));
+    } }, '⛶ Full screen');
+    const toolbar = h('div', { class: 'bv-toolbar' },
+      h('div', { class: 'bv-tools' },
+        h('button', { type: 'button', class: 'btn btn-sm', 'aria-label': 'Zoom in', onclick: () => zoomAt(1.5, centre()[0], centre()[1], true) }, '+'),
+        h('button', { type: 'button', class: 'btn btn-sm', 'aria-label': 'Zoom out', onclick: () => zoomAt(1 / 1.5, centre()[0], centre()[1], true) }, '−'),
+        h('button', { type: 'button', class: 'btn btn-sm', onclick: () => animateTo(BASE) }, '⟲ Fit'),
+        zoomOut, fullBtn, search, options),
+      h('div', { class: 'bv-tools' }, levelChips,
+        toggle('Labels', () => st.labels, (v) => { st.labels = v; }),
+        toggle('Body systems', () => st.systems, (v) => { st.systems = v; }, 'Skeleton, blood vessels and nerves'),
+        allBtn,
+        toggle('Natural colours', () => st.natural, (v) => { st.natural = v; }, 'Organs without evidence in their natural colours instead of grey'),
+        sexSel));
+    const info = h('div', { class: 'bv-info small', 'aria-live': 'polite' });
+    box.append(toolbar, h('div', { class: 'bv-stage' }, svg, info));
+    if (!art) box.appendChild(h('p', { class: 'small muted', text: 'Figure Studio is not available: organs are drawn as simple shapes.' }));
+    draw();
+    return { el: box, select: (key, opts) => select(key, Object.assign({ notify: false }, opts || {})) };
+  }
+
+  function bodyEvidenceTable(f) {
+    return h('div', { class: 'table-wrap' }, h('table', { class: 'data bm-ev' },
+      h('thead', null, h('tr', null, h('th', { text: 'Evidence' }), h('th', { text: 'What the database says' }),
+        h('th', { class: 'num', text: 'Value' }), h('th', { text: 'Source' }))),
+      h('tbody', null, (f.evidence || []).map((ev) => h('tr', null,
+        h('td', null, h('span', { class: 'bm-dot lv-' + ((BODY_KINDS[ev.kind] && ev.kind) ? levelOfKind(ev.kind) : 'none') }), BODY_KINDS[ev.kind] || ev.kind),
+        h('td', null, ev.text, h('div', { class: 'muted small' }, 'matched: ', h('code', { text: ev.matched }))),
+        h('td', { class: 'num', text: ev.value !== null && ev.value !== undefined ? fmtVal(ev.value) + (ev.unit ? ' ' + ev.unit : '') : '–' }),
+        h('td', null, sourceBadge(ev.source), ' ', ev.url ? extLink(ev.url, clip(ev.record_id || 'link', 28)) : h('code', { text: clip(ev.record_id || '', 28) })))))));
+  }
+  function levelOfKind(kind) {
+    return { treats: 'primary', disease: 'primary', phenotype: 'primary', adverse_event: 'safety', label: 'safety',
+      toxicity: 'safety', studied: 'investigational', expression: 'expression' }[kind] || 'none';
+  }
+
+  function bodyFigureUrl(bm, name, fmt, download) {
+    return '/api/body/' + bm.map_id + '/figures/' + encodeURIComponent(name) + '.' + fmt + (download ? '?download=1' : '');
+  }
+
+  function bodyView(bm) {
+    const okId = SEARCH_ID_RE.test(bm.map_id || '');
+    const list = h('div', { class: 'bm-list' });
+    const cards = new Map();
+    let viewer = null;
+    const pick = (key, fromList, scroll) => {
+      for (const [kk, card] of cards) {
+        const on = kk === key;
+        card.classList.toggle('is-sel', on);
+        const det = card.querySelector('details');
+        if (det && on) det.open = true;
+      }
+      if (viewer && fromList) viewer.select(key, { fly: true });
+      const card = cards.get(key);
+      if (!card) return;
+      if (scroll) card.scrollIntoView({ behavior: 'smooth', block: 'start' });  // asked for: bring the evidence into view
+      else if (!fromList) list.scrollTo({ top: card.offsetTop - 8, behavior: 'smooth' });  // only inside the list
+    };
+    let lastLevel = null;
+    for (const f of bm.organs || []) {
+      if (f.level !== lastLevel) {
+        list.appendChild(h('h4', { class: 'bm-level-h' }, h('span', { class: 'bm-dot lv-' + f.level }), BODY_LEVELS[f.level]));
+        lastLevel = f.level;
+      }
+      const card = h('div', { class: 'bm-card lv-' + f.level, dataset: { organ: f.key } },
+        h('div', { class: 'bm-card-head', role: 'button', tabindex: 0, onclick: () => pick(f.key, true),
+          onkeydown: (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(f.key, true); } } },
+        h('b', { text: f.en }),
+        h('span', { class: 'bm-kinds small muted', text: Object.entries(f.kinds || {}).map(([kk, n]) => (BODY_KINDS[kk] || kk) + ' ' + n).join(' · ') })),
+        h('div', { class: 'small bm-summary', text: f.summary }),
+        h('details', { class: 'small' }, h('summary', { text: (f.evidence || []).length + ' evidence items' }), bodyEvidenceTable(f)));
+      cards.set(f.key, card);
+      list.appendChild(card);
+    }
+    if (!(bm.organs || []).length) list.appendChild(h('div', { class: 'empty', text: 'No organ evidence was found for this query.' }));
+    viewer = bodyViewer(bm, (key, scroll) => pick(key, false, scroll));
+
+    const facts = (bm.facts || []).length ? h('section', { class: 'panel bm-facts' },
+      h('h3', null, 'Key facts'),
+      h('table', { class: 'data kv' }, h('tbody', null, bm.facts.map((f) => h('tr', null,
+        h('th', { text: f.label }),
+        h('td', null, f.value, f.source ? h('span', null, ' ', sourceBadge(f.source)) : null,
+          f.url ? h('span', null, ' ', extLink(f.url, '↗', 'small')) : null))))))
+      : null;
+
+    const figs = bm.figures || {};
+    const figOk = figs.available && okId;
+    const figBlock = h('section', { class: 'panel' },
+      h('div', { class: 'panel-head row' },
+        h('div', null, h('h3', null, 'Figure Studio figures'),
+          h('p', { class: 'muted small', text: 'Drawn by Figure Studio with its body and organ illustrations' })),
+        okId ? h('button', { type: 'button', class: 'btn btn-primary btn-sm', onclick: async (e) => {
+          const btn = e.currentTarget;
+          btn.disabled = true;
+          exportOut.replaceChildren(h('div', { class: 'typing' }, h('span', { class: 'spinner', 'aria-hidden': 'true' }), 'Writing the data package…'));
+          try { exportOut.replaceChildren(packageCard(await api('/api/body/' + bm.map_id + '/export', { method: 'POST' }))); }
+          catch (err) { exportOut.replaceChildren(errorBox(err)); }
+          finally { btn.disabled = false; }
+        } }, 'Export data') : null),
+      figOk ? null : h('p', { class: 'notice small' }, 'Figure Studio is not available: ', h('span', { text: figs.error || '' })),
+      figOk ? h('div', { class: 'bm-figs' }, (figs.names || []).map((name) => {
+        const img = h('img', { class: 'vz-img', src: bodyFigureUrl(bm, name, 'svg'), alt: name === 'body_map' ? 'Body map of ' + bm.name : 'Evidence per organ', loading: 'lazy' });
+        img.addEventListener('error', () => img.replaceWith(h('p', { class: 'muted small', text: 'figure could not be drawn' })), { once: true });
+        return h('figure', { class: 'bm-fig' }, h('div', { class: 'vz-paper' }, img),
+          h('figcaption', { class: 'small' }, name === 'body_map' ? 'Body map' : 'Evidence per organ', ' ',
+            h('span', { class: 'fig-dl' }, ['svg', 'png', 'pdf'].map((fmt) => h('a', { class: 'btn btn-xs', href: bodyFigureUrl(bm, name, fmt, true), download: '' }, fmt.toUpperCase())))));
+      })) : null);
+    const exportOut = h('div', { 'aria-live': 'polite' });
+    figBlock.appendChild(exportOut);
+
+    return h('div', { class: 'bm' },
+      h('div', { class: 'bm-head' },
+        h('h2', null, bm.name + ' ', h('span', { class: 'badge outline', text: BODY_TYPES[bm.kind] || bm.kind })),
+        h('div', { class: 'id-chips' }, Object.entries(bm.identifiers || {}).slice(0, 8).map(([kk, v]) => h('span', { class: 'id-chip' }, h('b', { text: kk + ':' }), String(v))))),
+      checksSummary(bm.checks, 'every organ comes from a database record, re-checked against its own words and numbers'),
+      facts,
+      h('div', { class: 'bm-grid' },
+        h('section', { class: 'panel bm-figure' }, h('h3', null, 'Interactive body map: zoom, drag, click an organ'), viewer.el),
+        h('section', { class: 'panel bm-organs' }, h('h3', null, 'Organs and their evidence'), list)),
+      (bm.notes || []).length ? h('ul', { class: 'small muted bm-notes' }, bm.notes.map((n) => h('li', { text: n }))) : null,
+      Object.keys(bm.errors || {}).length ? h('details', { class: 'small' }, h('summary', { class: 'muted', text: Object.keys(bm.errors).length + ' source call(s) failed' }),
+        h('ul', null, Object.entries(bm.errors).map(([kk, v]) => h('li', null, h('b', { text: kk + ': ' }), v)))) : null,
+      figBlock);
+  }
+
+  function bodyPanel(res) {
+    const queries = (res.queries && res.queries.length ? res.queries : [res.query]).filter(Boolean);
+    const qSel = h('select', { class: 'input', 'aria-label': 'Which query' }, queries.map((q) => h('option', { value: q, text: q })));
+    const kSel = h('select', { class: 'input', 'aria-label': 'What the query is' },
+      h('option', { value: 'auto', text: 'Auto' }), h('option', { value: 'drug', text: 'Drug' }),
+      h('option', { value: 'compound', text: 'Chemical' }), h('option', { value: 'disease', text: 'Disease' }));
+    const out = h('div', { 'aria-live': 'polite' });
+    let seq = 0;
+    const run = async () => {
+      const mine = ++seq;
+      out.replaceChildren(h('div', { class: 'typing' }, h('span', { class: 'spinner', 'aria-hidden': 'true' }),
+        'Looking up indications, adverse events, label warnings, phenotypes and tissue expression…'));
+      try {
+        const data = await api('/api/body', { method: 'POST', body: { query: qSel.value, kind: kSel.value } });
+        if (mine === seq) out.replaceChildren(bodyView(data));
+      } catch (err) {
+        if (mine === seq) out.replaceChildren(errorBox(err));
+      }
+    };
+    const box = h('div', { class: 'bm-panel' },
+      h('div', { class: 'panel-head row' },
+        h('div', null, h('h2', null, 'Where it acts in the body'),
+          h('p', { class: 'muted small', text: 'Drugs: indications, FAERS adverse events, FDA label warnings and target tissue expression; diseases: disease site, HPO phenotypes and gene expression.' })),
+        h('div', { class: 'head-actions' }, queries.length > 1 ? qSel : null, kSel,
+          h('button', { type: 'button', class: 'btn btn-sm', onclick: run }, 'Rebuild'))),
+      out);
+    qSel.addEventListener('change', run);
+    kSel.addEventListener('change', run);
+    run();
+    return box;
+  }
+
+  // ------------------------------------------------------------- export, run, resolve
   function exportPanel() {
     const sel = h('select', { class: 'input', 'aria-label': 'Split the files by' },
       h('option', { value: 'type', text: 'one file per data type (papers, trials, datasets ...)' }),
       h('option', { value: 'species', text: 'one file per species (human, mouse, plant ...)' }),
       h('option', { value: 'source', text: 'one file per database' }));
+    const figs = h('input', { type: 'checkbox', checked: true, id: 'export-figs' });
     const out = h('div', { 'aria-live': 'polite' });
     const btn = h('button', { type: 'button', class: 'btn btn-primary', onclick: async () => {
       btn.disabled = true;
-      out.replaceChildren(h('div', { class: 'typing' }, h('span', { class: 'spinner', 'aria-hidden': 'true' }), 'Writing CSV files and the Excel workbook…'));
+      out.replaceChildren(h('div', { class: 'typing' }, h('span', { class: 'spinner', 'aria-hidden': 'true' }),
+        'Fetching full records, writing the tables' + (figs.checked ? ' and drawing the figures' : '') + '…'));
       try {
-        const body = { query: searchState.lastQuery, limit_per_source: searchState.lastLimit, group_by: sel.value };
+        const body = { query: searchState.lastQuery, limit_per_source: searchState.lastLimit, group_by: sel.value, include_figures: figs.checked };
         if (searchState.lastCats && searchState.lastCats.length) body.categories = searchState.lastCats;
+        if (searchState.lastCompare && searchState.lastCompare.length) body.compare = searchState.lastCompare;
         out.replaceChildren(packageCard(await api('/api/search/export', { method: 'POST', body })));
       } catch (err) {
         out.replaceChildren(errorBox(err));
@@ -1579,8 +2721,13 @@
     } }, 'Export data');
     return h('div', { class: 'panel export-panel' },
       h('div', { class: 'search-row' }, h('b', { text: 'Download this data:' }), sel, btn),
-      h('p', { class: 'small muted', text: 'Saves the cleaned, graded data as several CSV files plus one Excel workbook (a sheet per file) and a ZIP.' }),
+      h('div', { class: 'field-check small' }, figs, h('label', { for: 'export-figs', text: 'Include the mind map and charts (SVG / PNG / PDF) and figure_data.csv' })),
+      h('p', { class: 'small muted', text: 'Saves the actual data (full records re-fetched from each database, not links) as one CSV per kind of data, an Excel workbook (a sheet per file, plus the figures), the figures and a ZIP of everything.' }),
       out);
+  }
+
+  function parseCompare(text) {
+    return String(text || '').split(/[,;，；\n]+/).map((s) => s.trim()).filter(Boolean).slice(0, 3);
   }
 
   async function runSearch(e) {
@@ -1591,13 +2738,17 @@
     searchState.controller = new AbortController();
     const btn = $('#search-go');
     btn.disabled = true;
-    $('#search-results').replaceChildren(h('div', { class: 'typing' }, h('span', { class: 'spinner', 'aria-hidden': 'true' }), 'Searching every selected database in parallel…'));
+    const compare = parseCompare($('#search-compare') ? $('#search-compare').value : '');
+    $('#search-results').replaceChildren(h('div', { class: 'typing' }, h('span', { class: 'spinner', 'aria-hidden': 'true' }),
+      compare.length ? 'Searching and comparing ' + (compare.length + 1) + ' queries…' : 'Searching every selected database in parallel…'));
     try {
       const body = { query: q, limit_per_source: Number($('#search-limit').value) || 5 };
       if (searchState.cats.size) body.categories = Array.from(searchState.cats);
+      if (compare.length) body.compare = compare;
       searchState.lastQuery = q;
       searchState.lastLimit = body.limit_per_source;
       searchState.lastCats = body.categories || [];
+      searchState.lastCompare = compare;
       const res = await api('/api/search', { method: 'POST', body, signal: searchState.controller.signal });
       renderSearchResults(res);
     } catch (err) {
@@ -1921,36 +3072,36 @@
   loaders.audit = () => loadAudit();
 
   // ===================================================================
-  // Cross-species comparison (跨物种比较): form, dashboard, chat card
+  // Cross-species comparison: form, dashboard, chat card
   // ===================================================================
   // Renders a SpeciesComparison (mosaic/species/models.py). Charts are hand-written SVG; every
   // server string goes through textContent; colours come from CSS variables (light + dark).
   const SP_ID_RE = /^[0-9a-f]{32}$/;
   const SP_GROUP_ORDER = ['human', 'primate', 'mammal', 'bird', 'amphibian', 'fish', 'insect', 'nematode', 'fungus', 'plant'];
   const SP_FORM_GROUPS = [
-    ['人与灵长类', 'Human & primates', ['human', 'primate']],
-    ['哺乳动物', 'Mammals', ['mammal']],
-    ['鸟类', 'Birds', ['bird']],
-    ['两栖与鱼类', 'Amphibians & fish', ['amphibian', 'fish']],
-    ['无脊椎动物', 'Invertebrates', ['insect', 'nematode']],
-    ['真菌与植物', 'Fungi & plants', ['fungus', 'plant']],
+    ['', 'Human & primates', ['human', 'primate']],
+    ['', 'Mammals', ['mammal']],
+    ['', 'Birds', ['bird']],
+    ['', 'Amphibians & fish', ['amphibian', 'fish']],
+    ['', 'Invertebrates', ['insect', 'nematode']],
+    ['', 'Fungi & plants', ['fungus', 'plant']],
   ];
   const SP_EVIDENCE = {
-    clinical: { rank: 4, zh: '临床', en: 'Clinical', mark: 'C' },
-    in_vivo: { rank: 3, zh: '体内', en: 'In vivo', mark: 'V' },
-    in_vitro: { rank: 2, zh: '体外', en: 'In vitro', mark: 'T' },
-    computational: { rank: 1, zh: '计算预测', en: 'Computational', mark: 'P' },
-    none: { rank: 0, zh: '无', en: 'None', mark: '' },
+    clinical: { rank: 4, en: 'Clinical', mark: 'C' },
+    in_vivo: { rank: 3, en: 'In vivo', mark: 'V' },
+    in_vitro: { rank: 2, en: 'In vitro', mark: 'T' },
+    computational: { rank: 1, en: 'Computational', mark: 'P' },
+    none: { rank: 0, en: 'None', mark: '' },
   };
   const SP_KINDS = {
-    potency: ['效力', 'Potency'],
-    in_vivo_efficacy: ['体内药效', 'In vivo efficacy'],
-    pharmacokinetics: ['药代动力学', 'Pharmacokinetics'],
-    toxicity: ['毒性', 'Toxicity'],
-    other: ['其他', 'Other'],
+    potency: ['', 'Potency'],
+    in_vivo_efficacy: ['', 'In vivo efficacy'],
+    pharmacokinetics: ['', 'Pharmacokinetics'],
+    toxicity: ['', 'Toxicity'],
+    other: ['', 'Other'],
   };
   const SP_KIND_ORDER = Object.keys(SP_KINDS);
-  const SP_COMPOUND_KIND = { drug: '药物 Drug', compound: '化合物 Compound', unknown: '类型未知 Unknown type' };
+  const SP_COMPOUND_KIND = { drug: 'Drug', compound: 'Compound', unknown: 'Unknown type' };
   const SP_BINS = [
     // [class suffix, lower bound, label]
     [5, 98, '≥ 98%'], [4, 90, '90–98%'], [3, 75, '75–90%'], [2, 50, '50–75%'], [1, -Infinity, '< 50%'],
@@ -1990,13 +3141,13 @@
     for (const [n, lo] of SP_BINS) if (v >= lo) return n;
     return 1;
   }
-  function spLabel(s) { return s ? ((s.label_zh || '') + ' ' + (s.label || s.species || '')).trim() : ''; }
+  function spLabel(s) { return s ? (s.label || s.species || '') : ''; }
   function evInfo(level) { return SP_EVIDENCE[level] || SP_EVIDENCE.none; }
   function evBadge(level) {
     const e = evInfo(level);
-    return h('span', { class: 'sp-ev sp-ev-' + (SP_EVIDENCE[level] ? level : 'none'), title: '证据等级 Evidence level: ' + e.zh + ' ' + e.en },
+    return h('span', { class: 'sp-ev sp-ev-' + (SP_EVIDENCE[level] ? level : 'none'), title: 'Evidence level: ' + e.en },
       h('span', { class: 'sp-ev-dots', 'aria-hidden': 'true' }, [1, 2, 3, 4].map((i) => h('i', { class: i <= e.rank ? 'on' : null }))),
-      e.zh + ' ' + e.en);
+      e.en);
   }
   function pubmedUrl(pmid) { return /^\d{1,9}$/.test(String(pmid || '')) ? 'https://pubmed.ncbi.nlm.nih.gov/' + pmid + '/' : null; }
   function doiUrl(doi) { return typeof doi === 'string' && /^10\.\S+$/.test(doi.trim()) ? 'https://doi.org/' + encodeURI(doi.trim()) : null; }
@@ -2061,8 +3212,7 @@
   /** Two-line bilingual row label (Chinese first) right-aligned at (x, y). */
   function rowLabel(s, x, y) {
     return svgEl('text', { class: 'sp-lbl', x, y, 'text-anchor': 'end' },
-      svgEl('tspan', { class: 'sp-lbl-n', x, dy: -2, text: s.label_zh || s.label || s.species }),
-      svgEl('tspan', { class: 'tm sp-en', x, dy: 12, text: s.label_zh ? (s.label || '') : '' }));
+      svgEl('tspan', { class: 'sp-lbl-n', x, dy: 4, text: s.label || s.species }));
   }
 
   function legend(items) {
@@ -2074,7 +3224,7 @@
     return h('section', { class: 'panel sp-chart' },
       h('div', { class: 'panel-head' }, h('h3', { text: title }), sub ? h('p', { class: 'muted small', text: sub }) : null),
       body,
-      table ? h('details', { class: 'sp-table-alt' }, h('summary', { text: '以表格查看 View as table' }), table) : null);
+      table ? h('details', { class: 'sp-table-alt' }, h('summary', { text: 'View as table' }), table) : null);
   }
 
   function miniTable(headers, rows, numeric) {
@@ -2109,7 +3259,7 @@
     opts = opts || {};
     const compact = !!opts.compact;
     const all = orderedSpecies(speciesList);
-    const human = all.find((s) => s.species === 'human') || { species: 'human', label: 'Human', label_zh: '人', mean_identity_pct: 100, n_papers: 0, evidence_level: 'none' };
+    const human = all.find((s) => s.species === 'human') || { species: 'human', label: 'Human', mean_identity_pct: 100, n_papers: 0, evidence_level: 'none' };
     const others = all.filter((s) => s.species !== 'human');
     const W = compact ? 460 : 840;
     const H = compact ? 400 : 690;
@@ -2127,9 +3277,9 @@
     const step = 360 / n;
     const svg = svgEl('svg', {
       class: 'sp-svg sp-graph' + (compact ? ' compact' : ''), viewBox: '0 0 ' + W + ' ' + H, role: 'group',
-      'aria-label': '物种关系图 Species overview graph: human at the centre, species placed by mean target identity',
+      'aria-label': 'Species overview graph: human at the centre, species placed by mean target identity',
     });
-    svg.appendChild(svgEl('title', { text: '跨物种概览图 Cross-species overview: closer and darker = higher target identity to human; larger node = more papers' }));
+    svg.appendChild(svgEl('title', { text: 'Cross-species overview: closer and darker = higher target identity to human; larger node = more papers' }));
     // identity guide rings
     const ringAngle = -Math.PI / 2; // species start half a step clockwise of 12 o'clock, so the guide labels sit in the gap
     const guides = svgEl('g', { class: 'sp-guides', 'aria-hidden': 'true' });
@@ -2141,7 +3291,7 @@
     if (others.some((s) => !isNum(s.mean_identity_pct))) {
       const r = radius(null);
       guides.appendChild(svgEl('circle', { class: 'sp-ring sp-ring-none', cx, cy, r }));
-      if (!compact) guides.appendChild(svgEl('text', { class: 'tm', x: cx + Math.cos(ringAngle) * r, y: cy + Math.sin(ringAngle) * r - 3, 'text-anchor': 'middle', text: '无同源 no ortholog' }));
+      if (!compact) guides.appendChild(svgEl('text', { class: 'tm', x: cx + Math.cos(ringAngle) * r, y: cy + Math.sin(ringAngle) * r - 3, 'text-anchor': 'middle', text: 'no ortholog' }));
     }
     svg.appendChild(guides);
     const edges = svgEl('g', { class: 'sp-edges', 'aria-hidden': 'true' });
@@ -2153,12 +3303,12 @@
       const r = s.species === 'human' ? Math.max(nodeR(s.n_papers), compact ? 13 : 20) : nodeR(s.n_papers);
       const bin = s.species === 'human' ? 'human' : 'b' + idBin(s.mean_identity_pct);
       const ev = evInfo(s.evidence_level);
-      const stats = (s.species === 'human' ? '参照 reference' : fmtPct(s.mean_identity_pct)) + ' · ' + fmtNum(s.n_papers || 0) + ' 篇';
+      const stats = (s.species === 'human' ? 'reference' : fmtPct(s.mean_identity_pct)) + ' · ' + fmtNum(s.n_papers || 0) + ' papers';
       const g = svgEl('g', {
         class: 'sp-node' + (opts.selected === s.species ? ' is-sel' : ''), tabindex: opts.onSelect ? 0 : null,
         role: opts.onSelect ? 'button' : 'img', 'data-species': s.species,
-        'aria-label': spLabel(s) + ': ' + (s.species === 'human' ? '人类参照 human reference' : '平均靶点一致性 mean target identity ' + fmtPct(s.mean_identity_pct)) +
-          ', ' + fmtNum(s.n_papers || 0) + ' 篇文献 papers, ' + fmtNum(s.n_measurements || 0) + ' 个测量 measurements, 证据 evidence ' + ev.zh + ' ' + ev.en,
+        'aria-label': spLabel(s) + ': ' + (s.species === 'human' ? 'human reference' : 'mean target identity ' + fmtPct(s.mean_identity_pct)) +
+          ', ' + fmtNum(s.n_papers || 0) + ' papers, ' + fmtNum(s.n_measurements || 0) + ' measurements, evidence ' + ev.en,
       });
       g.appendChild(svgEl('circle', { class: 'sp-hit', cx: x, cy: y, r: r + 8 }));
       g.appendChild(svgEl('circle', { class: 'n sp-fill-' + bin, cx: x, cy: y, r }));
@@ -2185,14 +3335,14 @@
         }
       }
       const label = svgEl('text', { class: 'sp-lbl', x: lx, y: ly, 'text-anchor': anchor },
-        svgEl('tspan', { class: 'sp-lbl-n', x: lx, text: compact ? (s.label_zh || s.label) : spLabel(s) }),
+        svgEl('tspan', { class: 'sp-lbl-n', x: lx, text: compact ? s.label : spLabel(s) }),
         svgEl('tspan', { class: 'tm', x: lx, dy: compact ? 12 : 14, text: compact ? (s.species === 'human' ? '' : fmtPct(s.mean_identity_pct)) : stats }));
       g.appendChild(label);
       withTip(g, [spLabel(s) + (s.scientific_name ? ' (' + s.scientific_name + ')' : ''),
-        s.species === 'human' ? '人类参照 Human reference' : '平均靶点一致性 Mean target identity: ' + fmtPct(s.mean_identity_pct),
-        '文献 Papers: ' + fmtNum(s.n_papers || 0) + ' · 测量 Measurements: ' + fmtNum(s.n_measurements || 0),
-        '证据等级 Evidence: ' + ev.zh + ' ' + ev.en,
-        opts.onSelect ? '点击查看详情 Click for details' : null]);
+        s.species === 'human' ? 'Human reference' : 'Mean target identity: ' + fmtPct(s.mean_identity_pct),
+        'Papers: ' + fmtNum(s.n_papers || 0) + ' · Measurements: ' + fmtNum(s.n_measurements || 0),
+        'Evidence: ' + ev.en,
+        opts.onSelect ? 'Click for details' : null]);
       if (opts.onSelect) activate(g, () => { hideTip(); opts.onSelect(s.species); });
       return g;
     }
@@ -2212,12 +3362,12 @@
 
   function graphLegend() {
     return h('div', { class: 'sp-legend-wrap' },
-      legend(SP_BINS.map(([n, , label]) => ['sp-bg-b' + n, label]).concat([['sp-bg-b0', '无同源 none']])),
+      legend(SP_BINS.map(([n, , label]) => ['sp-bg-b' + n, label]).concat([['sp-bg-b0', 'none']])),
       h('div', { class: 'sp-legend' },
-        h('span', { class: 'sp-legend-item' }, '离中心越近、颜色越浓 = 靶点与人越相似 · closer & stronger colour = more similar target'),
-        h('span', { class: 'sp-legend-item' }, '圆越大 = 文献越多 · larger node = more papers'),
-        h('span', { class: 'sp-legend-item' }, '标签数字：平均一致性 · 文献篇数 · label numbers: mean identity · papers'),
-        h('span', { class: 'sp-legend-item' }, '标记 Marker: C 临床 clinical · V 体内 in vivo · T 体外 in vitro · P 计算 computational')));
+        h('span', { class: 'sp-legend-item' }, 'Closer & stronger colour = more similar target'),
+        h('span', { class: 'sp-legend-item' }, 'Larger node = more papers'),
+        h('span', { class: 'sp-legend-item' }, 'Label numbers: mean identity · papers'),
+        h('span', { class: 'sp-legend-item' }, 'Marker: C clinical · V in vivo · T in vitro · P computational')));
   }
 
   // ------------------------------------------------------------- comparison table (heatmap)
@@ -2228,14 +3378,14 @@
     const maxMeas = Math.max(1, ...species.map((s) => s.n_measurements || 0));
     const order = new Map(species.map((s, i) => [s.species, i]));
     const cols = [
-      { key: 'order', label: '物种 Species' },
-      ...targets.map((t) => ({ key: 'id:' + t, label: t + ' 一致性 identity', num: true })),
-      targets.length > 1 ? { key: 'mean', label: '平均一致性 Mean identity', num: true } : null,
-      { key: 'sim', label: '相似性 Similarity', num: true },
-      { key: 'papers', label: 'PubMed 文献 Papers', num: true },
-      { key: 'meas', label: 'ChEMBL 测量 Measurements', num: true },
-      { key: 'pchembl', label: '中位 Median pChEMBL', num: true },
-      { key: 'ev', label: '证据等级 Evidence', num: false },
+      { key: 'order', label: 'Species' },
+      ...targets.map((t) => ({ key: 'id:' + t, label: t + ' identity', num: true })),
+      targets.length > 1 ? { key: 'mean', label: 'Mean identity', num: true } : null,
+      { key: 'sim', label: 'Similarity', num: true },
+      { key: 'papers', label: 'PubMed papers', num: true },
+      { key: 'meas', label: 'ChEMBL measurements', num: true },
+      { key: 'pchembl', label: 'Median pChEMBL', num: true },
+      { key: 'ev', label: 'Evidence', num: false },
     ].filter(Boolean);
     const value = (s, key) => {
       if (key === 'order') return order.get(s.species);
@@ -2250,7 +3400,7 @@
     };
     const wrap = h('div', { class: 'table-wrap sp-heat' });
     if (!species.length) {
-      wrap.appendChild(h('div', { class: 'empty', text: '没有物种数据 No species in this comparison.' }));
+      wrap.appendChild(h('div', { class: 'empty', text: 'No species in this comparison.' }));
       return wrap;
     }
     function draw() {
@@ -2268,7 +3418,7 @@
         return td;
       };
       wrap.replaceChildren(h('table', { class: 'data' },
-        h('caption', { class: 'sr-only', text: '各物种与人的靶点一致性和证据 Target identity and evidence per species' }),
+        h('caption', { class: 'sr-only', text: 'Target identity and evidence per species' }),
         h('thead', null, h('tr', null, cols.map((col) => {
           const active = key === col.key;
           return h('th', { scope: 'col', class: col.num ? 'num' : null, 'aria-sort': active ? (dir > 0 ? 'ascending' : 'descending') : 'none' },
@@ -2299,8 +3449,8 @@
     const targets = (c.targets || []).map((t) => t.gene_symbol).filter(Boolean);
     const species = orderedSpecies(c.species);
     if (!targets.length || !species.length) {
-      return chartBlock('靶点一致性（每个物种） Target identity per species', null,
-        h('div', { class: 'empty', text: '没有靶点或物种数据 No targets or species to plot.' }));
+      return chartBlock('Target identity per species', null,
+        h('div', { class: 'empty', text: 'No targets or species to plot.' }));
     }
     const multi = targets.length > 1;
     const shown = targets.slice(0, 8);
@@ -2314,7 +3464,7 @@
       const plotW = Math.max(60, W - labelW - right);
       const x = (v) => labelW + (Math.max(0, Math.min(100, v)) / 100) * plotW;
       const svg = svgEl('svg', { class: 'sp-svg', viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, role: 'group',
-        'aria-label': '各物种直系同源蛋白与人的一致性条形图 Bar chart of ortholog identity to human per species' });
+        'aria-label': 'Bar chart of ortholog identity to human per species' });
       for (const t of [0, 25, 50, 75, 100]) {
         svg.appendChild(svgEl('line', { class: 'sp-grid', x1: x(t), x2: x(t), y1: top - 4, y2: H - 6 }));
         svg.appendChild(svgEl('text', { class: 'tm', x: x(t), y: 12, 'text-anchor': 'middle', text: t + '%' }));
@@ -2326,7 +3476,7 @@
           const v = (s.per_target_identity || {})[t];
           const y = y0 + 4 + j * (barH + 2);
           if (!isNum(v)) {
-            svg.appendChild(svgEl('text', { class: 'tm', x: labelW + 4, y: y + barH / 2, 'dominant-baseline': 'central', text: (multi ? t + ': ' : '') + '无同源 no ortholog' }));
+            svg.appendChild(svgEl('text', { class: 'tm', x: labelW + 4, y: y + barH / 2, 'dominant-baseline': 'central', text: (multi ? t + ': ' : '') + 'no ortholog' }));
             return;
           }
           const w = Math.max(2, x(v) - labelW);
@@ -2340,18 +3490,18 @@
               'a' + rr + ',' + rr + ' 0 0 1 -' + rr + ',' + rr + 'h-' + (w - rr) + 'z',
           }));
           if (!multi || j === 0 || W >= 520) svg.appendChild(svgEl('text', { class: 't2 sp-val', x: labelW + w + 6, y: y + barH / 2, 'dominant-baseline': 'central', text: fmtPct(v) }));
-          withTip(g, [spLabel(s), (multi ? t + ' ' : '') + '序列一致性 Identity: ' + fmtPct(v)]);
+          withTip(g, [spLabel(s), (multi ? t + ' ' : '') + 'Identity: ' + fmtPct(v)]);
           svg.appendChild(g);
         });
       });
       return svg;
     });
-    const table = miniTable(['物种 Species'].concat(targets.map((t) => t + ' 一致性 identity %')),
+    const table = miniTable(['Species'].concat(targets.map((t) => t + ' identity %')),
       species.map((s) => [spLabel(s)].concat(targets.map((t) => fmtPct((s.per_target_identity || {})[t])))), targets.map((_, i) => i + 1));
     const body = h('div', null, multi ? legend(shown.map((t, j) => ['sp-bg-c' + (j + 1), t])) : null, holder,
-      targets.length > 8 ? h('p', { class: 'muted small', text: '只绘制前 8 个靶点；表格中有全部 Only the first 8 targets are drawn; the table lists all.' }) : null);
-    return chartBlock('靶点一致性（每个物种） Target identity per species',
-      multi ? '每个靶点一条 One bar per target' : '人 ' + targets[0] + ' 蛋白与各物种直系同源蛋白的序列一致性 Sequence identity of each ortholog to human ' + targets[0], body, table);
+      targets.length > 8 ? h('p', { class: 'muted small', text: 'Only the first 8 targets are drawn; the table lists all.' }) : null);
+    return chartBlock('Target identity per species',
+      multi ? 'One bar per target' : 'Sequence identity of each ortholog to human ' + targets[0], body, table);
   }
 
   // ------------------------------------------------------------- dose-effect scatter
@@ -2387,15 +3537,14 @@
   function doseScatter(c) {
     const sIndex = speciesIndex(c);
     const pts = dosePoints(c);
-    const title = '剂量-效应图 Dose–effect';
+    const title = 'Dose–effect';
     if (!pts.length) {
       return chartBlock(title, null, h('div', { class: 'empty' },
-        '暂无剂量-效应数据。需要以 mg/kg 报告剂量并带有数值效应的文献或测量；勾选“用 Claude 从摘要中提取剂量和效果”可以补充这些数据。',
-        h('br'), h('span', { lang: 'en', text: 'No dose–effect data yet: it needs papers or measurements with a dose in mg/kg and a numeric effect. Tick “extract dose/effect with Claude” to fill them from abstracts.' })));
+        h('span', { text: 'No dose–effect data yet: it needs papers or measurements with a dose in mg/kg and a numeric effect. Tick “extract dose/effect with Claude” to fill them from abstracts.' })));
     }
     // one y-axis per unit: group by unit and let the reader pick
     const byUnit = new Map();
-    for (const p of pts) { const k = p.unit || '(无单位 no unit)'; if (!byUnit.has(k)) byUnit.set(k, []); byUnit.get(k).push(p); }
+    for (const p of pts) { const k = p.unit || '(no unit)'; if (!byUnit.has(k)) byUnit.set(k, []); byUnit.get(k).push(p); }
     const units = [...byUnit.keys()].sort((a, b) => byUnit.get(b).length - byUnit.get(a).length);
     if (!spState.metric || !byUnit.has(spState.metric)) spState.metric = units[0];
     // colour follows the species (fixed order of first appearance in evolutionary order); > 8 folds into "Other"
@@ -2406,7 +3555,7 @@
     const slot = (k) => { const i = speciesKeys.indexOf(k); return i >= 0 && i < 8 ? 'sp-c' + (i + 1) : 'sp-c-other'; };
     const nameOf = (k) => sIndex.has(k) ? spLabel(sIndex.get(k)) : k;
     const select = h('select', { class: 'input', id: 'sp-metric', onchange: (e) => { spState.metric = e.target.value; redraw(); } },
-      units.map((u) => h('option', { value: u, selected: u === spState.metric }, '效应 Effect (' + u + ') · ' + byUnit.get(u).length)));
+      units.map((u) => h('option', { value: u, selected: u === spState.metric }, 'Effect (' + u + ') · ' + byUnit.get(u).length)));
     const holder = h('div', { class: 'sp-chart-body' });
     const tableBox = h('div');
     const legendBox = h('div');
@@ -2414,20 +3563,20 @@
     function redraw() {
       const data = byUnit.get(spState.metric) || [];
       const present = speciesKeys.filter((k) => data.some((p) => p.species === k));
-      const shapes = [['paper', '文献 Paper', 'circle'], ['measurement', 'ChEMBL 测量 Measurement', 'square']].filter(([src]) => data.some((p) => p.source === src));
+      const shapes = [['paper', 'Paper', 'circle'], ['measurement', 'ChEMBL measurement', 'square']].filter(([src]) => data.some((p) => p.source === src));
       legendBox.replaceChildren(legend(present.filter((k) => speciesKeys.indexOf(k) < 8).map((k) => [slot(k).replace('sp-', 'sp-bg-'), nameOf(k)])
-        .concat(present.some((k) => speciesKeys.indexOf(k) >= 8) ? [['sp-bg-c-other', '其他 Other']] : [])
+        .concat(present.some((k) => speciesKeys.indexOf(k) >= 8) ? [['sp-bg-c-other', 'Other']] : [])
         .concat(shapes.map(([, label, shape]) => ['sp-sw-ink', label, shape]))));
       // a single ResizeObserver per holder, always drawing the currently selected unit
       // (re-creating one per change left stale observers redrawing old data on resize)
       if (!observed) { observed = true; responsive(holder, (W) => drawScatter(W, byUnit.get(spState.metric) || [], slot, nameOf)); }
       else if (holder.spRedraw) holder.spRedraw();
-      tableBox.replaceChildren(miniTable(['物种 Species', '剂量 Dose (mg/kg)', '效应 Effect', '单位 Unit', '描述 Description', '来源 Reference'],
+      tableBox.replaceChildren(miniTable(['Species', 'Dose (mg/kg)', 'Effect', 'Unit', 'Description', 'Reference'],
         data.map((p) => [nameOf(p.species), fmtVal(p.dose), fmtVal(p.value), p.unit, clip(p.what, 120), p.url ? extLink(p.url, p.ref) : p.ref]), [1, 2]));
     }
     redraw();
-    const controls = h('div', { class: 'sp-controls' }, h('label', { for: 'sp-metric', class: 'small', text: 'Y 轴 Y axis' }), select);
-    return chartBlock(title, 'X = 剂量 dose (mg/kg, 对数 log scale) · Y = 效应值 effect value · 点击点打开参考文献 click a point to open its reference',
+    const controls = h('div', { class: 'sp-controls' }, h('label', { for: 'sp-metric', class: 'small', text: 'Y axis' }), select);
+    return chartBlock(title, 'X = dose (mg/kg, log scale) · Y = effect value · click a point to open its reference',
       h('div', null, controls, legendBox, holder), tableBox);
   }
 
@@ -2450,7 +3599,7 @@
     if (ymax <= ymin) ymax = ymin + 1;
     const y = (v) => m.t + ph - (v - ymin) / (ymax - ymin) * ph;
     const svg = svgEl('svg', { class: 'sp-svg', viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, role: 'group',
-      'aria-label': '剂量-效应散点图 Dose–effect scatter plot, ' + data.length + ' points' });
+      'aria-label': 'Dose–effect scatter plot, ' + data.length + ' points' });
     const mults = lb - la <= 2.5 ? [1, 3] : [1];
     for (let e = Math.floor(la); e <= Math.ceil(lb); e++) {
       for (const k of mults) {
@@ -2466,8 +3615,8 @@
       svg.appendChild(svgEl('line', { class: 'sp-grid' + (v === 0 ? ' sp-base' : ''), x1: m.l, x2: m.l + pw, y1: y(v), y2: y(v) }));
       svg.appendChild(svgEl('text', { class: 'tm', x: m.l - 6, y: y(v), 'text-anchor': 'end', 'dominant-baseline': 'central', text: fmtVal(v) }));
     }
-    svg.appendChild(svgEl('text', { class: 'tm', x: m.l + pw / 2, y: H - 4, 'text-anchor': 'middle', text: '剂量 Dose (mg/kg)' }));
-    svg.appendChild(svgEl('text', { class: 'tm', x: 12, y: m.t + ph / 2, 'text-anchor': 'middle', transform: 'rotate(-90 12 ' + (m.t + ph / 2) + ')', text: '效应 Effect (' + (spState.metric || '') + ')' }));
+    svg.appendChild(svgEl('text', { class: 'tm', x: m.l + pw / 2, y: H - 4, 'text-anchor': 'middle', text: 'Dose (mg/kg)' }));
+    svg.appendChild(svgEl('text', { class: 'tm', x: 12, y: m.t + ph / 2, 'text-anchor': 'middle', transform: 'rotate(-90 12 ' + (m.t + ph / 2) + ')', text: 'Effect (' + (spState.metric || '') + ')' }));
     const seen = new Map(); // nudge coincident points apart so each one stays visible and hoverable
     for (const p of data) {
       const key = Math.round(lx(p.dose) / 6) + ':' + Math.round(y(p.value) / 6);
@@ -2480,8 +3629,8 @@
       g.appendChild(svgEl('circle', { class: 'sp-hit', cx: px, cy: py, r: 12 }));
       if (p.source === 'paper') g.appendChild(svgEl('circle', { class: 'ring ' + slot(p.species), cx: px, cy: py, r: 6 }));
       else g.appendChild(svgEl('rect', { class: 'ring ' + slot(p.species), x: px - 5.5, y: py - 5.5, width: 11, height: 11, rx: 2 }));
-      withTip(g, [nameOf(p.species), '剂量 Dose: ' + fmtVal(p.dose) + ' mg/kg', '效应 Effect: ' + fmtVal(p.value) + ' ' + p.unit + (p.what ? ' — ' + clip(p.what, 90) : ''),
-        (p.source === 'paper' ? '文献 Paper: ' : '测量 Measurement: ') + p.ref, p.title && p.source === 'paper' ? clip(p.title, 110) : null]);
+      withTip(g, [nameOf(p.species), 'Dose: ' + fmtVal(p.dose) + ' mg/kg', 'Effect: ' + fmtVal(p.value) + ' ' + p.unit + (p.what ? ' — ' + clip(p.what, 90) : ''),
+        (p.source === 'paper' ? 'Paper: ' : 'Measurement: ') + p.ref, p.title && p.source === 'paper' ? clip(p.title, 110) : null]);
       const url = safeUrl(p.url, false);
       if (url) activate(g, () => window.open(url, '_blank', 'noopener,noreferrer'));
       svg.appendChild(g);
@@ -2492,8 +3641,8 @@
   // ------------------------------------------------------------- measurements by kind
   function measureChart(c) {
     const species = orderedSpecies(c.species).filter((s) => (s.n_measurements || 0) > 0);
-    const title = '测量汇总（按类型） Measurements by kind';
-    if (!species.length) return chartBlock(title, null, h('div', { class: 'empty', text: '没有 ChEMBL 测量数据 No ChEMBL measurements for this compound in the selected species.' }));
+    const title = 'Measurements by kind';
+    if (!species.length) return chartBlock(title, null, h('div', { class: 'empty', text: 'No ChEMBL measurements for this compound in the selected species.' }));
     const kindsPresent = SP_KIND_ORDER.filter((k) => species.some((s) => ((s.measurements_by_kind || {})[k] || 0) > 0));
     const countOf = (s, k) => (s.measurements_by_kind || {})[k] || 0;
     const total = (s) => SP_KIND_ORDER.reduce((a, k) => a + countOf(s, k), 0) || s.n_measurements || 0;
@@ -2506,7 +3655,7 @@
       const H = 22 + species.length * rowH;
       const pw = Math.max(60, W - labelW - right);
       const svg = svgEl('svg', { class: 'sp-svg', viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, role: 'group',
-        'aria-label': '各物种按类型的测量数量堆叠条形图 Stacked bars of measurement counts by kind per species' });
+        'aria-label': 'Stacked bars of measurement counts by kind per species' });
       const tickStep = niceMax(max / 4);
       for (let t = 0; t <= max + 1e-9; t += tickStep) {
         const x = labelW + t / max * pw;
@@ -2522,7 +3671,7 @@
           const n = countOf(s, k);
           const w = n / max * pw;
           const last = j === segs.length - 1;
-          const g = svgEl('g', { class: 'sp-mark', tabindex: 0, role: 'img', 'aria-label': spLabel(s) + ' ' + SP_KINDS[k].join(' ') + ': ' + n });
+          const g = svgEl('g', { class: 'sp-mark', tabindex: 0, role: 'img', 'aria-label': spLabel(s) + ' ' + SP_KINDS[k][1] + ': ' + n });
           const ww = Math.max(1, w - (last ? 0 : 2)); // 2px surface gap between segments
           const rr = last ? Math.min(4, barH / 2, ww) : 0;
           g.appendChild(svgEl('path', {
@@ -2530,7 +3679,7 @@
             d: 'M' + x + ',' + y + 'h' + (ww - rr) + (rr ? 'a' + rr + ',' + rr + ' 0 0 1 ' + rr + ',' + rr : '') + 'v' + (barH - 2 * rr) +
               (rr ? 'a' + rr + ',' + rr + ' 0 0 1 -' + rr + ',' + rr : '') + 'h-' + (ww - rr) + 'z',
           }));
-          withTip(g, [spLabel(s), SP_KINDS[k][0] + ' ' + SP_KINDS[k][1] + ': ' + n]);
+          withTip(g, [spLabel(s), SP_KINDS[k][1] + ': ' + n]);
           svg.appendChild(g);
           x += w;
         });
@@ -2538,11 +3687,11 @@
       });
       return svg;
     });
-    const table = miniTable(['物种 Species'].concat(kindsPresent.map((k) => SP_KINDS[k].join(' '))).concat(['合计 Total']),
+    const table = miniTable(['Species'].concat(kindsPresent.map((k) => SP_KINDS[k][1])).concat(['Total']),
       species.map((s) => [spLabel(s)].concat(kindsPresent.map((k) => fmtNum(countOf(s, k)))).concat([fmtNum(total(s))])),
       kindsPresent.map((_, i) => i + 1).concat([kindsPresent.length + 1]));
-    return chartBlock(title, 'ChEMBL 生物活性、药代动力学、体内药效和毒性测量的数量 Number of ChEMBL bioactivity, PK, in vivo efficacy and toxicity records',
-      h('div', null, legend(kindsPresent.map((k) => ['sp-bg-c' + (SP_KIND_ORDER.indexOf(k) + 1), SP_KINDS[k].join(' ')])), holder), table);
+    return chartBlock(title, 'Number of ChEMBL bioactivity, PK, in vivo efficacy and toxicity records',
+      h('div', null, legend(kindsPresent.map((k) => ['sp-bg-c' + (SP_KIND_ORDER.indexOf(k) + 1), SP_KINDS[k][1]])), holder), table);
   }
 
   // ------------------------------------------------------------- papers
@@ -2550,10 +3699,10 @@
     const url = p.url || pubmedUrl(p.pmid) || doiUrl(p.doi);
     const s = sIndex.get(p.species);
     const facts = [
-      p.model ? ['模型 Model', p.model] : null,
-      p.dose ? ['剂量 Dose', p.dose + (isNum(p.dose_mg_kg) && !/mg\s*\/\s*kg/i.test(p.dose) ? ' (' + fmtVal(p.dose_mg_kg) + ' mg/kg)' : '')] : null,
-      p.effect ? ['效应 Effect', p.effect] : null,
-      p.finding && p.finding !== p.effect ? ['发现 Finding', p.finding] : null,
+      p.model ? ['Model', p.model] : null,
+      p.dose ? ['Dose', p.dose + (isNum(p.dose_mg_kg) && !/mg\s*\/\s*kg/i.test(p.dose) ? ' (' + fmtVal(p.dose_mg_kg) + ' mg/kg)' : '')] : null,
+      p.effect ? ['Effect', p.effect] : null,
+      p.finding && p.finding !== p.effect ? ['Finding', p.finding] : null,
     ].filter(Boolean);
     return h('li', { class: 'sp-paper' },
       h('div', { class: 'sp-paper-title' }, url ? extLink(url, p.title || '(untitled)') : h('span', { text: p.title || '(untitled)' })),
@@ -2576,7 +3725,7 @@
       const f = fixedSpecies || spState.paperFilter;
       const shown = papers.filter((p) => !f || p.species === f);
       list.replaceChildren(...shown.map((p) => paperItem(p, sIndex)));
-      if (!shown.length) list.replaceChildren(h('li', { class: 'empty', text: '没有文献 No papers' + (f ? ' for this species' : '') + '.' }));
+      if (!shown.length) list.replaceChildren(h('li', { class: 'empty', text: 'No papers' + (f ? ' for this species' : '') + '.' }));
       if (chips) chips.querySelectorAll('.chip').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.key === (spState.paperFilter || ''))));
     }
     let chips = null;
@@ -2585,8 +3734,8 @@
       for (const p of papers) counts.set(p.species, (counts.get(p.species) || 0) + 1);
       const keys = [...sIndex.keys()].filter((k) => counts.has(k)).concat([...counts.keys()].filter((k) => !sIndex.has(k)));
       if (spState.paperFilter && !counts.has(spState.paperFilter)) spState.paperFilter = '';
-      chips = h('div', { class: 'chips', role: 'group', 'aria-label': '按物种筛选文献 Filter papers by species' },
-        [['', '全部 All', papers.length]].concat(keys.map((k) => [k, sIndex.has(k) ? spLabel(sIndex.get(k)) : k, counts.get(k)])).map(([k, label, n]) =>
+      chips = h('div', { class: 'chips', role: 'group', 'aria-label': 'Filter papers by species' },
+        [['', 'All', papers.length]].concat(keys.map((k) => [k, sIndex.has(k) ? spLabel(sIndex.get(k)) : k, counts.get(k)])).map(([k, label, n]) =>
           h('button', { type: 'button', class: 'chip', 'data-key': k, 'aria-pressed': 'false', onclick: () => { spState.paperFilter = k; draw(); } },
             label, h('span', { class: 'count', text: String(n) }))));
       box.appendChild(chips);
@@ -2607,29 +3756,29 @@
     return h('section', { class: 'panel sp-detail', id: 'sp-detail', tabindex: '-1', 'aria-labelledby': 'sp-detail-title' },
       h('div', { class: 'panel-head row' },
         h('div', null, h('h3', { id: 'sp-detail-title', text: spLabel(s) }), h('div', { class: 'muted small' }, h('i', { text: s.scientific_name || '' }))),
-        h('button', { type: 'button', class: 'btn btn-sm', onclick: onClose }, '关闭 Close')),
+        h('button', { type: 'button', class: 'btn btn-sm', onclick: onClose }, 'Close')),
       h('div', { class: 'tiles' },
-        tile(key === 'human' ? '100%' : fmtPct(s.mean_identity_pct), '平均靶点一致性 Mean identity'),
-        tile(fmtPct(meanSimilarity(c, key)), '相似性 Similarity'),
-        tile(fmtNum(s.n_papers || 0), 'PubMed 文献 Papers'),
-        tile(fmtNum(s.n_measurements || 0), 'ChEMBL 测量 Measurements'),
-        tile(isNum(s.median_pchembl) ? s.median_pchembl.toFixed(2) : '–', '中位 Median pChEMBL'),
-        h('div', { class: 'tile-stat' }, h('div', { class: 'v sp-tile-ev' }, evBadge(s.evidence_level)), h('div', { class: 'k', text: '证据等级 Evidence level' }))),
+        tile(key === 'human' ? '100%' : fmtPct(s.mean_identity_pct), 'Mean identity'),
+        tile(fmtPct(meanSimilarity(c, key)), 'Similarity'),
+        tile(fmtNum(s.n_papers || 0), 'PubMed papers'),
+        tile(fmtNum(s.n_measurements || 0), 'ChEMBL measurements'),
+        tile(isNum(s.median_pchembl) ? s.median_pchembl.toFixed(2) : '–', 'Median pChEMBL'),
+        h('div', { class: 'tile-stat' }, h('div', { class: 'v sp-tile-ev' }, evBadge(s.evidence_level)), h('div', { class: 'k', text: 'Evidence level' }))),
       s.summary ? h('p', { class: 'sp-summary', text: s.summary }) : null,
-      h('h4', { text: '直系同源蛋白 Orthologs' }),
-      orth.length ? miniTable(['人靶点 Human target', '直系同源 Ortholog', 'ID', 'UniProt', '一致性 Identity', '相似性 Similarity', '覆盖度 Coverage', '关系 Relationship', '方法 Method', '备注 Note'],
+      h('h4', { text: 'Orthologs' }),
+      orth.length ? miniTable(['Human target', 'Ortholog', 'ID', 'UniProt', 'Identity', 'Similarity', 'Coverage', 'Relationship', 'Method', 'Note'],
         orth.map((o) => [o.target || '', o.ortholog_symbol || '–', o.ortholog_id ? (o.url ? extLink(o.url, o.ortholog_id) : o.ortholog_id) : '–',
           o.uniprot ? extLink(uniprotUrl(o.uniprot), o.uniprot) : '–',
           h('span', { class: 'sp-chip-pct sp-b' + idBin(o.identity_pct), text: fmtPct(o.identity_pct) }), fmtPct(o.similarity_pct), fmtPct(o.coverage_pct),
-          o.relationship || '–', o.method || '–', o.note || '']), [4, 5, 6]) : h('p', { class: 'muted small', text: '没有直系同源数据 No ortholog rows.' }),
-      h('h4', { text: '测量 Measurements (' + meas.length + ')' }),
-      meas.length ? miniTable(['类型 Kind', '指标 Type', '数值 Value', 'pChEMBL', '剂量 Dose (mg/kg)', '靶点 Target', '描述 Description', '来源 Source'],
-        meas.slice(0, 200).map((m) => [(SP_KINDS[m.kind] || SP_KINDS.other).join(' '), m.standard_type || '–',
+          o.relationship || '–', o.method || '–', o.note || '']), [4, 5, 6]) : h('p', { class: 'muted small', text: 'No ortholog rows.' }),
+      h('h4', { text: 'Measurements (' + meas.length + ')' }),
+      meas.length ? miniTable(['Kind', 'Type', 'Value', 'pChEMBL', 'Dose (mg/kg)', 'Target', 'Description', 'Source'],
+        meas.slice(0, 200).map((m) => [(SP_KINDS[m.kind] || SP_KINDS.other)[1], m.standard_type || '–',
           ((m.relation && m.relation !== '=' ? m.relation + ' ' : '') + fmtVal(m.value) + ' ' + (m.units || '')).trim(),
           isNum(m.pchembl) ? m.pchembl.toFixed(2) : '–', fmtVal(m.dose_mg_kg), m.target || '–', clip(m.description || '', 160),
           m.url ? extLink(m.url, (m.source || 'chembl') + (m.source_id ? ' ' + m.source_id : '')) : (m.pmid && pubmedUrl(m.pmid) ? extLink(pubmedUrl(m.pmid), 'PMID ' + m.pmid) : (m.source || '') + (m.source_id ? ' ' + m.source_id : ''))]),
-        [2, 3, 4]) : h('p', { class: 'muted small', text: '没有测量数据 No measurements.' }),
-      h('h4', { text: '文献 Papers (' + nPapers + ' / PubMed ' + fmtNum(s.n_papers || 0) + ')' }),
+        [2, 3, 4]) : h('p', { class: 'muted small', text: 'No measurements.' }),
+      h('h4', { text: 'Papers (' + nPapers + ' / PubMed ' + fmtNum(s.n_papers || 0) + ')' }),
       paperList(c, key));
   }
 
@@ -2643,24 +3792,24 @@
         h('h2', { class: 'sp-compound', text: comp.name || c.query || '' }),
         h('span', { class: 'badge accent', text: SP_COMPOUND_KIND[comp.kind] || SP_COMPOUND_KIND.unknown }),
         phase !== null ? h('span', { class: 'badge ' + (phase >= 4 ? 'ok' : 'outline'), title: 'ChEMBL max phase' },
-          '最高阶段 Max phase ' + phase + (phase >= 4 ? ' · 已批准 approved' : '')) : null,
-        comp.url ? extLink(comp.url, '来源 Source ↗', 'small') : null),
-      h('div', { class: 'muted small' }, '查询 Query: ', h('code', { text: c.query || '' }), ' · ', fmtTime(c.created_at)),
+          'Max phase ' + phase + (phase >= 4 ? ' · approved' : '')) : null,
+        comp.url ? extLink(comp.url, 'Source ↗', 'small') : null),
+      h('div', { class: 'muted small' }, 'Query: ', h('code', { text: c.query || '' }), ' · ', fmtTime(c.created_at)),
       Object.keys(ids).length ? h('div', { class: 'id-chips sp-ids' }, Object.keys(ids).map((k) => {
         const v = String(ids[k]);
         const link = ID_LINKS[k] ? ID_LINKS[k](v) : null;
         const chip = [h('b', { text: k + ' ' }), v];
         return link ? h('a', { class: 'id-chip', href: link, target: '_blank', rel: 'noopener noreferrer' }, chip) : h('span', { class: 'id-chip' }, chip);
       })) : null,
-      h('h3', { class: 'sp-sub', text: '人体靶点 Human targets (' + (c.targets || []).length + ')' }),
+      h('h3', { class: 'sp-sub', text: 'Human targets (' + (c.targets || []).length + ')' }),
       (c.targets || []).length ? h('ul', { class: 'sp-targets' }, (c.targets || []).map((t) => h('li', null,
         h('strong', { text: t.gene_symbol || '?' }),
         t.name ? h('span', { class: 'muted', text: ' ' + t.name }) : null,
         t.action ? h('span', { class: 'badge outline', text: t.action }) : null,
         t.uniprot && uniprotUrl(t.uniprot) ? extLink(uniprotUrl(t.uniprot), 'UniProt ' + t.uniprot, 'id-chip') : null,
         t.chembl_target ? extLink('https://www.ebi.ac.uk/chembl/explore/target/' + encodeURIComponent(t.chembl_target), t.chembl_target, 'id-chip') : null,
-        h('span', { class: 'muted small', text: ' 来源 via ' + (t.source || '') })))) :
-        h('p', { class: 'note-box', text: '没有找到靶点，因此无法计算序列相似性 No targets found, so no sequence similarity could be computed.' }));
+        h('span', { class: 'muted small', text: ' via ' + (t.source || '') })))) :
+        h('p', { class: 'note-box', text: 'No targets found, so no sequence similarity could be computed.' }));
   }
 
   function methodsBlock(c) {
@@ -2668,12 +3817,12 @@
     const errors = c.errors && typeof c.errors === 'object' ? c.errors : {};
     const notes = Array.isArray(c.notes) ? c.notes : [];
     return h('section', { class: 'panel' },
-      h('h3', { text: '方法、说明与错误 Methods, notes and errors' }),
+      h('h3', { text: 'Methods, notes and errors' }),
       notes.map((n) => h('p', { class: 'note-box', text: String(n) })),
       Object.keys(methods).length ? h('dl', { class: 'sp-facts small' }, Object.keys(methods).map((k) => [h('dt', { text: humanKey(k) }), h('dd', { text: String(methods[k]) })])) : null,
-      Object.keys(errors).length ? h('div', null, h('h4', { text: '失败的数据源 Failed sources' }),
+      Object.keys(errors).length ? h('div', null, h('h4', { text: 'Failed sources' }),
         Object.keys(errors).map((k) => h('div', { class: 'error-box small' }, h('strong', { text: k + ': ' }), String(errors[k])))) : null,
-      h('p', { class: 'muted small', text: '相似性 = 人靶点蛋白与各物种直系同源蛋白的序列一致性（相同残基%）和相似性（BLOSUM62 > 0 的残基%）。Similarity = sequence identity (% identical residues) and similarity (% residues with BLOSUM62 > 0) of each ortholog relative to the human target protein.' }));
+      h('p', { class: 'muted small', text: 'Similarity = sequence identity (% identical residues) and similarity (% residues with BLOSUM62 > 0) of each ortholog relative to the human target protein.' }));
   }
 
   function renderDashboard(c) {
@@ -2701,7 +3850,7 @@
     }
     function drawSelected(focus) {
       graphHolder.replaceChildren(species.length ? overviewGraph(c.species, { onSelect: select, selected: spState.selected })
-        : h('div', { class: 'empty', text: '没有物种数据 No species in this comparison.' }));
+        : h('div', { class: 'empty', text: 'No species in this comparison.' }));
       heatSlot.replaceChildren(heatTable(c, (k) => { spState.selected = k; drawSelected(true); }));
       const d = spState.selected ? speciesDetail(c, spState.selected, closeDetail) : null;
       if (d) d.addEventListener('keydown', (e) => { if (e.key === 'Escape') { e.preventDefault(); closeDetail(); } });
@@ -2712,28 +3861,28 @@
     box.replaceChildren(
       compoundHeader(c),
       h('div', { class: 'tiles' },
-        tile(fmtNum((c.targets || []).length), '靶点 Targets'),
-        tile(fmtNum(species.length), '物种 Species'),
-        tile(fmtNum(totalPapers), 'PubMed 文献 Papers'),
-        tile(fmtNum(totalMeas), 'ChEMBL 测量 Measurements')),
+        tile(fmtNum((c.targets || []).length), 'Targets'),
+        tile(fmtNum(species.length), 'Species'),
+        tile(fmtNum(totalPapers), 'PubMed papers'),
+        tile(fmtNum(totalMeas), 'ChEMBL measurements')),
       h('section', { class: 'panel' },
-        h('div', { class: 'panel-head' }, h('h3', { text: '概览图 Overview graph' }),
-          h('p', { class: 'muted small', text: '人在中心；各物种按进化距离排列（灵长类 → 哺乳动物 → 鸟类 → 两栖类 → 鱼类 → 昆虫 → 线虫 → 真菌 → 植物）。点击物种查看详情。Human at the centre; species in evolutionary order. Click a species for details.' })),
+        h('div', { class: 'panel-head' }, h('h3', { text: 'Overview graph' }),
+          h('p', { class: 'muted small', text: 'Human at the centre; species in evolutionary order. Click a species for details.' })),
         graphHolder, graphLegend()),
       detailSlot,
       h('section', { class: 'panel' },
-        h('div', { class: 'panel-head' }, h('h3', { text: '比较表（热图） Comparison table (heatmap)' }),
-          h('p', { class: 'muted small', text: '点击列标题排序，点击物种名查看详情 Click a column header to sort, a species name for details.' })),
+        h('div', { class: 'panel-head' }, h('h3', { text: 'Comparison table (heatmap)' }),
+          h('p', { class: 'muted small', text: 'Click a column header to sort, a species name for details.' })),
         heatSlot),
       h('div', { class: 'sp-charts' }, identityBars(c), measureChart(c)),
       doseScatter(c),
       h('section', { class: 'panel' },
-        h('div', { class: 'panel-head' }, h('h3', { text: '参考文献 Papers (' + (c.papers || []).length + ')' }),
-          h('p', { class: 'muted small', text: '每个物种的代表性 PubMed 文献 Top PubMed papers per species.' })),
+        h('div', { class: 'panel-head' }, h('h3', { text: 'Papers (' + (c.papers || []).length + ')' }),
+          h('p', { class: 'muted small', text: 'Top PubMed papers per species.' })),
         paperList(c)),
       h('section', { class: 'sp-package' },
-        h('h3', { text: '数据包 Data package' }),
-        pkg ? packageCard(pkg) : h('p', { class: 'muted small', text: '这个比较没有数据包 No data package was written for this comparison.' })),
+        h('h3', { text: 'Data package' }),
+        pkg ? packageCard(pkg) : h('p', { class: 'muted small', text: 'No data package was written for this comparison.' })),
       methodsBlock(c));
     drawSelected(false);
   }
@@ -2751,10 +3900,10 @@
     const list = Array.isArray(meta && meta.species) ? meta.species : [];
     const defaults = new Set(Array.isArray(meta && meta.default) ? meta.default : list.map((s) => s.key));
     const box = $('#sp-species-groups');
-    box.replaceChildren(...SP_FORM_GROUPS.map(([zh, en, groups]) => {
+    box.replaceChildren(...SP_FORM_GROUPS.map(([, en, groups]) => {
       const members = list.filter((s) => groups.includes(s.group));
       if (!members.length) return null;
-      return h('div', { class: 'sp-group' }, h('div', { class: 'sp-group-h' }, zh, h('span', { class: 'muted', text: ' ' + en })),
+      return h('div', { class: 'sp-group' }, h('div', { class: 'sp-group-h', text: en }),
         members.map((s) => h('label', { class: 'sp-opt', title: s.scientific_name },
           h('input', { type: 'checkbox', value: s.key, checked: defaults.has(s.key) }), ' ' + spLabel(s))));
     }).filter(Boolean));
@@ -2765,12 +3914,12 @@
     try {
       const data = await api('/api/species?limit=50');
       const items = Array.isArray(data && data.comparisons) ? data.comparisons : [];
-      if (!items.length) { ul.replaceChildren(h('li', { class: 'muted small', text: '还没有比较 No comparisons yet.' })); return; }
+      if (!items.length) { ul.replaceChildren(h('li', { class: 'muted small', text: 'No comparisons yet.' })); return; }
       const cur = spState.current && spState.current.comparison_id;
       ul.replaceChildren(...items.filter((it) => SP_ID_RE.test(it.comparison_id || '')).map((it) => h('li', null,
         h('a', { href: '#species?id=' + it.comparison_id, class: 'sp-hist' + (it.comparison_id === cur ? ' active' : ''), 'aria-current': it.comparison_id === cur ? 'true' : null },
           h('span', { class: 'sp-hist-name', text: it.compound || it.query || it.comparison_id }),
-          h('span', { class: 'muted small', text: [(it.targets || []).slice(0, 4).join(', '), (it.n_species || 0) + ' 物种 species', relTime(it.created_at)].filter(Boolean).join(' · ') })))));
+          h('span', { class: 'muted small', text: [(it.targets || []).slice(0, 4).join(', '), (it.n_species || 0) + ' species', relTime(it.created_at)].filter(Boolean).join(' · ') })))));
     } catch (err) {
       ul.replaceChildren(h('li', null, errorBox(err)));
     }
@@ -2778,8 +3927,7 @@
 
   function emptyDashboard() {
     $('#sp-dashboard').replaceChildren(h('div', { class: 'empty sp-empty' },
-      h('p', { text: '输入一个药物或化合物并点击“运行比较”，或从左侧打开一个历史比较。' }),
-      h('p', { lang: 'en', text: 'Enter a drug or compound and press Run, or open a previous comparison.' })));
+      h('p', { text: 'Enter a drug or compound and press Run, or open a previous comparison.' })));
   }
 
   async function openComparison(id, sp) {
@@ -2794,7 +3942,7 @@
     const token = (spState.openToken = (spState.openToken || 0) + 1);
     let c = spState.cache.get(id);
     if (!c) {
-      box.replaceChildren(h('div', { class: 'typing' }, h('span', { class: 'spinner', 'aria-hidden': 'true' }), '加载比较… Loading comparison…'));
+      box.replaceChildren(h('div', { class: 'typing' }, h('span', { class: 'spinner', 'aria-hidden': 'true' }), 'Loading comparison…'));
       try {
         c = await api('/api/species/' + id);
         spState.cache.set(id, c);
@@ -2820,17 +3968,17 @@
     const query = $('#sp-q').value.trim();
     if (!query) { $('#sp-q').focus(); return; }
     const species = [...document.querySelectorAll('#sp-species-groups input[type=checkbox]:checked')].map((i) => i.value);
-    if (!species.length) { toast('请至少选择一个物种 Select at least one species', true); return; }
+    if (!species.length) { toast('Select at least one species', true); return; }
     const status = $('#sp-status');
     const btn = $('#sp-run');
     const started = Date.now();
-    const steps = ['解析化合物 resolving the compound', '查找人体靶点 finding human targets', '比对直系同源蛋白 aligning orthologs',
-      '检索各物种文献 searching papers per species', '收集测量 collecting measurements', '写数据包 writing the data package'];
+    const steps = ['resolving the compound', 'finding human targets', 'aligning orthologs',
+      'searching papers per species', 'collecting measurements', 'writing the data package'];
     const tick = () => {
       const s = Math.round((Date.now() - started) / 1000);
       const stepText = steps[Math.min(steps.length - 1, Math.floor(s / 12))];
       status.replaceChildren(h('span', { class: 'spinner', 'aria-hidden': 'true' }),
-        h('span', { text: ' 正在比较… Comparing… ' + s + ' s（通常 30–90 秒 usually 30–90 s） · ' + stepText }));
+        h('span', { text: ' Comparing… ' + s + ' s (usually 30–90 s) · ' + stepText }));
     };
     spState.running = true;
     btn.disabled = true;
@@ -2841,13 +3989,13 @@
         method: 'POST',
         body: { query, species, max_papers: Number($('#sp-papers').value) || 5, extract_with_claude: $('#sp-claude').checked },
       });
-      status.replaceChildren(h('span', { class: 'badge ok', text: '完成 done' }), ' ' + Math.round((Date.now() - started) / 1000) + ' s');
+      status.replaceChildren(h('span', { class: 'badge ok', text: 'done' }), ' ' + Math.round((Date.now() - started) / 1000) + ' s');
       if (res && SP_ID_RE.test(res.comparison_id || '')) {
         spState.cache.set(res.comparison_id, res);
         const target = '#species?id=' + res.comparison_id;
         if ($('#view-species').hidden) {
           // the user moved to another tab during the run: do not pull them back, just announce it
-          toast('跨物种比较完成 Cross-species comparison ready: ' + ((res.compound && res.compound.name) || query));
+          toast('Cross-species comparison ready: ' + ((res.compound && res.compound.name) || query));
           loadSpeciesHistory();
         } else if (location.hash === target) openComparison(res.comparison_id); else location.hash = target;
       } else if (res) {
@@ -2902,22 +4050,22 @@
     }) : null;
     const rows = species.map((s) => h('tr', null,
       h('th', { scope: 'row', text: spLabel(s) }),
-      h('td', { class: 'num' }, s.species === 'human' ? '参照 ref' : h('span', { class: 'sp-chip-pct sp-b' + idBin(s.mean_identity_pct), text: fmtPct(s.mean_identity_pct) })),
+      h('td', { class: 'num' }, s.species === 'human' ? 'ref' : h('span', { class: 'sp-chip-pct sp-b' + idBin(s.mean_identity_pct), text: fmtPct(s.mean_identity_pct) })),
       h('td', { class: 'num', text: fmtNum(s.n_papers || 0) }),
       h('td', null, evBadge(s.evidence_level))));
-    return h('div', { class: 'sp-card', role: 'group', 'aria-label': '跨物种比较 Cross-species comparison' },
+    return h('div', { class: 'sp-card', role: 'group', 'aria-label': 'Cross-species comparison' },
       h('div', { class: 'sp-card-head' },
         h('div', null,
-          h('div', { class: 'sp-card-kicker', text: '跨物种比较 Cross-species comparison' }),
+          h('div', { class: 'sp-card-kicker', text: 'Cross-species comparison' }),
           h('div', { class: 'sp-card-title', text: sum.compound || ev.title || '' }),
-          targets.length ? h('div', { class: 'small' }, '靶点 Targets: ', targets.slice(0, 8).map((t) => h('span', { class: 'id-chip', text: t }))) : null),
-        href ? h('a', { class: 'btn btn-sm btn-primary', href }, '打开完整仪表盘 / Open full dashboard') : null),
+          targets.length ? h('div', { class: 'small' }, 'Targets: ', targets.slice(0, 8).map((t) => h('span', { class: 'id-chip', text: t }))) : null),
+        href ? h('a', { class: 'btn btn-sm btn-primary', href }, 'Open full dashboard') : null),
       h('div', { class: 'sp-card-body' },
         graph ? h('div', { class: 'sp-card-graph' }, graph) : null,
         rows.length ? h('div', { class: 'table-wrap sp-card-table' }, h('table', { class: 'data' },
-          h('thead', null, h('tr', null, ['物种 Species', '一致性 Identity', '文献 Papers', '证据 Evidence'].map((t, i) => h('th', { scope: 'col', class: i === 1 || i === 2 ? 'num' : null, text: t })))),
-          h('tbody', null, rows))) : h('p', { class: 'muted small', text: '没有物种数据 No species data.' })),
-      pkg && (pkgUrl(pkg.xlsx_url) || pkgUrl(pkg.zip_url)) ? h('div', { class: 'sp-card-foot small' }, '数据包 Data package: ',
+          h('thead', null, h('tr', null, ['Species', 'Identity', 'Papers', 'Evidence'].map((t, i) => h('th', { scope: 'col', class: i === 1 || i === 2 ? 'num' : null, text: t })))),
+          h('tbody', null, rows))) : h('p', { class: 'muted small', text: 'No species data.' })),
+      pkg && (pkgUrl(pkg.xlsx_url) || pkgUrl(pkg.zip_url)) ? h('div', { class: 'sp-card-foot small' }, 'Data package: ',
         pkgUrl(pkg.xlsx_url) ? h('a', { href: pkgUrl(pkg.xlsx_url), download: '' }, 'Excel') : null, ' ',
         pkgUrl(pkg.zip_url) ? h('a', { href: pkgUrl(pkg.zip_url), download: '' }, 'ZIP') : null,
         ' · ' + (Array.isArray(pkg.files) ? pkg.files.length : 0) + ' CSV') : null);

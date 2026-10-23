@@ -13,6 +13,7 @@ reason while every other endpoint keeps working.
 
 from __future__ import annotations
 
+import asyncio
 import inspect
 import json
 import logging
@@ -27,7 +28,7 @@ from fastapi import Body, FastAPI, Query, Request
 from fastapi import Path as PathParam
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
+from fastapi.responses import FileResponse, JSONResponse, Response, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
@@ -38,7 +39,12 @@ from ..connectors.base import CATEGORIES, Connector
 from ..http import SourceError
 from ..registry import Registry
 from .errors import ApiError, source_api_error
+from ..visuals.figures import figure_names
+from ..body.service import BodyMaps
+from ..visuals.service import SearchSnapshots
 from .exports import (
+    EXPORT_ID_RE,
+    FIGURE_MEDIA_TYPES,
     PACKAGE_MEDIA_TYPES,
     audit_name,
     download_name,
@@ -47,6 +53,7 @@ from .exports import (
     preview_csv,
     read_manifest,
     resolve_export_file,
+    resolve_package_figure,
     resolve_package_file,
 )
 from .schemas import (
@@ -57,6 +64,7 @@ from .schemas import (
     ResolveRequest,
     SearchExportRequest,
     SearchRequest,
+    BodyMapRequest,
     SpeciesCompareRequest,
 )
 from .security import SecretScrubber, SecurityMiddleware, default_allowed_hosts
@@ -84,6 +92,8 @@ class MosaicState:
     heartbeat: float = 15.0
     started_at: float = field(default_factory=time.time)
     active_sessions: set[str] = field(default_factory=set)
+    searches: SearchSnapshots = field(default_factory=SearchSnapshots)
+    bodies: BodyMaps = field(default_factory=BodyMaps)
 
     def attach_registry(self, registry: Registry) -> None:
         self.registry = registry
@@ -456,8 +466,7 @@ def create_app(
         payload["errors"] = {k: state.clean(v) for k, v in payload["errors"].items()}
         return payload
 
-    @app.post("/api/search", tags=["search"])
-    async def federated_search(body: SearchRequest) -> dict[str, Any]:
+    def check_scope(body: SearchRequest) -> None:
         registry = state.require_registry()
         if body.categories:
             unknown = [c for c in body.categories if c not in CATEGORIES]
@@ -467,20 +476,97 @@ def create_app(
             unknown = [s for s in body.sources if s not in registry.connectors]
             if unknown:
                 raise ApiError(404, f"unknown source(s): {', '.join(unknown)}", kind="unknown_source", sources=unknown)
+
+    @app.post("/api/search", tags=["search"])
+    async def federated_search(body: SearchRequest) -> dict[str, Any]:
+        """Search every selected database; with ``compare``, search each query and compare them.
+
+        Besides the data, the response carries ``visuals`` (mind map, charts with the entities each value
+        counted, and data checks) and a ``search_id`` for the Figure Studio figures of exactly this data."""
+        from ..crosslink.merge import cluster_records, merge_cluster
+        from ..curation import curate
+        from ..visuals.service import engine_status, run_queries, search_visuals, union_records
+
+        check_scope(body)
+        registry = state.require_registry()
+        queries = body.queries()
         started = time.perf_counter()
-        result = await registry.federated_search(
-            body.query,
-            sources=body.sources or None,
-            categories=body.categories or None,
-            limit_per_source=body.limit_per_source,
-            timeout=body.timeout,
+        results = await run_queries(
+            registry, queries, sources=body.sources or None, categories=body.categories or None,
+            limit_per_source=body.limit_per_source, timeout=body.timeout,
         )
-        payload = result.model_dump(mode="json")
+        if len(results) == 1:
+            payload = results[0].model_dump(mode="json")
+            entities = results[0].curated.entities if results[0].curated else []
+        else:
+            records = union_records(results)
+            curated = curate(records)
+            entities = curated.entities
+            payload = {
+                "query": queries[0],
+                "sources": [{**st.model_dump(mode="json"), "query": q} for q, r in zip(queries, results) for st in r.sources],
+                "records": [r.model_dump(mode="json") for r in records],
+                "clusters": [merge_cluster(c) for c in cluster_records(records)],
+                "curated": curated.model_dump(mode="json"),
+            }
         for status in payload["sources"]:
             status["error"] = state.clean(status.get("error"))
         payload["linked"] = sum(1 for c in payload["clusters"] if len(c.get("sources") or []) > 1)
+        visuals = search_visuals(registry, queries, results, entities, body.limit_per_source)
+        snap = state.searches.add(queries, visuals)
+        payload["queries"] = queries
+        payload["search_id"] = snap.search_id
+        payload["visuals"] = visuals.model_dump(mode="json")
+        status = engine_status(settings.mosaic_figuregen_path)
+        payload["figures"] = {**status, "error": state.clean(status["error"]), "names": figure_names(visuals)}
         payload["elapsed_ms"] = round((time.perf_counter() - started) * 1000, 1)
         return payload
+
+    def snapshot_or_404(search_id: str) -> Any:
+        snap = state.searches.get(search_id) if EXPORT_ID_RE.fullmatch(search_id or "") else None
+        if snap is None:
+            raise ApiError(404, "this search is no longer in memory; run it again", kind="unknown_search")
+        return snap
+
+    def download_headers(snap: Any, filename: str, download: bool) -> dict[str, str]:
+        headers = {"Cache-Control": "no-store"}
+        if download:
+            stem = download_name("_vs_".join(snap.queries), snap.search_id, "x")[:-2]
+            headers["Content-Disposition"] = f'attachment; filename="{stem}_{filename}"'
+        return headers
+
+    @app.get("/api/search/{search_id}/figures/{filename}", tags=["search"])
+    async def search_figure(search_id: str, filename: str, download: bool = False) -> Response:
+        """A Figure Studio figure (``mindmap``, ``overview`` or a chart id) of a search, as svg / png / pdf."""
+        from ..visuals.figures import FORMATS
+
+        snap = snapshot_or_404(search_id)
+        name, _, fmt = filename.rpartition(".")
+        if fmt not in FORMATS or name not in figure_names(snap.visuals):
+            raise ApiError(404, "no such figure", figures=figure_names(snap.visuals), formats=sorted(FORMATS))
+        try:
+            data = await state.searches.figure(settings.mosaic_figuregen_path, snap, name, fmt)
+        except RuntimeError as exc:
+            raise ApiError(503, state.clean(str(exc)), kind="figures_unavailable") from None
+        return Response(data, media_type=FORMATS[fmt], headers=download_headers(snap, filename, download))
+
+    @app.get("/api/search/{search_id}/figure_data.csv", tags=["search"])
+    async def search_figure_data(search_id: str) -> Response:
+        """Every number in the charts, with the entities (or records) it counted."""
+        from ..visuals.service import figure_data_csv
+
+        snap = snapshot_or_404(search_id)
+        return Response(figure_data_csv(snap.visuals), media_type="text/csv; charset=utf-8",
+                        headers=download_headers(snap, "figure_data.csv", True))
+
+    @app.get("/api/search/{search_id}/mindmap.json", tags=["search"])
+    async def search_mindmap(search_id: str) -> Response:
+        snap = snapshot_or_404(search_id)
+        body = {"queries": snap.queries, "generated_at": snap.visuals.generated_at,
+                "mindmap": snap.visuals.mindmap.model_dump(mode="json"),
+                "checks": [c.model_dump(mode="json") for c in snap.visuals.checks]}
+        return Response(json.dumps(body, ensure_ascii=False, indent=2), media_type="application/json",
+                        headers=download_headers(snap, "mindmap.json", True))
 
     # ----------------------------------------------------------------- catalog
     @app.get("/api/catalog", tags=["catalog"])
@@ -639,6 +725,17 @@ def create_app(
             headers={"Cache-Control": "no-store"},
         )
 
+    @app.get("/api/exports/{export_id}/figures/{filename}", tags=["exports"])
+    async def export_package_figure(export_id: str, filename: str, download: bool = False) -> FileResponse:
+        resolved = resolve_package_figure(settings.exports_dir, export_id, filename)
+        if resolved is None:
+            raise ApiError(404, "no such figure in this data package")
+        path, ext = resolved
+        manifest = read_manifest(path.parent.parent)
+        return FileResponse(path, media_type=FIGURE_MEDIA_TYPES[ext],
+                            filename=package_download_name(manifest, export_id, filename) if download else None,
+                            headers={"Cache-Control": "no-store"})
+
     @app.get("/api/exports/{export_id}/{filename}/preview", tags=["exports"])
     async def export_package_preview(
         export_id: str, filename: str, limit: Annotated[int, Query(ge=1, le=1000)] = 200
@@ -650,36 +747,130 @@ def create_app(
 
     @app.post("/api/search/export", tags=["search", "exports"])
     async def export_search(body: SearchExportRequest) -> dict[str, Any]:
-        """Run a cross-database search and save its cleaned, graded data as a data package."""
-        from ..datapackage import build_package, write_package
-
-        registry = state.require_registry()
-        if body.categories:
-            unknown = [c for c in body.categories if c not in CATEGORIES]
-            if unknown:
-                raise ApiError(400, f"unknown category(s): {', '.join(unknown)}", categories=list(CATEGORIES))
-        result = await registry.federated_search(
-            body.query,
-            sources=body.sources or None,
-            categories=body.categories or None,
-            limit_per_source=body.limit_per_source,
-            timeout=body.timeout,
-        )
-        if not result.records:
-            raise ApiError(404, "the search returned no records to export")
+        """Run a cross-database search (or compare several) and save its cleaned, graded data as a data
+        package, with the mind map, the charts (Figure Studio) and the numbers behind them."""
         from ..datafiles import collect_data_files
+        from ..datapackage import add_entity_column, build_package, write_package
         from ..enrich import enrich_records
+        from ..visuals import build_visuals
+        from ..visuals.build import table_checks
+        from ..visuals.service import make_runs, record_key, render_package_figures, run_queries, source_titles, union_records
 
-        records, notes = result.records, []
+        check_scope(body)
+        registry = state.require_registry()
+        queries = body.queries()
+        results = await run_queries(
+            registry, queries, sources=body.sources or None, categories=body.categories or None,
+            limit_per_source=body.limit_per_source, timeout=body.timeout,
+        )
+        hits = union_records(results)
+        if not hits:
+            raise ApiError(404, "the search returned no records to export")
+        records, notes = hits, []
         if body.full_records:
-            records, enrich_stats = await enrich_records(registry, records)
+            records, enrich_stats = await enrich_records(registry, hits)
             notes = enrich_stats.notes()
+        full = {record_key(hit): rec for hit, rec in zip(hits, records)}
         data_files = await collect_data_files(registry.http, records, download=body.download_files)
         package = build_package(records, body.group_by)
-        name = body.name or f"Search {body.query}"
-        saved = write_package(settings.exports_dir, package, name=name, query=body.query, data_files=data_files, notes=notes,
-                              description=f"Cross-database search of {len(result.sources)} sources, split by {body.group_by}")
+        visuals = build_visuals(make_runs(queries, results, body.limit_per_source, full), package.entities,
+                                source_titles=source_titles(registry))
+        if len(queries) > 1:
+            add_entity_column(package, "matched_queries", {k: "; ".join(v) for k, v in visuals.entity_queries.items()})
+        visuals.checks += table_checks(package.tables, body.group_by, visuals)
+        figure_files: dict[str, bytes] = {}
+        if body.include_figures:
+            figure_files, figure_notes = await render_package_figures(settings.mosaic_figuregen_path, visuals)
+            notes += [state.clean(n) for n in figure_notes]
+        joined = " vs ".join(queries)
+        name = body.name or f"Search {joined}"
+        n_sources = len({st.source for r in results for st in r.sources})
+        description = (f"Comparison of {len(queries)} searches" if len(queries) > 1 else "Cross-database search") + \
+            f" of {n_sources} sources, split by {body.group_by}"
+        saved = write_package(settings.exports_dir, package, name=name, query=joined, data_files=data_files, notes=notes,
+                              visuals=visuals, figure_files=figure_files, description=description)
         registry.audit.record_export(name=name, path=str(saved.folder), n_rows=saved.n_rows,
+                                     columns=[f["file"] for f in saved.files])
+        entry = next((e for e in list_exports(settings.exports_dir, registry.audit, 1000) if e["export_id"] == saved.export_id), None)
+        return entry or {"export_id": saved.export_id}
+
+    # ----------------------------------------------------------------- body map
+    def body_or_404(map_id: str) -> Any:
+        bm = state.bodies.get(map_id) if EXPORT_ID_RE.fullmatch(map_id or "") else None
+        if bm is None:
+            raise ApiError(404, "this body map is no longer in memory; build it again", kind="unknown_body_map")
+        return bm
+
+    @app.post("/api/body", tags=["body"])
+    async def body_map(body: BodyMapRequest) -> dict[str, Any]:
+        """Where in the human body a drug, chemical or disease acts: organs with database evidence,
+        key facts, data checks, the organ layout for drawing, and the Figure Studio figures' names."""
+        from ..body import build_body_map
+        from ..body.anatomy import layout_json
+        from ..body.figure import figure_names as body_figure_names
+        from ..visuals.service import engine_status
+
+        from ..body.art import art_info
+        from ..visuals.figures import load_engine
+
+        bm = await build_body_map(state.require_registry(), body.query, body.kind)
+        bm.errors = {k: state.clean(v) for k, v in bm.errors.items()}
+        state.bodies.add(bm)
+        status = engine_status(settings.mosaic_figuregen_path)
+        payload = bm.model_dump(mode="json")
+        payload["layout"] = layout_json()
+        payload["layout"]["art"] = art_info(load_engine(settings.mosaic_figuregen_path)[0])
+        payload["figures"] = {**status, "error": state.clean(status["error"]), "names": body_figure_names(bm)}
+        return payload
+
+    @app.get("/api/body/art/{filename}", tags=["body"])
+    async def body_art(filename: str, tone: str = "natural") -> Response:
+        """One Figure Studio illustration (organ, body or body system) as SVG, in an evidence tone."""
+        from ..body.art import ART_NAMES, TONE_NAMES, render_art
+        from ..visuals.figures import load_engine
+
+        name, _, ext = filename.rpartition(".")
+        if ext != "svg" or name not in ART_NAMES or tone not in TONE_NAMES:
+            raise ApiError(404, "no such illustration", names=sorted(ART_NAMES), tones=list(TONE_NAMES))
+        engine, error = load_engine(settings.mosaic_figuregen_path)
+        if engine is None:
+            raise ApiError(503, state.clean(error or "Figure Studio is not available"), kind="figures_unavailable")
+        try:
+            data = await asyncio.to_thread(render_art, engine, name, tone)
+        except KeyError:
+            raise ApiError(404, "this Figure Studio has no such illustration") from None
+        return Response(data, media_type="image/svg+xml", headers={"Cache-Control": "public, max-age=86400"})
+
+    @app.get("/api/body/{map_id}/figures/{filename}", tags=["body"])
+    async def body_figure(map_id: str, filename: str, download: bool = False) -> Response:
+        from ..body.figure import figure_names as body_figure_names
+        from ..visuals.figures import FORMATS
+
+        bm = body_or_404(map_id)
+        name, _, fmt = filename.rpartition(".")
+        if fmt not in FORMATS or name not in body_figure_names(bm):
+            raise ApiError(404, "no such figure", figures=body_figure_names(bm), formats=sorted(FORMATS))
+        try:
+            data = await state.bodies.figure(settings.mosaic_figuregen_path, bm, name, fmt)
+        except RuntimeError as exc:
+            raise ApiError(503, state.clean(str(exc)), kind="figures_unavailable") from None
+        headers = {"Cache-Control": "no-store"}
+        if download:
+            stem = download_name(f"body_map_{bm.name}", map_id, "x")[:-2]
+            headers["Content-Disposition"] = f'attachment; filename="{stem}_{filename}"'
+        return Response(data, media_type=FORMATS[fmt], headers=headers)
+
+    @app.post("/api/body/{map_id}/export", tags=["body", "exports"])
+    async def body_export(map_id: str) -> dict[str, Any]:
+        """Save the body map as a data package: organs, evidence, key facts, figures, Excel, ZIP."""
+        from ..body.package import write_body_package
+        from ..body.service import render_package_figures as body_package_figures
+
+        bm = body_or_404(map_id)
+        registry = state.require_registry()
+        figure_files, notes = await body_package_figures(settings.mosaic_figuregen_path, bm)
+        saved = write_body_package(settings.exports_dir, bm, figure_files, [state.clean(n) for n in notes])
+        registry.audit.record_export(name=saved.name, path=str(saved.folder), n_rows=saved.n_rows,
                                      columns=[f["file"] for f in saved.files])
         entry = next((e for e in list_exports(settings.exports_dir, registry.audit, 1000) if e["export_id"] == saved.export_id), None)
         return entry or {"export_id": saved.export_id}

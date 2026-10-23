@@ -28,6 +28,13 @@ EXPORT_ID_RE = re.compile(r"^[0-9a-f]{32}$")
 EXPORT_FILE_RE = re.compile(r"^(?P<export_id>[0-9a-f]{32})\.(?P<ext>csv|json)$")
 _JSON_META_MAX_BYTES = 8 * 1024 * 1024
 PACKAGE_FILE_RE = re.compile(r"^[A-Za-z0-9_]{1,64}\.(?P<ext>csv|xlsx|zip|txt|json)$")
+FIGURE_FILE_RE = re.compile(r"^[a-z0-9_]{1,48}\.(?P<ext>svg|png|pdf|txt)$")
+FIGURE_MEDIA_TYPES = {
+    "svg": "image/svg+xml",
+    "png": "image/png",
+    "pdf": "application/pdf",
+    "txt": "text/plain; charset=utf-8",
+}
 PACKAGE_MEDIA_TYPES = {
     "csv": "text/csv; charset=utf-8",
     "xlsx": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
@@ -124,6 +131,19 @@ def resolve_package_file(exports_dir: Path, export_id: str, filename: str) -> tu
     return path, match["ext"]
 
 
+def resolve_package_figure(exports_dir: Path, export_id: str, filename: str) -> tuple[Path, str] | None:
+    """A file in a package's ``figures/`` folder (``overview.svg`` ...), or ``None``."""
+    match = FIGURE_FILE_RE.fullmatch(filename or "")
+    folder = find_package_folder(exports_dir, export_id)
+    if match is None or folder is None:
+        return None
+    figures = (folder / "figures").resolve()
+    path = (figures / filename).resolve()
+    if path.parent != figures or not path.is_file():
+        return None
+    return path, match["ext"]
+
+
 def read_manifest(folder: Path) -> dict[str, Any]:
     path = folder / "manifest.json"
     try:
@@ -179,7 +199,7 @@ def _package_entries(exports_dir: Path) -> list[dict[str, Any]]:
             "description": manifest.get("description"),
             "query": manifest.get("query"),
             "group_by": manifest.get("group_by"),
-            "n_rows": sum(int(f.get("rows") or 0) for f in files),
+            "n_rows": sum(int(f.get("rows") or 0) for f in files if f.get("group") != "figure_data"),
             "columns": [],
             "created_at": _iso(manifest.get("created_at")) or _iso(mtime),
             "session_id": manifest.get("session_id"),
@@ -189,6 +209,15 @@ def _package_entries(exports_dir: Path) -> list[dict[str, Any]]:
             "xlsx_url": f"{base}/mosaic_data.xlsx",
             "zip_url": f"{base}/mosaic_data.zip",
             "readme_url": f"{base}/README.txt",
+            "figures": [
+                {"name": fig.get("name"), "title": fig.get("title"),
+                 "urls": {f.rsplit(".", 1)[1]: f"{base}/figures/{f}" for f in fig.get("files") or []
+                          if isinstance(f, str) and FIGURE_FILE_RE.fullmatch(f)}}
+                for fig in manifest.get("figures") or [] if isinstance(fig, dict)
+            ],
+            "checks": {"passed": sum(1 for c in manifest.get("checks") or [] if isinstance(c, dict) and c.get("ok")),
+                       "total": len(manifest.get("checks") or [])},
+            "queries": manifest.get("queries") or [],
             "folder": str(folder),
             "size_bytes": sum(p.stat().st_size for p in folder.iterdir() if p.is_file()),
             "_sort": mtime,

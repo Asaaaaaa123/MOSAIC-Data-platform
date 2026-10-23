@@ -34,7 +34,7 @@ def test_index_has_species_view_and_nav():
     assert 'href="#species"' in html
     for el in ("sp-form", "sp-q", "sp-species-groups", "sp-papers", "sp-claude", "sp-run", "sp-status", "sp-history", "sp-dashboard"):
         assert f'id="{el}"' in html, el
-    assert "用 Claude 从摘要中提取剂量和效果" in html
+    assert "Extract dose and effect from abstracts with Claude" in html
 
 
 def test_app_js_wires_species_feature():
@@ -99,7 +99,7 @@ def test_static_assets_served(client):
 
 def test_species_dashboard_review_fixes_present():
     js = (WEB / "app.js").read_text(encoding="utf-8")
-    section = js.split("Cross-species comparison (跨物种比较)", 1)[1]
+    section = js.split("// Cross-species comparison: form, dashboard, chat card", 1)[1]
     # Escape closes the species detail panel and focus goes back to its graph node
     assert "e.key === 'Escape'" in section and "closeDetail" in section
     # the dose-effect chart keeps a single ResizeObserver (redraws via spRedraw on unit change)

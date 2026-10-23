@@ -726,9 +726,17 @@ async def export_dataset(ctx: ToolContext, params: ExportDatasetParams) -> MetaR
         notes = enrich_stats.notes()
     data_files = await collect_data_files(ctx.registry.http, records, download=params.download_data_files)
     package = build_package(records, params.group_by)
+    from ..visuals import QueryRun, build_visuals
+    from ..visuals.build import table_checks
+    from ..visuals.service import render_package_figures, source_titles
+
+    visuals = build_visuals([QueryRun(query=params.name, records=records)], package.entities,
+                            source_titles=source_titles(ctx.registry))
+    visuals.checks += table_checks(package.tables, params.group_by, visuals)
+    figure_files, figure_notes = await render_package_figures(getattr(ctx.settings, "mosaic_figuregen_path", None), visuals)
     saved = write_package(
         ctx.settings.exports_dir, package, name=params.name, description=params.description, session_id=ctx.session_id,
-        data_files=data_files, notes=notes,
+        data_files=data_files, notes=notes + figure_notes, visuals=visuals, figure_files=figure_files,
     )
     ctx.registry.audit.record_export(
         name=params.name, path=str(saved.folder), n_rows=saved.n_rows,

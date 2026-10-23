@@ -11,6 +11,7 @@ from typing import Any
 
 from ..config import Settings
 from ..models import Record
+from .evidence import evidence_for_species
 from .models import Paper, PaperExtractor, SpeciesComparison
 from .store import save_comparison
 
@@ -23,7 +24,8 @@ _EXTRACTION_FIELDS = [
                          "'objective response rate 37.1%', 'oral bioavailability 47%'."),
     ("effect_value", "number", "The number in the main result (e.g. 86 for 86%), else empty."),
     ("effect_unit", "string", "Unit of effect_value, e.g. '%', 'months', 'ng/mL'."),
-    ("evidence", "string", "One of: clinical, in_vivo, in_vitro, computational, review."),
+    # not "evidence": the extractor reserves that column for its supporting quote (FieldSpec rejects it)
+    ("evidence_level", "string", "One of: clinical, in_vivo, in_vitro, computational, review."),
     ("finding", "string", "One sentence: what the study found about the compound in this species."),
 ]
 _EVIDENCE = {"clinical", "in_vivo", "in_vitro", "computational"}
@@ -42,27 +44,28 @@ def claude_paper_extractor(settings: Settings, audit: Any = None, session_id: st
     fields = [FieldSpec(name=n, type=t, description=d) for n, t, d in _EXTRACTION_FIELDS]
 
     async def extract(items: list[tuple[Paper, Record]]) -> list[Paper]:
-        usable = [(p, r) for p, r in items if r.summary]
+        usable = [i for i, (_, r) in enumerate(items) if r.summary]
         if not usable:
             return [p for p, _ in items]
         table = await extractor.extract(
-            [SourceRecord(result_id="species", record=r) for _, r in usable],
+            [SourceRecord(result_id="species", record=items[i][1]) for i in usable],
             fields,
             "Each record is a paper abstract about a drug or chemical compound studied in the species named in the "
             "record attributes. Extract only what the abstract states; leave fields empty rather than guessing.",
             session_id=session_id,
         )
-        by_id = {row.get("record_id"): row for row in table.rows}
+        # one row per record, in order: a paper found for two species is sent twice, so not keyed by PMID
+        rows = dict(zip(usable, table.rows))
         out: list[Paper] = []
-        for paper, record in items:
-            row = by_id.get(record.id)
+        for i, (paper, record) in enumerate(items):
+            row = rows.get(i)
             if not row:
                 out.append(paper)
                 continue
             update = {k: row.get(k) for k, _, _ in _EXTRACTION_FIELDS if row.get(k) not in (None, "")}
-            evidence = str(update.pop("evidence", "") or "").strip().lower()
+            evidence = str(update.pop("evidence_level", "") or "").strip().lower()
             if evidence in _EVIDENCE:
-                update["evidence"] = evidence
+                update["evidence"] = evidence_for_species(evidence, paper.species, record)
             for key in ("dose_mg_kg", "effect_value"):
                 if key in update:
                     try:

@@ -408,6 +408,54 @@ async def test_compare_species_orchestration_with_failures():
     assert comparison.model_dump(mode="json")  # serializable
 
 
+async def test_claude_paper_extractor_fills_papers_from_extracted_rows(offline_settings, monkeypatch):
+    from mosaic.agent.extraction import ExtractionTable, StructuredExtractor
+    from mosaic.species.service import claude_paper_extractor
+
+    requested: list[list[str]] = []
+
+    class FakeExtractor:
+        async def extract(self, items, fields, instructions=None, *, session_id=None):
+            requested.append([f.name for f in fields])
+            assert [i.record.id for i in items] == ["1", "2", "4", "4"]  # no abstract: not sent
+            return ExtractionTable(columns=[], provenance={}, rows=[
+                {"record_id": "1", "model": "NCI-H358 xenograft in nude mice", "dose": "100 mg/kg p.o. daily",
+                 "dose_mg_kg": 100, "effect": "tumor growth inhibition 86%", "effect_value": "86", "effect_unit": "%",
+                 "evidence_level": "In_Vivo", "finding": "Sotorasib regressed KRAS G12C tumours.",
+                 "evidence": "tumor growth inhibition of 86%"},  # the extractor's own supporting quote
+                {"record_id": "2", "evidence_level": "review", "effect_value": "about half", "evidence": "a review"},
+                {"record_id": "4", "model": "patients with KRAS G12C solid tumours", "evidence_level": "clinical"},
+                {"record_id": "4", "model": "KRAS G12C xenograft in mice", "evidence_level": "clinical"},
+            ])
+
+    monkeypatch.setattr(StructuredExtractor, "from_settings", classmethod(lambda cls, *a, **kw: FakeExtractor()))
+    extract = claude_paper_extractor(offline_settings)  # raised before: "evidence" is a reserved column name
+
+    trial = {"mesh_terms": ["Humans", "Mice", "Neoplasms"]}  # a human trial that also reports mouse data
+    papers = [Paper(species="mouse", pmid="1", title="Xenograft"),
+              Paper(species="human", pmid="2", title="Review", evidence="clinical"),
+              Paper(species="rat", pmid="3", title="No abstract"),
+              Paper(species="human", pmid="4", title="Phase 1 trial", evidence="clinical"),
+              Paper(species="mouse", pmid="4", title="Phase 1 trial", evidence="in_vivo")]
+    records = [Record(source="ncbi", id="1", type="article", summary="Abstract one."),
+               Record(source="ncbi", id="2", type="article", summary="Abstract two."),
+               Record(source="ncbi", id="3", type="article"),
+               Record(source="ncbi", id="4", type="article", summary="Abstract four.", attributes=trial),
+               Record(source="ncbi", id="4", type="article", summary="Abstract four.", attributes=trial)]
+    out = await extract(list(zip(papers, records)))
+
+    assert "evidence_level" in requested[0] and "evidence" not in requested[0]
+    mouse, review, rat, trial_human, trial_mouse = out
+    assert mouse.evidence == "in_vivo" and mouse.model == "NCI-H358 xenograft in nude mice"
+    assert mouse.dose == "100 mg/kg p.o. daily" and mouse.dose_mg_kg == 100.0 and mouse.effect_value == 86.0
+    assert mouse.effect_unit == "%" and mouse.finding == "Sotorasib regressed KRAS G12C tumours."
+    assert review.evidence == "clinical" and review.effect_value is None  # not a level / not a number: engine's kept
+    assert rat == papers[2]
+    # one paper found for two species keeps each species' own row; for the mouse a human trial is in vivo evidence
+    assert trial_human.model == "patients with KRAS G12C solid tumours" and trial_human.evidence == "clinical"
+    assert trial_mouse.model == "KRAS G12C xenograft in mice" and trial_mouse.evidence == "in_vivo"
+
+
 async def test_compare_species_non_drug_uses_activity_targets_and_ensembl():
     molecule = Record(source="chembl", id="CHEMBL418971", type="compound", title="BISPHENOL A",
                       identifiers={"chembl": "CHEMBL418971"}, attributes={})

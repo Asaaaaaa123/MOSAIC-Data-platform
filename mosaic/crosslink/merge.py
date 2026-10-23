@@ -4,6 +4,12 @@ Two records are linked when they share any normalized identifier (same DOI,
 PMID, NCT number, InChIKey, ChEMBL ID, UniProt accession, ...). Linking is
 transitive (union-find), so a PubMed article (pmid) and an OpenAlex work
 (doi + pmid) and a Crossref work (doi) collapse into one cluster.
+
+Relationship records (bioactivities, associations) are not linked through
+identifiers: connectors give them the identifiers of the counterpart entity,
+which many rows of one result share (every ChEMBL activity of imatinib against
+ABL1 carries ABL1's ChEMBL ID, every GWAS association of a variant its rsID).
+Each stays its own cluster; only a repeat of the same source record merges.
 """
 
 from __future__ import annotations
@@ -25,6 +31,9 @@ LINKING_KEYS = (
     "mgi", "rgd", "zfin", "xenbase", "flybase", "wormbase", "sgd",
     "zenodo", "figshare", "osf", "synapse", "dandi", "openneuro",
 )
+
+# Record types that state a relation between two entities rather than describe one entity.
+RELATIONSHIP_TYPES = frozenset({"activity", "association"})
 
 
 class _UnionFind:
@@ -50,10 +59,12 @@ def cluster_records(records: Iterable[Record], keys: Iterable[str] = LINKING_KEY
     seen: dict[tuple[str, str], int] = {}
     key_set = set(keys)
     for idx, record in enumerate(items):
-        for key, value in record.identifiers.items():
-            if key not in key_set or not value:
-                continue
-            token = (key, value)
+        if record.type in RELATIONSHIP_TYPES:
+            # "" is never an identifier key, so this token only matches the same source record
+            tokens = [("", f"{record.source}:{record.id}")] if record.id else []
+        else:
+            tokens = [(key, value) for key, value in record.identifiers.items() if key in key_set and value]
+        for token in tokens:
             if token in seen:
                 uf.union(seen[token], idx)
             else:

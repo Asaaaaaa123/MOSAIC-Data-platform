@@ -26,6 +26,9 @@ class SearchRequest(_Body):
     sources: list[str] | None = Field(None, description="Restrict to these sources (overrides categories)")
     limit_per_source: int = Field(5, ge=1, le=50)
     timeout: float = Field(30.0, gt=0, le=120)
+    compare: list[str] | None = Field(
+        None, max_length=3, description="Up to 3 more queries to compare with the first (each searched the same way)"
+    )
 
     @field_validator("query")
     @classmethod
@@ -35,6 +38,24 @@ class SearchRequest(_Body):
             raise ValueError("query must not be blank")
         return value
 
+    @field_validator("compare")
+    @classmethod
+    def _strip_compare(cls, value: list[str] | None) -> list[str] | None:
+        if not value:
+            return None
+        out: list[str] = []
+        for item in value:
+            item = (item or "").strip()
+            if len(item) > 1000:
+                raise ValueError("each compared query must be at most 1000 characters")
+            if item and item.lower() not in {o.lower() for o in out}:
+                out.append(item)
+        return out or None
+
+    def queries(self) -> list[str]:
+        """The query, then the compared queries (case-insensitive duplicates of the query dropped)."""
+        return [self.query] + [q for q in self.compare or [] if q.lower() != self.query.lower()]
+
 
 class SearchExportRequest(SearchRequest):
     group_by: Literal["type", "species", "source"] = Field(
@@ -43,6 +64,9 @@ class SearchExportRequest(SearchRequest):
     name: str | None = Field(None, max_length=120, description="Name for the package (default: the query)")
     full_records: bool = Field(True, description="Re-fetch every hit's complete record from its source before exporting")
     download_files: bool = Field(True, description="Include small open data tables from the datasets' repositories")
+    include_figures: bool = Field(
+        True, description="Add the mind map and charts (SVG, PNG, PDF via Figure Studio), figure_data.csv and mindmap.json"
+    )
 
 
 class SpeciesCompareRequest(_Body):
@@ -50,6 +74,21 @@ class SpeciesCompareRequest(_Body):
     species: list[str] | None = Field(None, max_length=20, description="Species keys (GET /api/species/meta); default all")
     max_papers: int = Field(5, ge=1, le=20, description="Top PubMed papers kept per species")
     extract_with_claude: bool = Field(False, description="Extract dose / effect from abstracts with Claude (uses API credits)")
+
+    @field_validator("query")
+    @classmethod
+    def _strip_query(cls, value: str) -> str:
+        value = value.strip()
+        if not value:
+            raise ValueError("query must not be blank")
+        return value
+
+
+class BodyMapRequest(_Body):
+    query: str = Field(min_length=1, max_length=200, description="Drug, chemical compound or disease (name or ID)")
+    kind: Literal["auto", "drug", "compound", "disease"] = Field(
+        "auto", description="What the query is; auto decides from exact matches in the identifier resolvers"
+    )
 
     @field_validator("query")
     @classmethod

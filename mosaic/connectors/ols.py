@@ -15,6 +15,10 @@ Quirks:
 - v1 term JSON exposes ``obo_xref`` (database/id/description) and ``annotation`` (incl.
   ``database_cross_reference`` and "has exact match"); v2 class JSON adds ``linkedEntities``
   (labels of referenced terms) and skos ``exactMatch``/``closeMatch`` URIs, used by ``map_term``.
+- Only cross-references and exact matches name the same concept, so only they become identifiers.
+  skos close / narrow / broad matches (and v1 ``closeMatch`` annotations) are other concepts: they are
+  listed in ``attributes['loose_matches']`` (and as their own records in ``map_term``), never as
+  identifiers, so a MONDO disease does not merge with a broader or narrower term.
 - Unknown terms/ontologies return HTTP 404.
 
 Identifier keys: canonical keys from mosaic.ids where they exist (mondo, efo, hp, doid, go,
@@ -33,6 +37,7 @@ from urllib.parse import quote
 
 from pydantic import Field
 
+from ..ids import normalize_identifiers
 from ..models import Record, ToolResult
 from .base import Connector, SearchParams, ToolParams, first, parse_offset, strip_html, tool
 
@@ -205,7 +210,7 @@ def _xrefs_from_v1(term: dict[str, Any]) -> list[str]:
         if isinstance(x, dict) and x.get("database") and x.get("id"):
             out.append(f"{x['database']}:{x['id']}")
     ann = term.get("annotation") or {}
-    for key in ("database_cross_reference", "has exact match", "exactMatch", "closeMatch", "has_dbxref"):
+    for key in ("database_cross_reference", "has exact match", "exactMatch", "has_dbxref"):
         for v in ann.get(key) or []:
             if isinstance(v, str):
                 out.append(v)
@@ -216,12 +221,18 @@ def _xrefs_from_v1(term: dict[str, Any]) -> list[str]:
     return seen
 
 
+def _close_matches_v1(term: dict[str, Any]) -> list[str]:
+    values = (term.get("annotation") or {}).get("closeMatch") or []
+    return list(dict.fromkeys(v for v in values if isinstance(v, str)))
+
+
 def _term_record(term: dict[str, Any], *, full: bool = False) -> Record:
     obo_id = term.get("obo_id") or term.get("curie")
     iri = term.get("iri")
     ontology = term.get("ontology_name") or term.get("ontologyId")
     prefix = term.get("ontology_prefix") or (obo_id.split(":")[0] if obo_id and ":" in obo_id else None)
     xrefs = _xrefs_from_v1(term) if full else []
+    loose = [f"{v} (closeMatch)" for v in _close_matches_v1(term)] if full else []
     ids, multi = identifiers_from_curies([obo_id or iri or "", *xrefs])
     ann = term.get("annotation") or {}
     inchikey = first(ann.get("inchi_key_string") or ann.get("inchikey"))
@@ -258,6 +269,7 @@ def _term_record(term: dict[str, Any], *, full: bool = False) -> Record:
         "formula": first(ann.get("generalized_empirical_formula")) if full else None,
         "smiles": smiles if full else None,
         "xrefs": xrefs[:60] or None,
+        "loose_matches": loose[:60] or None,
         "additional_ids": extra_ids or None,
     }
     return Record(
@@ -550,10 +562,19 @@ class Ols(Connector):
         if not v2:  # v2 unavailable: fall back to v1 xrefs
             for x in _xrefs_from_v1(term):
                 add(x, "xref")
+            for x in _close_matches_v1(term):
+                add(x, "closeMatch")
 
         source_record = _term_record(term, full=True)
-        all_ids, _ = identifiers_from_curies([source_record.id] + [m["curie"] for m in mappings])
-        source_record.identifiers = {**all_ids, **source_record.identifiers}
+        exact = [m["curie"] for m in mappings if m["relation"] in ("xref", "exactMatch")]
+        all_ids, _ = identifiers_from_curies([source_record.id] + exact)
+        # set after the Record was built, so normalized here (Record normalizes only on construction)
+        source_record.identifiers = normalize_identifiers({**all_ids, **source_record.identifiers})
+        loose = [f"{m['curie']} ({m['relation']})" for m in mappings if m["relation"] not in ("xref", "exactMatch")]
+        if loose:
+            source_record.attributes["loose_matches"] = list(
+                dict.fromkeys([*source_record.attributes.get("loose_matches", []), *loose])
+            )
         records = [source_record]
         for m in mappings:
             if not m["identifier_key"] and not m["label"]:

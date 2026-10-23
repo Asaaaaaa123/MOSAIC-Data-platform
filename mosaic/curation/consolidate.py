@@ -21,7 +21,7 @@ from typing import Any
 
 from pydantic import BaseModel, Field
 
-from ..crosslink.merge import LINKING_KEYS, cluster_records
+from ..crosslink.merge import LINKING_KEYS, RELATIONSHIP_TYPES, cluster_records
 from ..models import Record
 from .clean import CleaningLog, clean_record
 from .evaluate import Evaluation, completeness, evaluate, profile
@@ -190,8 +190,11 @@ def _consolidate(group: list[Record], entity_id: str) -> CuratedEntity:
             identifiers.setdefault(key, value)
             votes.setdefault(key, {}).setdefault(value, set()).add(record.source)
     conflicts: dict[str, list[dict[str, Any]]] = {}
+    # a relationship carries its counterpart's IDs, which depend on the side it was queried from
+    # (a ChEMBL activity fetched by molecule carries the target's ID, fetched by target the molecule's)
+    check_ids = kind not in RELATIONSHIP_TYPES
     for key, values in votes.items():
-        if len(values) > 1 and key in LINKING_KEYS and key not in MULTI_VALUED_KEYS:
+        if check_ids and len(values) > 1 and key in LINKING_KEYS and key not in MULTI_VALUED_KEYS:
             conflicts[key] = [{"value": v, "sources": sorted(s)} for v, s in sorted(values.items(), key=lambda kv: -len(kv[1]))]
     if len(titled) > 1 and not all(_title_similar(titled[0].title or "", r.title or "") for r in titled[1:]):
         conflicts["title"] = [{"value": r.title, "sources": [r.source]} for r in titled[:4]]

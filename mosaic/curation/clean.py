@@ -4,7 +4,8 @@ Conservative by design: only changes that are unambiguous improvements.
 - text: HTML/JATS stripped, entities decoded, Unicode NFC, control characters
   removed, whitespace collapsed
 - placeholders dropped: "", "N/A", "NA", "none", "null", "unknown", "not available",
-  "not applicable", ... (symbols such as "-" are kept: a DNA strand is data)
+  "not applicable", ... (symbols such as "-" are kept: a DNA strand is data; so is a status such as
+  a trial's UNKNOWN)
 - dates: "2024 Mar 5", "2024/03/05", "2024-03-05T10:00:00Z" -> "2024-03-05"
 - lists: empties removed, exact (case-insensitive) duplicates removed
 - authors: trimmed and de-duplicated
@@ -27,6 +28,9 @@ PLACEHOLDERS = {
     "", "n/a", "na", "n.a.", "none", "null", "nil", "nan", "undefined", "unknown",
     "not available", "not applicable", "not reported", "not specified", "unspecified", "missing", "[]", "{}",
 }
+# Statuses are controlled vocabularies: ClinicalTrials.gov's UNKNOWN (status not verified for 2+ years)
+# is a value, so top-level status attributes keep placeholder-like words.
+STATUS_KEYS = ("status", "overall_status")
 # Only real HTML / JATS / MathML tags: "IC50<IC90 and EC50>2" must survive untouched.
 _TAG = re.compile(
     r"</?(?:[a-z]+:[\w.-]+|a|b|i|u|p|br|hr|em|strong|sub|sup|span|div|ul|ol|li|dl|dt|dd|table|thead|tbody|"
@@ -73,7 +77,9 @@ def is_placeholder(value: Any) -> bool:
     return False
 
 
-def clean_text(value: Any, log: CleaningLog | None = None, *, multiline: bool = False) -> str | None:
+def clean_text(
+    value: Any, log: CleaningLog | None = None, *, multiline: bool = False, keep_placeholders: bool = False
+) -> str | None:
     if value is None:
         return None
     text = str(value)
@@ -95,7 +101,7 @@ def clean_text(value: Any, log: CleaningLog | None = None, *, multiline: bool = 
         text = _SPACES.sub(" ", text.replace("\r", " ").replace("\n", " ")).strip()
     if log and not stripped and text != original.strip():
         log.add("whitespace_fixed")
-    if text.lower() in PLACEHOLDERS:
+    if text.lower() in PLACEHOLDERS and not (keep_placeholders and text):
         if log:
             log.add("placeholder_removed")
         return None
@@ -194,7 +200,13 @@ def clean_record(record: Record, log: CleaningLog | None = None) -> Record:
             continue
         seen.add(key)
         authors.append(name)
-    attributes = clean_value(record.attributes, log) or {}
+    statuses = {k: v for k, v in record.attributes.items() if k in STATUS_KEYS and isinstance(v, str)}
+    cleaned = clean_value({k: v for k, v in record.attributes.items() if k not in statuses}, log) or {}
+    attributes: dict[str, Any] = {}
+    for key in record.attributes:  # original key order
+        value = clean_text(statuses[key], log, keep_placeholders=True) if key in statuses else cleaned.get(key)
+        if value is not None:
+            attributes[key] = value
     return record.model_copy(
         update={
             "title": clean_text(record.title, log),

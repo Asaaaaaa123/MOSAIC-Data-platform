@@ -19,6 +19,8 @@ dependencies = [
     "psycopg[binary]>=3.2",
     "openpyxl>=3.1",
     "biopython>=1.80",
+    "matplotlib>=3.9",  # Figure Studio's renderer (journal-style figures of search results)
+    "numpy>=1.26",
 ]
 
 [project.optional-dependencies]

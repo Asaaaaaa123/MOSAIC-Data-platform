@@ -416,7 +416,7 @@ def cmd_species(args: argparse.Namespace) -> int:
         rows = []
         for s in comparison.species:
             ident = f"{s.mean_identity_pct:.1f}%" if s.mean_identity_pct is not None else "-"
-            rows.append([f"{s.label_zh} {s.label}", ident, s.n_papers, s.n_measurements, s.evidence_level])
+            rows.append([s.label, ident, s.n_papers, s.n_measurements, s.evidence_level])
         _out(_table(rows, ["species", "target identity", "papers", "measurements", "evidence"]))
         for note in comparison.notes:
             _out(f"  note: {note}")

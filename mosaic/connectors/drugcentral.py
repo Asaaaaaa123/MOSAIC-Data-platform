@@ -66,6 +66,14 @@ _XREF_KEYS = {
     "VUID": "vuid",
 }
 _LINK_XREFS = ("chembl", "pubchem_cid", "unii", "drugbank", "rxcui", "mesh", "chebi", "kegg_drug", "umls")
+# get_drug with the default id_type: a struct_id is digits only, so other values are recognized by shape
+# (any other text is looked up as a name / synonym, e.g. 'STI-571'), never stripped to their digits.
+_ID_SHAPES = (
+    (re.compile(r"^CHEMBL\d+$", re.IGNORECASE), "chembl"),
+    (re.compile(r"^DB\d{5}$", re.IGNORECASE), "drugbank"),
+    (re.compile(r"^[A-Z]{14}-[A-Z]{10}-[A-Z]$", re.IGNORECASE), "inchikey"),
+    (re.compile(r"^\d{2,7}-\d{2}-\d$"), "cas"),
+)
 
 _LOOKUP_ID_TYPES = {
     "chembl": "ChEMBL_ID",
@@ -175,7 +183,10 @@ class SearchDrugsParams(SearchParams):
 
 
 class GetDrugParams(ToolParams):
-    id: str = Field(description="Identifier value (DrugCentral struct_id by default), e.g. 1423, CHEMBL941, DB00619")
+    id: str = Field(
+        description="Identifier value, e.g. 1423 (struct_id), CHEMBL941, DB00619. With the default id_type a value "
+        "that is not a struct_id is recognized as ChEMBL, DrugBank, InChIKey or CAS, else looked up as a name"
+    )
     id_type: Literal[
         "drugcentral", "name", "chembl", "pubchem_cid", "unii", "drugbank", "rxcui", "inchikey", "cas", "mesh",
         "kegg_drug", "chebi", "umls", "iuphar",
@@ -523,32 +534,34 @@ class DrugCentral(Connector):
     )
     async def get_drug(self, params: GetDrugParams) -> ToolResult:
         value = params.id.strip()
-        if params.id_type == "drugcentral":
-            if not re.sub(r"\D", "", value):
-                return ToolResult(source=self.name, tool="get_drug", notes=[f"{value!r} is not a struct_id"])
-            ids = [int(re.sub(r"\D", "", value))]
-        elif params.id_type == "name":
+        id_type = params.id_type
+        notes: list[str] = []
+        if id_type == "drugcentral" and not value.isdecimal():
+            id_type = next((t for shape, t in _ID_SHAPES if shape.match(value)), "name")
+            notes.append(f"{value!r} is not a DrugCentral struct_id; looked up as {id_type}")
+        if id_type == "drugcentral":
+            ids = [int(value)]
+        elif id_type == "name":
             sid, _ = await self._resolve(value)
             ids = [sid] if sid else []
-        elif params.id_type == "inchikey":
+        elif id_type == "inchikey":
             ids = [r["id"] for r in await self._query(
                 "select id from structures where upper(inchikey) = upper(%(v)s)", {"v": value})]
-        elif params.id_type == "cas":
+        elif id_type == "cas":
             ids = [r["id"] for r in await self._query(
                 "select id from structures where cas_reg_no = %(v)s union "
                 "select struct_id from identifier where id_type = 'SECONDARY_CAS_RN' and identifier = %(v)s",
                 {"v": value})]
         else:
-            id_type = _LOOKUP_ID_TYPES[params.id_type]
-            if params.id_type == "chebi" and not value.upper().startswith("CHEBI:"):
+            if id_type == "chebi" and not value.upper().startswith("CHEBI:"):
                 value = f"CHEBI:{value}"
             ids = [r["struct_id"] for r in await self._query(
                 "select distinct struct_id from identifier where id_type = %(t)s and upper(trim(identifier)) = upper(%(v)s)",
-                {"t": id_type, "v": value})]
+                {"t": _LOOKUP_ID_TYPES[id_type], "v": value})]
         ids = [i for i in ids if i is not None][:5]
         if not ids:
             return ToolResult(
-                source=self.name, tool="get_drug", notes=[f"no DrugCentral drug for {params.id_type} {value}"]
+                source=self.name, tool="get_drug", notes=[*notes, f"no DrugCentral drug for {id_type} {value}"]
             )
         n = params.max_items
         batch = [
@@ -637,9 +650,8 @@ class DrugCentral(Connector):
                 Record(source=self.name, id=str(sid), identifiers={"atc": atc_codes, "smiles": drug.get("smiles")}).identifiers
             )
             records.append(record)
-        notes = []
         if len(ids) > 1:
-            notes.append(f"{params.id_type} {value} maps to {len(ids)} DrugCentral structures")
+            notes.append(f"{id_type} {value} maps to {len(ids)} DrugCentral structures")
         return ToolResult(source=self.name, tool="get_drug", records=records, total=len(records), notes=notes)
 
     @tool(

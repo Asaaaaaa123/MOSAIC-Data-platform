@@ -97,12 +97,12 @@ SPECIES_BUCKETS: list[tuple[str, tuple[str, ...]]] = [
                  "influenza", "hiv", "plasmodium", "fungi", "candida")),
 ]
 SPECIES_TITLES = {
-    "human": "Human 人", "macaque": "Macaque 猕猴", "primate": "Other primates 其他灵长类", "mouse": "Mouse 小鼠",
-    "rat": "Rat 大鼠", "dog": "Dog 狗", "pig": "Pig 猪", "chicken": "Chicken 鸡", "bird": "Other birds 其他鸟类",
-    "frog": "Frog (Xenopus) 爪蟾", "zebrafish": "Zebrafish 斑马鱼", "fly": "Fruit fly 果蝇", "worm": "Worm (C. elegans) 线虫",
-    "yeast": "Yeast 酵母", "plant": "Plant (Arabidopsis ...) 植物", "other_animal": "Other animals 其他动物",
-    "microbe": "Microbe / virus 微生物", "not_species_specific": "Not species-specific (drugs, compounds) 非物种特异",
-    "species_unknown": "Species not stated 未注明物种",
+    "human": "Human", "macaque": "Macaque", "primate": "Other primates", "mouse": "Mouse",
+    "rat": "Rat", "dog": "Dog", "pig": "Pig", "chicken": "Chicken", "bird": "Other birds",
+    "frog": "Frog (Xenopus)", "zebrafish": "Zebrafish", "fly": "Fruit fly", "worm": "Worm (C. elegans)",
+    "yeast": "Yeast", "plant": "Plant (Arabidopsis ...)", "other_animal": "Other animals",
+    "microbe": "Microbe / virus", "not_species_specific": "Not species-specific (drugs, compounds)",
+    "species_unknown": "Species not stated",
 }
 _SPECIES_FIELDS = ("organism", "organisms", "species", "taxon", "taxonomy", "organism_name", "scientific_name",
                    "source_organism", "host", "host_organism", "model_organism", "organism_scientific_name")
@@ -130,6 +130,7 @@ _ID_ORDER: dict[str, tuple[str, ...]] = {
     "datasets_repositories": ("doi", "zenodo", "figshare", "dryad", "dataverse", "osf", "synapse", "dandi", "openneuro", "geo"),
 }
 MAX_FIELD_COLUMNS = 40
+_TRAILING_COLUMNS = ("summary", "conflicts", "sources", "source_urls", "matched_queries")
 MAX_CELL_CHARS = 32_000  # Excel's per-cell limit is 32,767
 _FILE_SAFE = re.compile(r"[^\w-]+")  # keeps letters of any script (e.g. Chinese names)
 
@@ -265,7 +266,10 @@ def _table(key: str, title: str, entities: list[CuratedEntity], group_by: str) -
     if group_by != "species":
         columns.append("species")
     columns += ["quality_grade", "quality_score", "quality_flags", "confirmed_by_databases"]
-    columns += [f"id_{k}" for k in id_cols] + field_cols
+    # a source field named like one of this table's own columns ("entity", "title" ...) would overwrite it
+    reserved = set(columns) | set(_TRAILING_COLUMNS) | {f"id_{k}" for k in id_cols} | ({"authors"} if has_authors else set())
+    field_names = {k: f"field_{k}" if k in reserved else k for k in field_cols}
+    columns += [f"id_{k}" for k in id_cols] + [field_names[k] for k in field_cols]
     if has_authors:
         columns.append("authors")
     columns += ["summary", "conflicts", "sources", "source_urls"]
@@ -295,9 +299,25 @@ def _table(key: str, title: str, entities: list[CuratedEntity], group_by: str) -
         for k in id_cols:
             row[f"id_{k}"] = entity.identifiers.get(k)
         for k in field_cols:
-            row[k] = flatten(entity.fields.get(k))
+            row[field_names[k]] = flatten(entity.fields.get(k))
         rows.append(row)
     return GroupTable(key=key, title=title, columns=columns, rows=rows)
+
+
+def type_group(entity_type: str | None) -> str:
+    """The type table an entity type belongs to (``papers``, ``clinical_trials`` ... or ``other``)."""
+    return _TYPE_TO_GROUP.get(entity_type or "", "other")
+
+
+def add_entity_column(package: DataPackage, column: str, values: dict[str, Any], after: str = "title") -> None:
+    """Add a column to every table from ``values`` (entity number -> value), placed after ``after``."""
+    for table in package.tables:
+        if column in table.columns:
+            continue
+        at = table.columns.index(after) + 1 if after in table.columns else len(table.columns)
+        table.columns.insert(at, column)
+        for row in table.rows:
+            row[column] = flatten(values.get(row.get("entity")))
 
 
 def build_package(records: list[Record], group_by: GroupBy = "type") -> DataPackage:
@@ -384,7 +404,39 @@ def _styled_sheet(wb: Any, title: str, columns: list[str], rows: list[list[Any]]
         ws.column_dimensions[get_column_letter(idx)].width = max(10, min(60, longest + 2))
 
 
-def _xlsx_bytes(package: DataPackage, readme_rows: list[list[str]], data_files: Any = None) -> bytes:
+FIGURE_COLUMNS = ["chart", "chart_title", "category", "series", "value", "counted", "definition"]
+
+
+def _figures_sheet(wb: Any, figure_files: dict[str, bytes], titles: dict[str, str]) -> None:
+    """A 'Figures' sheet with the PNG figures embedded (needs Pillow, which matplotlib brings)."""
+    from openpyxl.styles import Font
+
+    try:
+        from openpyxl.drawing.image import Image
+    except ImportError:  # pragma: no cover - Pillow missing
+        return
+    pngs = [(name, data) for name, data in figure_files.items() if name.endswith(".png")]
+    if not pngs:
+        return
+    ws = wb.create_sheet("Figures")
+    ws.column_dimensions["A"].width = 4
+    row = 1
+    for name, data in pngs:
+        stem = name.rsplit("/", 1)[-1][:-4]
+        ws.cell(row=row, column=2, value=titles.get(stem, stem)).font = Font(bold=True, size=12)
+        try:
+            image = Image(io.BytesIO(data))
+        except Exception:  # noqa: BLE001 - a broken PNG only loses its picture, not the workbook
+            row += 2
+            continue
+        scale = min(1.0, 900 / max(1, image.width))
+        image.width, image.height = int(image.width * scale), int(image.height * scale)
+        ws.add_image(image, f"B{row + 1}")
+        row += 3 + int(image.height / 20)  # default row height is 20 px
+
+
+def _xlsx_bytes(package: DataPackage, readme_rows: list[list[str]], data_files: Any = None,
+                visuals: Any = None, figure_files: dict[str, bytes] | None = None) -> bytes:
     from openpyxl import Workbook
     from openpyxl.styles import Font
 
@@ -397,8 +449,13 @@ def _xlsx_bytes(package: DataPackage, readme_rows: list[list[str]], data_files: 
     info.column_dimensions["B"].width = 110
     info["A1"].font = Font(bold=True, size=13)
     used: set[str] = {"README"}
+    if figure_files:
+        _figures_sheet(wb, figure_files, {c.id: c.title for c in visuals.charts} if visuals is not None else {})
+        used.add("Figures")
     for table in package.tables:
         _styled_sheet(wb, table.key, table.columns, [[row.get(c) for c in table.columns] for row in table.rows], used)
+    if visuals is not None:
+        _styled_sheet(wb, "figure_data", FIGURE_COLUMNS, [[r.get(c) for c in FIGURE_COLUMNS] for r in visuals.figure_rows()], used)
     if data_files is not None and data_files.rows:
         from .datafiles import FILE_COLUMNS
 
@@ -445,8 +502,12 @@ def content_metrics(package: DataPackage) -> dict[str, Any]:
 
 def _readme(package: DataPackage, *, name: str, description: str | None, query: str | None,
             created_at: str, files: list[dict[str, Any]], data_files: Any = None,
-            metrics: dict[str, Any] | None = None, notes: list[str] | None = None) -> tuple[str, list[list[str]]]:
+            metrics: dict[str, Any] | None = None, notes: list[str] | None = None,
+            visuals: Any = None, figure_files: dict[str, bytes] | None = None) -> tuple[str, list[list[str]]]:
     st = package.stats
+    checks = list(getattr(visuals, "checks", None) or [])
+    passed = sum(1 for c in checks if c.ok)
+    figure_names = sorted({k.split("/", 1)[1].rsplit(".", 1)[0] for k in figure_files or {} if not k.endswith(".txt")})
     lines = [
         f"Mosaic data package: {name}",
         "",
@@ -470,6 +531,10 @@ def _readme(package: DataPackage, *, name: str, description: str | None, query: 
             f"{metrics['identifier_cells']} identifiers, {metrics['link_only_cells']} link-only cells "
             f"({metrics['data_share_pct']}% of filled cells are data)."
         )
+    if checks:
+        lines.append(f"Data checks: {passed} of {len(checks)} passed (every chart's numbers were added up again and "
+                     "compared with the data).")
+        lines += [f"  [{'ok' if c.ok else 'FAILED'}] {c.name}: {c.detail}" for c in checks if not c.ok]
     for note in notes or []:
         lines.append(f"Note: {note}")
     lines += ["", "Files:"]
@@ -479,6 +544,11 @@ def _readme(package: DataPackage, *, name: str, description: str | None, query: 
         included = sum(1 for r in data_files.rows if r.get("included_in_package"))
         lines.append(f"  {'data_files.csv':<34} {len(data_files.rows):>5} rows  every file of every dataset (name, size, format, download URL)")
         lines.append(f"  {'files/':<34} {included:>5} files actual data files downloaded from the repositories (small open tables)")
+    if visuals is not None:
+        lines.append(f"  {'mindmap.json':<34} {'':>5}       the mind map (kinds of data, best entities, key facts) as data")
+    if figure_names:
+        lines.append(f"  {'figures/':<34} {len(figure_names):>5} figures journal-style figures (SVG, PNG 300 dpi, PDF + legend) "
+                     "drawn by Figure Studio: " + ", ".join(figure_names))
     lines += [
         "  mosaic_data.xlsx                   all tables as Excel sheets (opens directly in Excel)",
         "  manifest.json                      machine-readable description of this package",
@@ -507,9 +577,14 @@ def _readme(package: DataPackage, *, name: str, description: str | None, query: 
     if metrics:
         rows.append(["Content", f"{metrics['data_cells']} data values, {metrics['identifier_cells']} identifiers, "
                                 f"{metrics['link_only_cells']} link-only cells ({metrics['data_share_pct']}% data)"])
+    if checks:
+        rows.append(["Data checks", f"{passed} of {len(checks)} passed"])
+        rows += [[("ok: " if c.ok else "FAILED: ") + c.name, c.detail] for c in checks]
     for note in notes or []:
         rows.append(["Note", note])
     rows += [[""], ["Sheet", "Contents"]]
+    if figure_names:
+        rows.append(["Figures", "The figures (PNG), drawn from figure_data by Figure Studio"])
     rows += [[f["group"][:31], f"{f['title']} ({f['rows']} rows)"] for f in files]
     if data_files is not None and data_files.rows:
         rows.append(["data_files", f"Every file of every dataset ({len(data_files.rows)} rows)"])
@@ -529,8 +604,12 @@ def write_package(
     session_id: str | None = None,
     data_files: Any = None,
     notes: list[str] | None = None,
+    visuals: Any = None,
+    figure_files: dict[str, bytes] | None = None,
 ) -> SavedPackage:
-    """Write the package folder. ``data_files`` is a ``mosaic.datafiles.DataFilesResult`` (optional)."""
+    """Write the package folder. ``data_files`` is a ``mosaic.datafiles.DataFilesResult``, ``visuals`` a
+    ``mosaic.visuals.Visuals`` (adds figure_data.csv and mindmap.json) and ``figure_files`` the rendered
+    figures (``{"figures/<name>.<svg|png|pdf|txt>": bytes}``); all optional."""
     export_id = uuid.uuid4().hex
     folder = exports_dir / package_folder_name(name, export_id)
     folder.mkdir(parents=True, exist_ok=False)
@@ -551,14 +630,25 @@ def write_package(
         contents[inventory.filename] = _csv_bytes(inventory)
         files.append({"file": inventory.filename, "group": "data_files", "title": inventory.title,
                       "rows": len(inventory.rows), "columns": inventory.columns})
+    if visuals is not None:
+        numbers = GroupTable(key="figure_data", title="Numbers behind every chart, with the entities each one counted",
+                             columns=list(FIGURE_COLUMNS), rows=visuals.figure_rows())
+        contents[numbers.filename] = _csv_bytes(numbers)
+        files.append({"file": numbers.filename, "group": "figure_data", "title": numbers.title,
+                      "rows": len(numbers.rows), "columns": numbers.columns})
+        mindmap = {"queries": visuals.queries, "generated_at": visuals.generated_at, "mindmap": visuals.mindmap.model_dump(),
+                   "checks": [c.model_dump() for c in visuals.checks]}
+        contents["mindmap.json"] = json.dumps(mindmap, ensure_ascii=False, indent=2).encode("utf-8")
     metrics = content_metrics(package)
     package.stats["content"] = metrics
     readme_text, readme_rows = _readme(package, name=name, description=description, query=query,
                                        created_at=created_at, files=files, data_files=data_files,
-                                       metrics=metrics, notes=notes)
+                                       metrics=metrics, notes=notes, visuals=visuals, figure_files=figure_files)
     contents["README.txt"] = readme_text.encode("utf-8-sig")
-    contents["mosaic_data.xlsx"] = _xlsx_bytes(package, readme_rows, data_files)
+    contents["mosaic_data.xlsx"] = _xlsx_bytes(package, readme_rows, data_files, visuals, figure_files)
     blobs = dict(getattr(data_files, "blobs", None) or {})
+    blobs.update(figure_files or {})
+    figures = sorted({k.split("/", 1)[1].rsplit(".", 1)[0] for k in figure_files or {} if not k.endswith(".txt")})
     manifest = {
         "export_id": export_id,
         "kind": "package",
@@ -571,7 +661,13 @@ def write_package(
         "stats": package.stats,
         "notes": notes,
         "files": files,
-        "data_files_included": sorted(blobs),
+        "data_files_included": sorted(k for k in blobs if not k.startswith("figures/")),
+        "figures": [{"name": n, "title": next((c.title for c in getattr(visuals, "charts", []) if c.id == n),
+                                              {"mindmap": "Mind map", "overview": "Search overview (a-d)"}.get(n, n)),
+                     "files": sorted(k.split("/", 1)[1] for k in figure_files or {} if k.split("/", 1)[1].startswith(n + "."))}
+                    for n in figures],
+        "checks": [c.model_dump() for c in getattr(visuals, "checks", None) or []],
+        "queries": list(getattr(visuals, "queries", None) or ([query] if query else [])),
     }
     contents["manifest.json"] = json.dumps(manifest, ensure_ascii=False, indent=2, default=str).encode("utf-8")
     for filename, data in contents.items():
@@ -597,5 +693,5 @@ def write_package(
         name=name,
         folder=folder,
         files=files,
-        n_rows=sum(f["rows"] for f in files if f["group"] != "data_files"),
+        n_rows=sum(f["rows"] for f in files if f["group"] not in ("data_files", "figure_data")),
     )

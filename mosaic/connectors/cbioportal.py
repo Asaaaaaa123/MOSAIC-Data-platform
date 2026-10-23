@@ -10,6 +10,13 @@ Quirks:
 * ``pmid`` on a study is a comma-separated list, kept in ``attributes.pmids``. It is not an
   identifier: the papers are related entities, and one paper often backs many studies (all 32
   TCGA PanCancer Atlas studies cite the same PMIDs), so it would merge unrelated studies.
+* TCGA studies come in several cohorts per project (``brca_tcga``, ``_pub2015``, ``_firehose_legacy``,
+  ``_pan_can_atlas_2018``, ``_gdc``) with different samples. Only the GDC import (``<x>_tcga_gdc``)
+  carries ``gdc_project`` as an identifier (it is that project's data); for the others the GDC project
+  is a related entity in ``attributes``, so sibling cohorts do not merge.
+* Mutation (variant) records are one protein change in one study; the gene's ``entrez_gene`` stays in
+  ``attributes`` (only the non-linking ``gene_symbol`` is an identifier), so the changes of a gene do
+  not merge with each other or with the gene record.
 * Mutation frequency = distinct samples with >=1 mutation in the gene / the study's
   ``sequencedSampleCount`` (samples profiled for mutations), as on the portal (mutations only;
   copy-number alterations and fusions are not counted).
@@ -87,16 +94,19 @@ def study_record(item: dict[str, Any]) -> Record:
     pmids = _pmids(item.get("pmid"))
     cancer = item.get("cancerType") or {}
     counts = {k.replace("SampleCount", "").replace("Count", ""): item[k] for k in _COUNT_FIELDS if item.get(k)}
+    gdc = _gdc_project(sid)
+    gdc_import = sid.endswith("_tcga_gdc")  # the same data as the GDC project; other cohorts are only related
     return Record(
         source="cbioportal",
         id=sid,
         type="study",
         title=item.get("name") or sid,
         url=f"{WEB}/study/summary?id={quote(sid)}",
-        identifiers={"cbioportal": sid, "gdc_project": _gdc_project(sid)},
+        identifiers={"cbioportal": sid, "gdc_project": gdc if gdc_import else None},
         summary=strip_html(item.get("description")),
         attributes=_compact(
             {
+                "gdc_project": None if gdc_import else gdc,
                 "cancer_type_id": item.get("cancerTypeId"),
                 "cancer_type": cancer.get("name"),
                 "citation": item.get("citation"),
@@ -324,9 +334,10 @@ class CBioPortal(Connector):
                     type="variant",
                     title=f"{symbol} {change}",
                     url=f"{WEB}/results/mutations?cancer_study_list={quote(sid)}&gene_list={quote(symbol)}",
-                    identifiers={"gene_symbol": symbol, "entrez_gene": gene.get("entrezGeneId")},
+                    identifiers={"gene_symbol": symbol},  # the gene is a related entity (module docstring)
                     attributes=_compact(
                         {
+                            "entrez_gene": str(gene["entrezGeneId"]) if gene.get("entrezGeneId") else None,
                             "samples": len({m.get("sampleId") for m in items}),
                             "mutation_type": types.most_common(1)[0][0] if types else None,
                             "protein_position": first_m.get("proteinPosStart"),
